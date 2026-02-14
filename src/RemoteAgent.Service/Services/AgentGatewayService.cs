@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 using Grpc.Core;
 using Microsoft.Extensions.Options;
@@ -11,9 +12,19 @@ public class AgentGatewayService(
     ILogger<AgentGatewayService> logger,
     IOptions<AgentOptions> options,
     IAgentRunnerFactory agentRunnerFactory,
+    IReadOnlyDictionary<string, IAgentRunner> runnerRegistry,
     ILocalStorage localStorage,
     MediaStorageService mediaStorage) : AgentGateway.AgentGatewayBase
 {
+    public override Task<ServerInfoResponse> GetServerInfo(ServerInfoRequest request, ServerCallContext context)
+    {
+        var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
+        var response = new ServerInfoResponse { ServerVersion = version };
+        response.Capabilities.AddRange(new[] { "scripts", "media_upload", "agents" });
+        response.AvailableAgents.AddRange(runnerRegistry.Keys);
+        return Task.FromResult(response);
+    }
+
     public override async Task Connect(
         IAsyncStreamReader<ClientMessage> requestStream,
         IServerStreamWriter<ServerMessage> responseStream,

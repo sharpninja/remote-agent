@@ -6,9 +6,24 @@ package remoteagent;
 
 // AgentGateway: bidirectional streaming between app and Cursor agent.
 service AgentGateway {
+  // GetServerInfo returns server version and capabilities. Call when starting a connection.
+  rpc GetServerInfo (ServerInfoRequest) returns (ServerInfoResponse);
   // Connect opens a persistent duplex stream. Client sends messages;
   // server streams agent output and session events.
   rpc Connect (stream ClientMessage) returns (stream ServerMessage);
+}
+
+// ServerInfoRequest: optional client info for handshake (e.g. future compatibility).
+message ServerInfoRequest {
+  string client_version = 1;  // optional app version
+}
+
+// ServerInfoResponse: server version, capabilities, available agents and models.
+message ServerInfoResponse {
+  string server_version = 1;       // e.g. 1.0.0
+  repeated string capabilities = 2; // e.g. "scripts", "media_upload", "agents"
+  repeated string available_agents = 3;  // runner ids (e.g. "process", plugin names)
+  repeated string available_models = 4;  // optional model ids the server can use (future)
 }
 
 // ClientMessage: payload sent from the app to the service.

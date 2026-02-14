@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateProgramFile>false</GenerateProgramFile>
+    <!-- Trimming disabled: PluginLoader uses reflection; enable when annotated/suppressed for trim. -->
   </PropertyGroup>
 
   <ItemGroup>

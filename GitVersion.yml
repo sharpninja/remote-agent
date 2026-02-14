@@ -1,0 +1,5 @@
+# GitVersion config: use GitHub Flow; main branch gets SemVer from tags or increments.
+# See https://gitversion.net/docs/reference/configuration
+workflow: GitHubFlow/v1
+# Start at 1.0.0 when no version tag exists yet
+next-version: 1.0.0

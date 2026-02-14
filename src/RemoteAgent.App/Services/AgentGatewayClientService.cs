@@ -18,6 +18,8 @@ public class AgentGatewayClientService
 
     public ObservableCollection<ChatMessage> Messages { get; } = new();
     public bool IsConnected => _call != null;
+    /// <summary>Last server info from GetServerInfo (version, capabilities, agents). Set when connecting.</summary>
+    public ServerInfoResponse? ServerInfo { get; private set; }
     public event Action? ConnectionStateChanged;
     public event Action<ChatMessage>? MessageReceived;
 
@@ -43,12 +45,21 @@ public class AgentGatewayClientService
             _store?.SetArchived(id, archived);
     }
 
-    public async Task ConnectAsync(string host, int port, CancellationToken ct = default)
+    public async Task ConnectAsync(string host, int port, string? clientVersion = null, CancellationToken ct = default)
     {
         Disconnect();
+        ServerInfo = null;
         var baseUrl = port == 443 ? $"https://{host}" : $"http://{host}:{port}";
         _channel = GrpcChannel.ForAddress(baseUrl, new GrpcChannelOptions { HttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true } });
         _client = new AgentGateway.AgentGatewayClient(_channel);
+        try
+        {
+            ServerInfo = await _client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, cancellationToken: ct);
+        }
+        catch
+        {
+            // proceed without server info (e.g. older server)
+        }
         _cts = new CancellationTokenSource();
         _call = _client.Connect(cancellationToken: _cts.Token);
         _receiveTask = ReceiveLoop(_cts.Token);
@@ -70,6 +81,7 @@ public class AgentGatewayClientService
         _client = null;
         _cts = null;
         _receiveTask = null;
+        ServerInfo = null;
         ConnectionStateChanged?.Invoke();
     }
 
