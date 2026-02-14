@@ -1,0 +1,18 @@
+# F-Droid metadata for Remote Agent (binary repo – no Builds).
+# See https://f-droid.org/docs/Build_Metadata_Reference
+
+Categories:
+  - Development
+
+License: MIT
+
+Summary: Chat with Cursor agent via gRPC
+
+Description: Android app that connects to the Remote Agent service on Linux/WSL.
+Streams messages to the Cursor agent and shows responses in real time.
+
+WebSite: https://github.com/sharpninja/remote-agent
+
+SourceCode: https://github.com/sharpninja/remote-agent
+
+IssueTracker: https://github.com/sharpninja/remote-agent/issues

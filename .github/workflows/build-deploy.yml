@@ -136,16 +136,56 @@ jobs:
           echo "version=$V" >> $GITHUB_OUTPUT
           echo "App version: $V"
 
-      - name: Prepare F-Droid repo
-        run: |
-          mkdir -p fdroid-repo
-          APK=$(find . -name "*.apk" -type f | head -1)
-          cp "$APK" fdroid-repo/remote-agent.apk
-          VERSION="${{ steps.version.outputs.version }}"
-          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
-          SIZE=$(stat -c%s fdroid-repo/remote-agent.apk)
-          HASH=$(sha256sum fdroid-repo/remote-agent.apk | cut -d' ' -f1)
+      - name: Set up Python and F-Droid CLI
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install fdroidserver
 
+      - name: Restore F-Droid keystore cache
+        id: fdroid-cache
+        uses: actions/cache@v4
+        with:
+          path: fdroid-workspace
+          key: fdroid-keystore-v1-${{ runner.os }}
+
+      - name: Prepare F-Droid workspace
+        run: |
+          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          mkdir -p fdroid-workspace/repo fdroid-workspace/metadata
+          if [ ! -f fdroid-workspace/keystore.jks ]; then
+            keytool -genkeypair -keystore fdroid-workspace/keystore.jks -alias fdroidrepo \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass android -keypass android \
+              -dname "CN=Remote Agent Repo, OU=CI, O=GitHub"
+          fi
+          cat > fdroid-workspace/config.yml << CONFIG
+          repo_url: "$REPO_URL"
+          repo_name: "Remote Agent"
+          repo_description: "Android app for the Remote Agent gRPC service. Connect to a Linux host running the service and chat with the Cursor agent."
+          repo_keyalias: fdroidrepo
+          keystore: keystore.jks
+          keystorepass: android
+          keypass: android
+          keydname: "CN=Remote Agent Repo, OU=CI, O=GitHub"
+          CONFIG
+          rm -f fdroid-workspace/repo/*
+          APK=$(find . -name "*.apk" -type f | head -1)
+          cp "$APK" fdroid-workspace/repo/
+          cp fdroid/metadata/com.companyname.remoteagent.app.yml fdroid-workspace/metadata/
+
+      - name: Generate F-Droid repo (fdroid update)
+        run: |
+          cd fdroid-workspace && fdroid update
+
+      - name: Assemble Pages artifact
+        run: |
+          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          mkdir -p fdroid-repo
+          cp -r fdroid-workspace/repo/* fdroid-repo/
+          APK=$(find fdroid-repo -name "*.apk" -type f | head -1)
+          [ -n "$APK" ] && cp "$APK" fdroid-repo/remote-agent.apk
           cat > fdroid-repo/index.html << HTMLEOF
           <!DOCTYPE html>
           <html>
@@ -162,26 +202,6 @@ jobs:
           </body>
           </html>
           HTMLEOF
-
-          cat > fdroid-repo/index.xml << EOF
-          <?xml version="1.0" encoding="utf-8"?>
-          <fdroid>
-            <repo name="Remote Agent" url="${REPO_URL}/"/>
-            <application>
-              <id>com.companyname.remoteagent.app</id>
-              <name>Remote Agent</name>
-              <summary>Chat with Cursor agent via gRPC</summary>
-              <desc>Android app that connects to the Remote Agent service on Linux/WSL. Streams messages to the Cursor agent and shows responses in real time.</desc>
-              <versionName>${VERSION}</versionName>
-              <versionCode>1</versionCode>
-              <added>$(date -Iseconds)</added>
-              <package versionName="${VERSION}" versionCode="1" hash="${HASH}" size="${SIZE}" apkname="remote-agent.apk"/>
-            </application>
-          </fdroid>
-          EOF
-
-      - name: Merge docs into Pages artifact
-        run: |
           cp -r docs/_site fdroid-repo/docs
 
       - name: Upload Pages artifact

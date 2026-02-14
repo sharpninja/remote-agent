@@ -76,4 +76,10 @@
 
 ---
 
+## 10. Media as agent context
+
+- **FR-10.1** The user shall be able to **send images or video** from the app to the server as **context for the agent** (e.g. attach to a message or send as a separate context payload so the agent can use the media when responding).
+
+---
+
 *These requirements were recovered from the crashed Project Initializer session and reflect the intended product behavior.*

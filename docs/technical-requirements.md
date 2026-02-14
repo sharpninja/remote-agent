@@ -99,4 +99,12 @@
 
 ---
 
+## 11. Local storage (LiteDB)
+
+- **TR-11.1** **Both the app and the server** shall use **LiteDB** for **local storage of requests and results** (e.g. chat messages, agent requests, and agent responses persisted on device and on the server for history, replay, or offline use).
+- **TR-11.2** **Uploaded images and videos** (media sent from the app to the server as agent context) shall be **stored on the server alongside the LiteDB file** (e.g. in the same data directory or a dedicated media subdirectory).
+- **TR-11.3** **Images sent to the app** (e.g. from the agent or server) shall be **stored in a `Remote Agent` folder** of the **DCIM library** on the device (e.g. `DCIM/Remote Agent/` so they appear in the device gallery).
+
+---
+
 *These requirements were recovered from the crashed Project Initializer session and reflect the intended technical design and constraints.*
