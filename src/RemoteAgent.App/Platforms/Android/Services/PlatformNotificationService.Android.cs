@@ -56,6 +56,9 @@ public static partial class PlatformNotificationService
         var channel = new NotificationChannel(ChannelId, "Agent notifications", NotificationImportance.Default)
         {
             Description = "Notifications when the agent sends a high-priority message.",
+            EnableLights = false,
+            EnableVibration = false,
+            LockscreenVisibility = NotificationVisibility.Public,
         };
         var nm = (NotificationManager)context.GetSystemService(Context.NotificationService);
         if (nm != null)

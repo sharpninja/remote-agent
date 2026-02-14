@@ -77,7 +77,12 @@ public class AgentGatewayClientService
         Disconnect();
         ServerInfo = null;
         var baseUrl = port == 443 ? $"https://{host}" : $"http://{host}:{port}";
+#if ANDROID
+        // On Android, custom HttpHandler is not valid; use default channel configuration.
+        _channel = GrpcChannel.ForAddress(baseUrl);
+#else
         _channel = GrpcChannel.ForAddress(baseUrl, new GrpcChannelOptions { HttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true } });
+#endif
         _client = new AgentGateway.AgentGatewayClient(_channel);
         try
         {
