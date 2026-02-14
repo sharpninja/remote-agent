@@ -63,4 +63,17 @@
 
 ---
 
+## 8. Extensibility (plugins)
+
+- **FR-8.1** **Additional CLI agents** shall be **supported via plugins** to the server: the service shall allow plugging in agents (e.g. other command-line tools or backends) so that users can use agents beyond the default Cursor agent without changing the core server code.
+
+---
+
+## 9. Run scripts from chat
+
+- **FR-9.1** The user shall be able to **specify running a specific script** from the chat: either a **bash** script or a **PowerShell (pwsh)** script (e.g. by path, name, or a supported command syntax in a chat message).
+- **FR-9.2** When such a script is run, the user shall receive **both stdout and stderr** from the script **upon completion** (e.g. as one or more chat messages showing the combined or separated output and error streams).
+
+---
+
 *These requirements were recovered from the crashed Project Initializer session and reflect the intended product behavior.*

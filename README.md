@@ -51,7 +51,43 @@ docker run -p 5243:5243 -e Agent__Command=/bin/cat remote-agent-service
 
 Override `Agent:Command` and `Agent:LogDirectory` via environment variables (e.g. `Agent__Command`, `Agent__LogDirectory`).
 
-## Run the Android app
+## Install the app via F-Droid (recommended)
+
+You can install the Remote Agent APK using the **F-Droid** client and this project’s F-Droid-style repository.
+
+### 1. Install F-Droid on your Android device
+
+- **From the website:** On your device, open a browser and go to [https://f-droid.org](https://f-droid.org). Download and install the **F-Droid** app from the official site.  
+  ![QR: F-Droid](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Ff-droid.org)
+- **From another store:** F-Droid is also available in some third-party stores; prefer the official [F-Droid.org](https://f-droid.org) build when possible.
+
+### 2. Add the Remote Agent repository in F-Droid
+
+1. Open **F-Droid** on your device.
+2. Tap the **menu** (☰) or **Settings**.
+3. Go to **Repositories** (or **Manage Repositories**).
+4. Tap **Add repository** (or the **+** button).
+5. Enter the repository URL (replace `<owner>` and `<repo>` with the GitHub org/user and repo name):
+   ```
+   https://<owner>.github.io/<repo>/
+   ```
+   Example for this repo:
+   ```
+   https://sharpninja.github.io/remote-agent/
+   ```
+   ![QR: F-Droid repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2F)
+6. Confirm. F-Droid will fetch the repo index. You may need to **Update** the repo list (pull-to-refresh or **Update** in the Repositories screen) so the app appears.
+
+### 3. Install Remote Agent
+
+1. In F-Droid, open the **Latest** tab or search for **Remote Agent**.
+2. If the repo was just added, pull to refresh or wait for the repository to update.
+3. Tap **Remote Agent** and then **Install**.
+
+You can also install the APK directly (without F-Droid) by opening the repo in a browser and downloading `remote-agent.apk` from the index page.  
+![QR: Direct APK](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fremote-agent.apk)
+
+## Run the Android app (from source)
 
 1. Build and run on an emulator or device:
 
@@ -103,9 +139,12 @@ On push to `main` (or manual run), the workflow:
 
 **Artifacts**
 
-- APK: built in the `android` job and published via the Pages site (e.g. `https://<owner>.github.io/<repo>/remote-agent.apk`) as a static F-Droid-style repo.
-- Docker image: built and pushed to **GitHub Container Registry** (e.g. `ghcr.io/<owner>/<repo>/service:latest`).
-- Documentation: generated with **DocFX** from `docs/` and published at `https://<owner>.github.io/<repo>/docs/` (functional and technical requirements).
+- APK: built in the `android` job and published via the Pages site (e.g. `https://<owner>.github.io/<repo>/remote-agent.apk`) as a static F-Droid-style repo.  
+  ![QR: APK](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fremote-agent.apk)
+- Docker image: built and pushed to **GitHub Container Registry** (e.g. `ghcr.io/<owner>/<repo>/service:latest`).  
+  ![QR: Docker image URL](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent%2Fpkgs%2Fcontainer%2Fremote-agent%252Fservice)
+- Documentation: generated with **DocFX** from `docs/` and published at `https://<owner>.github.io/<repo>/docs/` (functional and technical requirements).  
+  ![QR: Docs](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fdocs%2F)
 
 ## Tests
 
@@ -122,3 +161,8 @@ Run all tests:
 ```bash
 dotnet test RemoteAgent.slnx
 ```
+
+## Repository
+
+- **Source code:** [https://github.com/sharpninja/remote-agent](https://github.com/sharpninja/remote-agent)  
+  ![QR: GitHub repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent)

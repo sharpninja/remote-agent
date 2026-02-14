@@ -92,4 +92,11 @@
 
 ---
 
+## 10. Extensibility (plugins) — FR-8.1
+
+- **TR-10.1** **FR-8.1** (additional CLI agents via plugins) shall be implemented using a **strategy pattern**: the service shall use a common abstraction (e.g. an interface or strategy type) for agent behaviour, so that different agents (default process spawn, plugin-backed agents, etc.) can be selected and invoked uniformly.
+- **TR-10.2** **Plugin discovery** shall be driven by **appsettings configuration**: the service shall read configuration (e.g. under `Agent` or a dedicated `Plugins` section) that **specifies assemblies to dynamically load** as plugins; those assemblies shall be loaded at runtime and contribute agent implementations (strategies) that the service can use.
+
+---
+
 *These requirements were recovered from the crashed Project Initializer session and reflect the intended technical design and constraints.*

@@ -5,3 +5,5 @@
       href: functional-requirements.md
     - name: Technical requirements
       href: technical-requirements.md
+    - name: Repository rules
+      href: REPOSITORY_RULES.md
