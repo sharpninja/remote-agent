@@ -13,3 +13,5 @@
       href: requirements-completion-summary.md
     - name: Repository rules
       href: REPOSITORY_RULES.md
+    - name: Branch protection
+      href: branch-protection.md
