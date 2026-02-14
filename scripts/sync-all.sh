@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # "Sync all" workflow: commit, sync with remote, monitor GitHub Actions run,
 # and on success update the local Docker container.
-# Use --pr to push via a pull request (satisfies branch protection).
+# On non-main branches (e.g. develop): always push directly.
+# On main: push directly unless --pr (or USE_PR=1) to use a pull request.
 # Usage: ./scripts/sync-all.sh [commit_message]
-#        USE_PR=1 ./scripts/sync-all.sh [commit_message]
-#        ./scripts/sync-all.sh --pr [commit_message]
+#        ./scripts/sync-all.sh --pr [commit_message]   (main only)
 
 set -euo pipefail
 
@@ -31,7 +31,8 @@ fi
 
 BRANCH="$(git branch --show-current)"
 
-if [ "$USE_PR" = "1" ]; then
+# On non-main branches (e.g. develop), always push directly. PR flow only on main when --pr.
+if [ "$BRANCH" = "main" ] && [ "$USE_PR" = "1" ]; then
   echo "=== 2. Sync via PR (branch → push → PR → merge) ==="
   SYNC_BRANCH="sync/$(date +%Y%m%d-%H%M%S)"
   git checkout -b "$SYNC_BRANCH"
