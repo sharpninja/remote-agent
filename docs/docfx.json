@@ -3,17 +3,31 @@
   "build": {
     "content": [
       {
-        "files": ["**/*.md"],
+        "files": [
+          "**/*.md"
+        ],
         "src": ".",
         "dest": "."
       }
     ],
-    "resource": [],
+    "resource": [
+      {
+        "files": [
+          "logo.svg"
+        ],
+        "src": ".",
+        "dest": "."
+      }
+    ],
     "output": "_site",
-    "template": ["default", "modern"],
+    "template": [
+      "default",
+      "modern"
+    ],
     "globalMetadata": {
-      "_appTitle": "Remote Agent — Documentation",
-      "_enableSearch": false
+      "_appTitle": "Remote Agent \u2014 Documentation",
+      "_enableSearch": false,
+      "_appLogoPath": "logo.svg"
     }
   }
 }
