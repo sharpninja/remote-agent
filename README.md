@@ -32,17 +32,20 @@ Android app (MAUI) that talks to a Linux service over gRPC. The service spawns a
 
 ## Run the service with Docker
 
-Build and run the container (e.g. after pushing to GitHub, use the image from GHCR):
+The CI pipeline publishes the service image to **GitHub Container Registry (GHCR)**. Use the image from GHCR:
+
+- **Image:** `ghcr.io/sharpninja/remote-agent/service:latest`
+- **Package page:** [ghcr.io/sharpninja/remote-agent/service](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice)
 
 ```bash
 docker run -p 5243:5243 \
   -e Agent__Command=/path/to/agent \
   -e Agent__LogDirectory=/app/logs \
   -v /path/on/host/logs:/app/logs \
-  ghcr.io/OWNER/remote-agent/service:latest
+  ghcr.io/sharpninja/remote-agent/service:latest
 ```
 
-Or build locally from the repo root:
+For other forks, replace `sharpninja/remote-agent` with your `owner/repo`. Or build locally from the repo root:
 
 ```bash
 docker build -t remote-agent-service .
@@ -141,7 +144,7 @@ On push to `main` (or manual run), the workflow:
 
 - APK: built in the `android` job and published via the Pages site (e.g. `https://<owner>.github.io/<repo>/remote-agent.apk`) as a static F-Droid-style repo.  
   ![QR: APK](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fremote-agent.apk)
-- Docker image: built and pushed to **GitHub Container Registry** (e.g. `ghcr.io/<owner>/<repo>/service:latest`).  
+- Docker image: built and pushed to **GitHub Container Registry** as `ghcr.io/sharpninja/remote-agent/service:latest` ([package](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice)).  
   ![QR: Docker image URL](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent%2Fpkgs%2Fcontainer%2Fremote-agent%252Fservice)
 - Documentation: generated with **DocFX** from `docs/` and published at `https://<owner>.github.io/<repo>/docs/` (functional and technical requirements).  
   ![QR: Docs](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fdocs%2F)
