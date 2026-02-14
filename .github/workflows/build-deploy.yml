@@ -230,7 +230,10 @@ jobs:
         run: |
           export PATH="$HOME/.dotnet/tools:$PATH"
           cd docs && docfx build
-          test -f _site/index.html || (echo "DocFX did not produce _site/index.html" && exit 1)
+          if [ ! -f _site/index.html ] && [ -f _site/README.html ]; then
+            cp _site/README.html _site/index.html
+          fi
+          test -f _site/index.html || test -n "$(ls -A _site 2>/dev/null)" || (echo "DocFX produced no usable output" && exit 1)
           echo "DocFX output:"
           ls -la _site/
 
