@@ -215,7 +215,11 @@ jobs:
           keypass: android
           keydname: "CN=Remote Agent Repo, OU=CI, O=GitHub"
           CONFIG
-          rm -f fdroid-workspace/repo/*
+          chmod 600 fdroid-workspace/config.yml
+          mkdir -p fdroid-workspace/repo/icons
+          echo 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' | base64 -d > fdroid-workspace/repo/icons/icon.png
+          rm -f fdroid-workspace/repo/*.apk fdroid-workspace/repo/*.xml fdroid-workspace/repo/*.jar 2>/dev/null || true
+          rm -f fdroid-workspace/repo/index.* 2>/dev/null || true
           APK=$(find . -name "*.apk" -type f | head -1)
           cp "$APK" fdroid-workspace/repo/
           cp fdroid/metadata/com.companyname.remoteagent.app.yml fdroid-workspace/metadata/
