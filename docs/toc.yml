@@ -7,6 +7,8 @@
       href: functional-requirements.md
     - name: Technical requirements
       href: technical-requirements.md
+    - name: Implementing CLI agents
+      href: implementing-cli-agents.md
     - name: Requirements completion
       href: requirements-completion-summary.md
     - name: Repository rules
