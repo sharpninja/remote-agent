@@ -228,7 +228,11 @@ jobs:
 
       - name: Generate documentation (DocFX)
         run: |
+          export PATH="$HOME/.dotnet/tools:$PATH"
           cd docs && docfx build
+          test -f _site/index.html || (echo "DocFX did not produce _site/index.html" && exit 1)
+          echo "DocFX output:"
+          ls -la _site/
 
       - name: Download APK
         uses: actions/download-artifact@v4
@@ -315,7 +319,8 @@ jobs:
           </body>
           </html>
           HTMLEOF
-          cp -r docs/_site fdroid-repo/docs
+          mkdir -p fdroid-repo/docs
+          cp -r docs/_site/. fdroid-repo/docs/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
