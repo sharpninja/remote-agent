@@ -10,7 +10,7 @@
     ],
     "resource": [],
     "output": "_site",
-    "template": ["modern"],
+    "template": ["default", "modern"],
     "globalMetadata": {
       "_appTitle": "Remote Agent — Documentation",
       "_enableSearch": false

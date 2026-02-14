@@ -5,10 +5,20 @@ using RemoteAgent.Service.Agents;
 
 namespace RemoteAgent.Service;
 
-/// <summary>Loads plugin assemblies and discovers IAgentRunner implementations (TR-10.2).</summary>
+/// <summary>Loads plugin assemblies and discovers <see cref="IAgentRunner"/> implementations (TR-10.2, FR-8.1).</summary>
+/// <remarks>Reads <see cref="PluginsOptions.Assemblies"/> and loads each assembly; exported types implementing <see cref="IAgentRunner"/> are instantiated via the service provider and registered by full type name. The "process" runner is always included.</remarks>
+/// <example><code>
+/// // In Program.cs after building the service provider:
+/// var registry = PluginLoader.BuildRunnerRegistry(serviceProvider);
+/// services.AddSingleton(registry);
+/// </code></example>
+/// <see href="https://sharpninja.github.io/remote-agent/functional-requirements.html">Functional requirements (FR-8)</see>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-10)</see>
 public static class PluginLoader
 {
-    /// <summary>Builds a registry of named runners: "process" plus any from plugin assemblies.</summary>
+    /// <summary>Builds a registry of named runners: "process" (default) plus any from <see cref="PluginsOptions.Assemblies"/>.</summary>
+    /// <param name="serviceProvider">Used to resolve <see cref="PluginsOptions"/> and to create plugin runner instances.</param>
+    /// <returns>Dictionary of runner id to <see cref="IAgentRunner"/> (key is "process" or full type name of plugin type).</returns>
     public static IReadOnlyDictionary<string, IAgentRunner> BuildRunnerRegistry(IServiceProvider serviceProvider)
     {
         var options = serviceProvider.GetRequiredService<IOptions<PluginsOptions>>().Value;

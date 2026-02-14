@@ -2,17 +2,27 @@ using LiteDB;
 
 namespace RemoteAgent.App.Services;
 
-/// <summary>LiteDB storage for chat messages (TR-11.1).</summary>
+/// <summary>LiteDB implementation of <see cref="ILocalMessageStore"/> (TR-11.1). Persists chat messages and archive state to a single database file.</summary>
+/// <remarks>Uses collection <c>messages</c> and <see cref="StoredMessageRecord"/>. Best-effort: failures on Add or SetArchived do not throw.</remarks>
+/// <example><code>
+/// var store = new LocalMessageStore(Path.Combine(FileSystem.AppDataDirectory, "remote-agent.db"));
+/// var client = new AgentGatewayClientService(store);
+/// client.LoadFromStore();
+/// </code></example>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-11)</see>
 public sealed class LocalMessageStore : ILocalMessageStore
 {
     private readonly string _dbPath;
     private const string CollectionName = "messages";
 
+    /// <summary>Creates the store with the given database file path.</summary>
+    /// <param name="dbPath">Full path to the LiteDB file (e.g. under <see cref="FileSystem.AppDataDirectory"/>).</param>
     public LocalMessageStore(string dbPath)
     {
         _dbPath = dbPath;
     }
 
+    /// <inheritdoc />
     public IReadOnlyList<ChatMessage> Load()
     {
         try
@@ -28,6 +38,7 @@ public sealed class LocalMessageStore : ILocalMessageStore
         }
     }
 
+    /// <inheritdoc />
     public void Add(ChatMessage message)
     {
         try
@@ -55,6 +66,7 @@ public sealed class LocalMessageStore : ILocalMessageStore
         }
     }
 
+    /// <inheritdoc />
     public void SetArchived(Guid messageId, bool archived)
     {
         try

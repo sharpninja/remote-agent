@@ -4,9 +4,16 @@ using Microsoft.Extensions.Options;
 
 namespace RemoteAgent.Service.Agents;
 
-/// <summary>Starts an agent by spawning a process (Agent:Command). Default implementation for TR-10.1.</summary>
+/// <summary>Starts an agent by spawning a process (FR-1.2, TR-3.2, TR-10.1). Uses <see cref="AgentOptions.Command"/> and <see cref="AgentOptions.Arguments"/>.</summary>
+/// <remarks>Default runner when <see cref="AgentOptions.RunnerId"/> is "process" or not set. For a quick test, set Command to <c>/bin/cat</c> to echo lines back.</remarks>
+/// <example><code>
+/// // appsettings: "Agent": { "Command": "/path/to/agent", "RunnerId": "process" }
+/// var session = await processAgentRunner.StartAsync(null, null, "sess-1", logWriter, ct);
+/// </code></example>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-3, TR-10)</see>
 public sealed class ProcessAgentRunner(IOptions<AgentOptions> options) : IAgentRunner
 {
+    /// <inheritdoc />
     public Task<IAgentSession?> StartAsync(
         string? command,
         string? arguments,

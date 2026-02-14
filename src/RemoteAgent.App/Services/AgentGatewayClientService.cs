@@ -5,6 +5,18 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.App.Services;
 
+/// <summary>Client for the AgentGateway gRPC service (FR-1.1, FR-2.1, FR-2.2, FR-2.4, TR-2.3, TR-5.2). Connects to the Linux service, sends text/control/script/media, and receives streamed output and events into <see cref="Messages"/>.</summary>
+/// <remarks>Bind <see cref="Messages"/> to the chat UI (TR-5.1). Call <see cref="ConnectAsync"/> with host/port (e.g. 10.0.2.2:5243 for emulator). Optional <see cref="ILocalMessageStore"/> persists messages (TR-11.1). Notify-priority messages trigger <see cref="MessageReceived"/> so the app can show a notification (FR-3.2, FR-3.3).</remarks>
+/// <example><code>
+/// var client = new AgentGatewayClientService(store);
+/// client.LoadFromStore();
+/// await client.ConnectAsync("10.0.2.2", 5243, ct: ct);
+/// await client.SendTextAsync("Hello", ct);
+/// await client.StopSessionAsync(ct);
+/// client.Disconnect();
+/// </code></example>
+/// <see href="https://sharpninja.github.io/remote-agent/functional-requirements.html">Functional requirements</see>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-2, TR-5)</see>
 public class AgentGatewayClientService
 {
     private readonly ILocalMessageStore? _store;
@@ -14,16 +26,25 @@ public class AgentGatewayClientService
     private CancellationTokenSource? _cts;
     private Task? _receiveTask;
 
+    /// <summary>Creates the client. Pass an <see cref="ILocalMessageStore"/> to persist messages (TR-11.1).</summary>
     public AgentGatewayClientService(ILocalMessageStore? store = null) => _store = store;
 
+    /// <summary>Observable collection of chat messages (TR-5.1). Bind to the chat list.</summary>
     public ObservableCollection<ChatMessage> Messages { get; } = new();
+
+    /// <summary>True when connected (duplex stream active).</summary>
     public bool IsConnected => _call != null;
-    /// <summary>Last server info from GetServerInfo (version, capabilities, agents). Set when connecting.</summary>
+
+    /// <summary>Last server info from GetServerInfo (version, capabilities, available agents). Set when connecting.</summary>
     public ServerInfoResponse? ServerInfo { get; private set; }
+
+    /// <summary>Raised when <see cref="IsConnected"/> changes (after Connect or Disconnect).</summary>
     public event Action? ConnectionStateChanged;
+
+    /// <summary>Raised for each received message (e.g. to show a notification for Notify priority) (FR-3.2, FR-3.3).</summary>
     public event Action<ChatMessage>? MessageReceived;
 
-    /// <summary>Load messages from local storage (TR-11.1). Call on app start.</summary>
+    /// <summary>Loads messages from <see cref="ILocalMessageStore"/> into <see cref="Messages"/>. Call on app start (TR-11.1).</summary>
     public void LoadFromStore()
     {
         if (_store == null) return;
@@ -32,19 +53,25 @@ public class AgentGatewayClientService
             Messages.Add(msg);
     }
 
-    /// <summary>Add a user message and persist (TR-11.1).</summary>
+    /// <summary>Adds a user message to <see cref="Messages"/> and persists it if a store is configured (TR-11.1).</summary>
     public void AddUserMessage(ChatMessage message)
     {
         Messages.Add(message);
         _store?.Add(message);
     }
 
+    /// <summary>Updates the archived state of a message in the store (FR-4.1, TR-5.5). Call when the user swipes to archive.</summary>
     public void SetArchived(ChatMessage message, bool archived)
     {
         if (message.Id is { } id)
             _store?.SetArchived(id, archived);
     }
 
+    /// <summary>Connects to the service at host:port (FR-2.4, TR-5.2), calls GetServerInfo, opens the duplex stream, and sends START. Use 10.0.2.2 for emulator.</summary>
+    /// <param name="host">Host name or IP.</param>
+    /// <param name="port">Port (e.g. 5243). Use 443 for TLS.</param>
+    /// <param name="clientVersion">Optional app version for ServerInfoRequest.</param>
+    /// <param name="ct">Cancellation.</param>
     public async Task ConnectAsync(string host, int port, string? clientVersion = null, CancellationToken ct = default)
     {
         Disconnect();
@@ -67,6 +94,7 @@ public class AgentGatewayClientService
         await SendControlAsync(SessionControl.Types.Action.Start, ct);
     }
 
+    /// <summary>Closes the stream and channel (FR-2.4). Stops the session on the server.</summary>
     public void Disconnect()
     {
         try
@@ -85,13 +113,17 @@ public class AgentGatewayClientService
         ConnectionStateChanged?.Invoke();
     }
 
+    /// <summary>Sends a text message to the agent (FR-2.1). Forwards to agent stdin on the server.</summary>
     public async Task SendTextAsync(string text, CancellationToken ct = default)
     {
         if (_call?.RequestStream == null) return;
         await _call.RequestStream.WriteAsync(new ClientMessage { Text = text }, ct);
     }
 
-    /// <summary>Sends a script run request (FR-9.1). Server returns stdout/stderr on completion.</summary>
+    /// <summary>Sends a script run request (FR-9.1, FR-9.2). Server runs the script and returns stdout/stderr as chat messages on completion.</summary>
+    /// <param name="pathOrCommand">Path to script file or command string.</param>
+    /// <param name="scriptType">Bash or Pwsh.</param>
+    /// <param name="ct">Cancellation.</param>
     public async Task SendScriptRequestAsync(string pathOrCommand, ScriptType scriptType, CancellationToken ct = default)
     {
         if (_call?.RequestStream == null) return;
@@ -101,7 +133,11 @@ public class AgentGatewayClientService
         }, ct);
     }
 
-    /// <summary>Sends image or video as agent context (FR-10.1).</summary>
+    /// <summary>Sends image or video as agent context (FR-10.1). Server stores under data/media and can pass path to the agent.</summary>
+    /// <param name="content">Raw file bytes.</param>
+    /// <param name="contentType">MIME type (e.g. image/jpeg, video/mp4).</param>
+    /// <param name="fileName">Optional original filename.</param>
+    /// <param name="ct">Cancellation.</param>
     public async Task SendMediaAsync(byte[] content, string contentType, string? fileName, CancellationToken ct = default)
     {
         if (_call?.RequestStream == null) return;
@@ -116,6 +152,7 @@ public class AgentGatewayClientService
         }, ct);
     }
 
+    /// <summary>Sends STOP control to end the session and stop the agent (FR-2.4, FR-7.1).</summary>
     public async Task StopSessionAsync(CancellationToken ct = default)
     {
         await SendControlAsync(SessionControl.Types.Action.Stop, ct);
@@ -176,7 +213,7 @@ public class AgentGatewayClientService
         };
     }
 
-    /// <summary>Save received media to DCIM/Remote Agent (TR-11.3). Returns text for chat bubble.</summary>
+    /// <summary>Saves received media to DCIM/Remote Agent (TR-11.3). Returns display text for the chat bubble.</summary>
     private static string SaveReceivedMedia(MediaChunk media)
     {
         try

@@ -3,6 +3,14 @@ using Markdig;
 
 namespace RemoteAgent.App.Services;
 
+/// <summary>Renders markdown or plain text to HTML for display in the chat (FR-2.3, TR-5.3). Agent output is parsed with Markdig; user and event text are escaped as plain paragraphs.</summary>
+/// <remarks>Uses a minimal inline stylesheet so output is readable in a WebView. Error text is HTML-escaped only (no markdown).</remarks>
+/// <example><code>
+/// string html = MarkdownFormat.ToHtml("**bold** and `code`");  // agent output
+/// string plain = MarkdownFormat.PlainToHtml("User said: hello");  // user or event
+/// </code></example>
+/// <see href="https://sharpninja.github.io/remote-agent/functional-requirements.html">Functional requirements</see>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements</see>
 public static class MarkdownFormat
 {
     private static readonly MarkdownPipeline Pipeline = new MarkdownPipelineBuilder()
@@ -36,6 +44,10 @@ public static class MarkdownFormat
         </html>
         """;
 
+    /// <summary>Converts markdown to HTML for agent output, or escapes plain text when <paramref name="isError"/> is true.</summary>
+    /// <param name="markdown">Markdown source or error text.</param>
+    /// <param name="isError">If true, content is HTML-escaped only (no markdown parsing).</param>
+    /// <returns>Full HTML document fragment with inline styles, suitable for a WebView.</returns>
     public static string ToHtml(string? markdown, bool isError = false)
     {
         if (string.IsNullOrEmpty(markdown))
@@ -48,6 +60,9 @@ public static class MarkdownFormat
         return WrapBody(string.IsNullOrEmpty(html) ? "<p></p>" : html);
     }
 
+    /// <summary>Wraps plain text in a paragraph with HTML encoding. Use for user messages and session events (no markdown).</summary>
+    /// <param name="text">Plain text to display.</param>
+    /// <returns>Full HTML document fragment.</returns>
     public static string PlainToHtml(string? text)
     {
         if (string.IsNullOrEmpty(text))

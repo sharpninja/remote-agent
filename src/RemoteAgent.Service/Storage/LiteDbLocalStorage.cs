@@ -3,12 +3,15 @@ using Microsoft.Extensions.Options;
 
 namespace RemoteAgent.Service.Storage;
 
-/// <summary>LiteDB implementation of local storage for requests/results (TR-11.1).</summary>
+/// <summary>LiteDB implementation of local storage for requests and results (TR-11.1). Database file is under <see cref="AgentOptions.DataDirectory"/>.</summary>
+/// <remarks>Uses collection <c>request_results</c>. Summaries longer than 2000 characters are truncated. Failures are ignored so logging does not break the request pipeline.</remarks>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-11)</see>
 public sealed class LiteDbLocalStorage : ILocalStorage
 {
     private readonly string _dbPath;
     private const string CollectionName = "request_results";
 
+    /// <summary>Creates storage using <see cref="AgentOptions.DataDirectory"/> (defaults to <c>./data</c>). Database file: <c>remote-agent.db</c>.</summary>
     public LiteDbLocalStorage(IOptions<AgentOptions> options)
     {
         var dataDir = options.Value.DataDirectory?.Trim();
@@ -18,11 +21,13 @@ public sealed class LiteDbLocalStorage : ILocalStorage
         _dbPath = Path.Combine(dataDir, "remote-agent.db");
     }
 
+    /// <inheritdoc />
     public void LogRequest(string sessionId, string kind, string summary, string? mediaPath = null)
     {
         Insert(sessionId, isRequest: true, kind, summary, mediaPath);
     }
 
+    /// <inheritdoc />
     public void LogResponse(string sessionId, string kind, string summary, string? mediaPath = null)
     {
         Insert(sessionId, isRequest: false, kind, summary, mediaPath);

@@ -8,6 +8,10 @@ using RemoteAgent.Service.Storage;
 
 namespace RemoteAgent.Service.Services;
 
+/// <summary>gRPC service implementing <see cref="Proto.AgentGateway"/> (FR-1.2–FR-1.5, TR-2.3, TR-3, TR-4). Handles GetServerInfo and Connect (duplex stream): forwards client messages to the agent, streams agent stdout/stderr and session events to the client.</summary>
+/// <remarks>Connect implements the full session lifecycle (FR-7.1): START spawns the agent via <see cref="IAgentRunnerFactory"/>, text is forwarded to stdin (FR-1.3), output/error/events are streamed (FR-1.4). Supports script requests (FR-9), media upload (FR-10), and logs requests/responses (TR-11.1). Session logs are written per connection (TR-3.6).</remarks>
+/// <see href="https://sharpninja.github.io/remote-agent/functional-requirements.html">Functional requirements</see>
+/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-3, TR-4)</see>
 public class AgentGatewayService(
     ILogger<AgentGatewayService> logger,
     IOptions<AgentOptions> options,
@@ -16,6 +20,7 @@ public class AgentGatewayService(
     ILocalStorage localStorage,
     MediaStorageService mediaStorage) : AgentGateway.AgentGatewayBase
 {
+    /// <summary>Returns server version, capabilities (e.g. scripts, media_upload, agents), and list of available agent runner ids.</summary>
     public override Task<ServerInfoResponse> GetServerInfo(ServerInfoRequest request, ServerCallContext context)
     {
         var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
@@ -25,6 +30,7 @@ public class AgentGatewayService(
         return Task.FromResult(response);
     }
 
+    /// <summary>Opens a duplex stream: reads ClientMessage (text, control, script, media), spawns agent on START, forwards text to agent stdin, streams stdout/stderr and SessionEvent to the client (FR-1.3, FR-1.4, FR-7.1, TR-4.4).</summary>
     public override async Task Connect(
         IAsyncStreamReader<ClientMessage> requestStream,
         IServerStreamWriter<ServerMessage> responseStream,
