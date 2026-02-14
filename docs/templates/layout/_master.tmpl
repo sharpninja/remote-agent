@@ -59,6 +59,15 @@
 
   {{^redirect_url}}
   <body class="tex2jax_ignore" data-layout="{{_layout}}{{layout}}" data-yaml-mime="{{yamlmime}}">
+    <div class="offcanvas offcanvas-start toc-sidebar show" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="toc" id="toc"></nav>
+      </div>
+    </div>
     <header class="bg-body border-bottom">
       {{^_disableNavbar}}
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
@@ -88,19 +97,7 @@
       {{/_disableNavbar}}
     </header>
 
-    <main class="container-xxl layout-with-sidebar">
-      <div class="toc-offcanvas">
-        <div class="offcanvas offcanvas-start toc-sidebar show" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
-        </div>
-      </div>
-
+    <main class="layout-with-sidebar docfx-main">
       <div class="content">
         <div class="actionbar">
           {{^_disableBreadcrumb}}
