@@ -400,6 +400,9 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# DocFX build output
+docs/_site/
+
 # Cursor AI
 .cursor/
 .cursorignore

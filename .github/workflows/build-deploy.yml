@@ -261,16 +261,19 @@ jobs:
           dotnet tool install -g docfx
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
-      - name: Generate documentation (DocFX)
+      - name: Build DocFX site
         run: |
           export PATH="$HOME/.dotnet/tools:$PATH"
           cd docs && docfx build
-          if [ ! -f _site/index.html ] && [ -f _site/README.html ]; then
-            cp _site/README.html _site/index.html
+
+      - name: Validate DocFX output
+        run: |
+          if [ ! -f docs/_site/index.html ] && [ -f docs/_site/README.html ]; then
+            cp docs/_site/README.html docs/_site/index.html
           fi
-          test -f _site/index.html || test -n "$(ls -A _site 2>/dev/null)" || (echo "DocFX produced no usable output" && exit 1)
+          test -f docs/_site/index.html || test -n "$(ls -A docs/_site 2>/dev/null)" || (echo "DocFX produced no usable output" && exit 1)
           echo "DocFX output:"
-          ls -la _site/
+          ls -la docs/_site/
 
       - name: Download APK
         uses: actions/download-artifact@v4
@@ -335,30 +338,11 @@ jobs:
 
       - name: Assemble Pages artifact
         run: |
-          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/repo"
-          VERSION="${{ steps.version.outputs.version }}"
           mkdir -p fdroid-repo/repo
+          cp -r docs/_site/. fdroid-repo/
           cp -r fdroid-workspace/repo/* fdroid-repo/repo/
           APK=$(find fdroid-repo/repo -name "*.apk" -type f | head -1)
           [ -n "$APK" ] && cp "$APK" fdroid-repo/remote-agent.apk
-          cat > fdroid-repo/index.html << HTMLEOF
-          <!DOCTYPE html>
-          <html>
-          <head><meta charset="utf-8"><title>Remote Agent – F-Droid repo</title></head>
-          <body>
-          <h1>Remote Agent</h1>
-          <p>Android app for the Remote Agent gRPC service. Connect to a Linux host running the service and chat with the Cursor agent.</p>
-          <p><strong>Version:</strong> ${VERSION}</p>
-          <p><a href="remote-agent.apk">Download APK</a></p>
-          <p>F-Droid repo URL: <code>${REPO_URL}/</code></p>
-          <p><a href="docs/">Documentation</a> (requirements and design)</p>
-          <hr/>
-          <p><a href="https://github.com/${{ github.repository }}">Source</a></p>
-          </body>
-          </html>
-          HTMLEOF
-          mkdir -p fdroid-repo/docs
-          cp -r docs/_site/. fdroid-repo/docs/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -393,38 +377,32 @@ jobs:
       - name: Prepare fdroid-repo when no previous artifact
         if: steps.download-pages.outputs.found_artifact != 'true'
         run: |
-          mkdir -p fdroid-repo/docs
-          cat > fdroid-repo/index.html << 'HTMLEOF'
-          <!DOCTYPE html>
-          <html>
-          <head><meta charset="utf-8"><title>Remote Agent</title></head>
-          <body>
-          <h1>Remote Agent</h1>
-          <p><a href="docs/">Documentation</a></p>
-          <p><a href="https://github.com/${{ github.repository }}">Source</a></p>
-          </body>
-          </html>
-          HTMLEOF
+          mkdir -p fdroid-repo/repo
+          echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Remote Agent</title></head><body><h1>Remote Agent</h1><p><a href="https://github.com/${{ github.repository }}">Source</a></p></body></html>' > fdroid-repo/index.html
 
       - name: Install DocFX
         run: |
           dotnet tool install -g docfx
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
-      - name: Generate documentation (DocFX)
+      - name: Build DocFX site
         run: |
           export PATH="$HOME/.dotnet/tools:$PATH"
           cd docs && docfx build
-          if [ ! -f _site/index.html ] && [ -f _site/README.html ]; then
-            cp _site/README.html _site/index.html
-          fi
-          test -f _site/index.html || test -n "$(ls -A _site 2>/dev/null)" || (echo "DocFX produced no usable output" && exit 1)
 
-      - name: Update docs in fdroid-repo
+      - name: Validate DocFX output
         run: |
-          rm -rf fdroid-repo/docs
-          mkdir -p fdroid-repo/docs
-          cp -r docs/_site/. fdroid-repo/docs/
+          if [ ! -f docs/_site/index.html ] && [ -f docs/_site/README.html ]; then
+            cp docs/_site/README.html docs/_site/index.html
+          fi
+          test -f docs/_site/index.html || test -n "$(ls -A docs/_site 2>/dev/null)" || (echo "DocFX produced no usable output" && exit 1)
+          echo "DocFX output:"
+          ls -la docs/_site/
+
+      - name: Update docs at site root (keep repo and APK)
+        run: |
+          find fdroid-repo -maxdepth 1 -mindepth 1 ! -name repo ! -name remote-agent.apk -exec rm -rf {} +
+          cp -r docs/_site/. fdroid-repo/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

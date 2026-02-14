@@ -2,6 +2,9 @@
 
 Android app (MAUI) that talks to a Linux service over gRPC. The service spawns a Cursor agent process, forwards messages from the app to the agent, and streams agent output back to the app in real time. All interaction is logged.
 
+**Documentation (requirements, design):** [sharpninja.github.io/remote-agent](https://sharpninja.github.io/remote-agent)  
+![QR: Documentation](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent)
+
 ## Architecture
 
 - **RemoteAgent.App** – MAUI Android app with a chat UI. Connects to the service via gRPC (bidirectional streaming), sends user messages, and shows agent output and session events.
@@ -146,8 +149,8 @@ On push to `main` (or manual run), the workflow:
   ![QR: APK](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fremote-agent.apk)
 - Docker image: built and pushed to **GitHub Container Registry** as `ghcr.io/sharpninja/remote-agent/service:latest` ([package](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice)).  
   ![QR: Docker image URL](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent%2Fpkgs%2Fcontainer%2Fremote-agent%252Fservice)
-- Documentation: generated with **DocFX** from `docs/` and published at `https://<owner>.github.io/<repo>/docs/` (functional and technical requirements).  
-  ![QR: Docs](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fdocs%2F)
+- Documentation: generated with **DocFX** from `docs/` and published at `https://<owner>.github.io/<repo>/` (site root; functional and technical requirements).  
+  ![QR: Docs](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent)
 
 ## Tests
 
