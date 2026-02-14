@@ -13,6 +13,8 @@
 - **TR-1.4** The repository shall be **hosted on GitHub**.
 - **TR-1.5** The repository shall be suitable for GitHub workflows (e.g. structure, CI/CD, and deployment aligned with GitHub Actions and GitHub Pages).
 
+*See:* [FR-1](functional-requirements.md#1-product-purpose).
+
 ---
 
 ## 2. Technology stack
@@ -21,6 +23,8 @@
 - **TR-2.2** The **service** shall be a **.NET** application (e.g. ASP.NET Core) targeting **Linux** (and runnable on **WSL** or native Linux).
 - **TR-2.3** Communication between the app and the service shall use **gRPC** with **persistent bidirectional streaming** for requests and responses (e.g. a single `Connect(stream ClientMessage) returns (stream ServerMessage)` RPC).
 - **TR-2.4** The **.NET 10 SDK** shall be used; the **Android workload** (and **Maui–Android**) shall be installed as needed for building the app; the **Android SDK** shall be available for the build environment.
+
+*See:* [FR-1](functional-requirements.md#1-product-purpose), [FR-2](functional-requirements.md#2-chat-and-messaging).
 
 ---
 
@@ -33,6 +37,8 @@
 - **TR-3.5** The service shall support an optional **message priority** on each `ServerMessage` (e.g. `NORMAL`, `HIGH`, `NOTIFY`) so that the app can implement notifications and prioritization.
 - **TR-3.6** The service shall **write a session log file** per connection (e.g. under a configurable `LogDirectory`, with a name such as `remote-agent-{sessionId}.log`), logging session lifecycle and message flow.
 
+*See:* [FR-1](functional-requirements.md#1-product-purpose), [FR-2](functional-requirements.md#2-chat-and-messaging), [FR-3](functional-requirements.md#3-message-priority-and-notifications), [FR-7](functional-requirements.md#7-session-and-lifecycle).
+
 ---
 
 ## 4. Protocol (gRPC)
@@ -42,6 +48,8 @@
 - **TR-4.3** **ServerMessage** shall support: (a) **output** — agent stdout line; (b) **error** — agent stderr line; (c) **event** — session lifecycle (e.g. session started, stopped, error); (d) **priority** — optional level (e.g. normal, high, notify) for the message.
 - **TR-4.4** The RPC shall be **duplex streaming** so that the client can send messages and receive server messages over the same connection without opening multiple calls per message.
 - **TR-4.5** A **correlation ID** shall be added to **each request** (e.g. on `ClientMessage` or on each payload that expects a response); the **server** shall **echo or carry** the same correlation ID on the **corresponding asynchronous response(s)** (e.g. on `ServerMessage`) so the client can **match responses to requests**.
+
+*See:* [FR-2](functional-requirements.md#2-chat-and-messaging), [FR-3](functional-requirements.md#3-message-priority-and-notifications), [FR-7](functional-requirements.md#7-session-and-lifecycle), [FR-9](functional-requirements.md#9-run-scripts-from-chat).
 
 ---
 
@@ -53,6 +61,8 @@
 - **TR-5.4** When the app receives a message with **notify** priority, it shall **show a system notification** (e.g. on Android, using a notification channel and `NotificationManager`/`NotificationCompat`); tapping the notification shall open the app so the message is visible in the chat.
 - **TR-5.5** The app shall support **swipe gestures** (e.g. left or right) on a message to **archive** it; archived messages shall be hidden from the visible list (e.g. via a property on the message and binding or filtering).
 
+*See:* [FR-1](functional-requirements.md#1-product-purpose), [FR-2](functional-requirements.md#2-chat-and-messaging), [FR-3](functional-requirements.md#3-message-priority-and-notifications), [FR-4](functional-requirements.md#4-archive).
+
 ---
 
 ## 6. Docker and containerization
@@ -60,6 +70,8 @@
 - **TR-6.1** The **service** shall be containerizable via a **Dockerfile** (e.g. multi-stage build, runtime based on a Linux image).
 - **TR-6.2** The container shall expose the gRPC port (e.g. `5243`) and support configuration via **environment variables** (e.g. `Agent__Command`, `Agent__LogDirectory`).
 - **TR-6.3** The pipeline shall **build** the service Docker image and **publish** it to a container registry (e.g. **GitHub Container Registry**, `ghcr.io/<owner>/<repo>/service:latest`) on successful builds.
+
+*See:* [FR-1](functional-requirements.md#1-product-purpose) (service deployment).
 
 ---
 
@@ -74,6 +86,8 @@
   - **TR-7.3.4** **GitHub Pages** shall be configured to use **GitHub Actions** as the source for deployment.
   - **TR-7.3.5** **Documentation** shall be **generated via DocFX** and **published to GitHub Pages** so that the requirements and other docs are viewable on the project site.
 
+*See:* [FR-6](functional-requirements.md#6-deployment-and-distribution-user-facing).
+
 ---
 
 ## 8. Testing
@@ -83,6 +97,8 @@
 - **TR-8.3** Integration tests shall cover the gRPC service (e.g. in-memory test server): no command configured → session error; agent = `/bin/cat` → echo behavior; start/stop session → correct events and agent lifecycle).
 - **TR-8.4** Tests shall be runnable via the solution (e.g. `dotnet test RemoteAgent.slnx`).
 
+*See:* (supports all FRs via verification).
+
 ---
 
 ## 9. UI and assets
@@ -91,12 +107,16 @@
 - **TR-9.2** The app shall follow **Material Design** norms (e.g. M3 tokens: surfaces, outlines, typography, components such as cards and buttons).
 - **TR-9.3** Theming shall support **light and dark mode** (e.g. `AppThemeBinding` or equivalent for colors and brushes).
 
+*See:* [FR-5](functional-requirements.md#5-user-interface-and-presentation).
+
 ---
 
 ## 10. Extensibility (plugins) — FR-8.1
 
 - **TR-10.1** **FR-8.1** (additional CLI agents via plugins) shall be implemented using a **strategy pattern**: the service shall use a common abstraction (e.g. an interface or strategy type) for agent behaviour, so that different agents (default process spawn, plugin-backed agents, etc.) can be selected and invoked uniformly.
 - **TR-10.2** **Plugin discovery** shall be driven by **appsettings configuration**: the service shall read configuration (e.g. under `Agent` or a dedicated `Plugins` section) that **specifies assemblies to dynamically load** as plugins; those assemblies shall be loaded at runtime and contribute agent implementations (strategies) that the service can use.
+
+*See:* [FR-8.1](functional-requirements.md#8-extensibility-plugins).
 
 ---
 
@@ -105,6 +125,8 @@
 - **TR-11.1** **Both the app and the server** shall use **LiteDB** for **local storage of requests and results** (e.g. chat messages, agent requests, and agent responses persisted on device and on the server for history, replay, or offline use).
 - **TR-11.2** **Uploaded images and videos** (media sent from the app to the server as agent context) shall be **stored on the server alongside the LiteDB file** (e.g. in the same data directory or a dedicated media subdirectory).
 - **TR-11.3** **Images sent to the app** (e.g. from the agent or server) shall be **stored in a `Remote Agent` folder** of the **DCIM library** on the device (e.g. `DCIM/Remote Agent/` so they appear in the device gallery).
+
+*See:* [FR-10](functional-requirements.md#10-media-as-agent-context), [FR-11](functional-requirements.md#11-multiple-sessions-and-agent-selection).
 
 ---
 
@@ -117,6 +139,8 @@
 - **TR-12.2** **App:** When **starting a chat session**, the app shall **obtain the list of agents** (from server or config), **show an agent picker**, and send **SessionControl START** with the chosen **session_id** and **agent_id** (FR-11.1.2).
   - **TR-12.2.1** **App:** Each session shall have a **user-definable title**, **defaulting to the text of the first request**; the title shall be **stored** in local storage and **displayed** in the session list or header (FR-11.1.3).
   - **TR-12.2.2** **App:** **Tapping the session title** shall **swap to an inline editor** (e.g. focused Entry/Editor) with the **text selected** and the **keyboard opened**; **tapping off** (unfocus) shall **commit** the title and return to display mode (FR-11.1.3.1, FR-11.1.3.2).
+
+*See:* [FR-11](functional-requirements.md#11-multiple-sessions-and-agent-selection).
 
 ---
 
