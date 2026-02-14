@@ -12,7 +12,7 @@ Description: |
   Android app that connects to the Remote Agent service on Linux/WSL.
   Streams messages to the Cursor agent and shows responses in real time.
 
-Website: https://github.com/sharpninja/remote-agent
+WebSite: https://github.com/sharpninja/remote-agent
 
 SourceCode: https://github.com/sharpninja/remote-agent
 

@@ -97,12 +97,12 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 | **TR-11.2** | Uploaded images/videos stored alongside LiteDB on server | **Done** | MediaStorageService saves to DataDirectory/media/ |
 | **TR-11.3** | Images to app stored in DCIM/Remote Agent | **Done** | MediaSaveService.SaveToDcimRemoteAgent (Android DCIM/Remote Agent); ServerMessage.media handled |
 | **TR-12.1** | Protocol: SessionControl carries session_id and agent_id (START) | **Not started** | Proto has no session_id/agent_id in SessionControl |
-| **TR-12.2** | Server: map session_id → agent session; route messages by session_id | **Not started** | Server has one session per connection, no client session_id |
-| **TR-12.3** | Server: expose list of configured agents to client | **Not started** | No ListAgents or equivalent |
-| **TR-12.4** | App: session list; persist session_id, title, agent_id in local storage | **Not started** | App has single chat, no session list |
-| **TR-12.5** | App: agent picker at session start; send START with session_id and agent_id | **Not started** | No picker; single Agent:Command |
-| **TR-12.6** | App: session title (user-definable, default first request); stored and displayed | **Not started** | No session title in app |
-| **TR-12.7** | App: tap title → inline editor (selected, keyboard); tap off → commit | **Not started** | Depends on TR-12.6 |
+| **TR-12.1.1** | Server: map session_id → agent session; route messages by session_id | **Not started** | Server has one session per connection, no client session_id |
+| **TR-12.1.2** | Server: expose list of configured agents to client | **Not started** | No ListAgents or equivalent |
+| **TR-12.1.3** | App: session list; persist session_id, title, agent_id in local storage | **Not started** | App has single chat, no session list |
+| **TR-12.2** | App: agent picker at session start; send START with session_id and agent_id | **Not started** | No picker; single Agent:Command |
+| **TR-12.2.1** | App: session title (user-definable, default first request); stored and displayed | **Not started** | No session title in app |
+| **TR-12.2.2** | App: tap title → inline editor (selected, keyboard); tap off → commit | **Not started** | Depends on TR-12.2.1 |
 
 ---
 
@@ -115,7 +115,7 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 
 **Not started (FR):** Section 11 — FR-11.1, FR-11.1.1, FR-11.1.2, FR-11.1.3, FR-11.1.3.1, FR-11.1.3.2.
 
-**Not started (TR):** TR-4.5 (correlation ID on request/response). Section 12 — FR-11.1: TR-12.1–TR-12.7.
+**Not started (TR):** TR-4.5 (correlation ID on request/response). Section 12 — FR-11.1: TR-12.1 and children TR-12.1.1–TR-12.1.3; TR-12.2 and children TR-12.2.1–TR-12.2.2.
 
 ---
 

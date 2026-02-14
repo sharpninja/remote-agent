@@ -111,12 +111,12 @@
 ## 12. Multiple sessions and agent selection — FR-11.1
 
 - **TR-12.1** **Protocol:** **SessionControl** (or equivalent) shall carry a **client-provided session_id** (string) and, for **START**, an optional **agent_id** (string) so the server can create or resume a session with that id and bind it to the chosen agent (FR-11.1, FR-11.1.1).
-- **TR-12.2** **Server:** The service shall **maintain a map of session_id → agent session** (e.g. in-memory or backed by storage) and **route** all messages on that stream to the agent bound to the **session_id** sent with START; each stream is treated as one logical session (FR-11.1.1).
-- **TR-12.3** **Server:** The service shall **expose the list of configured agents** (e.g. agent id and display name) to the client so the app can show an agent picker (e.g. gRPC method `ListAgents` or equivalent, or configuration delivered at connect) (FR-11.1.2).
-- **TR-12.4** **App:** The app shall maintain a **session list** (or session switcher) so the user can have **multiple sessions**; each session has a **session_id**, **title**, and **agent_id**; session list and metadata shall be **persisted** in local storage (e.g. LiteDB) (FR-11.1).
-- **TR-12.5** **App:** When **starting a chat session**, the app shall **obtain the list of agents** (from server or config), **show an agent picker**, and send **SessionControl START** with the chosen **session_id** and **agent_id** (FR-11.1.2).
-- **TR-12.6** **App:** Each session shall have a **user-definable title**, **defaulting to the text of the first request**; the title shall be **stored** in local storage and **displayed** in the session list or header (FR-11.1.3).
-- **TR-12.7** **App:** **Tapping the session title** shall **swap to an inline editor** (e.g. focused Entry/Editor) with the **text selected** and the **keyboard opened**; **tapping off** (unfocus) shall **commit** the title and return to display mode (FR-11.1.3.1, FR-11.1.3.2).
+  - **TR-12.1.1** **Server:** The service shall **maintain a map of session_id → agent session** (e.g. in-memory or backed by storage) and **route** all messages on that stream to the agent bound to the **session_id** sent with START; each stream is treated as one logical session (FR-11.1.1).
+  - **TR-12.1.2** **Server:** The service shall **expose the list of configured agents** (e.g. agent id and display name) to the client so the app can show an agent picker (e.g. gRPC method `ListAgents` or equivalent, or configuration delivered at connect) (FR-11.1.2).
+  - **TR-12.1.3** **App:** The app shall maintain a **session list** (or session switcher) so the user can have **multiple sessions**; each session has a **session_id**, **title**, and **agent_id**; session list and metadata shall be **persisted** in local storage (e.g. LiteDB) (FR-11.1).
+- **TR-12.2** **App:** When **starting a chat session**, the app shall **obtain the list of agents** (from server or config), **show an agent picker**, and send **SessionControl START** with the chosen **session_id** and **agent_id** (FR-11.1.2).
+  - **TR-12.2.1** **App:** Each session shall have a **user-definable title**, **defaulting to the text of the first request**; the title shall be **stored** in local storage and **displayed** in the session list or header (FR-11.1.3).
+  - **TR-12.2.2** **App:** **Tapping the session title** shall **swap to an inline editor** (e.g. focused Entry/Editor) with the **text selected** and the **keyboard opened**; **tapping off** (unfocus) shall **commit** the title and return to display mode (FR-11.1.3.1, FR-11.1.3.2).
 
 ---
 

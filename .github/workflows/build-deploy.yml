@@ -235,6 +235,10 @@ jobs:
           cp "$APK" fdroid-workspace/repo/
           cp fdroid/metadata/com.companyname.remoteagent.app.yml fdroid-workspace/metadata/
 
+      - name: Ensure repo icon exists
+        run: |
+          mkdir -p fdroid-workspace/repo/icons
+          [ -f fdroid-workspace/repo/icons/icon.png ] || echo 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' | base64 -d > fdroid-workspace/repo/icons/icon.png
       - name: Generate F-Droid repo (fdroid update)
         run: |
           cd fdroid-workspace && fdroid update
