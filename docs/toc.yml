@@ -1,9 +1,13 @@
 - name: Documentation
-  href: README.md
+  href: index.md
   items:
+    - name: Overview
+      href: README.md
     - name: Functional requirements
       href: functional-requirements.md
     - name: Technical requirements
       href: technical-requirements.md
+    - name: Requirements completion
+      href: requirements-completion-summary.md
     - name: Repository rules
       href: REPOSITORY_RULES.md
