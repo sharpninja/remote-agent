@@ -1,0 +1,7 @@
+- name: Documentation
+  href: README.md
+  items:
+    - name: Functional requirements
+      href: functional-requirements.md
+    - name: Technical requirements
+      href: technical-requirements.md

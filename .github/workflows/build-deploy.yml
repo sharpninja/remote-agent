@@ -1,0 +1,199 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/service
+
+jobs:
+  build:
+    name: Build solution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore RemoteAgent.slnx
+
+      - name: Build
+        run: dotnet build RemoteAgent.slnx -c Release --no-restore
+
+  android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install Android workload
+        run: sudo dotnet workload install maui-android
+
+      - name: Publish Android APK
+        run: |
+          dotnet publish src/RemoteAgent.App/RemoteAgent.App.csproj \
+            -f net10.0-android -c Release -p:AndroidPackageFormat=apk \
+            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: src/RemoteAgent.App/bin/Release/net10.0-android/publish/com.companyname.remoteagent.app-Signed.apk
+
+  docker:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  fdroid-pages:
+    name: F-Droid repo and GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [build, android]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install DocFX
+        run: |
+          dotnet tool install -g docfx
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Generate documentation (DocFX)
+        run: |
+          cd docs && docfx build
+
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apk
+
+      - name: Get app version
+        id: version
+        run: |
+          V=$(grep -oP '(?<=<ApplicationDisplayVersion>)[^<]+' src/RemoteAgent.App/RemoteAgent.App.csproj || echo "1.0")
+          echo "version=$V" >> $GITHUB_OUTPUT
+          echo "App version: $V"
+
+      - name: Prepare F-Droid repo
+        run: |
+          mkdir -p fdroid-repo
+          APK=$(find . -name "*.apk" -type f | head -1)
+          cp "$APK" fdroid-repo/remote-agent.apk
+          VERSION="${{ steps.version.outputs.version }}"
+          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          SIZE=$(stat -c%s fdroid-repo/remote-agent.apk)
+          HASH=$(sha256sum fdroid-repo/remote-agent.apk | cut -d' ' -f1)
+
+          cat > fdroid-repo/index.html << HTMLEOF
+          <!DOCTYPE html>
+          <html>
+          <head><meta charset="utf-8"><title>Remote Agent – F-Droid repo</title></head>
+          <body>
+          <h1>Remote Agent</h1>
+          <p>Android app for the Remote Agent gRPC service. Connect to a Linux host running the service and chat with the Cursor agent.</p>
+          <p><strong>Version:</strong> ${VERSION}</p>
+          <p><a href="remote-agent.apk">Download APK</a></p>
+          <p>F-Droid repo URL: <code>${REPO_URL}/</code></p>
+          <p><a href="docs/">Documentation</a> (requirements and design)</p>
+          <hr/>
+          <p><a href="https://github.com/${{ github.repository }}">Source</a></p>
+          </body>
+          </html>
+          HTMLEOF
+
+          cat > fdroid-repo/index.xml << EOF
+          <?xml version="1.0" encoding="utf-8"?>
+          <fdroid>
+            <repo name="Remote Agent" url="${REPO_URL}/"/>
+            <application>
+              <id>com.companyname.remoteagent.app</id>
+              <name>Remote Agent</name>
+              <summary>Chat with Cursor agent via gRPC</summary>
+              <desc>Android app that connects to the Remote Agent service on Linux/WSL. Streams messages to the Cursor agent and shows responses in real time.</desc>
+              <versionName>${VERSION}</versionName>
+              <versionCode>1</versionCode>
+              <added>$(date -Iseconds)</added>
+              <package versionName="${VERSION}" versionCode="1" hash="${HASH}" size="${SIZE}" apkname="remote-agent.apk"/>
+            </application>
+          </fdroid>
+          EOF
+
+      - name: Merge docs into Pages artifact
+        run: |
+          cp -r docs/_site fdroid-repo/docs
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: fdroid-repo
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: fdroid-pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

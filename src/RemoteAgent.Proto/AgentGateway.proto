@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+option csharp_namespace = "RemoteAgent.Proto";
+
+package remoteagent;
+
+// AgentGateway: bidirectional streaming between app and Cursor agent.
+service AgentGateway {
+  // Connect opens a persistent duplex stream. Client sends messages;
+  // server streams agent output and session events.
+  rpc Connect (stream ClientMessage) returns (stream ServerMessage);
+}
+
+// ClientMessage: payload sent from the app to the service.
+message ClientMessage {
+  oneof payload {
+    string text = 1;           // user message to forward to the agent
+    SessionControl control = 2; // start/stop session
+  }
+}
+
+// SessionControl: start or end the agent session.
+message SessionControl {
+  enum Action {
+    ACTION_UNSPECIFIED = 0;
+    START = 1;  // spawn agent and start session
+    STOP = 2;   // end session and stop agent
+  }
+  Action action = 1;
+}
+
+// ServerMessage: payload streamed from the service to the app.
+message ServerMessage {
+  oneof payload {
+    string output = 1;       // agent stdout / response chunk (real-time)
+    string error = 2;         // agent stderr
+    SessionEvent event = 3;  // session started / stopped / error
+  }
+  // Priority for this message. NOTIFY triggers a system notification; tap opens chat and shows message.
+  MessagePriority priority = 4;
+}
+
+// MessagePriority: normal, high, or notify (system notification + tap to show).
+enum MessagePriority {
+  MESSAGE_PRIORITY_UNSPECIFIED = 0;
+  NORMAL = 1;
+  HIGH = 2;
+  NOTIFY = 3;
+}
+
+// SessionEvent: session lifecycle for the UI.
+message SessionEvent {
+  enum Kind {
+    KIND_UNSPECIFIED = 0;
+    SESSION_STARTED = 1;
+    SESSION_STOPPED = 2;
+    SESSION_ERROR = 3;
+  }
+  Kind kind = 1;
+  string message = 2;  // optional detail (e.g. error message)
+}

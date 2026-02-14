@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:RemoteAgent.App.Converters"
+             x:Class="RemoteAgent.App.MainPage"
+             x:Name="ThisPage"
+             Title="Remote Agent"
+             BackgroundColor="{StaticResource PageBackgroundBrush}">
+
+    <ContentPage.Resources>
+        <converters:ChatMessageToHtmlSourceConverter x:Key="MessageToHtmlSource" />
+        <converters:InverseBoolConverter x:Key="InverseBool" />
+        <Style TargetType="Label" x:Key="IconLabel">
+            <Setter Property="FontFamily" Value="fa-solid-900" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Label" x:Key="IconLabelSmall">
+            <Setter Property="FontFamily" Value="fa-solid-900" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto" Padding="16" RowSpacing="8">
+        <!-- M3 top card: connection (surface container, 12dp radius) -->
+        <Border Grid.Row="0" Style="{StaticResource MaterialCard}" Margin="0,0,0,8">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="8">
+                <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                    <Label Style="{StaticResource IconLabelSmall}" Text="{StaticResource IconServer}"
+                           TextColor="{StaticResource IconTintMutedBrush}" VerticalOptions="Center" />
+                    <Entry x:Name="HostEntry" Placeholder="Host (e.g. 10.0.2.2)" WidthRequest="160"
+                           PlaceholderColor="{StaticResource IconTintMutedBrush}" />
+                    <Label Style="{StaticResource IconLabelSmall}" Text="{StaticResource IconHashtag}"
+                           TextColor="{StaticResource IconTintMutedBrush}" VerticalOptions="Center" />
+                    <Entry x:Name="PortEntry" Placeholder="Port" WidthRequest="70" Keyboard="Numeric" Text="5243"
+                           PlaceholderColor="{StaticResource IconTintMutedBrush}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="4">
+                        <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconPlug}"
+                               TextColor="{StaticResource OnPrimaryBrush}" VerticalOptions="Center" />
+                        <Button x:Name="ConnectBtn" Text="Connect" Clicked="OnConnectClicked" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="4">
+                        <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconPlugCircleXmark}"
+                               TextColor="{StaticResource OnPrimaryBrush}" VerticalOptions="Center" />
+                        <Button x:Name="DisconnectBtn" Text="Disconnect" Clicked="OnDisconnectClicked" IsEnabled="False" />
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Messages: M3 card-style bubbles; swipe left/right to archive -->
+        <CollectionView x:Name="MessagesList" Grid.Row="1" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView IsVisible="{Binding IsArchived, Converter={StaticResource InverseBool}}">
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Archive" BackgroundColor="{StaticResource OutlineBrush}"
+                                           Command="{Binding Source={x:Reference ThisPage}, Path=ArchiveMessageCommand}"
+                                           CommandParameter="{Binding .}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconBoxArchive}" Color="White" Size="16"/>
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Archive" BackgroundColor="{StaticResource OutlineBrush}"
+                                           Command="{Binding Source={x:Reference ThisPage}, Path=ArchiveMessageCommand}"
+                                           CommandParameter="{Binding .}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconBoxArchive}" Color="White" Size="16"/>
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Border Padding="12,8" Margin="0,4" StrokeThickness="0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Border.Triggers>
+                            <DataTrigger TargetType="Border" Binding="{Binding IsUser}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource BubbleUserBrush}" />
+                                <Setter Property="HorizontalOptions" Value="End" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding IsError}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource BubbleErrorBrush}" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding IsEvent}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource BubbleEventBrush}" />
+                            </DataTrigger>
+                            <MultiTrigger TargetType="Border">
+                                <MultiTrigger.Conditions>
+                                    <BindingCondition Binding="{Binding IsUser}" Value="False" />
+                                    <BindingCondition Binding="{Binding IsEvent}" Value="False" />
+                                    <BindingCondition Binding="{Binding IsError}" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource BubbleAgentBrush}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                        </Border.Triggers>
+                        <Grid>
+                            <Label Text="{Binding DisplayText}" IsVisible="False"
+                                   TextColor="{StaticResource OnSurfaceBrush}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding IsUser}" Value="True">
+                                        <Setter Property="IsVisible" Value="True" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label" Binding="{Binding IsEvent}" Value="True">
+                                        <Setter Property="IsVisible" Value="True" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <WebView MinimumHeightRequest="24" HeightRequest="80"
+                                     Source="{Binding ., Converter={StaticResource MessageToHtmlSource}}"
+                                     VerticalOptions="Start" IsVisible="False"
+                                     BackgroundColor="Transparent">
+                                <WebView.Triggers>
+                                    <MultiTrigger TargetType="WebView">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding IsUser}" Value="False" />
+                                            <BindingCondition Binding="{Binding IsEvent}" Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <MultiTrigger.Setters>
+                                            <Setter Property="IsVisible" Value="True" />
+                                        </MultiTrigger.Setters>
+                                    </MultiTrigger>
+                                </WebView.Triggers>
+                            </WebView>
+                        </Grid>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Input: M3 outlined field row, 48dp touch -->
+        <Border Grid.Row="2" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="12,8" Margin="0,8,0,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8"/>
+            </Border.StrokeShape>
+            <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconMessage}"
+                       TextColor="{StaticResource IconTintMutedBrush}" VerticalOptions="Center" />
+                <Entry x:Name="MessageEntry" Placeholder="Message to agent..." Completed="OnMessageEntryCompleted"
+                       PlaceholderColor="{StaticResource IconTintMutedBrush}" VerticalOptions="Center" />
+                <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
+                    <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconPaperPlane}"
+                           TextColor="{StaticResource OnPrimaryBrush}" VerticalOptions="Center" />
+                    <Button x:Name="SendBtn" Text="Send" Clicked="OnSendClicked" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </Border>
+
+        <!-- Status: M3 label small, OnSurfaceVariant -->
+        <HorizontalStackLayout Grid.Row="3" Spacing="6" Margin="0,8,0,0">
+            <Label Style="{StaticResource IconLabelSmall}" Text="{StaticResource IconCircleInfo}"
+                   TextColor="{StaticResource StatusTextBrush}" VerticalOptions="Center" />
+            <Label x:Name="StatusLabel" Text="Enter host and port, then Connect."
+                   TextColor="{StaticResource StatusTextBrush}" FontSize="12" VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,19 @@
+{
+  "metadata": [],
+  "build": {
+    "content": [
+      {
+        "files": ["**/*.md"],
+        "src": ".",
+        "dest": "."
+      }
+    ],
+    "resource": [],
+    "output": "_site",
+    "template": ["default"],
+    "globalMetadata": {
+      "_appTitle": "Remote Agent — Documentation",
+      "_enableSearch": false
+    }
+  }
+}

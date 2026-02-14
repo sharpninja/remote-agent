@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!-- Font Awesome 6 Solid icon characters (fa-solid-900). Use with FontFamily="fa-solid-900". -->
+    <x:String x:Key="IconPlug">&#xf26e;</x:String>           <!-- connect -->
+    <x:String x:Key="IconPlugCircleXmark">&#xe560;</x:String> <!-- disconnect -->
+    <x:String x:Key="IconPaperPlane">&#xf1d8;</x:String>    <!-- send -->
+    <x:String x:Key="IconServer">&#xf233;</x:String>         <!-- server/host -->
+    <x:String x:Key="IconHashtag">&#xf292;</x:String>       <!-- port/number -->
+    <x:String x:Key="IconMessage">&#xf27a;</x:String>        <!-- message -->
+    <x:String x:Key="IconCircleInfo">&#xf30a;</x:String>    <!-- info/status -->
+    <x:String x:Key="IconUser">&#xf007;</x:String>          <!-- user message -->
+    <x:String x:Key="IconRobot">&#xf544;</x:String>         <!-- agent output -->
+    <x:String x:Key="IconTriangleExclamation">&#xf071;</x:String> <!-- error -->
+    <x:String x:Key="IconBoxArchive">&#xf187;</x:String>     <!-- archive -->
+</ResourceDictionary>
