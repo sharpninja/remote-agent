@@ -21,9 +21,44 @@ env:
   IMAGE_NAME: ${{ github.repository }}/service
 
 jobs:
+  detect:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    outputs:
+      code: ${{ steps.outputs.outputs.code }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            code:
+              - 'src/**'
+              - '**/*.csproj'
+              - '**/*.slnx'
+              - 'Dockerfile'
+              - 'fdroid/**'
+              - '.config/**'
+              - 'GitVersion.yml'
+          base: ${{ github.event.before }}
+          list-files: shell
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - id: outputs
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "code=true" >> $GITHUB_OUTPUT
+          else
+            echo "code=${{ steps.filter.outputs.code }}" >> $GITHUB_OUTPUT
+          fi
+
   build:
     name: Build solution
     runs-on: ubuntu-latest
+    needs: detect
+    if: needs.detect.outputs.code == 'true'
     outputs:
       semver: ${{ steps.version.outputs.SemVer }}
       major_minor_patch: ${{ steps.version.outputs.MajorMinorPatch }}
@@ -330,10 +365,77 @@ jobs:
         with:
           path: fdroid-repo
 
+      - name: Upload pages content for docs-only reuse
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-content
+          path: fdroid-repo
+
+  docs-only-pages:
+    name: Docs-only GitHub Pages
+    runs-on: ubuntu-latest
+    needs: detect
+    if: needs.detect.outputs.code != 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download previous pages content
+        uses: dawidd6/action-download-artifact@v3
+        id: download-pages
+        with:
+          workflow: build-deploy.yml
+          name: pages-content
+          path: fdroid-repo
+          workflow_search: true
+          search_artifacts: true
+          if_no_artifact_found: ignore
+
+      - name: Prepare fdroid-repo when no previous artifact
+        if: steps.download-pages.outputs.found_artifact != 'true'
+        run: |
+          mkdir -p fdroid-repo/docs
+          cat > fdroid-repo/index.html << 'HTMLEOF'
+          <!DOCTYPE html>
+          <html>
+          <head><meta charset="utf-8"><title>Remote Agent</title></head>
+          <body>
+          <h1>Remote Agent</h1>
+          <p><a href="docs/">Documentation</a></p>
+          <p><a href="https://github.com/${{ github.repository }}">Source</a></p>
+          </body>
+          </html>
+          HTMLEOF
+
+      - name: Install DocFX
+        run: |
+          dotnet tool install -g docfx
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Generate documentation (DocFX)
+        run: |
+          export PATH="$HOME/.dotnet/tools:$PATH"
+          cd docs && docfx build
+          if [ ! -f _site/index.html ] && [ -f _site/README.html ]; then
+            cp _site/README.html _site/index.html
+          fi
+          test -f _site/index.html || test -n "$(ls -A _site 2>/dev/null)" || (echo "DocFX produced no usable output" && exit 1)
+
+      - name: Update docs in fdroid-repo
+        run: |
+          rm -rf fdroid-repo/docs
+          mkdir -p fdroid-repo/docs
+          cp -r docs/_site/. fdroid-repo/docs/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: fdroid-repo
+
   deploy-pages:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: fdroid-pages
+    needs: [fdroid-pages, docs-only-pages]
+    if: always() && (needs.fdroid-pages.result == 'success' || needs.docs-only-pages.result == 'success')
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
