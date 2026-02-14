@@ -34,7 +34,13 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 | **FR-8.1** | Additional CLI agents via plugins | **Done** | IAgentRunner strategy; plugin assemblies in Plugins:Assemblies |
 | **FR-9.1** | User can run bash/pwsh script from chat | **Done** | ScriptRequest in proto; /run bash &lt;path&gt; or /run pwsh &lt;path&gt; in app |
 | **FR-9.2** | Script stdout/stderr on completion | **Done** | ScriptRunner runs script; server sends output/error messages |
-| **FR-10.1** | User can send images or video as agent context | **Not started** | No media in proto or app send path |
+| **FR-10.1** | User can send images or video as agent context | **Done** | MediaUpload in proto; Attach button, FilePicker; server saves to media/, forwards path to agent |
+| **FR-11.1** | Client supports multiple sessions with session-id | **Not started** | App currently single session per connection |
+| **FR-11.1.1** | Server uses session-id to manage interactions with specific agents | **Not started** | Server generates session-id per connection but does not route by client-provided session-id |
+| **FR-11.1.2** | App asks which agent to use from list when starting session | **Not started** | No agent picker; single Agent:Command |
+| **FR-11.1.3** | Sessions have user-definable title, default first request text | **Not started** | No session list or session title in app |
+| **FR-11.1.3.1** | Tap session title → editor, text highlighted, keyboard open | **Not started** | Depends on FR-11.1.3 |
+| **FR-11.1.3.2** | Tap off editor → commit updated session title | **Not started** | Depends on FR-11.1.3 |
 
 ---
 
@@ -61,6 +67,7 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 | **TR-4.2** | ClientMessage: text, control | **Done** | text + SessionControl (START/STOP) |
 | **TR-4.3** | ServerMessage: output, error, event, priority | **Done** | All present in proto |
 | **TR-4.4** | Duplex streaming RPC | **Done** | Single Connect stream |
+| **TR-4.5** | Correlation ID on each request; server echoes on response(s) | **Not started** | No correlation_id in proto or server |
 | **TR-5.1** | Chat UI, observable collection | **Done** | Messages collection, bindings |
 | **TR-5.2** | Connect to host/port | **Done** | Settings/preferences, AgentGatewayClientService |
 | **TR-5.3** | Markdown render in chat | **Done** | Markdig, ChatMessageToHtmlSourceConverter, WebView |
@@ -86,9 +93,16 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 | **TR-9.3** | Light/dark theming | **Done** | AppThemeBinding, ThemeColors |
 | **TR-10.1** | Plugins via strategy pattern (FR-8.1) | **Done** | IAgentSession, IAgentRunner, ProcessAgentRunner; gateway uses IAgentRunnerFactory |
 | **TR-10.2** | Plugin discovery via appsettings (assemblies) | **Done** | Plugins:Assemblies; PluginLoader.BuildRunnerRegistry; Agent:RunnerId |
-| **TR-11.1** | App and server use LiteDB for requests/results | **Not started** | No LiteDB references in code |
-| **TR-11.2** | Uploaded images/videos stored alongside LiteDB on server | **Not started** | No media storage (depends on TR-11.1, FR-10.1) |
-| **TR-11.3** | Images to app stored in DCIM/Remote Agent | **Not started** | No image receive/save (depends on FR-10.1) |
+| **TR-11.1** | App and server use LiteDB for requests/results | **Done** | Server: LiteDbLocalStorage, request/response log; App: LocalMessageStore, load/add/archive |
+| **TR-11.2** | Uploaded images/videos stored alongside LiteDB on server | **Done** | MediaStorageService saves to DataDirectory/media/ |
+| **TR-11.3** | Images to app stored in DCIM/Remote Agent | **Done** | MediaSaveService.SaveToDcimRemoteAgent (Android DCIM/Remote Agent); ServerMessage.media handled |
+| **TR-12.1** | Protocol: SessionControl carries session_id and agent_id (START) | **Not started** | Proto has no session_id/agent_id in SessionControl |
+| **TR-12.2** | Server: map session_id → agent session; route messages by session_id | **Not started** | Server has one session per connection, no client session_id |
+| **TR-12.3** | Server: expose list of configured agents to client | **Not started** | No ListAgents or equivalent |
+| **TR-12.4** | App: session list; persist session_id, title, agent_id in local storage | **Not started** | App has single chat, no session list |
+| **TR-12.5** | App: agent picker at session start; send START with session_id and agent_id | **Not started** | No picker; single Agent:Command |
+| **TR-12.6** | App: session title (user-definable, default first request); stored and displayed | **Not started** | No session title in app |
+| **TR-12.7** | App: tap title → inline editor (selected, keyboard); tap off → commit | **Not started** | Depends on TR-12.6 |
 
 ---
 
@@ -96,12 +110,12 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
-| **Functional (FR)** | 27 | 0 | 2 |
-| **Technical (TR)** | 44 | 0 | 3 |
+| **Functional (FR)** | 28 | 0 | 6 |
+| **Technical (TR)** | 47 | 0 | 8 |
 
-**Not started (FR):** FR-10.1 (send images/video as agent context).
+**Not started (FR):** Section 11 — FR-11.1, FR-11.1.1, FR-11.1.2, FR-11.1.3, FR-11.1.3.1, FR-11.1.3.2.
 
-**Not started (TR):** TR-11.1 (LiteDB), TR-11.2 (server media storage), TR-11.3 (DCIM/Remote Agent for received images).
+**Not started (TR):** TR-4.5 (correlation ID on request/response). Section 12 — FR-11.1: TR-12.1–TR-12.7.
 
 ---
 

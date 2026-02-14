@@ -10,6 +10,7 @@ permissions:
   packages: write
   pages: write
   id-token: write
+  # release-beta job needs contents: write (set at job level)
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -66,6 +67,51 @@ jobs:
         with:
           name: android-apk
           path: src/RemoteAgent.App/bin/Release/net10.0-android/publish/com.companyname.remoteagent.app-Signed.apk
+
+  release-beta:
+    name: Create beta release
+    runs-on: ubuntu-latest
+    needs: android
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get app version
+        id: version
+        run: |
+          V=$(grep -oP '(?<=<ApplicationDisplayVersion>)[^<]+' src/RemoteAgent.App/RemoteAgent.App.csproj || echo "1.0")
+          echo "version=$V" >> $GITHUB_OUTPUT
+
+      - name: Generate release notes from commits
+        run: |
+          PREV=$(git describe --tags --abbrev=0 2>/dev/null) || true
+          if [ -n "$PREV" ]; then
+            COMMITS=$(git log "$PREV..HEAD" --pretty=format:"- %s (%h)" 2>/dev/null)
+          else
+            COMMITS=$(git log -n 20 --pretty=format:"- %s (%h)")
+          fi
+          {
+            echo "## Changes in this beta"
+            echo ""
+            [ -n "$COMMITS" ] && echo "$COMMITS" || echo "- No commit log available."
+          } > release-notes.md
+
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apk
+
+      - name: Create beta release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}-beta.${{ github.run_number }}
+          name: Beta v${{ steps.version.outputs.version }} (build ${{ github.run_number }})
+          prerelease: true
+          body_path: release-notes.md
+          files: com.companyname.remoteagent.app-Signed.apk
 
   docker:
     name: Build and push Docker image
@@ -151,7 +197,7 @@ jobs:
 
       - name: Prepare F-Droid workspace
         run: |
-          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/repo"
           mkdir -p fdroid-workspace/repo fdroid-workspace/metadata
           if [ ! -f fdroid-workspace/keystore.jks ]; then
             keytool -genkeypair -keystore fdroid-workspace/keystore.jks -alias fdroidrepo \
@@ -180,11 +226,11 @@ jobs:
 
       - name: Assemble Pages artifact
         run: |
-          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/repo"
           VERSION="${{ steps.version.outputs.version }}"
-          mkdir -p fdroid-repo
-          cp -r fdroid-workspace/repo/* fdroid-repo/
-          APK=$(find fdroid-repo -name "*.apk" -type f | head -1)
+          mkdir -p fdroid-repo/repo
+          cp -r fdroid-workspace/repo/* fdroid-repo/repo/
+          APK=$(find fdroid-repo/repo -name "*.apk" -type f | head -1)
           [ -n "$APK" ] && cp "$APK" fdroid-repo/remote-agent.apk
           cat > fdroid-repo/index.html << HTMLEOF
           <!DOCTYPE html>

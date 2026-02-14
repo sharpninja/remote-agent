@@ -3,13 +3,16 @@ using Grpc.Core;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Proto;
 using RemoteAgent.Service.Agents;
+using RemoteAgent.Service.Storage;
 
 namespace RemoteAgent.Service.Services;
 
 public class AgentGatewayService(
     ILogger<AgentGatewayService> logger,
     IOptions<AgentOptions> options,
-    IAgentRunnerFactory agentRunnerFactory) : AgentGateway.AgentGatewayBase
+    IAgentRunnerFactory agentRunnerFactory,
+    ILocalStorage localStorage,
+    MediaStorageService mediaStorage) : AgentGateway.AgentGatewayBase
 {
     public override async Task Connect(
         IAsyncStreamReader<ClientMessage> requestStream,
@@ -41,6 +44,7 @@ public class AgentGatewayService(
                     if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Control)
                     {
                         var action = msg.Control.Action;
+                        localStorage.LogRequest(sessionId, "Control", action.ToString());
                         if (action == SessionControl.Types.Action.Start)
                         {
                             if (agentSession != null)
@@ -61,6 +65,7 @@ public class AgentGatewayService(
                                         Message = "Agent command not configured. Set Agent:Command in appsettings."
                                     }
                                 }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Event", "SessionError");
                                 continue;
                             }
                             try
@@ -83,6 +88,7 @@ public class AgentGatewayService(
                                             Message = "Agent runner did not start a session."
                                         }
                                     }, context.CancellationToken);
+                                    localStorage.LogResponse(sessionId, "Event", "SessionError");
                                     continue;
                                 }
                                 Log("Agent started");
@@ -91,6 +97,7 @@ public class AgentGatewayService(
                                     Priority = MessagePriority.Normal,
                                     Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStarted }
                                 }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Event", "SessionStarted");
                             }
                             catch (Exception ex)
                             {
@@ -104,6 +111,7 @@ public class AgentGatewayService(
                                         Message = ex.Message
                                     }
                                 }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Event", "SessionError");
                             }
                         }
                         else if (action == SessionControl.Types.Action.Stop)
@@ -119,11 +127,13 @@ public class AgentGatewayService(
                                     Priority = MessagePriority.Normal,
                                     Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStopped }
                                 }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Event", "SessionStopped");
                             }
                         }
                     }
                     else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Text && !string.IsNullOrEmpty(msg.Text))
                     {
+                        localStorage.LogRequest(sessionId, "Text", msg.Text);
                         Log($"→ {msg.Text}");
                         if (agentSession != null && !agentSession.HasExited)
                         {
@@ -151,18 +161,53 @@ public class AgentGatewayService(
                         var req = msg.ScriptRequest;
                         var pathOrCommand = req.PathOrCommand ?? "";
                         var scriptType = req.ScriptType == ScriptType.Unspecified ? ScriptType.Bash : req.ScriptType;
+                        localStorage.LogRequest(sessionId, "ScriptRequest", $"{scriptType}: {pathOrCommand}");
                         Log($"Script run: {scriptType} {pathOrCommand}");
                         try
                         {
                             var (stdout, stderr) = await ScriptRunner.RunAsync(pathOrCommand, scriptType, context.CancellationToken);
                             if (!string.IsNullOrEmpty(stdout))
+                            {
                                 await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Output = stdout }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Output", stdout);
+                            }
                             if (!string.IsNullOrEmpty(stderr))
+                            {
                                 await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = stderr }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Error", stderr);
+                            }
                         }
                         catch (Exception ex)
                         {
                             Log($"Script failed: {ex.Message}", "ERROR");
+                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message }, context.CancellationToken);
+                            localStorage.LogResponse(sessionId, "Error", ex.Message);
+                        }
+                    }
+                    else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.MediaUpload && msg.MediaUpload != null)
+                    {
+                        var up = msg.MediaUpload;
+                        if (up.Content == null || up.Content.Length == 0)
+                        {
+                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = "Media upload has no content." }, context.CancellationToken);
+                            continue;
+                        }
+                        try
+                        {
+                            var (relativePath, fullPath) = mediaStorage.SaveUpload(sessionId, up.Content.ToByteArray(), up.ContentType ?? "application/octet-stream", up.FileName);
+                            localStorage.LogRequest(sessionId, "MediaUpload", up.FileName ?? up.ContentType ?? "media", relativePath);
+                            Log($"Media saved: {relativePath}");
+                            if (agentSession != null && !agentSession.HasExited)
+                                await agentSession.SendInputAsync($"[Attachment: {fullPath}]", context.CancellationToken);
+                            await responseStream.WriteAsync(new ServerMessage
+                            {
+                                Priority = MessagePriority.Normal,
+                                Output = $"[Saved attachment: {relativePath}]"
+                            }, context.CancellationToken);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log($"Media save failed: {ex.Message}", "ERROR");
                             await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message }, context.CancellationToken);
                         }
                     }

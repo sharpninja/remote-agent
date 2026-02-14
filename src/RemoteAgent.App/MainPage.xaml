@@ -153,6 +153,11 @@
                 <Entry x:Name="MessageEntry" Placeholder="Message to agent..." Completed="OnMessageEntryCompleted"
                        PlaceholderColor="{StaticResource IconTintMutedBrush}" VerticalOptions="Center" />
                 <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
+                    <Button x:Name="AttachBtn" Clicked="OnAttachClicked" IsEnabled="False">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperclip}" Color="{StaticResource OnPrimaryBrush}" Size="18"/>
+                        </Button.ImageSource>
+                    </Button>
                     <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconPaperPlane}"
                            TextColor="{StaticResource OnPrimaryBrush}" VerticalOptions="Center" />
                     <Button x:Name="SendBtn" Text="Send" Clicked="OnSendClicked" />

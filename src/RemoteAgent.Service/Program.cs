@@ -1,6 +1,7 @@
 using RemoteAgent.Service;
 using RemoteAgent.Service.Agents;
 using RemoteAgent.Service.Services;
+using RemoteAgent.Service.Storage;
 
 namespace RemoteAgent.Service;
 
@@ -14,6 +15,8 @@ public partial class Program
         builder.Services.AddSingleton<ProcessAgentRunner>();
         builder.Services.AddSingleton<IReadOnlyDictionary<string, IAgentRunner>>(sp => PluginLoader.BuildRunnerRegistry(sp));
         builder.Services.AddSingleton<IAgentRunnerFactory, DefaultAgentRunnerFactory>();
+        builder.Services.AddSingleton<ILocalStorage, LiteDbLocalStorage>();
+        builder.Services.AddSingleton<MediaStorageService>();
         builder.Services.AddGrpc();
 
         var app = builder.Build();

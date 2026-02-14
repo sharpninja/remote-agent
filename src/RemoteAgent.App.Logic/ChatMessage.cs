@@ -7,6 +7,8 @@ public enum ChatMessagePriority { Normal, High, Notify }
 
 public class ChatMessage : INotifyPropertyChanged
 {
+    /// <summary>Optional id for persistence (TR-11.1). Set by storage after insert.</summary>
+    public Guid? Id { get; set; }
     public bool IsUser { get; init; }
     public string Text { get; init; } = "";
     public bool IsError { get; init; }

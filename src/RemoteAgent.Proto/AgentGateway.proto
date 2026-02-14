@@ -17,7 +17,15 @@ message ClientMessage {
     string text = 1;           // user message to forward to the agent
     SessionControl control = 2; // start/stop session
     ScriptRequest script_request = 3;  // run a script (bash/pwsh), get stdout/stderr on completion (FR-9.1)
+    MediaUpload media_upload = 4;  // image or video as context for the agent (FR-10.1)
   }
+}
+
+// MediaUpload: image or video sent from app to server as agent context (FR-10.1). Stored alongside LiteDB (TR-11.2).
+message MediaUpload {
+  bytes content = 1;
+  string content_type = 2;   // e.g. image/jpeg, video/mp4
+  string file_name = 3;      // original filename for storage
 }
 
 // ScriptRequest: run a script and return stdout/stderr when done (FR-9.1, FR-9.2).
@@ -48,9 +56,17 @@ message ServerMessage {
     string output = 1;       // agent stdout / response chunk (real-time)
     string error = 2;         // agent stderr
     SessionEvent event = 3;  // session started / stopped / error
+    MediaChunk media = 5;     // image (or other media) sent to app; store in DCIM/Remote Agent (TR-11.3)
   }
   // Priority for this message. NOTIFY triggers a system notification; tap opens chat and shows message.
   MessagePriority priority = 4;
+}
+
+// MediaChunk: image/media sent from server to app. App stores in DCIM/Remote Agent (TR-11.3).
+message MediaChunk {
+  bytes content = 1;
+  string content_type = 2;   // e.g. image/png
+  string file_name = 3;      // suggested filename
 }
 
 // MessagePriority: normal, high, or notify (system notification + tap to show).

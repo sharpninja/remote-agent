@@ -7,16 +7,41 @@ namespace RemoteAgent.App.Services;
 
 public class AgentGatewayClientService
 {
+    private readonly ILocalMessageStore? _store;
     private GrpcChannel? _channel;
     private AgentGateway.AgentGatewayClient? _client;
     private AsyncDuplexStreamingCall<ClientMessage, ServerMessage>? _call;
     private CancellationTokenSource? _cts;
     private Task? _receiveTask;
 
+    public AgentGatewayClientService(ILocalMessageStore? store = null) => _store = store;
+
     public ObservableCollection<ChatMessage> Messages { get; } = new();
     public bool IsConnected => _call != null;
     public event Action? ConnectionStateChanged;
     public event Action<ChatMessage>? MessageReceived;
+
+    /// <summary>Load messages from local storage (TR-11.1). Call on app start.</summary>
+    public void LoadFromStore()
+    {
+        if (_store == null) return;
+        Messages.Clear();
+        foreach (var msg in _store.Load())
+            Messages.Add(msg);
+    }
+
+    /// <summary>Add a user message and persist (TR-11.1).</summary>
+    public void AddUserMessage(ChatMessage message)
+    {
+        Messages.Add(message);
+        _store?.Add(message);
+    }
+
+    public void SetArchived(ChatMessage message, bool archived)
+    {
+        if (message.Id is { } id)
+            _store?.SetArchived(id, archived);
+    }
 
     public async Task ConnectAsync(string host, int port, CancellationToken ct = default)
     {
@@ -64,6 +89,21 @@ public class AgentGatewayClientService
         }, ct);
     }
 
+    /// <summary>Sends image or video as agent context (FR-10.1).</summary>
+    public async Task SendMediaAsync(byte[] content, string contentType, string? fileName, CancellationToken ct = default)
+    {
+        if (_call?.RequestStream == null) return;
+        await _call.RequestStream.WriteAsync(new ClientMessage
+        {
+            MediaUpload = new MediaUpload
+            {
+                Content = Google.Protobuf.ByteString.CopyFrom(content),
+                ContentType = contentType ?? "application/octet-stream",
+                FileName = fileName ?? ""
+            }
+        }, ct);
+    }
+
     public async Task StopSessionAsync(CancellationToken ct = default)
     {
         await SendControlAsync(SessionControl.Types.Action.Stop, ct);
@@ -91,11 +131,17 @@ public class AgentGatewayClientService
                     chat = new ChatMessage { IsUser = false, Text = msg.Error, IsError = true, Priority = priority };
                 else if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Event && msg.Event != null)
                     chat = new ChatMessage { IsEvent = true, EventMessage = msg.Event.Message ?? msg.Event.Kind.ToString(), Priority = priority };
+                else if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Media && msg.Media != null)
+                {
+                    var saved = SaveReceivedMedia(msg.Media);
+                    chat = new ChatMessage { IsUser = false, Text = saved, Priority = priority };
+                }
                 if (chat != null)
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         Messages.Add(chat);
+                        _store?.Add(chat);
                         MessageReceived?.Invoke(chat);
                     });
                 }
@@ -116,5 +162,19 @@ public class AgentGatewayClientService
             MessagePriority.Notify => ChatMessagePriority.Notify,
             _ => ChatMessagePriority.Normal,
         };
+    }
+
+    /// <summary>Save received media to DCIM/Remote Agent (TR-11.3). Returns text for chat bubble.</summary>
+    private static string SaveReceivedMedia(MediaChunk media)
+    {
+        try
+        {
+            var path = MediaSaveService.SaveToDcimRemoteAgent(media.Content.ToByteArray(), media.ContentType, media.FileName);
+            return string.IsNullOrEmpty(path) ? "Received media." : $"Saved: {path}";
+        }
+        catch (Exception ex)
+        {
+            return $"Save failed: {ex.Message}";
+        }
     }
 }

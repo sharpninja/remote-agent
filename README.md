@@ -69,13 +69,13 @@ You can install the Remote Agent APK using the **F-Droid** client and this proje
 4. Tap **Add repository** (or the **+** button).
 5. Enter the repository URL (replace `<owner>` and `<repo>` with the GitHub org/user and repo name):
    ```
-   https://<owner>.github.io/<repo>/
+   https://<owner>.github.io/<repo>/repo
    ```
    Example for this repo:
    ```
-   https://sharpninja.github.io/remote-agent/
+   https://sharpninja.github.io/remote-agent/repo
    ```
-   ![QR: F-Droid repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2F)
+   ![QR: F-Droid repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Frepo)
 6. Confirm. F-Droid will fetch the repo index. You may need to **Update** the repo list (pull-to-refresh or **Update** in the Repositories screen) so the app appears.
 
 ### 3. Install Remote Agent

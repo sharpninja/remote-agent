@@ -15,4 +15,7 @@ public class AgentOptions
 
     /// <summary>Runner to use: "process" (default) or a plugin runner id from a loaded assembly.</summary>
     public string? RunnerId { get; set; }
+
+    /// <summary>Data directory for LiteDB and uploaded media (TR-11.1, TR-11.2). Defaults to ./data.</summary>
+    public string? DataDirectory { get; set; }
 }

@@ -1,16 +1,20 @@
 using System.Windows.Input;
 using RemoteAgent.App.Services;
 using RemoteAgent.Proto;
+using Microsoft.Maui.Storage;
 
 namespace RemoteAgent.App;
 
 public partial class MainPage : ContentPage
 {
-    private readonly AgentGatewayClientService _gateway = new();
+    private readonly ILocalMessageStore _store = new LocalMessageStore(Path.Combine(FileSystem.AppDataDirectory, "remote-agent.db"));
+    private readonly AgentGatewayClientService _gateway;
 
     public MainPage()
     {
+        _gateway = new AgentGatewayClientService(_store);
         InitializeComponent();
+        _gateway.LoadFromStore();
         MessagesList.ItemsSource = _gateway.Messages;
         _gateway.ConnectionStateChanged += UpdateConnectionState;
         _gateway.MessageReceived += OnMessageReceived;
@@ -19,7 +23,11 @@ public partial class MainPage : ContentPage
 
     public ICommand ArchiveMessageCommand => new Command<ChatMessage>(msg =>
     {
-        if (msg != null) msg.IsArchived = true;
+        if (msg != null)
+        {
+            msg.IsArchived = true;
+            _gateway.SetArchived(msg, true);
+        }
     });
 
     private void OnMessageReceived(ChatMessage msg)
@@ -42,6 +50,7 @@ public partial class MainPage : ContentPage
         ConnectBtn.IsEnabled = !_gateway.IsConnected;
         DisconnectBtn.IsEnabled = _gateway.IsConnected;
         SendBtn.IsEnabled = _gateway.IsConnected;
+        AttachBtn.IsEnabled = _gateway.IsConnected;
         MessageEntry.IsEnabled = _gateway.IsConnected;
         StatusLabel.Text = _gateway.IsConnected ? "Connected" : "Enter host and port, then Connect.";
     }
@@ -92,7 +101,7 @@ public partial class MainPage : ContentPage
     {
         var text = (MessageEntry.Text ?? "").Trim();
         if (string.IsNullOrEmpty(text) || !_gateway.IsConnected) return;
-        _gateway.Messages.Add(new ChatMessage { IsUser = true, Text = text });
+        _gateway.AddUserMessage(new ChatMessage { IsUser = true, Text = text });
         MessageEntry.Text = "";
         try
         {
@@ -100,6 +109,33 @@ public partial class MainPage : ContentPage
                 await _gateway.SendScriptRequestAsync(pathOrCommand, scriptType);
             else
                 await _gateway.SendTextAsync(text);
+        }
+        catch (Exception ex)
+        {
+            _gateway.Messages.Add(new ChatMessage { IsError = true, Text = ex.Message });
+        }
+    }
+
+    private async void OnAttachClicked(object? sender, EventArgs e)
+    {
+        if (!_gateway.IsConnected) return;
+        try
+        {
+            var customFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+            {
+                [DevicePlatform.Android] = new[] { "image/*", "video/*" },
+                [DevicePlatform.WinUI] = new[] { ".jpg", ".jpeg", ".png", ".gif", ".webp", ".mp4", ".webm" }
+            });
+            var result = await FilePicker.Default.PickAsync(new PickOptions { PickerTitle = "Pick image or video", FileTypes = customFileType });
+            if (result == null) return;
+            await using var stream = await result.OpenReadAsync();
+            using var ms = new MemoryStream();
+            await stream.CopyToAsync(ms);
+            var content = ms.ToArray();
+            var contentType = result.ContentType ?? "application/octet-stream";
+            var fileName = result.FileName ?? "attachment";
+            _gateway.AddUserMessage(new ChatMessage { IsUser = true, Text = $"[Attachment: {fileName}]" });
+            await _gateway.SendMediaAsync(content, contentType, fileName);
         }
         catch (Exception ex)
         {

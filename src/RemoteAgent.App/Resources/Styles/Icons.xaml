@@ -12,4 +12,5 @@
     <x:String x:Key="IconRobot">&#xf544;</x:String>         <!-- agent output -->
     <x:String x:Key="IconTriangleExclamation">&#xf071;</x:String> <!-- error -->
     <x:String x:Key="IconBoxArchive">&#xf187;</x:String>     <!-- archive -->
+    <x:String x:Key="IconPaperclip">&#xf0c6;</x:String>      <!-- attach image/video -->
 </ResourceDictionary>

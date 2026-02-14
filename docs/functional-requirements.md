@@ -82,4 +82,15 @@
 
 ---
 
+## 11. Multiple sessions and agent selection
+
+- **FR-11.1** The **client app** shall support **multiple sessions**, each with their own **session-id** (e.g. the user can have several concurrent or saved chat sessions, each identified by a unique session-id).
+  - **FR-11.1.1** The **server** shall use the **session-id** to **manage interactions with specific agents** (e.g. each session is bound to one agent; the server routes messages and agent lifecycle by session-id).
+  - **FR-11.1.2** When **starting a chat session**, the app shall **ask which agent to use** from a **list of configured agents** (e.g. a picker or selection step before or at session start so the user chooses which agent to talk to).
+  - **FR-11.1.3** Sessions shall have a **user-definable title**, **defaulting to the text of the first request** (e.g. the session label in the UI can be edited by the user; if not set, it is the first message sent in that session).
+    - **FR-11.1.3.1** **Tapping on the session title** shall **swap to an editor control** with the **text highlighted** and the **keyboard opened** (e.g. inline edit: tap title → replace with focused text field, full text selected, soft keyboard shown).
+    - **FR-11.1.3.2** **Tapping off the editor** (e.g. tapping outside the title field or dismissing focus) shall **commit the updated session title** (e.g. unfocus → save the current text as the session title and return to display mode).
+
+---
+
 *These requirements were recovered from the crashed Project Initializer session and reflect the intended product behavior.*

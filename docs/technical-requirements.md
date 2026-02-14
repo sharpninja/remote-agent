@@ -41,6 +41,7 @@
 - **TR-4.2** **ClientMessage** shall support: (a) **text** — user message to forward to the agent; (b) **control** — start or stop the session.
 - **TR-4.3** **ServerMessage** shall support: (a) **output** — agent stdout line; (b) **error** — agent stderr line; (c) **event** — session lifecycle (e.g. session started, stopped, error); (d) **priority** — optional level (e.g. normal, high, notify) for the message.
 - **TR-4.4** The RPC shall be **duplex streaming** so that the client can send messages and receive server messages over the same connection without opening multiple calls per message.
+- **TR-4.5** A **correlation ID** shall be added to **each request** (e.g. on `ClientMessage` or on each payload that expects a response); the **server** shall **echo or carry** the same correlation ID on the **corresponding asynchronous response(s)** (e.g. on `ServerMessage`) so the client can **match responses to requests**.
 
 ---
 
@@ -104,6 +105,18 @@
 - **TR-11.1** **Both the app and the server** shall use **LiteDB** for **local storage of requests and results** (e.g. chat messages, agent requests, and agent responses persisted on device and on the server for history, replay, or offline use).
 - **TR-11.2** **Uploaded images and videos** (media sent from the app to the server as agent context) shall be **stored on the server alongside the LiteDB file** (e.g. in the same data directory or a dedicated media subdirectory).
 - **TR-11.3** **Images sent to the app** (e.g. from the agent or server) shall be **stored in a `Remote Agent` folder** of the **DCIM library** on the device (e.g. `DCIM/Remote Agent/` so they appear in the device gallery).
+
+---
+
+## 12. Multiple sessions and agent selection — FR-11.1
+
+- **TR-12.1** **Protocol:** **SessionControl** (or equivalent) shall carry a **client-provided session_id** (string) and, for **START**, an optional **agent_id** (string) so the server can create or resume a session with that id and bind it to the chosen agent (FR-11.1, FR-11.1.1).
+- **TR-12.2** **Server:** The service shall **maintain a map of session_id → agent session** (e.g. in-memory or backed by storage) and **route** all messages on that stream to the agent bound to the **session_id** sent with START; each stream is treated as one logical session (FR-11.1.1).
+- **TR-12.3** **Server:** The service shall **expose the list of configured agents** (e.g. agent id and display name) to the client so the app can show an agent picker (e.g. gRPC method `ListAgents` or equivalent, or configuration delivered at connect) (FR-11.1.2).
+- **TR-12.4** **App:** The app shall maintain a **session list** (or session switcher) so the user can have **multiple sessions**; each session has a **session_id**, **title**, and **agent_id**; session list and metadata shall be **persisted** in local storage (e.g. LiteDB) (FR-11.1).
+- **TR-12.5** **App:** When **starting a chat session**, the app shall **obtain the list of agents** (from server or config), **show an agent picker**, and send **SessionControl START** with the chosen **session_id** and **agent_id** (FR-11.1.2).
+- **TR-12.6** **App:** Each session shall have a **user-definable title**, **defaulting to the text of the first request**; the title shall be **stored** in local storage and **displayed** in the session list or header (FR-11.1.3).
+- **TR-12.7** **App:** **Tapping the session title** shall **swap to an inline editor** (e.g. focused Entry/Editor) with the **text selected** and the **keyboard opened**; **tapping off** (unfocus) shall **commit** the title and return to display mode (FR-11.1.3.1, FR-11.1.3.2).
 
 ---
 
