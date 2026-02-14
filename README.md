@@ -169,3 +169,4 @@ dotnet test RemoteAgent.slnx
 
 - **Source code:** [https://github.com/sharpninja/remote-agent](https://github.com/sharpninja/remote-agent)  
   ![QR: GitHub repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent)
+- **Documentation:** [Implementing CLI agents](docs/implementing-cli-agents.md) — guide for creating custom agents that integrate with the server
