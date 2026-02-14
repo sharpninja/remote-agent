@@ -5,6 +5,9 @@
 # On main: push directly unless --pr (or USE_PR=1) to use a pull request.
 # Usage: ./scripts/sync-all.sh [commit_message]
 #        ./scripts/sync-all.sh --pr [commit_message]   (main only)
+#        echo "Your commit message" | ./scripts/sync-all.sh
+#        ./scripts/sync-all.sh <<< "Your commit message"
+# When stdin is not a terminal (e.g. piped), the commit message is read from stdin.
 
 set -euo pipefail
 
@@ -20,6 +23,12 @@ for arg in "$@"; do
     COMMIT_MSG="$arg"
   fi
 done
+if [ ! -t 0 ]; then
+  read -r COMMIT_MSG_FROM_STDIN || true
+  if [ -n "${COMMIT_MSG_FROM_STDIN}" ]; then
+    COMMIT_MSG="$COMMIT_MSG_FROM_STDIN"
+  fi
+fi
 
 echo "=== 1. Commit ==="
 if git status --porcelain | grep -q .; then
@@ -56,7 +65,7 @@ else
   git push origin "$BRANCH"
 fi
 
-echo "=== 3. Monitor pipeline and update container on success ==="
+echo "=== 3. Monitor pipeline and install image on success (container not started) ==="
 echo "Waiting 20s for the new run to appear..."
 sleep 20
-exec "$REPO_ROOT/scripts/watch-and-update-container.sh"
+INSTALL_ONLY=1 exec "$REPO_ROOT/scripts/watch-and-update-container.sh"
