@@ -1,5 +1,7 @@
 # Remote Agent
 
+[![Build and Deploy](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml)
+
 Android app (MAUI) that talks to a Linux service over gRPC. The service spawns a Cursor agent process, forwards messages from the app to the agent, and streams agent output back to the app in real time. All interaction is logged.
 
 **Documentation (requirements, design):** [sharpninja.github.io/remote-agent](https://sharpninja.github.io/remote-agent)  
