@@ -1,0 +1,9 @@
+/* Constrain the navbar logo so it doesn't overflow */
+#logo,
+nav .navbar-brand img#logo {
+  max-height: 2.5rem;
+  max-width: 10rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
