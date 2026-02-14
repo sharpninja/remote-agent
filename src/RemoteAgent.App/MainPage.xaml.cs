@@ -7,6 +7,10 @@ namespace RemoteAgent.App;
 
 public partial class MainPage : ContentPage
 {
+    private const string PrefServerHost = "ServerHost";
+    private const string PrefServerPort = "ServerPort";
+    private const string DefaultPort = "5243";
+
     private readonly ILocalMessageStore _store = new LocalMessageStore(Path.Combine(FileSystem.AppDataDirectory, "remote-agent.db"));
     private readonly AgentGatewayClientService _gateway;
 
@@ -14,11 +18,27 @@ public partial class MainPage : ContentPage
     {
         _gateway = new AgentGatewayClientService(_store);
         InitializeComponent();
+        LoadSavedServerDetails();
         _gateway.LoadFromStore();
         MessagesList.ItemsSource = _gateway.Messages;
         _gateway.ConnectionStateChanged += UpdateConnectionState;
         _gateway.MessageReceived += OnMessageReceived;
         UpdateConnectionState();
+    }
+
+    private void LoadSavedServerDetails()
+    {
+        var host = Preferences.Default.Get(PrefServerHost, "");
+        var port = Preferences.Default.Get(PrefServerPort, DefaultPort);
+        if (!string.IsNullOrEmpty(host))
+            HostEntry.Text = host;
+        PortEntry.Text = string.IsNullOrEmpty(port) ? DefaultPort : port;
+    }
+
+    private void SaveServerDetails(string host, int port)
+    {
+        Preferences.Default.Set(PrefServerHost, host ?? "");
+        Preferences.Default.Set(PrefServerPort, port.ToString());
     }
 
     public ICommand ArchiveMessageCommand => new Command<ChatMessage>(msg =>
@@ -73,6 +93,7 @@ public partial class MainPage : ContentPage
         try
         {
             await _gateway.ConnectAsync(host, port);
+            SaveServerDetails(host, port);
             StatusLabel.Text = "Connected.";
         }
         catch (Exception ex)
