@@ -54,3 +54,9 @@ nav .navbar-brand img#logo {
     display: none;
   }
 }
+
+/* Remove left padding from doc body */
+.layout-with-sidebar,
+.layout-with-sidebar .content {
+  padding-left: 0;
+}
