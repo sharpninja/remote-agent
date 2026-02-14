@@ -12,4 +12,7 @@ public class AgentOptions
 
     /// <summary>Directory to write session log files. Defaults to temp.</summary>
     public string? LogDirectory { get; set; }
+
+    /// <summary>Runner to use: "process" (default) or a plugin runner id from a loaded assembly.</summary>
+    public string? RunnerId { get; set; }
 }

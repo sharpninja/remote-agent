@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using RemoteAgent.App.Services;
+using RemoteAgent.Proto;
 
 namespace RemoteAgent.App;
 
@@ -95,11 +96,39 @@ public partial class MainPage : ContentPage
         MessageEntry.Text = "";
         try
         {
-            await _gateway.SendTextAsync(text);
+            if (TryParseScriptRun(text, out var pathOrCommand, out var scriptType))
+                await _gateway.SendScriptRequestAsync(pathOrCommand, scriptType);
+            else
+                await _gateway.SendTextAsync(text);
         }
         catch (Exception ex)
         {
             _gateway.Messages.Add(new ChatMessage { IsError = true, Text = ex.Message });
         }
+    }
+
+    /// <summary>Parse /run bash &lt;path&gt; or /run pwsh &lt;path&gt; (FR-9.1).</summary>
+    private static bool TryParseScriptRun(string text, out string pathOrCommand, out ScriptType scriptType)
+    {
+        pathOrCommand = "";
+        scriptType = ScriptType.Bash;
+        const string prefix = "/run ";
+        if (text.Length <= prefix.Length || !text.StartsWith(prefix, StringComparison.OrdinalIgnoreCase)) return false;
+        var rest = text[prefix.Length..].TrimStart();
+        if (rest.StartsWith("bash ", StringComparison.OrdinalIgnoreCase))
+        {
+            scriptType = ScriptType.Bash;
+            pathOrCommand = rest["bash ".Length..].Trim();
+        }
+        else if (rest.StartsWith("pwsh ", StringComparison.OrdinalIgnoreCase))
+        {
+            scriptType = ScriptType.Pwsh;
+            pathOrCommand = rest["pwsh ".Length..].Trim();
+        }
+        else
+        {
+            pathOrCommand = rest;
+        }
+        return pathOrCommand.Length > 0;
     }
 }

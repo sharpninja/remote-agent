@@ -16,7 +16,20 @@ message ClientMessage {
   oneof payload {
     string text = 1;           // user message to forward to the agent
     SessionControl control = 2; // start/stop session
+    ScriptRequest script_request = 3;  // run a script (bash/pwsh), get stdout/stderr on completion (FR-9.1)
   }
+}
+
+// ScriptRequest: run a script and return stdout/stderr when done (FR-9.1, FR-9.2).
+message ScriptRequest {
+  string path_or_command = 1;   // path to script file or command string
+  ScriptType script_type = 2;  // bash or pwsh
+}
+
+enum ScriptType {
+  SCRIPT_TYPE_UNSPECIFIED = 0;
+  BASH = 1;
+  PWSH = 2;
 }
 
 // SessionControl: start or end the agent session.

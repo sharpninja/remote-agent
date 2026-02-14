@@ -1,15 +1,15 @@
-using System.Diagnostics;
-using System.IO.Pipes;
 using System.Text;
 using Grpc.Core;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Proto;
+using RemoteAgent.Service.Agents;
 
 namespace RemoteAgent.Service.Services;
 
 public class AgentGatewayService(
     ILogger<AgentGatewayService> logger,
-    IOptions<AgentOptions> options) : AgentGateway.AgentGatewayBase
+    IOptions<AgentOptions> options,
+    IAgentRunnerFactory agentRunnerFactory) : AgentGateway.AgentGatewayBase
 {
     public override async Task Connect(
         IAsyncStreamReader<ClientMessage> requestStream,
@@ -29,7 +29,7 @@ public class AgentGatewayService(
             try { logWriter.WriteLine(entry); } catch { /* ignore */ }
         }
 
-        Process? agentProcess = null;
+        IAgentSession? agentSession = null;
         var cts = new CancellationTokenSource();
         context.CancellationToken.Register(() => cts.Cancel());
         var requestTask = Task.Run(async () =>
@@ -43,7 +43,7 @@ public class AgentGatewayService(
                         var action = msg.Control.Action;
                         if (action == SessionControl.Types.Action.Start)
                         {
-                            if (agentProcess != null)
+                            if (agentSession != null)
                             {
                                 Log("Session already started");
                                 continue;
@@ -65,8 +65,27 @@ public class AgentGatewayService(
                             }
                             try
                             {
-                                agentProcess = StartAgentProcess(cmd, options.Value.Arguments, logWriter, sessionId);
-                                Log($"Agent started (PID {agentProcess.Id})");
+                                var agentRunner = agentRunnerFactory.GetRunner();
+                                agentSession = await agentRunner.StartAsync(
+                                    cmd,
+                                    options.Value.Arguments,
+                                    sessionId,
+                                    logWriter,
+                                    context.CancellationToken);
+                                if (agentSession == null)
+                                {
+                                    await responseStream.WriteAsync(new ServerMessage
+                                    {
+                                        Priority = MessagePriority.Normal,
+                                        Event = new SessionEvent
+                                        {
+                                            Kind = SessionEvent.Types.Kind.SessionError,
+                                            Message = "Agent runner did not start a session."
+                                        }
+                                    }, context.CancellationToken);
+                                    continue;
+                                }
+                                Log("Agent started");
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
@@ -89,10 +108,11 @@ public class AgentGatewayService(
                         }
                         else if (action == SessionControl.Types.Action.Stop)
                         {
-                            if (agentProcess != null)
+                            if (agentSession != null)
                             {
-                                try { agentProcess.Kill(entireProcessTree: true); } catch { /* ignore */ }
-                                agentProcess = null;
+                                agentSession.Stop();
+                                try { agentSession.Dispose(); } catch { }
+                                agentSession = null;
                                 Log("Agent stopped");
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
@@ -105,12 +125,11 @@ public class AgentGatewayService(
                     else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Text && !string.IsNullOrEmpty(msg.Text))
                     {
                         Log($"→ {msg.Text}");
-                        if (agentProcess?.StandardInput != null && !agentProcess.HasExited)
+                        if (agentSession != null && !agentSession.HasExited)
                         {
                             try
                             {
-                                await agentProcess.StandardInput.WriteLineAsync(msg.Text);
-                                await agentProcess.StandardInput.FlushAsync();
+                                await agentSession.SendInputAsync(msg.Text, context.CancellationToken);
                             }
                             catch (Exception ex)
                             {
@@ -127,6 +146,26 @@ public class AgentGatewayService(
                             }, context.CancellationToken);
                         }
                     }
+                    else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.ScriptRequest && msg.ScriptRequest != null)
+                    {
+                        var req = msg.ScriptRequest;
+                        var pathOrCommand = req.PathOrCommand ?? "";
+                        var scriptType = req.ScriptType == ScriptType.Unspecified ? ScriptType.Bash : req.ScriptType;
+                        Log($"Script run: {scriptType} {pathOrCommand}");
+                        try
+                        {
+                            var (stdout, stderr) = await ScriptRunner.RunAsync(pathOrCommand, scriptType, context.CancellationToken);
+                            if (!string.IsNullOrEmpty(stdout))
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Output = stdout }, context.CancellationToken);
+                            if (!string.IsNullOrEmpty(stderr))
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = stderr }, context.CancellationToken);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log($"Script failed: {ex.Message}", "ERROR");
+                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message }, context.CancellationToken);
+                        }
+                    }
                 }
             }
             catch (OperationCanceledException) { }
@@ -136,49 +175,31 @@ public class AgentGatewayService(
             }
             finally
             {
-                if (agentProcess != null)
+                if (agentSession != null)
                 {
-                    try { agentProcess.Kill(entireProcessTree: true); } catch { }
+                    try { agentSession.Stop(); agentSession.Dispose(); } catch { }
                 }
                 cts.Cancel();
             }
         }, cts.Token);
 
-        // Stream agent stdout/stderr to responseStream
+        // Wait for session to start, then stream stdout/stderr
         try
         {
-            while (agentProcess == null && !context.CancellationToken.IsCancellationRequested)
+            while (agentSession == null && !context.CancellationToken.IsCancellationRequested)
                 await Task.Delay(50, context.CancellationToken);
         }
         catch (OperationCanceledException) { }
 
-        if (agentProcess != null)
+        if (agentSession != null)
         {
-            var stdoutTask = StreamReaderToResponse(agentProcess.StandardOutput, responseStream, isError: false, context.CancellationToken, Log, "stdout");
-            var stderrTask = StreamReaderToResponse(agentProcess.StandardError, responseStream, isError: true, context.CancellationToken, Log, "stderr");
+            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, isError: false, context.CancellationToken, Log, "stdout");
+            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, isError: true, context.CancellationToken, Log, "stderr");
             await Task.WhenAll(stdoutTask, stderrTask);
         }
 
         await requestTask;
         Log($"Session {sessionId} ended. Log: {logPath}");
-    }
-
-    private static Process StartAgentProcess(string command, string? arguments, StreamWriter logWriter, string sessionId)
-    {
-        var psi = new ProcessStartInfo
-        {
-            FileName = command,
-            Arguments = arguments ?? "",
-            UseShellExecute = false,
-            RedirectStandardInput = true,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            CreateNoWindow = true,
-            StandardOutputEncoding = Encoding.UTF8,
-            StandardErrorEncoding = Encoding.UTF8,
-        };
-        var p = Process.Start(psi) ?? throw new InvalidOperationException("Process.Start returned null");
-        return p;
     }
 
     private static async Task StreamReaderToResponse(

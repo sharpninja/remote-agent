@@ -31,9 +31,9 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 | **FR-6.2** | Pipeline updates repo and deploys to Pages | **Done** | build-deploy.yml: fdroid-pages + deploy-pages |
 | **FR-7.1** | Connection = session; agent start/stop with session | **Done** | One stream = one session; START/STOP control |
 | **FR-7.2** | Session events visible in chat | **Done** | SessionEvent (started/stopped/error) as chat messages |
-| **FR-8.1** | Additional CLI agents via plugins | **Not started** | No plugin/strategy or assembly loading in codebase |
-| **FR-9.1** | User can run bash/pwsh script from chat | **Not started** | No script syntax or execution in proto/app/service |
-| **FR-9.2** | Script stdout/stderr on completion | **Not started** | Depends on FR-9.1 |
+| **FR-8.1** | Additional CLI agents via plugins | **Done** | IAgentRunner strategy; plugin assemblies in Plugins:Assemblies |
+| **FR-9.1** | User can run bash/pwsh script from chat | **Done** | ScriptRequest in proto; /run bash &lt;path&gt; or /run pwsh &lt;path&gt; in app |
+| **FR-9.2** | Script stdout/stderr on completion | **Done** | ScriptRunner runs script; server sends output/error messages |
 | **FR-10.1** | User can send images or video as agent context | **Not started** | No media in proto or app send path |
 
 ---
@@ -84,8 +84,8 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 | **TR-9.1** | Font Awesome iconography | **Done** | fa-solid-900, Icons.xaml |
 | **TR-9.2** | Material Design norms | **Done** | M3 tokens, MaterialTheme, ThemeColors |
 | **TR-9.3** | Light/dark theming | **Done** | AppThemeBinding, ThemeColors |
-| **TR-10.1** | Plugins via strategy pattern (FR-8.1) | **Not started** | No agent interface or plugin strategy |
-| **TR-10.2** | Plugin discovery via appsettings (assemblies) | **Not started** | No plugin loading |
+| **TR-10.1** | Plugins via strategy pattern (FR-8.1) | **Done** | IAgentSession, IAgentRunner, ProcessAgentRunner; gateway uses IAgentRunnerFactory |
+| **TR-10.2** | Plugin discovery via appsettings (assemblies) | **Done** | Plugins:Assemblies; PluginLoader.BuildRunnerRegistry; Agent:RunnerId |
 | **TR-11.1** | App and server use LiteDB for requests/results | **Not started** | No LiteDB references in code |
 | **TR-11.2** | Uploaded images/videos stored alongside LiteDB on server | **Not started** | No media storage (depends on TR-11.1, FR-10.1) |
 | **TR-11.3** | Images to app stored in DCIM/Remote Agent | **Not started** | No image receive/save (depends on FR-10.1) |
@@ -96,12 +96,12 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
-| **Functional (FR)** | 24 | 0 | 5 |
-| **Technical (TR)** | 42 | 0 | 5 |
+| **Functional (FR)** | 27 | 0 | 2 |
+| **Technical (TR)** | 44 | 0 | 3 |
 
-**Not started (FR):** FR-8.1 (plugins), FR-9.1/9.2 (run scripts from chat), FR-10.1 (send images/video as context).
+**Not started (FR):** FR-10.1 (send images/video as agent context).
 
-**Not started (TR):** TR-10.1/10.2 (plugin strategy and discovery), TR-11.1 (LiteDB), TR-11.2 (server media storage), TR-11.3 (DCIM/Remote Agent for received images).
+**Not started (TR):** TR-11.1 (LiteDB), TR-11.2 (server media storage), TR-11.3 (DCIM/Remote Agent for received images).
 
 ---
 

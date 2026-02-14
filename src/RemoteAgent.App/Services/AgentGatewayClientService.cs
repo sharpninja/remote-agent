@@ -54,6 +54,16 @@ public class AgentGatewayClientService
         await _call.RequestStream.WriteAsync(new ClientMessage { Text = text }, ct);
     }
 
+    /// <summary>Sends a script run request (FR-9.1). Server returns stdout/stderr on completion.</summary>
+    public async Task SendScriptRequestAsync(string pathOrCommand, ScriptType scriptType, CancellationToken ct = default)
+    {
+        if (_call?.RequestStream == null) return;
+        await _call.RequestStream.WriteAsync(new ClientMessage
+        {
+            ScriptRequest = new ScriptRequest { PathOrCommand = pathOrCommand, ScriptType = scriptType }
+        }, ct);
+    }
+
     public async Task StopSessionAsync(CancellationToken ct = default)
     {
         await SendControlAsync(SessionControl.Types.Action.Stop, ct);
