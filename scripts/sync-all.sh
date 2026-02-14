@@ -57,4 +57,6 @@ else
 fi
 
 echo "=== 3. Monitor pipeline and update container on success ==="
+echo "Waiting 20s for the new run to appear..."
+sleep 20
 exec "$REPO_ROOT/scripts/watch-and-update-container.sh"

@@ -418,6 +418,8 @@ jobs:
           workflow: build-deploy.yml
           name: pages-content
           path: fdroid-repo
+          branch: ${{ github.ref_name }}
+          workflow_conclusion: success
           workflow_search: true
           search_artifacts: true
           if_no_artifact_found: ignore
