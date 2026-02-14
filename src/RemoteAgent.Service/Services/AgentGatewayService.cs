@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using Grpc.Core;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Proto;
@@ -20,6 +21,17 @@ public class AgentGatewayService(
     ILocalStorage localStorage,
     MediaStorageService mediaStorage) : AgentGateway.AgentGatewayBase
 {
+    /// <summary>Strips ANSI escape sequences (e.g. color codes) from text before sending to the client.</summary>
+    private static string StripAnsi(string? text)
+    {
+        if (string.IsNullOrEmpty(text)) return text ?? "";
+        // CSI: ESC [ parameters letter (colors, cursor, etc.)
+        text = Regex.Replace(text, @"\x1b\[[0-9;]*[a-zA-Z]", "");
+        // OSC: ESC ] ... BEL or ESC \
+        text = Regex.Replace(text, @"\x1b\][^\x07\x1b]*(?:\x07|\x1b\\)?", "");
+        return text;
+    }
+
     /// <summary>Returns server version, capabilities (e.g. scripts, media_upload, agents), and list of available agent runner ids.</summary>
     public override Task<ServerInfoResponse> GetServerInfo(ServerInfoRequest request, ServerCallContext context)
     {
@@ -161,7 +173,7 @@ public class AgentGatewayService(
                             catch (Exception ex)
                             {
                                 Log($"Write to agent failed: {ex.Message}", "ERROR");
-                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message }, context.CancellationToken);
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = StripAnsi(ex.Message) }, context.CancellationToken);
                             }
                         }
                         else
@@ -185,13 +197,15 @@ public class AgentGatewayService(
                             var (stdout, stderr) = await ScriptRunner.RunAsync(pathOrCommand, scriptType, context.CancellationToken);
                             if (!string.IsNullOrEmpty(stdout))
                             {
-                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Output = stdout }, context.CancellationToken);
-                                localStorage.LogResponse(sessionId, "Output", stdout);
+                                var outClean = StripAnsi(stdout);
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Output = outClean }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Output", outClean);
                             }
                             if (!string.IsNullOrEmpty(stderr))
                             {
-                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = stderr }, context.CancellationToken);
-                                localStorage.LogResponse(sessionId, "Error", stderr);
+                                var errClean = StripAnsi(stderr);
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = errClean }, context.CancellationToken);
+                                localStorage.LogResponse(sessionId, "Error", errClean);
                             }
                         }
                         catch (Exception ex)
@@ -278,8 +292,9 @@ public class AgentGatewayService(
             while ((line = await reader.ReadLineAsync(ct)) != null)
             {
                 log($"[{streamName}] {line}", isError ? "STDERR" : "INFO");
+                var clean = StripAnsi(line);
                 var msg = new ServerMessage { Priority = MessagePriority.Normal };
-                if (isError) msg.Error = line; else msg.Output = line;
+                if (isError) msg.Error = clean; else msg.Output = clean;
                 await responseStream.WriteAsync(msg, ct);
             }
         }
