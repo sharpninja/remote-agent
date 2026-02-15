@@ -34,7 +34,7 @@ public partial class MainPage : ContentPage
             if (value != null)
             {
                 _gateway.LoadFromStore(value.SessionId);
-                if (SessionTitleLabel != null) SessionTitleLabel.Text = value.Title;
+                UpdateSessionTitleControls(value.Title);
                 if (SessionTitleEntry != null) SessionTitleEntry.Text = value.Title;
             }
             else
@@ -156,17 +156,23 @@ public partial class MainPage : ContentPage
                 Title = "New chat",
                 AgentId = agentId
             };
-            _sessionStore.Add(session);
-            Sessions.Insert(0, session);
-            CurrentSession = session;
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                _sessionStore.Add(session);
+                Sessions.Insert(0, session);
+                CurrentSession = session;
+            });
         }
         else if (string.IsNullOrEmpty(CurrentSession.AgentId))
         {
             var agentId = await ShowAgentPickerAsync(serverInfo);
             if (agentId == null) { StatusLabel.Text = "Enter host and port, then Connect."; return; }
-            CurrentSession.AgentId = agentId;
-            // Persist: we don't have UpdateAgentId on store; session is already in store with empty AgentId. Add one that updates - for now just set on model; next time we load we'd lose it unless we add UpdateAgentId. For minimal we can re-add or update. SessionStore has UpdateTitle only. So add UpdateAgentId to store or store full session. Easiest: when we load sessions we get from DB - so we need to persist AgentId. I'll add UpdateAgentId to session store.
-            _sessionStore.UpdateAgentId(CurrentSession.SessionId, agentId);
+            var sessionId = CurrentSession.SessionId;
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                CurrentSession!.AgentId = agentId;
+                _sessionStore.UpdateAgentId(sessionId, agentId);
+            });
         }
 
         StatusLabel.Text = "Connecting...";
