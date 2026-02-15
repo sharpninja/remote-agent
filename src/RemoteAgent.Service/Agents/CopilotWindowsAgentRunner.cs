@@ -5,17 +5,15 @@ using Microsoft.Extensions.Options;
 
 namespace RemoteAgent.Service.Agents;
 
-/// <summary>Starts an agent by spawning a process (FR-1.2, TR-3.2, TR-10.1). Uses <see cref="AgentOptions.Command"/> and <see cref="AgentOptions.Arguments"/>.</summary>
-/// <remarks>Default runner when <see cref="AgentOptions.RunnerId"/> is "process" or not set. When Command is not configured, uses "agent" on non-Windows and "copilot" on Windows. For a quick test, set Command to <c>/bin/cat</c> to echo lines back.</remarks>
-/// <example><code>
-/// // appsettings: "Agent": { "Command": "/path/to/agent", "RunnerId": "process" }
-/// var session = await processAgentRunner.StartAsync(null, null, "sess-1", logWriter, ct);
-/// </code></example>
-/// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-3, TR-10)</see>
-public sealed class ProcessAgentRunner(IOptions<AgentOptions> options) : IAgentRunner
+/// <summary>Agent strategy for GitHub Copilot CLI on Windows (TR-10.1, FR-8.1). Resolves the Copilot executable (e.g. from PATH after winget/npm install) and spawns it as a process.</summary>
+/// <remarks>Use <c>RunnerId: "copilot-windows"</c> to select this runner. On non-Windows platforms, <see cref="StartAsync"/> returns null. When Command is not set, uses "copilot" (expect it on PATH, e.g. from <c>winget install GitHub.Copilot</c> or <c>npm install -g @github/copilot</c>).</remarks>
+/// <see href="https://docs.github.com/en/copilot/how-tos/copilot-cli">GitHub Copilot CLI</see>
+public sealed class CopilotWindowsAgentRunner(IOptions<AgentOptions> options) : IAgentRunner
 {
-    /// <summary>Default agent command when not configured: "copilot" on Windows, "agent" otherwise.</summary>
-    private static string DefaultCommand => RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "copilot" : "agent";
+    /// <summary>Runner id for configuration: "copilot-windows".</summary>
+    public const string RunnerId = "copilot-windows";
+
+    private static string DefaultCommand => "copilot";
 
     /// <inheritdoc />
     public Task<IAgentSession?> StartAsync(
@@ -25,6 +23,9 @@ public sealed class ProcessAgentRunner(IOptions<AgentOptions> options) : IAgentR
         StreamWriter? logWriter,
         CancellationToken cancellationToken = default)
     {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            return Task.FromResult<IAgentSession?>(null);
+
         var cmd = command ?? options.Value.Command;
         if (string.IsNullOrWhiteSpace(cmd))
             cmd = DefaultCommand;

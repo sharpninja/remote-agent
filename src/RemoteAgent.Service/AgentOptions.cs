@@ -8,7 +8,7 @@ namespace RemoteAgent.Service;
 ///   "Command": "/path/to/cursor-agent",
 ///   "Arguments": "",
 ///   "LogDirectory": "/var/log/remote-agent",
-///   "RunnerId": "process",
+///   "RunnerId": "" (empty = OS default: process on Linux, copilot-windows on Windows),
 ///   "DataDirectory": "./data"
 /// }
 /// </code></example>
@@ -27,7 +27,7 @@ public class AgentOptions
     /// <summary>Directory for session log files (FR-1.5, TR-3.6). Defaults to temp. Files are named <c>remote-agent-{sessionId}.log</c>.</summary>
     public string? LogDirectory { get; set; }
 
-    /// <summary>Runner to use: "process" (default) or a plugin runner id from <see cref="PluginsOptions"/> (TR-10.1, FR-8.1).</summary>
+    /// <summary>Runner to use: "process" (default), "copilot-windows" (GitHub Copilot CLI on Windows), or a plugin runner id from <see cref="PluginsOptions"/> (TR-10.1, FR-8.1).</summary>
     public string? RunnerId { get; set; }
 
     /// <summary>Data directory for LiteDB and uploaded media (TR-11.1, TR-11.2). Defaults to <c>./data</c>. Media is stored under <c>data/media/</c>.</summary>

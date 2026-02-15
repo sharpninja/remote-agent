@@ -4,6 +4,8 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 
 Requirement IDs in the tables link to the corresponding section in [Functional requirements](functional-requirements.md) or [Technical requirements](technical-requirements.md); those documents also cross-link FR↔TR where they relate.
 
+*Refreshed to reflect: agent strategy (process / copilot-windows, OS default RunnerId), GetServerInfo, CI unit-test-only step, integration tests environment-agnostic with optional "did not start" handling.*
+
 ---
 
 ## Functional requirements
@@ -11,7 +13,7 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | ID | Requirement | State | Notes |
 |----|-------------|--------|------|
 | [**FR-1.1**](functional-requirements.md#1-product-purpose) | Android app communicating with Linux service | **Done** | MAUI Android app + ASP.NET Core service |
-| [**FR-1.2**](functional-requirements.md#1-product-purpose) | Service spawns Cursor agent and establishes communication | **Done** | Configurable agent process (e.g. Cursor), stdin/stdout |
+| [**FR-1.2**](functional-requirements.md#1-product-purpose) | Service spawns Cursor agent and establishes communication | **Done** | Configurable agent (Agent:Command, RunnerId); process or copilot-windows runner; stdin/stdout |
 | [**FR-1.3**](functional-requirements.md#1-product-purpose) | Service forwards user messages to the agent | **Done** | `ClientMessage.text` → agent stdin |
 | [**FR-1.4**](functional-requirements.md#1-product-purpose) | Service sends agent output to app in real time | **Done** | `ServerMessage.output` / `error` streamed |
 | [**FR-1.5**](functional-requirements.md#1-product-purpose) | Service logs all interaction | **Done** | Session log file per connection (`LogDirectory`, `remote-agent-{sessionId}.log`) |
@@ -33,16 +35,16 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**FR-6.2**](functional-requirements.md#6-deployment-and-distribution-user-facing) | Pipeline updates repo and deploys to Pages | **Done** | build-deploy.yml: fdroid-pages + deploy-pages |
 | [**FR-7.1**](functional-requirements.md#7-session-and-lifecycle) | Connection = session; agent start/stop with session | **Done** | One stream = one session; START/STOP control |
 | [**FR-7.2**](functional-requirements.md#7-session-and-lifecycle) | Session events visible in chat | **Done** | SessionEvent (started/stopped/error) as chat messages |
-| [**FR-8.1**](functional-requirements.md#8-extensibility-plugins) | Additional CLI agents via plugins | **Done** | IAgentRunner strategy; plugin assemblies in Plugins:Assemblies |
+| [**FR-8.1**](functional-requirements.md#8-extensibility-plugins) | Additional CLI agents via plugins | **Done** | IAgentRunner strategy; ProcessAgentRunner, CopilotWindowsAgentRunner; default RunnerId by OS (Linux→process, Windows→copilot-windows); plugin assemblies in Plugins:Assemblies |
 | [**FR-9.1**](functional-requirements.md#9-run-scripts-from-chat) | User can run bash/pwsh script from chat | **Done** | ScriptRequest in proto; /run bash &lt;path&gt; or /run pwsh &lt;path&gt; in app |
 | [**FR-9.2**](functional-requirements.md#9-run-scripts-from-chat) | Script stdout/stderr on completion | **Done** | ScriptRunner runs script; server sends output/error messages |
 | [**FR-10.1**](functional-requirements.md#10-media-as-agent-context) | User can send images or video as agent context | **Done** | MediaUpload in proto; Attach button, FilePicker; server saves to media/, forwards path to agent |
-| [**FR-11.1**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Client supports multiple sessions with session-id | **Not started** | App currently single session per connection |
-| [**FR-11.1.1**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Server uses session-id to manage interactions with specific agents | **Not started** | Server generates session-id per connection but does not route by client-provided session-id |
-| [**FR-11.1.2**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | App asks which agent to use from list when starting session | **Not started** | No agent picker; single Agent:Command |
-| [**FR-11.1.3**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Sessions have user-definable title, default first request text | **Not started** | No session list or session title in app |
-| [**FR-11.1.3.1**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Tap session title → editor, text highlighted, keyboard open | **Not started** | Depends on FR-11.1.3 |
-| [**FR-11.1.3.2**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Tap off editor → commit updated session title | **Not started** | Depends on FR-11.1.3 |
+| [**FR-11.1**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Client supports multiple sessions with session-id | **Done** | Session list (LiteDB); each session has session_id, title, agent_id; Connect sends session_id and agent_id |
+| [**FR-11.1.1**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Server uses session-id to manage interactions with specific agents | **Done** | Server accepts client session_id on START; resolves runner by agent_id; logs by session_id |
+| [**FR-11.1.2**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | App asks which agent to use from list when starting session | **Done** | GetServerInfo returns AvailableAgents; agent picker (DisplayActionSheet) before Connect |
+| [**FR-11.1.3**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Sessions have user-definable title, default first request text | **Done** | Session title in UI; default to first message text; persisted in LocalSessionStore |
+| [**FR-11.1.3.1**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Tap session title → editor, text highlighted, keyboard open | **Done** | Tap SessionTitleLabel → SessionTitleEntry visible and focused; selection on focus |
+| [**FR-11.1.3.2**](functional-requirements.md#11-multiple-sessions-and-agent-selection) | Tap off editor → commit updated session title | **Done** | Unfocused/Completed → CommitSessionTitle; UpdateTitle in store |
 
 ---
 
@@ -60,7 +62,7 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-2.3**](technical-requirements.md#2-technology-stack) | gRPC duplex streaming | **Done** | `Connect(stream ClientMessage) returns (stream ServerMessage)` |
 | [**TR-2.4**](technical-requirements.md#2-technology-stack) | .NET 10 SDK, Android workload for build | **Done** | Workflow installs maui-android |
 | [**TR-3.1**](technical-requirements.md#3-service-architecture) | Service listen host/port | **Done** | Kestrel, configurable (e.g. 5243) |
-| [**TR-3.2**](technical-requirements.md#3-service-architecture) | Spawn configurable agent process | **Done** | AgentOptions.Command, Process |
+| [**TR-3.2**](technical-requirements.md#3-service-architecture) | Spawn configurable agent process | **Done** | AgentOptions.Command, RunnerId; process / copilot-windows runners; Command "none" = no agent; empty = runner default |
 | [**TR-3.3**](technical-requirements.md#3-service-architecture) | Forward messages to agent stdin | **Done** | Line-oriented write to process |
 | [**TR-3.4**](technical-requirements.md#3-service-architecture) | Stream stdout/stderr to app | **Done** | ServerMessage.output / error |
 | [**TR-3.5**](technical-requirements.md#3-service-architecture) | Optional message priority on ServerMessage | **Done** | MessagePriority in proto and service |
@@ -86,25 +88,25 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-7.3.3**](technical-requirements.md#7-cicd-and-deployment) | Update F-Droid–style repo, deploy Pages | **Done** | fdroid-pages job, deploy-pages |
 | [**TR-7.3.4**](technical-requirements.md#7-cicd-and-deployment) | Pages source = GitHub Actions | **Done** | Configured (workflow) |
 | [**TR-7.3.5**](technical-requirements.md#7-cicd-and-deployment) | DocFX docs on Pages | **Done** | DocFX build, merged into artifact |
-| [**TR-8.1**](technical-requirements.md#8-testing) | Unit and integration tests | **Done** | App.Tests + Service.Tests |
+| [**TR-8.1**](technical-requirements.md#8-testing) | Unit and integration tests | **Done** | App.Tests + Service.Tests; CI runs unit tests only (filter excludes IntegrationTests) |
 | [**TR-8.2**](technical-requirements.md#8-testing) | Unit: markdown, chat, priority/archive, config | **Done** | MarkdownFormatTests, ChatMessageTests, AgentOptionsTests |
-| [**TR-8.3**](technical-requirements.md#8-testing) | Integration: no command → error; /bin/cat echo; start/stop | **Done** | NoCommand, Echo, Stop integration tests |
+| [**TR-8.3**](technical-requirements.md#8-testing) | Integration: no command → error; echo; start/stop | **Done** | NoCommand, Echo, Stop, GetServerInfo; strategy default agent; tests accept "did not start" when agent unavailable |
 | [**TR-8.4**](technical-requirements.md#8-testing) | Tests runnable via solution | **Done** | dotnet test RemoteAgent.slnx |
 | [**TR-9.1**](technical-requirements.md#9-ui-and-assets) | Font Awesome iconography | **Done** | fa-solid-900, Icons.xaml |
 | [**TR-9.2**](technical-requirements.md#9-ui-and-assets) | Material Design norms | **Done** | M3 tokens, MaterialTheme, ThemeColors |
 | [**TR-9.3**](technical-requirements.md#9-ui-and-assets) | Light/dark theming | **Done** | AppThemeBinding, ThemeColors |
-| [**TR-10.1**](technical-requirements.md#10-extensibility-plugins--fr-81) | Plugins via strategy pattern (FR-8.1) | **Done** | IAgentSession, IAgentRunner, ProcessAgentRunner; gateway uses IAgentRunnerFactory |
-| [**TR-10.2**](technical-requirements.md#10-extensibility-plugins--fr-81) | Plugin discovery via appsettings (assemblies) | **Done** | Plugins:Assemblies; PluginLoader.BuildRunnerRegistry; Agent:RunnerId |
+| [**TR-10.1**](technical-requirements.md#10-extensibility-plugins--fr-81) | Plugins via strategy pattern (FR-8.1) | **Done** | IAgentSession, IAgentRunner; ProcessAgentRunner, CopilotWindowsAgentRunner; DefaultAgentRunnerFactory (OS default RunnerId); gateway uses IAgentRunnerFactory |
+| [**TR-10.2**](technical-requirements.md#10-extensibility-plugins--fr-81) | Plugin discovery via appsettings (assemblies) | **Done** | Plugins:Assemblies; PluginLoader (process + copilot-windows built-in); Agent:RunnerId |
 | [**TR-11.1**](technical-requirements.md#11-local-storage-litedb) | App and server use LiteDB for requests/results | **Done** | Server: LiteDbLocalStorage, request/response log; App: LocalMessageStore, load/add/archive |
 | [**TR-11.2**](technical-requirements.md#11-local-storage-litedb) | Uploaded images/videos stored alongside LiteDB on server | **Done** | MediaStorageService saves to DataDirectory/media/ |
 | [**TR-11.3**](technical-requirements.md#11-local-storage-litedb) | Images to app stored in DCIM/Remote Agent | **Done** | MediaSaveService.SaveToDcimRemoteAgent (Android DCIM/Remote Agent); ServerMessage.media handled |
-| [**TR-12.1**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | Protocol: SessionControl carries session_id and agent_id (START) | **Not started** | Proto has no session_id/agent_id in SessionControl |
-| [**TR-12.1.1**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | Server: map session_id → agent session; route messages by session_id | **Not started** | Server has one session per connection, no client session_id |
-| [**TR-12.1.2**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | Server: expose list of configured agents to client | **Not started** | No ListAgents or equivalent |
-| [**TR-12.1.3**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: session list; persist session_id, title, agent_id in local storage | **Not started** | App has single chat, no session list |
-| [**TR-12.2**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: agent picker at session start; send START with session_id and agent_id | **Not started** | No picker; single Agent:Command |
-| [**TR-12.2.1**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: session title (user-definable, default first request); stored and displayed | **Not started** | No session title in app |
-| [**TR-12.2.2**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: tap title → inline editor (selected, keyboard); tap off → commit | **Not started** | Depends on TR-12.2.1 |
+| [**TR-12.1**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | Protocol: SessionControl carries session_id and agent_id (START) | **Done** | SessionControl.session_id and agent_id in proto and generated C# |
+| [**TR-12.1.1**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | Server: map session_id → agent session; route messages by session_id | **Done** | One session per stream; client session_id used for logging; runner selected by agent_id |
+| [**TR-12.1.2**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | Server: expose list of configured agents to client | **Done** | GetServerInfo.AvailableAgents (runner registry keys) |
+| [**TR-12.1.3**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: session list; persist session_id, title, agent_id in local storage | **Done** | LocalSessionStore (LiteDB); Sessions list; messages per session (SessionId in StoredMessageRecord) |
+| [**TR-12.2**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: agent picker at session start; send START with session_id and agent_id | **Done** | GetServerInfoAsync then DisplayActionSheet; ConnectAsync(sessionId, agentId) |
+| [**TR-12.2.1**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: session title (user-definable, default first request); stored and displayed | **Done** | Session title in header; default from first message; UpdateTitle in store |
+| [**TR-12.2.2**](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111) | App: tap title → inline editor (selected, keyboard); tap off → commit | **Done** | OnSessionTitleLabelTapped; CommitSessionTitle on Unfocused/Completed |
 
 ---
 
@@ -112,13 +114,13 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
-| **Functional (FR)** | 28 | 0 | 6 |
-| **Technical (TR)** | 47 | 0 | 8 |
+| **Functional (FR)** | 34 | 0 | 0 |
+| **Technical (TR)** | 55 | 0 | 1 |
 
-**Not started (FR):** Section 11 — FR-11.1, FR-11.1.1, FR-11.1.2, FR-11.1.3, FR-11.1.3.1, FR-11.1.3.2.
+**Not started (FR):** None.
 
-**Not started (TR):** TR-4.5 (correlation ID on request/response). Section 12 — FR-11.1: TR-12.1 and children TR-12.1.1–TR-12.1.3; TR-12.2 and children TR-12.2.1–TR-12.2.2.
+**Not started (TR):** TR-4.5 (correlation ID on request/response).
 
 ---
 
-*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase.*
+*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed for FR-11.1 (multiple sessions, session_id/agent_id in proto and server, session list and agent picker in app, session title editable).*

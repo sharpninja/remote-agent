@@ -1,6 +1,6 @@
 # Functional Requirements
 
-**Source:** Recovered from Project Initializer session (Cursor chat).  
+**Source:** Recovered from Project Initializer session (Cursor chat).
 **Product:** Remote Agent — Android app and Linux service for communicating with a Cursor agent.
 
 ---
@@ -112,7 +112,3 @@
     - **FR-11.1.3.2** **Tapping off the editor** (e.g. tapping outside the title field or dismissing focus) shall **commit the updated session title** (e.g. unfocus → save the current text as the session title and return to display mode).
 
 *See:* [TR-11](technical-requirements.md#11-local-storage-litedb), [TR-12](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111).
-
----
-
-*These requirements were recovered from the crashed Project Initializer session and reflect the intended product behavior.*

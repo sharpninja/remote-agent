@@ -48,6 +48,7 @@ public class AgentGatewayService(
         IServerStreamWriter<ServerMessage> responseStream,
         ServerCallContext context)
     {
+        // Session id for this stream: use client-provided on START, else generate (TR-12.1, FR-11.1.1).
         var sessionId = Guid.NewGuid().ToString("N")[..8];
         var logPath = Path.Combine(
             options.Value.LogDirectory ?? Path.GetTempPath(),
@@ -72,7 +73,11 @@ public class AgentGatewayService(
                 {
                     if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Control)
                     {
-                        var action = msg.Control.Action;
+                        var control = msg.Control;
+                        var action = control.Action;
+                        // Use client-provided session_id when present (TR-12.1, FR-11.1.1).
+                        if (action == SessionControl.Types.Action.Start && !string.IsNullOrWhiteSpace(control.SessionId))
+                            sessionId = control.SessionId.Trim();
                         localStorage.LogRequest(sessionId, "Control", action.ToString());
                         if (action == SessionControl.Types.Action.Start)
                         {
@@ -81,10 +86,11 @@ public class AgentGatewayService(
                                 Log("Session already started");
                                 continue;
                             }
+                            // "none" = explicitly no agent (e.g. tests). null/empty = use runner default (e.g. copilot on Windows, agent on Linux).
                             var cmd = options.Value.Command;
-                            if (string.IsNullOrWhiteSpace(cmd))
+                            if (string.Equals(cmd?.Trim(), "none", StringComparison.OrdinalIgnoreCase))
                             {
-                                Log("Agent:Command not configured", "WARN");
+                                Log("Agent:Command is set to 'none' (no agent configured)", "WARN");
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
@@ -99,9 +105,12 @@ public class AgentGatewayService(
                             }
                             try
                             {
-                                var agentRunner = agentRunnerFactory.GetRunner();
+                                // Resolve runner by client agent_id when provided (FR-11.1.2, TR-12.1).
+                                IAgentRunner agentRunner = string.IsNullOrWhiteSpace(control.AgentId)
+                                    ? agentRunnerFactory.GetRunner()
+                                    : (runnerRegistry.TryGetValue(control.AgentId.Trim(), out var r) ? r : agentRunnerFactory.GetRunner());
                                 agentSession = await agentRunner.StartAsync(
-                                    cmd,
+                                    string.IsNullOrWhiteSpace(cmd) ? null : cmd,
                                     options.Value.Arguments,
                                     sessionId,
                                     logWriter,
@@ -259,10 +268,10 @@ public class AgentGatewayService(
             }
         }, cts.Token);
 
-        // Wait for session to start, then stream stdout/stderr
+        // Wait for session to start (or for request stream to end so we can finish when no agent was started, e.g. SessionError)
         try
         {
-            while (agentSession == null && !context.CancellationToken.IsCancellationRequested)
+            while (agentSession == null && !requestTask.IsCompleted && !context.CancellationToken.IsCancellationRequested)
                 await Task.Delay(50, context.CancellationToken);
         }
         catch (OperationCanceledException) { }

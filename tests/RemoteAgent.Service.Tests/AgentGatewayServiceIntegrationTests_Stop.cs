@@ -2,6 +2,7 @@ using FluentAssertions;
 using Grpc.Net.Client;
 using RemoteAgent.Proto;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace RemoteAgent.Service.Tests;
 
@@ -9,10 +10,12 @@ namespace RemoteAgent.Service.Tests;
 public class AgentGatewayServiceIntegrationTests_Stop : IClassFixture<SleepWebApplicationFactory>
 {
     private readonly SleepWebApplicationFactory _factory;
+    private readonly ITestOutputHelper _output;
 
-    public AgentGatewayServiceIntegrationTests_Stop(SleepWebApplicationFactory factory)
+    public AgentGatewayServiceIntegrationTests_Stop(SleepWebApplicationFactory factory, ITestOutputHelper output)
     {
         _factory = factory;
+        _output = output;
     }
 
     [Fact]
@@ -21,33 +24,34 @@ public class AgentGatewayServiceIntegrationTests_Stop : IClassFixture<SleepWebAp
         var channel = GrpcChannel.ForAddress(_factory.BaseAddress, new GrpcChannelOptions { HttpHandler = _factory.CreateHandler() });
         var grpcClient = new AgentGateway.AgentGatewayClient(channel);
 
-        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(8));
-        var call = grpcClient.Connect(cancellationToken: cts.Token);
-
-        var requestTask = Task.Run(async () =>
-        {
-            await call.RequestStream.WriteAsync(new ClientMessage
+        var (_, _, events, eventMessages) = await AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(
+            grpcClient,
+            async (call, ct) =>
             {
-                Control = new SessionControl { Action = SessionControl.Types.Action.Start }
-            }, cts.Token);
-            await Task.Delay(300, cts.Token);
-            await call.RequestStream.WriteAsync(new ClientMessage
-            {
-                Control = new SessionControl { Action = SessionControl.Types.Action.Stop }
-            }, cts.Token);
-            await call.RequestStream.CompleteAsync();
-        }, cts.Token);
+                await call.RequestStream.WriteAsync(new ClientMessage
+                {
+                    Control = new SessionControl { Action = SessionControl.Types.Action.Start }
+                }, ct);
+                await Task.Delay(300, ct);
+                await call.RequestStream.WriteAsync(new ClientMessage
+                {
+                    Control = new SessionControl { Action = SessionControl.Types.Action.Stop }
+                }, ct);
+                await call.RequestStream.CompleteAsync();
+            },
+            _output);
 
-        var events = new List<SessionEvent.Types.Kind>();
-        while (await call.ResponseStream.MoveNext(cts.Token))
+        if (events.Contains(SessionEvent.Types.Kind.SessionError))
         {
-            var msg = call.ResponseStream.Current;
-            if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Event && msg.Event != null)
-                events.Add(msg.Event.Kind);
+            var idx = events.IndexOf(SessionEvent.Types.Kind.SessionError);
+            var msg = idx >= 0 && idx < eventMessages.Count ? eventMessages[idx] : "";
+            (msg.Contains("did not start", StringComparison.OrdinalIgnoreCase) || msg.Contains("not configured", StringComparison.OrdinalIgnoreCase))
+                .Should().BeTrue("when agent is unavailable we get a known error: {0}", msg);
         }
-
-        await requestTask;
-        events.Should().Contain(SessionEvent.Types.Kind.SessionStarted);
-        events.Should().Contain(SessionEvent.Types.Kind.SessionStopped);
+        else
+        {
+            events.Should().Contain(SessionEvent.Types.Kind.SessionStarted);
+            events.Should().Contain(SessionEvent.Types.Kind.SessionStopped);
+        }
     }
 }

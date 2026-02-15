@@ -2,6 +2,7 @@ using FluentAssertions;
 using Grpc.Net.Client;
 using RemoteAgent.Proto;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace RemoteAgent.Service.Tests;
 
@@ -9,10 +10,12 @@ namespace RemoteAgent.Service.Tests;
 public class AgentGatewayServiceIntegrationTests_NoCommand : IClassFixture<NoCommandWebApplicationFactory>
 {
     private readonly NoCommandWebApplicationFactory _factory;
+    private readonly ITestOutputHelper _output;
 
-    public AgentGatewayServiceIntegrationTests_NoCommand(NoCommandWebApplicationFactory factory)
+    public AgentGatewayServiceIntegrationTests_NoCommand(NoCommandWebApplicationFactory factory, ITestOutputHelper output)
     {
         _factory = factory;
+        _output = output;
     }
 
     [Fact]
@@ -21,30 +24,20 @@ public class AgentGatewayServiceIntegrationTests_NoCommand : IClassFixture<NoCom
         var channel = GrpcChannel.ForAddress(_factory.BaseAddress, new GrpcChannelOptions { HttpHandler = _factory.CreateHandler() });
         var grpcClient = new AgentGateway.AgentGatewayClient(channel);
 
-        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-        var call = grpcClient.Connect(cancellationToken: cts.Token);
-
-        var requestTask = Task.Run(async () =>
-        {
-            await call.RequestStream.WriteAsync(new ClientMessage
+        var (_, _, events, eventMessages) = await AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(
+            grpcClient,
+            async (call, ct) =>
             {
-                Control = new SessionControl { Action = SessionControl.Types.Action.Start }
-            }, cts.Token);
-            await call.RequestStream.CompleteAsync();
-        }, cts.Token);
+                await call.RequestStream.WriteAsync(new ClientMessage
+                {
+                    Control = new SessionControl { Action = SessionControl.Types.Action.Start }
+                }, ct);
+                await call.RequestStream.CompleteAsync();
+            },
+            _output);
 
-        var events = new List<ServerMessage>();
-        while (await call.ResponseStream.MoveNext(cts.Token))
-        {
-            var msg = call.ResponseStream.Current;
-            events.Add(msg);
-            if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Event &&
-                msg.Event.Kind == SessionEvent.Types.Kind.SessionError)
-                break;
-        }
-
-        await requestTask;
-        events.Should().ContainSingle(m => m.PayloadCase == ServerMessage.PayloadOneofCase.Event && m.Event.Kind == SessionEvent.Types.Kind.SessionError);
-        events.First(m => m.Event?.Kind == SessionEvent.Types.Kind.SessionError).Event!.Message.Should().Contain("not configured");
+        events.Should().Contain(SessionEvent.Types.Kind.SessionError);
+        var errorIndex = events.IndexOf(SessionEvent.Types.Kind.SessionError);
+        eventMessages[errorIndex].Should().Contain("not configured");
     }
 }

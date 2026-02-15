@@ -55,7 +55,7 @@ enum ScriptType {
   PWSH = 2;
 }
 
-// SessionControl: start or end the agent session.
+// SessionControl: start or end the agent session (TR-12.1). Carries client-provided session_id and optional agent_id for START.
 message SessionControl {
   enum Action {
     ACTION_UNSPECIFIED = 0;
@@ -63,6 +63,8 @@ message SessionControl {
     STOP = 2;   // end session and stop agent
   }
   Action action = 1;
+  string session_id = 2;  // client-provided session id (FR-11.1, FR-11.1.1)
+  string agent_id = 3;    // optional; for START, which agent runner to use (FR-11.1.2)
 }
 
 // ServerMessage: payload streamed from the service to the app.

@@ -1,6 +1,6 @@
 # Technical Requirements
 
-**Source:** Recovered from Project Initializer session (Cursor chat).  
+**Source:** Recovered from Project Initializer session (Cursor chat).
 **Product:** Remote Agent — Android app and Linux service for communicating with a Cursor agent.
 
 ---
@@ -141,7 +141,3 @@
   - **TR-12.2.2** **App:** **Tapping the session title** shall **swap to an inline editor** (e.g. focused Entry/Editor) with the **text selected** and the **keyboard opened**; **tapping off** (unfocus) shall **commit** the title and return to display mode (FR-11.1.3.1, FR-11.1.3.2).
 
 *See:* [FR-11](functional-requirements.md#11-multiple-sessions-and-agent-selection).
-
----
-
-*These requirements were recovered from the crashed Project Initializer session and reflect the intended technical design and constraints.*

@@ -161,14 +161,17 @@ Unit and integration tests use xUnit and FluentAssertions.
 - **RemoteAgent.App.Tests** – Unit tests for `RemoteAgent.App.Logic`: `MarkdownFormat` (ToHtml, PlainToHtml, escaping, markdown features) and `ChatMessage` (DisplayText, RenderedHtml for user/event/agent/error).
 - **RemoteAgent.Service.Tests** – Unit tests for `AgentOptions`; integration tests for the gRPC service (in-memory test server via `WebApplicationFactory`):
   - No command configured → client receives `SessionError` event.
-  - Agent = `/bin/cat` → client sends text and receives echoed output (Unix only).
-  - Agent = `sleep` / `cmd` → client sends START then STOP and receives `SessionStarted` and `SessionStopped`.
+  - Default strategy (process on Linux, copilot-windows on Windows) → client sends START (and optionally text, STOP); tests pass whether or not the agent executable is on PATH (they accept "did not start" when the agent is unavailable).
 
 Run all tests:
 
 ```bash
 dotnet test RemoteAgent.slnx
 ```
+
+**Build note:** Do not use `-q` (quiet) with `dotnet build` or `dotnet restore`—.NET 10 SDK can fail with "Question build FAILED". Use `-v m` (minimal) or default verbosity. The repo's `Directory.Build.rsp` sets minimal verbosity for command-line builds; scripts use `-nologo` only (no `-q`).
+
+**Solution vs app:** Build the **full solution** with `dotnet build RemoteAgent.slnx -c Release` (no `-f`). Do not use `-f net10.0-android` at the solution level—other projects (tests, Proto, Service) do not target Android and you will get NETSDK1005. To build **only the Android app**, use `dotnet build src/RemoteAgent.App/RemoteAgent.App.csproj -c Release -f net10.0-android`.
 
 ## Repository
 

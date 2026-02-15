@@ -4,16 +4,19 @@ using Microsoft.Extensions.Configuration;
 
 namespace RemoteAgent.Service.Tests;
 
-/// <summary>Exposes test server handler and base address for gRPC. Configure Agent:Command via constructor.</summary>
+/// <summary>Exposes test server handler and base address for gRPC. Agent config (Command, Arguments, RunnerId) is passed to the server; leave empty to use the strategy default for the current environment.</summary>
 public class RemoteAgentWebApplicationFactory : WebApplicationFactory<Program>
 {
     private readonly string? _command;
     private readonly string? _arguments;
+    private readonly string? _runnerId;
 
-    public RemoteAgentWebApplicationFactory(string? command = null, string? arguments = null)
+    /// <summary>Creates a factory with the given agent config. Pass null or empty to use strategy default (process on Linux, copilot-windows on Windows).</summary>
+    public RemoteAgentWebApplicationFactory(string? command = null, string? arguments = null, string? runnerId = null)
     {
         _command = command;
         _arguments = arguments;
+        _runnerId = runnerId;
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -24,6 +27,7 @@ public class RemoteAgentWebApplicationFactory : WebApplicationFactory<Program>
             {
                 ["Agent:Command"] = _command ?? "",
                 ["Agent:Arguments"] = _arguments ?? "",
+                ["Agent:RunnerId"] = _runnerId ?? "",
                 ["Agent:LogDirectory"] = Path.GetTempPath()
             });
         });
@@ -36,17 +40,18 @@ public class RemoteAgentWebApplicationFactory : WebApplicationFactory<Program>
 
 public sealed class NoCommandWebApplicationFactory : RemoteAgentWebApplicationFactory
 {
-    public NoCommandWebApplicationFactory() : base("") { }
+    /// <summary>Use sentinel "none" so the service returns SessionError; null/empty would use runner default.</summary>
+    public NoCommandWebApplicationFactory() : base("none", "", null) { }
 }
 
 public sealed class CatWebApplicationFactory : RemoteAgentWebApplicationFactory
 {
-    public CatWebApplicationFactory() : base("/bin/cat", "") { }
+    /// <summary>Uses strategy default: process (agent) on Linux, copilot-windows on Windows. No OS-specific config.</summary>
+    public CatWebApplicationFactory() : base("", "", null) { }
 }
 
 public sealed class SleepWebApplicationFactory : RemoteAgentWebApplicationFactory
 {
-    public SleepWebApplicationFactory() : base(
-        OperatingSystem.IsWindows() ? "cmd" : "sleep",
-        OperatingSystem.IsWindows() ? "/c ping -n 6 127.0.0.1" : "5") { }
+    /// <summary>Uses strategy default: process (agent) on Linux, copilot-windows on Windows. No OS-specific config.</summary>
+    public SleepWebApplicationFactory() : base("", "", null) { }
 }

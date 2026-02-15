@@ -16,8 +16,10 @@ public static partial class MediaSaveService
     /// <returns>Path or filename for display in the chat, or null on failure.</returns>
     public static string? SaveToDcimRemoteAgent(byte[] content, string contentType, string? suggestedFileName)
     {
+#if ANDROID
         if (OperatingSystem.IsAndroid())
             return SaveToDcimRemoteAgentAndroid(content, contentType, suggestedFileName);
+#endif
         return SaveToAppData(content, suggestedFileName);
     }
 

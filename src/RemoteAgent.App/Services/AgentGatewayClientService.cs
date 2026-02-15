@@ -35,8 +35,11 @@ public class AgentGatewayClientService
     /// <summary>True when connected (duplex stream active).</summary>
     public bool IsConnected => _call != null;
 
-    /// <summary>Last server info from GetServerInfo (version, capabilities, available agents). Set when connecting.</summary>
+    /// <summary>Last server info from GetServerInfo (version, capabilities, available agents). Set when connecting (TR-12.1.2).</summary>
     public ServerInfoResponse? ServerInfo { get; private set; }
+
+    /// <summary>Current session id for this connection (FR-11.1, TR-12.1). Set by <see cref="ConnectAsync"/>; used when persisting messages.</summary>
+    public string? CurrentSessionId { get; private set; }
 
     /// <summary>Raised when <see cref="IsConnected"/> changes (after Connect or Disconnect).</summary>
     public event Action? ConnectionStateChanged;
@@ -44,20 +47,21 @@ public class AgentGatewayClientService
     /// <summary>Raised for each received message (e.g. to show a notification for Notify priority) (FR-3.2, FR-3.3).</summary>
     public event Action<ChatMessage>? MessageReceived;
 
-    /// <summary>Loads messages from <see cref="ILocalMessageStore"/> into <see cref="Messages"/>. Call on app start (TR-11.1).</summary>
-    public void LoadFromStore()
+    /// <summary>Loads messages from <see cref="ILocalMessageStore"/> into <see cref="Messages"/> for the given session (TR-11.1, TR-12.1.3). Call when switching session or on start.</summary>
+    /// <param name="sessionId">Session to load; if null, loads all messages (backward compatible).</param>
+    public void LoadFromStore(string? sessionId = null)
     {
         if (_store == null) return;
         Messages.Clear();
-        foreach (var msg in _store.Load())
+        foreach (var msg in _store.Load(sessionId))
             Messages.Add(msg);
     }
 
-    /// <summary>Adds a user message to <see cref="Messages"/> and persists it if a store is configured (TR-11.1).</summary>
+    /// <summary>Adds a user message to <see cref="Messages"/> and persists it if a store is configured (TR-11.1). Uses <see cref="CurrentSessionId"/> when connected.</summary>
     public void AddUserMessage(ChatMessage message)
     {
         Messages.Add(message);
-        _store?.Add(message);
+        _store?.Add(message, CurrentSessionId);
     }
 
     /// <summary>Updates the archived state of a message in the store (FR-4.1, TR-5.5). Call when the user swipes to archive.</summary>
@@ -67,15 +71,45 @@ public class AgentGatewayClientService
             _store?.SetArchived(id, archived);
     }
 
-    /// <summary>Connects to the service at host:port (FR-2.4, TR-5.2), calls GetServerInfo, opens the duplex stream, and sends START. Use 10.0.2.2 for emulator.</summary>
+    /// <summary>Gets server info (including available agents) without opening a stream (TR-12.1.2). Use before showing agent picker, then call <see cref="ConnectAsync"/> with chosen session_id and agent_id.</summary>
+    public static async Task<ServerInfoResponse?> GetServerInfoAsync(string host, int port, string? clientVersion = null, CancellationToken ct = default)
+    {
+        var baseUrl = port == 443 ? $"https://{host}" : $"http://{host}:{port}";
+        GrpcChannel? channel = null;
+        try
+        {
+#if ANDROID
+            channel = GrpcChannel.ForAddress(baseUrl);
+#else
+            channel = GrpcChannel.ForAddress(baseUrl, new GrpcChannelOptions { HttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true } });
+#endif
+            var client = new AgentGateway.AgentGatewayClient(channel);
+            return await client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, cancellationToken: ct);
+        }
+        catch
+        {
+            return null;
+        }
+        finally
+        {
+            channel?.Dispose();
+        }
+    }
+
+    /// <summary>Connects to the service at host:port (FR-2.4, TR-5.2, FR-11.1), calls GetServerInfo, opens the duplex stream, and sends START with session_id and agent_id (TR-12.1, TR-12.2).</summary>
     /// <param name="host">Host name or IP.</param>
     /// <param name="port">Port (e.g. 5243). Use 443 for TLS.</param>
+    /// <param name="sessionId">Client-provided session id (FR-11.1). If null, a new guid-based id is used.</param>
+    /// <param name="agentId">Optional agent runner id from server list (FR-11.1.2). If null, server uses default.</param>
     /// <param name="clientVersion">Optional app version for ServerInfoRequest.</param>
     /// <param name="ct">Cancellation.</param>
-    public async Task ConnectAsync(string host, int port, string? clientVersion = null, CancellationToken ct = default)
+    public async Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, CancellationToken ct = default)
     {
         Disconnect();
         ServerInfo = null;
+        CurrentSessionId = null;
+        var sid = sessionId ?? Guid.NewGuid().ToString("N")[..12];
+        CurrentSessionId = sid;
         var baseUrl = port == 443 ? $"https://{host}" : $"http://{host}:{port}";
 #if ANDROID
         // On Android, custom HttpHandler is not valid; use default channel configuration.
@@ -96,7 +130,7 @@ public class AgentGatewayClientService
         _call = _client.Connect(cancellationToken: _cts.Token);
         _receiveTask = ReceiveLoop(_cts.Token);
         ConnectionStateChanged?.Invoke();
-        await SendControlAsync(SessionControl.Types.Action.Start, ct);
+        await SendControlAsync(SessionControl.Types.Action.Start, sid, agentId, ct);
     }
 
     /// <summary>Closes the stream and channel (FR-2.4). Stops the session on the server.</summary>
@@ -115,6 +149,7 @@ public class AgentGatewayClientService
         _cts = null;
         _receiveTask = null;
         ServerInfo = null;
+        CurrentSessionId = null;
         ConnectionStateChanged?.Invoke();
     }
 
@@ -160,13 +195,16 @@ public class AgentGatewayClientService
     /// <summary>Sends STOP control to end the session and stop the agent (FR-2.4, FR-7.1).</summary>
     public async Task StopSessionAsync(CancellationToken ct = default)
     {
-        await SendControlAsync(SessionControl.Types.Action.Stop, ct);
+        await SendControlAsync(SessionControl.Types.Action.Stop, CurrentSessionId, null, ct);
     }
 
-    private async Task SendControlAsync(SessionControl.Types.Action action, CancellationToken ct)
+    private async Task SendControlAsync(SessionControl.Types.Action action, string? sessionId = null, string? agentId = null, CancellationToken ct = default)
     {
         if (_call?.RequestStream == null) return;
-        await _call.RequestStream.WriteAsync(new ClientMessage { Control = new SessionControl { Action = action } }, ct);
+        var control = new SessionControl { Action = action };
+        if (!string.IsNullOrEmpty(sessionId)) control.SessionId = sessionId;
+        if (!string.IsNullOrEmpty(agentId)) control.AgentId = agentId;
+        await _call.RequestStream.WriteAsync(new ClientMessage { Control = control }, ct);
     }
 
     private async Task ReceiveLoop(CancellationToken ct)
@@ -195,7 +233,7 @@ public class AgentGatewayClientService
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         Messages.Add(chat);
-                        _store?.Add(chat);
+                        _store?.Add(chat, CurrentSessionId);
                         MessageReceived?.Invoke(chat);
                     });
                 }

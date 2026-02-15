@@ -132,6 +132,9 @@ jobs:
       - name: Build
         run: dotnet build RemoteAgent.slnx -c Release --no-restore
 
+      - name: Test (exclude integration tests)
+        run: dotnet test RemoteAgent.slnx -c Release --no-build --verbosity minimal -nologo --filter 'FullyQualifiedName!~IntegrationTests'
+
       - name: Publish service
         run: dotnet publish src/RemoteAgent.Service/RemoteAgent.Service.csproj -c Release -o service-publish --no-restore
 

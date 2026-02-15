@@ -48,5 +48,9 @@ export ASPNETCORE_ENVIRONMENT="${ASPNETCORE_ENVIRONMENT:-Development}"
 
 mkdir -p "$Agent__LogDirectory"
 
-echo "Starting service at http://0.0.0.0:$PORT (Agent__Command=$Agent__Command)"
-exec dotnet run --project src/RemoteAgent.Service/RemoteAgent.Service.csproj --launch-profile http
+echo "=== Building service and service tests ==="
+dotnet build tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj -nologo
+echo "=== Running service tests ==="
+dotnet test tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj -nologo --no-build
+echo "=== Starting service at http://0.0.0.0:$PORT (Agent__Command=$Agent__Command) ==="
+exec dotnet run --project src/RemoteAgent.Service/RemoteAgent.Service.csproj --launch-profile http --no-build

@@ -13,6 +13,7 @@ public partial class Program
         builder.Services.Configure<AgentOptions>(builder.Configuration.GetSection(AgentOptions.SectionName));
         builder.Services.Configure<PluginsOptions>(builder.Configuration.GetSection(PluginsOptions.SectionName));
         builder.Services.AddSingleton<ProcessAgentRunner>();
+        builder.Services.AddSingleton<CopilotWindowsAgentRunner>();
         builder.Services.AddSingleton<IReadOnlyDictionary<string, IAgentRunner>>(sp => PluginLoader.BuildRunnerRegistry(sp));
         builder.Services.AddSingleton<IAgentRunnerFactory, DefaultAgentRunnerFactory>();
         builder.Services.AddSingleton<ILocalStorage, LiteDbLocalStorage>();
