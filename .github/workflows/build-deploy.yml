@@ -146,21 +146,20 @@ jobs:
           name: service-publish
           path: service-publish
 
+      - name: Upload build output for Android job
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            src/**/bin
+            src/**/obj
+
   android:
     name: Build Android APK
     runs-on: ubuntu-latest
     needs: build
     steps:
       - uses: actions/checkout@v4
-
-      - name: Restore build cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            src/**/bin
-            src/**/obj
-          key: build-dotnet-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/*.slnx') }}
-          restore-keys: build-dotnet-${{ runner.os }}-
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -173,13 +172,23 @@ jobs:
       - name: Restore
         run: dotnet restore RemoteAgent.slnx
 
+      - name: Download build output from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      - name: Merge build output into workspace
+        run: |
+          # Artifact root is the LCA of paths (src/), so we get build-output/RemoteAgent.App/, etc.
+          cp -r build-output/* src/
+
       - name: Publish Android APK
         run: |
           dotnet publish src/RemoteAgent.App/RemoteAgent.App.csproj \
             -f net10.0-android -c Release -p:AndroidPackageFormat=apk \
             -p:ApplicationDisplayVersion=${{ needs.build.outputs.semver }} \
             -p:ApplicationVersion=${{ github.run_number }} \
-            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-restore
+            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-build --no-restore
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -292,6 +301,9 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      - name: Install GitHub CLI
+        run: |
+          type gh >/dev/null 2>&1 || (sudo apt-get update && sudo apt-get install -y gh)
       - name: Prune outdated container versions
         run: ./scripts/ghcr-prune-versions.sh remote-agent/service 2
         env:
@@ -399,15 +411,11 @@ jobs:
           ICON="$REPO/icons/icon.png"
           ERRORS=()
 
-          # 1) Logo: icon.png must exist and match expected placeholder (1x1 PNG)
-          EXPECTED_ICON_B64='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='
+          # 1) Logo: icon.png must exist (fdroid update may modify it, so we only check presence)
           if [ ! -f "$ICON" ]; then
             ERRORS+=("F-Droid logo check FAILED: icon file missing at $ICON")
-          else
-            CURRENT_ICON_B64=$(base64 -w0 "$ICON" 2>/dev/null || base64 "$ICON" | tr -d '\n')
-            if [ "$CURRENT_ICON_B64" != "$EXPECTED_ICON_B64" ]; then
-              ERRORS+=("F-Droid logo check FAILED: repo/icons/icon.png content does not match the expected placeholder. Replace with the project logo or the standard 1x1 placeholder used in this pipeline.")
-            fi
+          elif [ ! -s "$ICON" ]; then
+            ERRORS+=("F-Droid logo check FAILED: repo/icons/icon.png is empty")
           fi
 
           # 2) APK must exist
