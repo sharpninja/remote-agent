@@ -1,6 +1,7 @@
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Net;
 using Grpc.Core;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Proto;
@@ -35,6 +36,7 @@ public class AgentGatewayService(
     /// <summary>Returns server version, capabilities (e.g. scripts, media_upload, agents), and list of available agent runner ids.</summary>
     public override Task<ServerInfoResponse> GetServerInfo(ServerInfoRequest request, ServerCallContext context)
     {
+        EnsureAuthorized(context);
         var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
         var response = new ServerInfoResponse { ServerVersion = version };
         response.Capabilities.AddRange(new[] { "scripts", "media_upload", "agents" });
@@ -48,6 +50,7 @@ public class AgentGatewayService(
         IServerStreamWriter<ServerMessage> responseStream,
         ServerCallContext context)
     {
+        EnsureAuthorized(context);
         // Session id for this stream: use client-provided on START, else generate (TR-12.1, FR-11.1.1).
         var sessionId = Guid.NewGuid().ToString("N")[..8];
         var logPath = Path.Combine(
@@ -80,7 +83,7 @@ public class AgentGatewayService(
                         var action = control.Action;
                         // Use client-provided session_id when present (TR-12.1, FR-11.1.1).
                         if (action == SessionControl.Types.Action.Start && !string.IsNullOrWhiteSpace(control.SessionId))
-                            sessionId = control.SessionId.Trim();
+                            sessionId = SanitizeSessionId(control.SessionId);
                         localStorage.LogRequest(sessionId, "Control", action.ToString());
                         if (action == SessionControl.Types.Action.Start)
                         {
@@ -289,8 +292,8 @@ public class AgentGatewayService(
 
         if (agentSession != null)
         {
-            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, outputCorrelationId, isError: false, context.CancellationToken, Log, "stdout");
-            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, outputCorrelationId, isError: true, context.CancellationToken, Log, "stderr");
+            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, false, context.CancellationToken, Log, "stdout");
+            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, true, context.CancellationToken, Log, "stderr");
             await Task.WhenAll(stdoutTask, stderrTask);
         }
 
@@ -298,10 +301,71 @@ public class AgentGatewayService(
         Log($"Session {sessionId} ended. Log: {logPath}");
     }
 
+    private const string ApiKeyHeader = "x-api-key";
+
+    private void EnsureAuthorized(ServerCallContext context)
+    {
+        var configuredApiKey = options.Value.ApiKey?.Trim();
+        if (!string.IsNullOrEmpty(configuredApiKey))
+        {
+            var provided = context.RequestHeaders?.FirstOrDefault(h => string.Equals(h.Key, ApiKeyHeader, StringComparison.OrdinalIgnoreCase))?.Value;
+            if (!string.Equals(configuredApiKey, provided, StringComparison.Ordinal))
+                throw new RpcException(new Status(StatusCode.Unauthenticated, "Invalid API key."));
+            return;
+        }
+
+        if (options.Value.AllowUnauthenticatedLoopback && IsLoopbackPeer(context.Peer))
+            return;
+
+        throw new RpcException(new Status(StatusCode.Unauthenticated, "Unauthenticated remote access is disabled. Configure Agent:ApiKey."));
+    }
+
+    private static bool IsLoopbackPeer(string? peer)
+    {
+        if (string.IsNullOrWhiteSpace(peer)) return false;
+        if (peer.StartsWith("ipv4:", StringComparison.OrdinalIgnoreCase))
+        {
+            var value = peer[5..];
+            var sep = value.LastIndexOf(':');
+            var host = sep > 0 ? value[..sep] : value;
+            return IPAddress.TryParse(host, out var ip) && IPAddress.IsLoopback(ip);
+        }
+
+        if (peer.StartsWith("ipv6:", StringComparison.OrdinalIgnoreCase))
+        {
+            var value = peer[5..];
+            if (value.StartsWith("[", StringComparison.Ordinal))
+            {
+                var end = value.IndexOf(']');
+                if (end > 1)
+                {
+                    var host = value[1..end];
+                    return IPAddress.TryParse(host, out var ip) && IPAddress.IsLoopback(ip);
+                }
+            }
+
+            var sep = value.LastIndexOf(':');
+            var hostRaw = sep > 0 ? value[..sep] : value;
+            return IPAddress.TryParse(hostRaw, out var ip2) && IPAddress.IsLoopback(ip2);
+        }
+
+        return false;
+    }
+
+    private static string SanitizeSessionId(string? sessionId)
+    {
+        if (string.IsNullOrWhiteSpace(sessionId))
+            return Guid.NewGuid().ToString("N")[..8];
+
+        var chars = sessionId.Trim().Where(c => char.IsLetterOrDigit(c) || c == '-' || c == '_').ToArray();
+        if (chars.Length == 0)
+            return Guid.NewGuid().ToString("N")[..8];
+
+        return new string(chars);
+    }
     private static async Task StreamReaderToResponse(
         StreamReader reader,
         IServerStreamWriter<ServerMessage> responseStream,
-        string[] correlationIdHolder,
         bool isError,
         CancellationToken ct,
         Action<string, string> log,
@@ -314,7 +378,7 @@ public class AgentGatewayService(
             {
                 log($"[{streamName}] {line}", isError ? "STDERR" : "INFO");
                 var clean = StripAnsi(line);
-                var msg = new ServerMessage { Priority = MessagePriority.Normal, CorrelationId = correlationIdHolder[0] ?? "" };
+                var msg = new ServerMessage { Priority = MessagePriority.Normal };
                 if (isError) msg.Error = clean; else msg.Output = clean;
                 await responseStream.WriteAsync(msg, ct);
             }
@@ -326,3 +390,7 @@ public class AgentGatewayService(
         }
     }
 }
+
+
+
+

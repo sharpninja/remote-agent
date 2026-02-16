@@ -4,7 +4,7 @@ Status of all functional (FR) and technical (TR) requirements as of the current 
 
 Requirement IDs in the tables link to the corresponding section in [Functional requirements](functional-requirements.md) or [Technical requirements](technical-requirements.md); those documents also cross-link FR↔TR where they relate.
 
-*Refreshed to reflect: agent strategy (process / copilot-windows, OS default RunnerId), GetServerInfo, CI unit-test-only step, integration tests environment-agnostic with optional "did not start" handling.*
+*Refreshed to reflect: TR-4.5 correlation ID; integration tests moved to RemoteAgent.Service.IntegrationTests; CI runs unit test projects only; F-Droid repo APK hash verification in pipeline.*
 
 ---
 
@@ -84,11 +84,11 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-7.2**](technical-requirements.md#7-cicd-and-deployment) | Workflow build solution and APK | **Done** | build + android jobs |
 | [**TR-7.3**](technical-requirements.md#7-cicd-and-deployment) | GitHub Actions build container, GHCR | **Done** | docker job, push to ghcr.io |
 | [**TR-7.3.1**](technical-requirements.md#7-cicd-and-deployment) | Build and publish Docker image | **Done** | docker/build-push-action |
-| [**TR-7.3.2**](technical-requirements.md#7-cicd-and-deployment) | APK as F-Droid repo on Pages | **Done** | fdroid update, deploy artifact |
+| [**TR-7.3.2**](technical-requirements.md#7-cicd-and-deployment) | APK as F-Droid repo on Pages | **Done** | fdroid update, deploy artifact; pipeline verifies index APK hash |
 | [**TR-7.3.3**](technical-requirements.md#7-cicd-and-deployment) | Update F-Droid–style repo, deploy Pages | **Done** | fdroid-pages job, deploy-pages |
 | [**TR-7.3.4**](technical-requirements.md#7-cicd-and-deployment) | Pages source = GitHub Actions | **Done** | Configured (workflow) |
 | [**TR-7.3.5**](technical-requirements.md#7-cicd-and-deployment) | DocFX docs on Pages | **Done** | DocFX build, merged into artifact |
-| [**TR-8.1**](technical-requirements.md#8-testing) | Unit and integration tests | **Done** | App.Tests + Service.Tests; CI runs unit tests only (filter excludes IntegrationTests) |
+| [**TR-8.1**](technical-requirements.md#8-testing) | Unit and integration tests | **Done** | App.Tests + Service.Tests (unit); RemoteAgent.Service.IntegrationTests (integration, separate project); CI runs unit test projects only |
 | [**TR-8.2**](technical-requirements.md#8-testing) | Unit: markdown, chat, priority/archive, config | **Done** | MarkdownFormatTests, ChatMessageTests, AgentOptionsTests |
 | [**TR-8.3**](technical-requirements.md#8-testing) | Integration: no command → error; echo; start/stop | **Done** | NoCommand, Echo, Stop, GetServerInfo; strategy default agent; tests accept "did not start" when agent unavailable |
 | [**TR-8.4**](technical-requirements.md#8-testing) | Tests runnable via solution | **Done** | dotnet test RemoteAgent.slnx |
@@ -123,4 +123,4 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 
 ---
 
-*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed for TR-4.5 (correlation_id on ClientMessage and ServerMessage; client sets on every request; server echoes on all responses).*
+*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed: integration tests in RemoteAgent.Service.IntegrationTests; CI unit tests via project path; F-Droid APK hash verification step.*

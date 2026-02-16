@@ -72,19 +72,16 @@ public class AgentGatewayClientService
     }
 
     /// <summary>Gets server info (including available agents) without opening a stream (TR-12.1.2). Use before showing agent picker, then call <see cref="ConnectAsync"/> with chosen session_id and agent_id.</summary>
-    public static async Task<ServerInfoResponse?> GetServerInfoAsync(string host, int port, string? clientVersion = null, CancellationToken ct = default)
+    public static async Task<ServerInfoResponse?> GetServerInfoAsync(string host, int port, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
     {
         var baseUrl = port == 443 ? $"https://{host}" : $"http://{host}:{port}";
         GrpcChannel? channel = null;
         try
         {
-#if ANDROID
             channel = GrpcChannel.ForAddress(baseUrl);
-#else
-            channel = GrpcChannel.ForAddress(baseUrl, new GrpcChannelOptions { HttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true } });
-#endif
             var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, cancellationToken: ct);
+            var headers = CreateHeaders(apiKey);
+            return await client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, headers, deadline: null, cancellationToken: ct);
         }
         catch
         {
@@ -102,8 +99,9 @@ public class AgentGatewayClientService
     /// <param name="sessionId">Client-provided session id (FR-11.1). If null, a new guid-based id is used.</param>
     /// <param name="agentId">Optional agent runner id from server list (FR-11.1.2). If null, server uses default.</param>
     /// <param name="clientVersion">Optional app version for ServerInfoRequest.</param>
+    /// <param name="apiKey">Optional API key sent as gRPC metadata header <c>x-api-key</c>.</param>
     /// <param name="ct">Cancellation.</param>
-    public async Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, CancellationToken ct = default)
+    public async Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
     {
         Disconnect();
         ServerInfo = null;
@@ -111,23 +109,19 @@ public class AgentGatewayClientService
         var sid = sessionId ?? Guid.NewGuid().ToString("N")[..12];
         CurrentSessionId = sid;
         var baseUrl = port == 443 ? $"https://{host}" : $"http://{host}:{port}";
-#if ANDROID
-        // On Android, custom HttpHandler is not valid; use default channel configuration.
         _channel = GrpcChannel.ForAddress(baseUrl);
-#else
-        _channel = GrpcChannel.ForAddress(baseUrl, new GrpcChannelOptions { HttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true } });
-#endif
         _client = new AgentGateway.AgentGatewayClient(_channel);
         try
         {
-            ServerInfo = await _client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, cancellationToken: ct);
+            var headers = CreateHeaders(apiKey);
+            ServerInfo = await _client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, headers, deadline: null, cancellationToken: ct);
         }
         catch
         {
             // proceed without server info (e.g. older server)
         }
         _cts = new CancellationTokenSource();
-        _call = _client.Connect(cancellationToken: _cts.Token);
+        _call = _client.Connect(headers: CreateHeaders(apiKey), cancellationToken: _cts.Token);
         _receiveTask = ReceiveLoop(_cts.Token);
         ConnectionStateChanged?.Invoke();
         await SendControlAsync(SessionControl.Types.Action.Start, sid, agentId, ct);
@@ -209,6 +203,12 @@ public class AgentGatewayClientService
         await _call.RequestStream.WriteAsync(new ClientMessage { Control = control, CorrelationId = Guid.NewGuid().ToString("N") }, ct);
     }
 
+    private static Metadata? CreateHeaders(string? apiKey)
+    {
+        if (string.IsNullOrWhiteSpace(apiKey)) return null;
+        var headers = new Metadata { { "x-api-key", apiKey.Trim() } };
+        return headers;
+    }
     private async Task ReceiveLoop(CancellationToken ct)
     {
         if (_call?.ResponseStream == null) return;
@@ -272,3 +272,7 @@ public class AgentGatewayClientService
         }
     }
 }
+
+
+
+
