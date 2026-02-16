@@ -76,6 +76,7 @@ jobs:
               - 'fdroid/**'
               - '.config/**'
               - 'GitVersion.yml'
+              - '.github/**'
           base: ${{ github.event.before }}
           list-files: shell
         env:
