@@ -389,50 +389,147 @@ jobs:
         run: |
           cd fdroid-workspace && fdroid update
 
-      - name: Verify F-Droid repo APK hash
+      - name: Verify F-Droid repo (logo, URL, hash, version)
+        env:
+          EXPECTED_VERSION: ${{ needs.build.outputs.semver }}
+          EXPECTED_REPO_URL: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/repo"
         run: |
           set -e
           REPO=fdroid-workspace/repo
+          ICON="$REPO/icons/icon.png"
+          ERRORS=()
+
+          # 1) Logo: icon.png must exist and match expected placeholder (1x1 PNG)
+          EXPECTED_ICON_B64='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='
+          if [ ! -f "$ICON" ]; then
+            ERRORS+=("F-Droid logo check FAILED: icon file missing at $ICON")
+          else
+            CURRENT_ICON_B64=$(base64 -w0 "$ICON" 2>/dev/null || base64 "$ICON" | tr -d '\n')
+            if [ "$CURRENT_ICON_B64" != "$EXPECTED_ICON_B64" ]; then
+              ERRORS+=("F-Droid logo check FAILED: repo/icons/icon.png content does not match the expected placeholder. Replace with the project logo or the standard 1x1 placeholder used in this pipeline.")
+            fi
+          fi
+
+          # 2) APK must exist
           APK=$(find "$REPO" -name "*.apk" -type f | head -1)
-          [ -n "$APK" ] || (echo "No APK found in $REPO" && exit 1)
-          COMPUTED=$(sha256sum "$APK" | awk '{print $1}')
-          APKNAME=$(basename "$APK")
-          echo "APK: $APKNAME"
-          echo "Computed SHA-256: $COMPUTED"
+          if [ -z "$APK" ]; then
+            ERRORS+=("F-Droid APK check FAILED: no APK found in $REPO")
+          fi
+
+          # 3) Repo URL in config must match expected
+          if [ -f fdroid-workspace/config.yml ]; then
+            CONFIG_URL=$(grep -E '^\s*repo_url:\s*' fdroid-workspace/config.yml | sed -E 's/.*repo_url:\s*["]?([^"]*)["]?.*/\1/' | tr -d '"' | xargs)
+            if [ "$CONFIG_URL" != "$EXPECTED_REPO_URL" ]; then
+              ERRORS+=("F-Droid URL check FAILED: config repo_url is '$CONFIG_URL' but expected '$EXPECTED_REPO_URL'")
+            fi
+          else
+            ERRORS+=("F-Droid URL check FAILED: fdroid-workspace/config.yml not found")
+          fi
+
+          # 4) Index must exist and reference APK with correct URL path; hash and version via Python
           python3 << VERIFY
           import json
+          import os
           import sys
           import xml.etree.ElementTree as ET
-          apkname = "$APKNAME"
-          computed = "$COMPUTED".strip().lower()
+
+          repo = "$REPO"
+          expected_version = os.environ.get("EXPECTED_VERSION", "").strip()
+          expected_repo_url = os.environ.get("EXPECTED_REPO_URL", "").strip()
+          errors = list()
+
+          apk_path = "$APK" if "$APK" else None
+          apkname = os.path.basename(apk_path) if apk_path and os.path.isfile(apk_path) else None
+
+          if not apkname:
+              errors.append("F-Droid APK check FAILED: no APK file found in repo directory.")
+              for e in errors:
+                  print(e, file=sys.stderr)
+              sys.exit(1)
+
+          computed_sha = None
+          if apk_path and os.path.isfile(apk_path):
+              import hashlib
+              with open(apk_path, "rb") as f:
+                  computed_sha = hashlib.sha256(f.read()).hexdigest().lower()
+
+          index_version = None
           index_hash = None
-          if __import__('os').path.exists('$REPO/index-v1.json'):
-              with open('$REPO/index-v1.json') as f:
+          index_apk_name = None
+
+          if os.path.exists(f"{repo}/index-v1.json"):
+              with open(f"{repo}/index-v1.json") as f:
                   data = json.load(f)
-              for p in data.get('packages', []):
-                  if p.get('apkName') == apkname:
-                      h = (p.get('hash') or '').replace('sha256:', '').strip().lower()
-                      if h:
-                          index_hash = h
+              for p in data.get("packages", []):
+                  if p.get("apkName") == apkname:
+                      index_apk_name = p.get("apkName")
+                      index_hash = (p.get("hash") or "").replace("sha256:", "").strip().lower()
+                      index_version = (p.get("versionName") or p.get("version") or "").strip()
                       break
-              source = 'index-v1.json'
-          elif __import__('os').path.exists('$REPO/index.xml'):
-              tree = ET.parse('$REPO/index.xml')
-              for pkg in tree.getroot().findall('.//package') or tree.getroot().findall('package'):
-                  if pkg.get('apkName') == apkname or (pkg.get('name') and apkname.startswith(pkg.get('name', ''))):
-                      h = (pkg.get('hash') or '').replace('sha256:', '').strip().lower()
-                      if h:
-                          index_hash = h
-                          break
-              source = 'index.xml'
-          if index_hash is None:
-              print(f'APK {apkname} not found in repo index', file=sys.stderr)
+              if not index_apk_name:
+                  errors.append(f"F-Droid URL/index check FAILED: APK '{apkname}' is not listed in index-v1.json packages. Index may reference a different or missing APK.")
+              else:
+                  # APK URL = repo_url + "/" + apkName
+                  if expected_repo_url and not expected_repo_url.endswith("/"):
+                      expected_repo_url = expected_repo_url.rstrip("/")
+                  expected_apk_url = f"{expected_repo_url}/{index_apk_name}"
+                  if not os.path.isfile(f"{repo}/{index_apk_name}"):
+                      errors.append(f"F-Droid URL check FAILED: index references APK '{index_apk_name}' but file is missing in repo. Expected path: {repo}/{index_apk_name}")
+                  else:
+                      pass  # URL is correct if file exists and repo_url is correct
+          elif os.path.exists(f"{repo}/index.xml"):
+              tree = ET.parse(f"{repo}/index.xml")
+              root = tree.getroot()
+              for pkg in root.findall(".//package") or root.findall("package"):
+                  pname = pkg.get("apkName") or (pkg.get("name") + "_" + (pkg.get("versionName") or "") + ".apk" if pkg.get("name") else None)
+                  if pname == apkname or (pkg.get("name") and apkname.startswith(pkg.get("name", ""))):
+                      index_apk_name = pkg.get("apkName") or apkname
+                      index_hash = (pkg.get("hash") or "").replace("sha256:", "").strip().lower()
+                      index_version = (pkg.get("versionName") or pkg.get("version") or "").strip()
+                      break
+              if not index_apk_name:
+                  errors.append(f"F-Droid URL/index check FAILED: APK '{apkname}' is not listed in index.xml packages.")
+              elif not os.path.isfile(f"{repo}/{index_apk_name}"):
+                  errors.append(f"F-Droid URL check FAILED: index references APK '{index_apk_name}' but file is missing in repo. Expected path: {repo}/{index_apk_name}")
+          else:
+              errors.append("F-Droid index check FAILED: neither index-v1.json nor index.xml found in repo.")
+
+          # Hash check
+          if index_hash is not None and computed_sha is not None:
+              if index_hash != computed_sha:
+                  errors.append(
+                      "F-Droid APK hash check FAILED: index hash does not match the actual APK. "
+                      f"Index hash (index): {index_hash}; Computed SHA-256 of APK file: {computed_sha}. "
+                      "Ensure fdroid update is run against the same APK that is in the repo directory."
+                  )
+          elif index_hash is None and apkname:
+              errors.append("F-Droid APK hash check FAILED: no hash found in index for APK " + apkname)
+
+          # Version check
+          if expected_version and index_version is not None:
+              # Normalize: strip leading v, compare
+              ev = expected_version.lstrip("v")
+              iv = index_version.lstrip("v")
+              if ev != iv:
+                  errors.append(
+                      f"F-Droid version check FAILED: expected APK version '{expected_version}' (from build) but index has versionName '{index_version}'. "
+                      "Ensure the APK built in this workflow uses ApplicationDisplayVersion=" + expected_version + " and fdroid update is run with that APK."
+                  )
+          elif expected_version and index_version is None:
+              errors.append("F-Droid version check FAILED: could not read version from index (versionName/version). Expected: " + expected_version)
+
+          if errors:
+              for e in errors:
+                  print(e, file=sys.stderr)
               sys.exit(1)
-          if index_hash != computed:
-              print(f'Hash mismatch: {source} has {index_hash}, computed {computed}', file=sys.stderr)
-              sys.exit(1)
-          print(f'{source} hash matches.')
+          print("F-Droid repo checks passed: logo, URL, hash, version.")
           VERIFY
+
+          if [ ${#ERRORS[@]} -gt 0 ]; then
+            echo "F-Droid verification failed:"
+            printf '%s\n' "${ERRORS[@]}"
+            exit 1
+          fi
 
       - name: Assemble Pages artifact
         run: |
