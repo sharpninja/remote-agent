@@ -287,6 +287,8 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      - name: Make script executable
+        run: chmod +x scripts/ghcr-prune-versions.sh
       - name: Prune outdated container versions
         run: ./scripts/ghcr-prune-versions.sh remote-agent/service 2
         env:
