@@ -412,3 +412,6 @@ docs/README.md
 # Cursor AI
 .cursor/
 .cursorignore
+
+# Commit-and-sync script output (local only)
+commit-result.txt
