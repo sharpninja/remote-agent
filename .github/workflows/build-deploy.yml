@@ -132,6 +132,9 @@ jobs:
       - name: Build
         run: dotnet build RemoteAgent.slnx -c Release --no-restore
 
+      - name: Build Android app (for artifact)
+        run: dotnet build src/RemoteAgent.App/RemoteAgent.App.csproj -f net10.0-android -c Release --no-restore
+
       - name: Test (unit tests only; integration tests are in RemoteAgent.Service.IntegrationTests)
         run: |
           dotnet test tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj -c Release --no-build --verbosity minimal -nologo
