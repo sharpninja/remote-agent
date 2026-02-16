@@ -208,6 +208,9 @@ jobs:
       - name: Restore
         run: dotnet restore RemoteAgent.slnx
 
+      - name: Build Android app (ensure output exists for publish)
+        run: dotnet build src/RemoteAgent.App/RemoteAgent.App.csproj -f net10.0-android -c Release --no-restore
+
       - name: Publish Android APK
         run: |
           dotnet publish src/RemoteAgent.App/RemoteAgent.App.csproj \
