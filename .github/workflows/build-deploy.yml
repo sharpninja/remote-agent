@@ -180,18 +180,33 @@ jobs:
       - name: Merge build output into workspace
         run: |
           set -e
-          # Artifact root is LCA of src/**/bin and src/**/obj (i.e. src/). Download layout may be
-          # build-output/src/... or build-output/RemoteAgent.App/... depending on action version.
-          if [ -d build-output/src ]; then
+          # download-artifact@v4 extracts by name directly to path (default: workspace root), so
+          # artifact content (LCA=src → RemoteAgent.App/, RemoteAgent.App.Logic/, etc.) lands at
+          # workspace root, not in build-output/. Merge those into src/.
+          merge_into_src() {
+            for proj in RemoteAgent.App RemoteAgent.App.Logic RemoteAgent.Proto RemoteAgent.Service; do
+              [ -d "$proj" ] || continue
+              mkdir -p "src/$proj"
+              [ -d "$proj/bin" ] && cp -r "$proj/bin" "src/$proj/"
+              [ -d "$proj/obj" ] && cp -r "$proj/obj" "src/$proj/"
+            done
+          }
+          if [ -d RemoteAgent.App/bin ]; then
+            merge_into_src
+          elif [ -d build-output/src ]; then
             cp -r build-output/src/. src/
           elif [ -d build-output ]; then
             for d in build-output/*/; do
               [ -e "$d" ] || break
               cp -r "$d" src/
             done
+          else
+            merge_into_src
           fi
           if [ ! -d src/RemoteAgent.App/bin ]; then
             echo "Merge failed: src/RemoteAgent.App/bin not found after copying build-output"
+            echo "Contents of workspace:"
+            ls -la
             exit 1
           fi
 
