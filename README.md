@@ -170,6 +170,12 @@ Run all tests:
 dotnet test RemoteAgent.slnx
 ```
 
+## Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**Important:** All development work should be based on the `develop` branch. Create feature branches from `develop` and submit pull requests to `develop`.
+
 ## Repository
 
 - **Source code:** [https://github.com/sharpninja/remote-agent](https://github.com/sharpninja/remote-agent)  
