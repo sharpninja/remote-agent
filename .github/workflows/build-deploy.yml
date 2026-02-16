@@ -150,13 +150,11 @@ jobs:
           name: service-publish
           path: service-publish
 
-      - name: Upload build output for Android job
+      - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: |
-            src/**/bin
-            src/**/obj
+          path: src
 
   android:
     name: Build Android APK
@@ -164,6 +162,44 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
+
+      - name: Download build output from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: build-output
+
+      - name: Debug - List downloaded artifact contents
+        run: |
+          echo "=== Workspace root ==="
+          ls -la
+          echo "=== build-output directory ==="
+          ls -la build-output/ || echo "build-output/ not found"
+          echo "=== Looking for src directories ==="
+          find . -type d \( -name "src" -o -name "RemoteAgent.App" \) | head -20
+
+      - name: Merge build output into workspace
+        run: |
+          set -e
+          # Artifact structure should be: build-output/src/RemoteAgent.App/bin, etc.
+          if [ -d "build-output/src" ]; then
+            echo "Found build-output/src, copying to src/"
+            cp -r build-output/src/. src/
+          else
+            echo "ERROR: build-output/src not found"
+            echo "Contents of build-output:"
+            ls -laR build-output/ || echo "build-output directory doesn't exist"
+            exit 1
+          fi
+          
+          # Verify the merge worked
+          if [ ! -d "src/RemoteAgent.App/bin" ]; then
+            echo "ERROR: src/RemoteAgent.App/bin not found after merge"
+            echo "Contents of src/:"
+            ls -laR src/
+            exit 1
+          fi
+          echo "✓ Build output merged successfully"
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -176,51 +212,13 @@ jobs:
       - name: Restore
         run: dotnet restore RemoteAgent.slnx
 
-      - name: Download build output from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-
-      - name: Merge build output into workspace
-        run: |
-          set -e
-          # download-artifact@v4 extracts by name directly to path (default: workspace root), so
-          # artifact content (LCA=src → RemoteAgent.App/, RemoteAgent.App.Logic/, etc.) lands at
-          # workspace root, not in build-output/. Merge those into src/.
-          merge_into_src() {
-            for proj in RemoteAgent.App RemoteAgent.App.Logic RemoteAgent.Proto RemoteAgent.Service; do
-              [ -d "$proj" ] || continue
-              mkdir -p "src/$proj"
-              [ -d "$proj/bin" ] && cp -r "$proj/bin" "src/$proj/"
-              [ -d "$proj/obj" ] && cp -r "$proj/obj" "src/$proj/"
-            done
-          }
-          if [ -d RemoteAgent.App/bin ]; then
-            merge_into_src
-          elif [ -d build-output/src ]; then
-            cp -r build-output/src/. src/
-          elif [ -d build-output ]; then
-            for d in build-output/*/; do
-              [ -e "$d" ] || break
-              cp -r "$d" src/
-            done
-          else
-            merge_into_src
-          fi
-          if [ ! -d src/RemoteAgent.App/bin ]; then
-            echo "Merge failed: src/RemoteAgent.App/bin not found after copying build-output"
-            echo "Contents of workspace:"
-            ls -la
-            exit 1
-          fi
-
       - name: Publish Android APK
         run: |
           dotnet publish src/RemoteAgent.App/RemoteAgent.App.csproj \
             -f net10.0-android -c Release -p:AndroidPackageFormat=apk \
             -p:ApplicationDisplayVersion=${{ needs.build.outputs.semver }} \
             -p:ApplicationVersion=${{ github.run_number }} \
-            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-build --no-restore
+            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
