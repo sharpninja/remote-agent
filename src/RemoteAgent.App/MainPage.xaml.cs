@@ -35,13 +35,11 @@ public partial class MainPage : ContentPage
             {
                 _gateway.LoadFromStore(value.SessionId);
                 UpdateSessionTitleControls(value.Title);
-                if (SessionTitleEntry != null) SessionTitleEntry.Text = value.Title;
             }
             else
             {
                 _gateway.LoadFromStore(null);
-                if (SessionTitleLabel != null) SessionTitleLabel.Text = "No session";
-                if (SessionTitleEntry != null) SessionTitleEntry.Text = "";
+                UpdateSessionTitleControls("No session", clearEntry: true);
             }
         }
     }
@@ -65,6 +63,12 @@ public partial class MainPage : ContentPage
         // If we have sessions, select first; else leave null (user will tap New session).
         if (Sessions.Count > 0 && CurrentSession == null)
             SelectSession(Sessions[0]);
+    }
+
+    private void UpdateSessionTitleControls(string title, bool clearEntry = false)
+    {
+        if (SessionTitleLabel != null) SessionTitleLabel.Text = title;
+        if (SessionTitleEntry != null) SessionTitleEntry.Text = clearEntry ? "" : title;
     }
 
     private void LoadSessions()
@@ -163,14 +167,15 @@ public partial class MainPage : ContentPage
                 CurrentSession = session;
             });
         }
-        else if (string.IsNullOrEmpty(CurrentSession.AgentId))
+        else if (CurrentSession != null && string.IsNullOrEmpty(CurrentSession.AgentId))
         {
             var agentId = await ShowAgentPickerAsync(serverInfo);
             if (agentId == null) { StatusLabel.Text = "Enter host and port, then Connect."; return; }
-            var sessionId = CurrentSession.SessionId;
+            var session = CurrentSession;
+            var sessionId = session.SessionId;
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                CurrentSession!.AgentId = agentId;
+                session.AgentId = agentId;
                 _sessionStore.UpdateAgentId(sessionId, agentId);
             });
         }
