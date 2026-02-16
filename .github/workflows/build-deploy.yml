@@ -179,8 +179,21 @@ jobs:
 
       - name: Merge build output into workspace
         run: |
-          # Artifact root is the LCA of paths (src/), so we get build-output/RemoteAgent.App/, etc.
-          cp -r build-output/* src/
+          set -e
+          # Artifact root is LCA of src/**/bin and src/**/obj (i.e. src/). Download layout may be
+          # build-output/src/... or build-output/RemoteAgent.App/... depending on action version.
+          if [ -d build-output/src ]; then
+            cp -r build-output/src/. src/
+          elif [ -d build-output ]; then
+            for d in build-output/*/; do
+              [ -e "$d" ] || break
+              cp -r "$d" src/
+            done
+          fi
+          if [ ! -d src/RemoteAgent.App/bin ]; then
+            echo "Merge failed: src/RemoteAgent.App/bin not found after copying build-output"
+            exit 1
+          fi
 
       - name: Publish Android APK
         run: |
@@ -299,6 +312,7 @@ jobs:
     needs: docker
     permissions:
       packages: write
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install GitHub CLI
