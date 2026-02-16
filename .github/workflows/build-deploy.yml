@@ -172,7 +172,7 @@ jobs:
           echo "=== build-output directory ==="
           ls -la build-output/ || echo "build-output/ not found"
           echo "=== Looking for src directories ==="
-          find . -type d -name "src" -o -name "RemoteAgent.App" | head -20
+          find . -type d \( -name "src" -o -name "RemoteAgent.App" \) | head -20
 
       - name: Merge build output into workspace
         run: |
