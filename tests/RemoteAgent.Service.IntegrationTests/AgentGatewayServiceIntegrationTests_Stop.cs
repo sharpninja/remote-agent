@@ -4,7 +4,7 @@ using RemoteAgent.Proto;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace RemoteAgent.Service.Tests;
+namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Integration tests: start a long-running agent then send STOP.</summary>
 public class AgentGatewayServiceIntegrationTests_Stop : IClassFixture<SleepWebApplicationFactory>
@@ -21,6 +21,7 @@ public class AgentGatewayServiceIntegrationTests_Stop : IClassFixture<SleepWebAp
     [Fact]
     public async Task Connect_SendStop_ReceivesSessionStoppedEvent()
     {
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test started: Connect_SendStop_ReceivesSessionStoppedEvent");
         var channel = GrpcChannel.ForAddress(_factory.BaseAddress, new GrpcChannelOptions { HttpHandler = _factory.CreateHandler() });
         var grpcClient = new AgentGateway.AgentGatewayClient(channel);
 
@@ -53,5 +54,6 @@ public class AgentGatewayServiceIntegrationTests_Stop : IClassFixture<SleepWebAp
             events.Should().Contain(SessionEvent.Types.Kind.SessionStarted);
             events.Should().Contain(SessionEvent.Types.Kind.SessionStopped);
         }
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test passed.");
     }
 }

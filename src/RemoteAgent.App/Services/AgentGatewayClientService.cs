@@ -153,14 +153,14 @@ public class AgentGatewayClientService
         ConnectionStateChanged?.Invoke();
     }
 
-    /// <summary>Sends a text message to the agent (FR-2.1). Forwards to agent stdin on the server.</summary>
+    /// <summary>Sends a text message to the agent (FR-2.1). Forwards to agent stdin on the server. Sets correlation ID for response matching (TR-4.5).</summary>
     public async Task SendTextAsync(string text, CancellationToken ct = default)
     {
         if (_call?.RequestStream == null) return;
-        await _call.RequestStream.WriteAsync(new ClientMessage { Text = text }, ct);
+        await _call.RequestStream.WriteAsync(new ClientMessage { Text = text, CorrelationId = Guid.NewGuid().ToString("N") }, ct);
     }
 
-    /// <summary>Sends a script run request (FR-9.1, FR-9.2). Server runs the script and returns stdout/stderr as chat messages on completion.</summary>
+    /// <summary>Sends a script run request (FR-9.1, FR-9.2). Server runs the script and returns stdout/stderr as chat messages on completion (TR-4.5 correlation ID).</summary>
     /// <param name="pathOrCommand">Path to script file or command string.</param>
     /// <param name="scriptType">Bash or Pwsh.</param>
     /// <param name="ct">Cancellation.</param>
@@ -169,11 +169,12 @@ public class AgentGatewayClientService
         if (_call?.RequestStream == null) return;
         await _call.RequestStream.WriteAsync(new ClientMessage
         {
-            ScriptRequest = new ScriptRequest { PathOrCommand = pathOrCommand, ScriptType = scriptType }
+            ScriptRequest = new ScriptRequest { PathOrCommand = pathOrCommand, ScriptType = scriptType },
+            CorrelationId = Guid.NewGuid().ToString("N")
         }, ct);
     }
 
-    /// <summary>Sends image or video as agent context (FR-10.1). Server stores under data/media and can pass path to the agent.</summary>
+    /// <summary>Sends image or video as agent context (FR-10.1). Server stores under data/media and can pass path to the agent (TR-4.5 correlation ID).</summary>
     /// <param name="content">Raw file bytes.</param>
     /// <param name="contentType">MIME type (e.g. image/jpeg, video/mp4).</param>
     /// <param name="fileName">Optional original filename.</param>
@@ -188,7 +189,8 @@ public class AgentGatewayClientService
                 Content = Google.Protobuf.ByteString.CopyFrom(content),
                 ContentType = contentType ?? "application/octet-stream",
                 FileName = fileName ?? ""
-            }
+            },
+            CorrelationId = Guid.NewGuid().ToString("N")
         }, ct);
     }
 
@@ -204,7 +206,7 @@ public class AgentGatewayClientService
         var control = new SessionControl { Action = action };
         if (!string.IsNullOrEmpty(sessionId)) control.SessionId = sessionId;
         if (!string.IsNullOrEmpty(agentId)) control.AgentId = agentId;
-        await _call.RequestStream.WriteAsync(new ClientMessage { Control = control }, ct);
+        await _call.RequestStream.WriteAsync(new ClientMessage { Control = control, CorrelationId = Guid.NewGuid().ToString("N") }, ct);
     }
 
     private async Task ReceiveLoop(CancellationToken ct)

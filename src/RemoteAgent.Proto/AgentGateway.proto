@@ -34,6 +34,7 @@ message ClientMessage {
     ScriptRequest script_request = 3;  // run a script (bash/pwsh), get stdout/stderr on completion (FR-9.1)
     MediaUpload media_upload = 4;  // image or video as context for the agent (FR-10.1)
   }
+  string correlation_id = 5;   // client-provided id; server echoes on response(s) (TR-4.5)
 }
 
 // MediaUpload: image or video sent from app to server as agent context (FR-10.1). Stored alongside LiteDB (TR-11.2).
@@ -77,6 +78,7 @@ message ServerMessage {
   }
   // Priority for this message. NOTIFY triggers a system notification; tap opens chat and shows message.
   MessagePriority priority = 4;
+  string correlation_id = 6;  // echoed from ClientMessage so client can match responses to requests (TR-4.5)
 }
 
 // MediaChunk: image/media sent from server to app. App stores in DCIM/Remote Agent (TR-11.3).

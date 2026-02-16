@@ -28,45 +28,47 @@ namespace RemoteAgent.Proto {
             "Zm9SZXF1ZXN0EhYKDmNsaWVudF92ZXJzaW9uGAEgASgJInYKElNlcnZlcklu",
             "Zm9SZXNwb25zZRIWCg5zZXJ2ZXJfdmVyc2lvbhgBIAEoCRIUCgxjYXBhYmls",
             "aXRpZXMYAiADKAkSGAoQYXZhaWxhYmxlX2FnZW50cxgDIAMoCRIYChBhdmFp",
-            "bGFibGVfbW9kZWxzGAQgAygJIsIBCg1DbGllbnRNZXNzYWdlEg4KBHRleHQY",
+            "bGFibGVfbW9kZWxzGAQgAygJItoBCg1DbGllbnRNZXNzYWdlEg4KBHRleHQY",
             "ASABKAlIABIuCgdjb250cm9sGAIgASgLMhsucmVtb3RlYWdlbnQuU2Vzc2lv",
             "bkNvbnRyb2xIABI0Cg5zY3JpcHRfcmVxdWVzdBgDIAEoCzIaLnJlbW90ZWFn",
             "ZW50LlNjcmlwdFJlcXVlc3RIABIwCgxtZWRpYV91cGxvYWQYBCABKAsyGC5y",
-            "ZW1vdGVhZ2VudC5NZWRpYVVwbG9hZEgAQgkKB3BheWxvYWQiRwoLTWVkaWFV",
-            "cGxvYWQSDwoHY29udGVudBgBIAEoDBIUCgxjb250ZW50X3R5cGUYAiABKAkS",
-            "EQoJZmlsZV9uYW1lGAMgASgJIlYKDVNjcmlwdFJlcXVlc3QSFwoPcGF0aF9v",
-            "cl9jb21tYW5kGAEgASgJEiwKC3NjcmlwdF90eXBlGAIgASgOMhcucmVtb3Rl",
-            "YWdlbnQuU2NyaXB0VHlwZSJ7Cg5TZXNzaW9uQ29udHJvbBIyCgZhY3Rpb24Y",
-            "ASABKA4yIi5yZW1vdGVhZ2VudC5TZXNzaW9uQ29udHJvbC5BY3Rpb24iNQoG",
-            "QWN0aW9uEhYKEkFDVElPTl9VTlNQRUNJRklFRBAAEgkKBVNUQVJUEAESCAoE",
-            "U1RPUBACIsMBCg1TZXJ2ZXJNZXNzYWdlEhAKBm91dHB1dBgBIAEoCUgAEg8K",
-            "BWVycm9yGAIgASgJSAASKgoFZXZlbnQYAyABKAsyGS5yZW1vdGVhZ2VudC5T",
-            "ZXNzaW9uRXZlbnRIABIoCgVtZWRpYRgFIAEoCzIXLnJlbW90ZWFnZW50Lk1l",
-            "ZGlhQ2h1bmtIABIuCghwcmlvcml0eRgEIAEoDjIcLnJlbW90ZWFnZW50Lk1l",
-            "c3NhZ2VQcmlvcml0eUIJCgdwYXlsb2FkIkYKCk1lZGlhQ2h1bmsSDwoHY29u",
-            "dGVudBgBIAEoDBIUCgxjb250ZW50X3R5cGUYAiABKAkSEQoJZmlsZV9uYW1l",
-            "GAMgASgJIqgBCgxTZXNzaW9uRXZlbnQSLAoEa2luZBgBIAEoDjIeLnJlbW90",
-            "ZWFnZW50LlNlc3Npb25FdmVudC5LaW5kEg8KB21lc3NhZ2UYAiABKAkiWQoE",
-            "S2luZBIUChBLSU5EX1VOU1BFQ0lGSUVEEAASEwoPU0VTU0lPTl9TVEFSVEVE",
-            "EAESEwoPU0VTU0lPTl9TVE9QUEVEEAISEQoNU0VTU0lPTl9FUlJPUhADKj0K",
-            "ClNjcmlwdFR5cGUSGwoXU0NSSVBUX1RZUEVfVU5TUEVDSUZJRUQQABIICgRC",
-            "QVNIEAESCAoEUFdTSBACKlUKD01lc3NhZ2VQcmlvcml0eRIgChxNRVNTQUdF",
-            "X1BSSU9SSVRZX1VOU1BFQ0lGSUVEEAASCgoGTk9STUFMEAESCAoESElHSBAC",
-            "EgoKBk5PVElGWRADMqcBCgxBZ2VudEdhdGV3YXkSUAoNR2V0U2VydmVySW5m",
-            "bxIeLnJlbW90ZWFnZW50LlNlcnZlckluZm9SZXF1ZXN0Gh8ucmVtb3RlYWdl",
-            "bnQuU2VydmVySW5mb1Jlc3BvbnNlEkUKB0Nvbm5lY3QSGi5yZW1vdGVhZ2Vu",
-            "dC5DbGllbnRNZXNzYWdlGhoucmVtb3RlYWdlbnQuU2VydmVyTWVzc2FnZSgB",
-            "MAFCFKoCEVJlbW90ZUFnZW50LlByb3RvYgZwcm90bzM="));
+            "ZW1vdGVhZ2VudC5NZWRpYVVwbG9hZEgAEhYKDmNvcnJlbGF0aW9uX2lkGAUg",
+            "ASgJQgkKB3BheWxvYWQiRwoLTWVkaWFVcGxvYWQSDwoHY29udGVudBgBIAEo",
+            "DBIUCgxjb250ZW50X3R5cGUYAiABKAkSEQoJZmlsZV9uYW1lGAMgASgJIlYK",
+            "DVNjcmlwdFJlcXVlc3QSFwoPcGF0aF9vcl9jb21tYW5kGAEgASgJEiwKC3Nj",
+            "cmlwdF90eXBlGAIgASgOMhcucmVtb3RlYWdlbnQuU2NyaXB0VHlwZSKhAQoO",
+            "U2Vzc2lvbkNvbnRyb2wSMgoGYWN0aW9uGAEgASgOMiIucmVtb3RlYWdlbnQu",
+            "U2Vzc2lvbkNvbnRyb2wuQWN0aW9uEhIKCnNlc3Npb25faWQYAiABKAkSEAoI",
+            "YWdlbnRfaWQYAyABKAkiNQoGQWN0aW9uEhYKEkFDVElPTl9VTlNQRUNJRklF",
+            "RBAAEgkKBVNUQVJUEAESCAoEU1RPUBACItsBCg1TZXJ2ZXJNZXNzYWdlEhAK",
+            "Bm91dHB1dBgBIAEoCUgAEg8KBWVycm9yGAIgASgJSAASKgoFZXZlbnQYAyAB",
+            "KAsyGS5yZW1vdGVhZ2VudC5TZXNzaW9uRXZlbnRIABIoCgVtZWRpYRgFIAEo",
+            "CzIXLnJlbW90ZWFnZW50Lk1lZGlhQ2h1bmtIABIuCghwcmlvcml0eRgEIAEo",
+            "DjIcLnJlbW90ZWFnZW50Lk1lc3NhZ2VQcmlvcml0eRIWCg5jb3JyZWxhdGlv",
+            "bl9pZBgGIAEoCUIJCgdwYXlsb2FkIkYKCk1lZGlhQ2h1bmsSDwoHY29udGVu",
+            "dBgBIAEoDBIUCgxjb250ZW50X3R5cGUYAiABKAkSEQoJZmlsZV9uYW1lGAMg",
+            "ASgJIqgBCgxTZXNzaW9uRXZlbnQSLAoEa2luZBgBIAEoDjIeLnJlbW90ZWFn",
+            "ZW50LlNlc3Npb25FdmVudC5LaW5kEg8KB21lc3NhZ2UYAiABKAkiWQoES2lu",
+            "ZBIUChBLSU5EX1VOU1BFQ0lGSUVEEAASEwoPU0VTU0lPTl9TVEFSVEVEEAES",
+            "EwoPU0VTU0lPTl9TVE9QUEVEEAISEQoNU0VTU0lPTl9FUlJPUhADKj0KClNj",
+            "cmlwdFR5cGUSGwoXU0NSSVBUX1RZUEVfVU5TUEVDSUZJRUQQABIICgRCQVNI",
+            "EAESCAoEUFdTSBACKlUKD01lc3NhZ2VQcmlvcml0eRIgChxNRVNTQUdFX1BS",
+            "SU9SSVRZX1VOU1BFQ0lGSUVEEAASCgoGTk9STUFMEAESCAoESElHSBACEgoK",
+            "Bk5PVElGWRADMqcBCgxBZ2VudEdhdGV3YXkSUAoNR2V0U2VydmVySW5mbxIe",
+            "LnJlbW90ZWFnZW50LlNlcnZlckluZm9SZXF1ZXN0Gh8ucmVtb3RlYWdlbnQu",
+            "U2VydmVySW5mb1Jlc3BvbnNlEkUKB0Nvbm5lY3QSGi5yZW1vdGVhZ2VudC5D",
+            "bGllbnRNZXNzYWdlGhoucmVtb3RlYWdlbnQuU2VydmVyTWVzc2FnZSgBMAFC",
+            "FKoCEVJlbW90ZUFnZW50LlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::RemoteAgent.Proto.ScriptType), typeof(global::RemoteAgent.Proto.MessagePriority), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ServerInfoRequest), global::RemoteAgent.Proto.ServerInfoRequest.Parser, new[]{ "ClientVersion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ServerInfoResponse), global::RemoteAgent.Proto.ServerInfoResponse.Parser, new[]{ "ServerVersion", "Capabilities", "AvailableAgents", "AvailableModels" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ClientMessage), global::RemoteAgent.Proto.ClientMessage.Parser, new[]{ "Text", "Control", "ScriptRequest", "MediaUpload" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ClientMessage), global::RemoteAgent.Proto.ClientMessage.Parser, new[]{ "Text", "Control", "ScriptRequest", "MediaUpload", "CorrelationId" }, new[]{ "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.MediaUpload), global::RemoteAgent.Proto.MediaUpload.Parser, new[]{ "Content", "ContentType", "FileName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ScriptRequest), global::RemoteAgent.Proto.ScriptRequest.Parser, new[]{ "PathOrCommand", "ScriptType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SessionControl), global::RemoteAgent.Proto.SessionControl.Parser, new[]{ "Action", "SessionId", "AgentId" }, null, new[]{ typeof(global::RemoteAgent.Proto.SessionControl.Types.Action) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ServerMessage), global::RemoteAgent.Proto.ServerMessage.Parser, new[]{ "Output", "Error", "Event", "Media", "Priority" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ServerMessage), global::RemoteAgent.Proto.ServerMessage.Parser, new[]{ "Output", "Error", "Event", "Media", "Priority", "CorrelationId" }, new[]{ "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.MediaChunk), global::RemoteAgent.Proto.MediaChunk.Parser, new[]{ "Content", "ContentType", "FileName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SessionEvent), global::RemoteAgent.Proto.SessionEvent.Parser, new[]{ "Kind", "Message" }, null, new[]{ typeof(global::RemoteAgent.Proto.SessionEvent.Types.Kind) }, null, null)
           }));
@@ -611,6 +613,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ClientMessage(ClientMessage other) : this() {
+      correlationId_ = other.correlationId_;
       switch (other.PayloadCase) {
         case PayloadOneofCase.Text:
           Text = other.Text;
@@ -709,6 +712,21 @@ namespace RemoteAgent.Proto {
       }
     }
 
+    /// <summary>Field number for the "correlation_id" field.</summary>
+    public const int CorrelationIdFieldNumber = 5;
+    private string correlationId_ = "";
+    /// <summary>
+    /// client-provided id; server echoes on response(s) (TR-4.5)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CorrelationId {
+      get { return correlationId_; }
+      set {
+        correlationId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     private object payload_;
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
@@ -751,6 +769,7 @@ namespace RemoteAgent.Proto {
       if (!object.Equals(Control, other.Control)) return false;
       if (!object.Equals(ScriptRequest, other.ScriptRequest)) return false;
       if (!object.Equals(MediaUpload, other.MediaUpload)) return false;
+      if (CorrelationId != other.CorrelationId) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -763,6 +782,7 @@ namespace RemoteAgent.Proto {
       if (payloadCase_ == PayloadOneofCase.Control) hash ^= Control.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.ScriptRequest) hash ^= ScriptRequest.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.MediaUpload) hash ^= MediaUpload.GetHashCode();
+      if (CorrelationId.Length != 0) hash ^= CorrelationId.GetHashCode();
       hash ^= (int) payloadCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -798,6 +818,10 @@ namespace RemoteAgent.Proto {
         output.WriteRawTag(34);
         output.WriteMessage(MediaUpload);
       }
+      if (CorrelationId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(CorrelationId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -824,6 +848,10 @@ namespace RemoteAgent.Proto {
         output.WriteRawTag(34);
         output.WriteMessage(MediaUpload);
       }
+      if (CorrelationId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(CorrelationId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -846,6 +874,9 @@ namespace RemoteAgent.Proto {
       if (payloadCase_ == PayloadOneofCase.MediaUpload) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(MediaUpload);
       }
+      if (CorrelationId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CorrelationId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -857,6 +888,9 @@ namespace RemoteAgent.Proto {
     public void MergeFrom(ClientMessage other) {
       if (other == null) {
         return;
+      }
+      if (other.CorrelationId.Length != 0) {
+        CorrelationId = other.CorrelationId;
       }
       switch (other.PayloadCase) {
         case PayloadOneofCase.Text:
@@ -928,6 +962,10 @@ namespace RemoteAgent.Proto {
             MediaUpload = subBuilder;
             break;
           }
+          case 42: {
+            CorrelationId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -972,6 +1010,10 @@ namespace RemoteAgent.Proto {
             }
             input.ReadMessage(subBuilder);
             MediaUpload = subBuilder;
+            break;
+          }
+          case 42: {
+            CorrelationId = input.ReadString();
             break;
           }
         }
@@ -1491,7 +1533,7 @@ namespace RemoteAgent.Proto {
   }
 
   /// <summary>
-  /// SessionControl: start or end the agent session.
+  /// SessionControl: start or end the agent session (TR-12.1). Carries client-provided session_id and optional agent_id for START.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SessionControl : pb::IMessage<SessionControl>
@@ -1555,6 +1597,9 @@ namespace RemoteAgent.Proto {
     /// <summary>Field number for the "session_id" field.</summary>
     public const int SessionIdFieldNumber = 2;
     private string sessionId_ = "";
+    /// <summary>
+    /// client-provided session id (FR-11.1, FR-11.1.1)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string SessionId {
@@ -1567,6 +1612,9 @@ namespace RemoteAgent.Proto {
     /// <summary>Field number for the "agent_id" field.</summary>
     public const int AgentIdFieldNumber = 3;
     private string agentId_ = "";
+    /// <summary>
+    /// optional; for START, which agent runner to use (FR-11.1.2)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string AgentId {
@@ -1816,6 +1864,7 @@ namespace RemoteAgent.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ServerMessage(ServerMessage other) : this() {
       priority_ = other.priority_;
+      correlationId_ = other.correlationId_;
       switch (other.PayloadCase) {
         case PayloadOneofCase.Output:
           Output = other.Output;
@@ -1943,6 +1992,21 @@ namespace RemoteAgent.Proto {
       }
     }
 
+    /// <summary>Field number for the "correlation_id" field.</summary>
+    public const int CorrelationIdFieldNumber = 6;
+    private string correlationId_ = "";
+    /// <summary>
+    /// echoed from ClientMessage so client can match responses to requests (TR-4.5)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CorrelationId {
+      get { return correlationId_; }
+      set {
+        correlationId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     private object payload_;
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
@@ -1986,6 +2050,7 @@ namespace RemoteAgent.Proto {
       if (!object.Equals(Event, other.Event)) return false;
       if (!object.Equals(Media, other.Media)) return false;
       if (Priority != other.Priority) return false;
+      if (CorrelationId != other.CorrelationId) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1999,6 +2064,7 @@ namespace RemoteAgent.Proto {
       if (payloadCase_ == PayloadOneofCase.Event) hash ^= Event.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Media) hash ^= Media.GetHashCode();
       if (Priority != global::RemoteAgent.Proto.MessagePriority.Unspecified) hash ^= Priority.GetHashCode();
+      if (CorrelationId.Length != 0) hash ^= CorrelationId.GetHashCode();
       hash ^= (int) payloadCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2038,6 +2104,10 @@ namespace RemoteAgent.Proto {
         output.WriteRawTag(42);
         output.WriteMessage(Media);
       }
+      if (CorrelationId.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(CorrelationId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2068,6 +2138,10 @@ namespace RemoteAgent.Proto {
         output.WriteRawTag(42);
         output.WriteMessage(Media);
       }
+      if (CorrelationId.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(CorrelationId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2093,6 +2167,9 @@ namespace RemoteAgent.Proto {
       if (Priority != global::RemoteAgent.Proto.MessagePriority.Unspecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Priority);
       }
+      if (CorrelationId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CorrelationId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2107,6 +2184,9 @@ namespace RemoteAgent.Proto {
       }
       if (other.Priority != global::RemoteAgent.Proto.MessagePriority.Unspecified) {
         Priority = other.Priority;
+      }
+      if (other.CorrelationId.Length != 0) {
+        CorrelationId = other.CorrelationId;
       }
       switch (other.PayloadCase) {
         case PayloadOneofCase.Output:
@@ -2174,6 +2254,10 @@ namespace RemoteAgent.Proto {
             Media = subBuilder;
             break;
           }
+          case 50: {
+            CorrelationId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -2217,6 +2301,10 @@ namespace RemoteAgent.Proto {
             }
             input.ReadMessage(subBuilder);
             Media = subBuilder;
+            break;
+          }
+          case 50: {
+            CorrelationId = input.ReadString();
             break;
           }
         }

@@ -4,7 +4,7 @@ using RemoteAgent.Proto;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace RemoteAgent.Service.Tests;
+namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Integration tests: start default agent (strategy-chosen), send text, expect SessionStarted and echoed output.</summary>
 public class AgentGatewayServiceIntegrationTests_Echo : IClassFixture<CatWebApplicationFactory>
@@ -21,6 +21,7 @@ public class AgentGatewayServiceIntegrationTests_Echo : IClassFixture<CatWebAppl
     [Fact]
     public async Task Connect_StartThenSendText_ReceivesEchoFromAgent()
     {
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test started: Connect_StartThenSendText_ReceivesEchoFromAgent");
         var channel = GrpcChannel.ForAddress(_factory.BaseAddress, new GrpcChannelOptions { HttpHandler = _factory.CreateHandler() });
         var grpcClient = new AgentGateway.AgentGatewayClient(channel);
 
@@ -50,5 +51,6 @@ public class AgentGatewayServiceIntegrationTests_Echo : IClassFixture<CatWebAppl
         {
             events.Should().Contain(SessionEvent.Types.Kind.SessionStarted);
         }
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test passed.");
     }
 }

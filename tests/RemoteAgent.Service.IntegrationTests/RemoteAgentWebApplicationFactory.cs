@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
 
-namespace RemoteAgent.Service.Tests;
+namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Exposes test server handler and base address for gRPC. Agent config (Command, Arguments, RunnerId) is passed to the server; leave empty to use the strategy default for the current environment.</summary>
 public class RemoteAgentWebApplicationFactory : WebApplicationFactory<Program>

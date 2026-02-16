@@ -71,7 +71,7 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-4.2**](technical-requirements.md#4-protocol-grpc) | ClientMessage: text, control | **Done** | text + SessionControl (START/STOP) |
 | [**TR-4.3**](technical-requirements.md#4-protocol-grpc) | ServerMessage: output, error, event, priority | **Done** | All present in proto |
 | [**TR-4.4**](technical-requirements.md#4-protocol-grpc) | Duplex streaming RPC | **Done** | Single Connect stream |
-| [**TR-4.5**](technical-requirements.md#4-protocol-grpc) | Correlation ID on each request; server echoes on response(s) | **Not started** | No correlation_id in proto or server |
+| [**TR-4.5**](technical-requirements.md#4-protocol-grpc) | Correlation ID on each request; server echoes on response(s) | **Done** | correlation_id on ClientMessage and ServerMessage; client sets on send; server echoes on all responses and agent stdout/stderr |
 | [**TR-5.1**](technical-requirements.md#5-app-architecture) | Chat UI, observable collection | **Done** | Messages collection, bindings |
 | [**TR-5.2**](technical-requirements.md#5-app-architecture) | Connect to host/port | **Done** | Settings/preferences, AgentGatewayClientService |
 | [**TR-5.3**](technical-requirements.md#5-app-architecture) | Markdown render in chat | **Done** | Markdig, ChatMessageToHtmlSourceConverter, WebView |
@@ -115,12 +115,12 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
 | **Functional (FR)** | 34 | 0 | 0 |
-| **Technical (TR)** | 55 | 0 | 1 |
+| **Technical (TR)** | 56 | 0 | 0 |
 
 **Not started (FR):** None.
 
-**Not started (TR):** TR-4.5 (correlation ID on request/response).
+**Not started (TR):** None.
 
 ---
 
-*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed for FR-11.1 (multiple sessions, session_id/agent_id in proto and server, session list and agent picker in app, session title editable).*
+*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed for TR-4.5 (correlation_id on ClientMessage and ServerMessage; client sets on every request; server echoes on all responses).*

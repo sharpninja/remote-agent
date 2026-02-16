@@ -3,7 +3,7 @@ using Grpc.Core;
 using RemoteAgent.Proto;
 using Xunit.Abstractions;
 
-namespace RemoteAgent.Service.Tests;
+namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Helper for Connect tests: run agent invocation in a task, wait up to 60s, kill agent process on timeout; log agent stdout/stderr every second.</summary>
 public static class AgentGatewayTestHelper
@@ -22,18 +22,23 @@ public static class AgentGatewayTestHelper
         Func<AsyncDuplexStreamingCall<ClientMessage, ServerMessage>, CancellationToken, Task> writeRequestAsync,
         ITestOutputHelper output)
     {
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationWithTimeoutAsync: starting.");
         // Run entire wait/timeout logic on thread pool so we never depend on test's sync context (avoids deadlock and ensures 60s timer runs).
         return await Task.Run(async () =>
         {
             var cts = new CancellationTokenSource();
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationWithTimeoutAsync: calling Connect().");
             var call = client.Connect(cancellationToken: cts.Token);
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationWithTimeoutAsync: Connect() returned, starting agent task.");
 
             // Encapsulate full invocation: write requests (in background) + read response stream with logging. No internal timeout.
             var agentTask = RunAgentInvocationAsync(call, writeRequestAsync, output, cts);
 
             // Wait up to 60 seconds for completion (timer on thread pool, no dependency on caller token).
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationWithTimeoutAsync: waiting up to {AgentTimeoutSeconds}s for agent task or timeout.");
             var timeoutTask = Task.Delay(TimeSpan.FromSeconds(AgentTimeoutSeconds));
             var completed = await Task.WhenAny(agentTask, timeoutTask).ConfigureAwait(false);
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationWithTimeoutAsync: wait finished (completed={(completed == agentTask ? "agentTask" : "timeout")}).");
 
             if (completed == timeoutTask)
             {
@@ -94,17 +99,31 @@ public static class AgentGatewayTestHelper
         ITestOutputHelper output,
         CancellationTokenSource cts)
     {
-        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss}] Agent invocation started (timeout {AgentTimeoutSeconds}s, log every {LogIntervalSeconds}s).");
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: started (timeout {AgentTimeoutSeconds}s, log every {LogIntervalSeconds}s).");
 
         var requestTask = Task.Run(async () =>
         {
-            await writeRequestAsync(call, cts.Token).ConfigureAwait(false);
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: request (write) task started.");
+            try
+            {
+                await writeRequestAsync(call, cts.Token).ConfigureAwait(false);
+                output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: request (write) task completed.");
+            }
+            catch (Exception ex)
+            {
+                output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: request (write) task failed: {ex.Message}");
+                throw;
+            }
         }, cts.Token);
 
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: starting ReadResponseStreamWithLoggingAsync.");
         var (outputs, errors, events, eventMessages) = await ReadResponseStreamWithLoggingAsync(
             call.ResponseStream, call.RequestStream, output, cts.Token).ConfigureAwait(false);
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: ReadResponseStreamWithLoggingAsync returned (outputs={outputs.Count}, errors={errors.Count}, events={events.Count}).");
 
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: waiting for request task.");
         await WaitRequestTaskOrTimeout(requestTask, output).ConfigureAwait(false);
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] RunAgentInvocationAsync: done.");
         return (outputs, errors, events, eventMessages);
     }
 
@@ -120,7 +139,9 @@ public static class AgentGatewayTestHelper
         var events = new List<SessionEvent.Types.Kind>();
         var eventMessages = new List<string>();
         var sync = new object();
+        var messageCount = 0;
 
+        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: starting read loop.");
         var logCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         var logTask = Task.Run(async () =>
         {
@@ -149,26 +170,46 @@ public static class AgentGatewayTestHelper
 
         try
         {
-            while (await responseStream.MoveNext(cancellationToken).ConfigureAwait(false))
+            while (true)
             {
+                output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: calling MoveNext (message #{messageCount + 1}).");
+                var hasNext = await responseStream.MoveNext(cancellationToken).ConfigureAwait(false);
+                if (!hasNext)
+                {
+                    output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: MoveNext returned false, stream ended.");
+                    break;
+                }
+                messageCount++;
                 var msg = responseStream.Current;
                 lock (sync)
                 {
                     if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Output)
+                    {
                         outputs.Add(msg.Output);
+                        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: received Output (#{messageCount}).");
+                    }
                     if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Error)
+                    {
                         errors.Add(msg.Error);
+                        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: received Error (#{messageCount}).");
+                    }
                     if (msg.PayloadCase == ServerMessage.PayloadOneofCase.Event && msg.Event != null)
                     {
                         events.Add(msg.Event.Kind);
                         eventMessages.Add(msg.Event.Message ?? "");
+                        output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: received Event {msg.Event.Kind} (#{messageCount}).");
                     }
                 }
             }
         }
         catch (OperationCanceledException)
         {
-            // Expected when caller cancels (e.g. timeout).
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: OperationCanceledException (expected on timeout/cancel).");
+        }
+        catch (Exception ex)
+        {
+            output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] ReadResponseStreamWithLoggingAsync: exception: {ex.GetType().Name} — {ex.Message}");
+            throw;
         }
 
         logCts.Cancel();
@@ -190,11 +231,15 @@ public static class AgentGatewayTestHelper
     /// <summary>Waits for the request (write) task with a short timeout so the test does not hang if the stream is stuck.</summary>
     private static async Task WaitRequestTaskOrTimeout(Task requestTask, ITestOutputHelper? output = null)
     {
+        output?.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] WaitRequestTaskOrTimeout: waiting up to {RequestWaitSecondsAfterReturn}s for request task.");
         var delay = Task.Delay(TimeSpan.FromSeconds(RequestWaitSecondsAfterReturn));
         var completed = await Task.WhenAny(requestTask, delay).ConfigureAwait(false);
         if (completed == delay)
-            output?.WriteLine($"[{DateTime.UtcNow:HH:mm:ss}] Request task did not complete within {RequestWaitSecondsAfterReturn}s (stream likely closed).");
+            output?.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] WaitRequestTaskOrTimeout: request task did not complete within {RequestWaitSecondsAfterReturn}s (stream likely closed).");
         else
+        {
             await requestTask.ConfigureAwait(false);
+            output?.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] WaitRequestTaskOrTimeout: request task completed.");
+        }
     }
 }

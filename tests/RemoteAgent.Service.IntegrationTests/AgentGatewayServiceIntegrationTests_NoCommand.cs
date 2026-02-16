@@ -4,7 +4,7 @@ using RemoteAgent.Proto;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace RemoteAgent.Service.Tests;
+namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Integration tests with no agent command configured.</summary>
 public class AgentGatewayServiceIntegrationTests_NoCommand : IClassFixture<NoCommandWebApplicationFactory>
@@ -21,6 +21,7 @@ public class AgentGatewayServiceIntegrationTests_NoCommand : IClassFixture<NoCom
     [Fact]
     public async Task Connect_WhenNoAgentCommandConfigured_ReceivesSessionErrorEvent()
     {
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test started: Connect_WhenNoAgentCommandConfigured_ReceivesSessionErrorEvent");
         var channel = GrpcChannel.ForAddress(_factory.BaseAddress, new GrpcChannelOptions { HttpHandler = _factory.CreateHandler() });
         var grpcClient = new AgentGateway.AgentGatewayClient(channel);
 
@@ -36,8 +37,10 @@ public class AgentGatewayServiceIntegrationTests_NoCommand : IClassFixture<NoCom
             },
             _output);
 
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test assertions: events={events.Count}, eventMessages={eventMessages.Count}");
         events.Should().Contain(SessionEvent.Types.Kind.SessionError);
         var errorIndex = events.IndexOf(SessionEvent.Types.Kind.SessionError);
         eventMessages[errorIndex].Should().Contain("not configured");
+        _output.WriteLine($"[{DateTime.UtcNow:HH:mm:ss.fff}] Test passed.");
     }
 }

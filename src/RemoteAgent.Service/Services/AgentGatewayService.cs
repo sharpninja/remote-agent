@@ -65,12 +65,15 @@ public class AgentGatewayService(
         IAgentSession? agentSession = null;
         var cts = new CancellationTokenSource();
         context.CancellationToken.Register(() => cts.Cancel());
+        // Correlation ID for agent stdout/stderr: set when forwarding text, so responses can be matched (TR-4.5).
+        var outputCorrelationId = new[] { "" };
         var requestTask = Task.Run(async () =>
         {
             try
             {
                 await foreach (var msg in requestStream.ReadAllAsync(cts.Token))
                 {
+                    string corrId = msg.CorrelationId ?? "";
                     if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Control)
                     {
                         var control = msg.Control;
@@ -98,7 +101,8 @@ public class AgentGatewayService(
                                     {
                                         Kind = SessionEvent.Types.Kind.SessionError,
                                         Message = "Agent command not configured. Set Agent:Command in appsettings."
-                                    }
+                                    },
+                                    CorrelationId = corrId
                                 }, context.CancellationToken);
                                 localStorage.LogResponse(sessionId, "Event", "SessionError");
                                 continue;
@@ -124,7 +128,8 @@ public class AgentGatewayService(
                                         {
                                             Kind = SessionEvent.Types.Kind.SessionError,
                                             Message = "Agent runner did not start a session."
-                                        }
+                                        },
+                                        CorrelationId = corrId
                                     }, context.CancellationToken);
                                     localStorage.LogResponse(sessionId, "Event", "SessionError");
                                     continue;
@@ -133,7 +138,8 @@ public class AgentGatewayService(
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
-                                    Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStarted }
+                                    Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStarted },
+                                    CorrelationId = corrId
                                 }, context.CancellationToken);
                                 localStorage.LogResponse(sessionId, "Event", "SessionStarted");
                             }
@@ -147,7 +153,8 @@ public class AgentGatewayService(
                                     {
                                         Kind = SessionEvent.Types.Kind.SessionError,
                                         Message = ex.Message
-                                    }
+                                    },
+                                    CorrelationId = corrId
                                 }, context.CancellationToken);
                                 localStorage.LogResponse(sessionId, "Event", "SessionError");
                             }
@@ -163,7 +170,8 @@ public class AgentGatewayService(
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
-                                    Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStopped }
+                                    Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStopped },
+                                    CorrelationId = corrId
                                 }, context.CancellationToken);
                                 localStorage.LogResponse(sessionId, "Event", "SessionStopped");
                             }
@@ -171,6 +179,7 @@ public class AgentGatewayService(
                     }
                     else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Text && !string.IsNullOrEmpty(msg.Text))
                     {
+                        outputCorrelationId[0] = corrId;
                         localStorage.LogRequest(sessionId, "Text", msg.Text);
                         Log($"→ {msg.Text}");
                         if (agentSession != null && !agentSession.HasExited)
@@ -182,7 +191,7 @@ public class AgentGatewayService(
                             catch (Exception ex)
                             {
                                 Log($"Write to agent failed: {ex.Message}", "ERROR");
-                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = StripAnsi(ex.Message) }, context.CancellationToken);
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = StripAnsi(ex.Message), CorrelationId = corrId }, context.CancellationToken);
                             }
                         }
                         else
@@ -190,7 +199,8 @@ public class AgentGatewayService(
                             await responseStream.WriteAsync(new ServerMessage
                             {
                                 Priority = MessagePriority.Normal,
-                                Error = "Agent not running. Send START first."
+                                Error = "Agent not running. Send START first.",
+                                CorrelationId = corrId
                             }, context.CancellationToken);
                         }
                     }
@@ -207,20 +217,20 @@ public class AgentGatewayService(
                             if (!string.IsNullOrEmpty(stdout))
                             {
                                 var outClean = StripAnsi(stdout);
-                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Output = outClean }, context.CancellationToken);
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Output = outClean, CorrelationId = corrId }, context.CancellationToken);
                                 localStorage.LogResponse(sessionId, "Output", outClean);
                             }
                             if (!string.IsNullOrEmpty(stderr))
                             {
                                 var errClean = StripAnsi(stderr);
-                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = errClean }, context.CancellationToken);
+                                await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = errClean, CorrelationId = corrId }, context.CancellationToken);
                                 localStorage.LogResponse(sessionId, "Error", errClean);
                             }
                         }
                         catch (Exception ex)
                         {
                             Log($"Script failed: {ex.Message}", "ERROR");
-                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message }, context.CancellationToken);
+                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message, CorrelationId = corrId }, context.CancellationToken);
                             localStorage.LogResponse(sessionId, "Error", ex.Message);
                         }
                     }
@@ -229,7 +239,7 @@ public class AgentGatewayService(
                         var up = msg.MediaUpload;
                         if (up.Content == null || up.Content.Length == 0)
                         {
-                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = "Media upload has no content." }, context.CancellationToken);
+                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = "Media upload has no content.", CorrelationId = corrId }, context.CancellationToken);
                             continue;
                         }
                         try
@@ -242,13 +252,14 @@ public class AgentGatewayService(
                             await responseStream.WriteAsync(new ServerMessage
                             {
                                 Priority = MessagePriority.Normal,
-                                Output = $"[Saved attachment: {relativePath}]"
+                                Output = $"[Saved attachment: {relativePath}]",
+                                CorrelationId = corrId
                             }, context.CancellationToken);
                         }
                         catch (Exception ex)
                         {
                             Log($"Media save failed: {ex.Message}", "ERROR");
-                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message }, context.CancellationToken);
+                            await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message, CorrelationId = corrId }, context.CancellationToken);
                         }
                     }
                 }
@@ -278,8 +289,8 @@ public class AgentGatewayService(
 
         if (agentSession != null)
         {
-            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, isError: false, context.CancellationToken, Log, "stdout");
-            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, isError: true, context.CancellationToken, Log, "stderr");
+            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, outputCorrelationId, isError: false, context.CancellationToken, Log, "stdout");
+            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, outputCorrelationId, isError: true, context.CancellationToken, Log, "stderr");
             await Task.WhenAll(stdoutTask, stderrTask);
         }
 
@@ -290,6 +301,7 @@ public class AgentGatewayService(
     private static async Task StreamReaderToResponse(
         StreamReader reader,
         IServerStreamWriter<ServerMessage> responseStream,
+        string[] correlationIdHolder,
         bool isError,
         CancellationToken ct,
         Action<string, string> log,
@@ -302,7 +314,7 @@ public class AgentGatewayService(
             {
                 log($"[{streamName}] {line}", isError ? "STDERR" : "INFO");
                 var clean = StripAnsi(line);
-                var msg = new ServerMessage { Priority = MessagePriority.Normal };
+                var msg = new ServerMessage { Priority = MessagePriority.Normal, CorrelationId = correlationIdHolder[0] ?? "" };
                 if (isError) msg.Error = clean; else msg.Output = clean;
                 await responseStream.WriteAsync(msg, ct);
             }

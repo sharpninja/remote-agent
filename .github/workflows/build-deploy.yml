@@ -132,8 +132,10 @@ jobs:
       - name: Build
         run: dotnet build RemoteAgent.slnx -c Release --no-restore
 
-      - name: Test (exclude integration tests)
-        run: dotnet test RemoteAgent.slnx -c Release --no-build --verbosity minimal -nologo --filter 'FullyQualifiedName!~IntegrationTests'
+      - name: Test (unit tests only; integration tests are in RemoteAgent.Service.IntegrationTests)
+        run: |
+          dotnet test tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj -c Release --no-build --verbosity minimal -nologo
+          dotnet test tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj -c Release --no-build --verbosity minimal -nologo
 
       - name: Publish service
         run: dotnet publish src/RemoteAgent.Service/RemoteAgent.Service.csproj -c Release -o service-publish --no-restore
@@ -386,6 +388,51 @@ jobs:
       - name: Generate F-Droid repo (fdroid update)
         run: |
           cd fdroid-workspace && fdroid update
+
+      - name: Verify F-Droid repo APK hash
+        run: |
+          set -e
+          REPO=fdroid-workspace/repo
+          APK=$(find "$REPO" -name "*.apk" -type f | head -1)
+          [ -n "$APK" ] || (echo "No APK found in $REPO" && exit 1)
+          COMPUTED=$(sha256sum "$APK" | awk '{print $1}')
+          APKNAME=$(basename "$APK")
+          echo "APK: $APKNAME"
+          echo "Computed SHA-256: $COMPUTED"
+          python3 << VERIFY
+          import json
+          import sys
+          import xml.etree.ElementTree as ET
+          apkname = "$APKNAME"
+          computed = "$COMPUTED".strip().lower()
+          index_hash = None
+          if __import__('os').path.exists('$REPO/index-v1.json'):
+              with open('$REPO/index-v1.json') as f:
+                  data = json.load(f)
+              for p in data.get('packages', []):
+                  if p.get('apkName') == apkname:
+                      h = (p.get('hash') or '').replace('sha256:', '').strip().lower()
+                      if h:
+                          index_hash = h
+                      break
+              source = 'index-v1.json'
+          elif __import__('os').path.exists('$REPO/index.xml'):
+              tree = ET.parse('$REPO/index.xml')
+              for pkg in tree.getroot().findall('.//package') or tree.getroot().findall('package'):
+                  if pkg.get('apkName') == apkname or (pkg.get('name') and apkname.startswith(pkg.get('name', ''))):
+                      h = (pkg.get('hash') or '').replace('sha256:', '').strip().lower()
+                      if h:
+                          index_hash = h
+                          break
+              source = 'index.xml'
+          if index_hash is None:
+              print(f'APK {apkname} not found in repo index', file=sys.stderr)
+              sys.exit(1)
+          if index_hash != computed:
+              print(f'Hash mismatch: {source} has {index_hash}, computed {computed}', file=sys.stderr)
+              sys.exit(1)
+          print(f'{source} hash matches.')
+          VERIFY
 
       - name: Assemble Pages artifact
         run: |
