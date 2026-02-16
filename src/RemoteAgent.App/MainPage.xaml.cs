@@ -150,6 +150,7 @@ public partial class MainPage : ContentPage
         }
 
         // Ensure we have a current session (FR-11.1.2, TR-12.2).
+        SessionItem? sessionToConnect = null;
         if (CurrentSession == null)
         {
             var agentId = await ShowAgentPickerAsync(serverInfo);
@@ -160,6 +161,7 @@ public partial class MainPage : ContentPage
                 Title = "New chat",
                 AgentId = agentId
             };
+            sessionToConnect = session;
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 _sessionStore.Add(session);
@@ -172,18 +174,25 @@ public partial class MainPage : ContentPage
             var agentId = await ShowAgentPickerAsync(serverInfo);
             if (agentId == null) { StatusLabel.Text = "Enter host and port, then Connect."; return; }
             var session = CurrentSession;
-            var sessionId = session.SessionId;
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                session.AgentId = agentId;
-                _sessionStore.UpdateAgentId(sessionId, agentId);
-            });
+            session.AgentId = agentId;
+            sessionToConnect = session;
+            MainThread.BeginInvokeOnMainThread(() => _sessionStore.UpdateAgentId(session.SessionId, agentId));
+        }
+        else
+        {
+            sessionToConnect = CurrentSession;
+        }
+
+        if (sessionToConnect == null)
+        {
+            StatusLabel.Text = "Enter host and port, then Connect.";
+            return;
         }
 
         StatusLabel.Text = "Connecting...";
         try
         {
-            await _gateway.ConnectAsync(host, port, CurrentSession.SessionId, CurrentSession.AgentId);
+            await _gateway.ConnectAsync(host, port, sessionToConnect.SessionId, sessionToConnect.AgentId);
             SaveServerDetails(host, port);
             MainThread.BeginInvokeOnMainThread(() =>
             {
