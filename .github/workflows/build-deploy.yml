@@ -146,6 +146,12 @@ jobs:
           name: service-publish
           path: service-publish
 
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: src
+
   android:
     name: Build Android APK
     runs-on: ubuntu-latest
@@ -153,14 +159,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore build cache
-        uses: actions/cache/restore@v4
+      - name: Download build output from build job
+        uses: actions/download-artifact@v4
         with:
-          path: |
-            src/**/bin
-            src/**/obj
-          key: build-dotnet-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/*.slnx') }}
-          restore-keys: build-dotnet-${{ runner.os }}-
+          name: build-output
+          path: build-output
+
+      - name: Debug - List downloaded artifact contents
+        run: |
+          echo "=== Workspace root ==="
+          ls -la
+          echo "=== build-output directory ==="
+          ls -la build-output/ || echo "build-output/ not found"
+          echo "=== Looking for src directories ==="
+          find . -type d \( -name "src" -o -name "RemoteAgent.App" \) | head -20
+
+      - name: Merge build output into workspace
+        run: |
+          set -e
+          # Artifact structure should be: build-output/src/RemoteAgent.App/bin, etc.
+          if [ -d "build-output/src" ]; then
+            echo "Found build-output/src, copying to src/"
+            cp -r build-output/src/. src/
+          else
+            echo "ERROR: build-output/src not found"
+            echo "Contents of build-output:"
+            ls -laR build-output/ || echo "build-output directory doesn't exist"
+            exit 1
+          fi
+          
+          # Verify the merge worked
+          if [ ! -d "src/RemoteAgent.App/bin" ]; then
+            echo "ERROR: src/RemoteAgent.App/bin not found after merge"
+            echo "Contents of src/:"
+            ls -laR src/
+            exit 1
+          fi
+          echo "✓ Build output merged successfully"
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -179,7 +214,7 @@ jobs:
             -f net10.0-android -c Release -p:AndroidPackageFormat=apk \
             -p:ApplicationDisplayVersion=${{ needs.build.outputs.semver }} \
             -p:ApplicationVersion=${{ github.run_number }} \
-            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-restore
+            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
