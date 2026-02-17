@@ -23,6 +23,8 @@ public class RemoteAgentWebApplicationFactory : IDisposable
     private readonly IHost _host;
     private readonly TestServer _server;
     private readonly string _apiKey;
+    private readonly string _dataDirectory;
+    private readonly string _logDirectory;
 
     public RemoteAgentWebApplicationFactory(
         string? command = null,
@@ -37,6 +39,10 @@ public class RemoteAgentWebApplicationFactory : IDisposable
         int? maxConcurrentSessions = null,
         int? processAgentMaxConcurrentSessions = null)
     {
+        _dataDirectory = Path.Combine(Path.GetTempPath(), "remote-agent-it", Guid.NewGuid().ToString("N"));
+        _logDirectory = Path.Combine(Path.GetTempPath(), "remote-agent-it-logs", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(_dataDirectory);
+        Directory.CreateDirectory(_logDirectory);
         _apiKey = apiKey ?? "";
         _host = new HostBuilder()
             .ConfigureWebHost(webBuilder =>
@@ -50,7 +56,8 @@ public class RemoteAgentWebApplicationFactory : IDisposable
                         ["Agent:Command"] = command ?? "",
                         ["Agent:Arguments"] = arguments ?? "",
                         ["Agent:RunnerId"] = runnerId ?? "",
-                        ["Agent:LogDirectory"] = Path.GetTempPath(),
+                        ["Agent:DataDirectory"] = _dataDirectory,
+                        ["Agent:LogDirectory"] = _logDirectory,
                         ["Agent:AllowUnauthenticatedLoopback"] = allowUnauthenticatedLoopback ? "true" : "false",
                         ["Agent:ApiKey"] = _apiKey,
                         ["Agent:MaxConcurrentConnectionsPerPeer"] = (maxConcurrentConnectionsPerPeer ?? 8).ToString(),
@@ -69,45 +76,17 @@ public class RemoteAgentWebApplicationFactory : IDisposable
 
                 webBuilder.Configure(app =>
                 {
+                    app.Use(async (context, next) =>
+                    {
+                        // TestServer may leave RemoteIpAddress null/"unknown", which breaks loopback auth checks.
+                        context.Connection.RemoteIpAddress ??= IPAddress.Loopback;
+                        context.Connection.LocalIpAddress ??= IPAddress.Loopback;
+                        await next();
+                    });
                     app.UseRouting();
                     app.UseEndpoints(endpoints =>
                     {
-                        endpoints.MapGrpcService<AgentGatewayService>();
-                        endpoints.MapGet("/api/sessions/capacity", (
-                            HttpContext context,
-                            IOptions<AgentOptions> options,
-                            SessionCapacityService sessionCapacity) =>
-                        {
-                            if (!IsAuthorizedHttp(context, options.Value))
-                                return Results.Unauthorized();
-
-                            var agentId = context.Request.Query["agentId"].ToString();
-                            var status = sessionCapacity.GetStatus(agentId);
-                            return Results.Ok(status);
-                        });
-                        endpoints.MapGet("/api/sessions/open", (
-                            HttpContext context,
-                            IOptions<AgentOptions> options,
-                            SessionCapacityService sessionCapacity) =>
-                        {
-                            if (!IsAuthorizedHttp(context, options.Value))
-                                return Results.Unauthorized();
-
-                            return Results.Ok(sessionCapacity.ListOpenSessions());
-                        });
-                        endpoints.MapPost("/api/sessions/{sessionId}/terminate", (
-                            HttpContext context,
-                            IOptions<AgentOptions> options,
-                            SessionCapacityService sessionCapacity,
-                            string sessionId) =>
-                        {
-                            if (!IsAuthorizedHttp(context, options.Value))
-                                return Results.Unauthorized();
-
-                            var success = sessionCapacity.TryTerminateSession(sessionId, out var reason);
-                            return Results.Ok(new { success, message = success ? "Session terminated." : reason });
-                        });
-                        endpoints.MapGet("/", async ctx => await ctx.Response.WriteAsync("RemoteAgent gRPC service. Use the Android app to connect."));
+                        Program.ConfigureEndpoints(endpoints);
                     });
                 });
             })
@@ -138,7 +117,8 @@ public class RemoteAgentWebApplicationFactory : IDisposable
         services.AddSingleton<PromptTemplateService>();
         services.AddSingleton<ConnectionProtectionService>();
         services.AddSingleton<SessionCapacityService>();
-        services.AddGrpc();
+        services.AddSingleton<AuthUserService>();
+        services.AddGrpc(options => options.EnableDetailedErrors = true);
     }
 
     public HttpMessageHandler CreateHandler() => _server.CreateHandler();
@@ -155,22 +135,17 @@ public class RemoteAgentWebApplicationFactory : IDisposable
     public void Dispose()
     {
         _host.Dispose();
-    }
-
-    private static bool IsAuthorizedHttp(HttpContext context, AgentOptions options)
-    {
-        var configuredApiKey = options.ApiKey?.Trim();
-        if (!string.IsNullOrEmpty(configuredApiKey))
+        try
         {
-            var provided = context.Request.Headers["x-api-key"].FirstOrDefault();
-            return string.Equals(configuredApiKey, provided, StringComparison.Ordinal);
+            if (Directory.Exists(_dataDirectory))
+                Directory.Delete(_dataDirectory, recursive: true);
+            if (Directory.Exists(_logDirectory))
+                Directory.Delete(_logDirectory, recursive: true);
         }
-
-        if (!options.AllowUnauthenticatedLoopback)
-            return false;
-
-        var remote = context.Connection.RemoteIpAddress;
-        return remote != null && IPAddress.IsLoopback(remote);
+        catch
+        {
+            // Best-effort cleanup for temporary integration-test storage.
+        }
     }
 }
 

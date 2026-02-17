@@ -7,5 +7,6 @@ Welcome to the documentation for **Remote Agent** — the Android app and Linux 
 - [Documentation overview](index.md) — requirements and design documents
 - [Functional requirements](functional-requirements.md) — product behavior and features (with cross-links to technical requirements)
 - [Technical requirements](technical-requirements.md) — architecture, protocol, CI/CD (with cross-links to functional requirements)
+- [Requirements test coverage](requirements-test-coverage.md) — FR/TR to automated test mapping matrix
 - [Implementing CLI agents](implementing-cli-agents.md) — guide for creating custom agents
 - [Repository rules](REPOSITORY_RULES.md) — contribution and repo guidelines

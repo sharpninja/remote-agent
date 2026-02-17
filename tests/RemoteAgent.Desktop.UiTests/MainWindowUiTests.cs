@@ -12,12 +12,38 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.Desktop.UiTests;
 
+/// <summary>
+/// Desktop UI coverage for FR-12.x and TR-8.6/TR-14.x using Avalonia headless tests.
+/// </summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-2.6")]
+[Trait("Requirement", "FR-12.1")]
+[Trait("Requirement", "FR-12.1.3")]
+[Trait("Requirement", "FR-12.1.4")]
+[Trait("Requirement", "FR-12.1.5")]
+[Trait("Requirement", "FR-12.4")]
+[Trait("Requirement", "FR-12.7")]
+[Trait("Requirement", "FR-12.8")]
+[Trait("Requirement", "FR-12.9")]
+[Trait("Requirement", "FR-12.10")]
+[Trait("Requirement", "FR-12.11")]
+[Trait("Requirement", "FR-13.1")]
+[Trait("Requirement", "FR-13.2")]
+[Trait("Requirement", "FR-13.4")]
+[Trait("Requirement", "FR-13.5")]
+[Trait("Requirement", "FR-13.6")]
+[Trait("Requirement", "FR-14.1")]
+[Trait("Requirement", "TR-5.7")]
+[Trait("Requirement", "TR-8.6")]
+[Trait("Requirement", "TR-14.1")]
+[Trait("Requirement", "TR-14.1.7")]
 public sealed class MainWindowUiTests
 {
     [AvaloniaFact]
     public void MainWindow_ShouldExposeExpectedManagementControls()
     {
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory());
+        // FR-12.1.3, FR-12.1.4, FR-12.1.5, FR-12.8, FR-12.11
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
         var window = new MainWindow(vm);
 
         window.Show();
@@ -33,6 +59,8 @@ public sealed class MainWindowUiTests
         window.FindControl<Button>("CheckCapacityButton").Should().NotBeNull();
         window.FindControl<Button>("RefreshOpenSessionsButton").Should().NotBeNull();
         window.FindControl<Button>("TerminateOpenServerSessionButton").Should().NotBeNull();
+        window.FindControl<Button>("CheckLocalServerButton").Should().NotBeNull();
+        window.FindControl<Button>("ApplyLocalServerActionButton").Should().NotBeNull();
         window.FindControl<Button>("StartLogMonitoringButton").Should().NotBeNull();
         window.FindControl<Button>("ApplyLogFilterButton").Should().NotBeNull();
         window.FindControl<TextBox>("LogServerIdFilterTextBox").Should().NotBeNull();
@@ -45,7 +73,8 @@ public sealed class MainWindowUiTests
     [AvaloniaFact]
     public void CurrentServerWorkspace_ShouldCreateSessionTabs()
     {
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory());
+        // FR-12.1.3: tabbed session interface
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
 
         vm.CurrentServerViewModel.Should().NotBeNull();
         var workspace = vm.CurrentServerViewModel!;
@@ -54,6 +83,159 @@ public sealed class MainWindowUiTests
         workspace.NewSessionCommand.Execute(null);
 
         workspace.Sessions.Count.Should().BeGreaterThan(initialCount);
+    }
+
+    [AvaloniaFact]
+    public void MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
+    {
+        // FR-12.7, FR-13.1, FR-13.2, FR-13.4, FR-13.5
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var window = new MainWindow(vm);
+        window.Show();
+
+        window.FindControl<Button>("RefreshSecurityButton").Should().NotBeNull();
+        window.FindControl<Button>("BanPeerButton").Should().NotBeNull();
+        window.FindControl<Button>("UnbanPeerButton").Should().NotBeNull();
+        window.FindControl<ListBox>("ConnectedPeersList").Should().NotBeNull();
+        window.FindControl<ListBox>("BannedPeersList").Should().NotBeNull();
+        window.FindControl<ListBox>("ConnectionHistoryList").Should().NotBeNull();
+        window.FindControl<ListBox>("AbandonedSessionsList").Should().NotBeNull();
+        window.FindControl<Button>("RefreshAuthUsersButton").Should().NotBeNull();
+        window.FindControl<Button>("SaveAuthUserButton").Should().NotBeNull();
+        window.FindControl<Button>("DeleteAuthUserButton").Should().NotBeNull();
+        window.FindControl<ListBox>("AuthUsersList").Should().NotBeNull();
+
+        window.Close();
+    }
+
+    [AvaloniaFact]
+    public void MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
+    {
+        // FR-12.4, FR-12.6, FR-13.6, FR-14.1
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var window = new MainWindow(vm);
+        window.Show();
+
+        window.FindControl<Button>("RefreshPluginsButton").Should().NotBeNull();
+        window.FindControl<Button>("SavePluginsButton").Should().NotBeNull();
+        window.FindControl<ListBox>("LoadedPluginRunnerIdsList").Should().NotBeNull();
+        window.FindControl<Button>("RefreshMcpButton").Should().NotBeNull();
+        window.FindControl<Button>("SaveMcpServerButton").Should().NotBeNull();
+        window.FindControl<Button>("DeleteMcpServerButton").Should().NotBeNull();
+        window.FindControl<Button>("SaveAgentMcpMappingButton").Should().NotBeNull();
+        window.FindControl<ListBox>("McpServersList").Should().NotBeNull();
+        window.FindControl<Button>("RefreshPromptTemplatesButton").Should().NotBeNull();
+        window.FindControl<Button>("SavePromptTemplateButton").Should().NotBeNull();
+        window.FindControl<Button>("DeletePromptTemplateButton").Should().NotBeNull();
+        window.FindControl<Button>("SeedContextButton").Should().NotBeNull();
+        window.FindControl<ListBox>("PromptTemplatesList").Should().NotBeNull();
+
+        window.Close();
+    }
+
+    [AvaloniaFact]
+    public void SessionMessageInput_ShouldExposeCtrlEnterShortcut()
+    {
+        // FR-2.6, TR-5.7: desktop Ctrl+Enter submits request
+        var axamlPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "MainWindow.axaml");
+        var content = File.ReadAllText(axamlPath);
+
+        content.Should().Contain("SessionMessageInput");
+        content.Should().Contain("Gesture=\"Ctrl+Enter\"");
+        content.Should().Contain("SendCurrentMessageCommand");
+    }
+
+    [AvaloniaFact]
+    public void LocalServerTab_ShouldExposeDedicatedStatusArea()
+    {
+        // FR: management UI provides dedicated local-server status and start/stop actions in right-side tabs.
+        var axamlPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "MainWindow.axaml");
+        var content = File.ReadAllText(axamlPath);
+
+        content.Should().Contain("TabItem Header=\"Local Server\"");
+        content.Should().Contain("LocalServerStatusTextBlock");
+        content.Should().Contain("TabCheckLocalServerButton");
+        content.Should().Contain("TabApplyLocalServerActionButton");
+        content.Should().Contain("LocalServerStatusText");
+        content.Should().Contain("CheckLocalServerCommand");
+        content.Should().Contain("ApplyLocalServerActionCommand");
+    }
+
+    [AvaloniaFact]
+    public async Task SendCurrentMessage_ShouldPropagatePerRequestContext()
+    {
+        // FR-12.8, TR-14.1.7: per-request context is attached to outbound messages.
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var workspace = vm.CurrentServerViewModel;
+        workspace.Should().NotBeNull();
+
+        await WaitForAsync(() => workspace!.Sessions.Count > 0);
+        var session = workspace!.SelectedSession ?? workspace.Sessions[0];
+        workspace.SelectedSession = session;
+        workspace.PerRequestContext = "ticket=ABC-123";
+        session.PendingMessage = "hello";
+
+        workspace.SendCurrentMessageCommand.Execute(null);
+        await WaitForAsync(() => ((FakeAgentSessionClient)session.SessionClient).LastSentText == "hello");
+
+        var client = (FakeAgentSessionClient)session.SessionClient;
+        client.LastSentText.Should().Be("hello");
+        client.LastPerRequestContextAtSend.Should().Be("ticket=ABC-123");
+    }
+
+    [AvaloniaFact]
+    public async Task MainWindow_ShouldSupportSwitchingRegisteredServers()
+    {
+        // FR-12.9, FR-12.10: multiple server registrations and server-scoped workspace switching.
+        var store = new InMemoryServerRegistrationStore();
+        store.Upsert(new ServerRegistration
+        {
+            ServerId = "srv-2",
+            DisplayName = "Secondary",
+            Host = "10.0.0.2",
+            Port = 5243,
+            ApiKey = ""
+        });
+
+        var vm = new MainWindowViewModel(store, new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        vm.Servers.Count.Should().BeGreaterThanOrEqualTo(2);
+
+        vm.SelectedServer = vm.Servers.First(x => x.ServerId == "srv-2");
+        await WaitForAsync(() => vm.CurrentServerId == "srv-2");
+
+        vm.CurrentServerId.Should().Be("srv-2");
+        vm.CurrentServerViewModel.Should().NotBeNull();
+        vm.CurrentServerViewModel!.CurrentServerId.Should().Be("srv-2");
+    }
+
+    [AvaloniaFact]
+    public async Task CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts()
+    {
+        var localServer = new StubLocalServerManager(false);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer);
+
+        vm.CheckLocalServerCommand.Execute(null);
+        await WaitForAsync(() => vm.LocalServerActionLabel == "Start Local Server");
+        vm.CanApplyLocalServerAction.Should().BeTrue();
+
+        vm.ApplyLocalServerActionCommand.Execute(null);
+        await WaitForAsync(() => localServer.LastAction == "start");
+        vm.LocalServerActionLabel.Should().Be("Stop Local Server");
+    }
+
+    [AvaloniaFact]
+    public async Task CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops()
+    {
+        var localServer = new StubLocalServerManager(true);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer);
+
+        vm.CheckLocalServerCommand.Execute(null);
+        await WaitForAsync(() => vm.LocalServerActionLabel.StartsWith("Stop", StringComparison.Ordinal));
+        vm.CanApplyLocalServerAction.Should().BeTrue();
+
+        vm.ApplyLocalServerActionCommand.Execute(null);
+        await WaitForAsync(() => localServer.LastAction == "stop");
+        vm.LocalServerActionLabel.Should().Be("Start Local Server");
     }
 
     private sealed class InMemoryServerRegistrationStore : IServerRegistrationStore
@@ -228,6 +410,8 @@ public sealed class MainWindowUiTests
         public string? CurrentSessionId { get; private set; }
         public ServerInfoResponse? ServerInfo => null;
         public string? PerRequestContext { get; set; }
+        public string? LastSentText { get; private set; }
+        public string? LastPerRequestContextAtSend { get; private set; }
         public event Action? ConnectionStateChanged;
         public event Action<ChatMessage>? MessageReceived;
 
@@ -250,6 +434,8 @@ public sealed class MainWindowUiTests
 
         public Task SendTextAsync(string text, CancellationToken ct = default)
         {
+            LastSentText = text;
+            LastPerRequestContextAtSend = PerRequestContext;
             if (!string.IsNullOrWhiteSpace(text))
                 MessageReceived?.Invoke(new ChatMessage { IsUser = false, Text = $"echo:{text}" });
             return Task.CompletedTask;
@@ -266,5 +452,57 @@ public sealed class MainWindowUiTests
             Disconnect();
             return Task.CompletedTask;
         }
+    }
+
+    private sealed class StubLocalServerManager(bool running) : ILocalServerManager
+    {
+        private bool _running = running;
+        public string LastAction { get; private set; } = "";
+
+        public Task<LocalServerProbeResult> ProbeAsync(CancellationToken cancellationToken = default)
+        {
+            if (_running)
+            {
+                return Task.FromResult(new LocalServerProbeResult(
+                    IsRunning: true,
+                    IsManagedByApp: true,
+                    CanApplyAction: true,
+                    RecommendedActionLabel: "Stop Local Server",
+                    Message: "Local server is running (managed by desktop app)."));
+            }
+
+            return Task.FromResult(new LocalServerProbeResult(
+                IsRunning: false,
+                IsManagedByApp: false,
+                CanApplyAction: true,
+                RecommendedActionLabel: "Start Local Server",
+                Message: "Local server is not running."));
+        }
+
+        public Task<LocalServerActionResult> StartAsync(CancellationToken cancellationToken = default)
+        {
+            _running = true;
+            LastAction = "start";
+            return Task.FromResult(new LocalServerActionResult(true, "Local server started."));
+        }
+
+        public Task<LocalServerActionResult> StopAsync(CancellationToken cancellationToken = default)
+        {
+            _running = false;
+            LastAction = "stop";
+            return Task.FromResult(new LocalServerActionResult(true, "Local server stopped."));
+        }
+    }
+
+    private static async Task WaitForAsync(Func<bool> condition, int attempts = 50, int delayMs = 20)
+    {
+        for (var i = 0; i < attempts; i++)
+        {
+            if (condition())
+                return;
+            await Task.Delay(delayMs);
+        }
+
+        condition().Should().BeTrue();
     }
 }

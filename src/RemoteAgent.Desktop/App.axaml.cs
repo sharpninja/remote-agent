@@ -40,6 +40,7 @@ public partial class App : Application
         var registryPath = Path.Combine(dataDir, "desktop-server-registry.db");
 
         services.AddSingleton<IServerCapacityClient, ServerCapacityClient>();
+        services.AddSingleton<ILocalServerManager, LocalServerManager>();
         services.AddSingleton<IServerRegistrationStore>(_ => new LiteDbServerRegistrationStore(registryPath));
         services.AddScoped<CurrentServerContext>();
         services.AddSingleton<IDesktopStructuredLogStore>(_ => new DesktopStructuredLogStore(dbPath));

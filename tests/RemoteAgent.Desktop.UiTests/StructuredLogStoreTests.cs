@@ -3,6 +3,12 @@ using RemoteAgent.Desktop.Logging;
 
 namespace RemoteAgent.Desktop.UiTests;
 
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.2")]
+[Trait("Requirement", "FR-12.3")]
+[Trait("Requirement", "TR-11.1")]
+[Trait("Requirement", "TR-13.4")]
+[Trait("Requirement", "TR-13.5")]
 public sealed class StructuredLogStoreTests
 {
     [Fact]

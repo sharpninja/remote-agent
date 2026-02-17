@@ -3,6 +3,9 @@ using RemoteAgent.App.Logic;
 
 namespace RemoteAgent.App.Tests;
 
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-14.2")]
+[Trait("Requirement", "TR-17.3")]
 public class PromptTemplateEngineTests
 {
     [Fact]

@@ -24,7 +24,6 @@ public sealed class AgentMcpConfigurationService
     {
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<McpServerRecord>(ServersCollection);
-        col.EnsureIndex(x => x.ServerId, unique: true);
         return col.FindAll().OrderBy(x => x.DisplayName).ToList();
     }
 
@@ -32,13 +31,12 @@ public sealed class AgentMcpConfigurationService
     {
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<McpServerRecord>(ServersCollection);
-        col.EnsureIndex(x => x.ServerId, unique: true);
         var now = DateTimeOffset.UtcNow;
         var id = string.IsNullOrWhiteSpace(server.ServerId)
             ? GenerateServerId(server.DisplayName, server.Command, server.Endpoint)
             : server.ServerId.Trim();
 
-        var existing = col.FindOne(x => x.ServerId == id);
+        var existing = col.FindById(id);
         var record = new McpServerRecord
         {
             ServerId = id,
@@ -64,7 +62,7 @@ public sealed class AgentMcpConfigurationService
         if (string.IsNullOrWhiteSpace(serverId)) return false;
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<McpServerRecord>(ServersCollection);
-        var deleted = col.DeleteMany(x => x.ServerId == serverId.Trim()) > 0;
+        var deleted = col.Delete(serverId.Trim());
 
         var mapCol = db.GetCollection<AgentMcpMapRecord>(AgentMapCollection);
         foreach (var map in mapCol.FindAll())
@@ -88,7 +86,6 @@ public sealed class AgentMcpConfigurationService
 
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<AgentMcpMapRecord>(AgentMapCollection);
-        col.EnsureIndex(x => x.AgentId, unique: true);
         col.Upsert(new AgentMcpMapRecord
         {
             AgentId = normalizedAgent,
@@ -104,7 +101,7 @@ public sealed class AgentMcpConfigurationService
         var normalizedAgent = string.IsNullOrWhiteSpace(agentId) ? "process" : agentId.Trim();
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<AgentMcpMapRecord>(AgentMapCollection);
-        var row = col.FindOne(x => x.AgentId == normalizedAgent);
+        var row = col.FindById(normalizedAgent);
         return row?.ServerIds?.ToList() ?? [];
     }
 
@@ -114,7 +111,11 @@ public sealed class AgentMcpConfigurationService
         if (ids.Count == 0) return [];
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<McpServerRecord>(ServersCollection);
-        return col.Find(x => ids.Contains(x.ServerId)).ToList();
+        return ids
+            .Select(id => col.FindById(id))
+            .Where(x => x != null)
+            .Select(x => x!)
+            .ToList();
     }
 
     public SeedContextRecord AddSeedContext(string sessionId, string contextType, string content, string source)
@@ -132,8 +133,7 @@ public sealed class AgentMcpConfigurationService
 
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<SeedContextRecord>(SeedCollection);
-        col.EnsureIndex(x => x.SessionId);
-        col.EnsureIndex(x => x.SeedId, unique: true);
+        col.EnsureIndex(nameof(SeedContextRecord.SessionId));
         col.Insert(record);
         return record;
     }
@@ -143,7 +143,10 @@ public sealed class AgentMcpConfigurationService
         var sid = SanitizeSessionId(sessionId);
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<SeedContextRecord>(SeedCollection);
-        return col.Find(x => x.SessionId == sid).OrderBy(x => x.CreatedUtc).ToList();
+        return col.Query()
+            .Where($"{nameof(SeedContextRecord.SessionId)} = @0", sid)
+            .OrderBy(nameof(SeedContextRecord.CreatedUtc))
+            .ToList();
     }
 
     public IReadOnlyList<SeedContextRecord> ConsumeSeedContext(string sessionId)
@@ -151,8 +154,11 @@ public sealed class AgentMcpConfigurationService
         var sid = SanitizeSessionId(sessionId);
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<SeedContextRecord>(SeedCollection);
-        var rows = col.Find(x => x.SessionId == sid).OrderBy(x => x.CreatedUtc).ToList();
-        col.DeleteMany(x => x.SessionId == sid);
+        var rows = col.Query()
+            .Where($"{nameof(SeedContextRecord.SessionId)} = @0", sid)
+            .OrderBy(nameof(SeedContextRecord.CreatedUtc))
+            .ToList();
+        col.DeleteMany($"{nameof(SeedContextRecord.SessionId)} = @0", sid);
         return rows;
     }
 
@@ -161,7 +167,7 @@ public sealed class AgentMcpConfigurationService
         var sid = SanitizeSessionId(sessionId);
         using var db = new LiteDatabase(_dbPath);
         var col = db.GetCollection<SeedContextRecord>(SeedCollection);
-        return col.DeleteMany(x => x.SessionId == sid);
+        return col.DeleteMany($"{nameof(SeedContextRecord.SessionId)} = @0", sid);
     }
 
     private static string GenerateServerId(string? displayName, string? command, string? endpoint)

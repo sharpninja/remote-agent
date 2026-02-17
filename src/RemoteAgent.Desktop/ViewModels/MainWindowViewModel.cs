@@ -10,6 +10,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
 {
     private readonly IServerRegistrationStore _serverRegistrationStore;
     private readonly IServerWorkspaceFactory _serverWorkspaceFactory;
+    private readonly ILocalServerManager _localServerManager;
     private readonly Dictionary<string, ServerWorkspaceLease> _workspaceLeases = [];
 
     private ServerRegistration? _selectedServer;
@@ -21,17 +22,25 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     private string _editHost = "127.0.0.1";
     private string _editPort = "5243";
     private string _editApiKey = "";
+    private string _localServerActionLabel = "Check Local Server";
+    private string _localServerStatusText = "Local server status not checked.";
+    private bool _canApplyLocalServerAction;
+    private bool _localServerRunning;
 
     public MainWindowViewModel(
         IServerRegistrationStore serverRegistrationStore,
-        IServerWorkspaceFactory serverWorkspaceFactory)
+        IServerWorkspaceFactory serverWorkspaceFactory,
+        ILocalServerManager localServerManager)
     {
         _serverRegistrationStore = serverRegistrationStore;
         _serverWorkspaceFactory = serverWorkspaceFactory;
+        _localServerManager = localServerManager;
 
         NewServerCommand = new RelayCommand(NewServerDraft);
         SaveServerCommand = new RelayCommand(SaveServer);
         RemoveServerCommand = new RelayCommand(RemoveSelectedServer, () => SelectedServer != null);
+        CheckLocalServerCommand = new RelayCommand(() => _ = CheckLocalServerAsync());
+        ApplyLocalServerActionCommand = new RelayCommand(() => _ = ApplyLocalServerActionAsync(), () => CanApplyLocalServerAction);
 
         LoadServers();
     }
@@ -134,9 +143,45 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         }
     }
 
+    public string LocalServerActionLabel
+    {
+        get => _localServerActionLabel;
+        private set
+        {
+            if (_localServerActionLabel == value) return;
+            _localServerActionLabel = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string LocalServerStatusText
+    {
+        get => _localServerStatusText;
+        private set
+        {
+            if (_localServerStatusText == value) return;
+            _localServerStatusText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool CanApplyLocalServerAction
+    {
+        get => _canApplyLocalServerAction;
+        private set
+        {
+            if (_canApplyLocalServerAction == value) return;
+            _canApplyLocalServerAction = value;
+            OnPropertyChanged();
+            ((RelayCommand)ApplyLocalServerActionCommand).RaiseCanExecuteChanged();
+        }
+    }
+
     public ICommand NewServerCommand { get; }
     public ICommand SaveServerCommand { get; }
     public ICommand RemoveServerCommand { get; }
+    public ICommand CheckLocalServerCommand { get; }
+    public ICommand ApplyLocalServerActionCommand { get; }
 
     public void Dispose()
     {
@@ -285,5 +330,28 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private async Task CheckLocalServerAsync()
+    {
+        var probe = await _localServerManager.ProbeAsync();
+        _localServerRunning = probe.IsRunning;
+        LocalServerActionLabel = probe.RecommendedActionLabel;
+        CanApplyLocalServerAction = probe.CanApplyAction;
+        LocalServerStatusText = probe.Message;
+        StatusText = probe.Message;
+    }
+
+    private async Task ApplyLocalServerActionAsync()
+    {
+        LocalServerActionResult result;
+        if (_localServerRunning)
+            result = await _localServerManager.StopAsync();
+        else
+            result = await _localServerManager.StartAsync();
+
+        LocalServerStatusText = result.Message;
+        StatusText = result.Message;
+        await CheckLocalServerAsync();
     }
 }

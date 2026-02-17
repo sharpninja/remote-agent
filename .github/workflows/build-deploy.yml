@@ -189,6 +189,11 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Use .NET 9 global.json for desktop build
+        run: |
+          echo '{"sdk":{"version":"9.0.100","rollForward":"latestFeature"}}' > global.json
+          cat global.json
+
       - name: Restore and build Avalonia desktop app
         working-directory: src/RemoteAgent.Desktop
         run: |

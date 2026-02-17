@@ -4,6 +4,15 @@ using Xunit;
 
 namespace RemoteAgent.App.Tests;
 
+/// <summary>Chat message display, priority, archive, markdown rendering. FR-2.3, FR-3.1, FR-4.1, FR-7.2; TR-5.1, TR-5.3, TR-5.5.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-2.3")]
+[Trait("Requirement", "FR-3.1")]
+[Trait("Requirement", "FR-4.1")]
+[Trait("Requirement", "FR-7.2")]
+[Trait("Requirement", "TR-5.1")]
+[Trait("Requirement", "TR-5.3")]
+[Trait("Requirement", "TR-5.5")]
 public class ChatMessageTests
 {
     [Fact]

@@ -15,6 +15,10 @@
         <MenuItem Header="New Session" Command="{Binding CurrentServerViewModel.NewSessionCommand}" />
         <MenuItem Header="Terminate Session" Command="{Binding CurrentServerViewModel.TerminateCurrentSessionCommand}" />
       </MenuItem>
+      <MenuItem Header="_Local Server">
+        <MenuItem x:Name="CheckLocalServerMenuItem" Header="Check Local Server" Command="{Binding CheckLocalServerCommand}" />
+        <MenuItem x:Name="ApplyLocalServerActionMenuItem" Header="{Binding LocalServerActionLabel}" Command="{Binding ApplyLocalServerActionCommand}" />
+      </MenuItem>
       <MenuItem Header="_View">
         <MenuItem Header="Toggle Theme" Command="{Binding CurrentServerViewModel.ToggleThemeCommand}" />
       </MenuItem>
@@ -26,6 +30,8 @@
         <Button x:Name="RefreshOpenSessionsButton" Command="{Binding CurrentServerViewModel.RefreshOpenSessionsCommand}">Refresh Open Sessions</Button>
         <Button x:Name="TerminateOpenServerSessionButton" Command="{Binding CurrentServerViewModel.TerminateOpenServerSessionCommand}">Terminate Open Session</Button>
         <Button x:Name="TerminateSessionButton" Command="{Binding CurrentServerViewModel.TerminateCurrentSessionCommand}">Terminate Session</Button>
+        <Button x:Name="CheckLocalServerButton" Command="{Binding CheckLocalServerCommand}">Check Local Server</Button>
+        <Button x:Name="ApplyLocalServerActionButton" Command="{Binding ApplyLocalServerActionCommand}" Content="{Binding LocalServerActionLabel}" />
         <Button x:Name="ToggleThemeButton" Command="{Binding CurrentServerViewModel.ToggleThemeCommand}">Light/Dark</Button>
       </StackPanel>
     </Border>
@@ -170,6 +176,25 @@
               BorderThickness="1"
               Padding="10">
         <TabControl>
+          <TabItem Header="Local Server">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,*">
+              <TextBlock FontWeight="SemiBold" Text="Local Server Control" />
+              <TextBlock Grid.Row="1" Opacity="0.7" Text="Check local service state and start/stop when managed from desktop." TextWrapping="Wrap" />
+              <TextBlock x:Name="LocalServerStatusTextBlock"
+                         Grid.Row="2"
+                         Text="{Binding $parent[Window].DataContext.LocalServerStatusText}"
+                         TextWrapping="Wrap" />
+              <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
+                <Button x:Name="TabCheckLocalServerButton"
+                        Command="{Binding $parent[Window].DataContext.CheckLocalServerCommand}">
+                  Check Local Server
+                </Button>
+                <Button x:Name="TabApplyLocalServerActionButton"
+                        Command="{Binding $parent[Window].DataContext.ApplyLocalServerActionCommand}"
+                        Content="{Binding $parent[Window].DataContext.LocalServerActionLabel}" />
+              </StackPanel>
+            </Grid>
+          </TabItem>
           <TabItem Header="Open Sessions">
             <Grid RowDefinitions="Auto,Auto,*">
               <TextBlock FontWeight="SemiBold" Text="Open Server Sessions" />

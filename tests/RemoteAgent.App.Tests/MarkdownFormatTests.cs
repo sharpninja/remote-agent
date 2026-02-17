@@ -4,6 +4,10 @@ using Xunit;
 
 namespace RemoteAgent.App.Tests;
 
+/// <summary>Markdown and plain-to-HTML rendering for chat. FR-2.3, TR-5.3.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-2.3")]
+[Trait("Requirement", "TR-5.3")]
 public class MarkdownFormatTests
 {
     [Fact]

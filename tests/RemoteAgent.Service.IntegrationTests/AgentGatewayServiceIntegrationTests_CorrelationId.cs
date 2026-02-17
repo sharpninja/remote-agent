@@ -8,6 +8,8 @@ using Xunit.Abstractions;
 namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Integration tests for TR-4.5: correlation ID on each request is echoed on corresponding response(s).</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "TR-4.5")]
 public class AgentGatewayServiceIntegrationTests_CorrelationId : IClassFixture<NoCommandWebApplicationFactory>
 {
     private readonly NoCommandWebApplicationFactory _factory;

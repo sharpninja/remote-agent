@@ -11,7 +11,11 @@
       href: implementing-cli-agents.md
     - name: Requirements completion
       href: requirements-completion-summary.md
+    - name: Requirements test coverage
+      href: requirements-test-coverage.md
     - name: Repository rules
       href: REPOSITORY_RULES.md
     - name: Branch protection
       href: branch-protection.md
+    - name: Testing strategy
+      href: testing-strategy.md

@@ -1,0 +1,30 @@
+ M .github/workflows/build-deploy.yml
+ M docs/index.md
+ M docs/toc.yml
+ M src/RemoteAgent.Desktop/App.axaml.cs
+ M src/RemoteAgent.Desktop/ViewModels/MainWindowViewModel.cs
+ M src/RemoteAgent.Desktop/Views/MainWindow.axaml
+ M src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+ M tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+ M tests/RemoteAgent.App.Tests/MarkdownFormatTests.cs
+ M tests/RemoteAgent.App.Tests/PromptTemplateEngineTests.cs
+ M tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+ M tests/RemoteAgent.Desktop.UiTests/StructuredLogStoreTests.cs
+ M tests/RemoteAgent.Mobile.UiTests/MobileConnectionUiTests.cs
+ M tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_CorrelationId.cs
+ M tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+ M tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+?? AGENTS.html
+?? AGENTS_updated.md
+?? comsync-result.txt
+?? docs/UI-TESTING.md
+?? docs/requirements-test-coverage.md
+?? docs/testing-strategy.html
+?? docs/testing-strategy.md
+?? scripts/commit-and-push-wsl.sh
+?? scripts/comsync.ps1
+?? scripts/fix-clean-stale-assets-execute.ps1
+?? src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+?? tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+?? tests/RemoteAgent.Service.IntegrationTests/ServiceIntegrationSequentialCollection.cs
+?? tests/RemoteAgent.Service.Tests/SessionCapacityServiceTests_CapacityLimits.cs
