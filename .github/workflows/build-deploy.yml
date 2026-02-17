@@ -138,13 +138,7 @@ jobs:
       - name: Restore
         run: |
           ./scripts/clean-stale-assets.sh
-          dotnet restore src/RemoteAgent.Proto/RemoteAgent.Proto.csproj --configfile NuGet.Config
-          dotnet restore src/RemoteAgent.App.Logic/RemoteAgent.App.Logic.csproj --configfile NuGet.Config
-          dotnet restore src/RemoteAgent.Service/RemoteAgent.Service.csproj --configfile NuGet.Config
-          dotnet restore src/RemoteAgent.App/RemoteAgent.App.csproj --configfile NuGet.Config
-          dotnet restore tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj --configfile NuGet.Config
-          dotnet restore tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj --configfile NuGet.Config
-          dotnet restore tests/RemoteAgent.Mobile.UiTests/RemoteAgent.Mobile.UiTests.csproj --configfile NuGet.Config
+          dotnet restore RemoteAgent.slnx --configfile NuGet.Config
 
       - name: Build
         run: |
@@ -194,28 +188,18 @@ jobs:
           echo '{"sdk":{"version":"9.0.100","rollForward":"latestFeature"}}' > global.json
           cat global.json
 
-      - name: Diagnose SDK and global.json (desktop)
-        run: |
-          echo "=== repo root global.json ==="
-          cat global.json
-          echo "=== dotnet --list-sdks ==="
-          dotnet --list-sdks
-          echo "=== dotnet --version (from root) ==="
-          dotnet --version
-          echo "=== from src/RemoteAgent.Desktop ==="
-          cd src/RemoteAgent.Desktop && dotnet --version && cat global.json 2>/dev/null || true && cd ../..
+      - name: Clean stale assets (desktop)
+        run: ./scripts/clean-stale-assets.sh
 
       - name: Restore and build Avalonia desktop app
         working-directory: src/RemoteAgent.Desktop
         run: |
-          ../../scripts/clean-stale-assets.sh
           dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0
           dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal -p:TargetFramework=net9.0
 
       - name: Restore and run desktop UI tests
         working-directory: tests/RemoteAgent.Desktop.UiTests
         run: |
-          ../../scripts/clean-stale-assets.sh
           dotnet restore RemoteAgent.Desktop.UiTests.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0
           dotnet test RemoteAgent.Desktop.UiTests.csproj -c Release --verbosity minimal -nologo -p:TargetFramework=net9.0
 
@@ -234,11 +218,6 @@ jobs:
       - name: Install Android workload
         run: sudo dotnet workload install maui-android
 
-      - name: Restore
-        run: |
-          ./scripts/clean-stale-assets.sh
-          dotnet restore src/RemoteAgent.App/RemoteAgent.App.csproj --configfile NuGet.Config
-
       - name: Download build output from build job
         uses: actions/download-artifact@v4
         with:
@@ -246,6 +225,7 @@ jobs:
 
       - name: Merge build output into workspace
         run: |
+          ./scripts/clean-stale-assets.sh
           set -e
           # If artifact already extracted with full path (src/...), nothing to merge
           if [ -d src/RemoteAgent.App/bin ]; then
@@ -288,7 +268,7 @@ jobs:
             -f net10.0-android -c Release -p:AndroidPackageFormat=apk \
             -p:ApplicationDisplayVersion=${{ needs.build.outputs.semver }} \
             -p:ApplicationVersion=${{ github.run_number }} \
-            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-restore
+            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-restore --no-build
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -422,10 +402,21 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      - name: Cache DocFX tool
+        uses: actions/cache@v4
+        id: docfx-cache
+        with:
+          path: ~/.dotnet/tools
+          key: docfx-${{ runner.os }}-v1
+
       - name: Install DocFX
+        if: steps.docfx-cache.outputs.cache-hit != 'true'
         run: |
           dotnet tool install -g docfx
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Add DocFX to PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Build DocFX site
         run: |
@@ -456,7 +447,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install fdroidserver
+          cache: 'pip'
+      - name: Install fdroidserver
+        run: pip install fdroidserver
 
       - name: Restore F-Droid keystore cache
         id: fdroid-cache
@@ -627,10 +620,21 @@ jobs:
           mkdir -p fdroid-repo/repo
           echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Remote Agent</title></head><body><h1>Remote Agent</h1><p><a href="https://github.com/${{ github.repository }}">Source</a></p></body></html>' > fdroid-repo/index.html
 
-      - name: Install DocFX
+      - name: Cache DocFX tool (docs-only)
+        uses: actions/cache@v4
+        id: docfx-cache-docs
+        with:
+          path: ~/.dotnet/tools
+          key: docfx-${{ runner.os }}-v1
+
+      - name: Install DocFX (docs-only)
+        if: steps.docfx-cache-docs.outputs.cache-hit != 'true'
         run: |
           dotnet tool install -g docfx
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Add DocFX to PATH (docs-only)
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Build DocFX site
         run: |
