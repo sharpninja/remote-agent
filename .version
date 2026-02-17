@@ -1,0 +1,19 @@
+INFO [26-02-14 17:17:41:37] Applicable build agent found: 'LocalBuild'.
+INFO [26-02-14 17:17:41:50] Working directory: E:\github\remote-agent
+ERROR [26-02-14 17:17:42:00] An unexpected error occurred:
+LibGit2Sharp.LibGit2SharpException: repository path 'E:/github/remote-agent/.git' is not owned by current user
+   at LibGit2Sharp.Core.Ensure.HandleError(Int32 result) in /_/LibGit2Sharp/Core/Ensure.cs:line 154
+   at LibGit2Sharp.Core.Ensure.ZeroResult(Int32 result) in /_/LibGit2Sharp/Core/Ensure.cs:line 172
+   at LibGit2Sharp.Core.Proxy.git_repository_open(String path) in /_/LibGit2Sharp/Core/Proxy.cs:line 2560
+   at LibGit2Sharp.Repository..ctor(String path, RepositoryOptions options, RepositoryRequiredParameter requiredParameter) in /_/LibGit2Sharp/Repository.cs:line 159
+   at LibGit2Sharp.Repository..ctor(String path) in /_/LibGit2Sharp/Repository.cs:line 70
+   at GitVersion.Git.GitRepositoryInfo.GetProjectRootDirectory() in /_/src/GitVersion.LibGit2Sharp/Git/GitRepositoryInfo.cs:line 90
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at GitVersion.Git.GitRepositoryInfo.get_ProjectRootDirectory() in /_/src/GitVersion.LibGit2Sharp/Git/GitRepositoryInfo.cs:line 33
+   at GitVersion.GitPreparer.Prepare() in /_/src/GitVersion.Core/Core/GitPreparer.cs:line 39
+   at GitVersion.GitVersionCalculateTool.CalculateVersionVariables() in /_/src/GitVersion.Core/Core/GitVersionCalculateTool.cs:line 35
+   at GitVersion.GitVersionExecutor.RunGitVersionTool(GitVersionOptions gitVersionOptions) in /_/src/GitVersion.App/GitVersionExecutor.cs:line 69
+INFO [26-02-14 17:17:42:00] Please run `git log --graph --format="%h %cr %d" --decorate --date=relative --all --remotes=*` to see the git graph. This can help you troubleshoot any issues.
+

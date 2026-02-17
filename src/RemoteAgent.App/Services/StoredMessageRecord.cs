@@ -37,4 +37,7 @@ public class StoredMessageRecord
 
     /// <summary>When the message was stored.</summary>
     public DateTimeOffset Timestamp { get; set; }
+
+    /// <summary>Session id this message belongs to (FR-11.1, TR-12.1.3).</summary>
+    public string? SessionId { get; set; }
 }

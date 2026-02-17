@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Microsoft.Extensions.Options;
 
 namespace RemoteAgent.Service.Services;
@@ -12,7 +13,9 @@ namespace RemoteAgent.Service.Services;
 /// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-11)</see>
 public class MediaStorageService
 {
+    private static readonly Regex UnsafeCharsRegex = new("[^a-zA-Z0-9_-]", RegexOptions.Compiled);
     private readonly string _mediaDir;
+    private readonly string _mediaDirFullPath;
 
     /// <summary>Creates the service using <see cref="AgentOptions.DataDirectory"/>. Media is stored in <c>data/media/</c>.</summary>
     public MediaStorageService(IOptions<AgentOptions> options)
@@ -22,6 +25,7 @@ public class MediaStorageService
             dataDir = Path.Combine(AppContext.BaseDirectory, "data");
         _mediaDir = Path.Combine(dataDir, "media");
         Directory.CreateDirectory(_mediaDir);
+        _mediaDirFullPath = Path.GetFullPath(_mediaDir);
     }
 
     /// <summary>Saves uploaded content to <c>media/{sessionId}_{guid}.{ext}</c>. Returns relative path (for logging) and full path (for agent).</summary>
@@ -32,13 +36,30 @@ public class MediaStorageService
     /// <returns>Relative path under data dir and full filesystem path.</returns>
     public (string RelativePath, string FullPath) SaveUpload(string sessionId, byte[] content, string contentType, string? fileName)
     {
-        var ext = GetExtensionFromContentType(contentType) ?? Path.GetExtension(fileName ?? "")?.TrimStart('.') ?? "bin";
+        var safeSessionId = SanitizeSegment(sessionId, "session");
+        var ext = SanitizeExtension(GetExtensionFromContentType(contentType) ?? Path.GetExtension(fileName ?? "")?.TrimStart('.') ?? "bin");
         var guid = Guid.NewGuid().ToString("N")[..8];
-        var safeFileName = $"{sessionId}_{guid}.{ext}";
-        var fullPath = Path.Combine(_mediaDir, safeFileName);
+        var safeFileName = $"{safeSessionId}_{guid}.{ext}";
+        var fullPath = Path.GetFullPath(Path.Combine(_mediaDir, safeFileName));
+        if (!fullPath.StartsWith(_mediaDirFullPath, StringComparison.OrdinalIgnoreCase))
+            throw new InvalidOperationException("Resolved media path escaped media directory.");
+
         File.WriteAllBytes(fullPath, content);
         var relativePath = Path.Combine("media", safeFileName);
         return (relativePath, fullPath);
+    }
+
+    private static string SanitizeSegment(string value, string fallback)
+    {
+        var cleaned = UnsafeCharsRegex.Replace(value ?? string.Empty, string.Empty).Trim();
+        return string.IsNullOrEmpty(cleaned) ? fallback : cleaned;
+    }
+
+    private static string SanitizeExtension(string ext)
+    {
+        var cleaned = UnsafeCharsRegex.Replace(ext ?? string.Empty, string.Empty).Trim('.').ToLowerInvariant();
+        if (string.IsNullOrEmpty(cleaned)) return "bin";
+        return cleaned.Length <= 10 ? cleaned : cleaned[..10];
     }
 
     private static string? GetExtensionFromContentType(string contentType)

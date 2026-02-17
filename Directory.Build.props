@@ -3,4 +3,14 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsNotAsErrors />
   </PropertyGroup>
+  <!-- Android build: set JavaSdkDirectory from JAVA_HOME or Linux default. Target reads env var (avoids Condition parsing issues). -->
+  <Target Name="_SetJavaSdkDirectory" BeforeTargets="Build">
+    <PropertyGroup>
+      <_JdkFromEnv>$([System.Environment]::GetEnvironmentVariable('JAVA_HOME'))</_JdkFromEnv>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(JavaSdkDirectory)' == ''">
+      <JavaSdkDirectory Condition="'$(_JdkFromEnv)' != ''">$(_JdkFromEnv)</JavaSdkDirectory>
+      <JavaSdkDirectory Condition="'$(JavaSdkDirectory)' == '' and $([MSBuild]::IsOSPlatform('linux'))">/usr/lib/jvm/default-java</JavaSdkDirectory>
+    </PropertyGroup>
+  </Target>
 </Project>
