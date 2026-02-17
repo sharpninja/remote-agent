@@ -1,5 +1,11 @@
 name: Build and Deploy
 
+# WORKFLOW SCRIPTING STANDARDS:
+# - Use bash only (no Python scripts)
+# - Use jq for JSON parsing
+# - Use xmllint for XML parsing
+# This avoids heredoc indentation issues and keeps workflows consistent
+
 on:
   push:
     branches: [main, develop]

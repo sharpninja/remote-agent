@@ -45,6 +45,16 @@ Before completing any task:
 
 3. **Verify changes work as expected**
 
+### Workflow Scripting Standards
+
+**IMPORTANT: Do NOT use Python in GitHub Actions workflows. Use bash only.**
+
+- All workflow scripts must be written in bash
+- Use `jq` for JSON parsing instead of Python
+- Use `xmllint` or `xpath` for XML parsing instead of Python
+- This avoids heredoc indentation issues and keeps workflows consistent
+- Native bash tools are already available in GitHub Actions runners
+
 ### Framework
 
 - The solution targets .NET 10 (net10.0)
@@ -85,3 +95,4 @@ Before completing any task:
 ✅ **Treat all warnings as errors**
 ✅ **Sign commits**
 ✅ **Run tests before completing tasks**
+✅ **Use bash only in workflows (no Python)**
