@@ -450,7 +450,7 @@ jobs:
                           h = (p.get('hash') or '').replace('sha256:', '').strip().lower()
                           if h:
                               index_hash = h
-                          break
+                              break
                   if index_hash:
                       break
               source = 'index-v1.json'
