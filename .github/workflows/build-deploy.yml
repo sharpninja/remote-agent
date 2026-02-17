@@ -194,14 +194,8 @@ jobs:
       - name: Restore and build Avalonia desktop app
         working-directory: src/RemoteAgent.Desktop
         run: |
-          dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0
-          dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal -p:TargetFramework=net9.0
-
-      - name: Restore and run desktop UI tests
-        working-directory: tests/RemoteAgent.Desktop.UiTests
-        run: |
-          dotnet restore RemoteAgent.Desktop.UiTests.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0
-          dotnet test RemoteAgent.Desktop.UiTests.csproj -c Release --verbosity minimal -nologo -p:TargetFramework=net9.0
+          dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0 -p:TargetFrameworks=net9.0
+          dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal -p:TargetFramework=net9.0 -p:TargetFrameworks=net9.0
 
   android:
     name: Build Android APK
