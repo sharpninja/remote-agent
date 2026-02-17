@@ -184,6 +184,11 @@ jobs:
       - name: Merge build output into workspace
         run: |
           set -e
+          # If artifact already extracted with full path (src/...), nothing to merge
+          if [ -d src/RemoteAgent.App/bin ]; then
+            echo "Build output already at src/RemoteAgent.App/bin, skipping merge"
+            exit 0
+          fi
           # download-artifact@v4 extracts by name directly to path (default: workspace root), so
           # artifact content (LCA=src → RemoteAgent.App/, RemoteAgent.App.Logic/, etc.) lands at
           # workspace root, not in build-output/. Merge those into src/.
@@ -456,6 +461,7 @@ jobs:
           if [ -z "$APK" ]; then
             ERRORS+=("F-Droid APK check FAILED: no APK found in $REPO")
           fi
+          export APK
 
           # 3) Repo URL in config must match expected
           if [ -f fdroid-workspace/config.yml ]; then
@@ -477,9 +483,9 @@ jobs:
           repo = "$REPO"
           expected_version = os.environ.get("EXPECTED_VERSION", "").strip()
           expected_repo_url = os.environ.get("EXPECTED_REPO_URL", "").strip()
+          apk_path = (os.environ.get("APK") or "").strip() or None
           errors = list()
 
-          apk_path = "$APK" if "$APK" else None
           apkname = os.path.basename(apk_path) if apk_path and os.path.isfile(apk_path) else None
 
           if not apkname:

@@ -416,3 +416,4 @@ docs/README.md
 # Commit-and-sync script output (local only)
 commit-result.txt
 SESSION_HANDOFF_2026-02-16.md
+scripts/fetch-run-logs.ps1
