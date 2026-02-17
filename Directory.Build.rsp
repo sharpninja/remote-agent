@@ -1,0 +1,3 @@
+# Default MSBuild arguments for command-line builds from this repo.
+# Do not use -q (quiet): .NET 10 SDK can fail with "Question build FAILED". Use -v m or default; this file sets minimal.
+-v:minimal

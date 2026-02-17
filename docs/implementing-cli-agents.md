@@ -86,8 +86,25 @@ Configure the agent in `appsettings.json` or `appsettings.Development.json`:
 - **Command**: Full path to the executable or script
 - **Arguments**: Command-line arguments to pass to the agent
 - **LogDirectory**: Directory for session log files (defaults to temp directory)
-- **RunnerId**: Runner implementation to use (defaults to "process")
+- **RunnerId**: Runner implementation to use. When unset or empty: Linux (and other non-Windows) defaults to `"process"` (Cursor/agent CLI); Windows defaults to `"copilot-windows"`. Use `"process"` or `"copilot-windows"` explicitly to override.
 - **DataDirectory**: Directory for LiteDB storage and uploaded media (defaults to ./data)
+
+### Example: GitHub Copilot CLI on Windows
+
+Use the built-in **copilot-windows** strategy to run [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli) on Windows. Install Copilot CLI (e.g. `winget install GitHub.Copilot` or `npm install -g @github/copilot`), then set `RunnerId` to `"copilot-windows"`. If `Command` is not set, the service uses `copilot` (from PATH).
+
+```json
+{
+  "Agent": {
+    "Command": "",
+    "Arguments": "",
+    "LogDirectory": "",
+    "RunnerId": "copilot-windows"
+  }
+}
+```
+
+Optionally set `Command` to the full path of `copilot.exe` if it is not on PATH.
 
 ### Example: Simple Echo Agent
 

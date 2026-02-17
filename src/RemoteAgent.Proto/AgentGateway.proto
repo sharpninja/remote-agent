@@ -34,6 +34,7 @@ message ClientMessage {
     ScriptRequest script_request = 3;  // run a script (bash/pwsh), get stdout/stderr on completion (FR-9.1)
     MediaUpload media_upload = 4;  // image or video as context for the agent (FR-10.1)
   }
+  string correlation_id = 5;   // client-provided id; server echoes on response(s) (TR-4.5)
 }
 
 // MediaUpload: image or video sent from app to server as agent context (FR-10.1). Stored alongside LiteDB (TR-11.2).
@@ -55,7 +56,7 @@ enum ScriptType {
   PWSH = 2;
 }
 
-// SessionControl: start or end the agent session.
+// SessionControl: start or end the agent session (TR-12.1). Carries client-provided session_id and optional agent_id for START.
 message SessionControl {
   enum Action {
     ACTION_UNSPECIFIED = 0;
@@ -63,6 +64,8 @@ message SessionControl {
     STOP = 2;   // end session and stop agent
   }
   Action action = 1;
+  string session_id = 2;  // client-provided session id (FR-11.1, FR-11.1.1)
+  string agent_id = 3;    // optional; for START, which agent runner to use (FR-11.1.2)
 }
 
 // ServerMessage: payload streamed from the service to the app.
@@ -75,6 +78,7 @@ message ServerMessage {
   }
   // Priority for this message. NOTIFY triggers a system notification; tap opens chat and shows message.
   MessagePriority priority = 4;
+  string correlation_id = 6;  // echoed from ClientMessage so client can match responses to requests (TR-4.5)
 }
 
 // MediaChunk: image/media sent from server to app. App stores in DCIM/Remote Agent (TR-11.3).

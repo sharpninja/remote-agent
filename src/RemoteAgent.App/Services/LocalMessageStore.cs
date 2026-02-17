@@ -23,13 +23,14 @@ public sealed class LocalMessageStore : ILocalMessageStore
     }
 
     /// <inheritdoc />
-    public IReadOnlyList<ChatMessage> Load()
+    public IReadOnlyList<ChatMessage> Load(string? sessionId = null)
     {
         try
         {
             using var db = new LiteDatabase(_dbPath);
             var col = db.GetCollection<StoredMessageRecord>(CollectionName);
-            var all = col.FindAll().OrderBy(x => x.Timestamp).ToList();
+            var query = sessionId != null ? col.Find(x => x.SessionId == sessionId) : col.FindAll();
+            var all = query.OrderBy(x => x.Timestamp).ToList();
             return all.Select(ToChatMessage).ToList();
         }
         catch
@@ -39,7 +40,7 @@ public sealed class LocalMessageStore : ILocalMessageStore
     }
 
     /// <inheritdoc />
-    public void Add(ChatMessage message)
+    public void Add(ChatMessage message, string? sessionId = null)
     {
         try
         {
@@ -57,7 +58,8 @@ public sealed class LocalMessageStore : ILocalMessageStore
                 EventMessage = message.EventMessage,
                 Priority = (int)message.Priority,
                 IsArchived = message.IsArchived,
-                Timestamp = DateTimeOffset.UtcNow
+                Timestamp = DateTimeOffset.UtcNow,
+                SessionId = sessionId
             });
         }
         catch

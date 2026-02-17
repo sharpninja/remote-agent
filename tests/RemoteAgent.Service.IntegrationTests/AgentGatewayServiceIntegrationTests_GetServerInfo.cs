@@ -3,7 +3,7 @@ using Grpc.Net.Client;
 using RemoteAgent.Proto;
 using Xunit;
 
-namespace RemoteAgent.Service.Tests;
+namespace RemoteAgent.Service.IntegrationTests;
 
 /// <summary>Integration tests for GetServerInfo handshake.</summary>
 public class AgentGatewayServiceIntegrationTests_GetServerInfo : IClassFixture<NoCommandWebApplicationFactory>

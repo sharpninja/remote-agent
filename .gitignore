@@ -403,6 +403,16 @@ FodyWeavers.xsd
 # DocFX build output
 docs/_site/
 
+# Session seed prompt (local/context only, not tracked)
+docs/SESSION-SEED-PROMPT.md
+
+# Docs folder README (not tracked)
+docs/README.md
+
 # Cursor AI
 .cursor/
 .cursorignore
+
+# Commit-and-sync script output (local only)
+commit-result.txt
+SESSION_HANDOFF_2026-02-16.md

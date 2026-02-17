@@ -4,6 +4,7 @@
 # Requires: gh (GitHub CLI) logged in, docker.
 # Usage: ./scripts/watch-and-update-container.sh [run_id]
 #   run_id  Optional. Default: latest run of Build and Deploy workflow.
+#   INSTALL_ONLY=1  Pull image only; do not stop/remove/start the container.
 
 set -euo pipefail
 
@@ -31,8 +32,13 @@ if [ "$STATUS" != "success" ]; then
   exit 1
 fi
 
-echo "Run succeeded. Pulling image and updating container..."
+echo "Run succeeded. Pulling image..."
 docker pull "$IMAGE"
+
+if [ -n "${INSTALL_ONLY:-}" ]; then
+  echo "Done. Image installed (container not started)."
+  exit 0
+fi
 
 if docker ps -a --format '{{.Names}}' | grep -qx "$CONTAINER_NAME"; then
   echo "Stopping and removing existing container: $CONTAINER_NAME"

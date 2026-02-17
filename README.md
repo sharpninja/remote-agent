@@ -1,6 +1,6 @@
 # Remote Agent
 
-[![Build and Deploy](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml)
+![Remote Agent](docs/logo.svg) [![Build and Deploy](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml)
 
 Android app (MAUI) that talks to a Linux service over gRPC. The service spawns a Cursor agent process, forwards messages from the app to the agent, and streams agent output back to the app in real time. All interaction is logged.
 
@@ -161,8 +161,7 @@ Unit and integration tests use xUnit and FluentAssertions.
 - **RemoteAgent.App.Tests** – Unit tests for `RemoteAgent.App.Logic`: `MarkdownFormat` (ToHtml, PlainToHtml, escaping, markdown features) and `ChatMessage` (DisplayText, RenderedHtml for user/event/agent/error).
 - **RemoteAgent.Service.Tests** – Unit tests for `AgentOptions`; integration tests for the gRPC service (in-memory test server via `WebApplicationFactory`):
   - No command configured → client receives `SessionError` event.
-  - Agent = `/bin/cat` → client sends text and receives echoed output (Unix only).
-  - Agent = `sleep` / `cmd` → client sends START then STOP and receives `SessionStarted` and `SessionStopped`.
+  - Default strategy (process on Linux, copilot-windows on Windows) → client sends START (and optionally text, STOP); tests pass whether or not the agent executable is on PATH (they accept "did not start" when the agent is unavailable).
 
 Run all tests:
 
@@ -170,11 +169,9 @@ Run all tests:
 dotnet test RemoteAgent.slnx
 ```
 
-## Contributing
+**Build note:** Do not use `-q` (quiet) with `dotnet build` or `dotnet restore`—.NET 10 SDK can fail with "Question build FAILED". Use `-v m` (minimal) or default verbosity. The repo's `Directory.Build.rsp` sets minimal verbosity for command-line builds; scripts use `-nologo` only (no `-q`).
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-**Important:** All development work should be based on the `develop` branch. Create feature branches from `develop` and submit pull requests to `develop`.
+**Solution vs app:** Build the **full solution** with `dotnet build RemoteAgent.slnx -c Release` (no `-f`). Do not use `-f net10.0-android` at the solution level—other projects (tests, Proto, Service) do not target Android and you will get NETSDK1005. To build **only the Android app**, use `dotnet build src/RemoteAgent.App/RemoteAgent.App.csproj -c Release -f net10.0-android`.
 
 ## Repository
 

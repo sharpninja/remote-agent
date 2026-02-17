@@ -10,13 +10,15 @@ namespace RemoteAgent.App.Services;
 /// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-11)</see>
 public interface ILocalMessageStore
 {
-    /// <summary>Loads all messages from storage (oldest first). Call on app start to restore chat.</summary>
+    /// <summary>Loads messages from storage (oldest first). When <paramref name="sessionId"/> is set, returns only messages for that session (FR-11.1, TR-12.1.3).</summary>
+    /// <param name="sessionId">Optional session id; when null, returns all messages (backward compatible).</param>
     /// <returns>Ordered list of messages (including archived; filter by <see cref="ChatMessage.IsArchived"/> in UI).</returns>
-    IReadOnlyList<ChatMessage> Load();
+    IReadOnlyList<ChatMessage> Load(string? sessionId = null);
 
     /// <summary>Persists a new message. The store may set <see cref="ChatMessage.Id"/> after insert.</summary>
     /// <param name="message">The message to save (user, agent, event, or error).</param>
-    void Add(ChatMessage message);
+    /// <param name="sessionId">Optional session id for multi-session (FR-11.1).</param>
+    void Add(ChatMessage message, string? sessionId = null);
 
     /// <summary>Updates the archived state of a message (FR-4.1, TR-5.5). Call when the user swipes to archive.</summary>
     /// <param name="messageId">The message id (from <see cref="ChatMessage.Id"/>).</param>
