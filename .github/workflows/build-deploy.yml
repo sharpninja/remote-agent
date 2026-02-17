@@ -350,7 +350,7 @@ jobs:
   fdroid-pages:
     name: F-Droid repo and GitHub Pages
     runs-on: ubuntu-latest
-    needs: [build, android]
+    needs: [build, android, release-beta]
     steps:
       - uses: actions/checkout@v4
 
