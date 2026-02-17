@@ -1,0 +1,9 @@
+{
+  "terminal.integrated.defaultProfile.windows": "pwsh-no-profile",
+  "terminal.integrated.profiles.windows": {
+    "pwsh-no-profile": {
+      "path": "pwsh.exe",
+      "args": ["-NoProfile"]
+    }
+  }
+}

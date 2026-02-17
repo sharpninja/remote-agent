@@ -12,11 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.28.2" />
     <PackageReference Include="Grpc.Core.Api" Version="2.64.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.64.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Protobuf Include="AgentGateway.proto" GrpcServices="Both" />
-  </ItemGroup>
+  <!-- C# in Generated/ is from scripts/generate-proto.sh (WSL). Run that script when AgentGateway.proto changes. -->
 
 </Project>

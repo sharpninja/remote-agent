@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # "Sync all" workflow: commit, sync with remote, monitor GitHub Actions run,
 # and on success update the local Docker container.
-# Use --pr to push via a pull request (satisfies branch protection).
+# On non-main branches (e.g. develop): always push directly.
+# On main: push directly unless --pr (or USE_PR=1) to use a pull request.
 # Usage: ./scripts/sync-all.sh [commit_message]
-#        USE_PR=1 ./scripts/sync-all.sh [commit_message]
-#        ./scripts/sync-all.sh --pr [commit_message]
+#        ./scripts/sync-all.sh --pr [commit_message]   (main only)
+#        echo "Your commit message" | ./scripts/sync-all.sh
+#        ./scripts/sync-all.sh <<< "Your commit message"
+# When stdin is not a terminal (e.g. piped), the commit message is read from stdin.
 
 set -euo pipefail
 
@@ -20,6 +23,12 @@ for arg in "$@"; do
     COMMIT_MSG="$arg"
   fi
 done
+if [ ! -t 0 ]; then
+  read -r COMMIT_MSG_FROM_STDIN || true
+  if [ -n "${COMMIT_MSG_FROM_STDIN}" ]; then
+    COMMIT_MSG="$COMMIT_MSG_FROM_STDIN"
+  fi
+fi
 
 echo "=== 1. Commit ==="
 if git status --porcelain | grep -q .; then
@@ -31,7 +40,8 @@ fi
 
 BRANCH="$(git branch --show-current)"
 
-if [ "$USE_PR" = "1" ]; then
+# On non-main branches (e.g. develop), always push directly. PR flow only on main when --pr.
+if [ "$BRANCH" = "main" ] && [ "$USE_PR" = "1" ]; then
   echo "=== 2. Sync via PR (branch → push → PR → merge) ==="
   SYNC_BRANCH="sync/$(date +%Y%m%d-%H%M%S)"
   git checkout -b "$SYNC_BRANCH"
@@ -55,5 +65,7 @@ else
   git push origin "$BRANCH"
 fi
 
-echo "=== 3. Monitor pipeline and update container on success ==="
-exec "$REPO_ROOT/scripts/watch-and-update-container.sh"
+echo "=== 3. Monitor pipeline and install image on success (container not started) ==="
+echo "Waiting 20s for the new run to appear..."
+sleep 20
+INSTALL_ONLY=1 exec "$REPO_ROOT/scripts/watch-and-update-container.sh"

@@ -49,6 +49,9 @@
 		<!-- Trim unused code for smaller APK and faster startup (Release + Android) -->
 		<PublishTrimmed Condition="'$(Configuration)' == 'Release' and $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">true</PublishTrimmed>
 		<TrimMode Condition="'$(Configuration)' == 'Release' and $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">partial</TrimMode>
+		<!-- Workaround: avoid "Failed to extract debug info" in Android Release (Xamarin.Android.Common.targets). -->
+		<DebugType Condition="'$(Configuration)' == 'Release' and $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">none</DebugType>
+		<AndroidStripDebugSymbols Condition="'$(Configuration)' == 'Release' and $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">false</AndroidStripDebugSymbols>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>$(NoWarn);CS1591</NoWarn>
 	</PropertyGroup>

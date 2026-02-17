@@ -22,9 +22,46 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="Auto,*,Auto,Auto" Padding="16" RowSpacing="8">
+    <Grid RowDefinitions="Auto,Auto,*,Auto,Auto" Padding="16" RowSpacing="8">
+        <!-- Session list + title (FR-11.1, TR-12.1.3) -->
+        <Border Grid.Row="0" Style="{StaticResource MaterialCard}" Margin="0,0,0,4">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="6">
+                <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                    <Label Text="Sessions" FontAttributes="Bold" VerticalOptions="Center" />
+                    <Button x:Name="NewSessionBtn" Text="+ New" Clicked="OnNewSessionClicked" Padding="12,4" />
+                </HorizontalStackLayout>
+                <CollectionView x:Name="SessionsList" SelectionMode="Single" HeightRequest="44">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="10,6" Margin="0,0,6,0" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="8"/></Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSessionTapped" />
+                                </Border.GestureRecognizers>
+                                <Label Text="{Binding Title}" MaxLines="1" LineBreakMode="TailTruncation" />
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
+                    <Label Text="Session:" FontSize="12" TextColor="{StaticResource IconTintMutedBrush}" VerticalOptions="Center" />
+                    <Label x:Name="SessionTitleLabel" Text="No session" FontAttributes="Bold" VerticalOptions="Center" LineBreakMode="TailTruncation">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSessionTitleLabelTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Entry x:Name="SessionTitleEntry" IsVisible="False" Unfocused="OnSessionTitleUnfocused" Focused="OnSessionTitleFocused" Completed="OnSessionTitleCompleted" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
         <!-- M3 top card: connection (surface container, 12dp radius) -->
-        <Border Grid.Row="0" Style="{StaticResource MaterialCard}" Margin="0,0,0,8">
+        <Border Grid.Row="1" Style="{StaticResource MaterialCard}" Margin="0,0,0,8">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="12"/>
             </Border.StrokeShape>
@@ -55,7 +92,7 @@
         </Border>
 
         <!-- Messages: M3 card-style bubbles; swipe left/right to archive -->
-        <CollectionView x:Name="MessagesList" Grid.Row="1" SelectionMode="None">
+        <CollectionView x:Name="MessagesList" Grid.Row="2" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView IsVisible="{Binding IsArchived, Converter={StaticResource InverseBool}}">
@@ -143,7 +180,7 @@
         </CollectionView>
 
         <!-- Input: M3 outlined field row, 48dp touch -->
-        <Border Grid.Row="2" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="12,8" Margin="0,8,0,0">
+        <Border Grid.Row="3" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="12,8" Margin="0,8,0,0">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="8"/>
             </Border.StrokeShape>
@@ -166,7 +203,7 @@
         </Border>
 
         <!-- Status: M3 label small, OnSurfaceVariant -->
-        <HorizontalStackLayout Grid.Row="3" Spacing="6" Margin="0,8,0,0">
+        <HorizontalStackLayout Grid.Row="4" Spacing="6" Margin="0,8,0,0">
             <Label Style="{StaticResource IconLabelSmall}" Text="{StaticResource IconCircleInfo}"
                    TextColor="{StaticResource StatusTextBrush}" VerticalOptions="Center" />
             <Label x:Name="StatusLabel" Text="Enter host and port, then Connect."

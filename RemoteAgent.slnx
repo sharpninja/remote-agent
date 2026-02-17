@@ -8,5 +8,6 @@
   <Folder Name="/tests/">
     <Project Path="tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj" />
     <Project Path="tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj" />
+    <Project Path="tests/RemoteAgent.Service.IntegrationTests/RemoteAgent.Service.IntegrationTests.csproj" />
   </Folder>
 </Solution>

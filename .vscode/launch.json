@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/tests/RemoteAgent.Service.Tests/bin/Debug/net10.0/RemoteAgent.Service.Tests.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/tests/RemoteAgent.Service.Tests",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Integration Tests (Run)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-integration-tests",
+            "program": "dotnet",
+            "args": [
+                "test",
+                "${workspaceFolder}/tests/RemoteAgent.Service.IntegrationTests/RemoteAgent.Service.IntegrationTests.csproj",
+                "-c", "Debug",
+                "--no-build",
+                "--verbosity", "normal",
+                "-nologo"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}

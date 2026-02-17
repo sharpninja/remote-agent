@@ -1,5 +1,11 @@
 name: Build and Deploy
 
+# WORKFLOW SCRIPTING STANDARDS:
+# - Use bash only (no Python scripts)
+# - Use jq for JSON parsing
+# - Use xmllint for XML parsing
+# This avoids heredoc indentation issues and keeps workflows consistent
+
 on:
   push:
     branches: [main, develop]
@@ -76,6 +82,7 @@ jobs:
               - 'fdroid/**'
               - '.config/**'
               - 'GitVersion.yml'
+              - '.github/**'
           base: ${{ github.event.before }}
           list-files: shell
         env:
@@ -132,6 +139,9 @@ jobs:
       - name: Build
         run: dotnet build RemoteAgent.slnx -c Release --no-restore
 
+      - name: Build Android app (for artifact)
+        run: dotnet build src/RemoteAgent.App/RemoteAgent.App.csproj -f net10.0-android -c Release --no-restore
+
       - name: Test (unit tests only; integration tests are in RemoteAgent.Service.IntegrationTests)
         run: |
           dotnet test tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj -c Release --no-build --verbosity minimal -nologo
@@ -146,11 +156,13 @@ jobs:
           name: service-publish
           path: service-publish
 
-      - name: Upload build output
+      - name: Upload build output for Android job
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: src
+          path: |
+            src/**/bin
+            src/**/obj
 
   android:
     name: Build Android APK
@@ -158,44 +170,6 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-
-      - name: Download build output from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-          path: build-output
-
-      - name: Debug - List downloaded artifact contents
-        run: |
-          echo "=== Workspace root ==="
-          ls -la
-          echo "=== build-output directory ==="
-          ls -la build-output/ || echo "build-output/ not found"
-          echo "=== Looking for src directories ==="
-          find . -type d \( -name "src" -o -name "RemoteAgent.App" \) | head -20
-
-      - name: Merge build output into workspace
-        run: |
-          set -e
-          # Artifact structure should be: build-output/src/RemoteAgent.App/bin, etc.
-          if [ -d "build-output/src" ]; then
-            echo "Found build-output/src, copying to src/"
-            cp -r build-output/src/. src/
-          else
-            echo "ERROR: build-output/src not found"
-            echo "Contents of build-output:"
-            ls -laR build-output/ || echo "build-output directory doesn't exist"
-            exit 1
-          fi
-          
-          # Verify the merge worked
-          if [ ! -d "src/RemoteAgent.App/bin" ]; then
-            echo "ERROR: src/RemoteAgent.App/bin not found after merge"
-            echo "Contents of src/:"
-            ls -laR src/
-            exit 1
-          fi
-          echo "✓ Build output merged successfully"
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -208,13 +182,56 @@ jobs:
       - name: Restore
         run: dotnet restore RemoteAgent.slnx
 
+      - name: Download build output from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      - name: Merge build output into workspace
+        run: |
+          set -e
+          # If artifact already extracted with full path (src/...), nothing to merge
+          if [ -d src/RemoteAgent.App/bin ]; then
+            echo "Build output already at src/RemoteAgent.App/bin, skipping merge"
+            exit 0
+          fi
+          # download-artifact@v4 extracts by name directly to path (default: workspace root), so
+          # artifact content (LCA=src → RemoteAgent.App/, RemoteAgent.App.Logic/, etc.) lands at
+          # workspace root, not in build-output/. Merge those into src/.
+          merge_into_src() {
+            for proj in RemoteAgent.App RemoteAgent.App.Logic RemoteAgent.Proto RemoteAgent.Service; do
+              [ -d "$proj" ] || continue
+              mkdir -p "src/$proj"
+              [ -d "$proj/bin" ] && cp -r "$proj/bin" "src/$proj/"
+              [ -d "$proj/obj" ] && cp -r "$proj/obj" "src/$proj/"
+            done
+          }
+          if [ -d RemoteAgent.App/bin ]; then
+            merge_into_src
+          elif [ -d build-output/src ]; then
+            cp -r build-output/src/. src/
+          elif [ -d build-output ]; then
+            for d in build-output/*/; do
+              [ -e "$d" ] || break
+              cp -r "$d" src/
+            done
+          else
+            merge_into_src
+          fi
+          if [ ! -d src/RemoteAgent.App/bin ]; then
+            echo "Merge failed: src/RemoteAgent.App/bin not found after copying build-output"
+            echo "Contents of workspace:"
+            ls -la
+            exit 1
+          fi
+
       - name: Publish Android APK
         run: |
           dotnet publish src/RemoteAgent.App/RemoteAgent.App.csproj \
             -f net10.0-android -c Release -p:AndroidPackageFormat=apk \
             -p:ApplicationDisplayVersion=${{ needs.build.outputs.semver }} \
             -p:ApplicationVersion=${{ github.run_number }} \
-            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish
+            -o src/RemoteAgent.App/bin/Release/net10.0-android/publish --no-restore
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -325,8 +342,12 @@ jobs:
     needs: docker
     permissions:
       packages: write
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
+      - name: Install GitHub CLI
+        run: |
+          type gh >/dev/null 2>&1 || (sudo apt-get update && sudo apt-get install -y gh)
       - name: Prune outdated container versions
         run: ./scripts/ghcr-prune-versions.sh remote-agent/service 2
         env:
@@ -335,7 +356,7 @@ jobs:
   fdroid-pages:
     name: F-Droid repo and GitHub Pages
     runs-on: ubuntu-latest
-    needs: [build, android]
+    needs: [build, android, release-beta]
     steps:
       - uses: actions/checkout@v4
 
@@ -424,56 +445,84 @@ jobs:
         run: |
           cd fdroid-workspace && fdroid update
 
-      - name: Verify F-Droid repo APK hash
+      - name: Verify F-Droid repo (logo, URL, hash, version)
+        env:
+          EXPECTED_VERSION: ${{ needs.build.outputs.semver }}
+          EXPECTED_REPO_URL: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/repo"
         run: |
           set -e
           REPO=fdroid-workspace/repo
+          ICON="$REPO/icons/icon.png"
+          ERRORS=()
+
+          # 1) Logo: icon.png must exist (fdroid update may modify it, so we only check presence)
+          if [ ! -f "$ICON" ]; then
+            ERRORS+=("F-Droid logo check FAILED: icon file missing at $ICON")
+          elif [ ! -s "$ICON" ]; then
+            ERRORS+=("F-Droid logo check FAILED: repo/icons/icon.png is empty")
+          fi
+
+          # 2) APK must exist
           APK=$(find "$REPO" -name "*.apk" -type f | head -1)
-          [ -n "$APK" ] || (echo "No APK found in $REPO" && exit 1)
-          COMPUTED=$(sha256sum "$APK" | awk '{print $1}')
+          if [ -z "$APK" ]; then
+            ERRORS+=("F-Droid APK check FAILED: no APK found in $REPO")
+          fi
+          export APK
+
+          # 3) Repo URL in config must match expected
+          if [ -f fdroid-workspace/config.yml ]; then
+            CONFIG_URL=$(grep -E '^\s*repo_url:\s*' fdroid-workspace/config.yml | sed -E 's/.*repo_url:\s*["]?([^"]*)["]?.*/\1/' | tr -d '"' | xargs)
+            if [ "$CONFIG_URL" != "$EXPECTED_REPO_URL" ]; then
+              ERRORS+=("F-Droid URL check FAILED: config repo_url is '$CONFIG_URL' but expected '$EXPECTED_REPO_URL'")
+            fi
+          else
+            ERRORS+=("F-Droid URL check FAILED: fdroid-workspace/config.yml not found")
+          fi
+
+          # 4) Index must exist and reference APK with correct hash; parse with jq/xmllint (bash only)
           APKNAME=$(basename "$APK")
-          echo "APK: $APKNAME"
-          echo "Computed SHA-256: $COMPUTED"
-          python3 << VERIFY
-          import json
-          import sys
-          import xml.etree.ElementTree as ET
-          apkname = "$APKNAME"
-          computed = "$COMPUTED".strip().lower()
-          index_hash = None
-          if __import__('os').path.exists('$REPO/index-v1.json'):
-              with open('$REPO/index-v1.json') as f:
-                  data = json.load(f)
-              for pkg_id, versions in data.get('packages', {}).items():
-                  for p in versions:
-                      if p.get('apkName') == apkname:
-                          h = (p.get('hash') or '').replace('sha256:', '').strip().lower()
-                          if h:
-                              index_hash = h
-                              break
-                  if index_hash:
-                      break
-              source = 'index-v1.json'
-          elif __import__('os').path.exists('$REPO/index.xml'):
-              tree = ET.parse('$REPO/index.xml')
-              pkgs = tree.getroot().findall('.//package')
-              if not pkgs:
-                  pkgs = tree.getroot().findall('package')
-              for pkg in pkgs:
-                  if pkg.get('apkName') == apkname or (pkg.get('name') and apkname.startswith(pkg.get('name', ''))):
-                      h = (pkg.get('hash') or '').replace('sha256:', '').strip().lower()
-                      if h:
-                          index_hash = h
-                          break
-              source = 'index.xml'
-          if index_hash is None:
-              print(f'APK {apkname} not found in repo index', file=sys.stderr)
-              sys.exit(1)
-          if index_hash != computed:
-              print(f'Hash mismatch: {source} has {index_hash}, computed {computed}', file=sys.stderr)
-              sys.exit(1)
-          print(f'{source} hash matches.')
-          VERIFY
+          COMPUTED=$(sha256sum "$APK" | awk '{print $1}' | tr '[:upper:]' '[:lower:]')
+          INDEX_HASH=""
+          SOURCE=""
+
+          if [ -f "$REPO/index-v1.json" ]; then
+            # Parse index-v1.json - packages is a dict mapping package ID → list of versions
+            INDEX_HASH=$(jq -r --arg apk "$APKNAME" '
+              .packages // {} |
+              to_entries[] |
+              .value[] |
+              select(.apkName == $apk) |
+              .hash // ""
+            ' "$REPO/index-v1.json" | head -1 | sed 's/sha256://g' | tr -d "[:space:]" | tr "[:upper:]" "[:lower:]")
+            SOURCE="index-v1.json"
+          elif [ -f "$REPO/index.xml" ]; then
+            # Parse index.xml using xmllint
+            INDEX_HASH=$(xmllint --xpath "string(//package[@apkName='$APKNAME']/@hash)" "$REPO/index.xml" 2>/dev/null | sed 's/sha256://g' | tr -d "[:space:]" | tr "[:upper:]" "[:lower:]")
+            if [ -z "$INDEX_HASH" ]; then
+              # Try alternative xpath for packages with name prefix match
+              PKG_PREFIX=$(echo "$APKNAME" | cut -d_ -f1)
+              INDEX_HASH=$(xmllint --xpath "string(//package[starts-with(@apkName, '$PKG_PREFIX')]/@hash)" "$REPO/index.xml" 2>/dev/null | sed 's/sha256://g' | tr -d "[:space:]" | tr "[:upper:]" "[:lower:]")
+            fi
+            SOURCE="index.xml"
+          fi
+
+          if [ -z "$INDEX_HASH" ]; then
+            echo "APK $APKNAME not found in repo index" >&2
+            exit 1
+          fi
+
+          if [ "$INDEX_HASH" != "$COMPUTED" ]; then
+            echo "Hash mismatch: $SOURCE has $INDEX_HASH, computed $COMPUTED" >&2
+            exit 1
+          fi
+
+          echo "$SOURCE hash matches."
+
+          if [ ${#ERRORS[@]} -gt 0 ]; then
+            echo "F-Droid verification failed:"
+            printf '%s\n' "${ERRORS[@]}"
+            exit 1
+          fi
 
       - name: Assemble Pages artifact
         run: |
