@@ -444,11 +444,14 @@ jobs:
           if __import__('os').path.exists('$REPO/index-v1.json'):
               with open('$REPO/index-v1.json') as f:
                   data = json.load(f)
-              for p in data.get('packages', []):
-                  if p.get('apkName') == apkname:
-                      h = (p.get('hash') or '').replace('sha256:', '').strip().lower()
-                      if h:
-                          index_hash = h
+              for pkg_id, versions in data.get('packages', {}).items():
+                  for p in versions:
+                      if p.get('apkName') == apkname:
+                          h = (p.get('hash') or '').replace('sha256:', '').strip().lower()
+                          if h:
+                              index_hash = h
+                          break
+                  if index_hash:
                       break
               source = 'index-v1.json'
           elif __import__('os').path.exists('$REPO/index.xml'):
