@@ -194,18 +194,29 @@ jobs:
           echo '{"sdk":{"version":"9.0.100","rollForward":"latestFeature"}}' > global.json
           cat global.json
 
+      - name: Diagnose SDK and global.json (desktop)
+        run: |
+          echo "=== repo root global.json ==="
+          cat global.json
+          echo "=== dotnet --list-sdks ==="
+          dotnet --list-sdks
+          echo "=== dotnet --version (from root) ==="
+          dotnet --version
+          echo "=== from src/RemoteAgent.Desktop ==="
+          cd src/RemoteAgent.Desktop && dotnet --version && cat global.json 2>/dev/null || true && cd ../..
+
       - name: Restore and build Avalonia desktop app
         working-directory: src/RemoteAgent.Desktop
         run: |
           ../../scripts/clean-stale-assets.sh
-          dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config
-          dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore
+          dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal
+          dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal
 
       - name: Restore and run desktop UI tests
         working-directory: tests/RemoteAgent.Desktop.UiTests
         run: |
           ../../scripts/clean-stale-assets.sh
-          dotnet restore RemoteAgent.Desktop.UiTests.csproj --configfile ../../NuGet.Config
+          dotnet restore RemoteAgent.Desktop.UiTests.csproj --configfile ../../NuGet.Config -v minimal
           dotnet test RemoteAgent.Desktop.UiTests.csproj -c Release --verbosity minimal -nologo
 
   android:
