@@ -209,15 +209,15 @@ jobs:
         working-directory: src/RemoteAgent.Desktop
         run: |
           ../../scripts/clean-stale-assets.sh
-          dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal
-          dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal
+          dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0
+          dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal -p:TargetFramework=net9.0
 
       - name: Restore and run desktop UI tests
         working-directory: tests/RemoteAgent.Desktop.UiTests
         run: |
           ../../scripts/clean-stale-assets.sh
-          dotnet restore RemoteAgent.Desktop.UiTests.csproj --configfile ../../NuGet.Config -v minimal
-          dotnet test RemoteAgent.Desktop.UiTests.csproj -c Release --verbosity minimal -nologo
+          dotnet restore RemoteAgent.Desktop.UiTests.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0
+          dotnet test RemoteAgent.Desktop.UiTests.csproj -c Release --verbosity minimal -nologo -p:TargetFramework=net9.0
 
   android:
     name: Build Android APK

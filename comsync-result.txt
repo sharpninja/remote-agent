@@ -1,2 +1,8 @@
  M .github/workflows/build-deploy.yml
  M comsync-result.txt
+[develop 3ab7839] Sync: desktop build .NET 9 global.json, testing strategy, capacity/prompt tests, scripts
+ 2 files changed, 15 insertions(+), 32 deletions(-)
+To https://github.com/sharpninja/remote-agent.git
+   41d392a..3ab7839  develop -> develop
+---
+3ab7839 Sync: desktop build .NET 9 global.json, testing strategy, capacity/prompt tests, scripts

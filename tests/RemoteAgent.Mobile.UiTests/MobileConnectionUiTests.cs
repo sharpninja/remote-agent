@@ -76,6 +76,9 @@ public sealed class MobileConnectionUiTests : IDisposable
         var appPath = Environment.GetEnvironmentVariable("MOBILE_APP_PATH")!;
         var deviceName = Environment.GetEnvironmentVariable("MOBILE_DEVICE_NAME") ?? "Android";
         var udid = Environment.GetEnvironmentVariable("MOBILE_DEVICE_UDID");
+        var appPackage = Environment.GetEnvironmentVariable("MOBILE_APP_PACKAGE") ?? "com.companyname.remoteagent.app";
+        var appActivity = Environment.GetEnvironmentVariable("MOBILE_APP_ACTIVITY") ?? "crc6411305d2bb8acc544.MainActivity";
+        var appWaitActivity = Environment.GetEnvironmentVariable("MOBILE_APP_WAIT_ACTIVITY") ?? appActivity;
 
         WaitForAndroidServiceReady(udid);
 
@@ -89,6 +92,12 @@ public sealed class MobileConnectionUiTests : IDisposable
 
         if (!string.IsNullOrWhiteSpace(udid))
             options.AddAdditionalAppiumOption("udid", udid);
+        options.AddAdditionalAppiumOption("appPackage", appPackage);
+        options.AddAdditionalAppiumOption("appActivity", appActivity);
+        options.AddAdditionalAppiumOption("appWaitActivity", appWaitActivity);
+        options.AddAdditionalAppiumOption("adbExecTimeout", 120000);
+        options.AddAdditionalAppiumOption("appWaitDuration", 120000);
+        options.AddAdditionalAppiumOption("uiautomator2ServerLaunchTimeout", 120000);
 
         _driver = new AndroidDriver(new Uri(serverUrl), options, TimeSpan.FromSeconds(120));
         _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
@@ -96,6 +105,7 @@ public sealed class MobileConnectionUiTests : IDisposable
 
     private static void WaitForAndroidServiceReady(string? udid)
     {
+        var adbPath = ResolveAdbPath();
         var timeoutAt = DateTime.UtcNow.AddMinutes(3);
         while (DateTime.UtcNow < timeoutAt)
         {
@@ -105,7 +115,7 @@ public sealed class MobileConnectionUiTests : IDisposable
 
             using var process = Process.Start(new ProcessStartInfo
             {
-                FileName = "adb",
+                FileName = adbPath,
                 Arguments = args,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
@@ -123,6 +133,27 @@ public sealed class MobileConnectionUiTests : IDisposable
 
             Thread.Sleep(2000);
         }
+    }
+
+    private static string ResolveAdbPath()
+    {
+        var explicitPath = Environment.GetEnvironmentVariable("MOBILE_ADB_PATH");
+        if (!string.IsNullOrWhiteSpace(explicitPath) && File.Exists(explicitPath))
+            return explicitPath;
+
+        var sdkRoot = Environment.GetEnvironmentVariable("ANDROID_SDK_ROOT");
+        if (!string.IsNullOrWhiteSpace(sdkRoot))
+        {
+            var adb = Path.Combine(sdkRoot, "platform-tools", "adb");
+            if (File.Exists(adb))
+                return adb;
+
+            var adbExe = Path.Combine(sdkRoot, "platform-tools", "adb.exe");
+            if (File.Exists(adbExe))
+                return adbExe;
+        }
+
+        return "adb";
     }
 
     public void Dispose()

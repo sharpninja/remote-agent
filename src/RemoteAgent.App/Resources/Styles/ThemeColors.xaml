@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <!-- Chat and shell: map to Material 3 tokens (MaterialTheme.xaml must be merged first) -->
-    <SolidColorBrush x:Key="PageBackgroundBrush" Color="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}" />
-    <SolidColorBrush x:Key="BubbleUserBrush" Color="{AppThemeBinding Light={StaticResource PrimaryContainerLight}, Dark={StaticResource PrimaryContainerDark}}" />
-    <SolidColorBrush x:Key="BubbleAgentBrush" Color="{AppThemeBinding Light={StaticResource SurfaceContainerHighLight}, Dark={StaticResource SurfaceContainerHighDark}}" />
-    <SolidColorBrush x:Key="BubbleErrorBrush" Color="{AppThemeBinding Light={StaticResource ErrorContainerLight}, Dark={StaticResource ErrorContainerDark}}" />
-    <SolidColorBrush x:Key="BubbleEventBrush" Color="{AppThemeBinding Light={StaticResource SurfaceContainerLowLight}, Dark={StaticResource SurfaceContainerLowDark}}" />
-    <SolidColorBrush x:Key="StatusTextBrush" Color="{AppThemeBinding Light={StaticResource OnSurfaceVariantLight}, Dark={StaticResource OnSurfaceVariantDark}}" />
-    <SolidColorBrush x:Key="IconTintBrush" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
-    <SolidColorBrush x:Key="IconTintMutedBrush" Color="{AppThemeBinding Light={StaticResource OnSurfaceVariantLight}, Dark={StaticResource OnSurfaceVariantDark}}" />
+    <!-- Chat and shell brushes kept self-contained for reliable MAUI resource loading. -->
+    <SolidColorBrush x:Key="PageBackgroundBrush" Color="{AppThemeBinding Light=#FFFBFE, Dark=#1C1B1F}" />
+    <SolidColorBrush x:Key="BubbleUserBrush" Color="{AppThemeBinding Light=#EADDFF, Dark=#4F378B}" />
+    <SolidColorBrush x:Key="BubbleAgentBrush" Color="{AppThemeBinding Light=#ECE6F0, Dark=#2B2930}" />
+    <SolidColorBrush x:Key="BubbleErrorBrush" Color="{AppThemeBinding Light=#F9DEDC, Dark=#8C1D18}" />
+    <SolidColorBrush x:Key="BubbleEventBrush" Color="{AppThemeBinding Light=#F7F2FA, Dark=#211F26}" />
+    <SolidColorBrush x:Key="StatusTextBrush" Color="{AppThemeBinding Light=#49454F, Dark=#CAC4D0}" />
+    <SolidColorBrush x:Key="IconTintBrush" Color="{AppThemeBinding Light=#512BD4, Dark=#D0BCFF}" />
+    <SolidColorBrush x:Key="IconTintMutedBrush" Color="{AppThemeBinding Light=#49454F, Dark=#CAC4D0}" />
 </ResourceDictionary>

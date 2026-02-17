@@ -28,6 +28,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<McpRegistryPage>();
+		builder.Services.AddSingleton<SettingsPage>();
+		builder.Services.AddSingleton<AccountManagementPage>();
 		builder.Services.AddSingleton<AppShell>();
 
 		return builder.Build();
