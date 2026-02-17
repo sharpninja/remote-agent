@@ -33,6 +33,22 @@ public sealed class LiteDbLocalStorage : ILocalStorage
         Insert(sessionId, isRequest: false, kind, summary, mediaPath);
     }
 
+    /// <inheritdoc />
+    public bool SessionExists(string sessionId)
+    {
+        if (string.IsNullOrWhiteSpace(sessionId)) return false;
+        try
+        {
+            using var db = new LiteDatabase(_dbPath);
+            var col = db.GetCollection<RequestResultRecord>(CollectionName);
+            return col.Exists(x => x.SessionId == sessionId.Trim());
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     private void Insert(string sessionId, bool isRequest, string kind, string summary, string? mediaPath)
     {
         try

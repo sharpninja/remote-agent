@@ -56,6 +56,66 @@ namespace RemoteAgent.Proto {
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.ClientMessage> __Marshaller_remoteagent_ClientMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ClientMessage.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.ServerMessage> __Marshaller_remoteagent_ServerMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ServerMessage.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.StructuredLogsSnapshotRequest> __Marshaller_remoteagent_StructuredLogsSnapshotRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.StructuredLogsSnapshotResponse> __Marshaller_remoteagent_StructuredLogsSnapshotResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.StructuredLogsSnapshotResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.StructuredLogsStreamRequest> __Marshaller_remoteagent_StructuredLogsStreamRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.StructuredLogsStreamRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.StructuredLogEntry> __Marshaller_remoteagent_StructuredLogEntry = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.StructuredLogEntry.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.GetPluginsRequest> __Marshaller_remoteagent_GetPluginsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.GetPluginsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.GetPluginsResponse> __Marshaller_remoteagent_GetPluginsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.GetPluginsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpdatePluginsRequest> __Marshaller_remoteagent_UpdatePluginsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpdatePluginsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpdatePluginsResponse> __Marshaller_remoteagent_UpdatePluginsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpdatePluginsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.SeedSessionContextRequest> __Marshaller_remoteagent_SeedSessionContextRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SeedSessionContextRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.SeedSessionContextResponse> __Marshaller_remoteagent_SeedSessionContextResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SeedSessionContextResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.GetSessionSeedContextRequest> __Marshaller_remoteagent_GetSessionSeedContextRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.GetSessionSeedContextRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.GetSessionSeedContextResponse> __Marshaller_remoteagent_GetSessionSeedContextResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.GetSessionSeedContextResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ClearSessionSeedContextRequest> __Marshaller_remoteagent_ClearSessionSeedContextRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ClearSessionSeedContextRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ClearSessionSeedContextResponse> __Marshaller_remoteagent_ClearSessionSeedContextResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ClearSessionSeedContextResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListMcpServersRequest> __Marshaller_remoteagent_ListMcpServersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListMcpServersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListMcpServersResponse> __Marshaller_remoteagent_ListMcpServersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListMcpServersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpsertMcpServerRequest> __Marshaller_remoteagent_UpsertMcpServerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpsertMcpServerRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpsertMcpServerResponse> __Marshaller_remoteagent_UpsertMcpServerResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpsertMcpServerResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeleteMcpServerRequest> __Marshaller_remoteagent_DeleteMcpServerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeleteMcpServerRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeleteMcpServerResponse> __Marshaller_remoteagent_DeleteMcpServerResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeleteMcpServerResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.SetAgentMcpServersRequest> __Marshaller_remoteagent_SetAgentMcpServersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SetAgentMcpServersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.SetAgentMcpServersResponse> __Marshaller_remoteagent_SetAgentMcpServersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SetAgentMcpServersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.GetAgentMcpServersRequest> __Marshaller_remoteagent_GetAgentMcpServersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.GetAgentMcpServersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.GetAgentMcpServersResponse> __Marshaller_remoteagent_GetAgentMcpServersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.GetAgentMcpServersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListPromptTemplatesRequest> __Marshaller_remoteagent_ListPromptTemplatesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListPromptTemplatesRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListPromptTemplatesResponse> __Marshaller_remoteagent_ListPromptTemplatesResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListPromptTemplatesResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpsertPromptTemplateRequest> __Marshaller_remoteagent_UpsertPromptTemplateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpsertPromptTemplateRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpsertPromptTemplateResponse> __Marshaller_remoteagent_UpsertPromptTemplateResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpsertPromptTemplateResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeletePromptTemplateRequest> __Marshaller_remoteagent_DeletePromptTemplateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeletePromptTemplateRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeletePromptTemplateResponse> __Marshaller_remoteagent_DeletePromptTemplateResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeletePromptTemplateResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse> __Method_GetServerInfo = new grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse>(
@@ -72,6 +132,126 @@ namespace RemoteAgent.Proto {
         "Connect",
         __Marshaller_remoteagent_ClientMessage,
         __Marshaller_remoteagent_ServerMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.StructuredLogsSnapshotRequest, global::RemoteAgent.Proto.StructuredLogsSnapshotResponse> __Method_GetStructuredLogsSnapshot = new grpc::Method<global::RemoteAgent.Proto.StructuredLogsSnapshotRequest, global::RemoteAgent.Proto.StructuredLogsSnapshotResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetStructuredLogsSnapshot",
+        __Marshaller_remoteagent_StructuredLogsSnapshotRequest,
+        __Marshaller_remoteagent_StructuredLogsSnapshotResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.StructuredLogsStreamRequest, global::RemoteAgent.Proto.StructuredLogEntry> __Method_StreamStructuredLogs = new grpc::Method<global::RemoteAgent.Proto.StructuredLogsStreamRequest, global::RemoteAgent.Proto.StructuredLogEntry>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "StreamStructuredLogs",
+        __Marshaller_remoteagent_StructuredLogsStreamRequest,
+        __Marshaller_remoteagent_StructuredLogEntry);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.GetPluginsRequest, global::RemoteAgent.Proto.GetPluginsResponse> __Method_GetPlugins = new grpc::Method<global::RemoteAgent.Proto.GetPluginsRequest, global::RemoteAgent.Proto.GetPluginsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetPlugins",
+        __Marshaller_remoteagent_GetPluginsRequest,
+        __Marshaller_remoteagent_GetPluginsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.UpdatePluginsRequest, global::RemoteAgent.Proto.UpdatePluginsResponse> __Method_UpdatePlugins = new grpc::Method<global::RemoteAgent.Proto.UpdatePluginsRequest, global::RemoteAgent.Proto.UpdatePluginsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdatePlugins",
+        __Marshaller_remoteagent_UpdatePluginsRequest,
+        __Marshaller_remoteagent_UpdatePluginsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.SeedSessionContextRequest, global::RemoteAgent.Proto.SeedSessionContextResponse> __Method_SeedSessionContext = new grpc::Method<global::RemoteAgent.Proto.SeedSessionContextRequest, global::RemoteAgent.Proto.SeedSessionContextResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SeedSessionContext",
+        __Marshaller_remoteagent_SeedSessionContextRequest,
+        __Marshaller_remoteagent_SeedSessionContextResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.GetSessionSeedContextRequest, global::RemoteAgent.Proto.GetSessionSeedContextResponse> __Method_GetSessionSeedContext = new grpc::Method<global::RemoteAgent.Proto.GetSessionSeedContextRequest, global::RemoteAgent.Proto.GetSessionSeedContextResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetSessionSeedContext",
+        __Marshaller_remoteagent_GetSessionSeedContextRequest,
+        __Marshaller_remoteagent_GetSessionSeedContextResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ClearSessionSeedContextRequest, global::RemoteAgent.Proto.ClearSessionSeedContextResponse> __Method_ClearSessionSeedContext = new grpc::Method<global::RemoteAgent.Proto.ClearSessionSeedContextRequest, global::RemoteAgent.Proto.ClearSessionSeedContextResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ClearSessionSeedContext",
+        __Marshaller_remoteagent_ClearSessionSeedContextRequest,
+        __Marshaller_remoteagent_ClearSessionSeedContextResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListMcpServersRequest, global::RemoteAgent.Proto.ListMcpServersResponse> __Method_ListMcpServers = new grpc::Method<global::RemoteAgent.Proto.ListMcpServersRequest, global::RemoteAgent.Proto.ListMcpServersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListMcpServers",
+        __Marshaller_remoteagent_ListMcpServersRequest,
+        __Marshaller_remoteagent_ListMcpServersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.UpsertMcpServerRequest, global::RemoteAgent.Proto.UpsertMcpServerResponse> __Method_UpsertMcpServer = new grpc::Method<global::RemoteAgent.Proto.UpsertMcpServerRequest, global::RemoteAgent.Proto.UpsertMcpServerResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpsertMcpServer",
+        __Marshaller_remoteagent_UpsertMcpServerRequest,
+        __Marshaller_remoteagent_UpsertMcpServerResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.DeleteMcpServerRequest, global::RemoteAgent.Proto.DeleteMcpServerResponse> __Method_DeleteMcpServer = new grpc::Method<global::RemoteAgent.Proto.DeleteMcpServerRequest, global::RemoteAgent.Proto.DeleteMcpServerResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteMcpServer",
+        __Marshaller_remoteagent_DeleteMcpServerRequest,
+        __Marshaller_remoteagent_DeleteMcpServerResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.SetAgentMcpServersRequest, global::RemoteAgent.Proto.SetAgentMcpServersResponse> __Method_SetAgentMcpServers = new grpc::Method<global::RemoteAgent.Proto.SetAgentMcpServersRequest, global::RemoteAgent.Proto.SetAgentMcpServersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SetAgentMcpServers",
+        __Marshaller_remoteagent_SetAgentMcpServersRequest,
+        __Marshaller_remoteagent_SetAgentMcpServersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.GetAgentMcpServersRequest, global::RemoteAgent.Proto.GetAgentMcpServersResponse> __Method_GetAgentMcpServers = new grpc::Method<global::RemoteAgent.Proto.GetAgentMcpServersRequest, global::RemoteAgent.Proto.GetAgentMcpServersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAgentMcpServers",
+        __Marshaller_remoteagent_GetAgentMcpServersRequest,
+        __Marshaller_remoteagent_GetAgentMcpServersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListPromptTemplatesRequest, global::RemoteAgent.Proto.ListPromptTemplatesResponse> __Method_ListPromptTemplates = new grpc::Method<global::RemoteAgent.Proto.ListPromptTemplatesRequest, global::RemoteAgent.Proto.ListPromptTemplatesResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListPromptTemplates",
+        __Marshaller_remoteagent_ListPromptTemplatesRequest,
+        __Marshaller_remoteagent_ListPromptTemplatesResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.UpsertPromptTemplateRequest, global::RemoteAgent.Proto.UpsertPromptTemplateResponse> __Method_UpsertPromptTemplate = new grpc::Method<global::RemoteAgent.Proto.UpsertPromptTemplateRequest, global::RemoteAgent.Proto.UpsertPromptTemplateResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpsertPromptTemplate",
+        __Marshaller_remoteagent_UpsertPromptTemplateRequest,
+        __Marshaller_remoteagent_UpsertPromptTemplateResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.DeletePromptTemplateRequest, global::RemoteAgent.Proto.DeletePromptTemplateResponse> __Method_DeletePromptTemplate = new grpc::Method<global::RemoteAgent.Proto.DeletePromptTemplateRequest, global::RemoteAgent.Proto.DeletePromptTemplateResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeletePromptTemplate",
+        __Marshaller_remoteagent_DeletePromptTemplateRequest,
+        __Marshaller_remoteagent_DeletePromptTemplateResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -105,6 +285,187 @@ namespace RemoteAgent.Proto {
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task Connect(grpc::IAsyncStreamReader<global::RemoteAgent.Proto.ClientMessage> requestStream, grpc::IServerStreamWriter<global::RemoteAgent.Proto.ServerMessage> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.StructuredLogsSnapshotResponse> GetStructuredLogsSnapshot(global::RemoteAgent.Proto.StructuredLogsSnapshotRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Streams structured logs in real time; includes replay from from_offset first.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task StreamStructuredLogs(global::RemoteAgent.Proto.StructuredLogsStreamRequest request, grpc::IServerStreamWriter<global::RemoteAgent.Proto.StructuredLogEntry> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Returns plugin assembly configuration and loaded runner ids.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.GetPluginsResponse> GetPlugins(global::RemoteAgent.Proto.GetPluginsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.UpdatePluginsResponse> UpdatePlugins(global::RemoteAgent.Proto.UpdatePluginsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.SeedSessionContextResponse> SeedSessionContext(global::RemoteAgent.Proto.SeedSessionContextRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Returns queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.GetSessionSeedContextResponse> GetSessionSeedContext(global::RemoteAgent.Proto.GetSessionSeedContextRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Clears queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ClearSessionSeedContextResponse> ClearSessionSeedContext(global::RemoteAgent.Proto.ClearSessionSeedContextRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Lists configured MCP servers.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListMcpServersResponse> ListMcpServers(global::RemoteAgent.Proto.ListMcpServersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Creates or updates an MCP server definition.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.UpsertMcpServerResponse> UpsertMcpServer(global::RemoteAgent.Proto.UpsertMcpServerRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Deletes an MCP server definition and removes agent associations.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.DeleteMcpServerResponse> DeleteMcpServer(global::RemoteAgent.Proto.DeleteMcpServerRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Sets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.SetAgentMcpServersResponse> SetAgentMcpServers(global::RemoteAgent.Proto.SetAgentMcpServersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Gets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.GetAgentMcpServersResponse> GetAgentMcpServers(global::RemoteAgent.Proto.GetAgentMcpServersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Lists prompt templates available to clients.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListPromptTemplatesResponse> ListPromptTemplates(global::RemoteAgent.Proto.ListPromptTemplatesRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Creates or updates a prompt template.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.UpsertPromptTemplateResponse> UpsertPromptTemplate(global::RemoteAgent.Proto.UpsertPromptTemplateRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Deletes a prompt template.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.DeletePromptTemplateResponse> DeletePromptTemplate(global::RemoteAgent.Proto.DeletePromptTemplateRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -210,6 +571,702 @@ namespace RemoteAgent.Proto {
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_Connect, null, options);
       }
+      /// <summary>
+      /// Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.StructuredLogsSnapshotResponse GetStructuredLogsSnapshot(global::RemoteAgent.Proto.StructuredLogsSnapshotRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetStructuredLogsSnapshot(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.StructuredLogsSnapshotResponse GetStructuredLogsSnapshot(global::RemoteAgent.Proto.StructuredLogsSnapshotRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetStructuredLogsSnapshot, null, options, request);
+      }
+      /// <summary>
+      /// Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.StructuredLogsSnapshotResponse> GetStructuredLogsSnapshotAsync(global::RemoteAgent.Proto.StructuredLogsSnapshotRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetStructuredLogsSnapshotAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.StructuredLogsSnapshotResponse> GetStructuredLogsSnapshotAsync(global::RemoteAgent.Proto.StructuredLogsSnapshotRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetStructuredLogsSnapshot, null, options, request);
+      }
+      /// <summary>
+      /// Streams structured logs in real time; includes replay from from_offset first.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::RemoteAgent.Proto.StructuredLogEntry> StreamStructuredLogs(global::RemoteAgent.Proto.StructuredLogsStreamRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StreamStructuredLogs(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Streams structured logs in real time; includes replay from from_offset first.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::RemoteAgent.Proto.StructuredLogEntry> StreamStructuredLogs(global::RemoteAgent.Proto.StructuredLogsStreamRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_StreamStructuredLogs, null, options, request);
+      }
+      /// <summary>
+      /// Returns plugin assembly configuration and loaded runner ids.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.GetPluginsResponse GetPlugins(global::RemoteAgent.Proto.GetPluginsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPlugins(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Returns plugin assembly configuration and loaded runner ids.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.GetPluginsResponse GetPlugins(global::RemoteAgent.Proto.GetPluginsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetPlugins, null, options, request);
+      }
+      /// <summary>
+      /// Returns plugin assembly configuration and loaded runner ids.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.GetPluginsResponse> GetPluginsAsync(global::RemoteAgent.Proto.GetPluginsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPluginsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Returns plugin assembly configuration and loaded runner ids.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.GetPluginsResponse> GetPluginsAsync(global::RemoteAgent.Proto.GetPluginsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetPlugins, null, options, request);
+      }
+      /// <summary>
+      /// Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpdatePluginsResponse UpdatePlugins(global::RemoteAgent.Proto.UpdatePluginsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdatePlugins(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpdatePluginsResponse UpdatePlugins(global::RemoteAgent.Proto.UpdatePluginsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdatePlugins, null, options, request);
+      }
+      /// <summary>
+      /// Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpdatePluginsResponse> UpdatePluginsAsync(global::RemoteAgent.Proto.UpdatePluginsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdatePluginsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpdatePluginsResponse> UpdatePluginsAsync(global::RemoteAgent.Proto.UpdatePluginsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdatePlugins, null, options, request);
+      }
+      /// <summary>
+      /// Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.SeedSessionContextResponse SeedSessionContext(global::RemoteAgent.Proto.SeedSessionContextRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SeedSessionContext(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.SeedSessionContextResponse SeedSessionContext(global::RemoteAgent.Proto.SeedSessionContextRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SeedSessionContext, null, options, request);
+      }
+      /// <summary>
+      /// Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.SeedSessionContextResponse> SeedSessionContextAsync(global::RemoteAgent.Proto.SeedSessionContextRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SeedSessionContextAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.SeedSessionContextResponse> SeedSessionContextAsync(global::RemoteAgent.Proto.SeedSessionContextRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SeedSessionContext, null, options, request);
+      }
+      /// <summary>
+      /// Returns queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.GetSessionSeedContextResponse GetSessionSeedContext(global::RemoteAgent.Proto.GetSessionSeedContextRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSessionSeedContext(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Returns queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.GetSessionSeedContextResponse GetSessionSeedContext(global::RemoteAgent.Proto.GetSessionSeedContextRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetSessionSeedContext, null, options, request);
+      }
+      /// <summary>
+      /// Returns queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.GetSessionSeedContextResponse> GetSessionSeedContextAsync(global::RemoteAgent.Proto.GetSessionSeedContextRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSessionSeedContextAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Returns queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.GetSessionSeedContextResponse> GetSessionSeedContextAsync(global::RemoteAgent.Proto.GetSessionSeedContextRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetSessionSeedContext, null, options, request);
+      }
+      /// <summary>
+      /// Clears queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ClearSessionSeedContextResponse ClearSessionSeedContext(global::RemoteAgent.Proto.ClearSessionSeedContextRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ClearSessionSeedContext(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Clears queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ClearSessionSeedContextResponse ClearSessionSeedContext(global::RemoteAgent.Proto.ClearSessionSeedContextRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ClearSessionSeedContext, null, options, request);
+      }
+      /// <summary>
+      /// Clears queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ClearSessionSeedContextResponse> ClearSessionSeedContextAsync(global::RemoteAgent.Proto.ClearSessionSeedContextRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ClearSessionSeedContextAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Clears queued seed context entries for a session.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ClearSessionSeedContextResponse> ClearSessionSeedContextAsync(global::RemoteAgent.Proto.ClearSessionSeedContextRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ClearSessionSeedContext, null, options, request);
+      }
+      /// <summary>
+      /// Lists configured MCP servers.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListMcpServersResponse ListMcpServers(global::RemoteAgent.Proto.ListMcpServersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListMcpServers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Lists configured MCP servers.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListMcpServersResponse ListMcpServers(global::RemoteAgent.Proto.ListMcpServersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListMcpServers, null, options, request);
+      }
+      /// <summary>
+      /// Lists configured MCP servers.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListMcpServersResponse> ListMcpServersAsync(global::RemoteAgent.Proto.ListMcpServersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListMcpServersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Lists configured MCP servers.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListMcpServersResponse> ListMcpServersAsync(global::RemoteAgent.Proto.ListMcpServersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListMcpServers, null, options, request);
+      }
+      /// <summary>
+      /// Creates or updates an MCP server definition.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpsertMcpServerResponse UpsertMcpServer(global::RemoteAgent.Proto.UpsertMcpServerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpsertMcpServer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Creates or updates an MCP server definition.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpsertMcpServerResponse UpsertMcpServer(global::RemoteAgent.Proto.UpsertMcpServerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpsertMcpServer, null, options, request);
+      }
+      /// <summary>
+      /// Creates or updates an MCP server definition.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpsertMcpServerResponse> UpsertMcpServerAsync(global::RemoteAgent.Proto.UpsertMcpServerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpsertMcpServerAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Creates or updates an MCP server definition.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpsertMcpServerResponse> UpsertMcpServerAsync(global::RemoteAgent.Proto.UpsertMcpServerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpsertMcpServer, null, options, request);
+      }
+      /// <summary>
+      /// Deletes an MCP server definition and removes agent associations.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.DeleteMcpServerResponse DeleteMcpServer(global::RemoteAgent.Proto.DeleteMcpServerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteMcpServer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Deletes an MCP server definition and removes agent associations.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.DeleteMcpServerResponse DeleteMcpServer(global::RemoteAgent.Proto.DeleteMcpServerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteMcpServer, null, options, request);
+      }
+      /// <summary>
+      /// Deletes an MCP server definition and removes agent associations.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.DeleteMcpServerResponse> DeleteMcpServerAsync(global::RemoteAgent.Proto.DeleteMcpServerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteMcpServerAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Deletes an MCP server definition and removes agent associations.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.DeleteMcpServerResponse> DeleteMcpServerAsync(global::RemoteAgent.Proto.DeleteMcpServerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteMcpServer, null, options, request);
+      }
+      /// <summary>
+      /// Sets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.SetAgentMcpServersResponse SetAgentMcpServers(global::RemoteAgent.Proto.SetAgentMcpServersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetAgentMcpServers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Sets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.SetAgentMcpServersResponse SetAgentMcpServers(global::RemoteAgent.Proto.SetAgentMcpServersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SetAgentMcpServers, null, options, request);
+      }
+      /// <summary>
+      /// Sets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.SetAgentMcpServersResponse> SetAgentMcpServersAsync(global::RemoteAgent.Proto.SetAgentMcpServersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetAgentMcpServersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Sets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.SetAgentMcpServersResponse> SetAgentMcpServersAsync(global::RemoteAgent.Proto.SetAgentMcpServersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SetAgentMcpServers, null, options, request);
+      }
+      /// <summary>
+      /// Gets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.GetAgentMcpServersResponse GetAgentMcpServers(global::RemoteAgent.Proto.GetAgentMcpServersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAgentMcpServers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Gets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.GetAgentMcpServersResponse GetAgentMcpServers(global::RemoteAgent.Proto.GetAgentMcpServersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetAgentMcpServers, null, options, request);
+      }
+      /// <summary>
+      /// Gets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.GetAgentMcpServersResponse> GetAgentMcpServersAsync(global::RemoteAgent.Proto.GetAgentMcpServersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAgentMcpServersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Gets MCP servers associated with an agent.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.GetAgentMcpServersResponse> GetAgentMcpServersAsync(global::RemoteAgent.Proto.GetAgentMcpServersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetAgentMcpServers, null, options, request);
+      }
+      /// <summary>
+      /// Lists prompt templates available to clients.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListPromptTemplatesResponse ListPromptTemplates(global::RemoteAgent.Proto.ListPromptTemplatesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListPromptTemplates(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Lists prompt templates available to clients.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListPromptTemplatesResponse ListPromptTemplates(global::RemoteAgent.Proto.ListPromptTemplatesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListPromptTemplates, null, options, request);
+      }
+      /// <summary>
+      /// Lists prompt templates available to clients.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListPromptTemplatesResponse> ListPromptTemplatesAsync(global::RemoteAgent.Proto.ListPromptTemplatesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListPromptTemplatesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Lists prompt templates available to clients.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListPromptTemplatesResponse> ListPromptTemplatesAsync(global::RemoteAgent.Proto.ListPromptTemplatesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListPromptTemplates, null, options, request);
+      }
+      /// <summary>
+      /// Creates or updates a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpsertPromptTemplateResponse UpsertPromptTemplate(global::RemoteAgent.Proto.UpsertPromptTemplateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpsertPromptTemplate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Creates or updates a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpsertPromptTemplateResponse UpsertPromptTemplate(global::RemoteAgent.Proto.UpsertPromptTemplateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpsertPromptTemplate, null, options, request);
+      }
+      /// <summary>
+      /// Creates or updates a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpsertPromptTemplateResponse> UpsertPromptTemplateAsync(global::RemoteAgent.Proto.UpsertPromptTemplateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpsertPromptTemplateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Creates or updates a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpsertPromptTemplateResponse> UpsertPromptTemplateAsync(global::RemoteAgent.Proto.UpsertPromptTemplateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpsertPromptTemplate, null, options, request);
+      }
+      /// <summary>
+      /// Deletes a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.DeletePromptTemplateResponse DeletePromptTemplate(global::RemoteAgent.Proto.DeletePromptTemplateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeletePromptTemplate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Deletes a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.DeletePromptTemplateResponse DeletePromptTemplate(global::RemoteAgent.Proto.DeletePromptTemplateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeletePromptTemplate, null, options, request);
+      }
+      /// <summary>
+      /// Deletes a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.DeletePromptTemplateResponse> DeletePromptTemplateAsync(global::RemoteAgent.Proto.DeletePromptTemplateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeletePromptTemplateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Deletes a prompt template.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.DeletePromptTemplateResponse> DeletePromptTemplateAsync(global::RemoteAgent.Proto.DeletePromptTemplateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeletePromptTemplate, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override AgentGatewayClient NewInstance(ClientBaseConfiguration configuration)
@@ -225,7 +1282,22 @@ namespace RemoteAgent.Proto {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetServerInfo, serviceImpl.GetServerInfo)
-          .AddMethod(__Method_Connect, serviceImpl.Connect).Build();
+          .AddMethod(__Method_Connect, serviceImpl.Connect)
+          .AddMethod(__Method_GetStructuredLogsSnapshot, serviceImpl.GetStructuredLogsSnapshot)
+          .AddMethod(__Method_StreamStructuredLogs, serviceImpl.StreamStructuredLogs)
+          .AddMethod(__Method_GetPlugins, serviceImpl.GetPlugins)
+          .AddMethod(__Method_UpdatePlugins, serviceImpl.UpdatePlugins)
+          .AddMethod(__Method_SeedSessionContext, serviceImpl.SeedSessionContext)
+          .AddMethod(__Method_GetSessionSeedContext, serviceImpl.GetSessionSeedContext)
+          .AddMethod(__Method_ClearSessionSeedContext, serviceImpl.ClearSessionSeedContext)
+          .AddMethod(__Method_ListMcpServers, serviceImpl.ListMcpServers)
+          .AddMethod(__Method_UpsertMcpServer, serviceImpl.UpsertMcpServer)
+          .AddMethod(__Method_DeleteMcpServer, serviceImpl.DeleteMcpServer)
+          .AddMethod(__Method_SetAgentMcpServers, serviceImpl.SetAgentMcpServers)
+          .AddMethod(__Method_GetAgentMcpServers, serviceImpl.GetAgentMcpServers)
+          .AddMethod(__Method_ListPromptTemplates, serviceImpl.ListPromptTemplates)
+          .AddMethod(__Method_UpsertPromptTemplate, serviceImpl.UpsertPromptTemplate)
+          .AddMethod(__Method_DeletePromptTemplate, serviceImpl.DeletePromptTemplate).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -237,6 +1309,21 @@ namespace RemoteAgent.Proto {
     {
       serviceBinder.AddMethod(__Method_GetServerInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse>(serviceImpl.GetServerInfo));
       serviceBinder.AddMethod(__Method_Connect, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::RemoteAgent.Proto.ClientMessage, global::RemoteAgent.Proto.ServerMessage>(serviceImpl.Connect));
+      serviceBinder.AddMethod(__Method_GetStructuredLogsSnapshot, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.StructuredLogsSnapshotRequest, global::RemoteAgent.Proto.StructuredLogsSnapshotResponse>(serviceImpl.GetStructuredLogsSnapshot));
+      serviceBinder.AddMethod(__Method_StreamStructuredLogs, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::RemoteAgent.Proto.StructuredLogsStreamRequest, global::RemoteAgent.Proto.StructuredLogEntry>(serviceImpl.StreamStructuredLogs));
+      serviceBinder.AddMethod(__Method_GetPlugins, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.GetPluginsRequest, global::RemoteAgent.Proto.GetPluginsResponse>(serviceImpl.GetPlugins));
+      serviceBinder.AddMethod(__Method_UpdatePlugins, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpdatePluginsRequest, global::RemoteAgent.Proto.UpdatePluginsResponse>(serviceImpl.UpdatePlugins));
+      serviceBinder.AddMethod(__Method_SeedSessionContext, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.SeedSessionContextRequest, global::RemoteAgent.Proto.SeedSessionContextResponse>(serviceImpl.SeedSessionContext));
+      serviceBinder.AddMethod(__Method_GetSessionSeedContext, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.GetSessionSeedContextRequest, global::RemoteAgent.Proto.GetSessionSeedContextResponse>(serviceImpl.GetSessionSeedContext));
+      serviceBinder.AddMethod(__Method_ClearSessionSeedContext, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ClearSessionSeedContextRequest, global::RemoteAgent.Proto.ClearSessionSeedContextResponse>(serviceImpl.ClearSessionSeedContext));
+      serviceBinder.AddMethod(__Method_ListMcpServers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListMcpServersRequest, global::RemoteAgent.Proto.ListMcpServersResponse>(serviceImpl.ListMcpServers));
+      serviceBinder.AddMethod(__Method_UpsertMcpServer, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpsertMcpServerRequest, global::RemoteAgent.Proto.UpsertMcpServerResponse>(serviceImpl.UpsertMcpServer));
+      serviceBinder.AddMethod(__Method_DeleteMcpServer, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.DeleteMcpServerRequest, global::RemoteAgent.Proto.DeleteMcpServerResponse>(serviceImpl.DeleteMcpServer));
+      serviceBinder.AddMethod(__Method_SetAgentMcpServers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.SetAgentMcpServersRequest, global::RemoteAgent.Proto.SetAgentMcpServersResponse>(serviceImpl.SetAgentMcpServers));
+      serviceBinder.AddMethod(__Method_GetAgentMcpServers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.GetAgentMcpServersRequest, global::RemoteAgent.Proto.GetAgentMcpServersResponse>(serviceImpl.GetAgentMcpServers));
+      serviceBinder.AddMethod(__Method_ListPromptTemplates, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListPromptTemplatesRequest, global::RemoteAgent.Proto.ListPromptTemplatesResponse>(serviceImpl.ListPromptTemplates));
+      serviceBinder.AddMethod(__Method_UpsertPromptTemplate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpsertPromptTemplateRequest, global::RemoteAgent.Proto.UpsertPromptTemplateResponse>(serviceImpl.UpsertPromptTemplate));
+      serviceBinder.AddMethod(__Method_DeletePromptTemplate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.DeletePromptTemplateRequest, global::RemoteAgent.Proto.DeletePromptTemplateResponse>(serviceImpl.DeletePromptTemplate));
     }
 
   }

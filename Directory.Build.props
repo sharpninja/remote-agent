@@ -1,7 +1,9 @@
 <Project>
   <PropertyGroup>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsNotAsErrors />
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1801</WarningsNotAsErrors>
+    <NuGetAudit>false</NuGetAudit>
+    <RestoreFallbackFolders></RestoreFallbackFolders>
   </PropertyGroup>
   <!-- Android build: set JavaSdkDirectory from JAVA_HOME or Linux default. Target reads env var (avoids Condition parsing issues). -->
   <Target Name="_SetJavaSdkDirectory" BeforeTargets="Build">
@@ -10,7 +12,8 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(JavaSdkDirectory)' == ''">
       <JavaSdkDirectory Condition="'$(_JdkFromEnv)' != ''">$(_JdkFromEnv)</JavaSdkDirectory>
-      <JavaSdkDirectory Condition="'$(JavaSdkDirectory)' == '' and $([MSBuild]::IsOSPlatform('linux'))">/usr/lib/jvm/default-java</JavaSdkDirectory>
+      <JavaSdkDirectory Condition="'$(JavaSdkDirectory)' == '' and $([MSBuild]::IsOSPlatform('linux')) and Exists('/usr/lib/jvm/java-21-openjdk-amd64')">/usr/lib/jvm/java-21-openjdk-amd64</JavaSdkDirectory>
+      <JavaSdkDirectory Condition="'$(JavaSdkDirectory)' == '' and $([MSBuild]::IsOSPlatform('linux')) and Exists('/usr/lib/jvm/default-java')">/usr/lib/jvm/default-java</JavaSdkDirectory>
     </PropertyGroup>
   </Target>
 </Project>

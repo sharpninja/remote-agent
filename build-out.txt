@@ -1,0 +1,240 @@
+
+  RemoteAgent.App.Logic -> E:\github\remote-agent\src\RemoteAgent.App.Logic\bin\Release\net10.0\RemoteAgent.App.Logic.dll
+  RemoteAgent.Proto -> E:\github\remote-agent\src\RemoteAgent.Proto\bin\Release\net10.0\RemoteAgent.Proto.dll
+  RemoteAgent.App.Tests -> E:\github\remote-agent\tests\RemoteAgent.App.Tests\bin\Release\net10.0\RemoteAgent.App.Tests.dll
+  XAML source generation is enabled (MauiXamlInflator=SourceGen). This generates C# code from XAML at compile time for better performance. To disable, remove the MauiXamlInflator line from your .csproj file (reverts to configuration-based defaults: Runtime in Debug, XamlC in Release).
+  RemoteAgent.Service -> E:\github\remote-agent\src\RemoteAgent.Service\bin\Release\net10.0\RemoteAgent.Service.dll
+  XAML source generation is enabled (MauiXamlInflator=SourceGen). This generates C# code from XAML at compile time for better performance. To disable, remove the MauiXamlInflator line from your .csproj file (reverts to configuration-based defaults: Runtime in Debug, XamlC in Release).
+  RemoteAgent.App -> E:\github\remote-agent\src\RemoteAgent.App\bin\Release\net10.0-ios\iossimulator-x64\RemoteAgent.App.dll
+  RemoteAgent.Service.Tests -> E:\github\remote-agent\tests\RemoteAgent.Service.Tests\bin\Release\net10.0\RemoteAgent.Service.Tests.dll
+  RemoteAgent.Service.IntegrationTests -> E:\github\remote-agent\tests\RemoteAgent.Service.IntegrationTests\bin\Release\net10.0\RemoteAgent.Service.IntegrationTests.dll
+  XAML source generation is enabled (MauiXamlInflator=SourceGen). This generates C# code from XAML at compile time for better performance. To disable, remove the MauiXamlInflator line from your .csproj file (reverts to configuration-based defaults: Runtime in Debug, XamlC in Release).
+  RemoteAgent.App -> E:\github\remote-agent\src\RemoteAgent.App\bin\Release\net10.0-maccatalyst\maccatalyst-x64\RemoteAgent.App.dll
+  XAML source generation is enabled (MauiXamlInflator=SourceGen). This generates C# code from XAML at compile time for better performance. To disable, remove the MauiXamlInflator line from your .csproj file (reverts to configuration-based defaults: Runtime in Debug, XamlC in Release).
+  RemoteAgent.App -> E:\github\remote-agent\src\RemoteAgent.App\bin\Release\net10.0-android\RemoteAgent.App.dll
+C:\Program Files\dotnet\sdk\10.0.103\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1047: Assets file 'E:\github\remote-agent\src\RemoteAgent.App\obj\project.assets.json' doesn't have a target for 'net10.0-maccatalyst/maccatalyst-arm64'. Ensure that restore has run and that you have included 'net10.0-maccatalyst' in the TargetFrameworks for your project. You may also need to include 'maccatalyst-arm64' in your project's RuntimeIdentifiers. [E:\github\remote-agent\src\RemoteAgent.App\RemoteAgent.App.csproj::TargetFramework=net10.0-maccatalyst]
+  RemoteAgent.App.Logic -> E:\github\remote-agent\src\RemoteAgent.App.Logic\bin\Release\net10.0\RemoteAgent.App.Logic.dll
+  RemoteAgent.Proto -> E:\github\remote-agent\src\RemoteAgent.Proto\bin\Release\net10.0\RemoteAgent.Proto.dll
+  Optimizing assemblies for size may change the behavior of the app. Be sure to test after publishing. See: https://aka.ms/dotnet-illink
+  Optimizing assemblies for size may change the behavior of the app. Be sure to test after publishing. See: https://aka.ms/dotnet-illink
+  RemoteAgent.App -> E:\github\remote-agent\src\RemoteAgent.App\bin\Release\net10.0-windows10.0.19041.0\win-x64\RemoteAgent.App.dll
+  [1/104] _Microsoft.Android.Resource.Designer.dll -> _Microsoft.Android.Resource.Designer.dll.so
+  [1/104] Microsoft.Extensions.FileProviders.Abstractions.dll -> Microsoft.Extensions.FileProviders.Abstractions.dll.so
+  [2/104] _Microsoft.Android.Resource.Designer.dll -> _Microsoft.Android.Resource.Designer.dll.so
+  [2/104] RemoteAgent.App.Logic.dll -> RemoteAgent.App.Logic.dll.so
+  [3/104] Microsoft.Extensions.Diagnostics.Abstractions.dll -> Microsoft.Extensions.Diagnostics.Abstractions.dll.so
+  [4/104] Microsoft.Extensions.Configuration.Abstractions.dll -> Microsoft.Extensions.Configuration.Abstractions.dll.so
+  [3/104] RemoteAgent.Proto.dll -> RemoteAgent.Proto.dll.so
+  [5/104] Grpc.Net.Common.dll -> Grpc.Net.Common.dll.so
+  [6/104] Microsoft.Extensions.Configuration.dll -> Microsoft.Extensions.Configuration.dll.so
+  [7/104] RemoteAgent.App.Logic.dll -> RemoteAgent.App.Logic.dll.so
+  [8/104] Microsoft.Extensions.DependencyInjection.Abstractions.dll -> Microsoft.Extensions.DependencyInjection.Abstractions.dll.so
+  [9/104] RemoteAgent.Proto.dll -> RemoteAgent.Proto.dll.so
+  [10/104] Grpc.Core.Api.dll -> Grpc.Core.Api.dll.so
+  [11/104] Microsoft.Extensions.DependencyInjection.dll -> Microsoft.Extensions.DependencyInjection.dll.so
+  [12/104] Markdig.dll -> Markdig.dll.so
+  [13/104] Google.Protobuf.dll -> Google.Protobuf.dll.so
+  [14/104] Microsoft.Extensions.Hosting.Abstractions.dll -> Microsoft.Extensions.Hosting.Abstractions.dll.so
+  [15/104] Microsoft.Extensions.Primitives.dll -> Microsoft.Extensions.Primitives.dll.so
+  [16/104] Microsoft.Extensions.Logging.dll -> Microsoft.Extensions.Logging.dll.so
+  [17/104] LiteDB.dll -> LiteDB.dll.so
+  [18/104] Microsoft.Extensions.Options.dll -> Microsoft.Extensions.Options.dll.so
+  [19/104] Microsoft.Extensions.Logging.Abstractions.dll -> Microsoft.Extensions.Logging.Abstractions.dll.so
+  [20/104] Grpc.Net.Client.dll -> Grpc.Net.Client.dll.so
+  [21/104] Xamarin.AndroidX.AppCompat.AppCompatResources.dll -> Xamarin.AndroidX.AppCompat.AppCompatResources.dll.so
+  [22/104] Xamarin.AndroidX.Activity.dll -> Xamarin.AndroidX.Activity.dll.so
+  [23/104] Microsoft.Maui.Essentials.dll -> Microsoft.Maui.Essentials.dll.so
+  [24/104] Microsoft.Maui.Graphics.dll -> Microsoft.Maui.Graphics.dll.so
+  [25/104] Xamarin.AndroidX.Collection.Jvm.dll -> Xamarin.AndroidX.Collection.Jvm.dll.so
+  [26/104] Xamarin.AndroidX.CustomView.dll -> Xamarin.AndroidX.CustomView.dll.so
+  [27/104] Xamarin.AndroidX.CardView.dll -> Xamarin.AndroidX.CardView.dll.so
+  [28/104] Xamarin.AndroidX.CursorAdapter.dll -> Xamarin.AndroidX.CursorAdapter.dll.so
+  [29/104] Xamarin.AndroidX.Core.dll -> Xamarin.AndroidX.Core.dll.so
+  [30/104] Xamarin.AndroidX.AppCompat.dll -> Xamarin.AndroidX.AppCompat.dll.so
+  [31/104] Xamarin.AndroidX.CoordinatorLayout.dll -> Xamarin.AndroidX.CoordinatorLayout.dll.so
+  [32/104] Xamarin.AndroidX.DrawerLayout.dll -> Xamarin.AndroidX.DrawerLayout.dll.so
+  [33/104] Microsoft.Maui.Controls.Xaml.dll -> Microsoft.Maui.Controls.Xaml.dll.so
+  [34/104] Xamarin.AndroidX.Fragment.dll -> Xamarin.AndroidX.Fragment.dll.so
+  [35/104] Xamarin.AndroidX.Lifecycle.Common.Jvm.dll -> Xamarin.AndroidX.Lifecycle.Common.Jvm.dll.so
+  [36/104] Xamarin.AndroidX.Lifecycle.LiveData.Core.dll -> Xamarin.AndroidX.Lifecycle.LiveData.Core.dll.so
+  [37/104] Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll -> Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll.so
+  [38/104] Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android.dll -> Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android.dll.so
+  [39/104] Xamarin.AndroidX.Loader.dll -> Xamarin.AndroidX.Loader.dll.so
+  [40/104] Xamarin.AndroidX.Navigation.Common.Android.dll -> Xamarin.AndroidX.Navigation.Common.Android.dll.so
+  [41/104] Xamarin.AndroidX.Navigation.Runtime.Android.dll -> Xamarin.AndroidX.Navigation.Runtime.Android.dll.so
+  [42/104] Xamarin.AndroidX.Navigation.UI.dll -> Xamarin.AndroidX.Navigation.UI.dll.so
+  [43/104] Xamarin.AndroidX.Navigation.Fragment.dll -> Xamarin.AndroidX.Navigation.Fragment.dll.so
+  [44/104] Xamarin.AndroidX.SavedState.SavedState.Android.dll -> Xamarin.AndroidX.SavedState.SavedState.Android.dll.so
+  [45/104] Xamarin.AndroidX.RecyclerView.dll -> Xamarin.AndroidX.RecyclerView.dll.so
+  [46/104] Xamarin.AndroidX.SwipeRefreshLayout.dll -> Xamarin.AndroidX.SwipeRefreshLayout.dll.so
+  [47/104] Xamarin.AndroidX.ViewPager.dll -> Xamarin.AndroidX.ViewPager.dll.so
+  [48/104] System.Buffers.dll -> System.Buffers.dll.so
+  [49/104] RemoteAgent.App.dll -> RemoteAgent.App.dll.so
+  [50/104] Xamarin.KotlinX.Serialization.Core.Jvm.dll -> Xamarin.KotlinX.Serialization.Core.Jvm.dll.so
+  [51/104] Xamarin.KotlinX.Coroutines.Core.Jvm.dll -> Xamarin.KotlinX.Coroutines.Core.Jvm.dll.so
+  [52/104] Xamarin.Kotlin.StdLib.dll -> Xamarin.Kotlin.StdLib.dll.so
+  [53/104] System.Collections.NonGeneric.dll -> System.Collections.NonGeneric.dll.so
+  [54/104] Xamarin.Google.Android.Material.dll -> Xamarin.Google.Android.Material.dll.so
+  [55/104] System.Collections.Specialized.dll -> System.Collections.Specialized.dll.so
+  [56/104] Xamarin.AndroidX.ViewPager2.dll -> Xamarin.AndroidX.ViewPager2.dll.so
+  [57/104] Xamarin.AndroidX.VersionedParcelable.dll -> Xamarin.AndroidX.VersionedParcelable.dll.so
+  [58/104] System.Collections.Concurrent.dll -> System.Collections.Concurrent.dll.so
+  [59/104] System.ComponentModel.Primitives.dll -> System.ComponentModel.Primitives.dll.so
+  [60/104] System.Collections.dll -> System.Collections.dll.so
+  [61/104] System.ComponentModel.TypeConverter.dll -> System.ComponentModel.TypeConverter.dll.so
+  [62/104] System.ComponentModel.dll -> System.ComponentModel.dll.so
+  [63/104] System.Console.dll -> System.Console.dll.so
+  [64/104] System.Drawing.dll -> System.Drawing.dll.so
+  [65/104] Microsoft.Maui.dll -> Microsoft.Maui.dll.so
+  [66/104] System.Diagnostics.DiagnosticSource.dll -> System.Diagnostics.DiagnosticSource.dll.so
+  [67/104] System.IO.Pipelines.dll -> System.IO.Pipelines.dll.so
+  [68/104] System.IO.Compression.Brotli.dll -> System.IO.Compression.Brotli.dll.so
+  [69/104] System.Drawing.Primitives.dll -> System.Drawing.Primitives.dll.so
+  [70/104] System.Formats.Asn1.dll -> System.Formats.Asn1.dll.so
+  [71/104] System.IO.Compression.dll -> System.IO.Compression.dll.so
+  [72/104] System.Memory.dll -> System.Memory.dll.so
+  [73/104] System.Net.NameResolution.dll -> System.Net.NameResolution.dll.so
+  [74/104] System.Net.NetworkInformation.dll -> System.Net.NetworkInformation.dll.so
+  [75/104] System.Net.Primitives.dll -> System.Net.Primitives.dll.so
+  [76/104] System.Net.Requests.dll -> System.Net.Requests.dll.so
+  [77/104] System.Numerics.Vectors.dll -> System.Numerics.Vectors.dll.so
+  [78/104] System.Linq.dll -> System.Linq.dll.so
+  [79/104] System.ObjectModel.dll -> System.ObjectModel.dll.so
+  [80/104] System.Net.Sockets.dll -> System.Net.Sockets.dll.so
+  [81/104] System.Linq.Expressions.dll -> System.Linq.Expressions.dll.so
+  [82/104] System.Runtime.Loader.dll -> System.Runtime.Loader.dll.so
+  [83/104] System.Net.Security.dll -> System.Net.Security.dll.so
+  [84/104] System.Runtime.InteropServices.dll -> System.Runtime.InteropServices.dll.so
+  [85/104] System.Private.Xml.dll -> System.Private.Xml.dll.so
+  [86/104] System.Net.Http.dll -> System.Net.Http.dll.so
+  [87/104] System.Private.Uri.dll -> System.Private.Uri.dll.so
+  [88/104] System.Runtime.dll -> System.Runtime.dll.so
+  [89/104] System.Security.Cryptography.dll -> System.Security.Cryptography.dll.so
+  [90/104] System.Text.Encodings.Web.dll -> System.Text.Encodings.Web.dll.so
+  [91/104] System.Runtime.Numerics.dll -> System.Runtime.Numerics.dll.so
+  [92/104] System.Threading.Thread.dll -> System.Threading.Thread.dll.so
+  [93/104] System.Threading.dll -> System.Threading.dll.so
+  [94/104] System.dll -> System.dll.so
+  [95/104] System.Threading.Channels.dll -> System.Threading.Channels.dll.so
+  [96/104] System.Text.RegularExpressions.dll -> System.Text.RegularExpressions.dll.so
+  [97/104] System.Xml.ReaderWriter.dll -> System.Xml.ReaderWriter.dll.so
+  [98/104] netstandard.dll -> netstandard.dll.so
+  [99/104] Mono.Android.Runtime.dll -> Mono.Android.Runtime.dll.so
+  [100/104] Java.Interop.dll -> Java.Interop.dll.so
+  [101/104] Microsoft.Maui.Controls.dll -> Microsoft.Maui.Controls.dll.so
+  [102/104] System.Text.Json.dll -> System.Text.Json.dll.so
+  [103/104] Mono.Android.dll -> Mono.Android.dll.so
+  [4/104] RemoteAgent.App.dll -> RemoteAgent.App.dll.so
+  [5/104] Google.Protobuf.dll -> Google.Protobuf.dll.so
+  [6/104] Grpc.Core.Api.dll -> Grpc.Core.Api.dll.so
+  [104/104] System.Private.CoreLib.dll -> System.Private.CoreLib.dll.so
+  [7/104] Grpc.Net.Client.dll -> Grpc.Net.Client.dll.so
+  [8/104] Grpc.Net.Common.dll -> Grpc.Net.Common.dll.so
+  [9/104] LiteDB.dll -> LiteDB.dll.so
+  [10/104] Markdig.dll -> Markdig.dll.so
+  [11/104] Microsoft.Extensions.Configuration.dll -> Microsoft.Extensions.Configuration.dll.so
+  [12/104] Microsoft.Extensions.Configuration.Abstractions.dll -> Microsoft.Extensions.Configuration.Abstractions.dll.so
+  [13/104] Microsoft.Extensions.DependencyInjection.dll -> Microsoft.Extensions.DependencyInjection.dll.so
+  [14/104] Microsoft.Extensions.DependencyInjection.Abstractions.dll -> Microsoft.Extensions.DependencyInjection.Abstractions.dll.so
+  [15/104] Microsoft.Extensions.Diagnostics.Abstractions.dll -> Microsoft.Extensions.Diagnostics.Abstractions.dll.so
+  [16/104] Microsoft.Extensions.FileProviders.Abstractions.dll -> Microsoft.Extensions.FileProviders.Abstractions.dll.so
+  [17/104] Microsoft.Extensions.Hosting.Abstractions.dll -> Microsoft.Extensions.Hosting.Abstractions.dll.so
+  [18/104] Microsoft.Extensions.Logging.dll -> Microsoft.Extensions.Logging.dll.so
+  [19/104] Microsoft.Extensions.Logging.Abstractions.dll -> Microsoft.Extensions.Logging.Abstractions.dll.so
+  [20/104] Microsoft.Extensions.Options.dll -> Microsoft.Extensions.Options.dll.so
+  [21/104] Microsoft.Extensions.Primitives.dll -> Microsoft.Extensions.Primitives.dll.so
+  [22/104] Microsoft.Maui.Controls.dll -> Microsoft.Maui.Controls.dll.so
+  [23/104] Microsoft.Maui.Controls.Xaml.dll -> Microsoft.Maui.Controls.Xaml.dll.so
+  [24/104] Microsoft.Maui.dll -> Microsoft.Maui.dll.so
+  [25/104] Microsoft.Maui.Essentials.dll -> Microsoft.Maui.Essentials.dll.so
+  [26/104] Microsoft.Maui.Graphics.dll -> Microsoft.Maui.Graphics.dll.so
+  [27/104] Xamarin.AndroidX.Activity.dll -> Xamarin.AndroidX.Activity.dll.so
+  [28/104] Xamarin.AndroidX.AppCompat.dll -> Xamarin.AndroidX.AppCompat.dll.so
+  [29/104] Xamarin.AndroidX.AppCompat.AppCompatResources.dll -> Xamarin.AndroidX.AppCompat.AppCompatResources.dll.so
+  [30/104] Xamarin.AndroidX.CardView.dll -> Xamarin.AndroidX.CardView.dll.so
+  [31/104] Xamarin.AndroidX.Collection.Jvm.dll -> Xamarin.AndroidX.Collection.Jvm.dll.so
+  [32/104] Xamarin.AndroidX.CoordinatorLayout.dll -> Xamarin.AndroidX.CoordinatorLayout.dll.so
+  [33/104] Xamarin.AndroidX.Core.dll -> Xamarin.AndroidX.Core.dll.so
+  [34/104] Xamarin.AndroidX.CursorAdapter.dll -> Xamarin.AndroidX.CursorAdapter.dll.so
+  [35/104] Xamarin.AndroidX.CustomView.dll -> Xamarin.AndroidX.CustomView.dll.so
+  [36/104] Xamarin.AndroidX.DrawerLayout.dll -> Xamarin.AndroidX.DrawerLayout.dll.so
+  [37/104] Xamarin.AndroidX.Fragment.dll -> Xamarin.AndroidX.Fragment.dll.so
+  [38/104] Xamarin.AndroidX.Lifecycle.Common.Jvm.dll -> Xamarin.AndroidX.Lifecycle.Common.Jvm.dll.so
+  [39/104] Xamarin.AndroidX.Lifecycle.LiveData.Core.dll -> Xamarin.AndroidX.Lifecycle.LiveData.Core.dll.so
+  [40/104] Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll -> Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll.so
+  [41/104] Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android.dll -> Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android.dll.so
+  [42/104] Xamarin.AndroidX.Loader.dll -> Xamarin.AndroidX.Loader.dll.so
+  [43/104] Xamarin.AndroidX.Navigation.Common.Android.dll -> Xamarin.AndroidX.Navigation.Common.Android.dll.so
+  [44/104] Xamarin.AndroidX.Navigation.Fragment.dll -> Xamarin.AndroidX.Navigation.Fragment.dll.so
+  [45/104] Xamarin.AndroidX.Navigation.Runtime.Android.dll -> Xamarin.AndroidX.Navigation.Runtime.Android.dll.so
+  [46/104] Xamarin.AndroidX.Navigation.UI.dll -> Xamarin.AndroidX.Navigation.UI.dll.so
+  [47/104] Xamarin.AndroidX.RecyclerView.dll -> Xamarin.AndroidX.RecyclerView.dll.so
+  [48/104] Xamarin.AndroidX.SavedState.SavedState.Android.dll -> Xamarin.AndroidX.SavedState.SavedState.Android.dll.so
+  [49/104] Xamarin.AndroidX.SwipeRefreshLayout.dll -> Xamarin.AndroidX.SwipeRefreshLayout.dll.so
+  [50/104] Xamarin.AndroidX.VersionedParcelable.dll -> Xamarin.AndroidX.VersionedParcelable.dll.so
+  [51/104] Xamarin.AndroidX.ViewPager.dll -> Xamarin.AndroidX.ViewPager.dll.so
+  [52/104] Xamarin.AndroidX.ViewPager2.dll -> Xamarin.AndroidX.ViewPager2.dll.so
+  [53/104] Xamarin.Google.Android.Material.dll -> Xamarin.Google.Android.Material.dll.so
+  [54/104] Xamarin.Kotlin.StdLib.dll -> Xamarin.Kotlin.StdLib.dll.so
+  [55/104] Xamarin.KotlinX.Coroutines.Core.Jvm.dll -> Xamarin.KotlinX.Coroutines.Core.Jvm.dll.so
+  [56/104] Xamarin.KotlinX.Serialization.Core.Jvm.dll -> Xamarin.KotlinX.Serialization.Core.Jvm.dll.so
+  [57/104] System.Buffers.dll -> System.Buffers.dll.so
+  [58/104] System.Collections.Concurrent.dll -> System.Collections.Concurrent.dll.so
+  [59/104] System.Collections.NonGeneric.dll -> System.Collections.NonGeneric.dll.so
+  [60/104] System.Collections.Specialized.dll -> System.Collections.Specialized.dll.so
+  [61/104] System.Collections.dll -> System.Collections.dll.so
+  [62/104] System.ComponentModel.Primitives.dll -> System.ComponentModel.Primitives.dll.so
+  [63/104] System.ComponentModel.TypeConverter.dll -> System.ComponentModel.TypeConverter.dll.so
+  [64/104] System.ComponentModel.dll -> System.ComponentModel.dll.so
+  [65/104] System.Console.dll -> System.Console.dll.so
+  [66/104] System.Diagnostics.DiagnosticSource.dll -> System.Diagnostics.DiagnosticSource.dll.so
+  [67/104] System.Drawing.Primitives.dll -> System.Drawing.Primitives.dll.so
+  [68/104] System.Drawing.dll -> System.Drawing.dll.so
+  [69/104] System.Formats.Asn1.dll -> System.Formats.Asn1.dll.so
+  [70/104] System.IO.Compression.Brotli.dll -> System.IO.Compression.Brotli.dll.so
+  [71/104] System.IO.Compression.dll -> System.IO.Compression.dll.so
+  [72/104] System.IO.Pipelines.dll -> System.IO.Pipelines.dll.so
+  [73/104] System.Linq.Expressions.dll -> System.Linq.Expressions.dll.so
+  [74/104] System.Linq.dll -> System.Linq.dll.so
+  [75/104] System.Memory.dll -> System.Memory.dll.so
+  [76/104] System.Net.Http.dll -> System.Net.Http.dll.so
+  [77/104] System.Net.NameResolution.dll -> System.Net.NameResolution.dll.so
+  [78/104] System.Net.NetworkInformation.dll -> System.Net.NetworkInformation.dll.so
+  [79/104] System.Net.Primitives.dll -> System.Net.Primitives.dll.so
+  [80/104] System.Net.Requests.dll -> System.Net.Requests.dll.so
+  [81/104] System.Net.Security.dll -> System.Net.Security.dll.so
+  [82/104] System.Net.Sockets.dll -> System.Net.Sockets.dll.so
+  [83/104] System.Numerics.Vectors.dll -> System.Numerics.Vectors.dll.so
+  [84/104] System.ObjectModel.dll -> System.ObjectModel.dll.so
+  [85/104] System.Private.Uri.dll -> System.Private.Uri.dll.so
+  [86/104] System.Private.Xml.dll -> System.Private.Xml.dll.so
+  [87/104] System.Runtime.InteropServices.dll -> System.Runtime.InteropServices.dll.so
+  [88/104] System.Runtime.Loader.dll -> System.Runtime.Loader.dll.so
+  [89/104] System.Runtime.Numerics.dll -> System.Runtime.Numerics.dll.so
+  [90/104] System.Runtime.dll -> System.Runtime.dll.so
+  [91/104] System.Security.Cryptography.dll -> System.Security.Cryptography.dll.so
+  [92/104] System.Text.Encodings.Web.dll -> System.Text.Encodings.Web.dll.so
+  [93/104] System.Text.Json.dll -> System.Text.Json.dll.so
+  [94/104] System.Text.RegularExpressions.dll -> System.Text.RegularExpressions.dll.so
+  [95/104] System.Threading.Channels.dll -> System.Threading.Channels.dll.so
+  [96/104] System.Threading.Thread.dll -> System.Threading.Thread.dll.so
+  [97/104] System.Threading.dll -> System.Threading.dll.so
+  [98/104] System.Xml.ReaderWriter.dll -> System.Xml.ReaderWriter.dll.so
+  [99/104] System.dll -> System.dll.so
+  [100/104] netstandard.dll -> netstandard.dll.so
+  [101/104] Java.Interop.dll -> Java.Interop.dll.so
+  [102/104] Mono.Android.Runtime.dll -> Mono.Android.Runtime.dll.so
+  [103/104] Mono.Android.dll -> Mono.Android.dll.so
+  [104/104] System.Private.CoreLib.dll -> System.Private.CoreLib.dll.so
+C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\36.1.30\tools\Xamarin.Android.Common.targets(2207,3): error : Failed to extract debug info [E:\github\remote-agent\src\RemoteAgent.App\RemoteAgent.App.csproj::TargetFramework=net10.0-android]
+C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\36.1.30\tools\Xamarin.Android.Common.targets(2207,3): error : Failed to extract debug info [E:\github\remote-agent\src\RemoteAgent.App\RemoteAgent.App.csproj::TargetFramework=net10.0-android]
+
+Build FAILED.
+
+C:\Program Files\dotnet\sdk\10.0.103\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1047: Assets file 'E:\github\remote-agent\src\RemoteAgent.App\obj\project.assets.json' doesn't have a target for 'net10.0-maccatalyst/maccatalyst-arm64'. Ensure that restore has run and that you have included 'net10.0-maccatalyst' in the TargetFrameworks for your project. You may also need to include 'maccatalyst-arm64' in your project's RuntimeIdentifiers. [E:\github\remote-agent\src\RemoteAgent.App\RemoteAgent.App.csproj::TargetFramework=net10.0-maccatalyst]
+C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\36.1.30\tools\Xamarin.Android.Common.targets(2207,3): error : Failed to extract debug info [E:\github\remote-agent\src\RemoteAgent.App\RemoteAgent.App.csproj::TargetFramework=net10.0-android]
+C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\36.1.30\tools\Xamarin.Android.Common.targets(2207,3): error : Failed to extract debug info [E:\github\remote-agent\src\RemoteAgent.App\RemoteAgent.App.csproj::TargetFramework=net10.0-android]
+    0 Warning(s)
+    3 Error(s)
+
+Time Elapsed 00:06:21.14

@@ -54,6 +54,7 @@ public sealed class LocalSessionStore : ISessionStore
                 SessionId = session.SessionId,
                 Title = session.Title,
                 AgentId = session.AgentId,
+                ConnectionMode = session.ConnectionMode,
                 CreatedAt = session.CreatedAt
             });
         }
@@ -101,6 +102,25 @@ public sealed class LocalSessionStore : ISessionStore
         }
     }
 
+    public void UpdateConnectionMode(string sessionId, string connectionMode)
+    {
+        try
+        {
+            using var db = new LiteDatabase(_dbPath);
+            var col = db.GetCollection<StoredSessionRecord>(CollectionName);
+            var doc = col.FindOne(x => x.SessionId == sessionId);
+            if (doc != null)
+            {
+                doc.ConnectionMode = string.IsNullOrWhiteSpace(connectionMode) ? "server" : connectionMode.Trim().ToLowerInvariant();
+                col.Update(doc);
+            }
+        }
+        catch
+        {
+            // best-effort
+        }
+    }
+
     public void Delete(string sessionId)
     {
         try
@@ -122,6 +142,7 @@ public sealed class LocalSessionStore : ISessionStore
             SessionId = r.SessionId,
             Title = r.Title,
             AgentId = r.AgentId,
+            ConnectionMode = string.IsNullOrWhiteSpace(r.ConnectionMode) ? "server" : r.ConnectionMode,
             CreatedAt = r.CreatedAt
         };
     }
@@ -134,6 +155,7 @@ public sealed class LocalSessionStore : ISessionStore
         public string SessionId { get; set; } = "";
         public string Title { get; set; } = "New chat";
         public string AgentId { get; set; } = "";
+        public string ConnectionMode { get; set; } = "server";
         public DateTimeOffset CreatedAt { get; set; }
     }
 }

@@ -35,6 +35,10 @@ Android app (MAUI) that talks to a Linux service over gRPC. The service spawns a
 
    The service listens on `http://0.0.0.0:5243` (gRPC over HTTP/2).
 
+## Codex session seed
+
+For quick startup context in future Codex sessions, use `docs/SESSION-SEED-PROMPT.md`.
+
 ## Run the service with Docker
 
 The CI pipeline publishes the service image to **GitHub Container Registry (GHCR)**. Use the image from GHCR:
@@ -136,7 +140,8 @@ Session logs are written under `Agent:LogDirectory` (default: temp) as `remote-a
 
 On push to `main` (or manual run), the workflow:
 
-1. **Builds** the solution and the Android APK.
+1. **Builds** MAUI/service stack with **.NET 10** and desktop stack with **.NET 9**, plus Android APK.
+   Integration tests are intentionally excluded from this default pipeline.
 2. **Builds** the Docker image for the service and **publishes** it to GitHub Container Registry: `ghcr.io/<owner>/<repo>/service:latest` (and `@sha256:...`).
 3. **Updates** an F-Droid-style static repo and **deploys** it to **GitHub Pages**: index page with app info and a direct APK download; optional `index.xml` for repo clients.
 
@@ -163,15 +168,26 @@ Unit and integration tests use xUnit and FluentAssertions.
   - No command configured → client receives `SessionError` event.
   - Default strategy (process on Linux, copilot-windows on Windows) → client sends START (and optionally text, STOP); tests pass whether or not the agent executable is on PATH (they accept "did not start" when the agent is unavailable).
 
-Run all tests:
+Run test suites:
 
 ```bash
-dotnet test RemoteAgent.slnx
+dotnet test tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj
+dotnet test tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj
+dotnet test tests/RemoteAgent.Desktop.UiTests/RemoteAgent.Desktop.UiTests.csproj
+```
+
+Integration tests are isolated and intentionally excluded from normal CI pipeline runs. Run them explicitly:
+
+```bash
+./scripts/test-integration.sh Release
 ```
 
 **Build note:** Do not use `-q` (quiet) with `dotnet build` or `dotnet restore`—.NET 10 SDK can fail with "Question build FAILED". Use `-v m` (minimal) or default verbosity. The repo's `Directory.Build.rsp` sets minimal verbosity for command-line builds; scripts use `-nologo` only (no `-q`).
 
-**Solution vs app:** Build the **full solution** with `dotnet build RemoteAgent.slnx -c Release` (no `-f`). Do not use `-f net10.0-android` at the solution level—other projects (tests, Proto, Service) do not target Android and you will get NETSDK1005. To build **only the Android app**, use `dotnet build src/RemoteAgent.App/RemoteAgent.App.csproj -c Release -f net10.0-android`.
+**Split SDK build:** this repo intentionally uses two SDK tracks.
+- **.NET 10** for MAUI app + service + shared libraries/tests: `./scripts/build-dotnet10.sh Release`
+- **.NET 9** for Avalonia desktop app + desktop UI tests: `./scripts/build-desktop-dotnet9.sh Release`
+- **Manual integration test workflow:** run `.github/workflows/integration-tests.yml` via **workflow_dispatch** when integration coverage is needed.
 
 ## Repository
 

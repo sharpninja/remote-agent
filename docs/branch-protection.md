@@ -9,7 +9,7 @@ This repository uses a two-branch strategy:
 - **`develop`** — Main development branch. All feature branches should be created from and merged back into `develop`. This is where day-to-day development happens.
 - **`main`** — Production-ready code. Protected branch with strict rules. Changes come from `develop` via pull requests during releases.
 
-**For contributors:** Always base your work on the `develop` branch. See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full workflow.
+**For contributors:** Always base your work on the `develop` branch. See [CONTRIBUTING.md](https://github.com/sharpninja/remote-agent/blob/develop/CONTRIBUTING.md) for the full workflow.
 
 ## Violations you might see
 

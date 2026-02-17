@@ -218,6 +218,7 @@ PublishScripts/
 **/[Pp]ackages/*
 !**/[Pp]ackages/build/
 *.nuget.props
+/.nuget/
 *.nuget.targets
 
 # Microsoft Azure Build Output

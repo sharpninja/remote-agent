@@ -38,4 +38,34 @@ public class AgentOptions
 
     /// <summary>When no <see cref="ApiKey"/> is configured, allows unauthenticated access only from loopback peers. Enabled by default.</summary>
     public bool AllowUnauthenticatedLoopback { get; set; } = true;
+
+    /// <summary>Enables per-peer connection protection (rate limiting + DoS safeguards).</summary>
+    public bool EnableConnectionProtection { get; set; } = true;
+
+    /// <summary>Sliding window for connection-attempt rate limiting.</summary>
+    public int ConnectionAttemptWindowSeconds { get; set; } = 10;
+
+    /// <summary>Maximum connection attempts per peer within <see cref="ConnectionAttemptWindowSeconds"/>.</summary>
+    public int MaxConnectionAttemptsPerWindow { get; set; } = 20;
+
+    /// <summary>Maximum concurrent streaming connections allowed for a single peer.</summary>
+    public int MaxConcurrentConnectionsPerPeer { get; set; } = 8;
+
+    /// <summary>Sliding window for inbound client-message rate limiting.</summary>
+    public int ClientMessageWindowSeconds { get; set; } = 5;
+
+    /// <summary>Maximum inbound client messages per peer within <see cref="ClientMessageWindowSeconds"/>.</summary>
+    public int MaxClientMessagesPerWindow { get; set; } = 120;
+
+    /// <summary>Number of violations before temporary peer blocking is applied.</summary>
+    public int DosViolationThreshold { get; set; } = 3;
+
+    /// <summary>Duration for temporary peer blocking once DoS threshold is reached.</summary>
+    public int DosBlockSeconds { get; set; } = 60;
+
+    /// <summary>Maximum concurrent active sessions across the server.</summary>
+    public int MaxConcurrentSessions { get; set; } = 50;
+
+    /// <summary>Optional per-agent concurrent session caps keyed by agent id (e.g. "process": 10).</summary>
+    public Dictionary<string, int> AgentConcurrentSessionLimits { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 }

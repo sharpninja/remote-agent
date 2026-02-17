@@ -34,7 +34,8 @@ Thank you for your interest in contributing to Remote Agent! This document provi
 
 5. **Test your changes:**
    ```bash
-   dotnet test RemoteAgent.slnx
+   ./scripts/build-dotnet10.sh Release
+   ./scripts/build-desktop-dotnet9.sh Release
    ```
 
 6. **Commit your changes** with clear, descriptive commit messages:
@@ -79,20 +80,34 @@ All warnings are treated as errors. See [REPOSITORY_RULES.md](docs/REPOSITORY_RU
 
 ### Prerequisites
 
-- .NET 10 SDK
+- .NET 10 SDK (MAUI app + service + shared libs/tests)
+- .NET 9 SDK (Avalonia desktop app + desktop UI tests)
 - For Android development: Android SDK and MAUI workload
 
 ### Build
 
 ```bash
-dotnet build RemoteAgent.slnx -c Release
+./scripts/build-dotnet10.sh Release
+./scripts/build-desktop-dotnet9.sh Release
 ```
 
 ### Test
 
 ```bash
-dotnet test RemoteAgent.slnx -c Release
+dotnet test tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj -c Release
+dotnet test tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj -c Release
+dotnet test tests/RemoteAgent.Desktop.UiTests/RemoteAgent.Desktop.UiTests.csproj -c Release
 ```
+
+### Integration Tests (isolated)
+
+Integration tests are intentionally isolated and excluded from default pipeline runs. Execute them explicitly when needed:
+
+```bash
+./scripts/test-integration.sh Release
+```
+
+CI runs integration tests only through the manual `integration-tests.yml` workflow.
 
 ### Run the Service
 

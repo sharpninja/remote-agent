@@ -22,4 +22,7 @@ public interface ILocalStorage
     /// <param name="summary">Short summary or content.</param>
     /// <param name="mediaPath">Optional relative path to stored media.</param>
     void LogResponse(string sessionId, string kind, string summary, string? mediaPath = null);
+
+    /// <summary>Returns true when persisted records already exist for the given session id.</summary>
+    bool SessionExists(string sessionId);
 }

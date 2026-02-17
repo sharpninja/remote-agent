@@ -24,6 +24,9 @@
 - **FR-2.2** Agent output (stdout/stderr) shall be **streamed to the app in real time** and displayed in the chat.
 - **FR-2.3** Agent output in the chat shall be **formatted with a markdown parser** (e.g. bold, code, lists) so that Cursor output is readable and structured.
 - **FR-2.4** The user shall be able to **connect** to the service (host/port) and **disconnect**; connecting shall start a session with the agent; disconnecting shall stop the session and the agent.
+- **FR-2.5** Chat text entry shall support **multi-line input**; pressing **Enter/Return** shall insert a newline in the request text.
+- **FR-2.6** On desktop clients, pressing **Ctrl+Enter** in the chat editor shall submit the request.
+- **FR-2.7** On mobile clients, session establishment shall begin in a **dedicated connection view** and transition to the **chat view** after successful connection.
 
 *See:* [TR-3](technical-requirements.md#3-service-architecture), [TR-4](technical-requirements.md#4-protocol-grpc), [TR-5](technical-requirements.md#5-app-architecture).
 
@@ -112,3 +115,59 @@
     - **FR-11.1.3.2** **Tapping off the editor** (e.g. tapping outside the title field or dismissing focus) shall **commit the updated session title** (e.g. unfocus → save the current text as the session title and return to display mode).
 
 *See:* [TR-11](technical-requirements.md#11-local-storage-litedb), [TR-12](technical-requirements.md#12-multiple-sessions-and-agent-selection--fr-111).
+
+---
+
+## 12. Desktop management app
+
+- **FR-12.1** The system shall provide a **desktop management app** (Avalonia UI) that can connect to **remote servers** and replicate core mobile interaction flows (connect, start/stop session, send messages, receive output).
+- **FR-12.1.1** The desktop app shall use the **same chat UI** for interaction whether the session is configured for **direct** agent access or **server** access.
+- **FR-12.1.2** When establishing a connection, the desktop app shall prompt the user to select **Direct** or **Server** mode.
+- **FR-12.1.3** The desktop app shall provide a **tabbed session interface** so users can switch sessions by selecting session tabs.
+- **FR-12.1.4** The desktop app shall follow standard desktop interaction patterns including a **menu bar**, **toolbar**, and command-driven actions.
+- **FR-12.1.5** Desktop session tabs shall provide a direct **terminate session** action for active/saved sessions.
+- **FR-12.2** The desktop app shall include a **structured log viewer** with **real-time monitoring** and robust filtering.
+- **FR-12.3** The desktop app shall ingest structured logs into local **LiteDB** storage for offline/history analysis.
+- **FR-12.4** The desktop app shall manage server plugins for agents (view configured plugins, update plugin assembly configuration).
+- **FR-12.5** The desktop app shall support selecting and reusing server-side agent plugins for direct agent interaction via normal session flows.
+- **FR-12.6** Agent interaction behavior (request context, seed context, MCP update notifications) shall be implemented through a shared library so server and desktop follow identical interaction semantics.
+- **FR-12.7** The desktop app shall provide operator panels for connected peers/devices, peer ban list management, connection history, abandoned sessions, and auth-user/role management.
+- **FR-12.8** The desktop chat surface shall expose editable **per-request context** text that is attached to every outbound request for the active session.
+- **FR-12.9** The desktop management app shall support **multiple registered servers**, including add/update/remove server registration UI.
+- **FR-12.10** The desktop app shall support **concurrent active connections across different registered servers**.
+- **FR-12.11** Structured log records in the desktop app shall include a **server identifier**, and log filtering shall default to the **currently selected server**.
+
+*See:* [TR-13](technical-requirements.md#13-observability-and-structured-logging), [TR-14](technical-requirements.md#14-desktop-management-capabilities).
+
+---
+
+## 13. Session/device/admin operations
+
+- **FR-13.1** The management experience shall support querying **open sessions** and **abandoned sessions**.
+- **FR-13.2** The management experience shall support querying **connected mobile devices** and **connection history**.
+- **FR-13.3** Authorized operators shall be able to **cancel active sessions**.
+- **FR-13.4** Authorized operators shall be able to **ban/unban specific mobile devices**.
+- **FR-13.5** The management experience shall support **auth user and permission management**.
+- **FR-13.6** When MCP server mappings for an agent change, active sessions for that agent shall be notified of **enabled/disabled** MCP servers.
+- **FR-13.7** The server shall enforce a configurable **maximum concurrent sessions** limit across all agents.
+- **FR-13.8** Each agent may define its own configurable **maximum concurrent sessions**; agent-level limits shall not allow exceeding the server-wide session limit.
+
+*See:* [TR-15](technical-requirements.md#15-management-apis-and-policy-controls).
+
+---
+
+## 14. Prompt templates
+
+- **FR-14.1** Chat clients shall be able to access reusable **templatized prompts** from the server.
+- **FR-14.2** Prompt templates shall support **Handlebars** placeholders (e.g. `{{incident_id}}`, `{{service_name}}`).
+- **FR-14.3** Submitting a template shall display a compact UI flow that asks the user for each required template variable.
+- **FR-14.4** After variable input, the client shall render the final prompt and submit it through the standard chat send flow.
+
+## 15. Connection protection
+
+- **FR-15.1** Connection management shall include configurable **rate limiting** for inbound client traffic.
+- **FR-15.2** The server shall detect likely **DoS patterns** (e.g. burst connection attempts or message floods) and temporarily throttle/block offending peers.
+
+## 16. Test execution policy
+
+- **FR-16.1** Integration tests shall be executable on demand through an explicit isolated workflow or script and shall not run as part of default build-and-release pipeline executions.

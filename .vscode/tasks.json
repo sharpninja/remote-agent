@@ -15,34 +15,21 @@
     },
     {
       "label": "build-integration-tests",
-      "command": "dotnet",
+      "command": "${workspaceFolder}/scripts/test-integration.sh",
       "type": "process",
       "args": [
-        "build",
-        "${workspaceFolder}/tests/RemoteAgent.Service.IntegrationTests/RemoteAgent.Service.IntegrationTests.csproj",
-        "-c",
-        "Debug",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary;ForceNoAlign"
+        "Debug"
       ],
       "problemMatcher": "$msCompile"
     },
     {
       "label": "run-integration-tests",
-      "command": "dotnet",
+      "command": "${workspaceFolder}/scripts/test-integration.sh",
       "type": "process",
       "args": [
-        "test",
-        "${workspaceFolder}/tests/RemoteAgent.Service.IntegrationTests/RemoteAgent.Service.IntegrationTests.csproj",
-        "-c",
-        "Debug",
-        "--no-build",
-        "--verbosity",
-        "normal",
-        "-nologo"
+        "Debug"
       ],
-      "problemMatcher": "$msCompile",
-      "dependsOn": "build-integration-tests"
+      "problemMatcher": "$msCompile"
     },
     {
       "label": "publish",

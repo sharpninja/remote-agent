@@ -4,11 +4,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RemoteAgent.App"
-    Title="RemoteAgent.App">
+    Title="RemoteAgent.App"
+    FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.FlyoutContent>
+        <ScrollView>
+            <VerticalStackLayout Padding="16" Spacing="10">
+                <Label Text="Menu" FontSize="20" FontAttributes="Bold" />
+                <Label Text="Open Sessions" FontAttributes="Bold" />
+                <VerticalStackLayout x:Name="SessionButtonsHost" Spacing="6" />
+                <Button Text="Start Session" Clicked="OnStartSessionClicked" />
+                <Button Text="Settings" Clicked="OnSettingsClicked" />
+                <Button Text="Account Management" Clicked="OnAccountManagementClicked" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Shell.FlyoutContent>
 
 </Shell>

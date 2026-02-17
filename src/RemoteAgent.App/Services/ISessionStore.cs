@@ -18,6 +18,9 @@ public interface ISessionStore
     /// <summary>Update session agent id (FR-11.1.2).</summary>
     void UpdateAgentId(string sessionId, string agentId);
 
+    /// <summary>Update session connection mode ("direct" or "server").</summary>
+    void UpdateConnectionMode(string sessionId, string connectionMode);
+
     /// <summary>Remove a session and its messages (optional).</summary>
     void Delete(string sessionId);
 }

@@ -2,11 +2,14 @@
   <Folder Name="/src/">
     <Project Path="src/RemoteAgent.App.Logic/RemoteAgent.App.Logic.csproj" />
     <Project Path="src/RemoteAgent.App/RemoteAgent.App.csproj" />
+    <Project Path="src/RemoteAgent.Desktop/RemoteAgent.Desktop.csproj" />
     <Project Path="src/RemoteAgent.Proto/RemoteAgent.Proto.csproj" />
     <Project Path="src/RemoteAgent.Service/RemoteAgent.Service.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj" />
+    <Project Path="tests/RemoteAgent.Desktop.UiTests/RemoteAgent.Desktop.UiTests.csproj" />
+    <Project Path="tests/RemoteAgent.Mobile.UiTests/RemoteAgent.Mobile.UiTests.csproj" />
     <Project Path="tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj" />
     <Project Path="tests/RemoteAgent.Service.IntegrationTests/RemoteAgent.Service.IntegrationTests.csproj" />
   </Folder>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteAgent.App.McpRegistryPage"
+             Title="MCP Registry"
+             BackgroundColor="{StaticResource PageBackgroundBrush}">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="10">
+            <Border Style="{StaticResource MaterialCard}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Server Endpoint" FontAttributes="Bold" />
+                    <HorizontalStackLayout Spacing="8">
+                        <Entry x:Name="HostEntry" Placeholder="Host" WidthRequest="180" />
+                        <Entry x:Name="PortEntry" Placeholder="Port" WidthRequest="90" Keyboard="Numeric" Text="5243" />
+                        <Button Text="Refresh" Clicked="OnRefreshClicked" />
+                    </HorizontalStackLayout>
+                    <Label x:Name="StatusLabel" Text="Ready." FontSize="12" TextColor="{StaticResource StatusTextBrush}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource MaterialCard}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Configured MCP Servers" FontAttributes="Bold" />
+                    <CollectionView x:Name="ServersList" SelectionMode="None" HeightRequest="220">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="10,8" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="8" /></Border.StrokeShape>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnServerTapped" />
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding DisplayName}" FontAttributes="Bold" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Transport}" FontSize="12" TextColor="{StaticResource IconTintMutedBrush}" />
+                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ServerId}" FontSize="12" TextColor="{StaticResource IconTintMutedBrush}" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource MaterialCard}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Edit Server" FontAttributes="Bold" />
+                    <Entry x:Name="ServerIdEntry" Placeholder="Server ID (leave blank to auto-generate)" />
+                    <Entry x:Name="DisplayNameEntry" Placeholder="Display Name" />
+                    <Entry x:Name="TransportEntry" Placeholder="Transport (stdio, sse, websocket, http)" />
+                    <Entry x:Name="EndpointEntry" Placeholder="Endpoint URL" />
+                    <Entry x:Name="CommandEntry" Placeholder="Command (for stdio transport)" />
+                    <Entry x:Name="ArgumentsEntry" Placeholder="Arguments (space-separated)" />
+                    <Entry x:Name="AuthTypeEntry" Placeholder="Auth Type (none, bearer, api_key, custom)" />
+                    <Editor x:Name="AuthConfigEditor" Placeholder="Auth config JSON" AutoSize="TextChanges" MinimumHeightRequest="70" />
+                    <Editor x:Name="MetadataEditor" Placeholder="Metadata JSON" AutoSize="TextChanges" MinimumHeightRequest="70" />
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="Enabled" VerticalOptions="Center" />
+                        <Switch x:Name="EnabledSwitch" IsToggled="True" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="8">
+                        <Button Text="Save" Clicked="OnSaveClicked" />
+                        <Button Text="Delete" Clicked="OnDeleteClicked" />
+                        <Button Text="Clear" Clicked="OnClearClicked" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

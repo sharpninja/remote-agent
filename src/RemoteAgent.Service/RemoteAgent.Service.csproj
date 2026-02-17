@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RemoteAgent.App.Logic\RemoteAgent.App.Logic.csproj" />
     <ProjectReference Include="..\RemoteAgent.Proto\RemoteAgent.Proto.csproj" />
   </ItemGroup>
 

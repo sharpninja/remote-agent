@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteAgent.App.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{StaticResource PageBackgroundBrush}">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="10">
+            <Label Text="Settings" FontSize="24" FontAttributes="Bold" />
+            <Label Text="Connection, notification, and theme settings can be configured here." TextColor="{StaticResource IconTintMutedBrush}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

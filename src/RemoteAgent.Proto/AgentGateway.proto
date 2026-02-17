@@ -11,6 +11,36 @@ service AgentGateway {
   // Connect opens a persistent duplex stream. Client sends messages;
   // server streams agent output and session events.
   rpc Connect (stream ClientMessage) returns (stream ServerMessage);
+  // Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+  rpc GetStructuredLogsSnapshot (StructuredLogsSnapshotRequest) returns (StructuredLogsSnapshotResponse);
+  // Streams structured logs in real time; includes replay from from_offset first.
+  rpc StreamStructuredLogs (StructuredLogsStreamRequest) returns (stream StructuredLogEntry);
+  // Returns plugin assembly configuration and loaded runner ids.
+  rpc GetPlugins (GetPluginsRequest) returns (GetPluginsResponse);
+  // Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+  rpc UpdatePlugins (UpdatePluginsRequest) returns (UpdatePluginsResponse);
+  // Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+  rpc SeedSessionContext (SeedSessionContextRequest) returns (SeedSessionContextResponse);
+  // Returns queued seed context entries for a session.
+  rpc GetSessionSeedContext (GetSessionSeedContextRequest) returns (GetSessionSeedContextResponse);
+  // Clears queued seed context entries for a session.
+  rpc ClearSessionSeedContext (ClearSessionSeedContextRequest) returns (ClearSessionSeedContextResponse);
+  // Lists configured MCP servers.
+  rpc ListMcpServers (ListMcpServersRequest) returns (ListMcpServersResponse);
+  // Creates or updates an MCP server definition.
+  rpc UpsertMcpServer (UpsertMcpServerRequest) returns (UpsertMcpServerResponse);
+  // Deletes an MCP server definition and removes agent associations.
+  rpc DeleteMcpServer (DeleteMcpServerRequest) returns (DeleteMcpServerResponse);
+  // Sets MCP servers associated with an agent.
+  rpc SetAgentMcpServers (SetAgentMcpServersRequest) returns (SetAgentMcpServersResponse);
+  // Gets MCP servers associated with an agent.
+  rpc GetAgentMcpServers (GetAgentMcpServersRequest) returns (GetAgentMcpServersResponse);
+  // Lists prompt templates available to clients.
+  rpc ListPromptTemplates (ListPromptTemplatesRequest) returns (ListPromptTemplatesResponse);
+  // Creates or updates a prompt template.
+  rpc UpsertPromptTemplate (UpsertPromptTemplateRequest) returns (UpsertPromptTemplateResponse);
+  // Deletes a prompt template.
+  rpc DeletePromptTemplate (DeletePromptTemplateRequest) returns (DeletePromptTemplateResponse);
 }
 
 // ServerInfoRequest: optional client info for handshake (e.g. future compatibility).
@@ -35,6 +65,7 @@ message ClientMessage {
     MediaUpload media_upload = 4;  // image or video as context for the agent (FR-10.1)
   }
   string correlation_id = 5;   // client-provided id; server echoes on response(s) (TR-4.5)
+  string request_context = 6;  // optional per-request context injected before handling payload
 }
 
 // MediaUpload: image or video sent from app to server as agent context (FR-10.1). Stored alongside LiteDB (TR-11.2).
@@ -106,4 +137,187 @@ message SessionEvent {
   }
   Kind kind = 1;
   string message = 2;  // optional detail (e.g. error message)
+}
+
+// StructuredLogsSnapshotRequest fetches historical structured log rows from server storage.
+message StructuredLogsSnapshotRequest {
+  int64 from_offset = 1;  // event id cursor; 0 means from beginning
+  int32 limit = 2;        // max number of rows to return; 0 means server default
+}
+
+// StructuredLogsSnapshotResponse returns structured logs and latest cursor value.
+message StructuredLogsSnapshotResponse {
+  repeated StructuredLogEntry entries = 1;
+  int64 next_offset = 2;  // highest event id included in response
+}
+
+// StructuredLogsStreamRequest requests replay + live stream from a cursor.
+message StructuredLogsStreamRequest {
+  int64 from_offset = 1;  // replay starting cursor; 0 means from beginning
+}
+
+// StructuredLogEntry is a single JSONL-compatible structured event.
+// session_id and correlation_id are always present fields in persisted logs; empty if unavailable.
+message StructuredLogEntry {
+  int64 event_id = 1;
+  string timestamp_utc = 2;   // ISO-8601 UTC timestamp
+  string level = 3;           // info/warn/error/etc
+  string event_type = 4;      // connect_start, session_started, script_error, etc
+  string message = 5;         // human-readable summary
+  string component = 6;       // service component source
+  string session_id = 7;      // session id when available
+  string correlation_id = 8;  // request correlation id when available
+  string details_json = 9;    // optional compact JSON object with extra fields
+}
+
+message GetPluginsRequest {}
+
+message GetPluginsResponse {
+  repeated string configured_assemblies = 1;
+  repeated string loaded_runner_ids = 2;
+}
+
+message UpdatePluginsRequest {
+  repeated string assemblies = 1;
+}
+
+message UpdatePluginsResponse {
+  bool success = 1;
+  string message = 2;
+  repeated string configured_assemblies = 3;
+}
+
+message SeedSessionContextRequest {
+  string session_id = 1;
+  string context_type = 2;     // e.g. system, repo, ticket, environment
+  string content = 3;          // raw context payload
+  string source = 4;           // optional source descriptor
+  string correlation_id = 5;   // optional caller correlation id
+}
+
+message SeedSessionContextResponse {
+  bool success = 1;
+  string message = 2;
+  string seed_id = 3;
+}
+
+message GetSessionSeedContextRequest {
+  string session_id = 1;
+}
+
+message SessionSeedContextEntry {
+  string seed_id = 1;
+  string session_id = 2;
+  string context_type = 3;
+  string content = 4;
+  string source = 5;
+  string created_utc = 6;
+}
+
+message GetSessionSeedContextResponse {
+  repeated SessionSeedContextEntry entries = 1;
+}
+
+message ClearSessionSeedContextRequest {
+  string session_id = 1;
+}
+
+message ClearSessionSeedContextResponse {
+  int32 removed_count = 1;
+}
+
+message McpServerDefinition {
+  string server_id = 1;        // stable id key
+  string display_name = 2;
+  string transport = 3;        // stdio, sse, websocket, http
+  string endpoint = 4;         // url/endpoint for network transports
+  string command = 5;          // command for stdio transport
+  repeated string arguments = 6;
+  string auth_type = 7;        // none, bearer, api_key, custom
+  string auth_config_json = 8; // structured auth config
+  bool enabled = 9;
+  string metadata_json = 10;   // free-form extra config
+  string created_utc = 11;
+  string updated_utc = 12;
+}
+
+message ListMcpServersRequest {}
+
+message ListMcpServersResponse {
+  repeated McpServerDefinition servers = 1;
+}
+
+message UpsertMcpServerRequest {
+  McpServerDefinition server = 1;
+}
+
+message UpsertMcpServerResponse {
+  bool success = 1;
+  string message = 2;
+  McpServerDefinition server = 3;
+}
+
+message DeleteMcpServerRequest {
+  string server_id = 1;
+}
+
+message DeleteMcpServerResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message SetAgentMcpServersRequest {
+  string agent_id = 1;
+  repeated string server_ids = 2;
+}
+
+message SetAgentMcpServersResponse {
+  bool success = 1;
+  string message = 2;
+  string agent_id = 3;
+  repeated string server_ids = 4;
+}
+
+message GetAgentMcpServersRequest {
+  string agent_id = 1;
+}
+
+message GetAgentMcpServersResponse {
+  string agent_id = 1;
+  repeated string server_ids = 2;
+  repeated McpServerDefinition servers = 3;
+}
+
+message PromptTemplateDefinition {
+  string template_id = 1;
+  string display_name = 2;
+  string description = 3;
+  string template_content = 4;
+  string created_utc = 5;
+  string updated_utc = 6;
+}
+
+message ListPromptTemplatesRequest {}
+
+message ListPromptTemplatesResponse {
+  repeated PromptTemplateDefinition templates = 1;
+}
+
+message UpsertPromptTemplateRequest {
+  PromptTemplateDefinition template = 1;
+}
+
+message UpsertPromptTemplateResponse {
+  bool success = 1;
+  string message = 2;
+  PromptTemplateDefinition template = 3;
+}
+
+message DeletePromptTemplateRequest {
+  string template_id = 1;
+}
+
+message DeletePromptTemplateResponse {
+  bool success = 1;
+  string message = 2;
 }

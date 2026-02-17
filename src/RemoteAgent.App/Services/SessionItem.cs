@@ -12,6 +12,9 @@ public class SessionItem
     /// <summary>Agent runner id (e.g. "process", "copilot-windows"); from server list (FR-11.1.2).</summary>
     public string AgentId { get; set; } = "";
 
+    /// <summary>Connection mode for this session: "direct" or "server".</summary>
+    public string ConnectionMode { get; set; } = "server";
+
     /// <summary>When the session was created.</summary>
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
 }

@@ -33,17 +33,22 @@
 
 Before completing any task:
 
-1. **Build the solution:**
+1. **Build/test MAUI + service stack (.NET 10):**
    ```bash
-   dotnet build RemoteAgent.slnx -c Release
+   ./scripts/build-dotnet10.sh Release
    ```
 
-2. **Run tests:**
+2. **Build/test desktop stack (.NET 9):**
    ```bash
-   dotnet test RemoteAgent.slnx -c Release
+   ./scripts/build-desktop-dotnet9.sh Release
    ```
 
-3. **Verify changes work as expected**
+3. **Run integration tests explicitly when required (isolated from CI):**
+   ```bash
+   ./scripts/test-integration.sh Release
+   ```
+
+4. **Verify changes work as expected**
 
 ### Workflow Scripting Standards
 
@@ -57,8 +62,8 @@ Before completing any task:
 
 ### Framework
 
-- The solution targets .NET 10 (net10.0)
-- Android app uses MAUI with net10.0-android target
+- MAUI app + service + shared libraries/tests target .NET 10
+- Avalonia desktop app + desktop UI tests target .NET 9
 - Follow existing patterns in the codebase
 
 ## Commit Standards

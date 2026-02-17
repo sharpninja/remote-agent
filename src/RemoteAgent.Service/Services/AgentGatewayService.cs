@@ -4,8 +4,10 @@ using System.Text.RegularExpressions;
 using System.Net;
 using Grpc.Core;
 using Microsoft.Extensions.Options;
+using RemoteAgent.App.Logic;
 using RemoteAgent.Proto;
 using RemoteAgent.Service.Agents;
+using RemoteAgent.Service.Logging;
 using RemoteAgent.Service.Storage;
 
 namespace RemoteAgent.Service.Services;
@@ -20,7 +22,13 @@ public class AgentGatewayService(
     IAgentRunnerFactory agentRunnerFactory,
     IReadOnlyDictionary<string, IAgentRunner> runnerRegistry,
     ILocalStorage localStorage,
-    MediaStorageService mediaStorage) : AgentGateway.AgentGatewayBase
+    MediaStorageService mediaStorage,
+    StructuredLogService structuredLogs,
+    PluginConfigurationService pluginConfiguration,
+    AgentMcpConfigurationService agentMcpConfiguration,
+    PromptTemplateService promptTemplateService,
+    ConnectionProtectionService connectionProtection,
+    SessionCapacityService sessionCapacity) : AgentGateway.AgentGatewayBase
 {
     /// <summary>Strips ANSI escape sequences (e.g. color codes) from text before sending to the client.</summary>
     private static string StripAnsi(string? text)
@@ -41,7 +49,273 @@ public class AgentGatewayService(
         var response = new ServerInfoResponse { ServerVersion = version };
         response.Capabilities.AddRange(new[] { "scripts", "media_upload", "agents" });
         response.AvailableAgents.AddRange(runnerRegistry.Keys);
+        structuredLogs.Write(
+            level: "INFO",
+            eventType: "server_info",
+            message: "Server info requested",
+            component: nameof(AgentGatewayService),
+            sessionId: null,
+            correlationId: null,
+            detailsJson: $"{{\"client_version\":\"{request.ClientVersion}\"}}");
         return Task.FromResult(response);
+    }
+
+    /// <summary>Returns structured logs from disk after a cursor offset.</summary>
+    public override Task<StructuredLogsSnapshotResponse> GetStructuredLogsSnapshot(StructuredLogsSnapshotRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var rows = structuredLogs.GetSnapshot(request.FromOffset, request.Limit);
+        var response = new StructuredLogsSnapshotResponse();
+        long nextOffset = request.FromOffset;
+        foreach (var row in rows)
+        {
+            response.Entries.Add(ToProto(row));
+            if (row.EventId > nextOffset) nextOffset = row.EventId;
+        }
+
+        response.NextOffset = nextOffset;
+        return Task.FromResult(response);
+    }
+
+    /// <summary>Streams structured logs in real time with initial replay from cursor offset.</summary>
+    public override async Task StreamStructuredLogs(StructuredLogsStreamRequest request, IServerStreamWriter<StructuredLogEntry> responseStream, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var replay = structuredLogs.GetSnapshot(request.FromOffset, limit: 0);
+        long currentOffset = request.FromOffset;
+
+        foreach (var row in replay)
+        {
+            await responseStream.WriteAsync(ToProto(row), context.CancellationToken);
+            if (row.EventId > currentOffset) currentOffset = row.EventId;
+        }
+
+        await foreach (var row in structuredLogs.StreamFromOffset(currentOffset, context.CancellationToken))
+        {
+            await responseStream.WriteAsync(ToProto(row), context.CancellationToken);
+        }
+    }
+
+    /// <summary>Returns configured plugin assemblies and currently loaded runner IDs.</summary>
+    public override Task<GetPluginsResponse> GetPlugins(GetPluginsRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new GetPluginsResponse();
+        response.ConfiguredAssemblies.AddRange(pluginConfiguration.GetAssemblies());
+        response.LoadedRunnerIds.AddRange(runnerRegistry.Keys.OrderBy(x => x, StringComparer.OrdinalIgnoreCase));
+        structuredLogs.Write(
+            level: "INFO",
+            eventType: "plugins_listed",
+            message: "Plugin configuration listed",
+            component: nameof(AgentGatewayService),
+            sessionId: null,
+            correlationId: null,
+            detailsJson: $"{{\"configured_count\":{response.ConfiguredAssemblies.Count},\"loaded_count\":{response.LoadedRunnerIds.Count}}}");
+        return Task.FromResult(response);
+    }
+
+    /// <summary>Updates configured plugin assemblies. New plugins are loaded after service restart.</summary>
+    public override Task<UpdatePluginsResponse> UpdatePlugins(UpdatePluginsRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var current = pluginConfiguration.UpdateAssemblies(request.Assemblies);
+        var response = new UpdatePluginsResponse
+        {
+            Success = true,
+            Message = "Plugin assembly configuration updated. Restart service to load new plugins."
+        };
+        response.ConfiguredAssemblies.AddRange(current);
+        structuredLogs.Write(
+            level: "INFO",
+            eventType: "plugins_updated",
+            message: "Plugin assembly configuration updated",
+            component: nameof(AgentGatewayService),
+            sessionId: null,
+            correlationId: null,
+            detailsJson: $"{{\"count\":{current.Count}}}");
+        return Task.FromResult(response);
+    }
+
+    public override Task<SeedSessionContextResponse> SeedSessionContext(SeedSessionContextRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        if (string.IsNullOrWhiteSpace(request.SessionId))
+        {
+            return Task.FromResult(new SeedSessionContextResponse
+            {
+                Success = false,
+                Message = "session_id is required."
+            });
+        }
+
+        var row = agentMcpConfiguration.AddSeedContext(request.SessionId, request.ContextType, request.Content, request.Source);
+        structuredLogs.Write("INFO", "seed_context_added", "Session seed context added", nameof(AgentGatewayService), row.SessionId, request.CorrelationId, null);
+        return Task.FromResult(new SeedSessionContextResponse
+        {
+            Success = true,
+            Message = "Seed context added.",
+            SeedId = row.SeedId
+        });
+    }
+
+    public override Task<GetSessionSeedContextResponse> GetSessionSeedContext(GetSessionSeedContextRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var rows = agentMcpConfiguration.GetSeedContext(request.SessionId);
+        var response = new GetSessionSeedContextResponse();
+        response.Entries.AddRange(rows.Select(ToProto));
+        return Task.FromResult(response);
+    }
+
+    public override Task<ClearSessionSeedContextResponse> ClearSessionSeedContext(ClearSessionSeedContextRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var removed = agentMcpConfiguration.ClearSeedContext(request.SessionId);
+        structuredLogs.Write("INFO", "seed_context_cleared", "Session seed context cleared", nameof(AgentGatewayService), request.SessionId, null, $"{{\"removed\":{removed}}}");
+        return Task.FromResult(new ClearSessionSeedContextResponse { RemovedCount = removed });
+    }
+
+    public override Task<ListMcpServersResponse> ListMcpServers(ListMcpServersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var rows = agentMcpConfiguration.ListServers();
+        var response = new ListMcpServersResponse();
+        response.Servers.AddRange(rows.Select(ToProto));
+        return Task.FromResult(response);
+    }
+
+    public override Task<UpsertMcpServerResponse> UpsertMcpServer(UpsertMcpServerRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        if (request.Server == null)
+        {
+            return Task.FromResult(new UpsertMcpServerResponse
+            {
+                Success = false,
+                Message = "server is required."
+            });
+        }
+
+        var row = agentMcpConfiguration.UpsertServer(new McpServerRecord
+        {
+            ServerId = request.Server.ServerId,
+            DisplayName = request.Server.DisplayName,
+            Transport = request.Server.Transport,
+            Endpoint = request.Server.Endpoint,
+            Command = request.Server.Command,
+            Arguments = request.Server.Arguments.ToList(),
+            AuthType = request.Server.AuthType,
+            AuthConfigJson = request.Server.AuthConfigJson,
+            Enabled = request.Server.Enabled,
+            MetadataJson = request.Server.MetadataJson
+        });
+
+        structuredLogs.Write("INFO", "mcp_server_upserted", "MCP server upserted", nameof(AgentGatewayService), null, null, $"{{\"server_id\":\"{row.ServerId}\"}}");
+        return Task.FromResult(new UpsertMcpServerResponse
+        {
+            Success = true,
+            Message = "MCP server saved.",
+            Server = ToProto(row)
+        });
+    }
+
+    public override Task<DeleteMcpServerResponse> DeleteMcpServer(DeleteMcpServerRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var deleted = agentMcpConfiguration.DeleteServer(request.ServerId);
+        structuredLogs.Write("INFO", "mcp_server_deleted", "MCP server delete requested", nameof(AgentGatewayService), null, null, $"{{\"server_id\":\"{request.ServerId}\",\"deleted\":{deleted.ToString().ToLowerInvariant()}}}");
+        return Task.FromResult(new DeleteMcpServerResponse
+        {
+            Success = deleted,
+            Message = deleted ? "MCP server deleted." : "MCP server not found."
+        });
+    }
+
+    public override async Task<SetAgentMcpServersResponse> SetAgentMcpServers(SetAgentMcpServersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var agentId = string.IsNullOrWhiteSpace(request.AgentId) ? "process" : request.AgentId.Trim();
+        var previousIds = agentMcpConfiguration.GetAgentServerIds(agentId);
+        var ids = agentMcpConfiguration.SetAgentServers(agentId, request.ServerIds);
+        var enabled = ids.Except(previousIds, StringComparer.OrdinalIgnoreCase).ToList();
+        var disabled = previousIds.Except(ids, StringComparer.OrdinalIgnoreCase).ToList();
+
+        if (enabled.Count > 0 || disabled.Count > 0)
+            await NotifyAgentMcpChangeAsync(agentId, enabled, disabled);
+
+        structuredLogs.Write("INFO", "agent_mcp_set", "Agent MCP server mapping updated", nameof(AgentGatewayService), null, null, $"{{\"agent_id\":\"{agentId}\",\"count\":{ids.Count}}}");
+        var response = new SetAgentMcpServersResponse
+        {
+            Success = true,
+            Message = "Agent MCP servers updated.",
+            AgentId = agentId
+        };
+        response.ServerIds.AddRange(ids);
+        return response;
+    }
+
+    public override Task<GetAgentMcpServersResponse> GetAgentMcpServers(GetAgentMcpServersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var agentId = string.IsNullOrWhiteSpace(request.AgentId) ? "process" : request.AgentId.Trim();
+        var ids = agentMcpConfiguration.GetAgentServerIds(agentId);
+        var rows = agentMcpConfiguration.GetAgentServers(agentId);
+        var response = new GetAgentMcpServersResponse
+        {
+            AgentId = agentId
+        };
+        response.ServerIds.AddRange(ids);
+        response.Servers.AddRange(rows.Select(ToProto));
+        return Task.FromResult(response);
+    }
+
+    public override Task<ListPromptTemplatesResponse> ListPromptTemplates(ListPromptTemplatesRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var rows = promptTemplateService.List();
+        var response = new ListPromptTemplatesResponse();
+        response.Templates.AddRange(rows.Select(ToProto));
+        return Task.FromResult(response);
+    }
+
+    public override Task<UpsertPromptTemplateResponse> UpsertPromptTemplate(UpsertPromptTemplateRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        if (request.Template == null)
+        {
+            return Task.FromResult(new UpsertPromptTemplateResponse
+            {
+                Success = false,
+                Message = "template is required."
+            });
+        }
+
+        var row = promptTemplateService.Upsert(new PromptTemplateRecord
+        {
+            TemplateId = request.Template.TemplateId,
+            DisplayName = request.Template.DisplayName,
+            Description = request.Template.Description,
+            TemplateContent = request.Template.TemplateContent
+        });
+        structuredLogs.Write("INFO", "prompt_template_upserted", "Prompt template upserted", nameof(AgentGatewayService), null, null, $"{{\"template_id\":\"{row.TemplateId}\"}}");
+        return Task.FromResult(new UpsertPromptTemplateResponse
+        {
+            Success = true,
+            Message = "Prompt template saved.",
+            Template = ToProto(row)
+        });
+    }
+
+    public override Task<DeletePromptTemplateResponse> DeletePromptTemplate(DeletePromptTemplateRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var deleted = promptTemplateService.Delete(request.TemplateId);
+        structuredLogs.Write("INFO", "prompt_template_deleted", "Prompt template delete requested", nameof(AgentGatewayService), null, null, $"{{\"template_id\":\"{request.TemplateId}\",\"deleted\":{deleted.ToString().ToLowerInvariant()}}}");
+        return Task.FromResult(new DeletePromptTemplateResponse
+        {
+            Success = deleted,
+            Message = deleted ? "Prompt template deleted." : "Prompt template not found."
+        });
     }
 
     /// <summary>Opens a duplex stream: reads ClientMessage (text, control, script, media), spawns agent on START, forwards text to agent stdin, streams stdout/stderr and SessionEvent to the client (FR-1.3, FR-1.4, FR-7.1, TR-4.4).</summary>
@@ -51,6 +325,11 @@ public class AgentGatewayService(
         ServerCallContext context)
     {
         EnsureAuthorized(context);
+        var connectionDecision = connectionProtection.TryOpenConnection(context.Peer, nameof(AgentGatewayService));
+        if (!connectionDecision.Allowed)
+            throw new RpcException(new Status(StatusCode.ResourceExhausted, connectionDecision.DeniedReason ?? "Connection rate limit exceeded."));
+
+        var connectionPeer = connectionDecision.Peer;
         // Session id for this stream: use client-provided on START, else generate (TR-12.1, FR-11.1.1).
         var sessionId = Guid.NewGuid().ToString("N")[..8];
         var logPath = Path.Combine(
@@ -58,14 +337,24 @@ public class AgentGatewayService(
             $"remote-agent-{sessionId}.log");
         using var logWriter = new StreamWriter(logPath, append: true, Encoding.UTF8) { AutoFlush = true };
 
-        void Log(string line, string level = "INFO")
+        void Log(string line, string level = "INFO", string? correlationId = null, string eventType = "session_log")
         {
             var entry = $"[{DateTime.UtcNow:O}] [{level}] {line}";
             logger.LogInformation("{Entry}", entry);
             try { logWriter.WriteLine(entry); } catch { /* ignore */ }
+            structuredLogs.Write(
+                level: level,
+                eventType: eventType,
+                message: line,
+                component: nameof(AgentGatewayService),
+                sessionId: sessionId,
+                correlationId: correlationId,
+                detailsJson: null);
         }
 
         IAgentSession? agentSession = null;
+        string activeAgentId = "";
+        var stopRequested = false;
         var cts = new CancellationTokenSource();
         context.CancellationToken.Register(() => cts.Cancel());
         // Correlation ID for agent stdout/stderr: set when forwarding text, so responses can be matched (TR-4.5).
@@ -76,7 +365,23 @@ public class AgentGatewayService(
             {
                 await foreach (var msg in requestStream.ReadAllAsync(cts.Token))
                 {
+                    if (!connectionProtection.TryRegisterClientMessage(connectionPeer, nameof(AgentGatewayService)))
+                    {
+                        structuredLogs.Write("WARN", "client_rate_limited", "Client stream exceeded inbound message rate limit", nameof(AgentGatewayService), sessionId, null, $"{{\"peer\":\"{connectionPeer}\"}}");
+                        await responseStream.WriteAsync(new ServerMessage
+                        {
+                            Priority = MessagePriority.Normal,
+                            Event = new SessionEvent
+                            {
+                                Kind = SessionEvent.Types.Kind.SessionError,
+                                Message = "Inbound request rate limit exceeded."
+                            }
+                        }, context.CancellationToken);
+                        break;
+                    }
+
                     string corrId = msg.CorrelationId ?? "";
+                    string requestContext = msg.RequestContext?.Trim() ?? "";
                     if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Control)
                     {
                         var control = msg.Control;
@@ -84,6 +389,7 @@ public class AgentGatewayService(
                         // Use client-provided session_id when present (TR-12.1, FR-11.1.1).
                         if (action == SessionControl.Types.Action.Start && !string.IsNullOrWhiteSpace(control.SessionId))
                             sessionId = SanitizeSessionId(control.SessionId);
+                        var resumingSession = action == SessionControl.Types.Action.Start && localStorage.SessionExists(sessionId);
                         localStorage.LogRequest(sessionId, "Control", action.ToString());
                         if (action == SessionControl.Types.Action.Start)
                         {
@@ -96,7 +402,7 @@ public class AgentGatewayService(
                             var cmd = options.Value.Command;
                             if (string.Equals(cmd?.Trim(), "none", StringComparison.OrdinalIgnoreCase))
                             {
-                                Log("Agent:Command is set to 'none' (no agent configured)", "WARN");
+                                Log("Agent:Command is set to 'none' (no agent configured)", "WARN", corrId, "session_error");
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
@@ -116,6 +422,9 @@ public class AgentGatewayService(
                                 IAgentRunner agentRunner = string.IsNullOrWhiteSpace(control.AgentId)
                                     ? agentRunnerFactory.GetRunner()
                                     : (runnerRegistry.TryGetValue(control.AgentId.Trim(), out var r) ? r : agentRunnerFactory.GetRunner());
+                                activeAgentId = string.IsNullOrWhiteSpace(control.AgentId)
+                                    ? (string.IsNullOrWhiteSpace(options.Value.RunnerId) ? "process" : options.Value.RunnerId.Trim())
+                                    : control.AgentId.Trim();
                                 agentSession = await agentRunner.StartAsync(
                                     string.IsNullOrWhiteSpace(cmd) ? null : cmd,
                                     options.Value.Arguments,
@@ -137,18 +446,52 @@ public class AgentGatewayService(
                                     localStorage.LogResponse(sessionId, "Event", "SessionError");
                                     continue;
                                 }
-                                Log("Agent started");
+                                if (!sessionCapacity.TryRegisterSession(activeAgentId, sessionId, agentSession, out var sessionLimitReason))
+                                {
+                                    try { agentSession.Stop(); agentSession.Dispose(); } catch { }
+                                    agentSession = null;
+                                    Log(sessionLimitReason, "WARN", corrId, "session_limit_exceeded");
+                                    await responseStream.WriteAsync(new ServerMessage
+                                    {
+                                        Priority = MessagePriority.Normal,
+                                        Event = new SessionEvent
+                                        {
+                                            Kind = SessionEvent.Types.Kind.SessionError,
+                                            Message = sessionLimitReason
+                                        },
+                                        CorrelationId = corrId
+                                    }, context.CancellationToken);
+                                    localStorage.LogResponse(sessionId, "Event", "SessionError");
+                                    continue;
+                                }
+                                Log("Agent started", "INFO", corrId, "session_started");
+                                if (!string.IsNullOrWhiteSpace(requestContext))
+                                    await ApplyRequestContextAsync(agentSession, requestContext, corrId, Log, context.CancellationToken);
+                                var seedRows = agentMcpConfiguration.ConsumeSeedContext(sessionId);
+                                var interactionSession = WrapSession(agentSession);
+                                foreach (var seed in seedRows)
+                                {
+                                    var sent = await AgentInteractionDispatcher.TryIssueSeedContextAsync(interactionSession, seed.ContextType, seed.Content, context.CancellationToken);
+                                    if (sent)
+                                        structuredLogs.Write("INFO", "seed_context_applied", "Applied seed context to session", nameof(AgentGatewayService), sessionId, corrId, $"{{\"seed_id\":\"{seed.SeedId}\"}}");
+                                }
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
-                                    Event = new SessionEvent { Kind = SessionEvent.Types.Kind.SessionStarted },
+                                    Event = new SessionEvent
+                                    {
+                                        Kind = SessionEvent.Types.Kind.SessionStarted,
+                                        Message = resumingSession ? "Session resumed." : "Session started."
+                                    },
                                     CorrelationId = corrId
                                 }, context.CancellationToken);
+                                if (resumingSession)
+                                    structuredLogs.Write("INFO", "session_resumed", "Existing session resumed after reconnect", nameof(AgentGatewayService), sessionId, corrId, null);
                                 localStorage.LogResponse(sessionId, "Event", "SessionStarted");
                             }
                             catch (Exception ex)
                             {
-                                Log($"Failed to start agent: {ex.Message}", "ERROR");
+                                Log($"Failed to start agent: {ex.Message}", "ERROR", corrId, "session_error");
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
@@ -164,12 +507,14 @@ public class AgentGatewayService(
                         }
                         else if (action == SessionControl.Types.Action.Stop)
                         {
+                            stopRequested = true;
                             if (agentSession != null)
                             {
                                 agentSession.Stop();
                                 try { agentSession.Dispose(); } catch { }
+                                sessionCapacity.UnregisterSession(activeAgentId, sessionId);
                                 agentSession = null;
-                                Log("Agent stopped");
+                                Log("Agent stopped", "INFO", corrId, "session_stopped");
                                 await responseStream.WriteAsync(new ServerMessage
                                 {
                                     Priority = MessagePriority.Normal,
@@ -182,9 +527,11 @@ public class AgentGatewayService(
                     }
                     else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.Text && !string.IsNullOrEmpty(msg.Text))
                     {
+                        if (!string.IsNullOrWhiteSpace(requestContext))
+                            await ApplyRequestContextAsync(agentSession, requestContext, corrId, Log, context.CancellationToken);
                         outputCorrelationId[0] = corrId;
                         localStorage.LogRequest(sessionId, "Text", msg.Text);
-                        Log($"→ {msg.Text}");
+                        Log($"→ {msg.Text}", "INFO", corrId, "client_text");
                         if (agentSession != null && !agentSession.HasExited)
                         {
                             try
@@ -193,7 +540,7 @@ public class AgentGatewayService(
                             }
                             catch (Exception ex)
                             {
-                                Log($"Write to agent failed: {ex.Message}", "ERROR");
+                                Log($"Write to agent failed: {ex.Message}", "ERROR", corrId, "agent_write_error");
                                 await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = StripAnsi(ex.Message), CorrelationId = corrId }, context.CancellationToken);
                             }
                         }
@@ -209,11 +556,13 @@ public class AgentGatewayService(
                     }
                     else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.ScriptRequest && msg.ScriptRequest != null)
                     {
+                        if (!string.IsNullOrWhiteSpace(requestContext))
+                            await ApplyRequestContextAsync(agentSession, requestContext, corrId, Log, context.CancellationToken);
                         var req = msg.ScriptRequest;
                         var pathOrCommand = req.PathOrCommand ?? "";
                         var scriptType = req.ScriptType == ScriptType.Unspecified ? ScriptType.Bash : req.ScriptType;
                         localStorage.LogRequest(sessionId, "ScriptRequest", $"{scriptType}: {pathOrCommand}");
-                        Log($"Script run: {scriptType} {pathOrCommand}");
+                        Log($"Script run: {scriptType} {pathOrCommand}", "INFO", corrId, "script_request");
                         try
                         {
                             var (stdout, stderr) = await ScriptRunner.RunAsync(pathOrCommand, scriptType, context.CancellationToken);
@@ -232,13 +581,15 @@ public class AgentGatewayService(
                         }
                         catch (Exception ex)
                         {
-                            Log($"Script failed: {ex.Message}", "ERROR");
+                            Log($"Script failed: {ex.Message}", "ERROR", corrId, "script_error");
                             await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message, CorrelationId = corrId }, context.CancellationToken);
                             localStorage.LogResponse(sessionId, "Error", ex.Message);
                         }
                     }
                     else if (msg.PayloadCase == ClientMessage.PayloadOneofCase.MediaUpload && msg.MediaUpload != null)
                     {
+                        if (!string.IsNullOrWhiteSpace(requestContext))
+                            await ApplyRequestContextAsync(agentSession, requestContext, corrId, Log, context.CancellationToken);
                         var up = msg.MediaUpload;
                         if (up.Content == null || up.Content.Length == 0)
                         {
@@ -249,7 +600,7 @@ public class AgentGatewayService(
                         {
                             var (relativePath, fullPath) = mediaStorage.SaveUpload(sessionId, up.Content.ToByteArray(), up.ContentType ?? "application/octet-stream", up.FileName);
                             localStorage.LogRequest(sessionId, "MediaUpload", up.FileName ?? up.ContentType ?? "media", relativePath);
-                            Log($"Media saved: {relativePath}");
+                            Log($"Media saved: {relativePath}", "INFO", corrId, "media_saved");
                             if (agentSession != null && !agentSession.HasExited)
                                 await agentSession.SendInputAsync($"[Attachment: {fullPath}]", context.CancellationToken);
                             await responseStream.WriteAsync(new ServerMessage
@@ -261,7 +612,7 @@ public class AgentGatewayService(
                         }
                         catch (Exception ex)
                         {
-                            Log($"Media save failed: {ex.Message}", "ERROR");
+                            Log($"Media save failed: {ex.Message}", "ERROR", corrId, "media_error");
                             await responseStream.WriteAsync(new ServerMessage { Priority = MessagePriority.Normal, Error = ex.Message, CorrelationId = corrId }, context.CancellationToken);
                         }
                     }
@@ -270,13 +621,20 @@ public class AgentGatewayService(
             catch (OperationCanceledException) { }
             catch (Exception ex)
             {
-                Log($"Request stream error: {ex.Message}", "ERROR");
+                Log($"Request stream error: {ex.Message}", "ERROR", null, "request_stream_error");
             }
             finally
             {
+                connectionProtection.CloseConnection(connectionPeer);
                 if (agentSession != null)
                 {
                     try { agentSession.Stop(); agentSession.Dispose(); } catch { }
+                    sessionCapacity.UnregisterSession(activeAgentId, sessionId);
+                    if (!stopRequested)
+                    {
+                        sessionCapacity.MarkSessionAbandoned(sessionId, activeAgentId, "Streaming connection ended without STOP.");
+                        structuredLogs.Write("WARN", "session_abandoned", "Session marked abandoned due to unexpected disconnect", nameof(AgentGatewayService), sessionId, null, $"{{\"agent_id\":\"{activeAgentId}\"}}");
+                    }
                 }
                 cts.Cancel();
             }
@@ -292,13 +650,13 @@ public class AgentGatewayService(
 
         if (agentSession != null)
         {
-            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, false, context.CancellationToken, Log, "stdout");
-            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, true, context.CancellationToken, Log, "stderr");
+            var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, responseStream, false, context.CancellationToken, Log, "stdout", () => outputCorrelationId[0]);
+            var stderrTask = StreamReaderToResponse(agentSession.StandardError, responseStream, true, context.CancellationToken, Log, "stderr", () => outputCorrelationId[0]);
             await Task.WhenAll(stdoutTask, stderrTask);
         }
 
         await requestTask;
-        Log($"Session {sessionId} ended. Log: {logPath}");
+        Log($"Session {sessionId} ended. Log: {logPath}", "INFO", null, "session_end");
     }
 
     private const string ApiKeyHeader = "x-api-key";
@@ -310,13 +668,17 @@ public class AgentGatewayService(
         {
             var provided = context.RequestHeaders?.FirstOrDefault(h => string.Equals(h.Key, ApiKeyHeader, StringComparison.OrdinalIgnoreCase))?.Value;
             if (!string.Equals(configuredApiKey, provided, StringComparison.Ordinal))
+            {
+                structuredLogs.Write("WARN", "auth_failed", "Invalid API key", nameof(AgentGatewayService), null, null, "{\"reason\":\"invalid_api_key\"}");
                 throw new RpcException(new Status(StatusCode.Unauthenticated, "Invalid API key."));
+            }
             return;
         }
 
         if (options.Value.AllowUnauthenticatedLoopback && IsLoopbackPeer(context.Peer))
             return;
 
+        structuredLogs.Write("WARN", "auth_failed", "Unauthenticated remote access blocked", nameof(AgentGatewayService), null, null, "{\"reason\":\"loopback_required\"}");
         throw new RpcException(new Status(StatusCode.Unauthenticated, "Unauthenticated remote access is disabled. Configure Agent:ApiKey."));
     }
 
@@ -368,26 +730,137 @@ public class AgentGatewayService(
         IServerStreamWriter<ServerMessage> responseStream,
         bool isError,
         CancellationToken ct,
-        Action<string, string> log,
-        string streamName)
+        Action<string, string, string?, string> log,
+        string streamName,
+        Func<string?> getCorrelationId)
     {
         try
         {
             string? line;
             while ((line = await reader.ReadLineAsync(ct)) != null)
             {
-                log($"[{streamName}] {line}", isError ? "STDERR" : "INFO");
+                var correlationId = getCorrelationId();
+                log($"[{streamName}] {line}", isError ? "STDERR" : "INFO", correlationId, isError ? "agent_stderr" : "agent_stdout");
                 var clean = StripAnsi(line);
                 var msg = new ServerMessage { Priority = MessagePriority.Normal };
                 if (isError) msg.Error = clean; else msg.Output = clean;
+                if (!string.IsNullOrWhiteSpace(correlationId)) msg.CorrelationId = correlationId;
                 await responseStream.WriteAsync(msg, ct);
             }
         }
         catch (OperationCanceledException) { }
         catch (Exception ex)
         {
-            log($"Stream {streamName} error: {ex.Message}", "ERROR");
+            log($"Stream {streamName} error: {ex.Message}", "ERROR", null, "agent_stream_error");
         }
+    }
+
+    private static StructuredLogEntry ToProto(StructuredLogEntryRecord row)
+    {
+        return new StructuredLogEntry
+        {
+            EventId = row.EventId,
+            TimestampUtc = row.TimestampUtc.ToString("O"),
+            Level = row.Level ?? "",
+            EventType = row.EventType ?? "",
+            Message = row.Message ?? "",
+            Component = row.Component ?? "",
+            SessionId = row.SessionId ?? "",
+            CorrelationId = row.CorrelationId ?? "",
+            DetailsJson = row.DetailsJson ?? ""
+        };
+    }
+
+    private static SessionSeedContextEntry ToProto(SeedContextRecord row)
+    {
+        return new SessionSeedContextEntry
+        {
+            SeedId = row.SeedId ?? "",
+            SessionId = row.SessionId ?? "",
+            ContextType = row.ContextType ?? "",
+            Content = row.Content ?? "",
+            Source = row.Source ?? "",
+            CreatedUtc = row.CreatedUtc.ToString("O")
+        };
+    }
+
+    private static McpServerDefinition ToProto(McpServerRecord row)
+    {
+        var value = new McpServerDefinition
+        {
+            ServerId = row.ServerId ?? "",
+            DisplayName = row.DisplayName ?? "",
+            Transport = row.Transport ?? "",
+            Endpoint = row.Endpoint ?? "",
+            Command = row.Command ?? "",
+            AuthType = row.AuthType ?? "",
+            AuthConfigJson = row.AuthConfigJson ?? "",
+            Enabled = row.Enabled,
+            MetadataJson = row.MetadataJson ?? "",
+            CreatedUtc = row.CreatedUtc.ToString("O"),
+            UpdatedUtc = row.UpdatedUtc.ToString("O")
+        };
+        value.Arguments.AddRange(row.Arguments ?? []);
+        return value;
+    }
+
+    private static PromptTemplateDefinition ToProto(PromptTemplateRecord row)
+    {
+        return new PromptTemplateDefinition
+        {
+            TemplateId = row.TemplateId ?? "",
+            DisplayName = row.DisplayName ?? "",
+            Description = row.Description ?? "",
+            TemplateContent = row.TemplateContent ?? "",
+            CreatedUtc = row.CreatedUtc.ToString("O"),
+            UpdatedUtc = row.UpdatedUtc.ToString("O")
+        };
+    }
+
+    private static async Task ApplyRequestContextAsync(
+        IAgentSession? agentSession,
+        string requestContext,
+        string correlationId,
+        Action<string, string, string?, string> log,
+        CancellationToken ct)
+    {
+        var sent = await AgentInteractionDispatcher.TryIssueRequestContextAsync(WrapSession(agentSession), requestContext, ct);
+        if (sent)
+            log("Per-request context issued", "INFO", correlationId, "request_context_applied");
+    }
+
+    private async Task NotifyAgentMcpChangeAsync(string agentId, IReadOnlyList<string> enabled, IReadOnlyList<string> disabled)
+    {
+        var bySession = sessionCapacity.GetActiveSessionsForAgent(agentId);
+        if (bySession.Count == 0)
+            return;
+
+        foreach (var kvp in bySession)
+        {
+            try
+            {
+                var sent = await AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(WrapSession(kvp.Value), enabled, disabled, CancellationToken.None);
+                if (sent)
+                    structuredLogs.Write("INFO", "agent_mcp_notified", "Sent MCP mapping update to active session", nameof(AgentGatewayService), kvp.Key, null, $"{{\"agent_id\":\"{agentId}\"}}");
+            }
+            catch (Exception ex)
+            {
+                structuredLogs.Write("WARN", "agent_mcp_notify_failed", $"Failed to notify active session: {ex.Message}", nameof(AgentGatewayService), kvp.Key, null, $"{{\"agent_id\":\"{agentId}\"}}");
+            }
+        }
+    }
+
+    private static IAgentInteractionSession? WrapSession(IAgentSession? session)
+    {
+        return session == null ? null : new AgentSessionAdapter(session);
+    }
+
+    private sealed class AgentSessionAdapter(IAgentSession session) : IAgentInteractionSession
+    {
+        public bool CanAcceptInput => !session.HasExited;
+
+        public Task SendInputAsync(string input, CancellationToken cancellationToken = default)
+            => session.SendInputAsync(input, cancellationToken);
     }
 }
 
