@@ -446,21 +446,32 @@ if ($signThumb -and $SignTool) {
 }
 
 # ── Summary ────────────────────────────────────────────────────────────────────
-$msixSize = [math]::Round((Get-Item $MsixFile).Length / 1MB, 1)
+$msixSize   = [math]::Round((Get-Item $MsixFile).Length / 1MB, 1)
+$installPs1 = Join-Path $PSScriptRoot "install-remote-agent.ps1"
+$cerArg     = if ($DevCert -and (Test-Path (Join-Path $OutDir "remote-agent-dev.cer"))) {
+    " -CertPath '$(Join-Path $OutDir 'remote-agent-dev.cer')'"
+} else { "" }
+
 Write-Host ""
 Write-Host "── MSIX package ready ──────────────────────────────────────────────────"
 Write-Host "  File     : $MsixFile  ($msixSize MB)"
 Write-Host "  Identity : RemoteAgent  $Version4  $MsixArch"
 Write-Host "  Publisher: $Publisher"
-if ($BuildService)  { Write-Host "  Service  : service\RemoteAgent.Service.exe  (RemoteAgentService, auto, LocalSystem)" }
-if ($BuildDesktop)  { Write-Host "  Desktop  : desktop\RemoteAgent.Desktop.exe  (Start menu: Remote Agent Desktop)" }
+if ($BuildService) { Write-Host "  Service  : service\RemoteAgent.Service.exe  (RemoteAgentService, Automatic, LocalSystem)" }
+if ($BuildDesktop) { Write-Host "  Desktop  : desktop\RemoteAgent.Desktop.exe  (Start menu: Remote Agent Desktop)" }
 Write-Host ""
-Write-Host "  Install (same machine):"
-Write-Host "    Add-AppxPackage -Path '$MsixFile'"
-if (-not $signThumb) {
-    Write-Host "    Add-AppxPackage -Path '$MsixFile' -AllowUnsigned   # unsigned build"
+Write-Host "  Install + start service (run as Administrator):"
+Write-Host "    .\scripts\install-remote-agent.ps1$cerArg"
+Write-Host "  -- or manually --"
+if ($signThumb) {
+    Write-Host "    Add-AppxPackage -Path '$MsixFile'"
+} else {
+    Write-Host "    Add-AppxPackage -Path '$MsixFile' -AllowUnsigned"
+}
+if ($BuildService) {
+    Write-Host "    Start-Service RemoteAgentService"
 }
 Write-Host ""
 Write-Host "  Uninstall:"
-Write-Host "    Get-AppxPackage RemoteAgent | Remove-AppxPackage"
+Write-Host "    .\scripts\install-remote-agent.ps1 -Uninstall"
 Write-Host "────────────────────────────────────────────────────────────────────────"
