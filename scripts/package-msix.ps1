@@ -40,7 +40,7 @@
   Build configuration: Release (default) or Debug.
 
 .PARAMETER Version
-  Package version (e.g. 1.2.3). Defaults to the most recent git tag, else 1.0.0.
+  Package version (e.g. 1.2.3). Defaults to GitVersion SemVer, then most recent git tag, else 1.0.0.
 
 .PARAMETER Publisher
   MSIX Identity Publisher string, must match the signing certificate Subject exactly.
@@ -112,13 +112,24 @@ $BuildDesktop = -not $ServiceOnly
 
 # ── Version detection ─────────────────────────────────────────────────────────
 if (-not $Version) {
-    $tag = git -C $RepoRoot describe --tags --abbrev=0 2>$null
-    if ($tag -match '^v?(\d+\.\d+\.\d+)') { $Version = $Matches[1] } else { $Version = "1.0.0" }
+    # Prefer GitVersion (dotnet tool) for accurate semver from branch/tag history.
+    try {
+        $gvJson = dotnet tool run dotnet-gitversion -- /output json 2>$null | ConvertFrom-Json
+        if ($gvJson -and $gvJson.SemVer) { $Version = $gvJson.SemVer }
+    } catch { }
+
+    if (-not $Version) {
+        # Fallback: most recent git tag.
+        $tag = git -C $RepoRoot describe --tags --abbrev=0 2>$null
+        if ($tag -match '^v?(\d+\.\d+\.\d+)') { $Version = $Matches[1] } else { $Version = "1.0.0" }
+    }
 }
 
 # MSIX Identity Version must be 4-part (major.minor.patch.revision).
+# Strip pre-release suffix (e.g. 1.0.0-develop.1 -> 1.0.0) then pad to 4 parts.
 function ConvertTo-MsixVersion([string]$semver) {
-    $parts = $semver -split '\.'
+    $base  = ($semver -split '-')[0]
+    $parts = $base -split '\.'
     while ($parts.Count -lt 4) { $parts += "0" }
     ($parts[0..3] -join '.')
 }
