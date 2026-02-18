@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Compile-time reference only: IAgentRunner/IAgentSession and their dependencies are
+      provided by the host service process at runtime. Private=false prevents copying the
+      service output DLLs into this plugin's output directory.
+    -->
+    <ProjectReference Include="..\RemoteAgent.Service\RemoteAgent.Service.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>

@@ -3,6 +3,7 @@
     <Project Path="src/RemoteAgent.App.Logic/RemoteAgent.App.Logic.csproj" />
     <Project Path="src/RemoteAgent.App/RemoteAgent.App.csproj" />
     <Project Path="src/RemoteAgent.Desktop/RemoteAgent.Desktop.csproj" />
+    <Project Path="src/RemoteAgent.Plugins.Ollama/RemoteAgent.Plugins.Ollama.csproj" />
     <Project Path="src/RemoteAgent.Proto/RemoteAgent.Proto.csproj" />
     <Project Path="src/RemoteAgent.Service/RemoteAgent.Service.csproj" />
   </Folder>
