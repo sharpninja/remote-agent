@@ -325,14 +325,20 @@ case "$1" in
     chown root:"$SERVICE_GROUP" /etc/remote-agent/environment
     chmod 640 /etc/remote-agent/environment
 
-    # Register and optionally start the systemd unit.
+    # Register and start/restart the systemd unit.
+    # [ -d /run/systemd/system ] is the canonical check for systemd being the
+    # active init; it works even in degraded state unlike is-system-running.
     if command -v systemctl > /dev/null 2>&1; then
       systemctl daemon-reload                 || true
       systemctl enable remote-agent.service   || true
-      # Only start immediately if systemd is the running init system
-      # (not the case during Docker builds or chroot installs).
-      if systemctl is-system-running --quiet 2>/dev/null; then
-        systemctl start remote-agent.service  || true
+      if [ -d /run/systemd/system ]; then
+        if [ -n "$2" ]; then
+          # Upgrade — restart to pick up new binaries.
+          systemctl restart remote-agent.service || true
+        else
+          # Fresh install — start for the first time.
+          systemctl start remote-agent.service   || true
+        fi
       fi
     fi
     ;;
