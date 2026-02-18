@@ -5,8 +5,7 @@ using RemoteAgent.App.Logic.Handlers;
 using RemoteAgent.App.Logic.Requests;
 using RemoteAgent.App.Logic.ViewModels;
 using RemoteAgent.Proto;
-using Requests = RemoteAgent.App.Logic.Requests;
-
+using LogicRequests = RemoteAgent.App.Logic.Requests;
 namespace RemoteAgent.App.Tests;
 
 public sealed class McpRegistryPageViewModelTests
@@ -106,7 +105,7 @@ public sealed class McpRegistryPageViewModelTests
         var disp = dispatcher ?? new TestRequestDispatcher()
             .Register<LoadMcpServersRequest, CommandResult>(new LoadMcpServersHandler(api))
             .Register<SaveMcpServerRequest, CommandResult>(new SaveMcpServerHandler(api))
-            .Register<Requests.DeleteMcpServerRequest, CommandResult>(new DeleteMcpServerHandler(api, del));
+            .Register<LogicRequests.DeleteMcpServerRequest, CommandResult>(new DeleteMcpServerHandler(api, del));
         return new McpRegistryPageViewModel(api, prefs, del, disp);
     }
 
@@ -267,7 +266,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new LogicRequests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         api.McpServers.Should().BeEmpty();
         vm.ServerId.Should().BeEmpty();
@@ -283,7 +282,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new LogicRequests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         api.McpServers.Should().HaveCount(1);
     }
@@ -297,7 +296,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.Host = "localhost";
         vm.ServerId = "";
 
-        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new LogicRequests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Select a server");
     }
@@ -311,7 +310,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new LogicRequests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Failed to delete");
     }

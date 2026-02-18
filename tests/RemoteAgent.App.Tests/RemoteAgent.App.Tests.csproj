@@ -21,6 +21,30 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <Using Include="Microsoft.Maui.Controls" />
+  </ItemGroup>
+
+  <!-- Link source files from RemoteAgent.App so handlers and VM can be tested without the MAUI workload -->
+  <ItemGroup>
+    <Compile Include="..\..\src\RemoteAgent.App\Services\SessionItem.cs" Link="App\Services\SessionItem.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Services\ISessionStore.cs" Link="App\Services\ISessionStore.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\ViewModels\MainPageViewModel.cs" Link="App\ViewModels\MainPageViewModel.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\ArchiveMobileMessageRequest.cs" Link="App\Requests\ArchiveMobileMessageRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\ConnectMobileSessionRequest.cs" Link="App\Requests\ConnectMobileSessionRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\CreateMobileSessionRequest.cs" Link="App\Requests\CreateMobileSessionRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\DisconnectMobileSessionRequest.cs" Link="App\Requests\DisconnectMobileSessionRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\SendMobileAttachmentRequest.cs" Link="App\Requests\SendMobileAttachmentRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\SendMobileMessageRequest.cs" Link="App\Requests\SendMobileMessageRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\TerminateMobileSessionRequest.cs" Link="App\Requests\TerminateMobileSessionRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\UsePromptTemplateRequest.cs" Link="App\Requests\UsePromptTemplateRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\ArchiveMobileMessageHandler.cs" Link="App\Handlers\ArchiveMobileMessageHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\ConnectMobileSessionHandler.cs" Link="App\Handlers\ConnectMobileSessionHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\CreateMobileSessionHandler.cs" Link="App\Handlers\CreateMobileSessionHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\DisconnectMobileSessionHandler.cs" Link="App\Handlers\DisconnectMobileSessionHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\SendMobileAttachmentHandler.cs" Link="App\Handlers\SendMobileAttachmentHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\SendMobileMessageHandler.cs" Link="App\Handlers\SendMobileMessageHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\TerminateMobileSessionHandler.cs" Link="App\Handlers\TerminateMobileSessionHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\UsePromptTemplateHandler.cs" Link="App\Handlers\UsePromptTemplateHandler.cs" />
   </ItemGroup>
 
 </Project>
