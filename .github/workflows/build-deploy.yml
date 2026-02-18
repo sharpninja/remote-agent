@@ -441,7 +441,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
+          # Omit cache: 'pip' to avoid setup-python v5.2.0 post-step failure when pip
+          # cache dir does not exist yet (pip runs in the next step).
       - name: Install fdroidserver
         run: pip install fdroidserver
 
