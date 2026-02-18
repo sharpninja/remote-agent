@@ -26,6 +26,13 @@ public partial class Program
         {
             options.ServiceName = "Remote Agent Service";
         });
+
+        // Select the listen URL for the current platform from appsettings.json PlatformUrls.
+        var platformKey = OperatingSystem.IsWindows() ? "PlatformUrls:Windows" : "PlatformUrls:Linux";
+        var platformUrl = builder.Configuration[platformKey];
+        if (!string.IsNullOrWhiteSpace(platformUrl))
+            builder.WebHost.UseUrls(platformUrl);
+
         ConfigureServices(builder.Services, builder.Configuration);
 
         WebApplication app;
