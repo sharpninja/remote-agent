@@ -63,6 +63,7 @@ Coverage status values:
 | FR-12.9 | Covered | `MainWindowUiTests.*` (`tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs`) |
 | FR-12.10 | Covered | `MainWindowUiTests.*` (`tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs`) |
 | FR-12.11 | Covered | `MainWindowUiTests.*` (`tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs`), `StructuredLogStoreTests.Query_ShouldApplyFilterCriteria` (`tests/RemoteAgent.Desktop.UiTests/StructuredLogStoreTests.cs`) |
+| FR-12.12 | Not covered | Pending implementation of management app log view |
 | FR-13.1 | Covered | `MainWindowUiTests.*` (`tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`), `SessionCapacityServiceTests.MarkSessionAbandoned_ShouldTrackAndClearOnRegister` (`tests/RemoteAgent.Service.Tests/SessionCapacityServiceTests.cs`) |
 | FR-13.2 | Covered | `MainWindowUiTests.*` (`tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`), `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
 | FR-13.3 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |

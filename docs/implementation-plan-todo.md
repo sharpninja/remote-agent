@@ -6,22 +6,22 @@ Track progress for [implementation-plan-mvvm-cqrs-refactor.md](implementation-pl
 
 ## Phase 0: Shared CQRS foundation (~1 session)
 
-- [ ] Add `IRequest<TResponse>` interface with required `Guid CorrelationId` property to `App.Logic/Cqrs/`
-- [ ] Add `IRequestHandler<TRequest, TResponse>` interface to `App.Logic/Cqrs/`
-- [ ] Add `IRequestDispatcher` interface to `App.Logic/Cqrs/`
-- [ ] Add `Unit` result type to `App.Logic/Cqrs/`
-- [ ] Add `CommandResult` and `CommandResult<T>` result types to `App.Logic/Cqrs/`
-- [ ] Implement `ServiceProviderRequestDispatcher` in `App.Logic/Cqrs/` with `ILogger` for Debug-level entry/exit logging including `[{CorrelationId}]` in every log message
-- [ ] Implement `Guid.Empty` CorrelationId validation in dispatcher (`ArgumentException` if empty)
-- [ ] Add `SetManagementSectionRequest(Guid CorrelationId, string SectionKey)` and `SetManagementSectionHandler`
-- [ ] Add `NavigationViewItemInvokedBehavior` attached behavior (Desktop)
-- [ ] Add `DoubleTapBehavior` attached behavior (Desktop)
-- [ ] Wire `IRequestDispatcher` into `MainWindowViewModel`; expose `SetManagementSectionCommand` that generates `Guid.NewGuid()` CorrelationId
-- [ ] Replace `ItemInvoked="OnManagementNavItemInvoked"` in XAML with behavior binding
-- [ ] Register dispatcher and handler in Desktop DI (`App.axaml.cs`)
-- [ ] Add unit tests for `ServiceProviderRequestDispatcher` (resolve, invoke, missing-handler, CancellationToken passthrough, CorrelationId validation)
-- [ ] Add unit tests for dispatcher Debug entry/exit logging with CorrelationId (entry log, success exit log, exception exit log, CorrelationId match)
-- [ ] Add unit test for `SetManagementSectionHandler`
+- [x] Add `IRequest<TResponse>` interface with required `Guid CorrelationId` property to `App.Logic/Cqrs/`
+- [x] Add `IRequestHandler<TRequest, TResponse>` interface to `App.Logic/Cqrs/`
+- [x] Add `IRequestDispatcher` interface to `App.Logic/Cqrs/`
+- [x] Add `Unit` result type to `App.Logic/Cqrs/`
+- [x] Add `CommandResult` and `CommandResult<T>` result types to `App.Logic/Cqrs/`
+- [x] Implement `ServiceProviderRequestDispatcher` in `App.Logic/Cqrs/` with `ILogger` for Debug-level entry/exit logging including `[{CorrelationId}]` in every log message
+- [x] Implement `Guid.Empty` CorrelationId validation in dispatcher (`ArgumentException` if empty)
+- [x] Add `SetManagementSectionRequest(Guid CorrelationId, string SectionKey)` and `SetManagementSectionHandler`
+- [x] Add `NavigationViewItemInvokedBehavior` attached behavior (Desktop)
+- [x] Add `DoubleTapBehavior` attached behavior (Desktop)
+- [x] Wire `IRequestDispatcher` into `MainWindowViewModel`; expose `SetManagementSectionCommand` that generates `Guid.NewGuid()` CorrelationId
+- [x] Replace `ItemInvoked="OnManagementNavItemInvoked"` in XAML with behavior binding
+- [x] Register dispatcher and handler in Desktop DI (`App.axaml.cs`)
+- [x] Add unit tests for `ServiceProviderRequestDispatcher` (resolve, invoke, missing-handler, CancellationToken passthrough, CorrelationId validation)
+- [x] Add unit tests for dispatcher Debug entry/exit logging with CorrelationId (entry log, success exit log, exception exit log, CorrelationId match)
+- [x] Add unit test for `SetManagementSectionHandler`
 - [ ] Verify desktop build (`./scripts/build-desktop-dotnet9.sh Release`)
 - [ ] Verify existing desktop UI tests still pass
 
@@ -31,29 +31,29 @@ Track progress for [implementation-plan-mvvm-cqrs-refactor.md](implementation-pl
 
 ### 1a: ConnectionSettingsDialog refactor
 
-- [ ] Add `IConnectionSettingsDialogService` interface
-- [ ] Add `AvaloniaConnectionSettingsDialogService` implementation
-- [ ] Add `ConnectionSettingsDialogViewModel` with properties, validation, Submit/Cancel commands, `RequestClose` event
+- [x] Add `IConnectionSettingsDialogService` interface
+- [x] Add `AvaloniaConnectionSettingsDialogService` implementation
+- [x] Add `ConnectionSettingsDialogViewModel` with properties, validation, Submit/Cancel commands, `RequestClose` event
 - [ ] Refactor `ConnectionSettingsDialog.axaml` to use bindings (remove all `x:Name` control access)
 - [ ] Refactor `ConnectionSettingsDialog.axaml.cs` to constructor + `RequestClose` subscription only
-- [ ] Add `OpenNewSessionRequest` and `OpenNewSessionHandler`
-- [ ] Expose `StartSessionCommand` on `MainWindowViewModel`; bind in menu + toolbar XAML
-- [ ] Remove `OnStartSessionClick` from `MainWindow.axaml.cs`
+- [x] Add `OpenNewSessionRequest` and `OpenNewSessionHandler`
+- [x] Expose `StartSessionCommand` on `MainWindowViewModel`; bind in menu + toolbar XAML
+- [x] Remove `OnStartSessionClick` from `MainWindow.axaml.cs`
 - [ ] Run desktop UI tests
 
 ### 1b: Remaining MainWindow code-behind
 
-- [ ] Bind `SetManagementSectionCommand` via behavior in XAML; remove `OnManagementNavItemInvoked`
-- [ ] Add `ExpandStatusLogPanelRequest` / handler; bind `ExpandStatusLogCommand` via `DoubleTapBehavior`; remove `OnStatusBarPointerPressed`
-- [ ] Document `OnOpened` / `TrySetOpenPaneLength` as view-adapter exception
-- [ ] Verify `MainWindow.axaml.cs` has only constructor + view-adapter
+- [x] Bind `SetManagementSectionCommand` via behavior in XAML; remove `OnManagementNavItemInvoked`
+- [x] Add `ExpandStatusLogPanelRequest` / handler; bind `ExpandStatusLogCommand` via `DoubleTapBehavior`; remove `OnStatusBarPointerPressed`
+- [x] Document `OnOpened` / `TrySetOpenPaneLength` as view-adapter exception
+- [x] Verify `MainWindow.axaml.cs` has only constructor + view-adapter
 
 ### 1c: MainWindowViewModel handlers
 
-- [ ] Add `SaveServerRegistrationRequest` / handler; wire `SaveServerCommand`
-- [ ] Add `RemoveServerRegistrationRequest` / handler; wire `RemoveServerCommand`
-- [ ] Add `CheckLocalServerRequest` / handler; wire `CheckLocalServerCommand`
-- [ ] Add `ApplyLocalServerActionRequest` / handler; wire `ApplyLocalServerActionCommand`
+- [x] Add `SaveServerRegistrationRequest` / handler; wire `SaveServerCommand`
+- [x] Add `RemoveServerRegistrationRequest` / handler; wire `RemoveServerCommand`
+- [x] Add `CheckLocalServerRequest` / handler; wire `CheckLocalServerCommand`
+- [x] Add `ApplyLocalServerActionRequest` / handler; wire `ApplyLocalServerActionCommand`
 
 ### 1d: ServerWorkspaceViewModel decomposition
 
@@ -78,35 +78,49 @@ Track progress for [implementation-plan-mvvm-cqrs-refactor.md](implementation-pl
 **Convention:** Every request record has `Guid CorrelationId` as its first parameter. VMs generate `Guid.NewGuid()` at the command boundary. Handlers that dispatch child requests MUST propagate `request.CorrelationId` (see Section 2.8 of the implementation plan).
 
 - [ ] `CreateDesktopSessionHandler` (replaces `NewSessionAsync`)
-- [ ] `CheckSessionCapacityHandler`
-- [ ] `RefreshOpenSessionsHandler`
-- [ ] `TerminateOpenServerSessionHandler`
+- [x] `CheckSessionCapacityHandler`
+- [x] `RefreshOpenSessionsHandler`
+- [x] `TerminateOpenServerSessionHandler`
 - [ ] `TerminateDesktopSessionHandler`
 - [ ] `SendDesktopMessageHandler`
-- [ ] `RefreshSecurityDataHandler`
-- [ ] `BanPeerHandler`
-- [ ] `UnbanPeerHandler`
-- [ ] `RefreshAuthUsersHandler`
-- [ ] `SaveAuthUserHandler`
-- [ ] `DeleteAuthUserHandler`
-- [ ] `RefreshPluginsHandler`
-- [ ] `SavePluginsHandler`
-- [ ] `RefreshMcpRegistryHandler`
-- [ ] `SaveMcpServerHandler` (desktop)
-- [ ] `DeleteMcpServerHandler` (desktop)
-- [ ] `SaveAgentMcpMappingHandler`
-- [ ] `RefreshPromptTemplatesHandler`
-- [ ] `SavePromptTemplateHandler`
-- [ ] `DeletePromptTemplateHandler`
-- [ ] `SeedSessionContextHandler`
+- [x] `RefreshSecurityDataHandler`
+- [x] `BanPeerHandler`
+- [x] `UnbanPeerHandler`
+- [x] `RefreshAuthUsersHandler`
+- [x] `SaveAuthUserHandler`
+- [x] `DeleteAuthUserHandler`
+- [x] `RefreshPluginsHandler`
+- [x] `SavePluginsHandler`
+- [x] `RefreshMcpRegistryHandler`
+- [x] `SaveMcpServerHandler` (desktop)
+- [x] `DeleteMcpServerHandler` (desktop)
+- [x] `SaveAgentMcpMappingHandler`
+- [x] `RefreshPromptTemplatesHandler`
+- [x] `SavePromptTemplateHandler`
+- [x] `DeletePromptTemplateHandler`
+- [x] `SeedSessionContextHandler`
 - [ ] `StartLogMonitoringHandler`
-- [ ] Register all handlers in Desktop DI
+- [ ] Register all handlers in Desktop DI *(22 of 26 registered; blocked on 4 missing handlers above)*
 
 ### 1g: Phase 1 validation
 
 - [ ] Delete all unused event handlers from `MainWindow.axaml.cs`
 - [ ] Full desktop build (`./scripts/build-desktop-dotnet9.sh Release`)
 - [ ] Run desktop UI tests; fix regressions
+
+### 1h: Management App Log view (FR-12.12)
+
+- [ ] Create `AppLogEntry` record (`Timestamp`, `Level`, `Category`, `Message`, `Exception?`)
+- [ ] Create `IAppLogStore` interface with `Add(AppLogEntry)`, `GetAll()`, `Clear()` methods
+- [ ] Create `InMemoryAppLogStore` (thread-safe, bounded ring buffer or unbounded list)
+- [ ] Create `AppLoggerProvider` / `AppLoggerCategory` implementing `ILoggerProvider` + `ILogger`; each log call adds to `IAppLogStore`
+- [ ] Register `AppLoggerProvider` in `App.axaml.cs` via `ILoggerFactory.AddProvider(...)`
+- [ ] Create `AppLogViewModel` (ObservableCollection of visible entries, filter text, `ClearCommand`, `SaveCommand`)
+- [ ] `ClearCommand` → `ClearAppLogRequest` / `ClearAppLogHandler` (clears store, updates VM)
+- [ ] `SaveCommand` → `SaveAppLogRequest` / `SaveAppLogHandler` (exports to txt/json/csv via format selector)
+- [ ] Add Management App Log navigation item + panel to `MainWindow.axaml`
+- [ ] Wire `AppLogViewModel` into `MainWindowViewModel`; bind via CQRS dispatcher
+- [ ] Unit tests: `AppLoggerProvider_ShouldCaptureLogEntries`, `ClearAppLogHandler_ShouldEmptyCollection`, `SaveAppLogHandler_ShouldWriteAllThreeFormats`
 
 ---
 
@@ -193,15 +207,15 @@ All CQRS commands and queries must have exhaustive unit tests with known happy p
 
 ### 3a: Infrastructure tests (9 tests)
 
-- [ ] `ServiceProviderRequestDispatcher`: registered handler resolves and returns result
-- [ ] `ServiceProviderRequestDispatcher`: no handler registered → throws `InvalidOperationException`
-- [ ] `ServiceProviderRequestDispatcher`: passes `CancellationToken` through to handler
-- [ ] `ServiceProviderRequestDispatcher`: handler throws → exception propagates
-- [ ] `ServiceProviderRequestDispatcher`: `Guid.Empty` CorrelationId → throws `ArgumentException`
-- [ ] `ServiceProviderRequestDispatcher`: logs Debug entry with `"CQRS Enter"`, request type name, CorrelationId, and parameter values
-- [ ] `ServiceProviderRequestDispatcher`: logs Debug exit with `"CQRS Leave"`, request type name, CorrelationId, and result on success
-- [ ] `ServiceProviderRequestDispatcher`: logs Debug exit with `"CQRS Leave"`, request type name, CorrelationId, and exception message on handler failure
-- [ ] `ServiceProviderRequestDispatcher`: CorrelationId value in entry log matches request's `CorrelationId` exactly
+- [x] `ServiceProviderRequestDispatcher`: registered handler resolves and returns result
+- [x] `ServiceProviderRequestDispatcher`: no handler registered → throws `InvalidOperationException`
+- [x] `ServiceProviderRequestDispatcher`: passes `CancellationToken` through to handler
+- [x] `ServiceProviderRequestDispatcher`: handler throws → exception propagates
+- [x] `ServiceProviderRequestDispatcher`: `Guid.Empty` CorrelationId → throws `ArgumentException`
+- [x] `ServiceProviderRequestDispatcher`: logs Debug entry with `"CQRS Enter"`, request type name, CorrelationId, and parameter values
+- [x] `ServiceProviderRequestDispatcher`: logs Debug exit with `"CQRS Leave"`, request type name, CorrelationId, and result on success
+- [x] `ServiceProviderRequestDispatcher`: logs Debug exit with `"CQRS Leave"`, request type name, CorrelationId, and exception message on handler failure
+- [x] `ServiceProviderRequestDispatcher`: CorrelationId value in entry log matches request's `CorrelationId` exactly
 
 ### 3b: `ConnectionSettingsDialogViewModel` tests (9 tests)
 
@@ -218,40 +232,40 @@ All CQRS commands and queries must have exhaustive unit tests with known happy p
 ### 3c: Desktop handler tests (133 tests across 24 handlers)
 
 #### `SetManagementSectionHandler` (2 tests)
-- [ ] Valid section key → returns `Unit`
-- [ ] Null/empty section key → returns `Unit` (pass-through)
+- [x] Valid section key → returns `Unit`
+- [x] Null/empty section key → returns `Unit` (pass-through)
 
 #### `ExpandStatusLogPanelHandler` (1 test)
-- [ ] Returns `Unit`
+- [x] Returns `Unit`
 
 #### `OpenNewSessionHandler` (5 tests)
-- [ ] Dialog accepted → applies settings to workspace, returns Ok
+- [x] Dialog accepted → applies settings to workspace, returns Ok
 - [ ] Dialog accepted → dispatches `CreateDesktopSessionRequest`
-- [ ] Dialog cancelled (returns null) → returns Fail("Cancelled")
-- [ ] Workspace is null → returns Fail
+- [x] Dialog cancelled (returns null) → returns Fail("Cancelled")
+- [x] Workspace is null → returns Fail
 - [ ] `CreateDesktopSession` dispatch fails → returns Fail with inner error
 
 #### `SaveServerRegistrationHandler` (4 tests)
-- [ ] Valid host + port → upserts to store, returns Ok with registration
-- [ ] Empty host → returns Fail("Host required")
-- [ ] Invalid port (0, >65535, non-numeric) → returns Fail
+- [x] Valid host + port → upserts to store, returns Ok with registration
+- [x] Empty host → returns Fail("Host required")
+- [x] Invalid port (0, >65535, non-numeric) → returns Fail
 - [ ] Store throws → returns Fail
 
 #### `RemoveServerRegistrationHandler` (3 tests)
-- [ ] Existing server ID → deletes, returns Ok
-- [ ] Store returns false → returns Fail
-- [ ] Null server ID → returns Fail
+- [x] Existing server ID → deletes, returns Ok
+- [x] Store returns false → returns Fail
+- [x] Null server ID → returns Fail
 
 #### `CheckLocalServerHandler` (3 tests)
-- [ ] Server running → returns probe with `IsRunning=true`
-- [ ] Server stopped → returns probe with `IsRunning=false`
+- [x] Server running → returns probe with `IsRunning=true`
+- [x] Server stopped → returns probe with `IsRunning=false`
 - [ ] Probe throws → returns Fail
 
 #### `ApplyLocalServerActionHandler` (4 tests)
-- [ ] Server stopped → starts, re-probes, returns Ok
-- [ ] Server running → stops, re-probes, returns Ok
-- [ ] Start fails → returns Fail
-- [ ] Stop fails → returns Fail
+- [x] Server stopped → starts, re-probes, returns Ok
+- [x] Server running → stops, re-probes, returns Ok
+- [x] Start fails → returns Fail
+- [x] Stop fails → returns Fail
 
 #### `CreateDesktopSessionHandler` (6 tests)
 - [ ] Server mode + capacity available → creates session, connects, returns Ok
@@ -522,7 +536,7 @@ All CQRS commands and queries must have exhaustive unit tests with known happy p
 
 ### 3g: Shared mock and test helper types
 
-- [ ] `CapturingLogger<T>` test helper (captures `ILogger` entries for assertion)
+- [x] `CapturingLogger<T>` test helper (captures `ILogger` entries for assertion)
 - [ ] `CapturingRequestDispatcher` test helper (records dispatched requests for CorrelationId propagation verification)
 - [ ] `MockRequestDispatcher` (configurable responses per request type)
 - [ ] `MockServerCapacityClient` (desktop)

@@ -136,6 +136,12 @@
 - **FR-12.9** The desktop management app shall support **multiple registered servers**, including add/update/remove server registration UI.
 - **FR-12.10** The desktop app shall support **concurrent active connections across different registered servers**.
 - **FR-12.11** Structured log records in the desktop app shall include a **server identifier**, and log filtering shall default to the **currently selected server**.
+- **FR-12.12** The Management UI shall include a **Management App Log view** that captures `ILogger` output from the desktop application itself (not the remote server) and displays it in a scrollable, filterable list within the management interface.
+  - **FR-12.12.1** A custom `ILogger` implementation shall capture log entries (timestamp, level, category, message, exception) produced by the desktop app process and make them available to the log view in real time.
+  - **FR-12.12.2** The log view shall display at minimum: timestamp, log level, logger category, and message for each entry.
+  - **FR-12.12.3** The log view shall provide a **Clear** command that discards all currently captured log entries.
+  - **FR-12.12.4** The log view shall provide a **Save** command that exports the captured log entries to a user-selected file in one of three formats: **plain text** (`.txt`), **JSON** (`.json`), or **CSV** (`.csv`).
+  - **FR-12.12.5** The export format shall be selectable at save time (e.g. via file-type filter in the save dialog or an explicit format selector).
 
 *See:* [TR-13](technical-requirements.md#13-observability-and-structured-logging), [TR-14](technical-requirements.md#14-desktop-management-capabilities).
 

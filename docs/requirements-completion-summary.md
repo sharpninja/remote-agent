@@ -64,6 +64,7 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**FR-12.9**](functional-requirements.md#12-desktop-management-app) | Multiple registered servers with add/update/remove UI | **Done** | Server registration store + desktop selector and CRUD commands |
 | [**FR-12.10**](functional-requirements.md#12-desktop-management-app) | Concurrent active connections across different servers | **Done** | Server-scoped workspace leasing/DI supports concurrent server workspaces |
 | [**FR-12.11**](functional-requirements.md#12-desktop-management-app) | Structured logs include server identity and default filter to selected server | **Done** | Desktop structured logs persist `ServerId`/display metadata and support server filtering |
+| [**FR-12.12**](functional-requirements.md#12-desktop-management-app) | Management App Log view (ILogger capture, clear, export to txt/json/csv) | **Pending** | Not yet implemented |
 | [**FR-13.1**](functional-requirements.md#13-sessiondeviceadmin-operations) | Query open and abandoned sessions | **Done** | HTTP APIs: `/api/sessions/open`, `/api/sessions/abandoned`; desktop client integration |
 | [**FR-13.2**](functional-requirements.md#13-sessiondeviceadmin-operations) | Query connected devices and connection history | **Done** | HTTP APIs: `/api/connections/peers`, `/api/connections/history` |
 | [**FR-13.3**](functional-requirements.md#13-sessiondeviceadmin-operations) | Cancel active sessions | **Done** | HTTP API: `/api/sessions/{id}/terminate` |
