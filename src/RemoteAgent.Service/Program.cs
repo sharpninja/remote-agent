@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +18,9 @@ public partial class Program
 {
     public static void Main(string[] args)
     {
+        // Catch any unhandled exception on any thread and write it to the Windows Event Log.
+        AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+
         var builder = WebApplication.CreateBuilder(args);
         builder.Host.UseWindowsService(options =>
         {
@@ -24,9 +28,83 @@ public partial class Program
         });
         ConfigureServices(builder.Services, builder.Configuration);
 
-        var app = builder.Build();
+        WebApplication app;
+        try
+        {
+            app = builder.Build();
+        }
+        catch (Exception ex)
+        {
+            WriteEventLog(isError: true, 1001,
+                $"Remote Agent Service failed during startup (build phase):\n{ex}");
+            throw;
+        }
+
         ConfigureEndpoints(app);
-        app.Run();
+
+        // Write a success event once the host is fully started and listening.
+        app.Lifetime.ApplicationStarted.Register(() =>
+            WriteEventLog(isError: false, 1000,
+                "Remote Agent Service started successfully."));
+
+        try
+        {
+            app.Run();
+        }
+        catch (Exception ex)
+        {
+            WriteEventLog(isError: true, 1001,
+                $"Remote Agent Service terminated with an unhandled exception:\n{ex}");
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Writes an entry to the Windows Application Event Log.
+    /// No-ops on non-Windows platforms.
+    /// Event source is created on first use (requires administrator privileges).
+    /// </summary>
+    /// <remarks>
+    /// Event IDs:
+    ///   1000 — service started successfully
+    ///   1001 — startup or runtime fatal error
+    ///   1002 — unhandled exception on background thread
+    /// </remarks>
+    private static void WriteEventLog(bool isError, int eventId, string message)
+    {
+        if (!OperatingSystem.IsWindows()) return;
+        WriteEventLogCore(
+            isError ? EventLogEntryType.Error : EventLogEntryType.Information,
+            eventId, message);
+    }
+
+    /// <summary>Windows-only inner implementation — always called from within an
+    /// <see cref="OperatingSystem.IsWindows()"/> guard.</summary>
+    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+    private static void WriteEventLogCore(EventLogEntryType type, int eventId, string message)
+    {
+        const string Source = "Remote Agent Service";
+        const string Log    = "Application";
+        try
+        {
+            if (!EventLog.SourceExists(Source))
+                EventLog.CreateEventSource(Source, Log);
+            EventLog.WriteEntry(Source, message, type, eventId);
+        }
+        catch
+        {
+            // Best-effort only: if the Event Log is inaccessible (e.g. insufficient
+            // privileges to create the source), silently continue rather than masking
+            // the original exception.
+        }
+    }
+
+    private static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+    {
+        var message = e.ExceptionObject is Exception ex
+            ? $"Unhandled exception in Remote Agent Service (IsTerminating={e.IsTerminating}):\n{ex}"
+            : $"Unhandled non-exception object in Remote Agent Service: {e.ExceptionObject}";
+        WriteEventLog(isError: true, 1002, message);
     }
 
     // Required for Microsoft.AspNetCore.Mvc.Testing host bootstrap in integration tests.
