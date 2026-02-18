@@ -16,7 +16,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private const string DefaultPort = "5243";
 
     private readonly ISessionStore _sessionStore;
-    private readonly AgentGatewayClientService _gateway;
+    private readonly IAgentGatewayClient _gateway;
     private readonly IServerApiClient _apiClient;
     private readonly IAppPreferences _preferences;
     private readonly IConnectionModeSelector _connectionModeSelector;
@@ -36,7 +36,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
 
     public MainPageViewModel(
         ISessionStore sessionStore,
-        AgentGatewayClientService gateway,
+        IAgentGatewayClient gateway,
         IServerApiClient apiClient,
         IAppPreferences preferences,
         IConnectionModeSelector connectionModeSelector,

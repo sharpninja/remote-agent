@@ -26,7 +26,7 @@ public static class MauiProgram
 		var dbPath = Path.Combine(FileSystem.AppDataDirectory, "remote-agent.db");
 		builder.Services.AddSingleton<ILocalMessageStore>(_ => new LocalMessageStore(dbPath));
 		builder.Services.AddSingleton<ISessionStore>(_ => new LocalSessionStore(dbPath));
-		builder.Services.AddSingleton<AgentGatewayClientService>();
+		builder.Services.AddSingleton<IAgentGatewayClient, AgentGatewayClientService>();
 
 		builder.Services.AddSingleton<IServerApiClient, ServerApiClientAdapter>();
 		builder.Services.AddSingleton<IAppPreferences, MauiAppPreferences>();
@@ -35,6 +35,9 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddSingleton<ISessionCommandBus>(sp => sp.GetRequiredService<MainPageViewModel>());
+		builder.Services.AddSingleton<ISessionListProvider, SessionListProviderAdapter>();
+		builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
 		builder.Services.AddSingleton<IConnectionModeSelector>(sp =>
 			new MauiConnectionModeSelector(() => sp.GetService<MainPage>()));
 		builder.Services.AddSingleton<IAgentSelector>(sp =>
@@ -54,6 +57,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<McpRegistryPage>();
 		builder.Services.AddSingleton<SettingsPage>();
 		builder.Services.AddSingleton<AccountManagementPage>();
+		builder.Services.AddSingleton<AppShellViewModel>();
 		builder.Services.AddSingleton<AppShell>();
 
 		return builder.Build();

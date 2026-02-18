@@ -6,7 +6,7 @@ using RemoteAgent.Proto;
 namespace RemoteAgent.App.Services;
 
 /// <summary>MAUI-facing wrapper over the shared <see cref="AgentSessionClient"/> used by both mobile and desktop.</summary>
-public sealed class AgentGatewayClientService
+public sealed class AgentGatewayClientService : IAgentGatewayClient
 {
     private readonly ILocalMessageStore? _store;
     private readonly AgentSessionClient _sessionClient;
