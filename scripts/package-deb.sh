@@ -204,34 +204,29 @@ if [[ "$BUILD_SERVICE" == "true" ]]; then
   # ── Default configuration ─────────────────────────────────────────────────
   install -d "$SVC_DIR/etc/remote-agent"
 
-  cat > "$SVC_DIR/etc/remote-agent/appsettings.json" <<'EOF'
-{
-  "Logging": {
-    "LogLevel": { "Default": "Information", "Microsoft.AspNetCore": "Warning" }
-  },
-  "AllowedHosts": "*",
-  "Kestrel": { "EndpointDefaults": { "Protocols": "Http2" } },
-  "Agent": {
-    "Command": "",
-    "Arguments": "",
-    "LogDirectory": "/var/log/remote-agent",
-    "RunnerId": "",
-    "DataDirectory": "/var/lib/remote-agent",
-    "ApiKey": "",
-    "AllowUnauthenticatedLoopback": true
-  },
-  "Plugins": { "Assemblies": [] }
-}
-EOF
+  # Copy the source appsettings.json and patch in deb-specific runtime paths.
+  # This ensures the installed config always matches the source defaults
+  # (including Urls, Kestrel settings, etc.) without duplication.
+  if command -v jq > /dev/null 2>&1; then
+    jq '.Agent.LogDirectory = "/var/log/remote-agent" |
+        .Agent.DataDirectory = "/var/lib/remote-agent"' \
+      "$REPO_ROOT/src/RemoteAgent.Service/appsettings.json" \
+      > "$SVC_DIR/etc/remote-agent/appsettings.json"
+  else
+    # jq not available — copy verbatim; paths can be set post-install.
+    cp "$REPO_ROOT/src/RemoteAgent.Service/appsettings.json" \
+       "$SVC_DIR/etc/remote-agent/appsettings.json"
+  fi
 
   # Environment file: systemd reads this to set ASPNETCORE_* variables.
   # ASPNETCORE_CONTENTROOT tells ASP.NET Core where to find appsettings.json.
   cat > "$SVC_DIR/etc/remote-agent/environment" <<'EOF'
 # Remote Agent environment variables.
 # Edit to override service behaviour; takes effect after:  systemctl restart remote-agent
-
-# gRPC listen address (HTTP/2 required).
-ASPNETCORE_URLS=http://0.0.0.0:5243
+#
+# The listen URL and most settings are configured in appsettings.json.
+# Use this file for environment-specific overrides only, e.g.:
+#   ASPNETCORE_ENVIRONMENT=Production
 
 # Point ASP.NET Core configuration root at /etc/remote-agent so that
 # appsettings.json is loaded from the config directory rather than the
@@ -359,6 +354,13 @@ case "$1" in
       cat > "$_wrapper" <<'WSLWRAP'
 #!/bin/sh
 # Wrapper started by /etc/wsl.conf [boot] command= (runs as remote-agent).
+# Source environment overrides (ASPNETCORE_URLS, etc.) before exec.
+if [ -f /etc/remote-agent/environment ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . /etc/remote-agent/environment 2>/dev/null || true
+  set +a
+fi
 export ASPNETCORE_CONTENTROOT=/etc/remote-agent
 exec /usr/lib/remote-agent/service/RemoteAgent.Service \
   >> /var/log/remote-agent/service.log 2>&1
@@ -376,6 +378,15 @@ WSLWRAP
         # Falls back to daemonize if start-stop-daemon is unavailable.
         if command -v start-stop-daemon > /dev/null 2>&1; then
           echo "systemd not active — starting Remote Agent via start-stop-daemon"
+          # Source the environment file so ASPNETCORE_URLS and other overrides apply.
+          _env_file="/etc/remote-agent/environment"
+          if [ -f "$_env_file" ]; then
+            # Export only non-comment, non-empty lines.
+            set -a
+            # shellcheck disable=SC1090
+            . "$_env_file" 2>/dev/null || true
+            set +a
+          fi
           ASPNETCORE_CONTENTROOT=/etc/remote-agent \
           start-stop-daemon --start --background \
             --make-pidfile --pidfile "$_pid" \
@@ -390,8 +401,13 @@ WSLWRAP
           done
           if [ -n "$_daemonize" ]; then
             echo "systemd not active — starting Remote Agent via $_daemonize"
+            # Build env prefix from environment file.
+            _env_prefix="ASPNETCORE_CONTENTROOT=/etc/remote-agent"
+            if [ -f /etc/remote-agent/environment ]; then
+              _env_prefix="$(grep -v '^\s*#' /etc/remote-agent/environment | grep -v '^\s*$' | tr '\n' ' ') $_env_prefix"
+            fi
             su -s /bin/sh -c \
-              "ASPNETCORE_CONTENTROOT=/etc/remote-agent $_daemonize -o $_log -e $_err $_svc" \
+              "$_env_prefix $_daemonize -o $_log -e $_err $_svc" \
               remote-agent || true
           else
             echo "WARNING: cannot start service: neither start-stop-daemon nor daemonize found." >&2
