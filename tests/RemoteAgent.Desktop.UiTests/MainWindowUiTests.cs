@@ -1,11 +1,18 @@
 using Avalonia.Controls;
 using Avalonia.Headless.XUnit;
+using Avalonia.LogicalTree;
 using FluentAssertions;
+using FluentAvalonia.UI.Controls;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using RemoteAgent.App.Logic;
+using RemoteAgent.App.Logic.Cqrs;
 using RemoteAgent.App.Services;
+using RemoteAgent.Desktop.Handlers;
 using RemoteAgent.Desktop.Infrastructure;
 using RemoteAgent.Desktop.Logging;
+using RemoteAgent.Desktop.Requests;
+using RemoteAgent.Desktop.UiTests.TestHelpers;
 using RemoteAgent.Desktop.ViewModels;
 using RemoteAgent.Desktop.Views;
 using RemoteAgent.Proto;
@@ -43,10 +50,8 @@ public sealed class MainWindowUiTests
     public void MainWindow_ShouldExposeExpectedManagementControls()
     {
         // FR-12.1.3, FR-12.1.4, FR-12.1.5, FR-12.8, FR-12.11
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
         var window = new MainWindow(vm);
-
-        window.Show();
 
         window.FindControl<ComboBox>("ServerSelectorComboBox").Should().NotBeNull();
         window.FindControl<Button>("NewServerButton").Should().NotBeNull();
@@ -56,7 +61,6 @@ public sealed class MainWindowUiTests
 
         window.FindControl<Button>("NewSessionButton").Should().NotBeNull();
         window.FindControl<Button>("TerminateSessionButton").Should().NotBeNull();
-        window.FindControl<Button>("CheckCapacityButton").Should().NotBeNull();
         window.FindControl<Button>("RefreshOpenSessionsButton").Should().NotBeNull();
         window.FindControl<Button>("TerminateOpenServerSessionButton").Should().NotBeNull();
         window.FindControl<Button>("CheckLocalServerButton").Should().NotBeNull();
@@ -64,34 +68,32 @@ public sealed class MainWindowUiTests
         window.FindControl<Button>("StartLogMonitoringButton").Should().NotBeNull();
         window.FindControl<Button>("ApplyLogFilterButton").Should().NotBeNull();
         window.FindControl<TextBox>("LogServerIdFilterTextBox").Should().NotBeNull();
-        window.FindControl<TextBox>("PerRequestContextTextBox").Should().NotBeNull();
         window.FindControl<TabControl>("SessionTabs").Should().NotBeNull();
+        window.FindControl<NavigationView>("ManagementNavigationView").Should().NotBeNull();
 
         window.Close();
     }
 
     [AvaloniaFact]
-    public void CurrentServerWorkspace_ShouldCreateSessionTabs()
+    public async Task CurrentServerWorkspace_ShouldCreateSessionTabs()
     {
         // FR-12.1.3: tabbed session interface
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
 
         vm.CurrentServerViewModel.Should().NotBeNull();
         var workspace = vm.CurrentServerViewModel!;
-        var initialCount = workspace.Sessions.Count;
 
-        workspace.NewSessionCommand.Execute(null);
+        await WaitForAsync(() => workspace.Sessions.Count > 0);
 
-        workspace.Sessions.Count.Should().BeGreaterThan(initialCount);
+        workspace.Sessions.Count.Should().BeGreaterThan(0);
     }
 
     [AvaloniaFact]
     public void MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
     {
         // FR-12.7, FR-13.1, FR-13.2, FR-13.4, FR-13.5
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
         var window = new MainWindow(vm);
-        window.Show();
 
         window.FindControl<Button>("RefreshSecurityButton").Should().NotBeNull();
         window.FindControl<Button>("BanPeerButton").Should().NotBeNull();
@@ -112,9 +114,8 @@ public sealed class MainWindowUiTests
     public void MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
     {
         // FR-12.4, FR-12.6, FR-13.6, FR-14.1
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
         var window = new MainWindow(vm);
-        window.Show();
 
         window.FindControl<Button>("RefreshPluginsButton").Should().NotBeNull();
         window.FindControl<Button>("SavePluginsButton").Should().NotBeNull();
@@ -146,16 +147,16 @@ public sealed class MainWindowUiTests
     }
 
     [AvaloniaFact]
-    public void LocalServerTab_ShouldExposeDedicatedStatusArea()
+    public void LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
     {
-        // FR: management UI provides dedicated local-server status and start/stop actions in right-side tabs.
+        // FR: management UI provides dedicated local-server status and controls in right-side navigation.
         var axamlPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "MainWindow.axaml");
         var content = File.ReadAllText(axamlPath);
 
-        content.Should().Contain("TabItem Header=\"Local Server\"");
+        content.Should().Contain("ManagementNavigationView");
+        content.Should().Contain("NavigationViewItem");
+        content.Should().Contain("Tag=\"LocalServer\"");
         content.Should().Contain("LocalServerStatusTextBlock");
-        content.Should().Contain("TabCheckLocalServerButton");
-        content.Should().Contain("TabApplyLocalServerActionButton");
         content.Should().Contain("LocalServerStatusText");
         content.Should().Contain("CheckLocalServerCommand");
         content.Should().Contain("ApplyLocalServerActionCommand");
@@ -165,7 +166,7 @@ public sealed class MainWindowUiTests
     public async Task SendCurrentMessage_ShouldPropagatePerRequestContext()
     {
         // FR-12.8, TR-14.1.7: per-request context is attached to outbound messages.
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
         var workspace = vm.CurrentServerViewModel;
         workspace.Should().NotBeNull();
 
@@ -184,6 +185,30 @@ public sealed class MainWindowUiTests
     }
 
     [AvaloniaFact]
+    public void ConnectionDialog_ShouldExposePerRequestContextEditor()
+    {
+        // FR-12.1.2, FR-12.8: connection/session defaults are prompted in a dialog when starting a session.
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var workspace = vm.CurrentServerViewModel;
+        workspace.Should().NotBeNull();
+
+        var dialogVm = new ConnectionSettingsDialogViewModel(
+            new ConnectionSettingsDefaults(
+                workspace!.Host, workspace.Port, workspace.SelectedConnectionMode,
+                workspace.SelectedAgentId, workspace.ApiKey, workspace.PerRequestContext,
+                workspace.ConnectionModes));
+        var dialog = new ConnectionSettingsDialog(dialogVm);
+
+        // Verify all expected editor controls are present in the logical tree
+        var textBoxes = dialog.GetLogicalDescendants().OfType<TextBox>().ToList();
+        textBoxes.Should().HaveCountGreaterThan(4, "dialog requires Host, Port, Agent, ApiKey, and PerRequestContext editors");
+        var comboBoxes = dialog.GetLogicalDescendants().OfType<ComboBox>().ToList();
+        comboBoxes.Should().HaveCountGreaterThan(0, "dialog requires a Mode selector");
+
+        dialog.Close();
+    }
+
+    [AvaloniaFact]
     public async Task MainWindow_ShouldSupportSwitchingRegisteredServers()
     {
         // FR-12.9, FR-12.10: multiple server registrations and server-scoped workspace switching.
@@ -197,7 +222,7 @@ public sealed class MainWindowUiTests
             ApiKey = ""
         });
 
-        var vm = new MainWindowViewModel(store, new StubWorkspaceFactory(), new StubLocalServerManager(false));
+        var vm = new MainWindowViewModel(store, new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
         vm.Servers.Count.Should().BeGreaterThanOrEqualTo(2);
 
         vm.SelectedServer = vm.Servers.First(x => x.ServerId == "srv-2");
@@ -212,7 +237,8 @@ public sealed class MainWindowUiTests
     public async Task CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts()
     {
         var localServer = new StubLocalServerManager(false);
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer);
+        var dispatcher = CreateDispatcher(localServer);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer, dispatcher);
 
         vm.CheckLocalServerCommand.Execute(null);
         await WaitForAsync(() => vm.LocalServerActionLabel == "Start Local Server");
@@ -227,7 +253,8 @@ public sealed class MainWindowUiTests
     public async Task CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops()
     {
         var localServer = new StubLocalServerManager(true);
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer);
+        var dispatcher = CreateDispatcher(localServer);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer, dispatcher);
 
         vm.CheckLocalServerCommand.Execute(null);
         await WaitForAsync(() => vm.LocalServerActionLabel.StartsWith("Stop", StringComparison.Ordinal));
@@ -238,56 +265,87 @@ public sealed class MainWindowUiTests
         vm.LocalServerActionLabel.Should().Be("Start Local Server");
     }
 
-    private sealed class InMemoryServerRegistrationStore : IServerRegistrationStore
+    [AvaloniaFact]
+    public async Task CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure()
     {
-        private readonly List<ServerRegistration> _servers =
-        [
-            new ServerRegistration
-            {
-                ServerId = "srv-local",
-                DisplayName = "Local",
-                Host = "127.0.0.1",
-                Port = 5243,
-                ApiKey = ""
-            }
-        ];
-
-        public IReadOnlyList<ServerRegistration> GetAll() => _servers.ToList();
-
-        public ServerRegistration Upsert(ServerRegistration registration)
+        var failingClient = new StubServerCapacityClient
         {
-            var copy = new ServerRegistration
-            {
-                ServerId = string.IsNullOrWhiteSpace(registration.ServerId) ? Guid.NewGuid().ToString("N") : registration.ServerId,
-                DisplayName = registration.DisplayName,
-                Host = registration.Host,
-                Port = registration.Port,
-                ApiKey = registration.ApiKey
-            };
-            var existing = _servers.FindIndex(x => x.ServerId == copy.ServerId);
-            if (existing >= 0)
-                _servers[existing] = copy;
-            else
-                _servers.Add(copy);
-            return copy;
-        }
+            GetCapacityException = new InvalidOperationException("Capacity check failed (400 Bad Request): capacity endpoint unavailable or unauthorized.")
+        };
+        var vm = new MainWindowViewModel(
+            new InMemoryServerRegistrationStore(),
+            new StubWorkspaceFactory(() => failingClient),
+            new StubLocalServerManager(false),
+            _nullDispatcher);
+        var workspace = vm.CurrentServerViewModel!;
 
-        public bool Delete(string serverId)
-        {
-            return _servers.RemoveAll(x => x.ServerId == serverId) > 0;
-        }
+        workspace.CheckCapacityCommand.Execute(null);
+        await WaitForAsync(() => workspace.StatusText.Contains("Capacity check failed (400 Bad Request)", StringComparison.Ordinal));
+
+        workspace.StatusText.Should().Contain("Capacity check failed (400 Bad Request)");
     }
 
-    private sealed class StubWorkspaceFactory : IServerWorkspaceFactory
+    [AvaloniaFact]
+    public async Task RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure()
+    {
+        var failingClient = new StubServerCapacityClient
+        {
+            GetPluginsException = new InvalidOperationException("Get plugins failed (PermissionDenied): invalid credentials.")
+        };
+        var vm = new MainWindowViewModel(
+            new InMemoryServerRegistrationStore(),
+            new StubWorkspaceFactory(() => failingClient),
+            new StubLocalServerManager(false),
+            _nullDispatcher);
+        var workspace = vm.CurrentServerViewModel!;
+
+        workspace.RefreshPluginsCommand.Execute(null);
+        await WaitForAsync(() => workspace.StatusText.Contains("Command failed:", StringComparison.Ordinal));
+
+        workspace.StatusText.Should().Contain("Get plugins failed (PermissionDenied)");
+    }
+
+    private sealed class InMemoryServerRegistrationStore : IServerRegistrationStore
+    {
+        private readonly TestHelpers.InMemoryServerRegistrationStore _inner = new();
+
+        public IReadOnlyList<ServerRegistration> GetAll() => _inner.GetAll();
+        public ServerRegistration Upsert(ServerRegistration registration) => _inner.Upsert(registration);
+        public bool Delete(string serverId) => _inner.Delete(serverId);
+    }
+
+    private sealed class StubWorkspaceFactory(Func<IServerCapacityClient>? capacityClientFactory = null) : IServerWorkspaceFactory
     {
         public ServerWorkspaceLease Create(ServerRegistration registration)
         {
+            var client = capacityClientFactory?.Invoke() ?? new StubServerCapacityClient();
+            var logStore = new StubStructuredLogStore();
+            var sessionFactory = new StubSessionFactory();
             var context = new CurrentServerContext { Registration = registration };
-            var vm = new ServerWorkspaceViewModel(
-                context,
-                new StubServerCapacityClient(),
-                new StubStructuredLogStore(),
-                new StubSessionFactory());
+            var dispatcher = new TestRequestDispatcher()
+                .Register(new CheckSessionCapacityHandler(client))
+                .Register(new RefreshOpenSessionsHandler(client))
+                .Register(new TerminateOpenServerSessionHandler(client))
+                .Register(new RefreshSecurityDataHandler(client))
+                .Register(new BanPeerHandler(client))
+                .Register(new UnbanPeerHandler(client))
+                .Register(new RefreshAuthUsersHandler(client))
+                .Register(new SaveAuthUserHandler(client))
+                .Register(new DeleteAuthUserHandler(client))
+                .Register(new RefreshPluginsHandler(client))
+                .Register(new SavePluginsHandler(client))
+                .Register(new RefreshMcpRegistryHandler(client))
+                .Register(new SaveMcpServerHandler(client))
+                .Register(new DeleteMcpServerHandler(client))
+                .Register(new SaveAgentMcpMappingHandler(client))
+                .Register(new RefreshPromptTemplatesHandler(client))
+                .Register(new SavePromptTemplateHandler(client))
+                .Register(new DeletePromptTemplateHandler(client))
+                .Register(new SeedSessionContextHandler(client))
+                .Register(new CreateDesktopSessionHandler(client, sessionFactory))
+                .Register(new TerminateDesktopSessionHandler())
+                .Register(new SendDesktopMessageHandler());
+            var vm = new ServerWorkspaceViewModel(context, client, logStore, sessionFactory, dispatcher);
             return new ServerWorkspaceLease(new DummyScope(), vm);
         }
 
@@ -300,8 +358,14 @@ public sealed class MainWindowUiTests
 
     private sealed class StubServerCapacityClient : IServerCapacityClient
     {
+        public Exception? GetCapacityException { get; init; }
+        public Exception? GetPluginsException { get; init; }
+
         public Task<RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot?> GetCapacityAsync(string host, int port, string? agentId, string? apiKey, CancellationToken cancellationToken = default)
         {
+            if (GetCapacityException != null)
+                return Task.FromException<RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot?>(GetCapacityException);
+
             return Task.FromResult<RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot?>(
                 new RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot(true, "", 10, 0, 10, agentId ?? "", 10, 0, 10));
         }
@@ -340,7 +404,11 @@ public sealed class MainWindowUiTests
             => Task.FromResult(true);
 
         public Task<PluginConfigurationSnapshot?> GetPluginsAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default)
-            => Task.FromResult<PluginConfigurationSnapshot?>(new PluginConfigurationSnapshot(["plugins/A.dll"], ["process"], true, ""));
+        {
+            if (GetPluginsException != null)
+                return Task.FromException<PluginConfigurationSnapshot?>(GetPluginsException);
+            return Task.FromResult<PluginConfigurationSnapshot?>(new PluginConfigurationSnapshot(["plugins/A.dll"], ["process"], true, ""));
+        }
 
         public Task<PluginConfigurationSnapshot?> UpdatePluginsAsync(string host, int port, IEnumerable<string> assemblies, string? apiKey, CancellationToken cancellationToken = default)
             => Task.FromResult<PluginConfigurationSnapshot?>(new PluginConfigurationSnapshot(assemblies.ToList(), ["process"], true, "updated"));
@@ -492,6 +560,29 @@ public sealed class MainWindowUiTests
             LastAction = "stop";
             return Task.FromResult(new LocalServerActionResult(true, "Local server stopped."));
         }
+    }
+
+    private sealed class NullRequestDispatcher : IRequestDispatcher
+    {
+        public Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult(default(TResponse)!);
+        }
+    }
+
+    private static readonly IRequestDispatcher _nullDispatcher = new NullRequestDispatcher();
+
+    private static IRequestDispatcher CreateDispatcher(ILocalServerManager localServerManager)
+    {
+        var services = new ServiceCollection();
+        services.AddSingleton(localServerManager);
+        services.AddTransient<IRequestHandler<CheckLocalServerRequest, CommandResult<LocalServerProbeResult>>, CheckLocalServerHandler>();
+        services.AddTransient<IRequestHandler<ApplyLocalServerActionRequest, CommandResult<LocalServerProbeResult>>, ApplyLocalServerActionHandler>();
+        services.AddTransient<IRequestHandler<SetManagementSectionRequest, Unit>, SetManagementSectionHandler>();
+        services.AddTransient<IRequestHandler<ExpandStatusLogPanelRequest, Unit>, ExpandStatusLogPanelHandler>();
+        services.AddLogging();
+        var sp = services.BuildServiceProvider();
+        return new ServiceProviderRequestDispatcher(sp, sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<ServiceProviderRequestDispatcher>>());
     }
 
     private static async Task WaitForAsync(Func<bool> condition, int attempts = 50, int delayMs = 20)

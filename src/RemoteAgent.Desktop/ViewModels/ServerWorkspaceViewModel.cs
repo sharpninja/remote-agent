@@ -6,8 +6,10 @@ using Avalonia;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using RemoteAgent.App.Logic;
+using RemoteAgent.App.Logic.Cqrs;
 using RemoteAgent.Desktop.Infrastructure;
 using RemoteAgent.Desktop.Logging;
+using RemoteAgent.Desktop.Requests;
 using RemoteAgent.Proto;
 
 namespace RemoteAgent.Desktop.ViewModels;
@@ -18,6 +20,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
     private readonly IServerCapacityClient _serverCapacityClient;
     private readonly IDesktopStructuredLogStore _structuredLogStore;
     private readonly IDesktopSessionViewModelFactory _sessionViewModelFactory;
+    private readonly IRequestDispatcher _dispatcher;
     private readonly Dictionary<DesktopSessionViewModel, (Action<RemoteAgent.App.Services.ChatMessage> OnMessage, Action OnConnectionStateChanged)> _sessionEventHandlers = [];
     private CancellationTokenSource? _logMonitorCts;
     private DesktopSessionViewModel? _selectedSession;
@@ -76,12 +79,14 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
         CurrentServerContext serverContext,
         IServerCapacityClient serverCapacityClient,
         IDesktopStructuredLogStore structuredLogStore,
-        IDesktopSessionViewModelFactory sessionViewModelFactory)
+        IDesktopSessionViewModelFactory sessionViewModelFactory,
+        IRequestDispatcher dispatcher)
     {
         _serverContext = serverContext;
         _serverCapacityClient = serverCapacityClient;
         _structuredLogStore = structuredLogStore;
         _sessionViewModelFactory = sessionViewModelFactory;
+        _dispatcher = dispatcher;
 
         if (_serverContext.Registration != null)
         {
@@ -91,42 +96,42 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
             _logServerIdFilter = _serverContext.Registration.ServerId;
         }
 
-        NewSessionCommand = new RelayCommand(() => _ = NewSessionAsync());
-        CheckCapacityCommand = new RelayCommand(() => _ = CheckCapacityAsync());
-        RefreshOpenSessionsCommand = new RelayCommand(() => _ = RefreshOpenSessionsAsync());
-        TerminateOpenServerSessionCommand = new RelayCommand(() => _ = TerminateSelectedOpenServerSessionAsync(), () => SelectedOpenServerSession != null);
-        TerminateCurrentSessionCommand = new RelayCommand(() => _ = TerminateCurrentSessionAsync(), () => SelectedSession != null);
-        TerminateSessionCommand = new RelayCommand<DesktopSessionViewModel>(session => _ = TerminateSessionAsync(session), session => session != null);
-        SendCurrentMessageCommand = new RelayCommand(() => _ = SendCurrentMessageAsync(), () => SelectedSession != null);
-        RefreshSecurityDataCommand = new RelayCommand(() => _ = RefreshSecurityDataAsync());
-        BanSelectedPeerCommand = new RelayCommand(() => _ = BanSelectedPeerAsync(), () => SelectedConnectedPeer != null);
-        UnbanSelectedPeerCommand = new RelayCommand(() => _ = UnbanSelectedPeerAsync(), () => SelectedBannedPeer != null);
-        RefreshAuthUsersCommand = new RelayCommand(() => _ = RefreshAuthUsersAsync());
-        SaveAuthUserCommand = new RelayCommand(() => _ = SaveAuthUserAsync());
-        DeleteAuthUserCommand = new RelayCommand(() => _ = DeleteSelectedAuthUserAsync(), () => SelectedAuthUser != null);
-        RefreshPluginsCommand = new RelayCommand(() => _ = RefreshPluginsAsync());
-        SavePluginsCommand = new RelayCommand(() => _ = SavePluginsAsync());
-        RefreshMcpCommand = new RelayCommand(() => _ = RefreshMcpAsync());
-        SaveMcpServerCommand = new RelayCommand(() => _ = SaveMcpServerAsync());
-        DeleteMcpServerCommand = new RelayCommand(() => _ = DeleteSelectedMcpServerAsync(), () => SelectedMcpServer != null);
-        SaveAgentMcpMappingCommand = new RelayCommand(() => _ = SaveAgentMcpMappingAsync());
-        RefreshPromptTemplatesCommand = new RelayCommand(() => _ = RefreshPromptTemplatesAsync());
-        SavePromptTemplateCommand = new RelayCommand(() => _ = SavePromptTemplateAsync());
-        DeletePromptTemplateCommand = new RelayCommand(() => _ = DeleteSelectedPromptTemplateAsync(), () => SelectedPromptTemplate != null);
-        SeedContextCommand = new RelayCommand(() => _ = SeedContextAsync());
-        ToggleThemeCommand = new RelayCommand(ToggleTheme);
-        StartLogMonitoringCommand = new RelayCommand(() => _ = StartLogMonitoringAsync());
-        StopLogMonitoringCommand = new RelayCommand(StopLogMonitoring);
-        ApplyLogFilterCommand = new RelayCommand(ReloadStructuredLogs);
-        ClearLogFilterCommand = new RelayCommand(ClearLogFilter);
+        NewSessionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting new session...", NewSessionAsync));
+        CheckCapacityCommand = new RelayCommand(() => _ = RunCommandAsync("Starting capacity check...", CheckCapacityAsync));
+        RefreshOpenSessionsCommand = new RelayCommand(() => _ = RunCommandAsync("Starting open sessions refresh...", RefreshOpenSessionsAsync));
+        TerminateOpenServerSessionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting open session termination...", TerminateSelectedOpenServerSessionAsync), () => SelectedOpenServerSession != null);
+        TerminateCurrentSessionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting current session termination...", TerminateCurrentSessionAsync), () => SelectedSession != null);
+        TerminateSessionCommand = new RelayCommand<DesktopSessionViewModel>(session => _ = RunCommandAsync("Starting session termination...", () => TerminateSessionAsync(session)), session => session != null);
+        SendCurrentMessageCommand = new RelayCommand(() => _ = RunCommandAsync("Starting message send...", SendCurrentMessageAsync), () => SelectedSession != null);
+        RefreshSecurityDataCommand = new RelayCommand(() => _ = RunCommandAsync("Starting security refresh...", RefreshSecurityDataAsync));
+        BanSelectedPeerCommand = new RelayCommand(() => _ = RunCommandAsync("Starting peer ban...", BanSelectedPeerAsync), () => SelectedConnectedPeer != null);
+        UnbanSelectedPeerCommand = new RelayCommand(() => _ = RunCommandAsync("Starting peer unban...", UnbanSelectedPeerAsync), () => SelectedBannedPeer != null);
+        RefreshAuthUsersCommand = new RelayCommand(() => _ = RunCommandAsync("Starting auth users refresh...", RefreshAuthUsersAsync));
+        SaveAuthUserCommand = new RelayCommand(() => _ = RunCommandAsync("Starting auth user save...", SaveAuthUserAsync));
+        DeleteAuthUserCommand = new RelayCommand(() => _ = RunCommandAsync("Starting auth user delete...", DeleteSelectedAuthUserAsync), () => SelectedAuthUser != null);
+        RefreshPluginsCommand = new RelayCommand(() => _ = RunCommandAsync("Starting plugins refresh...", RefreshPluginsAsync));
+        SavePluginsCommand = new RelayCommand(() => _ = RunCommandAsync("Starting plugins save...", SavePluginsAsync));
+        RefreshMcpCommand = new RelayCommand(() => _ = RunCommandAsync("Starting MCP refresh...", RefreshMcpAsync));
+        SaveMcpServerCommand = new RelayCommand(() => _ = RunCommandAsync("Starting MCP server save...", SaveMcpServerAsync));
+        DeleteMcpServerCommand = new RelayCommand(() => _ = RunCommandAsync("Starting MCP server delete...", DeleteSelectedMcpServerAsync), () => SelectedMcpServer != null);
+        SaveAgentMcpMappingCommand = new RelayCommand(() => _ = RunCommandAsync("Starting MCP agent mapping save...", SaveAgentMcpMappingAsync));
+        RefreshPromptTemplatesCommand = new RelayCommand(() => _ = RunCommandAsync("Starting prompt templates refresh...", RefreshPromptTemplatesAsync));
+        SavePromptTemplateCommand = new RelayCommand(() => _ = RunCommandAsync("Starting prompt template save...", SavePromptTemplateAsync));
+        DeletePromptTemplateCommand = new RelayCommand(() => _ = RunCommandAsync("Starting prompt template delete...", DeleteSelectedPromptTemplateAsync), () => SelectedPromptTemplate != null);
+        SeedContextCommand = new RelayCommand(() => _ = RunCommandAsync("Starting session context seed...", SeedContextAsync));
+        ToggleThemeCommand = new RelayCommand(() => RunCommand("Starting theme toggle...", ToggleTheme));
+        StartLogMonitoringCommand = new RelayCommand(() => _ = RunCommandAsync("Starting log monitoring...", StartLogMonitoringAsync));
+        StopLogMonitoringCommand = new RelayCommand(() => RunCommand("Starting log monitoring stop...", StopLogMonitoring));
+        ApplyLogFilterCommand = new RelayCommand(() => RunCommand("Starting log filter apply...", ReloadStructuredLogs));
+        ClearLogFilterCommand = new RelayCommand(() => RunCommand("Starting log filter clear...", ClearLogFilter));
 
-        _ = NewSessionAsync();
-        _ = RefreshOpenSessionsAsync();
-        _ = RefreshSecurityDataAsync();
-        _ = RefreshAuthUsersAsync();
-        _ = RefreshPluginsAsync();
-        _ = RefreshMcpAsync();
-        _ = RefreshPromptTemplatesAsync();
+        ObserveBackgroundTask(NewSessionAsync(), "initial session load");
+        ObserveBackgroundTask(RefreshOpenSessionsAsync(), "initial open sessions refresh");
+        ObserveBackgroundTask(RefreshSecurityDataAsync(), "initial security refresh");
+        ObserveBackgroundTask(RefreshAuthUsersAsync(), "initial auth users refresh");
+        ObserveBackgroundTask(RefreshPluginsAsync(), "initial plugins refresh");
+        ObserveBackgroundTask(RefreshMcpAsync(), "initial MCP refresh");
+        ObserveBackgroundTask(RefreshPromptTemplatesAsync(), "initial prompt templates refresh");
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -777,245 +782,80 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
 
     private async Task NewSessionAsync()
     {
-        if (string.Equals(SelectedConnectionMode, "server", StringComparison.OrdinalIgnoreCase))
-        {
-            var capacity = await CheckCapacityAsync();
-            if (capacity == null || !capacity.CanCreateSession)
-            {
-                StatusText = capacity?.Reason ?? "Could not verify session capacity.";
-                return;
-            }
-        }
-
-        var session = _sessionViewModelFactory.Create(
-            $"Session {Sessions.Count + 1}",
-            SelectedConnectionMode,
-            SelectedAgentId);
-        session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] session initialized ({session.ConnectionMode}).");
-
-        Sessions.Add(session);
-        SelectedSession = session;
-        StatusText = $"Created {session.Title}. Connecting...";
-        await ConnectSessionAsync(session);
+        var host = (Host ?? "").Trim();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        var title = $"Session {Sessions.Count + 1}";
+        await _dispatcher.SendAsync(new CreateDesktopSessionRequest(Guid.NewGuid(), title, host, port, SelectedConnectionMode, SelectedAgentId, ApiKey, PerRequestContext, Workspace: this));
     }
 
-    private async Task<RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot?> CheckCapacityAsync()
+    private async Task CheckCapacityAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return null;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return null;
-        }
-
-        var snapshot = await _serverCapacityClient.GetCapacityAsync(
-            host,
-            port,
-            SelectedAgentId,
-            ApiKey);
-
-        if (snapshot == null)
-        {
-            CapacitySummary = "Capacity check failed.";
-            StatusText = "Capacity endpoint unavailable or unauthorized.";
-            return null;
-        }
-
-        CapacitySummary =
-            $"Server {snapshot.ActiveSessionCount}/{snapshot.MaxConcurrentSessions} active, remaining {snapshot.RemainingServerCapacity}; " +
-            $"Agent {snapshot.AgentActiveSessionCount}/{snapshot.AgentMaxConcurrentSessions?.ToString() ?? "-"}.";
-        StatusText = snapshot.CanCreateSession ? "Capacity available." : snapshot.Reason;
-        return snapshot;
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new CheckSessionCapacityRequest(Guid.NewGuid(), host, port, SelectedAgentId, ApiKey, Workspace: this));
     }
 
     private async Task RefreshOpenSessionsAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var sessions = await _serverCapacityClient.GetOpenSessionsAsync(host, port, ApiKey);
-        OpenServerSessions.Clear();
-        foreach (var session in sessions)
-            OpenServerSessions.Add(session);
-
-        SelectedOpenServerSession = OpenServerSessions.FirstOrDefault();
-        StatusText = $"Loaded {OpenServerSessions.Count} open server session(s).";
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new RefreshOpenSessionsRequest(Guid.NewGuid(), host, port, ApiKey, Workspace: this));
     }
 
     private async Task RefreshSecurityDataAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var abandoned = await _serverCapacityClient.GetAbandonedSessionsAsync(host, port, ApiKey);
-        AbandonedServerSessions.Clear();
-        foreach (var row in abandoned)
-            AbandonedServerSessions.Add(row);
-
-        var peers = await _serverCapacityClient.GetConnectedPeersAsync(host, port, ApiKey);
-        ConnectedPeers.Clear();
-        foreach (var peer in peers)
-            ConnectedPeers.Add(peer);
-        SelectedConnectedPeer = ConnectedPeers.FirstOrDefault();
-
-        var history = await _serverCapacityClient.GetConnectionHistoryAsync(host, port, 500, ApiKey);
-        ConnectionHistory.Clear();
-        foreach (var row in history)
-            ConnectionHistory.Add(row);
-
-        var banned = await _serverCapacityClient.GetBannedPeersAsync(host, port, ApiKey);
-        BannedPeers.Clear();
-        foreach (var row in banned)
-            BannedPeers.Add(row);
-        SelectedBannedPeer = BannedPeers.FirstOrDefault();
-
-        StatusText = $"Security data refreshed ({ConnectedPeers.Count} peer(s), {BannedPeers.Count} banned).";
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new RefreshSecurityDataRequest(Guid.NewGuid(), host, port, ApiKey, Workspace: this));
     }
 
     private async Task TerminateSelectedOpenServerSessionAsync()
     {
         var selected = SelectedOpenServerSession;
-        if (selected == null)
-            return;
-
+        if (selected == null) return;
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var terminated = await _serverCapacityClient.TerminateSessionAsync(host, port, selected.SessionId, ApiKey);
-        if (!terminated)
-        {
-            StatusText = $"Failed to terminate server session {selected.SessionId}.";
-            return;
-        }
-
-        StatusText = $"Terminated server session {selected.SessionId}.";
-        await RefreshOpenSessionsAsync();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new TerminateOpenServerSessionRequest(Guid.NewGuid(), host, port, selected.SessionId, ApiKey, Workspace: this));
     }
 
     private async Task BanSelectedPeerAsync()
     {
         var selected = SelectedConnectedPeer;
-        if (selected == null)
-            return;
-
+        if (selected == null) return;
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var ok = await _serverCapacityClient.BanPeerAsync(host, port, selected.Peer, BanReason, ApiKey);
-        StatusText = ok ? $"Peer banned: {selected.Peer}" : $"Failed to ban peer: {selected.Peer}";
-        await RefreshSecurityDataAsync();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new BanPeerRequest(Guid.NewGuid(), host, port, selected.Peer, BanReason, ApiKey, Workspace: this));
     }
 
     private async Task UnbanSelectedPeerAsync()
     {
         var selected = SelectedBannedPeer;
-        if (selected == null)
-            return;
-
+        if (selected == null) return;
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var ok = await _serverCapacityClient.UnbanPeerAsync(host, port, selected.Peer, ApiKey);
-        StatusText = ok ? $"Peer unbanned: {selected.Peer}" : $"Failed to unban peer: {selected.Peer}";
-        await RefreshSecurityDataAsync();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new UnbanPeerRequest(Guid.NewGuid(), host, port, selected.Peer, ApiKey, Workspace: this));
     }
 
     private async Task RefreshAuthUsersAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-            return;
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-            return;
-
-        var roles = await _serverCapacityClient.GetPermissionRolesAsync(host, port, ApiKey);
-        PermissionRoles.Clear();
-        foreach (var role in roles)
-            PermissionRoles.Add(role);
-        if (PermissionRoles.Count == 0)
-            PermissionRoles.Add("viewer");
-
-        if (!PermissionRoles.Contains(AuthRole, StringComparer.OrdinalIgnoreCase))
-            AuthRole = PermissionRoles.First();
-
-        var users = await _serverCapacityClient.GetAuthUsersAsync(host, port, ApiKey);
-        AuthUsers.Clear();
-        foreach (var user in users)
-            AuthUsers.Add(user);
-        SelectedAuthUser = AuthUsers.FirstOrDefault();
+        if (string.IsNullOrWhiteSpace(host)) return;
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) return;
+        await _dispatcher.SendAsync(new RefreshAuthUsersRequest(Guid.NewGuid(), host, port, ApiKey, Workspace: this));
     }
 
     private async Task SaveAuthUserAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
         var payload = new AuthUserSnapshot(
             UserId: AuthUserId,
             DisplayName: AuthDisplayName,
@@ -1023,137 +863,53 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
             Enabled: AuthEnabled,
             CreatedUtc: DateTimeOffset.UtcNow,
             UpdatedUtc: DateTimeOffset.UtcNow);
-        var saved = await _serverCapacityClient.UpsertAuthUserAsync(host, port, payload, ApiKey);
-        if (saved == null)
-        {
-            StatusText = "Failed to save auth user.";
-            return;
-        }
-
-        StatusText = $"Saved auth user {saved.UserId} ({saved.Role}).";
-        await RefreshAuthUsersAsync();
-        SelectedAuthUser = AuthUsers.FirstOrDefault(x => string.Equals(x.UserId, saved.UserId, StringComparison.OrdinalIgnoreCase));
+        await _dispatcher.SendAsync(new SaveAuthUserRequest(Guid.NewGuid(), host, port, payload, ApiKey, Workspace: this));
     }
 
     private async Task DeleteSelectedAuthUserAsync()
     {
         var selected = SelectedAuthUser;
-        if (selected == null)
-            return;
-
+        if (selected == null) return;
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var ok = await _serverCapacityClient.DeleteAuthUserAsync(host, port, selected.UserId, ApiKey);
-        StatusText = ok ? $"Deleted auth user {selected.UserId}." : $"Failed to delete auth user {selected.UserId}.";
-        await RefreshAuthUsersAsync();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new DeleteAuthUserRequest(Guid.NewGuid(), host, port, selected.UserId, ApiKey, Workspace: this));
     }
 
     private async Task RefreshPluginsAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-            return;
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-            return;
-
-        var snapshot = await _serverCapacityClient.GetPluginsAsync(host, port, ApiKey);
-        if (snapshot == null)
-        {
-            PluginStatus = "Failed to load plugin configuration.";
-            return;
-        }
-
-        ConfiguredPluginAssemblies.Clear();
-        foreach (var assembly in snapshot.ConfiguredAssemblies)
-            ConfiguredPluginAssemblies.Add(assembly);
-
-        LoadedPluginRunnerIds.Clear();
-        foreach (var runnerId in snapshot.LoadedRunnerIds)
-            LoadedPluginRunnerIds.Add(runnerId);
-
-        PluginAssembliesText = string.Join(Environment.NewLine, ConfiguredPluginAssemblies);
-        PluginStatus = $"Loaded {ConfiguredPluginAssemblies.Count} configured assembly(ies), {LoadedPluginRunnerIds.Count} loaded runner(s).";
+        if (string.IsNullOrWhiteSpace(host)) return;
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) return;
+        await _dispatcher.SendAsync(new RefreshPluginsRequest(Guid.NewGuid(), host, port, ApiKey, Workspace: this));
     }
 
     private async Task SavePluginsAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
         var assemblies = (PluginAssembliesText ?? "")
             .Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
-        var result = await _serverCapacityClient.UpdatePluginsAsync(host, port, assemblies, ApiKey);
-        if (result == null)
-        {
-            PluginStatus = "Failed to save plugin configuration.";
-            return;
-        }
-
-        PluginStatus = string.IsNullOrWhiteSpace(result.Message)
-            ? "Plugin configuration updated."
-            : result.Message;
-        await RefreshPluginsAsync();
+        await _dispatcher.SendAsync(new SavePluginsRequest(Guid.NewGuid(), host, port, assemblies, ApiKey, Workspace: this));
     }
 
     private async Task RefreshMcpAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-            return;
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-            return;
-
-        var servers = await _serverCapacityClient.ListMcpServersAsync(host, port, ApiKey);
-        McpServers.Clear();
-        foreach (var row in servers)
-            McpServers.Add(row);
-        SelectedMcpServer = McpServers.FirstOrDefault();
-
-        var mapping = await _serverCapacityClient.GetAgentMcpServersAsync(host, port, SelectedAgentId, ApiKey);
-        AgentMcpServerIdsText = mapping == null
-            ? ""
-            : string.Join(Environment.NewLine, mapping.ServerIds);
-
-        McpStatus = $"Loaded {McpServers.Count} MCP server(s) for registry.";
+        if (string.IsNullOrWhiteSpace(host)) return;
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) return;
+        await _dispatcher.SendAsync(new RefreshMcpRegistryRequest(Guid.NewGuid(), host, port, ApiKey, Workspace: this));
     }
 
     private async Task SaveMcpServerAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
         var definition = new McpServerDefinition
         {
             ServerId = McpServerId?.Trim() ?? "",
@@ -1166,99 +922,45 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
         };
         definition.Arguments.AddRange((McpArguments ?? "")
             .Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
-
-        var saved = await _serverCapacityClient.UpsertMcpServerAsync(host, port, definition, ApiKey);
-        if (saved == null)
-        {
-            McpStatus = "Failed to save MCP server.";
-            return;
-        }
-
-        McpStatus = $"Saved MCP server '{saved.ServerId}'.";
-        await RefreshMcpAsync();
-        SelectedMcpServer = McpServers.FirstOrDefault(x => string.Equals(x.ServerId, saved.ServerId, StringComparison.OrdinalIgnoreCase));
+        await _dispatcher.SendAsync(new SaveMcpServerRequest(Guid.NewGuid(), host, port, definition, ApiKey, Workspace: this));
     }
 
     private async Task DeleteSelectedMcpServerAsync()
     {
         var selected = SelectedMcpServer;
-        if (selected == null)
-            return;
-
+        if (selected == null) return;
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var ok = await _serverCapacityClient.DeleteMcpServerAsync(host, port, selected.ServerId, ApiKey);
-        McpStatus = ok ? $"Deleted MCP server '{selected.ServerId}'." : $"Failed to delete MCP server '{selected.ServerId}'.";
-        await RefreshMcpAsync();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), host, port, selected.ServerId, ApiKey, Workspace: this));
     }
 
     private async Task SaveAgentMcpMappingAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
         var ids = (AgentMcpServerIdsText ?? "")
             .Split(['\r', '\n', ',', ';'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
-
-        var ok = await _serverCapacityClient.SetAgentMcpServersAsync(host, port, SelectedAgentId, ids, ApiKey);
-        McpStatus = ok
-            ? $"Saved MCP mapping for agent '{SelectedAgentId}'."
-            : $"Failed to save MCP mapping for agent '{SelectedAgentId}'.";
-        await RefreshMcpAsync();
+        await _dispatcher.SendAsync(new SaveAgentMcpMappingRequest(Guid.NewGuid(), host, port, SelectedAgentId, ids, ApiKey, Workspace: this));
     }
 
     private async Task RefreshPromptTemplatesAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-            return;
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-            return;
-
-        var rows = await _serverCapacityClient.ListPromptTemplatesAsync(host, port, ApiKey);
-        PromptTemplates.Clear();
-        foreach (var row in rows)
-            PromptTemplates.Add(row);
-        SelectedPromptTemplate = PromptTemplates.FirstOrDefault();
-        PromptTemplateStatus = $"Loaded {PromptTemplates.Count} prompt template(s).";
+        if (string.IsNullOrWhiteSpace(host)) return;
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) return;
+        await _dispatcher.SendAsync(new RefreshPromptTemplatesRequest(Guid.NewGuid(), host, port, ApiKey, Workspace: this));
     }
 
     private async Task SavePromptTemplateAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
         var template = new PromptTemplateDefinition
         {
             TemplateId = PromptTemplateId ?? "",
@@ -1266,108 +968,43 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
             Description = PromptTemplateDescription ?? "",
             TemplateContent = PromptTemplateContent ?? ""
         };
-        var saved = await _serverCapacityClient.UpsertPromptTemplateAsync(host, port, template, ApiKey);
-        if (saved == null)
-        {
-            PromptTemplateStatus = "Failed to save prompt template.";
-            return;
-        }
-
-        PromptTemplateStatus = $"Saved template '{saved.TemplateId}'.";
-        await RefreshPromptTemplatesAsync();
-        SelectedPromptTemplate = PromptTemplates.FirstOrDefault(x => string.Equals(x.TemplateId, saved.TemplateId, StringComparison.OrdinalIgnoreCase));
+        await _dispatcher.SendAsync(new SavePromptTemplateRequest(Guid.NewGuid(), host, port, template, ApiKey, Workspace: this));
     }
 
     private async Task DeleteSelectedPromptTemplateAsync()
     {
         var selected = SelectedPromptTemplate;
-        if (selected == null)
-            return;
-
+        if (selected == null) return;
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var ok = await _serverCapacityClient.DeletePromptTemplateAsync(host, port, selected.TemplateId, ApiKey);
-        PromptTemplateStatus = ok ? $"Deleted template '{selected.TemplateId}'." : $"Failed to delete template '{selected.TemplateId}'.";
-        await RefreshPromptTemplatesAsync();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new Requests.DeletePromptTemplateRequest(Guid.NewGuid(), host, port, selected.TemplateId, ApiKey, Workspace: this));
     }
 
     private async Task SeedContextAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-        if (string.IsNullOrWhiteSpace(SeedSessionId))
-        {
-            SeedStatus = "Seed session id is required.";
-            return;
-        }
-        if (string.IsNullOrWhiteSpace(SeedContent))
-        {
-            SeedStatus = "Seed content is required.";
-            return;
-        }
-
-        var ok = await _serverCapacityClient.SeedSessionContextAsync(
-            host,
-            port,
-            SeedSessionId,
-            SeedContextType,
-            SeedContent,
-            SeedSource,
-            Guid.NewGuid().ToString("N"),
-            ApiKey);
-        SeedStatus = ok
-            ? $"Seed context queued for session '{SeedSessionId}'."
-            : $"Failed to seed context for session '{SeedSessionId}'.";
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        if (string.IsNullOrWhiteSpace(SeedSessionId)) { SeedStatus = "Seed session id is required."; return; }
+        if (string.IsNullOrWhiteSpace(SeedContent)) { SeedStatus = "Seed content is required."; return; }
+        await _dispatcher.SendAsync(new Requests.SeedSessionContextRequest(Guid.NewGuid(), host, port, SeedSessionId, SeedContextType, SeedContent, SeedSource, ApiKey, Workspace: this));
     }
 
     private async Task StartLogMonitoringAsync()
     {
         var host = (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            LogMonitorStatus = "Host is required.";
-            return;
-        }
-
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            LogMonitorStatus = "Port must be 1-65535.";
-            return;
-        }
+        if (string.IsNullOrWhiteSpace(host)) { LogMonitorStatus = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { LogMonitorStatus = "Port must be 1-65535."; return; }
 
         StopLogMonitoring();
         _logMonitorCts = new CancellationTokenSource();
         var ct = _logMonitorCts.Token;
 
         var replayFromOffset = _structuredLogStore.GetMaxEventId(host, port, CurrentServerId);
-        var snapshot = await ServerApiClient.GetStructuredLogsSnapshotAsync(host, port, replayFromOffset, 5000, ApiKey, ct);
-        if (snapshot != null)
-        {
-            IngestStructuredLogs(host, port, snapshot.Entries);
-            ReloadStructuredLogs();
-        }
-
-        var fromOffset = snapshot?.NextOffset ?? replayFromOffset;
-        LogMonitorStatus = $"Monitoring logs from {host}:{port} (offset {fromOffset}).";
+        var result = await _dispatcher.SendAsync(new StartLogMonitoringRequest(Guid.NewGuid(), host, port, ApiKey, CurrentServerId, replayFromOffset, Workspace: this));
+        if (!result.Success) { LogMonitorStatus = result.ErrorMessage ?? "Log monitoring failed."; return; }
+        var fromOffset = result.Data?.NextOffset ?? replayFromOffset;
 
         _ = Task.Run(async () =>
         {
@@ -1415,7 +1052,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
         LogMonitorStatus = "Log monitor stopped.";
     }
 
-    private void ReloadStructuredLogs()
+    internal void ReloadStructuredLogs()
     {
         var rows = _structuredLogStore.Query(BuildLogFilter(), 5000);
         VisibleStructuredLogs.Clear();
@@ -1466,7 +1103,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
         return parsed.ToUniversalTime();
     }
 
-    private void IngestStructuredLogs(string host, int port, IEnumerable<StructuredLogEntry> entries)
+    internal void IngestStructuredLogs(string host, int port, IEnumerable<StructuredLogEntry> entries)
     {
         var rows = entries
             .Select(x => ToDesktopStructuredLog(CurrentServerId, _serverContext.Registration?.DisplayName ?? "", host, port, x))
@@ -1563,57 +1200,23 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
         if (SelectedSession == null)
             return;
 
-        await TerminateSessionAsync(SelectedSession);
+        await _dispatcher.SendAsync(new TerminateDesktopSessionRequest(Guid.NewGuid(), SelectedSession, Workspace: this));
     }
 
     private async Task SendCurrentMessageAsync()
     {
         var session = SelectedSession;
-        if (session == null)
-            return;
-
-        var text = session.PendingMessage?.TrimEnd() ?? "";
-        if (string.IsNullOrWhiteSpace(text))
-            return;
-
-        if (!session.SessionClient.IsConnected)
-            await ConnectSessionAsync(session);
-
-        session.SessionClient.PerRequestContext = (PerRequestContext ?? "").Trim();
-        await session.SessionClient.SendTextAsync(text);
-
-        session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] user: {text}");
-        session.PendingMessage = "";
-        StatusText = $"Sent message to {session.Title} ({session.ConnectionMode}).";
+        if (session == null) return;
+        var host = (Host ?? "").Trim();
+        if (string.IsNullOrWhiteSpace(host)) { StatusText = "Host is required."; return; }
+        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535) { StatusText = "Port must be 1-65535."; return; }
+        await _dispatcher.SendAsync(new SendDesktopMessageRequest(Guid.NewGuid(), session, host, port, ApiKey, PerRequestContext));
     }
 
     private async Task TerminateSessionAsync(DesktopSessionViewModel? session)
     {
-        if (session == null)
-            return;
-
-        try
-        {
-            if (session.SessionClient.IsConnected)
-                await session.SessionClient.StopSessionAsync();
-        }
-        catch
-        {
-            // no-op
-        }
-
-        session.SessionClient.Disconnect();
-        if (_sessionEventHandlers.TryGetValue(session, out var handlers))
-        {
-            session.SessionClient.MessageReceived -= handlers.OnMessage;
-            session.SessionClient.ConnectionStateChanged -= handlers.OnConnectionStateChanged;
-            _sessionEventHandlers.Remove(session);
-        }
-
-        var title = session.Title;
-        Sessions.Remove(session);
-        SelectedSession = Sessions.FirstOrDefault();
-        StatusText = $"Terminated {title}.";
+        if (session == null) return;
+        await _dispatcher.SendAsync(new TerminateDesktopSessionRequest(Guid.NewGuid(), session, Workspace: this));
     }
 
     private static void ToggleTheme()
@@ -1630,5 +1233,53 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private void RunCommand(string startMessage, Action action)
+    {
+        StatusText = startMessage;
+        try
+        {
+            var before = StatusText;
+            action();
+            if (StatusText == before)
+                StatusText = "Command completed.";
+        }
+        catch (Exception ex)
+        {
+            StatusText = $"Command failed: {ex.Message}";
+        }
+    }
+
+    private async Task RunCommandAsync(string startMessage, Func<Task> action)
+    {
+        StatusText = startMessage;
+        try
+        {
+            var before = StatusText;
+            await action();
+            if (StatusText == before)
+                StatusText = "Command completed.";
+        }
+        catch (Exception ex)
+        {
+            StatusText = $"Command failed: {ex.Message}";
+        }
+    }
+
+    private void ObserveBackgroundTask(Task task, string operation)
+    {
+        _ = task.ContinueWith(
+            completed =>
+            {
+                if (completed.IsCanceled || completed.Exception == null)
+                    return;
+
+                var error = completed.Exception.GetBaseException().Message;
+                Dispatcher.UIThread.Post(() => StatusText = $"{operation} failed: {error}");
+            },
+            CancellationToken.None,
+            TaskContinuationOptions.OnlyOnFaulted,
+            TaskScheduler.Default);
     }
 }
