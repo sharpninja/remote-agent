@@ -343,6 +343,68 @@ case "$1" in
         fi
       fi
     fi
+
+    # ── Daemonize fallback (WSL / Pengwin without systemd) ──────────────────
+    # When systemd is not the active init (e.g. WSL without systemd=true),
+    # fall back to daemonize to start the service immediately, and write a
+    # [boot] command to /etc/wsl.conf so it auto-starts on every WSL launch.
+    if [ ! -d /run/systemd/system ]; then
+      _svc="/usr/lib/remote-agent/service/RemoteAgent.Service"
+      _log="/var/log/remote-agent/service.log"
+      _err="/var/log/remote-agent/service.err"
+
+      # Write a small wrapper so /etc/wsl.conf [boot] command= stays simple.
+      _wrapper="/usr/lib/remote-agent/service/wsl-start.sh"
+      cat > "$_wrapper" <<'WSLWRAP'
+#!/bin/sh
+# Wrapper started by /etc/wsl.conf [boot] command= (runs as remote-agent).
+export ASPNETCORE_CONTENTROOT=/etc/remote-agent
+exec /usr/lib/remote-agent/service/RemoteAgent.Service \
+  >> /var/log/remote-agent/service.log 2>&1
+WSLWRAP
+      chmod 755 "$_wrapper"
+      chown remote-agent:remote-agent "$_wrapper"
+
+      # Locate daemonize: Pengwin installs to /usr/bin, others to /usr/sbin.
+      _daemonize=""
+      for _p in /usr/bin/daemonize /usr/sbin/daemonize; do
+        if [ -x "$_p" ]; then _daemonize="$_p"; break; fi
+      done
+
+      if [ -x "$_svc" ]; then
+        # Stop any running instance before (re)starting.
+        pkill -f "$_svc" 2>/dev/null || true
+        sleep 1
+
+        if [ -n "$_daemonize" ]; then
+          echo "systemd not active — starting Remote Agent via $_daemonize"
+          su -s /bin/sh -c \
+            "ASPNETCORE_CONTENTROOT=/etc/remote-agent $_daemonize -o $_log -e $_err $_svc" \
+            remote-agent || true
+        else
+          echo "WARNING: daemonize not found; service will not start automatically." >&2
+          echo "  Install it with: sudo apt-get install daemonize" >&2
+        fi
+      fi
+
+      # On WSL: write [boot] command= to /etc/wsl.conf for auto-start.
+      if grep -qEi 'microsoft|wsl' /proc/version 2>/dev/null; then
+        if ! grep -q '^\[boot\]' /etc/wsl.conf 2>/dev/null; then
+          {
+            echo ""
+            echo "[boot]"
+            echo "# Remote Agent: auto-start on WSL launch (systemd not enabled)."
+            echo "# For full systemd support add 'systemd = true' here, then: wsl --shutdown"
+            echo 'command = "su -s /bin/sh remote-agent /usr/lib/remote-agent/service/wsl-start.sh"'
+          } >> /etc/wsl.conf
+          echo "Added [boot] command to /etc/wsl.conf — service will auto-start on WSL launch."
+          echo "Tip: enable systemd for full service management: add 'systemd = true' under [boot]."
+        else
+          echo "NOTE: /etc/wsl.conf already has a [boot] section; skipping auto-start registration." >&2
+          echo "      Add manually to [boot]: command = \"su -s /bin/sh remote-agent /usr/lib/remote-agent/service/wsl-start.sh\"" >&2
+        fi
+      fi
+    fi
     ;;
 esac
 
@@ -359,6 +421,10 @@ case "$1" in
     if command -v systemctl > /dev/null 2>&1; then
       systemctl stop    remote-agent.service 2>/dev/null || true
       systemctl disable remote-agent.service 2>/dev/null || true
+    fi
+    # Fallback: kill the daemonized process directly when systemd is not active.
+    if [ ! -d /run/systemd/system ]; then
+      pkill -f "/usr/lib/remote-agent/service/RemoteAgent.Service" 2>/dev/null || true
     fi
     ;;
 esac
