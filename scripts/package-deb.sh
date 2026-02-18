@@ -146,16 +146,18 @@ if [[ "$BUILD_DESKTOP" == "true" ]]; then
   echo "[package-deb] publishing desktop app (net9.0, $RID)..."
   DESKTOP_PUBLISH="$BUILD_TMP/desktop-publish"
 
-  # Desktop uses net9.0 — its per-directory global.json pins the SDK version.
-  pushd "$REPO_ROOT/src/RemoteAgent.Desktop" >/dev/null
-  dotnet restore RemoteAgent.Desktop.csproj \
+  # Publish from the repo root using SDK 10, which can build both net9.0 (Desktop)
+  # and net10.0 (App.Logic dependency) in one pass. The Desktop project's own
+  # per-directory global.json is intentionally bypassed here; it exists only to
+  # validate SDK-9 compatibility in build-desktop-dotnet9.sh, not for packaging.
+  dotnet restore src/RemoteAgent.Desktop/RemoteAgent.Desktop.csproj \
     --configfile "$NUGET_CONFIG" --ignore-failed-sources
-  dotnet publish RemoteAgent.Desktop.csproj \
+  dotnet publish src/RemoteAgent.Desktop/RemoteAgent.Desktop.csproj \
     -c "$CONFIGURATION" \
     -r "$RID" \
+    -f net9.0 \
     $SC_FLAG \
     -o "$DESKTOP_PUBLISH"
-  popd >/dev/null
 fi
 
 # ══════════════════════════════════════════════════════════════════════════════
