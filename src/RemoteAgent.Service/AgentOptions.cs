@@ -33,10 +33,10 @@ public class AgentOptions
     /// <summary>Data directory for LiteDB and uploaded media (TR-11.1, TR-11.2). Defaults to <c>./data</c>. Media is stored under <c>data/media/</c>.</summary>
     public string? DataDirectory { get; set; }
 
-    /// <summary>Optional API key required from clients via gRPC metadata header <c>x-api-key</c>. When empty, only loopback clients are allowed if <see cref="AllowUnauthenticatedLoopback"/> is true.</summary>
+    /// <summary>Optional API key required from clients via gRPC metadata header <c>x-api-key</c>. Loopback clients can still be allowed without a key when <see cref="AllowUnauthenticatedLoopback"/> is true.</summary>
     public string? ApiKey { get; set; }
 
-    /// <summary>When no <see cref="ApiKey"/> is configured, allows unauthenticated access only from loopback peers. Enabled by default.</summary>
+    /// <summary>Allows unauthenticated access from loopback peers, including when <see cref="ApiKey"/> is configured. Enabled by default.</summary>
     public bool AllowUnauthenticatedLoopback { get; set; } = true;
 
     /// <summary>Enables per-peer connection protection (rate limiting + DoS safeguards).</summary>

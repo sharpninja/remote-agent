@@ -199,7 +199,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
 
         using var response = await client.GetAsync(url, cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return null;
+        {
+            throw await CreateHttpFailureAsync(response, "Capacity check failed", cancellationToken);
+        }
 
         return await response.Content.ReadFromJsonAsync<SessionCapacitySnapshot>(JsonOptions, cancellationToken);
     }
@@ -218,7 +220,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
 
         using var response = await client.GetAsync(url, cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Open sessions query failed", cancellationToken);
 
         var rows = await response.Content.ReadFromJsonAsync<List<OpenServerSessionSnapshot>>(JsonOptions, cancellationToken);
         return rows ?? [];
@@ -242,9 +244,11 @@ public sealed class ServerCapacityClient : IServerCapacityClient
 
         using var response = await client.PostAsync(url, content: null, cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return false;
+            throw await CreateHttpFailureAsync(response, "Session termination request failed", cancellationToken);
 
         var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
+        if (payload is { Success: false })
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Session termination failed." : payload.Message);
         return payload?.Success ?? false;
     }
 
@@ -258,7 +262,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.GetAsync($"{baseUrl}/api/sessions/abandoned", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Abandoned sessions query failed", cancellationToken);
         var rows = await response.Content.ReadFromJsonAsync<List<AbandonedServerSessionSnapshot>>(JsonOptions, cancellationToken);
         return rows ?? [];
     }
@@ -273,7 +277,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.GetAsync($"{baseUrl}/api/connections/peers", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Connected peers query failed", cancellationToken);
         var rows = await response.Content.ReadFromJsonAsync<List<ConnectedPeerSnapshot>>(JsonOptions, cancellationToken);
         return rows ?? [];
     }
@@ -289,7 +293,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.GetAsync($"{baseUrl}/api/connections/history?limit={Math.Clamp(limit, 1, 5000)}", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Connection history query failed", cancellationToken);
         var rows = await response.Content.ReadFromJsonAsync<List<ConnectionHistorySnapshot>>(JsonOptions, cancellationToken);
         return rows ?? [];
     }
@@ -304,7 +308,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.GetAsync($"{baseUrl}/api/devices/banned", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Banned devices query failed", cancellationToken);
         var rows = await response.Content.ReadFromJsonAsync<List<BannedPeerSnapshot>>(JsonOptions, cancellationToken);
         return rows ?? [];
     }
@@ -327,8 +331,10 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.PostAsync($"{baseUrl}/api/devices/{Uri.EscapeDataString(peer.Trim())}/ban{query}", null, cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return false;
+            throw await CreateHttpFailureAsync(response, "Peer ban request failed", cancellationToken);
         var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
+        if (payload is { Success: false })
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Peer ban failed." : payload.Message);
         return payload?.Success ?? false;
     }
 
@@ -346,8 +352,10 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.DeleteAsync($"{baseUrl}/api/devices/{Uri.EscapeDataString(peer.Trim())}/ban", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return false;
+            throw await CreateHttpFailureAsync(response, "Peer unban request failed", cancellationToken);
         var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
+        if (payload is { Success: false })
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Peer unban failed." : payload.Message);
         return payload?.Success ?? false;
     }
 
@@ -361,7 +369,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.GetAsync($"{baseUrl}/api/auth/users", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Auth users query failed", cancellationToken);
         var rows = await response.Content.ReadFromJsonAsync<List<AuthUserSnapshot>>(JsonOptions, cancellationToken);
         return rows ?? [];
     }
@@ -376,7 +384,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.GetAsync($"{baseUrl}/api/auth/permissions", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return [];
+            throw await CreateHttpFailureAsync(response, "Permission roles query failed", cancellationToken);
         var rows = await response.Content.ReadFromJsonAsync<List<string>>(JsonOptions, cancellationToken);
         return rows ?? [];
     }
@@ -392,7 +400,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.PostAsJsonAsync($"{baseUrl}/api/auth/users", user, JsonOptions, cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return null;
+            throw await CreateHttpFailureAsync(response, "Auth user save failed", cancellationToken);
         return await response.Content.ReadFromJsonAsync<AuthUserSnapshot>(JsonOptions, cancellationToken);
     }
 
@@ -410,8 +418,10 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         using var client = CreateClient(apiKey);
         using var response = await client.DeleteAsync($"{baseUrl}/api/auth/users/{Uri.EscapeDataString(userId.Trim())}", cancellationToken);
         if (!response.IsSuccessStatusCode)
-            return false;
+            throw await CreateHttpFailureAsync(response, "Auth user delete failed", cancellationToken);
         var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
+        if (payload is { Success: false })
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Auth user delete failed." : payload.Message);
         return payload?.Success ?? false;
     }
 
@@ -421,7 +431,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.GetPluginsAsync(host, port, apiKey, cancellationToken);
+        var response = await ServerApiClient.GetPluginsAsync(host, port, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Get plugins failed: response body was empty.");
         return response == null
             ? null
             : new PluginConfigurationSnapshot(
@@ -438,7 +450,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.UpdatePluginsAsync(host, port, assemblies, apiKey, cancellationToken);
+        var response = await ServerApiClient.UpdatePluginsAsync(host, port, assemblies, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Update plugins failed: response body was empty.");
         return response == null
             ? null
             : new PluginConfigurationSnapshot(
@@ -454,7 +468,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.ListMcpServersAsync(host, port, apiKey, cancellationToken);
+        var response = await ServerApiClient.ListMcpServersAsync(host, port, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("List MCP servers failed: response body was empty.");
         return response?.Servers?.ToList() ?? [];
     }
 
@@ -465,7 +481,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.UpsertMcpServerAsync(host, port, server, apiKey, cancellationToken);
+        var response = await ServerApiClient.UpsertMcpServerAsync(host, port, server, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Save MCP server failed: response body was empty.");
         return response?.Server;
     }
 
@@ -476,7 +494,11 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.DeleteMcpServerAsync(host, port, serverId, apiKey, cancellationToken);
+        var response = await ServerApiClient.DeleteMcpServerAsync(host, port, serverId, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Delete MCP server failed: response body was empty.");
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Delete MCP server failed." : response.Message);
         return response?.Success ?? false;
     }
 
@@ -487,7 +509,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        return ServerApiClient.GetAgentMcpServersAsync(host, port, agentId, apiKey, cancellationToken);
+        return ServerApiClient.GetAgentMcpServersAsync(host, port, agentId, apiKey, cancellationToken, throwOnError: true);
     }
 
     public async Task<bool> SetAgentMcpServersAsync(
@@ -498,7 +520,11 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.SetAgentMcpServersAsync(host, port, agentId, serverIds, apiKey, cancellationToken);
+        var response = await ServerApiClient.SetAgentMcpServersAsync(host, port, agentId, serverIds, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Set agent MCP mapping failed: response body was empty.");
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Set agent MCP mapping failed." : response.Message);
         return response?.Success ?? false;
     }
 
@@ -508,7 +534,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.ListPromptTemplatesAsync(host, port, apiKey, cancellationToken);
+        var response = await ServerApiClient.ListPromptTemplatesAsync(host, port, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("List prompt templates failed: response body was empty.");
         return response?.Templates?.ToList() ?? [];
     }
 
@@ -519,7 +547,9 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.UpsertPromptTemplateAsync(host, port, template, apiKey, cancellationToken);
+        var response = await ServerApiClient.UpsertPromptTemplateAsync(host, port, template, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Save prompt template failed: response body was empty.");
         return response?.Template;
     }
 
@@ -530,7 +560,11 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var response = await ServerApiClient.DeletePromptTemplateAsync(host, port, templateId, apiKey, cancellationToken);
+        var response = await ServerApiClient.DeletePromptTemplateAsync(host, port, templateId, apiKey, cancellationToken, throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Delete prompt template failed: response body was empty.");
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Delete prompt template failed." : response.Message);
         return response?.Success ?? false;
     }
 
@@ -554,7 +588,12 @@ public sealed class ServerCapacityClient : IServerCapacityClient
             source,
             correlationId,
             apiKey,
-            cancellationToken);
+            cancellationToken,
+            throwOnError: true);
+        if (response == null)
+            throw new InvalidOperationException("Seed session context failed: response body was empty.");
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Seed session context failed." : response.Message);
         return response?.Success ?? false;
     }
 
@@ -564,6 +603,44 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         if (!string.IsNullOrWhiteSpace(apiKey))
             client.DefaultRequestHeaders.Add("x-api-key", apiKey.Trim());
         return client;
+    }
+
+    private static async Task<string?> TryReadErrorDetailAsync(HttpResponseMessage response, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var body = await response.Content.ReadAsStringAsync(cancellationToken);
+            if (string.IsNullOrWhiteSpace(body))
+                return null;
+
+            using var doc = JsonDocument.Parse(body);
+            if (doc.RootElement.ValueKind == JsonValueKind.Object &&
+                doc.RootElement.TryGetProperty("message", out var messageNode) &&
+                messageNode.ValueKind == JsonValueKind.String)
+            {
+                return messageNode.GetString();
+            }
+
+            return body.Length <= 200 ? body : body[..200];
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static async Task<InvalidOperationException> CreateHttpFailureAsync(
+        HttpResponseMessage response,
+        string operation,
+        CancellationToken cancellationToken)
+    {
+        var detail = await TryReadErrorDetailAsync(response, cancellationToken);
+        var statusCode = (int)response.StatusCode;
+        var reason = string.IsNullOrWhiteSpace(response.ReasonPhrase) ? "HTTP error" : response.ReasonPhrase;
+        var message = string.IsNullOrWhiteSpace(detail)
+            ? $"{operation} ({statusCode} {reason})."
+            : $"{operation} ({statusCode} {reason}): {detail}";
+        return new InvalidOperationException(message);
     }
 }
 

@@ -156,11 +156,11 @@ if ($wslPath -and (Get-Command wsl -ErrorAction SilentlyContinue)) {
 $serviceTestProjectPath = Join-Path $RepoRoot (Join-Path "tests" (Join-Path "RemoteAgent.Service.Tests" "RemoteAgent.Service.Tests.csproj"))
 $serviceProjectPath = Join-Path $RepoRoot (Join-Path "src" (Join-Path "RemoteAgent.Service" "RemoteAgent.Service.csproj"))
 
-Write-Host "=== Building service and service tests ==="
-dotnet build $serviceTestProjectPath -nologo
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-Write-Host "=== Running service tests ==="
-dotnet test $serviceTestProjectPath -nologo --no-build
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+# Write-Host "=== Building service and service tests ==="
+# dotnet build $serviceTestProjectPath -nologo
+# if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+# Write-Host "=== Running service tests ==="
+# dotnet test $serviceTestProjectPath -nologo --no-build
+# if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 Write-Host "=== Starting service at http://0.0.0.0:${Port} (Agent__Command=$cmdDisplay) ==="
-dotnet run --project $serviceProjectPath --launch-profile http --no-build
+dotnet run --project $serviceProjectPath

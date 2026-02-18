@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RemoteAgent.App.AccountManagementPage"
              Title="Account Management"
-             BackgroundColor="{StaticResource PageBackgroundBrush}">
+             BackgroundColor="{StaticResource SurfaceBrush}">
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="10">
             <Label Text="Account Management" FontSize="24" FontAttributes="Bold" />
-            <Label Text="Manage authentication profile, account details, and permissions." TextColor="{StaticResource IconTintMutedBrush}" />
+            <Label Text="Manage authentication profile, account details, and permissions." TextColor="{StaticResource OnSurfaceVariantBrush}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

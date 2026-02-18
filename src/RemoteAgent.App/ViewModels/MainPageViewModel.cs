@@ -2,14 +2,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Microsoft.Maui.Storage;
 using RemoteAgent.App.Logic;
 using RemoteAgent.App.Services;
 using RemoteAgent.Proto;
 
 namespace RemoteAgent.App.ViewModels;
 
-public sealed class MainPageViewModel : INotifyPropertyChanged
+public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandBus
 {
     private const string PrefServerHost = "ServerHost";
     private const string PrefServerPort = "ServerPort";
@@ -18,6 +17,15 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 
     private readonly ISessionStore _sessionStore;
     private readonly AgentGatewayClientService _gateway;
+    private readonly IServerApiClient _apiClient;
+    private readonly IAppPreferences _preferences;
+    private readonly IConnectionModeSelector _connectionModeSelector;
+    private readonly IAgentSelector _agentSelector;
+    private readonly IAttachmentPicker _attachmentPicker;
+    private readonly IPromptTemplateSelector _promptTemplateSelector;
+    private readonly IPromptVariableProvider _promptVariableProvider;
+    private readonly ISessionTerminationConfirmation _sessionTerminationConfirmation;
+    private readonly INotificationService _notificationService;
 
     private string _host = "";
     private string _port = DefaultPort;
@@ -26,10 +34,30 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
     private string _perRequestContext = "";
     private SessionItem? _currentSession;
 
-    public MainPageViewModel(ISessionStore sessionStore, AgentGatewayClientService gateway)
+    public MainPageViewModel(
+        ISessionStore sessionStore,
+        AgentGatewayClientService gateway,
+        IServerApiClient apiClient,
+        IAppPreferences preferences,
+        IConnectionModeSelector connectionModeSelector,
+        IAgentSelector agentSelector,
+        IAttachmentPicker attachmentPicker,
+        IPromptTemplateSelector promptTemplateSelector,
+        IPromptVariableProvider promptVariableProvider,
+        ISessionTerminationConfirmation sessionTerminationConfirmation,
+        INotificationService notificationService)
     {
         _sessionStore = sessionStore;
         _gateway = gateway;
+        _apiClient = apiClient;
+        _preferences = preferences;
+        _connectionModeSelector = connectionModeSelector;
+        _agentSelector = agentSelector;
+        _attachmentPicker = attachmentPicker;
+        _promptTemplateSelector = promptTemplateSelector;
+        _promptVariableProvider = promptVariableProvider;
+        _sessionTerminationConfirmation = sessionTerminationConfirmation;
+        _notificationService = notificationService;
 
         ConnectCommand = new Command(async () => await ConnectAsync(), () => !_gateway.IsConnected);
         DisconnectCommand = new Command(Disconnect, () => _gateway.IsConnected);
@@ -51,14 +79,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
-    public event Action<ChatMessage>? NotifyMessage;
-
-    public Func<Task<string?>>? ConnectionModeSelector { get; set; }
-    public Func<ServerInfoResponse, Task<string?>>? AgentSelector { get; set; }
-    public Func<Task<PickedAttachment?>>? AttachmentPicker { get; set; }
-    public Func<IReadOnlyList<PromptTemplateDefinition>, Task<PromptTemplateDefinition?>>? PromptTemplateSelector { get; set; }
-    public Func<string, Task<string?>>? PromptVariableValueProvider { get; set; }
-    public Func<string, Task<bool>>? SessionTerminationConfirmation { get; set; }
 
     public ObservableCollection<SessionItem> Sessions { get; } = new();
     public ObservableCollection<ChatMessage> Messages => _gateway.Messages;
@@ -106,7 +126,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
             {
                 var normalized = _perRequestContext.Trim();
                 _gateway.PerRequestContext = normalized;
-                Preferences.Default.Set(PrefPerRequestContext, normalized);
+                _preferences.Set(PrefPerRequestContext, normalized);
             }
         }
     }
@@ -146,15 +166,15 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 
     private void LoadSavedServerDetails()
     {
-        Host = Preferences.Default.Get(PrefServerHost, "");
-        Port = Preferences.Default.Get(PrefServerPort, DefaultPort);
-        PerRequestContext = Preferences.Default.Get(PrefPerRequestContext, "");
+        Host = _preferences.Get(PrefServerHost, "");
+        Port = _preferences.Get(PrefServerPort, DefaultPort);
+        PerRequestContext = _preferences.Get(PrefPerRequestContext, "");
     }
 
     private void SaveServerDetails(string host, int port)
     {
-        Preferences.Default.Set(PrefServerHost, host ?? "");
-        Preferences.Default.Set(PrefServerPort, port.ToString());
+        _preferences.Set(PrefServerHost, host ?? "");
+        _preferences.Set(PrefServerPort, port.ToString());
     }
 
     private void LoadSessions()
@@ -166,7 +186,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 
     private async Task ConnectAsync()
     {
-        var selectedMode = ConnectionModeSelector == null ? "server" : await ConnectionModeSelector();
+        var selectedMode = await _connectionModeSelector.SelectAsync();
         if (string.IsNullOrWhiteSpace(selectedMode))
         {
             Status = "Connect cancelled.";
@@ -211,14 +231,14 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
             if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
             {
                 Status = "Getting server info...";
-                var serverInfo = await ServerApiClient.GetServerInfoAsync(host, port);
+                var serverInfo = await _apiClient.GetServerInfoAsync(host, port);
                 if (serverInfo == null)
                 {
                     Status = "Could not reach server.";
                     return;
                 }
 
-                var agentId = AgentSelector == null ? "" : await AgentSelector(serverInfo);
+                var agentId = await _agentSelector.SelectAsync(serverInfo);
                 if (agentId == null)
                 {
                     Status = "Connect cancelled.";
@@ -241,7 +261,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 
         if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
         {
-            var capacity = await ServerApiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId);
+            var capacity = await _apiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId);
             if (capacity == null)
             {
                 Status = "Could not verify server session capacity.";
@@ -317,6 +337,11 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
         return await TerminateSessionAsync(match);
     }
 
+    Task<bool> ISessionCommandBus.TerminateSessionAsync(string? sessionId) =>
+        TerminateSessionByIdAsync(sessionId);
+
+    public string? GetCurrentSessionId() => CurrentSession?.SessionId;
+
     public bool SelectSession(string? sessionId)
     {
         if (string.IsNullOrWhiteSpace(sessionId)) return false;
@@ -340,14 +365,11 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
         }
 
         var sessionLabel = string.IsNullOrWhiteSpace(session.Title) ? session.SessionId : session.Title;
-        if (SessionTerminationConfirmation != null)
+        var confirmed = await _sessionTerminationConfirmation.ConfirmAsync(sessionLabel);
+        if (!confirmed)
         {
-            var confirmed = await SessionTerminationConfirmation(sessionLabel);
-            if (!confirmed)
-            {
-                Status = "Terminate cancelled.";
-                return false;
-            }
+            Status = "Terminate cancelled.";
+            return false;
         }
 
         var isCurrent = string.Equals(CurrentSession?.SessionId, session.SessionId, StringComparison.Ordinal);
@@ -405,8 +427,8 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 
     private async Task SendAttachmentAsync()
     {
-        if (!_gateway.IsConnected || AttachmentPicker == null) return;
-        var picked = await AttachmentPicker();
+        if (!_gateway.IsConnected) return;
+        var picked = await _attachmentPicker.PickAsync();
         if (picked == null) return;
 
         try
@@ -436,20 +458,14 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
             return;
         }
 
-        var response = await ServerApiClient.ListPromptTemplatesAsync(host, port);
+        var response = await _apiClient.ListPromptTemplatesAsync(host, port);
         if (response == null || response.Templates.Count == 0)
         {
             Status = "No prompt templates available.";
             return;
         }
 
-        if (PromptTemplateSelector == null || PromptVariableValueProvider == null)
-        {
-            Status = "Prompt template UI callbacks are not configured.";
-            return;
-        }
-
-        var template = await PromptTemplateSelector(response.Templates.ToList());
+        var template = await _promptTemplateSelector.SelectAsync(response.Templates.ToList());
         if (template == null)
         {
             Status = "Prompt template selection cancelled.";
@@ -460,7 +476,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
         var data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
         foreach (var variable in variables)
         {
-            var value = await PromptVariableValueProvider(variable);
+            var value = await _promptVariableProvider.GetValueAsync(variable);
             if (value == null)
             {
                 Status = "Prompt template input cancelled.";
@@ -495,7 +511,10 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
     private void OnGatewayMessageReceived(ChatMessage msg)
     {
         if (msg.Priority == ChatMessagePriority.Notify)
-            NotifyMessage?.Invoke(msg);
+        {
+            var body = msg.IsEvent ? (msg.EventMessage ?? "Event") : (msg.Text.Length > 200 ? msg.Text[..200] + "…" : msg.Text);
+            _notificationService.Show("Remote Agent", body);
+        }
     }
 
     private static bool TryParseScriptRun(string text, out string pathOrCommand, out ScriptType scriptType)
@@ -534,5 +553,3 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
-
-public sealed record PickedAttachment(byte[] Content, string ContentType, string FileName);

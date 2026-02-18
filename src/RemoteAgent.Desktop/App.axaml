@@ -1,9 +1,45 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:fluent="clr-namespace:Avalonia.Themes.Fluent;assembly=Avalonia.Themes.Fluent"
+             xmlns:fa="using:FluentAvalonia.Styling"
              x:Class="RemoteAgent.Desktop.App"
              RequestedThemeVariant="Default">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <Color x:Key="WinUiSolidBackgroundFillColorBase">#F3F3F3</Color>
+          <Color x:Key="WinUiLayerFillColorDefault">#80FFFFFF</Color>
+          <Color x:Key="WinUiCardBackgroundFillColorDefault">#B3FFFFFF</Color>
+          <Color x:Key="WinUiControlStrokeColorDefault">#0F000000</Color>
+          <Color x:Key="WinUiDividerStrokeColorDefault">#0F000000</Color>
+
+          <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{StaticResource WinUiSolidBackgroundFillColorBase}" />
+          <SolidColorBrush x:Key="WindowPanelBackgroundBrush" Color="{StaticResource WinUiLayerFillColorDefault}" />
+          <SolidColorBrush x:Key="WindowCardBackgroundBrush" Color="{StaticResource WinUiCardBackgroundFillColorDefault}" />
+          <SolidColorBrush x:Key="WindowBorderBrush" Color="{StaticResource WinUiControlStrokeColorDefault}" />
+          <SolidColorBrush x:Key="WindowDividerBrush" Color="{StaticResource WinUiDividerStrokeColorDefault}" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+          <!-- WinUI 3 dark values come from the "Default" theme dictionary -->
+          <Color x:Key="WinUiSolidBackgroundFillColorBase">#202020</Color>
+          <Color x:Key="WinUiLayerFillColorDefault">#4C3A3A3A</Color>
+          <Color x:Key="WinUiCardBackgroundFillColorDefault">#0DFFFFFF</Color>
+          <Color x:Key="WinUiControlStrokeColorDefault">#12FFFFFF</Color>
+          <Color x:Key="WinUiDividerStrokeColorDefault">#15FFFFFF</Color>
+
+          <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{StaticResource WinUiSolidBackgroundFillColorBase}" />
+          <SolidColorBrush x:Key="WindowPanelBackgroundBrush" Color="{StaticResource WinUiLayerFillColorDefault}" />
+          <SolidColorBrush x:Key="WindowCardBackgroundBrush" Color="{StaticResource WinUiCardBackgroundFillColorDefault}" />
+          <SolidColorBrush x:Key="WindowBorderBrush" Color="{StaticResource WinUiControlStrokeColorDefault}" />
+          <SolidColorBrush x:Key="WindowDividerBrush" Color="{StaticResource WinUiDividerStrokeColorDefault}" />
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
   <Application.Styles>
     <fluent:FluentTheme />
+    <fa:FluentAvaloniaTheme />
+    <StyleInclude Source="avares://ToolBarControls.Avalonia/Themes/ToolBarControls.Avalonia.axaml" />
   </Application.Styles>
 </Application>

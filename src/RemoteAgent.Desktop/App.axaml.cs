@@ -86,7 +86,11 @@ public partial class App : Application
         services.AddScoped<IDesktopSessionViewModelFactory, DesktopSessionViewModelFactory>();
         services.AddScoped<ServerWorkspaceViewModel>();
         services.AddSingleton<IServerWorkspaceFactory, ServerWorkspaceFactory>();
+        services.AddSingleton<IAppLogStore, InMemoryAppLogStore>();
+        services.AddSingleton<ILoggerProvider, AppLoggerProvider>();
         services.AddLogging(builder => builder.AddDebug().SetMinimumLevel(LogLevel.Debug));
+        services.AddSingleton<IFileSaveDialogService, AvaloniaFileSaveDialogService>();
+        services.AddSingleton<AppLogViewModel>();
         services.AddSingleton<IRequestDispatcher, ServiceProviderRequestDispatcher>();
         services.AddTransient<IConnectionSettingsDialogService, AvaloniaConnectionSettingsDialogService>();
 
@@ -120,6 +124,8 @@ public partial class App : Application
         services.AddTransient<IRequestHandler<Requests.TerminateDesktopSessionRequest, CommandResult>, TerminateDesktopSessionHandler>();
         services.AddTransient<IRequestHandler<Requests.SendDesktopMessageRequest, CommandResult>, SendDesktopMessageHandler>();
         services.AddTransient<IRequestHandler<Requests.StartLogMonitoringRequest, CommandResult<Requests.StartLogMonitoringResult>>, StartLogMonitoringHandler>();
+        services.AddTransient<IRequestHandler<Requests.ClearAppLogRequest, CommandResult>, ClearAppLogHandler>();
+        services.AddTransient<IRequestHandler<Requests.SaveAppLogRequest, CommandResult>, SaveAppLogHandler>();
 
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<MainWindow>();

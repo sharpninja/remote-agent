@@ -1,7 +1,4 @@
-using RemoteAgent.App.Services;
 using RemoteAgent.App.ViewModels;
-using RemoteAgent.Proto;
-using Microsoft.Maui.Storage;
 #if WINDOWS
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
@@ -21,108 +18,9 @@ public partial class MainPage : ContentPage
     public MainPage(MainPageViewModel vm)
     {
         _vm = vm;
-        _vm.ConnectionModeSelector = SelectConnectionModeAsync;
-        _vm.AgentSelector = ShowAgentPickerAsync;
-        _vm.AttachmentPicker = PickAttachmentAsync;
-        _vm.PromptTemplateSelector = SelectPromptTemplateAsync;
-        _vm.PromptVariableValueProvider = PromptTemplateVariableValueAsync;
-        _vm.SessionTerminationConfirmation = ConfirmSessionTerminationAsync;
-        _vm.NotifyMessage += ShowNotificationForMessage;
-
         InitializeComponent();
         BindingContext = _vm;
         WireMessageInputShortcuts();
-    }
-
-    private void ShowNotificationForMessage(ChatMessage msg)
-    {
-        var body = msg.IsEvent ? (msg.EventMessage ?? "Event") : (msg.Text.Length > 200 ? msg.Text[..200] + "…" : msg.Text);
-#if ANDROID
-        PlatformNotificationService.ShowNotification("Remote Agent", body);
-#endif
-    }
-
-    private async Task<string?> SelectConnectionModeAsync()
-    {
-        var choice = await DisplayActionSheetAsync("Connection mode", "Cancel", null, "Direct", "Server");
-        if (string.IsNullOrWhiteSpace(choice) || string.Equals(choice, "Cancel", StringComparison.OrdinalIgnoreCase))
-            return null;
-        return string.Equals(choice, "Direct", StringComparison.OrdinalIgnoreCase) ? "direct" : "server";
-    }
-
-    private async Task<string?> ShowAgentPickerAsync(ServerInfoResponse serverInfo)
-    {
-        var agents = serverInfo.AvailableAgents.ToList();
-        if (agents.Count == 0)
-            return "";
-        if (agents.Count == 1)
-            return agents[0];
-        var choice = await DisplayActionSheetAsync("Select agent", "Cancel", null, agents.ToArray());
-        return string.IsNullOrEmpty(choice) ? null : choice;
-    }
-
-    private async Task<PickedAttachment?> PickAttachmentAsync()
-    {
-        try
-        {
-            var customFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
-            {
-                [DevicePlatform.Android] = new[] { "image/*", "video/*" },
-                [DevicePlatform.WinUI] = new[] { ".jpg", ".jpeg", ".png", ".gif", ".webp", ".mp4", ".webm" }
-            });
-
-            var result = await FilePicker.Default.PickAsync(new PickOptions
-            {
-                PickerTitle = "Pick image or video",
-                FileTypes = customFileType
-            });
-            if (result == null)
-                return null;
-
-            await using var stream = await result.OpenReadAsync();
-            using var ms = new MemoryStream();
-            await stream.CopyToAsync(ms);
-            return new PickedAttachment(ms.ToArray(), result.ContentType ?? "application/octet-stream", result.FileName ?? "attachment");
-        }
-        catch
-        {
-            return null;
-        }
-    }
-
-    private async Task<PromptTemplateDefinition?> SelectPromptTemplateAsync(IReadOnlyList<PromptTemplateDefinition> templates)
-    {
-        if (templates.Count == 0) return null;
-        if (templates.Count == 1) return templates[0];
-
-        var labels = templates.Select(x => string.IsNullOrWhiteSpace(x.DisplayName) ? x.TemplateId : x.DisplayName).ToArray();
-        var choice = await DisplayActionSheetAsync("Select prompt template", "Cancel", null, labels);
-        if (string.IsNullOrWhiteSpace(choice) || string.Equals(choice, "Cancel", StringComparison.OrdinalIgnoreCase))
-            return null;
-
-        return templates.FirstOrDefault(t =>
-            string.Equals(t.DisplayName, choice, StringComparison.Ordinal) ||
-            string.Equals(t.TemplateId, choice, StringComparison.Ordinal));
-    }
-
-    private async Task<string?> PromptTemplateVariableValueAsync(string variable)
-    {
-        return await DisplayPromptAsync(
-            title: "Template Input",
-            message: $"Value for '{variable}'",
-            accept: "Apply",
-            cancel: "Cancel",
-            initialValue: "",
-            keyboard: Keyboard.Text);
-    }
-
-    private async Task<bool> ConfirmSessionTerminationAsync(string sessionLabel)
-    {
-        return await DisplayAlertAsync(
-            "Terminate Session",
-            $"Terminate '{sessionLabel}'? This removes the session from local history.",
-            "Terminate",
-            "Cancel");
     }
 
     private void WireMessageInputShortcuts()

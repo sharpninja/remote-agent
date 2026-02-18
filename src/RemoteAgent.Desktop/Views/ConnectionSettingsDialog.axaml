@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RemoteAgent.Desktop.ViewModels"
+        x:Class="RemoteAgent.Desktop.Views.ConnectionSettingsDialog"
+        x:DataType="vm:ConnectionSettingsDialogViewModel"
+        Width="520"
+        MinWidth="520"
+        SizeToContent="Height"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Title="Connection Settings">
+  <Grid RowDefinitions="Auto,Auto,*" Margin="14" RowSpacing="10">
+    <TextBlock FontWeight="SemiBold"
+               Text="Configure connection defaults for the new session." />
+
+    <Grid Grid.Row="1"
+          ColumnDefinitions="140,*"
+          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+          ColumnSpacing="10"
+          RowSpacing="8">
+      <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Host" />
+      <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Host}" />
+
+      <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Port" />
+      <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Port}" />
+
+      <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Mode" />
+      <ComboBox Grid.Row="2" Grid.Column="1"
+                ItemsSource="{Binding ConnectionModes}"
+                SelectedItem="{Binding SelectedConnectionMode}" />
+
+      <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="Agent" />
+      <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedAgentId}" />
+
+      <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="API Key" />
+      <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ApiKey}" PasswordChar="*" />
+
+      <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" Text="Per-request Context" />
+      <TextBox
+               Grid.Row="5"
+               Grid.Column="1"
+               Height="110"
+               AcceptsReturn="True"
+               TextWrapping="Wrap"
+               VerticalContentAlignment="Top"
+               Text="{Binding PerRequestContext}" />
+    </Grid>
+
+    <Grid Grid.Row="2" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10">
+      <TextBlock
+                 VerticalAlignment="Center"
+                 Foreground="#C62828"
+                 Text="{Binding ValidationMessage}" />
+      <Button Grid.Column="1" MinWidth="88" Command="{Binding CancelCommand}">Cancel</Button>
+      <Button Grid.Column="2" MinWidth="88" Command="{Binding SubmitCommand}">Start Session</Button>
+    </Grid>
+  </Grid>
+</Window>

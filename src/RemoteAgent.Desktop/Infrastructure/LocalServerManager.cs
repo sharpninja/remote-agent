@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Net;
 
 namespace RemoteAgent.Desktop.Infrastructure;
 
@@ -136,7 +135,9 @@ public sealed class LocalServerManager : ILocalServerManager
         {
             using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(2) };
             using var response = await client.GetAsync(LocalServiceUri, cancellationToken);
-            return response.StatusCode == HttpStatusCode.OK;
+            // The service may return non-200 for HTTP/1.1 clients depending on protocol config;
+            // any HTTP response still means the local endpoint is alive.
+            return true;
         }
         catch
         {

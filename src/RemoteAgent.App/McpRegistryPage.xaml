@@ -3,25 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RemoteAgent.App.McpRegistryPage"
              Title="MCP Registry"
-             BackgroundColor="{StaticResource PageBackgroundBrush}">
+             BackgroundColor="{StaticResource SurfaceBrush}">
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="10">
             <Border Style="{StaticResource MaterialCard}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Server Endpoint" FontAttributes="Bold" />
                     <HorizontalStackLayout Spacing="8">
-                        <Entry x:Name="HostEntry" Placeholder="Host" WidthRequest="180" />
-                        <Entry x:Name="PortEntry" Placeholder="Port" WidthRequest="90" Keyboard="Numeric" Text="5243" />
-                        <Button Text="Refresh" Clicked="OnRefreshClicked" />
+                        <Entry x:Name="HostEntry" Placeholder="Host" WidthRequest="180" Text="{Binding Host}" />
+                        <Entry x:Name="PortEntry" Placeholder="Port" WidthRequest="90" Keyboard="Numeric" Text="{Binding Port}" />
+                        <Button Text="Refresh" Command="{Binding RefreshCommand}" />
                     </HorizontalStackLayout>
-                    <Label x:Name="StatusLabel" Text="Ready." FontSize="12" TextColor="{StaticResource StatusTextBrush}" />
+                    <Label x:Name="StatusLabel" Text="{Binding StatusText}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" />
                 </VerticalStackLayout>
             </Border>
 
             <Border Style="{StaticResource MaterialCard}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Configured MCP Servers" FontAttributes="Bold" />
-                    <CollectionView x:Name="ServersList" SelectionMode="None" HeightRequest="220">
+                    <CollectionView x:Name="ServersList" ItemsSource="{Binding Servers}" SelectionMode="None" HeightRequest="220">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border Padding="10,8" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
@@ -31,8 +31,8 @@
                                     </Border.GestureRecognizers>
                                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
                                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding DisplayName}" FontAttributes="Bold" />
-                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Transport}" FontSize="12" TextColor="{StaticResource IconTintMutedBrush}" />
-                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ServerId}" FontSize="12" TextColor="{StaticResource IconTintMutedBrush}" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Transport}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" />
+                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ServerId}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" />
                                     </Grid>
                                 </Border>
                             </DataTemplate>
@@ -44,23 +44,23 @@
             <Border Style="{StaticResource MaterialCard}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Edit Server" FontAttributes="Bold" />
-                    <Entry x:Name="ServerIdEntry" Placeholder="Server ID (leave blank to auto-generate)" />
-                    <Entry x:Name="DisplayNameEntry" Placeholder="Display Name" />
-                    <Entry x:Name="TransportEntry" Placeholder="Transport (stdio, sse, websocket, http)" />
-                    <Entry x:Name="EndpointEntry" Placeholder="Endpoint URL" />
-                    <Entry x:Name="CommandEntry" Placeholder="Command (for stdio transport)" />
-                    <Entry x:Name="ArgumentsEntry" Placeholder="Arguments (space-separated)" />
-                    <Entry x:Name="AuthTypeEntry" Placeholder="Auth Type (none, bearer, api_key, custom)" />
-                    <Editor x:Name="AuthConfigEditor" Placeholder="Auth config JSON" AutoSize="TextChanges" MinimumHeightRequest="70" />
-                    <Editor x:Name="MetadataEditor" Placeholder="Metadata JSON" AutoSize="TextChanges" MinimumHeightRequest="70" />
+                    <Entry x:Name="ServerIdEntry" Placeholder="Server ID (leave blank to auto-generate)" Text="{Binding ServerId}" />
+                    <Entry x:Name="DisplayNameEntry" Placeholder="Display Name" Text="{Binding DisplayName}" />
+                    <Entry x:Name="TransportEntry" Placeholder="Transport (stdio, sse, websocket, http)" Text="{Binding Transport}" />
+                    <Entry x:Name="EndpointEntry" Placeholder="Endpoint URL" Text="{Binding Endpoint}" />
+                    <Entry x:Name="CommandEntry" Placeholder="Command (for stdio transport)" Text="{Binding Command}" />
+                    <Entry x:Name="ArgumentsEntry" Placeholder="Arguments (space-separated)" Text="{Binding Arguments}" />
+                    <Entry x:Name="AuthTypeEntry" Placeholder="Auth Type (none, bearer, api_key, custom)" Text="{Binding AuthType}" />
+                    <Editor x:Name="AuthConfigEditor" Placeholder="Auth config JSON" AutoSize="TextChanges" MinimumHeightRequest="70" Text="{Binding AuthConfigJson}" />
+                    <Editor x:Name="MetadataEditor" Placeholder="Metadata JSON" AutoSize="TextChanges" MinimumHeightRequest="70" Text="{Binding MetadataJson}" />
                     <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
                         <Label Text="Enabled" VerticalOptions="Center" />
-                        <Switch x:Name="EnabledSwitch" IsToggled="True" />
+                        <Switch x:Name="EnabledSwitch" IsToggled="{Binding Enabled}" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Spacing="8">
-                        <Button Text="Save" Clicked="OnSaveClicked" />
-                        <Button Text="Delete" Clicked="OnDeleteClicked" />
-                        <Button Text="Clear" Clicked="OnClearClicked" />
+                        <Button Text="Save" Command="{Binding SaveCommand}" />
+                        <Button Text="Delete" Command="{Binding DeleteCommand}" />
+                        <Button Text="Clear" Command="{Binding ClearCommand}" />
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>

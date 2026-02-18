@@ -12,22 +12,26 @@ namespace RemoteAgent.Service.IntegrationTests;
 public class AgentGatewayServiceIntegrationTests_ManagementApis :
     IClassFixture<CatWebApplicationFactory>,
     IClassFixture<ApiKeyWebApplicationFactory>,
+    IClassFixture<ApiKeyLoopbackAllowedWebApplicationFactory>,
     IClassFixture<ConnectionRateLimitedWebApplicationFactory>,
     IClassFixture<SessionLimitedWebApplicationFactory>
 {
     private readonly CatWebApplicationFactory _catFactory;
     private readonly ApiKeyWebApplicationFactory _apiKeyFactory;
+    private readonly ApiKeyLoopbackAllowedWebApplicationFactory _apiKeyLoopbackAllowedFactory;
     private readonly ConnectionRateLimitedWebApplicationFactory _connectionRateLimitedFactory;
     private readonly SessionLimitedWebApplicationFactory _sessionLimitedFactory;
 
     public AgentGatewayServiceIntegrationTests_ManagementApis(
         CatWebApplicationFactory catFactory,
         ApiKeyWebApplicationFactory apiKeyFactory,
+        ApiKeyLoopbackAllowedWebApplicationFactory apiKeyLoopbackAllowedFactory,
         ConnectionRateLimitedWebApplicationFactory connectionRateLimitedFactory,
         SessionLimitedWebApplicationFactory sessionLimitedFactory)
     {
         _catFactory = catFactory;
         _apiKeyFactory = apiKeyFactory;
+        _apiKeyLoopbackAllowedFactory = apiKeyLoopbackAllowedFactory;
         _connectionRateLimitedFactory = connectionRateLimitedFactory;
         _sessionLimitedFactory = sessionLimitedFactory;
     }
@@ -49,6 +53,14 @@ public class AgentGatewayServiceIntegrationTests_ManagementApis :
         var headers = factory.CreateAuthHeadersOrNull();
 
         var response = await client.GetStructuredLogsSnapshotAsync(new StructuredLogsSnapshotRequest { FromOffset = 0, Limit = 10 }, headers);
+        response.Should().NotBeNull();
+    }
+
+    [Fact]
+    public async Task GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+    {
+        var client = CreateClient(_apiKeyLoopbackAllowedFactory, out _);
+        var response = await client.GetStructuredLogsSnapshotAsync(new StructuredLogsSnapshotRequest { FromOffset = 0, Limit = 10 });
         response.Should().NotBeNull();
     }
 
@@ -481,6 +493,14 @@ public class AgentGatewayServiceIntegrationTests_ManagementApis :
         payload.Should().NotBeNull();
         payload!.MaxConcurrentSessions.Should().BeGreaterThan(0);
         payload.AgentId.Should().Be("process");
+    }
+
+    [Fact]
+    public async Task SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+    {
+        using var http = new HttpClient(_apiKeyLoopbackAllowedFactory.CreateHandler()) { BaseAddress = _apiKeyLoopbackAllowedFactory.BaseAddress };
+        var response = await http.GetAsync("/api/sessions/capacity?agentId=process");
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
     [Fact]

@@ -14,231 +14,189 @@ public static class ServerApiClient
         PropertyNameCaseInsensitive = true
     };
 
-    public static async Task<ServerInfoResponse?> GetServerInfoAsync(string host, int port, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
+    public static Task<ServerInfoResponse?> GetServerInfoAsync(
+        string host,
+        int port,
+        string? clientVersion = null,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Get server info",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<GetPluginsResponse?> GetPluginsAsync(
+        string host,
+        int port,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Get plugins",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.GetPluginsAsync(new GetPluginsRequest(), headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<UpdatePluginsResponse?> UpdatePluginsAsync(
+        string host,
+        int port,
+        IEnumerable<string> assemblies,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
     {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.GetServerInfoAsync(new ServerInfoRequest { ClientVersion = clientVersion ?? "" }, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
+        var request = new UpdatePluginsRequest();
+        request.Assemblies.AddRange(assemblies.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.Trim()));
+        return ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Update plugins",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.UpdatePluginsAsync(request, headers, deadline: null, cancellationToken: token).ResponseAsync);
     }
 
-    public static async Task<GetPluginsResponse?> GetPluginsAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
+    public static Task<ListMcpServersResponse?> ListMcpServersAsync(
+        string host,
+        int port,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "List MCP servers",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.ListMcpServersAsync(new ListMcpServersRequest(), headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<UpsertMcpServerResponse?> UpsertMcpServerAsync(
+        string host,
+        int port,
+        McpServerDefinition server,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Save MCP server",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.UpsertMcpServerAsync(new UpsertMcpServerRequest { Server = server }, headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<DeleteMcpServerResponse?> DeleteMcpServerAsync(
+        string host,
+        int port,
+        string serverId,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Delete MCP server",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.DeleteMcpServerAsync(new DeleteMcpServerRequest { ServerId = serverId ?? "" }, headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<ListPromptTemplatesResponse?> ListPromptTemplatesAsync(
+        string host,
+        int port,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "List prompt templates",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.ListPromptTemplatesAsync(new ListPromptTemplatesRequest(), headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<UpsertPromptTemplateResponse?> UpsertPromptTemplateAsync(
+        string host,
+        int port,
+        PromptTemplateDefinition template,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Save prompt template",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.UpsertPromptTemplateAsync(new UpsertPromptTemplateRequest { Template = template }, headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<DeletePromptTemplateResponse?> DeletePromptTemplateAsync(
+        string host,
+        int port,
+        string templateId,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Delete prompt template",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.DeletePromptTemplateAsync(new DeletePromptTemplateRequest { TemplateId = templateId ?? "" }, headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<GetAgentMcpServersResponse?> GetAgentMcpServersAsync(
+        string host,
+        int port,
+        string agentId,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Get agent MCP server mapping",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.GetAgentMcpServersAsync(new GetAgentMcpServersRequest { AgentId = agentId ?? "" }, headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<SetAgentMcpServersResponse?> SetAgentMcpServersAsync(
+        string host,
+        int port,
+        string agentId,
+        IEnumerable<string> serverIds,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
     {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.GetPluginsAsync(new GetPluginsRequest(), CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
+        var request = new SetAgentMcpServersRequest { AgentId = agentId ?? "" };
+        request.ServerIds.AddRange(serverIds.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.Trim()));
+        return ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Set agent MCP server mapping",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.SetAgentMcpServersAsync(request, headers, deadline: null, cancellationToken: token).ResponseAsync);
     }
 
-    public static async Task<UpdatePluginsResponse?> UpdatePluginsAsync(string host, int port, IEnumerable<string> assemblies, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            var request = new UpdatePluginsRequest();
-            request.Assemblies.AddRange(assemblies.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.Trim()));
-            return await client.UpdatePluginsAsync(request, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<ListMcpServersResponse?> ListMcpServersAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.ListMcpServersAsync(new ListMcpServersRequest(), CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<UpsertMcpServerResponse?> UpsertMcpServerAsync(string host, int port, McpServerDefinition server, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.UpsertMcpServerAsync(new UpsertMcpServerRequest { Server = server }, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<DeleteMcpServerResponse?> DeleteMcpServerAsync(string host, int port, string serverId, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.DeleteMcpServerAsync(new DeleteMcpServerRequest { ServerId = serverId ?? "" }, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<ListPromptTemplatesResponse?> ListPromptTemplatesAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.ListPromptTemplatesAsync(new ListPromptTemplatesRequest(), CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<UpsertPromptTemplateResponse?> UpsertPromptTemplateAsync(string host, int port, PromptTemplateDefinition template, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.UpsertPromptTemplateAsync(new UpsertPromptTemplateRequest { Template = template }, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<DeletePromptTemplateResponse?> DeletePromptTemplateAsync(string host, int port, string templateId, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.DeletePromptTemplateAsync(new DeletePromptTemplateRequest { TemplateId = templateId ?? "" }, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<GetAgentMcpServersResponse?> GetAgentMcpServersAsync(string host, int port, string agentId, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.GetAgentMcpServersAsync(new GetAgentMcpServersRequest { AgentId = agentId ?? "" }, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<SetAgentMcpServersResponse?> SetAgentMcpServersAsync(string host, int port, string agentId, IEnumerable<string> serverIds, string? apiKey = null, CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            var request = new SetAgentMcpServersRequest { AgentId = agentId ?? "" };
-            request.ServerIds.AddRange(serverIds.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.Trim()));
-            return await client.SetAgentMcpServersAsync(request, CreateHeaders(apiKey), deadline: null, cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
-
-    public static async Task<SeedSessionContextResponse?> SeedSessionContextAsync(
+    public static Task<SeedSessionContextResponse?> SeedSessionContextAsync(
         string host,
         int port,
         string sessionId,
@@ -247,15 +205,16 @@ public static class ServerApiClient
         string? source = null,
         string? correlationId = null,
         string? apiKey = null,
-        CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.SeedSessionContextAsync(
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Seed session context",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.SeedSessionContextAsync(
                 new SeedSessionContextRequest
                 {
                     SessionId = sessionId ?? "",
@@ -264,19 +223,9 @@ public static class ServerApiClient
                     Source = source ?? "",
                     CorrelationId = correlationId ?? ""
                 },
-                CreateHeaders(apiKey),
+                headers,
                 deadline: null,
-                cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
+                cancellationToken: token).ResponseAsync);
 
     public static async Task<StructuredLogsSnapshotResponse?> GetStructuredLogsSnapshotAsync(
         string host,
@@ -284,29 +233,20 @@ public static class ServerApiClient
         long fromOffset = 0,
         int limit = 5000,
         string? apiKey = null,
-        CancellationToken ct = default)
-    {
-        var baseUrl = BuildBaseUrl(host, port);
-        GrpcChannel? channel = null;
-        try
-        {
-            channel = GrpcChannel.ForAddress(baseUrl);
-            var client = new AgentGateway.AgentGatewayClient(channel);
-            return await client.GetStructuredLogsSnapshotAsync(
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => await ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Get structured logs snapshot",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.GetStructuredLogsSnapshotAsync(
                 new StructuredLogsSnapshotRequest { FromOffset = fromOffset, Limit = limit },
-                CreateHeaders(apiKey),
+                headers,
                 deadline: null,
-                cancellationToken: ct);
-        }
-        catch
-        {
-            return null;
-        }
-        finally
-        {
-            channel?.Dispose();
-        }
-    }
+                cancellationToken: token).ResponseAsync);
 
     public static async Task MonitorStructuredLogsAsync(
         string host,
@@ -333,7 +273,8 @@ public static class ServerApiClient
         int port,
         string? agentId = null,
         string? apiKey = null,
-        CancellationToken ct = default)
+        CancellationToken ct = default,
+        bool throwOnError = false)
     {
         var baseUrl = BuildBaseUrl(host, port).TrimEnd('/');
         var query = string.IsNullOrWhiteSpace(agentId)
@@ -347,9 +288,99 @@ public static class ServerApiClient
 
         using var response = await client.GetAsync(url, ct);
         if (!response.IsSuccessStatusCode)
-            return null;
+        {
+            if (!throwOnError)
+                return null;
+
+            var detail = await TryReadErrorDetailAsync(response, ct);
+            throw CreateHttpFailure("Get session capacity", response.StatusCode, response.ReasonPhrase, detail);
+        }
 
         return await response.Content.ReadFromJsonAsync<SessionCapacitySnapshot>(JsonOptions, ct);
+    }
+
+    private static async Task<TResponse?> ExecuteGrpcAsync<TResponse>(
+        string host,
+        int port,
+        string? apiKey,
+        string operation,
+        bool throwOnError,
+        CancellationToken ct,
+        Func<AgentGateway.AgentGatewayClient, Metadata?, CancellationToken, Task<TResponse>> call)
+        where TResponse : class
+    {
+        var baseUrl = BuildBaseUrl(host, port);
+        GrpcChannel? channel = null;
+        try
+        {
+            channel = GrpcChannel.ForAddress(baseUrl);
+            var client = new AgentGateway.AgentGatewayClient(channel);
+            return await call(client, CreateHeaders(apiKey), ct);
+        }
+        catch (RpcException) when (!throwOnError)
+        {
+            return null;
+        }
+        catch (RpcException ex)
+        {
+            throw CreateGrpcFailure(operation, ex);
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (Exception) when (!throwOnError)
+        {
+            return null;
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException($"{operation} failed: {ex.Message}", ex);
+        }
+        finally
+        {
+            channel?.Dispose();
+        }
+    }
+
+    private static InvalidOperationException CreateGrpcFailure(string operation, RpcException ex)
+    {
+        var detail = string.IsNullOrWhiteSpace(ex.Status.Detail) ? ex.Message : ex.Status.Detail;
+        return new InvalidOperationException($"{operation} failed ({ex.StatusCode}): {detail}", ex);
+    }
+
+    private static InvalidOperationException CreateHttpFailure(string operation, System.Net.HttpStatusCode statusCode, string? reasonPhrase, string? detail)
+    {
+        var code = (int)statusCode;
+        var reason = string.IsNullOrWhiteSpace(reasonPhrase) ? "HTTP error" : reasonPhrase;
+        var message = string.IsNullOrWhiteSpace(detail)
+            ? $"{operation} failed ({code} {reason})."
+            : $"{operation} failed ({code} {reason}): {detail}";
+        return new InvalidOperationException(message);
+    }
+
+    private static async Task<string?> TryReadErrorDetailAsync(HttpResponseMessage response, CancellationToken ct)
+    {
+        try
+        {
+            var body = await response.Content.ReadAsStringAsync(ct);
+            if (string.IsNullOrWhiteSpace(body))
+                return null;
+
+            using var doc = JsonDocument.Parse(body);
+            if (doc.RootElement.ValueKind == JsonValueKind.Object &&
+                doc.RootElement.TryGetProperty("message", out var messageNode) &&
+                messageNode.ValueKind == JsonValueKind.String)
+            {
+                return messageNode.GetString();
+            }
+
+            return body.Length <= 200 ? body : body[..200];
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     public static Metadata? CreateHeaders(string? apiKey)

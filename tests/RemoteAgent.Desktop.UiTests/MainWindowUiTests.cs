@@ -50,7 +50,7 @@ public sealed class MainWindowUiTests
     public void MainWindow_ShouldExposeExpectedManagementControls()
     {
         // FR-12.1.3, FR-12.1.4, FR-12.1.5, FR-12.8, FR-12.11
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var window = new MainWindow(vm);
 
         window.FindControl<ComboBox>("ServerSelectorComboBox").Should().NotBeNull();
@@ -78,7 +78,7 @@ public sealed class MainWindowUiTests
     public async Task CurrentServerWorkspace_ShouldCreateSessionTabs()
     {
         // FR-12.1.3: tabbed session interface
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
 
         vm.CurrentServerViewModel.Should().NotBeNull();
         var workspace = vm.CurrentServerViewModel!;
@@ -92,7 +92,7 @@ public sealed class MainWindowUiTests
     public void MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
     {
         // FR-12.7, FR-13.1, FR-13.2, FR-13.4, FR-13.5
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var window = new MainWindow(vm);
 
         window.FindControl<Button>("RefreshSecurityButton").Should().NotBeNull();
@@ -114,7 +114,7 @@ public sealed class MainWindowUiTests
     public void MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
     {
         // FR-12.4, FR-12.6, FR-13.6, FR-14.1
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var window = new MainWindow(vm);
 
         window.FindControl<Button>("RefreshPluginsButton").Should().NotBeNull();
@@ -166,7 +166,7 @@ public sealed class MainWindowUiTests
     public async Task SendCurrentMessage_ShouldPropagatePerRequestContext()
     {
         // FR-12.8, TR-14.1.7: per-request context is attached to outbound messages.
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var workspace = vm.CurrentServerViewModel;
         workspace.Should().NotBeNull();
 
@@ -188,7 +188,7 @@ public sealed class MainWindowUiTests
     public void ConnectionDialog_ShouldExposePerRequestContextEditor()
     {
         // FR-12.1.2, FR-12.8: connection/session defaults are prompted in a dialog when starting a session.
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var workspace = vm.CurrentServerViewModel;
         workspace.Should().NotBeNull();
 
@@ -222,7 +222,7 @@ public sealed class MainWindowUiTests
             ApiKey = ""
         });
 
-        var vm = new MainWindowViewModel(store, new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher);
+        var vm = new MainWindowViewModel(store, new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         vm.Servers.Count.Should().BeGreaterThanOrEqualTo(2);
 
         vm.SelectedServer = vm.Servers.First(x => x.ServerId == "srv-2");
@@ -238,7 +238,7 @@ public sealed class MainWindowUiTests
     {
         var localServer = new StubLocalServerManager(false);
         var dispatcher = CreateDispatcher(localServer);
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer, dispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer, dispatcher, _nullAppLog);
 
         vm.CheckLocalServerCommand.Execute(null);
         await WaitForAsync(() => vm.LocalServerActionLabel == "Start Local Server");
@@ -254,7 +254,7 @@ public sealed class MainWindowUiTests
     {
         var localServer = new StubLocalServerManager(true);
         var dispatcher = CreateDispatcher(localServer);
-        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer, dispatcher);
+        var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), localServer, dispatcher, _nullAppLog);
 
         vm.CheckLocalServerCommand.Execute(null);
         await WaitForAsync(() => vm.LocalServerActionLabel.StartsWith("Stop", StringComparison.Ordinal));
@@ -276,7 +276,8 @@ public sealed class MainWindowUiTests
             new InMemoryServerRegistrationStore(),
             new StubWorkspaceFactory(() => failingClient),
             new StubLocalServerManager(false),
-            _nullDispatcher);
+            _nullDispatcher,
+            _nullAppLog);
         var workspace = vm.CurrentServerViewModel!;
 
         workspace.CheckCapacityCommand.Execute(null);
@@ -296,7 +297,8 @@ public sealed class MainWindowUiTests
             new InMemoryServerRegistrationStore(),
             new StubWorkspaceFactory(() => failingClient),
             new StubLocalServerManager(false),
-            _nullDispatcher);
+            _nullDispatcher,
+            _nullAppLog);
         var workspace = vm.CurrentServerViewModel!;
 
         workspace.RefreshPluginsCommand.Execute(null);
@@ -570,7 +572,14 @@ public sealed class MainWindowUiTests
         }
     }
 
+    private sealed class NullFileSaveDialogService : IFileSaveDialogService
+    {
+        public Task<string?> GetSaveFilePathAsync(string suggestedName, string extension, string filterDescription)
+            => Task.FromResult<string?>(null);
+    }
+
     private static readonly IRequestDispatcher _nullDispatcher = new NullRequestDispatcher();
+    private static readonly AppLogViewModel _nullAppLog = new(new NullRequestDispatcher(), new NullFileSaveDialogService());
 
     private static IRequestDispatcher CreateDispatcher(ILocalServerManager localServerManager)
     {

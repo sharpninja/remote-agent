@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\RemoteAgent.Desktop\RemoteAgent.Desktop.csproj" />
-    <PackageReference Include="Avalonia.Headless" Version="11.2.5" />
-    <PackageReference Include="Avalonia.Headless.XUnit" Version="11.2.5" />
+    <PackageReference Include="Avalonia.Headless" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Headless.XUnit" Version="11.3.6" />
     <PackageReference Include="FluentAssertions" Version="8.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageReference Include="xunit" Version="2.9.3" />

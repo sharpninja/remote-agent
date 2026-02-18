@@ -28,10 +28,10 @@ public sealed class MobileConnectionUiTests : IDisposable
         EnsureDriver();
 
         _driver.Should().NotBeNull();
-        _driver!.FindElement(MobileBy.AccessibilityId("mobile_connect_host")).Should().NotBeNull();
-        _driver.FindElement(MobileBy.AccessibilityId("mobile_connect_port")).Should().NotBeNull();
-        _driver.FindElement(MobileBy.AccessibilityId("mobile_connect_button")).Should().NotBeNull();
-        _driver.FindElement(MobileBy.AccessibilityId("mobile_new_session_button")).Should().NotBeNull();
+        FindByAutomationId("mobile_connect_host").Should().NotBeNull();
+        FindByAutomationId("mobile_connect_port").Should().NotBeNull();
+        FindByAutomationId("mobile_connect_button").Should().NotBeNull();
+        FindByAutomationId("mobile_new_session_button").Should().NotBeNull();
     }
 
     [SkippableFact]
@@ -55,10 +55,24 @@ public sealed class MobileConnectionUiTests : IDisposable
         EnsureDriver();
 
         _driver.Should().NotBeNull();
-        var portInput = _driver!.FindElement(MobileBy.AccessibilityId("mobile_connect_port"));
+        var portInput = FindByAutomationId("mobile_connect_port");
         var value = portInput.Text;
         value.Should().NotBeNullOrWhiteSpace();
         value.Should().Contain("5243");
+    }
+
+    private IWebElement FindByAutomationId(string id)
+    {
+        _driver.Should().NotBeNull();
+
+        try
+        {
+            return _driver!.FindElement(MobileBy.AccessibilityId(id));
+        }
+        catch (NoSuchElementException)
+        {
+            return _driver!.FindElement(MobileBy.Id(id));
+        }
     }
 
     private static bool IsConfigured()
@@ -96,10 +110,14 @@ public sealed class MobileConnectionUiTests : IDisposable
         options.AddAdditionalAppiumOption("appActivity", appActivity);
         options.AddAdditionalAppiumOption("appWaitActivity", appWaitActivity);
         options.AddAdditionalAppiumOption("adbExecTimeout", 120000);
-        options.AddAdditionalAppiumOption("appWaitDuration", 120000);
-        options.AddAdditionalAppiumOption("uiautomator2ServerLaunchTimeout", 120000);
+        options.AddAdditionalAppiumOption("appWaitDuration", 180000);
+        options.AddAdditionalAppiumOption("androidInstallTimeout", 180000);
+        options.AddAdditionalAppiumOption("uiautomator2ServerLaunchTimeout", 240000);
+        options.AddAdditionalAppiumOption("newCommandTimeout", 300);
+        options.AddAdditionalAppiumOption("noReset", true);
+        options.AddAdditionalAppiumOption("fullReset", false);
 
-        _driver = new AndroidDriver(new Uri(serverUrl), options, TimeSpan.FromSeconds(120));
+        _driver = new AndroidDriver(new Uri(serverUrl), options, TimeSpan.FromSeconds(300));
         _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
     }
 

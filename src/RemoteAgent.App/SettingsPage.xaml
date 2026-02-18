@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RemoteAgent.App.SettingsPage"
              Title="Settings"
-             BackgroundColor="{StaticResource PageBackgroundBrush}">
+             BackgroundColor="{StaticResource SurfaceBrush}">
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="10">
             <Label Text="Settings" FontSize="24" FontAttributes="Bold" />
-            <Label Text="Connection, notification, and theme settings can be configured here." TextColor="{StaticResource IconTintMutedBrush}" />
+            <Label Text="Connection, notification, and theme settings can be configured here." TextColor="{StaticResource OnSurfaceVariantBrush}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

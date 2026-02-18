@@ -199,6 +199,21 @@ public sealed class ApiKeyWebApplicationFactory : RemoteAgentWebApplicationFacto
     }
 }
 
+public sealed class ApiKeyLoopbackAllowedWebApplicationFactory : RemoteAgentWebApplicationFactory
+{
+    public ApiKeyLoopbackAllowedWebApplicationFactory() : base(GetCommand(), GetArguments(), "process", apiKey: "test-key", allowUnauthenticatedLoopback: true) { }
+
+    private static string GetCommand()
+    {
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "cmd" : "/bin/cat";
+    }
+
+    private static string GetArguments()
+    {
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "/c more" : "";
+    }
+}
+
 public sealed class ConnectionRateLimitedWebApplicationFactory : RemoteAgentWebApplicationFactory
 {
     public ConnectionRateLimitedWebApplicationFactory()
