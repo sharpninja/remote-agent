@@ -410,11 +410,18 @@ docs/SESSION-SEED-PROMPT.md
 # Docs folder README (not tracked)
 docs/README.md
 
+# PNG files in project root (screenshots, etc.)
+/*.png
+
 # Cursor AI
 .cursor/
 .cursorignore
 
+# Plain text files (do not track)
+*.txt
+!src/RemoteAgent.App/Resources/Raw/AboutAssets.txt
+
 # Commit-and-sync script output (local only)
-commit-result.txt
 SESSION_HANDOFF_2026-02-16.md
 scripts/fetch-run-logs.ps1
+scripts/commit-and-sync.ps1

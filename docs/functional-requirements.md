@@ -122,7 +122,7 @@
 
 - **FR-12.1** The system shall provide a **desktop management app** (Avalonia UI) that can connect to **remote servers** and replicate core mobile interaction flows (connect, start/stop session, send messages, receive output).
 - **FR-12.1.1** The desktop app shall use the **same chat UI** for interaction whether the session is configured for **direct** agent access or **server** access.
-- **FR-12.1.2** When establishing a connection, the desktop app shall prompt the user to select **Direct** or **Server** mode.
+- **FR-12.1.2** When establishing a connection, the desktop app shall display a **connection settings dialog** that prompts for connection defaults (host, port, mode, agent, optional API key, and per-request context), including selection of **Direct** or **Server** mode.
 - **FR-12.1.3** The desktop app shall provide a **tabbed session interface** so users can switch sessions by selecting session tabs.
 - **FR-12.1.4** The desktop app shall follow standard desktop interaction patterns including a **menu bar**, **toolbar**, and command-driven actions.
 - **FR-12.1.5** Desktop session tabs shall provide a direct **terminate session** action for active/saved sessions.

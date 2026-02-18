@@ -194,6 +194,10 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-17.2**](technical-requirements.md#17-prompt-template-system) | Prompt templates persisted in LiteDB with metadata/timestamps | **Done** | `PromptTemplateService` persists full template records |
 | [**TR-17.3**](technical-requirements.md#17-prompt-template-system) | Client rendering uses Handlebars-compatible eval + variable extraction | **Done** | `PromptTemplateEngine` extraction + render behavior |
 | [**TR-17.4**](technical-requirements.md#17-prompt-template-system) | Client UX collects variables then sends rendered template text | **Done** | Mobile template flow prompts variables then submits rendered message |
+| [**TR-18.1**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI commands/events use CQRS split with handler components | **Not started** | Current UI still uses direct view-model command methods; CQRS handler layer not yet implemented |
+| [**TR-18.2**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | Command/query/event handlers are unit-testable independent of UI frameworks | **Not started** | No dedicated CQRS handler test project or handler-level test suite exists yet |
+| [**TR-18.3**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI pipelines support mockable behavior injection for known outcomes/failures | **Not started** | Partial interface mocking exists, but no standardized CQRS pipeline abstraction is in place |
+| [**TR-18.4**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI tests substitute mocked handlers and validate success/failure UI behavior | **Not started** | UI tests currently mock service clients, not full CQRS command/event handlers |
 
 ---
 
@@ -202,11 +206,11 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
 | **Functional (FR)** | 67 | 0 | 0 |
-| **Technical (TR)** | 108 | 0 | 0 |
+| **Technical (TR)** | 108 | 0 | 4 |
 
 **Not started (FR):** None.
 
-**Not started (TR):** None.
+**Not started (TR):** TR-18.1, TR-18.2, TR-18.3, TR-18.4.
 
 ---
 

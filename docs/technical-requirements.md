@@ -225,3 +225,14 @@
 - **TR-17.4** Client UX shall provide a prompt-variable input sequence before sending rendered template text.
 
 *See:* [FR-14](functional-requirements.md#14-prompt-templates).
+
+---
+
+## 18. UI command/event CQRS testability
+
+- **TR-18.1** All UI-triggered commands and UI events shall be implemented using a **CQRS-style split** between command/query request objects and handler components so UI layers do not directly embed business or transport logic.
+- **TR-18.2** Every command/query/event handler used by mobile and desktop UIs shall be **unit-testable independently** of UI frameworks (MAUI/Avalonia), including deterministic success and failure-path assertions.
+- **TR-18.3** UI command/event pipelines shall be designed for **mockable behavior injection** (for example via interfaces/factories/mediator abstractions) so tests can force known outcomes per endpoint and per failure mode.
+- **TR-18.4** UI tests shall validate known use cases by substituting mocked CQRS handlers and asserting rendered UI state changes, status messages, and command completion/error behavior.
+
+*See:* [FR-12](functional-requirements.md#12-desktop-management-app), [FR-2](functional-requirements.md#2-chat-and-messaging), [TR-8](#8-testing), [TR-14](#14-desktop-management-capabilities).
