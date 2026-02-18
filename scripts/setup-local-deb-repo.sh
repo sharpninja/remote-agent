@@ -84,6 +84,20 @@ if [[ ${#missing[@]} -gt 0 ]]; then
   exit 1
 fi
 
+# ── Ensure _apt can traverse the path to REPO_DIR ────────────────────────────
+# apt drops privileges to the _apt user when fetching file:// URIs.  If any
+# directory component of REPO_DIR is not world-executable (common for home
+# directories), apt will fail with "Permission denied".  Grant o+x on every
+# component from / down to REPO_DIR without widening file read permissions.
+_dir="$REPO_DIR"
+while [[ "$_dir" != "/" ]]; do
+  chmod o+x "$_dir" 2>/dev/null || true
+  _dir="$(dirname "$_dir")"
+done
+# Also make the .deb and index files world-readable.
+chmod -R o+r "$REPO_DIR" 2>/dev/null || true
+echo "[local-repo] ensured world-traversable path to repo dir."
+
 # ── Generate Packages ─────────────────────────────────────────────────────────
 echo "[local-repo] scanning packages..."
 # dpkg-scanpackages scans the directory for .deb files and writes a Packages
