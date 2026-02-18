@@ -159,16 +159,25 @@ else
 fi
 
 # ── Run apt-get update ────────────────────────────────────────────────────────
-if [[ "$DO_APT_UPDATE" == "true" && "$DO_SOURCES_LIST" == "true" ]]; then
-  echo "[local-repo] running apt-get update..."
-  $SUDO apt-get update -o "Dir::Etc::sourcelist=${SOURCES_FILE}" \
-                       -o "Dir::Etc::sourceparts=-" \
-                       -o "APT::Get::List-Cleanup=0"
-  echo "[local-repo] apt index updated."
+# Run whenever the metadata was regenerated, whether or not sources.list was
+# just written (it may already exist from a previous run).
+if [[ "$DO_APT_UPDATE" == "true" ]]; then
+  if [[ "$EUID" -ne 0 ]] && ! command -v sudo > /dev/null 2>&1; then
+    echo "[local-repo] WARNING: cannot run apt-get update without sudo." >&2
+    echo "[local-repo] Run manually:  sudo apt-get update" >&2
+  elif [[ -f "$SOURCES_FILE" ]]; then
+    echo "[local-repo] running apt-get update..."
+    $SUDO apt-get update -o "Dir::Etc::sourcelist=${SOURCES_FILE}" \
+                         -o "Dir::Etc::sourceparts=-" \
+                         -o "APT::Get::List-Cleanup=0"
+    echo "[local-repo] apt index updated."
+  else
+    echo "[local-repo] skipped apt-get update (sources file not present)."
+    echo "[local-repo] Run manually:  sudo apt-get update"
+  fi
 else
-  echo "[local-repo] skipped apt-get update (--no-apt-update or sources.list not written)."
-  echo "[local-repo] To update manually:"
-  echo "  sudo apt-get update"
+  echo "[local-repo] skipped apt-get update (--no-apt-update)."
+  echo "[local-repo] To update manually:  sudo apt-get update"
 fi
 
 # ── Start HTTP server (optional) ──────────────────────────────────────────────
