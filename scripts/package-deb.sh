@@ -381,7 +381,6 @@ WSLWRAP
           # Source the environment file so ASPNETCORE_URLS and other overrides apply.
           _env_file="/etc/remote-agent/environment"
           if [ -f "$_env_file" ]; then
-            # Export only non-comment, non-empty lines.
             set -a
             # shellcheck disable=SC1090
             . "$_env_file" 2>/dev/null || true
@@ -391,8 +390,8 @@ WSLWRAP
           start-stop-daemon --start --background \
             --make-pidfile --pidfile "$_pid" \
             --chuid remote-agent \
-            --exec "$_svc" \
-            -- >> "$_log" 2>> "$_err" || true
+            --output "$_log" \
+            --exec "$_svc" || true
         else
           # Locate daemonize: Pengwin installs to /usr/bin, others to /usr/sbin.
           _daemonize=""
