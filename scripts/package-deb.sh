@@ -95,11 +95,11 @@ esac
 if [[ "$SELF_CONTAINED" == "true" ]]; then
   SC_FLAG="--self-contained true"
   DEP_SERVICE=""
-  DEP_DESKTOP=""
+  DEP_DESKTOP="remote-agent-service (= ${VERSION})"
 else
   SC_FLAG=""
   DEP_SERVICE="aspnetcore-runtime-10.0 | dotnet-runtime-10.0"
-  DEP_DESKTOP="dotnet-runtime-9.0"
+  DEP_DESKTOP="remote-agent-service (= ${VERSION}), dotnet-runtime-9.0"
 fi
 
 echo "[package-deb] version=${VERSION}  rid=${RID}  arch=${ARCH}  config=${CONFIGURATION}  self-contained=${SELF_CONTAINED}"

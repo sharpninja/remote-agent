@@ -18,6 +18,10 @@ public partial class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        builder.Host.UseWindowsService(options =>
+        {
+            options.ServiceName = "Remote Agent Service";
+        });
         ConfigureServices(builder.Services, builder.Configuration);
 
         var app = builder.Build();
@@ -223,6 +227,10 @@ public partial class Program
 
     private static bool IsAuthorizedHttp(HttpContext context, AgentOptions options)
     {
+        var remote = context.Connection.RemoteIpAddress;
+        if (options.AllowUnauthenticatedLoopback && remote != null && IPAddress.IsLoopback(remote))
+            return true;
+
         var configuredApiKey = options.ApiKey?.Trim();
         if (!string.IsNullOrEmpty(configuredApiKey))
         {
@@ -230,11 +238,7 @@ public partial class Program
             return string.Equals(configuredApiKey, provided, StringComparison.Ordinal);
         }
 
-        if (!options.AllowUnauthenticatedLoopback)
-            return false;
-
-        var remote = context.Connection.RemoteIpAddress;
-        return remote != null && IPAddress.IsLoopback(remote);
+        return false;
     }
 }
 
