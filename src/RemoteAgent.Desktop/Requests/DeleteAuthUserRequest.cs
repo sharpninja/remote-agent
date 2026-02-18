@@ -9,7 +9,7 @@ public sealed record DeleteAuthUserRequest(
     int Port,
     string UserId,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    AuthUsersViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"DeleteAuthUserRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, UserId = {UserId}, ApiKey = [REDACTED] }}";

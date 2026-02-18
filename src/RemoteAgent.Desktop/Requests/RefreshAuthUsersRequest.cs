@@ -13,7 +13,7 @@ public sealed record RefreshAuthUsersRequest(
     string Host,
     int Port,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    AuthUsersViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"RefreshAuthUsersRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED] }}";

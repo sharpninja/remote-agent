@@ -12,7 +12,7 @@ public class StartLogMonitoringHandlerTests
     {
         var logClient = new StubStructuredLogClient();
         var handler = new StartLogMonitoringHandler(logClient);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace();
+        var workspace = SharedWorkspaceFactory.CreateStructuredLogsViewModel();
 
         var result = await handler.HandleAsync(new StartLogMonitoringRequest(
             Guid.NewGuid(), "", 5243, null, "srv1", 0, workspace));
@@ -26,7 +26,7 @@ public class StartLogMonitoringHandlerTests
     {
         var logClient = new StubStructuredLogClient();
         var handler = new StartLogMonitoringHandler(logClient);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace();
+        var workspace = SharedWorkspaceFactory.CreateStructuredLogsViewModel();
 
         var result = await handler.HandleAsync(new StartLogMonitoringRequest(
             Guid.NewGuid(), "127.0.0.1", 0, null, "srv1", 0, workspace));
@@ -39,7 +39,7 @@ public class StartLogMonitoringHandlerTests
     {
         var logClient = new StubStructuredLogClient { SnapshotResult = null };
         var handler = new StartLogMonitoringHandler(logClient);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace();
+        var workspace = SharedWorkspaceFactory.CreateStructuredLogsViewModel();
 
         var result = await handler.HandleAsync(new StartLogMonitoringRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, "srv1", 42, workspace));
@@ -53,7 +53,7 @@ public class StartLogMonitoringHandlerTests
     {
         var logClient = new StubStructuredLogClient { ThrowOnGet = true };
         var handler = new StartLogMonitoringHandler(logClient);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace();
+        var workspace = SharedWorkspaceFactory.CreateStructuredLogsViewModel();
 
         var result = await handler.HandleAsync(new StartLogMonitoringRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, "srv1", 0, workspace));
@@ -67,7 +67,7 @@ public class StartLogMonitoringHandlerTests
     {
         var logClient = new StubStructuredLogClient { SnapshotResult = null };
         var handler = new StartLogMonitoringHandler(logClient);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace();
+        var workspace = SharedWorkspaceFactory.CreateStructuredLogsViewModel();
 
         await handler.HandleAsync(new StartLogMonitoringRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, "srv1", 0, workspace));

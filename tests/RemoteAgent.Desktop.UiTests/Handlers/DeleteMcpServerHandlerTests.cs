@@ -12,7 +12,7 @@ public class DeleteMcpServerHandlerTests
     {
         var client = new StubCapacityClient { DeleteMcpServerResult = true };
         var handler = new DeleteMcpServerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new DeleteMcpServerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "mcp1", null, workspace));
@@ -25,7 +25,7 @@ public class DeleteMcpServerHandlerTests
     {
         var client = new StubCapacityClient { DeleteMcpServerResult = false };
         var handler = new DeleteMcpServerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new DeleteMcpServerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "mcp1", null, workspace));
@@ -38,7 +38,7 @@ public class DeleteMcpServerHandlerTests
     {
         var client = new StubCapacityClient { DeleteMcpServerResult = true };
         var handler = new DeleteMcpServerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         await handler.HandleAsync(new DeleteMcpServerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "mcp1", null, workspace));

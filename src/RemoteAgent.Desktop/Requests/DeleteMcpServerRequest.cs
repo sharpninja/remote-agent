@@ -9,7 +9,7 @@ public sealed record DeleteMcpServerRequest(
     int Port,
     string ServerId,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    McpRegistryDesktopViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"DeleteMcpServerRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ServerId = {ServerId}, ApiKey = [REDACTED] }}";

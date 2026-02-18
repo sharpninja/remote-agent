@@ -12,7 +12,7 @@ public class SaveAgentMcpMappingHandlerTests
     {
         var client = new StubCapacityClient { SetAgentMcpServersResult = true };
         var handler = new SaveAgentMcpMappingHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new SaveAgentMcpMappingRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "process", new[] { "mcp1" }, null, workspace));
@@ -25,7 +25,7 @@ public class SaveAgentMcpMappingHandlerTests
     {
         var client = new StubCapacityClient { SetAgentMcpServersResult = false };
         var handler = new SaveAgentMcpMappingHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new SaveAgentMcpMappingRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "process", new[] { "mcp1" }, null, workspace));
@@ -38,7 +38,7 @@ public class SaveAgentMcpMappingHandlerTests
     {
         var client = new StubCapacityClient { SetAgentMcpServersResult = true };
         var handler = new SaveAgentMcpMappingHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         await handler.HandleAsync(new SaveAgentMcpMappingRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "process", Array.Empty<string>(), null, workspace));

@@ -12,7 +12,7 @@ public class UnbanPeerHandlerTests
     {
         var client = new StubCapacityClient { UnbanPeerResult = true };
         var handler = new UnbanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         var result = await handler.HandleAsync(new UnbanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.1", null, workspace));
@@ -25,7 +25,7 @@ public class UnbanPeerHandlerTests
     {
         var client = new StubCapacityClient { UnbanPeerResult = false };
         var handler = new UnbanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new UnbanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.1", null, workspace));
@@ -38,7 +38,7 @@ public class UnbanPeerHandlerTests
     {
         var client = new StubCapacityClient { UnbanPeerResult = true };
         var handler = new UnbanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new UnbanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.2", null, workspace));
@@ -51,7 +51,7 @@ public class UnbanPeerHandlerTests
     {
         var client = new StubCapacityClient { UnbanPeerResult = true };
         var handler = new UnbanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new UnbanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.1", null, workspace));

@@ -119,13 +119,13 @@
             <TextBlock VerticalAlignment="Center" Text="New Session" />
           </StackPanel>
         </Button>
-        <Button x:Name="RefreshOpenSessionsButton" Command="{Binding CurrentServerViewModel.RefreshOpenSessionsCommand}">
+        <Button x:Name="RefreshOpenSessionsButton" Command="{Binding CurrentServerViewModel.Security.RefreshOpenSessionsCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE72C;" />
             <TextBlock VerticalAlignment="Center" Text="Refresh Open Sessions" />
           </StackPanel>
         </Button>
-        <Button x:Name="TerminateOpenServerSessionButton" Command="{Binding CurrentServerViewModel.TerminateOpenServerSessionCommand}">
+        <Button x:Name="TerminateOpenServerSessionButton" Command="{Binding CurrentServerViewModel.Security.TerminateOpenServerSessionCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE711;" />
             <TextBlock VerticalAlignment="Center" Text="Terminate Open Session" />
@@ -431,7 +431,8 @@
                            TextWrapping="Wrap" />
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsOpenSessionsSectionSelected}" RowDefinitions="Auto,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsOpenSessionsSectionSelected}" RowDefinitions="Auto,Auto,*" Margin="8"
+                    DataContext="{Binding Security}">
                 <TextBlock FontWeight="SemiBold" Text="Open Server Sessions" />
                 <TextBlock Grid.Row="1" Opacity="0.7" Text="Sessions currently active on the server." />
                 <ListBox x:Name="OpenServerSessionsList"
@@ -450,7 +451,8 @@
                 </ListBox>
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsStructuredLogsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsStructuredLogsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*" Margin="8"
+                    DataContext="{Binding StructuredLogs}">
                 <TextBlock FontWeight="SemiBold" Text="Structured Log Viewer" />
                 <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding LogMonitorStatus}" TextWrapping="Wrap" />
                 <Grid Grid.Row="2" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
@@ -498,7 +500,8 @@
                 </ListBox>
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsSecuritySectionSelected}" RowDefinitions="Auto,Auto,Auto,*,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsSecuritySectionSelected}" RowDefinitions="Auto,Auto,Auto,*,Auto,*" Margin="8"
+                    DataContext="{Binding Security}">
                 <TextBlock FontWeight="SemiBold" Text="Connection and Device Management" />
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
                   <Button x:Name="RefreshSecurityButton" Command="{Binding RefreshSecurityDataCommand}">Refresh</Button>
@@ -538,7 +541,8 @@
                 </ListBox>
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsHistorySectionSelected}" RowDefinitions="Auto,Auto,*,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsHistorySectionSelected}" RowDefinitions="Auto,Auto,*,Auto,*" Margin="8"
+                    DataContext="{Binding Security}">
                 <TextBlock FontWeight="SemiBold" Text="Connection History" />
                 <TextBlock Grid.Row="1" Opacity="0.7" Text="Most recent connection/message events and abandoned sessions." />
                 <ListBox x:Name="ConnectionHistoryList"
@@ -571,7 +575,8 @@
                 </ListBox>
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsAuthUsersSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsAuthUsersSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*" Margin="8"
+                    DataContext="{Binding AuthUsers}">
                 <TextBlock FontWeight="SemiBold" Text="Auth Users and Permissions" />
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
                   <TextBlock VerticalAlignment="Center" Text="User ID" />
@@ -609,7 +614,8 @@
                 </ListBox>
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsPluginsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsPluginsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto,*" Margin="8"
+                    DataContext="{Binding Plugins}">
                 <TextBlock FontWeight="SemiBold" Text="Server Plugin Management" />
                 <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding PluginStatus}" TextWrapping="Wrap" />
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
@@ -628,7 +634,8 @@
                          ItemsSource="{Binding LoadedPluginRunnerIds}" />
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsMcpSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,*,Auto,*" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsMcpSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,*,Auto,*" Margin="8"
+                    DataContext="{Binding McpRegistry}">
                 <TextBlock FontWeight="SemiBold" Text="MCP Registry and Agent Mapping" />
                 <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding McpStatus}" TextWrapping="Wrap" />
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
@@ -680,7 +687,8 @@
                 </Button>
               </Grid>
 
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsPromptsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto,Auto" Margin="8">
+              <Grid IsVisible="{Binding $parent[Window].DataContext.IsPromptsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto,Auto" Margin="8"
+                    DataContext="{Binding PromptTemplates}">
                 <TextBlock FontWeight="SemiBold" Text="Prompt Templates and Session Seed Context" />
                 <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding PromptTemplateStatus}" TextWrapping="Wrap" />
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">

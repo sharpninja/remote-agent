@@ -12,7 +12,7 @@ public class DeleteAuthUserHandlerTests
     {
         var client = new StubCapacityClient { DeleteAuthUserResult = true };
         var handler = new DeleteAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         var result = await handler.HandleAsync(new DeleteAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "user1", null, workspace));
@@ -25,7 +25,7 @@ public class DeleteAuthUserHandlerTests
     {
         var client = new StubCapacityClient { DeleteAuthUserResult = false };
         var handler = new DeleteAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         var result = await handler.HandleAsync(new DeleteAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "user1", null, workspace));
@@ -38,7 +38,7 @@ public class DeleteAuthUserHandlerTests
     {
         var client = new StubCapacityClient { DeleteAuthUserResult = true };
         var handler = new DeleteAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         await handler.HandleAsync(new DeleteAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "user-abc", null, workspace));
@@ -51,7 +51,7 @@ public class DeleteAuthUserHandlerTests
     {
         var client = new StubCapacityClient { DeleteAuthUserResult = true };
         var handler = new DeleteAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         await handler.HandleAsync(new DeleteAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "user1", null, workspace));

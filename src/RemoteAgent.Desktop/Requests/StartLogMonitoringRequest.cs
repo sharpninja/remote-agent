@@ -13,7 +13,7 @@ public sealed record StartLogMonitoringRequest(
     string? ApiKey,
     string ServerId,
     long ReplayFromOffset,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult<StartLogMonitoringResult>>
+    StructuredLogsViewModel Workspace) : IRequest<CommandResult<StartLogMonitoringResult>>
 {
     public override string ToString() =>
         $"StartLogMonitoringRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED], ServerId = {ServerId}, ReplayFromOffset = {ReplayFromOffset} }}";

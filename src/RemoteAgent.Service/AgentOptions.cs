@@ -39,6 +39,9 @@ public class AgentOptions
     /// <summary>Allows unauthenticated access from loopback peers, including when <see cref="ApiKey"/> is configured. Enabled by default.</summary>
     public bool AllowUnauthenticatedLoopback { get; set; } = true;
 
+    /// <summary>Allows unauthenticated remote (non-loopback) access when no <see cref="ApiKey"/> is configured. Disabled by default; enable only for development/trusted networks.</summary>
+    public bool AllowUnauthenticatedRemote { get; set; } = false;
+
     /// <summary>Enables per-peer connection protection (rate limiting + DoS safeguards).</summary>
     public bool EnableConnectionProtection { get; set; } = true;
 

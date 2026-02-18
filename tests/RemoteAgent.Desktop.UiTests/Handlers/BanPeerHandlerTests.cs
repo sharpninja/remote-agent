@@ -12,7 +12,7 @@ public class BanPeerHandlerTests
     {
         var client = new StubCapacityClient { BanPeerResult = true };
         var handler = new BanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         var result = await handler.HandleAsync(new BanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.1", "test reason", null, workspace));
@@ -26,7 +26,7 @@ public class BanPeerHandlerTests
     {
         var client = new StubCapacityClient { BanPeerResult = false };
         var handler = new BanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new BanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.1", null, null, workspace));
@@ -39,7 +39,7 @@ public class BanPeerHandlerTests
     {
         var client = new StubCapacityClient { BanPeerResult = true };
         var handler = new BanPeerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new BanPeerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "10.0.0.1", null, null, workspace));

@@ -12,7 +12,7 @@ public class SeedSessionContextHandlerTests
     {
         var client = new StubCapacityClient { SeedSessionContextResult = true };
         var handler = new SeedSessionContextHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         var result = await handler.HandleAsync(new SeedSessionContextRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess1", "text", "context content", null, null, workspace));
@@ -25,7 +25,7 @@ public class SeedSessionContextHandlerTests
     {
         var client = new StubCapacityClient { SeedSessionContextResult = false };
         var handler = new SeedSessionContextHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         var result = await handler.HandleAsync(new SeedSessionContextRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess1", "text", "content", null, null, workspace));
@@ -38,7 +38,7 @@ public class SeedSessionContextHandlerTests
     {
         var client = new StubCapacityClient { SeedSessionContextResult = true };
         var handler = new SeedSessionContextHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         await handler.HandleAsync(new SeedSessionContextRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess-abc", "text", "content", null, null, workspace));
@@ -51,7 +51,7 @@ public class SeedSessionContextHandlerTests
     {
         var client = new StubCapacityClient { SeedSessionContextResult = false };
         var handler = new SeedSessionContextHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         await handler.HandleAsync(new SeedSessionContextRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess1", "text", "content", null, null, workspace));

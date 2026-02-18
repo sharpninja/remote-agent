@@ -14,7 +14,7 @@ public class SaveMcpServerHandlerTests
         var server = new McpServerDefinition { ServerId = "mcp1", DisplayName = "Test MCP" };
         var client = new StubCapacityClient { UpsertMcpServerResult = server };
         var handler = new SaveMcpServerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new SaveMcpServerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, server, null, workspace));
@@ -28,7 +28,7 @@ public class SaveMcpServerHandlerTests
         var server = new McpServerDefinition { ServerId = "mcp1" };
         var client = new StubCapacityClient { UpsertMcpServerResult = null };
         var handler = new SaveMcpServerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new SaveMcpServerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, server, null, workspace));
@@ -42,7 +42,7 @@ public class SaveMcpServerHandlerTests
         var server = new McpServerDefinition { ServerId = "mcp1" };
         var client = new StubCapacityClient { UpsertMcpServerResult = server };
         var handler = new SaveMcpServerHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         await handler.HandleAsync(new SaveMcpServerRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, server, null, workspace));

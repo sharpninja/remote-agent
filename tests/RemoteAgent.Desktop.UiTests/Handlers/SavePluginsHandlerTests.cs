@@ -13,7 +13,7 @@ public class SavePluginsHandlerTests
     {
         var client = new StubCapacityClient { UpdatePluginsResult = null };
         var handler = new SavePluginsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePluginsViewModel(client);
 
         var result = await handler.HandleAsync(new SavePluginsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, new[] { "Assembly.dll" }, null, workspace));
@@ -29,7 +29,7 @@ public class SavePluginsHandlerTests
             new[] { "Assembly.dll" }, new[] { "runner1" }, true, "Updated.");
         var client = new StubCapacityClient { UpdatePluginsResult = config, GetPluginsResult = config };
         var handler = new SavePluginsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePluginsViewModel(client);
 
         var result = await handler.HandleAsync(new SavePluginsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, new[] { "Assembly.dll" }, null, workspace));
@@ -44,7 +44,7 @@ public class SavePluginsHandlerTests
             new[] { "Assembly.One.dll", "Assembly.Two.dll" }, new[] { "runner1" }, true, "ok");
         var client = new StubCapacityClient { UpdatePluginsResult = config, GetPluginsResult = config };
         var handler = new SavePluginsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePluginsViewModel(client);
 
         await handler.HandleAsync(new SavePluginsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, new[] { "Assembly.One.dll" }, null, workspace));

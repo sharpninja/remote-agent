@@ -13,7 +13,7 @@ public class RefreshOpenSessionsHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshOpenSessionsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         var result = await handler.HandleAsync(new RefreshOpenSessionsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -26,7 +26,7 @@ public class RefreshOpenSessionsHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshOpenSessionsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new RefreshOpenSessionsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -39,7 +39,7 @@ public class RefreshOpenSessionsHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshOpenSessionsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
         workspace.OpenServerSessions.Add(new OpenServerSessionSnapshot("sess1", "process", true));
 
         await handler.HandleAsync(new RefreshOpenSessionsRequest(

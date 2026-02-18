@@ -13,7 +13,7 @@ public class RefreshPluginsHandlerTests
     {
         var client = new StubCapacityClient { GetPluginsResult = null };
         var handler = new RefreshPluginsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePluginsViewModel(client);
 
         var result = await handler.HandleAsync(new RefreshPluginsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -32,7 +32,7 @@ public class RefreshPluginsHandlerTests
             "ok");
         var client = new StubCapacityClient { GetPluginsResult = config };
         var handler = new RefreshPluginsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePluginsViewModel(client);
 
         var result = await handler.HandleAsync(new RefreshPluginsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -52,7 +52,7 @@ public class RefreshPluginsHandlerTests
             "ok");
         var client = new StubCapacityClient { GetPluginsResult = config };
         var handler = new RefreshPluginsHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePluginsViewModel(client);
 
         await handler.HandleAsync(new RefreshPluginsRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));

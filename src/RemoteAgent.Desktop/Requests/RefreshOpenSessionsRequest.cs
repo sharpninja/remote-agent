@@ -12,7 +12,7 @@ public sealed record RefreshOpenSessionsRequest(
     string Host,
     int Port,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    SecurityViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"RefreshOpenSessionsRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED] }}";

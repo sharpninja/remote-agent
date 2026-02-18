@@ -10,7 +10,7 @@ public sealed record SavePluginsRequest(
     int Port,
     IReadOnlyList<string> Assemblies,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    PluginsViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"SavePluginsRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, Assemblies = [{Assemblies.Count}], ApiKey = [REDACTED] }}";

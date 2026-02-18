@@ -15,7 +15,7 @@ public sealed record RefreshSecurityDataRequest(
     string Host,
     int Port,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    SecurityViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"RefreshSecurityDataRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED] }}";

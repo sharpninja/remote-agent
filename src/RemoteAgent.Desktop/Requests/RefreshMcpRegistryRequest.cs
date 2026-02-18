@@ -13,7 +13,7 @@ public sealed record RefreshMcpRegistryRequest(
     string Host,
     int Port,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    McpRegistryDesktopViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"RefreshMcpRegistryRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED] }}";

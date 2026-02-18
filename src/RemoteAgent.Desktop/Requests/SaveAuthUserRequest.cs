@@ -10,7 +10,7 @@ public sealed record SaveAuthUserRequest(
     int Port,
     AuthUserSnapshot User,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    AuthUsersViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"SaveAuthUserRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, UserId = {User.UserId}, ApiKey = [REDACTED] }}";

@@ -10,7 +10,7 @@ public sealed record SaveAgentMcpMappingRequest(
     string AgentId,
     IReadOnlyList<string> ServerIds,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    McpRegistryDesktopViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"SaveAgentMcpMappingRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, AgentId = {AgentId}, ServerIds = [{ServerIds.Count}], ApiKey = [REDACTED] }}";

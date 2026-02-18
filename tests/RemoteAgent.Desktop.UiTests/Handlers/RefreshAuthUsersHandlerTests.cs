@@ -13,7 +13,7 @@ public class RefreshAuthUsersHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshAuthUsersHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         var result = await handler.HandleAsync(new RefreshAuthUsersRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -26,7 +26,7 @@ public class RefreshAuthUsersHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshAuthUsersHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         await handler.HandleAsync(new RefreshAuthUsersRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -39,7 +39,7 @@ public class RefreshAuthUsersHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshAuthUsersHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
         workspace.AuthUsers.Add(new AuthUserSnapshot("old-user", "Old", "viewer", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow));
 
         await handler.HandleAsync(new RefreshAuthUsersRequest(

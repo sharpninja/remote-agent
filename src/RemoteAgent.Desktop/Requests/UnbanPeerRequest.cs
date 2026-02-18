@@ -9,7 +9,7 @@ public sealed record UnbanPeerRequest(
     int Port,
     string Peer,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    SecurityViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"UnbanPeerRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, Peer = {Peer}, ApiKey = [REDACTED] }}";

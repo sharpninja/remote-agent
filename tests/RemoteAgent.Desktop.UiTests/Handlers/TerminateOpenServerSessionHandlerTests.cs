@@ -13,7 +13,7 @@ public class TerminateOpenServerSessionHandlerTests
     {
         var client = new StubCapacityClient { TerminateSessionResult = true };
         var handler = new TerminateOpenServerSessionHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         var result = await handler.HandleAsync(new TerminateOpenServerSessionRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess1", null, workspace));
@@ -26,7 +26,7 @@ public class TerminateOpenServerSessionHandlerTests
     {
         var client = new StubCapacityClient { TerminateSessionResult = false };
         var handler = new TerminateOpenServerSessionHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         var result = await handler.HandleAsync(new TerminateOpenServerSessionRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess1", null, workspace));
@@ -39,7 +39,7 @@ public class TerminateOpenServerSessionHandlerTests
     {
         var client = new StubCapacityClient { TerminateSessionResult = true };
         var handler = new TerminateOpenServerSessionHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
 
         await handler.HandleAsync(new TerminateOpenServerSessionRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "sess-xyz", null, workspace));
@@ -52,7 +52,7 @@ public class TerminateOpenServerSessionHandlerTests
     {
         var client = new StubCapacityClient { TerminateSessionResult = true };
         var handler = new TerminateOpenServerSessionHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateSecurityViewModel(client);
         workspace.OpenServerSessions.Add(new OpenServerSessionSnapshot("sess1", "process", true));
 
         await handler.HandleAsync(new TerminateOpenServerSessionRequest(

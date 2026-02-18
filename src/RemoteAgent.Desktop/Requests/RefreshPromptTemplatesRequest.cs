@@ -13,7 +13,7 @@ public sealed record RefreshPromptTemplatesRequest(
     string Host,
     int Port,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    PromptTemplatesViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"RefreshPromptTemplatesRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED] }}";

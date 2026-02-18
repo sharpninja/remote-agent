@@ -14,7 +14,7 @@ public class SaveAuthUserHandlerTests
         var user = new AuthUserSnapshot("user1", "User One", "admin", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
         var client = new StubCapacityClient { UpsertAuthUserResult = user };
         var handler = new SaveAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         var result = await handler.HandleAsync(new SaveAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, user, null, workspace));
@@ -28,7 +28,7 @@ public class SaveAuthUserHandlerTests
         var user = new AuthUserSnapshot("user1", "User One", "admin", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
         var client = new StubCapacityClient { UpsertAuthUserResult = null };
         var handler = new SaveAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         var result = await handler.HandleAsync(new SaveAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, user, null, workspace));
@@ -42,7 +42,7 @@ public class SaveAuthUserHandlerTests
         var user = new AuthUserSnapshot("user1", "User One", "admin", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
         var client = new StubCapacityClient { UpsertAuthUserResult = user };
         var handler = new SaveAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         await handler.HandleAsync(new SaveAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, user, null, workspace));
@@ -56,7 +56,7 @@ public class SaveAuthUserHandlerTests
         var user = new AuthUserSnapshot("user1", "User One", "viewer", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
         var client = new StubCapacityClient { UpsertAuthUserResult = user };
         var handler = new SaveAuthUserHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateAuthUsersViewModel(client);
 
         await handler.HandleAsync(new SaveAuthUserRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, user, null, workspace));

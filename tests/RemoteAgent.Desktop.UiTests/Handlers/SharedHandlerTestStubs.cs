@@ -35,8 +35,39 @@ internal static class SharedWorkspaceFactory
             new NullDispatcher());
     }
 
+    public static SecurityViewModel CreateSecurityViewModel(IServerCapacityClient? client = null)
+        => new SecurityViewModel(new NullDispatcher(), StubConnectionContext.Default);
+
+    public static AuthUsersViewModel CreateAuthUsersViewModel(IServerCapacityClient? client = null)
+        => new AuthUsersViewModel(new NullDispatcher(), StubConnectionContext.Default);
+
+    public static PluginsViewModel CreatePluginsViewModel(IServerCapacityClient? client = null)
+        => new PluginsViewModel(new NullDispatcher(), StubConnectionContext.Default);
+
+    public static McpRegistryDesktopViewModel CreateMcpRegistryViewModel(IServerCapacityClient? client = null)
+        => new McpRegistryDesktopViewModel(new NullDispatcher(), StubConnectionContext.Default);
+
+    public static PromptTemplatesViewModel CreatePromptTemplatesViewModel(IServerCapacityClient? client = null)
+        => new PromptTemplatesViewModel(new NullDispatcher(), StubConnectionContext.Default);
+
+    public static StructuredLogsViewModel CreateStructuredLogsViewModel(IServerCapacityClient? client = null)
+        => new StructuredLogsViewModel(new NullDispatcher(), StubConnectionContext.Default, new StubLogStore());
+
     public static AppLogViewModel CreateAppLog() =>
         new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService());
+}
+
+internal sealed class StubConnectionContext : IServerConnectionContext
+{
+    public static readonly StubConnectionContext Default = new();
+    public string Host => "127.0.0.1";
+    public string Port => "5243";
+    public string ApiKey => "";
+    public string SelectedAgentId => "process";
+    public string SelectedConnectionMode => "server";
+    public string PerRequestContext => "";
+    public string ServerId => "srv-test";
+    public string ServerDisplayName => "Test";
 }
 
 internal sealed class NullDispatcher : IRequestDispatcher

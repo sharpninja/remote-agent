@@ -12,7 +12,7 @@ public class RefreshMcpRegistryHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshMcpRegistryHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         var result = await handler.HandleAsync(new RefreshMcpRegistryRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -25,7 +25,7 @@ public class RefreshMcpRegistryHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshMcpRegistryHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         await handler.HandleAsync(new RefreshMcpRegistryRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -38,7 +38,7 @@ public class RefreshMcpRegistryHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshMcpRegistryHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreateMcpRegistryViewModel(client);
 
         await handler.HandleAsync(new RefreshMcpRegistryRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));

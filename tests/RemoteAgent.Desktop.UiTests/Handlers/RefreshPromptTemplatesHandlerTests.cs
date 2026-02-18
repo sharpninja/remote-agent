@@ -12,7 +12,7 @@ public class RefreshPromptTemplatesHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshPromptTemplatesHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         var result = await handler.HandleAsync(new RefreshPromptTemplatesRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -25,7 +25,7 @@ public class RefreshPromptTemplatesHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshPromptTemplatesHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         await handler.HandleAsync(new RefreshPromptTemplatesRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));
@@ -38,7 +38,7 @@ public class RefreshPromptTemplatesHandlerTests
     {
         var client = new StubCapacityClient();
         var handler = new RefreshPromptTemplatesHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         await handler.HandleAsync(new RefreshPromptTemplatesRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, null, workspace));

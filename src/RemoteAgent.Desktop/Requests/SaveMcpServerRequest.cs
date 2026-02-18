@@ -11,7 +11,7 @@ public sealed record SaveMcpServerRequest(
     int Port,
     McpServerDefinition Server,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    McpRegistryDesktopViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"SaveMcpServerRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, ServerId = {Server.ServerId}, ApiKey = [REDACTED] }}";

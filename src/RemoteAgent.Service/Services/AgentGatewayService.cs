@@ -678,6 +678,9 @@ public class AgentGatewayService(
             return;
         }
 
+        if (options.Value.AllowUnauthenticatedRemote)
+            return;
+
         structuredLogs.Write("WARN", "auth_failed", "Unauthenticated remote access blocked", nameof(AgentGatewayService), null, null, "{\"reason\":\"loopback_required\"}");
         throw new RpcException(new Status(StatusCode.Unauthenticated, "Unauthenticated remote access is disabled. Configure Agent:ApiKey."));
     }

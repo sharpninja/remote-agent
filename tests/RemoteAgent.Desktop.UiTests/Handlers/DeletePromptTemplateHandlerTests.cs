@@ -12,7 +12,7 @@ public class DeletePromptTemplateHandlerTests
     {
         var client = new StubCapacityClient { DeletePromptTemplateResult = true };
         var handler = new DeletePromptTemplateHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         var result = await handler.HandleAsync(new DeletePromptTemplateRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "tpl1", null, workspace));
@@ -25,7 +25,7 @@ public class DeletePromptTemplateHandlerTests
     {
         var client = new StubCapacityClient { DeletePromptTemplateResult = false };
         var handler = new DeletePromptTemplateHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         var result = await handler.HandleAsync(new DeletePromptTemplateRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "tpl1", null, workspace));
@@ -38,7 +38,7 @@ public class DeletePromptTemplateHandlerTests
     {
         var client = new StubCapacityClient { DeletePromptTemplateResult = true };
         var handler = new DeletePromptTemplateHandler(client);
-        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+        var workspace = SharedWorkspaceFactory.CreatePromptTemplatesViewModel(client);
 
         await handler.HandleAsync(new DeletePromptTemplateRequest(
             Guid.NewGuid(), "127.0.0.1", 5243, "tpl1", null, workspace));

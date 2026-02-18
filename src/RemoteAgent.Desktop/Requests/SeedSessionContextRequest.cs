@@ -12,7 +12,7 @@ public sealed record SeedSessionContextRequest(
     string Content,
     string? Source,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    PromptTemplatesViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"SeedSessionContextRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, SessionId = {SessionId}, ContextType = {ContextType}, ApiKey = [REDACTED] }}";

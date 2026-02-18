@@ -9,7 +9,7 @@ public sealed record TerminateOpenServerSessionRequest(
     int Port,
     string SessionId,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    SecurityViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"TerminateOpenServerSessionRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, SessionId = {SessionId}, ApiKey = [REDACTED] }}";

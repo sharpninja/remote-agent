@@ -9,7 +9,7 @@ public sealed record DeletePromptTemplateRequest(
     int Port,
     string TemplateId,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    PromptTemplatesViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"DeletePromptTemplateRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, TemplateId = {TemplateId}, ApiKey = [REDACTED] }}";

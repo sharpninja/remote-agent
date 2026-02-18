@@ -11,7 +11,7 @@ public sealed record SavePromptTemplateRequest(
     int Port,
     PromptTemplateDefinition Template,
     string? ApiKey,
-    ServerWorkspaceViewModel Workspace) : IRequest<CommandResult>
+    PromptTemplatesViewModel Workspace) : IRequest<CommandResult>
 {
     public override string ToString() =>
         $"SavePromptTemplateRequest {{ CorrelationId = {CorrelationId}, Host = {Host}, Port = {Port}, TemplateId = {Template.TemplateId}, ApiKey = [REDACTED] }}";

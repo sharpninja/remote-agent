@@ -301,10 +301,10 @@ public sealed class MainWindowUiTests
             _nullAppLog);
         var workspace = vm.CurrentServerViewModel!;
 
-        workspace.RefreshPluginsCommand.Execute(null);
-        await WaitForAsync(() => workspace.StatusText.Contains("Command failed:", StringComparison.Ordinal));
+        workspace.Plugins.RefreshPluginsCommand.Execute(null);
+        await WaitForAsync(() => workspace.Plugins.PluginStatus.Contains("Command failed:", StringComparison.Ordinal));
 
-        workspace.StatusText.Should().Contain("Get plugins failed (PermissionDenied)");
+        workspace.Plugins.PluginStatus.Should().Contain("Get plugins failed (PermissionDenied)");
     }
 
     private sealed class InMemoryServerRegistrationStore : IServerRegistrationStore
