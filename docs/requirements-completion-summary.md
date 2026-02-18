@@ -195,10 +195,10 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-17.2**](technical-requirements.md#17-prompt-template-system) | Prompt templates persisted in LiteDB with metadata/timestamps | **Done** | `PromptTemplateService` persists full template records |
 | [**TR-17.3**](technical-requirements.md#17-prompt-template-system) | Client rendering uses Handlebars-compatible eval + variable extraction | **Done** | `PromptTemplateEngine` extraction + render behavior |
 | [**TR-17.4**](technical-requirements.md#17-prompt-template-system) | Client UX collects variables then sends rendered template text | **Done** | Mobile template flow prompts variables then submits rendered message |
-| [**TR-18.1**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI commands/events use CQRS split with handler components | **Not started** | Current UI still uses direct view-model command methods; CQRS handler layer not yet implemented |
-| [**TR-18.2**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | Command/query/event handlers are unit-testable independent of UI frameworks | **Not started** | No dedicated CQRS handler test project or handler-level test suite exists yet |
-| [**TR-18.3**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI pipelines support mockable behavior injection for known outcomes/failures | **Not started** | Partial interface mocking exists, but no standardized CQRS pipeline abstraction is in place |
-| [**TR-18.4**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI tests substitute mocked handlers and validate success/failure UI behavior | **Not started** | UI tests currently mock service clients, not full CQRS command/event handlers |
+| [**TR-18.1**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI commands/events use CQRS split with handler components | **Done** | Every Desktop and Mobile UI command dispatches through `IRequestDispatcher`; 32 Desktop handlers + 17 Mobile handlers; `ServerWorkspaceViewModel` decomposed into 6 focused sub-VMs |
+| [**TR-18.2**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | Command/query/event handlers are unit-testable independent of UI frameworks | **Done** | 218 handler unit tests across Desktop and Mobile; handlers tested with stub dependencies, no UI framework required |
+| [**TR-18.3**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI pipelines support mockable behavior injection for known outcomes/failures | **Done** | `IRequestDispatcher` is the sole pipeline entry point; `ServiceProviderRequestDispatcher` provides Debug-level entry/exit logging with CorrelationId tracing; all dependencies are interface-backed |
+| [**TR-18.4**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI tests substitute mocked handlers and validate success/failure UI behavior | **Done** | Handler tests use `StubCapacityClient`, `NullDispatcher`, `TestRequestDispatcher`, and other injectable stubs to validate both success and failure paths; 218 tests covering all handler paths |
 
 ---
 
@@ -207,12 +207,12 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
 | **Functional (FR)** | 67 | 0 | 0 |
-| **Technical (TR)** | 108 | 0 | 4 |
+| **Technical (TR)** | 112 | 0 | 0 |
 
 **Not started (FR):** None.
 
-**Not started (TR):** TR-18.1, TR-18.2, TR-18.3, TR-18.4.
+**Not started (TR):** None.
 
 ---
 
-*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed: completion matrix expanded to cover all listed functional and technical requirement IDs currently defined in the requirement documents.*
+*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed: TR-18.1–TR-18.4 marked Done following completion of the MVVM + CQRS refactor (32 Desktop handlers, 17 Mobile handlers, 218 unit tests, ServerWorkspaceViewModel decomposed into 6 sub-VMs, IRequestDispatcher with Debug-level CorrelationId tracing).*
