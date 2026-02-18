@@ -352,6 +352,7 @@ case "$1" in
       _svc="/usr/lib/remote-agent/service/RemoteAgent.Service"
       _log="/var/log/remote-agent/service.log"
       _err="/var/log/remote-agent/service.err"
+      _pid="/run/remote-agent.pid"
 
       # Write a small wrapper so /etc/wsl.conf [boot] command= stays simple.
       _wrapper="/usr/lib/remote-agent/service/wsl-start.sh"
@@ -365,25 +366,36 @@ WSLWRAP
       chmod 755 "$_wrapper"
       chown remote-agent:remote-agent "$_wrapper"
 
-      # Locate daemonize: Pengwin installs to /usr/bin, others to /usr/sbin.
-      _daemonize=""
-      for _p in /usr/bin/daemonize /usr/sbin/daemonize; do
-        if [ -x "$_p" ]; then _daemonize="$_p"; break; fi
-      done
-
       if [ -x "$_svc" ]; then
         # Stop any running instance before (re)starting.
-        pkill -f "$_svc" 2>/dev/null || true
+        start-stop-daemon --stop --quiet --retry 5 \
+          --pidfile "$_pid" --exec "$_svc" 2>/dev/null || true
         sleep 1
 
-        if [ -n "$_daemonize" ]; then
-          echo "systemd not active — starting Remote Agent via $_daemonize"
-          su -s /bin/sh -c \
-            "ASPNETCORE_CONTENTROOT=/etc/remote-agent $_daemonize -o $_log -e $_err $_svc" \
-            remote-agent || true
+        # Primary: start-stop-daemon (always available on Debian).
+        # Falls back to daemonize if start-stop-daemon is unavailable.
+        if command -v start-stop-daemon > /dev/null 2>&1; then
+          echo "systemd not active — starting Remote Agent via start-stop-daemon"
+          ASPNETCORE_CONTENTROOT=/etc/remote-agent \
+          start-stop-daemon --start --background \
+            --make-pidfile --pidfile "$_pid" \
+            --chuid remote-agent \
+            --exec "$_svc" \
+            -- >> "$_log" 2>> "$_err" || true
         else
-          echo "WARNING: daemonize not found; service will not start automatically." >&2
-          echo "  Install it with: sudo apt-get install daemonize" >&2
+          # Locate daemonize: Pengwin installs to /usr/bin, others to /usr/sbin.
+          _daemonize=""
+          for _p in /usr/bin/daemonize /usr/sbin/daemonize; do
+            if [ -x "$_p" ]; then _daemonize="$_p"; break; fi
+          done
+          if [ -n "$_daemonize" ]; then
+            echo "systemd not active — starting Remote Agent via $_daemonize"
+            su -s /bin/sh -c \
+              "ASPNETCORE_CONTENTROOT=/etc/remote-agent $_daemonize -o $_log -e $_err $_svc" \
+              remote-agent || true
+          else
+            echo "WARNING: cannot start service: neither start-stop-daemon nor daemonize found." >&2
+          fi
         fi
       fi
 
@@ -422,9 +434,12 @@ case "$1" in
       systemctl stop    remote-agent.service 2>/dev/null || true
       systemctl disable remote-agent.service 2>/dev/null || true
     fi
-    # Fallback: kill the daemonized process directly when systemd is not active.
+    # Fallback: stop the daemonized process directly when systemd is not active.
     if [ ! -d /run/systemd/system ]; then
-      pkill -f "/usr/lib/remote-agent/service/RemoteAgent.Service" 2>/dev/null || true
+      _svc="/usr/lib/remote-agent/service/RemoteAgent.Service"
+      _pid="/run/remote-agent.pid"
+      start-stop-daemon --stop --quiet --retry 5 \
+        --pidfile "$_pid" --exec "$_svc" 2>/dev/null || true
     fi
     ;;
 esac
