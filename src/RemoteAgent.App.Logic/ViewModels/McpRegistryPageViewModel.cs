@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using RemoteAgent.App.Logic.Cqrs;
+using RemoteAgent.App.Logic.Requests;
 using RemoteAgent.Proto;
 
 namespace RemoteAgent.App.Logic.ViewModels;
@@ -11,7 +12,7 @@ public sealed class McpRegistryPageViewModel : INotifyPropertyChanged
 {
     private readonly IServerApiClient _apiClient;
     private readonly IAppPreferences _preferences;
-    private readonly ISessionTerminationConfirmation _deleteConfirmation;
+    private readonly IRequestDispatcher _dispatcher;
 
     private McpServerDefinition? _selected;
     private string _host = "";
@@ -31,18 +32,20 @@ public sealed class McpRegistryPageViewModel : INotifyPropertyChanged
     public McpRegistryPageViewModel(
         IServerApiClient apiClient,
         IAppPreferences preferences,
-        ISessionTerminationConfirmation deleteConfirmation)
+        ISessionTerminationConfirmation deleteConfirmation,
+        IRequestDispatcher dispatcher)
     {
         _apiClient = apiClient;
         _preferences = preferences;
-        _deleteConfirmation = deleteConfirmation;
+        _dispatcher = dispatcher;
+        _ = deleteConfirmation; // injected into DeleteMcpServerHandler via DI
 
         Host = preferences.Get("ServerHost", "");
         Port = preferences.Get("ServerPort", "5243");
 
-        RefreshCommand = new RelayCommand(() => _ = RefreshAsync());
-        SaveCommand = new RelayCommand(() => _ = SaveAsync());
-        DeleteCommand = new RelayCommand(() => _ = DeleteAsync());
+        RefreshCommand = new RelayCommand(() => _ = RunAsync(new LoadMcpServersRequest(Guid.NewGuid(), this)));
+        SaveCommand = new RelayCommand(() => _ = RunAsync(new SaveMcpServerRequest(Guid.NewGuid(), this)));
+        DeleteCommand = new RelayCommand(() => _ = RunAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), this)));
         ClearCommand = new RelayCommand(ClearForm);
     }
 
@@ -149,102 +152,13 @@ public sealed class McpRegistryPageViewModel : INotifyPropertyChanged
         StatusText = $"Editing '{server.ServerId}'.";
     }
 
-    public async Task RefreshAsync()
+    private async Task RunAsync(IRequest<CommandResult> request)
     {
-        if (!TryGetEndpoint(out var host, out var port))
-            return;
-
-        StatusText = "Loading MCP servers...";
-        var response = await _apiClient.ListMcpServersAsync(host, port);
-        if (response == null)
-        {
-            StatusText = "Failed to load MCP servers.";
-            return;
-        }
-
-        Servers.Clear();
-        foreach (var server in response.Servers.OrderBy(x => x.DisplayName, StringComparer.OrdinalIgnoreCase))
-            Servers.Add(server);
-
-        StatusText = $"Loaded {Servers.Count} MCP server(s).";
+        try { await _dispatcher.SendAsync(request); }
+        catch (Exception ex) { StatusText = $"Error: {ex.Message}"; }
     }
 
-    internal async Task SaveAsync()
-    {
-        if (!TryGetEndpoint(out var host, out var port))
-            return;
-
-        var server = new McpServerDefinition
-        {
-            ServerId = (ServerId ?? "").Trim(),
-            DisplayName = (DisplayName ?? "").Trim(),
-            Transport = (Transport ?? "").Trim(),
-            Endpoint = (Endpoint ?? "").Trim(),
-            Command = (Command ?? "").Trim(),
-            AuthType = (AuthType ?? "").Trim(),
-            AuthConfigJson = (AuthConfigJson ?? "").Trim(),
-            MetadataJson = (MetadataJson ?? "").Trim(),
-            Enabled = Enabled,
-        };
-
-        foreach (var arg in ParseArguments(Arguments))
-            server.Arguments.Add(arg);
-
-        StatusText = "Saving MCP server...";
-        var response = await _apiClient.UpsertMcpServerAsync(host, port, server);
-        if (response == null)
-        {
-            StatusText = "Failed to save MCP server.";
-            return;
-        }
-
-        if (!response.Success)
-        {
-            StatusText = response.Message;
-            return;
-        }
-
-        _selected = response.Server;
-        await RefreshAsync();
-        if (_selected != null)
-            PopulateFromServer(_selected);
-        StatusText = $"Saved '{_selected?.ServerId}'.";
-    }
-
-    internal async Task DeleteAsync()
-    {
-        if (!TryGetEndpoint(out var host, out var port))
-            return;
-
-        var serverId = (ServerId ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(serverId))
-        {
-            StatusText = "Select a server or enter a server id to delete.";
-            return;
-        }
-
-        var confirmed = await _deleteConfirmation.ConfirmAsync(serverId);
-        if (!confirmed)
-            return;
-
-        StatusText = "Deleting MCP server...";
-        var response = await _apiClient.DeleteMcpServerAsync(host, port, serverId);
-        if (response == null)
-        {
-            StatusText = "Failed to delete MCP server.";
-            return;
-        }
-
-        StatusText = response.Message;
-        if (response.Success)
-        {
-            _selected = null;
-            ClearForm();
-            await RefreshAsync();
-        }
-    }
-
-    private void ClearForm()
+    internal void ClearForm()
     {
         _selected = null;
         ServerId = "";
@@ -260,7 +174,7 @@ public sealed class McpRegistryPageViewModel : INotifyPropertyChanged
         StatusText = "Editor cleared.";
     }
 
-    private void PopulateFromServer(McpServerDefinition server)
+    internal void PopulateFromServer(McpServerDefinition server)
     {
         ServerId = server.ServerId;
         DisplayName = server.DisplayName;
@@ -274,26 +188,6 @@ public sealed class McpRegistryPageViewModel : INotifyPropertyChanged
         Enabled = server.Enabled;
     }
 
-    private bool TryGetEndpoint(out string host, out int port)
-    {
-        host = (Host ?? "").Trim();
-        var portText = (Port ?? "5243").Trim();
-
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            port = 0;
-            return false;
-        }
-
-        if (!int.TryParse(portText, out port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Valid port required (1-65535).";
-            return false;
-        }
-
-        return true;
-    }
 
     internal static IReadOnlyList<string> ParseArguments(string? raw)
     {

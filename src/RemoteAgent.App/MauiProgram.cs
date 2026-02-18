@@ -1,6 +1,11 @@
 using Microsoft.Extensions.Logging;
+using RemoteAgent.App.Handlers;
 using RemoteAgent.App.Logic;
+using RemoteAgent.App.Logic.Cqrs;
+using RemoteAgent.App.Logic.Handlers;
+using RemoteAgent.App.Logic.Requests;
 using RemoteAgent.App.Logic.ViewModels;
+using RemoteAgent.App.Requests;
 using RemoteAgent.App.Services;
 using RemoteAgent.App.ViewModels;
 
@@ -33,6 +38,19 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IAttachmentPicker, MauiAttachmentPicker>();
 		builder.Services.AddSingleton<INotificationService, PlatformNotificationServiceAdapter>();
 
+		builder.Services.AddSingleton<IRequestDispatcher, ServiceProviderRequestDispatcher>();
+		builder.Services.AddTransient<IRequestHandler<ConnectMobileSessionRequest, CommandResult>, ConnectMobileSessionHandler>();
+		builder.Services.AddTransient<IRequestHandler<DisconnectMobileSessionRequest, CommandResult>, DisconnectMobileSessionHandler>();
+		builder.Services.AddTransient<IRequestHandler<CreateMobileSessionRequest, CommandResult>, CreateMobileSessionHandler>();
+		builder.Services.AddTransient<IRequestHandler<TerminateMobileSessionRequest, CommandResult>, TerminateMobileSessionHandler>();
+		builder.Services.AddTransient<IRequestHandler<SendMobileMessageRequest, CommandResult>, SendMobileMessageHandler>();
+		builder.Services.AddTransient<IRequestHandler<SendMobileAttachmentRequest, CommandResult>, SendMobileAttachmentHandler>();
+		builder.Services.AddTransient<IRequestHandler<ArchiveMobileMessageRequest, CommandResult>, ArchiveMobileMessageHandler>();
+		builder.Services.AddTransient<IRequestHandler<UsePromptTemplateRequest, CommandResult>, UsePromptTemplateHandler>();
+		builder.Services.AddTransient<IRequestHandler<LoadMcpServersRequest, CommandResult>, LoadMcpServersHandler>();
+		builder.Services.AddTransient<IRequestHandler<SaveMcpServerRequest, CommandResult>, SaveMcpServerHandler>();
+		builder.Services.AddTransient<IRequestHandler<DeleteMcpServerRequest, CommandResult>, DeleteMcpServerHandler>();
+
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<ISessionCommandBus>(sp => sp.GetRequiredService<MainPageViewModel>());
@@ -53,7 +71,8 @@ public static class MauiProgram
 			new McpRegistryPageViewModel(
 				sp.GetRequiredService<IServerApiClient>(),
 				sp.GetRequiredService<IAppPreferences>(),
-				new MauiDeleteMcpServerConfirmation(() => sp.GetService<McpRegistryPage>())));
+				new MauiDeleteMcpServerConfirmation(() => sp.GetService<McpRegistryPage>()),
+				sp.GetRequiredService<IRequestDispatcher>()));
 		builder.Services.AddSingleton<McpRegistryPage>();
 		builder.Services.AddSingleton<SettingsPage>();
 		builder.Services.AddSingleton<AccountManagementPage>();

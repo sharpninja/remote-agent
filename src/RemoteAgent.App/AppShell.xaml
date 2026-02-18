@@ -12,10 +12,23 @@
             <VerticalStackLayout Padding="16" Spacing="10">
                 <Label Text="Menu" FontSize="20" FontAttributes="Bold" />
                 <Label Text="Open Sessions" FontAttributes="Bold" />
-                <VerticalStackLayout x:Name="SessionButtonsHost" Spacing="6" />
-                <Button Text="Start Session" Clicked="OnStartSessionClicked" />
-                <Button Text="Settings" Clicked="OnSettingsClicked" />
-                <Button Text="Account Management" Clicked="OnAccountManagementClicked" />
+                <VerticalStackLayout BindableLayout.ItemsSource="{Binding SessionItems}" Spacing="6">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Button Text="{Binding Title}" HorizontalOptions="Fill"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type Shell}}, Path=BindingContext.SelectSessionCommand}"
+                                        CommandParameter="{Binding SessionId}" />
+                                <Button Grid.Column="1" Text="✕" WidthRequest="40"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type Shell}}, Path=BindingContext.TerminateSessionCommand}"
+                                        CommandParameter="{Binding SessionId}" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+                <Button Text="Start Session" Command="{Binding StartSessionCommand}" />
+                <Button Text="Settings" Command="{Binding NavigateToSettingsCommand}" />
+                <Button Text="Account Management" Command="{Binding NavigateToAccountCommand}" />
             </VerticalStackLayout>
         </ScrollView>
     </Shell.FlyoutContent>

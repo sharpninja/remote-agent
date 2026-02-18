@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using RemoteAgent.App.ViewModels;
 #if WINDOWS
 using Microsoft.UI.Xaml.Controls;
@@ -21,6 +22,13 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         BindingContext = _vm;
         WireMessageInputShortcuts();
+        _vm.PropertyChanged += OnVmPropertyChanged;
+    }
+
+    private void OnVmPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(MainPageViewModel.IsEditingTitle) && _vm.IsEditingTitle)
+            SessionTitleEntry.Focus();
     }
 
     private void WireMessageInputShortcuts()
@@ -57,13 +65,9 @@ public partial class MainPage : ContentPage
     }
 #endif
 
-    private void OnSessionTitleFocused(object? sender, FocusEventArgs e)
+    private void CommitSessionTitle()
     {
-        if (e.IsFocused && SessionTitleEntry.Text is { } t)
-        {
-            SessionTitleEntry.CursorPosition = 0;
-            SessionTitleEntry.SelectionLength = t.Length;
-        }
+        _vm.CommitSessionTitle(SessionTitleEntry.Text ?? "");
     }
 
     private void OnSessionTitleUnfocused(object? sender, FocusEventArgs e)
@@ -76,37 +80,4 @@ public partial class MainPage : ContentPage
     {
         CommitSessionTitle();
     }
-
-    private void CommitSessionTitle()
-    {
-        _vm.CommitSessionTitle(SessionTitleEntry.Text ?? "");
-        SessionTitleEntry.IsVisible = false;
-        SessionTitleLabel.IsVisible = true;
-    }
-
-    private void OnSessionTitleLabelTapped(object? sender, TappedEventArgs e)
-    {
-        if (_vm.CurrentSession == null) return;
-        SessionTitleLabel.IsVisible = false;
-        SessionTitleEntry.Text = _vm.CurrentSessionTitle;
-        SessionTitleEntry.IsVisible = true;
-        SessionTitleEntry.Focus();
-    }
-
-    public void StartNewSessionFromShell()
-    {
-        _vm.StartNewSession();
-    }
-
-    public void SelectSessionFromShell(string? sessionId)
-    {
-        _vm.SelectSession(sessionId);
-    }
-
-    public async Task<bool> TerminateSessionFromShellAsync(string? sessionId)
-    {
-        return await _vm.TerminateSessionByIdAsync(sessionId);
-    }
-
-    public string? GetCurrentSessionId() => _vm.CurrentSession?.SessionId;
 }

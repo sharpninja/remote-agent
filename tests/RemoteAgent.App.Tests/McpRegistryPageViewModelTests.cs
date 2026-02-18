@@ -1,7 +1,11 @@
 using FluentAssertions;
 using RemoteAgent.App.Logic;
+using RemoteAgent.App.Logic.Cqrs;
+using RemoteAgent.App.Logic.Handlers;
+using RemoteAgent.App.Logic.Requests;
 using RemoteAgent.App.Logic.ViewModels;
 using RemoteAgent.Proto;
+using Requests = RemoteAgent.App.Logic.Requests;
 
 namespace RemoteAgent.App.Tests;
 
@@ -65,16 +69,45 @@ public sealed class McpRegistryPageViewModelTests
         public Task<bool> ConfirmAsync(string sessionLabel) => Task.FromResult(result);
     }
 
+    private sealed class NullRequestDispatcher : IRequestDispatcher
+    {
+        public Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken ct = default)
+            => Task.FromResult(default(TResponse)!);
+    }
+
+    private sealed class TestRequestDispatcher : IRequestDispatcher
+    {
+        private readonly Dictionary<Type, Func<object, CancellationToken, Task<object>>> _handlers = new();
+
+        public TestRequestDispatcher Register<TReq, TResp>(IRequestHandler<TReq, TResp> handler)
+            where TReq : IRequest<TResp>
+        {
+            _handlers[typeof(TReq)] = async (req, ct) => (await handler.HandleAsync((TReq)req, ct))!;
+            return this;
+        }
+
+        public async Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken ct = default)
+        {
+            if (_handlers.TryGetValue(request.GetType(), out var h))
+                return (TResponse)await h(request, ct);
+            return default!;
+        }
+    }
+
     private static McpRegistryPageViewModel CreateVm(
         StubApiClient? apiClient = null,
         InMemoryPreferences? preferences = null,
-        ISessionTerminationConfirmation? deleteConfirmation = null)
+        ISessionTerminationConfirmation? deleteConfirmation = null,
+        IRequestDispatcher? dispatcher = null)
     {
+        var api = apiClient ?? new StubApiClient();
+        var del = deleteConfirmation ?? new StubDeleteConfirmation(true);
         var prefs = preferences ?? new InMemoryPreferences();
-        return new McpRegistryPageViewModel(
-            apiClient ?? new StubApiClient(),
-            prefs,
-            deleteConfirmation ?? new StubDeleteConfirmation(true));
+        var disp = dispatcher ?? new TestRequestDispatcher()
+            .Register<LoadMcpServersRequest, CommandResult>(new LoadMcpServersHandler(api))
+            .Register<SaveMcpServerRequest, CommandResult>(new SaveMcpServerHandler(api))
+            .Register<Requests.DeleteMcpServerRequest, CommandResult>(new DeleteMcpServerHandler(api, del));
+        return new McpRegistryPageViewModel(api, prefs, del, disp);
     }
 
     [Fact]
@@ -107,7 +140,7 @@ public sealed class McpRegistryPageViewModelTests
         var vm = CreateVm(apiClient: api);
         vm.Host = "localhost";
 
-        await vm.RefreshAsync();
+        await new LoadMcpServersHandler(api).HandleAsync(new LoadMcpServersRequest(Guid.NewGuid(), vm));
 
         vm.Servers.Should().HaveCount(2);
         vm.StatusText.Should().Contain("2 MCP server(s)");
@@ -120,7 +153,7 @@ public sealed class McpRegistryPageViewModelTests
         var vm = CreateVm(apiClient: api);
         vm.Host = "localhost";
 
-        await vm.RefreshAsync();
+        await new LoadMcpServersHandler(api).HandleAsync(new LoadMcpServersRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Failed to load");
     }
@@ -128,10 +161,11 @@ public sealed class McpRegistryPageViewModelTests
     [Fact]
     public async Task RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty()
     {
-        var vm = CreateVm();
+        var api = new StubApiClient();
+        var vm = CreateVm(apiClient: api);
         vm.Host = "";
 
-        await vm.RefreshAsync();
+        await new LoadMcpServersHandler(api).HandleAsync(new LoadMcpServersRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Be("Host is required.");
     }
@@ -139,11 +173,12 @@ public sealed class McpRegistryPageViewModelTests
     [Fact]
     public async Task RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid()
     {
-        var vm = CreateVm();
+        var api = new StubApiClient();
+        var vm = CreateVm(apiClient: api);
         vm.Host = "localhost";
         vm.Port = "abc";
 
-        await vm.RefreshAsync();
+        await new LoadMcpServersHandler(api).HandleAsync(new LoadMcpServersRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Valid port required");
     }
@@ -190,7 +225,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await vm.SaveAsync();
+        await new SaveMcpServerHandler(api).HandleAsync(new SaveMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Failed to save");
     }
@@ -203,7 +238,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await vm.SaveAsync();
+        await new SaveMcpServerHandler(api).HandleAsync(new SaveMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Be("Validation failed");
     }
@@ -217,7 +252,7 @@ public sealed class McpRegistryPageViewModelTests
         vm.ServerId = "s1";
         vm.DisplayName = "Server One";
 
-        await vm.SaveAsync();
+        await new SaveMcpServerHandler(api).HandleAsync(new SaveMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Saved 's1'");
     }
@@ -226,12 +261,13 @@ public sealed class McpRegistryPageViewModelTests
     public async Task DeleteAsync_RemovesServer_WhenConfirmed()
     {
         var api = new StubApiClient();
+        var del = new StubDeleteConfirmation(true);
         api.McpServers.Add(new McpServerDefinition { ServerId = "s1", DisplayName = "Alpha" });
-        var vm = CreateVm(apiClient: api, deleteConfirmation: new StubDeleteConfirmation(true));
+        var vm = CreateVm(apiClient: api, deleteConfirmation: del);
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await vm.DeleteAsync();
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         api.McpServers.Should().BeEmpty();
         vm.ServerId.Should().BeEmpty();
@@ -241,12 +277,13 @@ public sealed class McpRegistryPageViewModelTests
     public async Task DeleteAsync_DoesNothing_WhenCancelled()
     {
         var api = new StubApiClient();
+        var del = new StubDeleteConfirmation(false);
         api.McpServers.Add(new McpServerDefinition { ServerId = "s1", DisplayName = "Alpha" });
-        var vm = CreateVm(apiClient: api, deleteConfirmation: new StubDeleteConfirmation(false));
+        var vm = CreateVm(apiClient: api, deleteConfirmation: del);
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await vm.DeleteAsync();
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         api.McpServers.Should().HaveCount(1);
     }
@@ -254,11 +291,13 @@ public sealed class McpRegistryPageViewModelTests
     [Fact]
     public async Task DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty()
     {
-        var vm = CreateVm();
+        var api = new StubApiClient();
+        var del = new StubDeleteConfirmation(true);
+        var vm = CreateVm(apiClient: api, deleteConfirmation: del);
         vm.Host = "localhost";
         vm.ServerId = "";
 
-        await vm.DeleteAsync();
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Select a server");
     }
@@ -267,11 +306,12 @@ public sealed class McpRegistryPageViewModelTests
     public async Task DeleteAsync_SetsErrorStatus_WhenApiReturnsNull()
     {
         var api = new StubApiClient { ShouldReturnNull = true };
-        var vm = CreateVm(apiClient: api);
+        var del = new StubDeleteConfirmation(true);
+        var vm = CreateVm(apiClient: api, deleteConfirmation: del);
         vm.Host = "localhost";
         vm.ServerId = "s1";
 
-        await vm.DeleteAsync();
+        await new DeleteMcpServerHandler(api, del).HandleAsync(new Requests.DeleteMcpServerRequest(Guid.NewGuid(), vm));
 
         vm.StatusText.Should().Contain("Failed to delete");
     }

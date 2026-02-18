@@ -14,10 +14,10 @@ public partial class McpRegistryPage : ContentPage
         BindingContext = _vm;
     }
 
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
-        await _vm.RefreshAsync();
+        _vm.RefreshCommand.Execute(null);
     }
 
     private void OnServerTapped(object? sender, EventArgs e)

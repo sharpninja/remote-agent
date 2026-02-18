@@ -115,13 +115,16 @@
                 </CollectionView>
                 <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
                     <Label Text="Session:" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
-                    <Label x:Name="SessionTitleLabel" Text="{Binding CurrentSessionTitle}" FontAttributes="Bold" VerticalOptions="Center" LineBreakMode="TailTruncation">
+                    <Label Text="{Binding CurrentSessionTitle}" FontAttributes="Bold" VerticalOptions="Center" LineBreakMode="TailTruncation"
+                           IsVisible="{Binding IsEditingTitle, Converter={StaticResource InverseBool}}">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnSessionTitleLabelTapped" />
+                            <TapGestureRecognizer Command="{Binding BeginEditTitleCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
-                    <Entry x:Name="SessionTitleEntry" Text="{Binding CurrentSessionTitleEditorText, Mode=TwoWay}" IsVisible="False" Unfocused="OnSessionTitleUnfocused" Focused="OnSessionTitleFocused" Completed="OnSessionTitleCompleted" />
-                    <Label x:Name="ConnectionModeLabel" Text="{Binding ConnectionModeLabel}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
+                    <Entry x:Name="SessionTitleEntry" Text="{Binding CurrentSessionTitleEditorText, Mode=TwoWay}"
+                           IsVisible="{Binding IsEditingTitle}"
+                           Unfocused="OnSessionTitleUnfocused" Completed="OnSessionTitleCompleted" />
+                    <Label Text="{Binding ConnectionModeLabel}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>

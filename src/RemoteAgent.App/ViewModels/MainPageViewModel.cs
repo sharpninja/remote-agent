@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using RemoteAgent.App.Logic;
+using RemoteAgent.App.Logic.Cqrs;
+using RemoteAgent.App.Requests;
 using RemoteAgent.App.Services;
 using RemoteAgent.Proto;
 
@@ -26,6 +28,9 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private readonly IPromptVariableProvider _promptVariableProvider;
     private readonly ISessionTerminationConfirmation _sessionTerminationConfirmation;
     private readonly INotificationService _notificationService;
+    private readonly IRequestDispatcher _dispatcher;
+
+    private bool _isEditingTitle;
 
     private string _host = "";
     private string _port = DefaultPort;
@@ -45,7 +50,8 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         IPromptTemplateSelector promptTemplateSelector,
         IPromptVariableProvider promptVariableProvider,
         ISessionTerminationConfirmation sessionTerminationConfirmation,
-        INotificationService notificationService)
+        INotificationService notificationService,
+        IRequestDispatcher dispatcher)
     {
         _sessionStore = sessionStore;
         _gateway = gateway;
@@ -58,16 +64,18 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         _promptVariableProvider = promptVariableProvider;
         _sessionTerminationConfirmation = sessionTerminationConfirmation;
         _notificationService = notificationService;
+        _dispatcher = dispatcher;
 
-        ConnectCommand = new Command(async () => await ConnectAsync(), () => !_gateway.IsConnected);
-        DisconnectCommand = new Command(Disconnect, () => _gateway.IsConnected);
-        NewSessionCommand = new Command(CreateNewSession);
-        TerminateCurrentSessionCommand = new Command(async () => await TerminateCurrentSessionAsync());
-        TerminateSessionCommand = new Command<SessionItem>(async session => await TerminateSessionAsync(session));
-        SendMessageCommand = new Command(async () => await SendMessageAsync(), () => _gateway.IsConnected);
-        AttachCommand = new Command(async () => await SendAttachmentAsync(), () => _gateway.IsConnected);
-        ArchiveMessageCommand = new Command<ChatMessage>(ArchiveMessage);
-        UsePromptTemplateCommand = new Command(async () => await UsePromptTemplateAsync());
+        ConnectCommand = new Command(async () => await RunAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), this)), () => !_gateway.IsConnected);
+        DisconnectCommand = new Command(async () => await RunAsync(new DisconnectMobileSessionRequest(Guid.NewGuid(), this)), () => _gateway.IsConnected);
+        NewSessionCommand = new Command(async () => await RunAsync(new CreateMobileSessionRequest(Guid.NewGuid(), this)));
+        TerminateCurrentSessionCommand = new Command(async () => await RunAsync(new TerminateMobileSessionRequest(Guid.NewGuid(), CurrentSession, this)));
+        TerminateSessionCommand = new Command<SessionItem>(async session => await RunAsync(new TerminateMobileSessionRequest(Guid.NewGuid(), session, this)));
+        SendMessageCommand = new Command(async () => await RunAsync(new SendMobileMessageRequest(Guid.NewGuid(), this)), () => _gateway.IsConnected);
+        AttachCommand = new Command(async () => await RunAsync(new SendMobileAttachmentRequest(Guid.NewGuid(), this)), () => _gateway.IsConnected);
+        ArchiveMessageCommand = new Command<ChatMessage>(async msg => await RunAsync(new ArchiveMobileMessageRequest(Guid.NewGuid(), msg, this)));
+        UsePromptTemplateCommand = new Command(async () => await RunAsync(new UsePromptTemplateRequest(Guid.NewGuid(), this)));
+        BeginEditTitleCommand = new Command(() => { if (CurrentSession != null) IsEditingTitle = true; });
 
         _gateway.ConnectionStateChanged += OnGatewayConnectionStateChanged;
         _gateway.MessageReceived += OnGatewayMessageReceived;
@@ -92,6 +100,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     public ICommand AttachCommand { get; }
     public ICommand ArchiveMessageCommand { get; }
     public ICommand UsePromptTemplateCommand { get; }
+    public ICommand BeginEditTitleCommand { get; }
 
     public string Host
     {
@@ -163,6 +172,34 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     public string ConnectionModeLabel => $"Mode: {(string.Equals(CurrentSession?.ConnectionMode, "direct", StringComparison.OrdinalIgnoreCase) ? "direct" : "server")}";
 
     public bool IsConnected => _gateway.IsConnected;
+    public bool IsEditingTitle
+    {
+        get => _isEditingTitle;
+        set => Set(ref _isEditingTitle, value);
+    }
+
+    /// <summary>Updates session title in store and fires property-changed notifications. Called by handlers.</summary>
+    public void UpdateSessionTitle(string sessionId, string title)
+    {
+        _sessionStore.UpdateTitle(sessionId, title);
+        OnPropertyChanged(nameof(CurrentSessionTitle));
+        OnPropertyChanged(nameof(CurrentSessionTitleEditorText));
+    }
+
+    /// <summary>Fires connection-state-change notifications. Called by handlers after connect/disconnect.</summary>
+    public void NotifyConnectionStateChanged() => OnGatewayConnectionStateChanged();
+
+    private async Task RunAsync<TResponse>(IRequest<TResponse> request)
+    {
+        try
+        {
+            await _dispatcher.SendAsync(request);
+        }
+        catch (Exception ex)
+        {
+            Status = $"Error: {ex.Message}";
+        }
+    }
 
     private void LoadSavedServerDetails()
     {
@@ -184,138 +221,9 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
             Sessions.Add(s);
     }
 
-    private async Task ConnectAsync()
-    {
-        var selectedMode = await _connectionModeSelector.SelectAsync();
-        if (string.IsNullOrWhiteSpace(selectedMode))
-        {
-            Status = "Connect cancelled.";
-            return;
-        }
-
-        var host = (Host ?? "").Trim();
-        var portText = (Port ?? DefaultPort).Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            if (string.Equals(selectedMode, "direct", StringComparison.OrdinalIgnoreCase))
-                host = "127.0.0.1";
-            else
-            {
-                Status = "Enter a host.";
-                return;
-            }
-        }
-
-        if (!int.TryParse(portText, out var port) || port <= 0 || port > 65535)
-        {
-            Status = "Enter a valid port (1-65535).";
-            return;
-        }
-
-        SessionItem? sessionToConnect = CurrentSession;
-        if (sessionToConnect == null)
-        {
-            sessionToConnect = new SessionItem
-            {
-                SessionId = Guid.NewGuid().ToString("N")[..12],
-                Title = "New chat",
-                ConnectionMode = selectedMode
-            };
-            Sessions.Insert(0, sessionToConnect);
-            _sessionStore.Add(sessionToConnect);
-            CurrentSession = sessionToConnect;
-        }
-
-        if (string.IsNullOrWhiteSpace(sessionToConnect.AgentId))
-        {
-            if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
-            {
-                Status = "Getting server info...";
-                var serverInfo = await _apiClient.GetServerInfoAsync(host, port);
-                if (serverInfo == null)
-                {
-                    Status = "Could not reach server.";
-                    return;
-                }
-
-                var agentId = await _agentSelector.SelectAsync(serverInfo);
-                if (agentId == null)
-                {
-                    Status = "Connect cancelled.";
-                    return;
-                }
-
-                sessionToConnect.AgentId = agentId;
-            }
-            else
-            {
-                sessionToConnect.AgentId = "process";
-            }
-
-            _sessionStore.UpdateAgentId(sessionToConnect.SessionId, sessionToConnect.AgentId);
-        }
-
-        sessionToConnect.ConnectionMode = selectedMode;
-        _sessionStore.UpdateConnectionMode(sessionToConnect.SessionId, selectedMode);
-        OnPropertyChanged(nameof(ConnectionModeLabel));
-
-        if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
-        {
-            var capacity = await _apiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId);
-            if (capacity == null)
-            {
-                Status = "Could not verify server session capacity.";
-                return;
-            }
-
-            if (!capacity.CanCreateSession)
-            {
-                Status = string.IsNullOrWhiteSpace(capacity.Reason)
-                    ? "Server session capacity reached."
-                    : capacity.Reason;
-                return;
-            }
-        }
-
-        Status = $"Connecting ({selectedMode})...";
-        try
-        {
-            await _gateway.ConnectAsync(host, port, sessionToConnect.SessionId, sessionToConnect.AgentId);
-            SaveServerDetails(host, port);
-            Host = host;
-            Port = port.ToString();
-            Status = $"Connected ({selectedMode}).";
-            OnGatewayConnectionStateChanged();
-        }
-        catch (Exception ex)
-        {
-            Status = $"Failed: {ex.Message}";
-            OnGatewayConnectionStateChanged();
-        }
-    }
-
-    private void Disconnect()
-    {
-        _gateway.Disconnect();
-        OnGatewayConnectionStateChanged();
-    }
-
-    private void CreateNewSession()
-    {
-        var session = new SessionItem
-        {
-            SessionId = Guid.NewGuid().ToString("N")[..12],
-            Title = "New chat",
-            AgentId = "",
-            ConnectionMode = "server"
-        };
-        _sessionStore.Add(session);
-        Sessions.Insert(0, session);
-        CurrentSession = session;
-    }
-
     public void CommitSessionTitle(string value)
     {
+        IsEditingTitle = false;
         if (CurrentSession == null) return;
         var newTitle = string.IsNullOrWhiteSpace(value) ? "New chat" : value.Trim();
         CurrentSession.Title = newTitle;
@@ -324,17 +232,15 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         OnPropertyChanged(nameof(CurrentSessionTitleEditorText));
     }
 
-    public void StartNewSession()
-    {
-        CreateNewSession();
-    }
+    public void StartNewSession() => _ = RunAsync(new CreateMobileSessionRequest(Guid.NewGuid(), this));
 
     public async Task<bool> TerminateSessionByIdAsync(string? sessionId)
     {
         if (string.IsNullOrWhiteSpace(sessionId)) return false;
         var match = Sessions.FirstOrDefault(x => string.Equals(x.SessionId, sessionId, StringComparison.Ordinal));
         if (match == null) return false;
-        return await TerminateSessionAsync(match);
+        var result = await _dispatcher.SendAsync(new TerminateMobileSessionRequest(Guid.NewGuid(), match, this));
+        return result.Success;
     }
 
     Task<bool> ISessionCommandBus.TerminateSessionAsync(string? sessionId) =>
@@ -349,152 +255,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         if (match == null) return false;
         CurrentSession = match;
         return true;
-    }
-
-    private async Task TerminateCurrentSessionAsync()
-    {
-        await TerminateSessionAsync(CurrentSession);
-    }
-
-    private async Task<bool> TerminateSessionAsync(SessionItem? session)
-    {
-        if (session == null)
-        {
-            Status = "No session selected.";
-            return false;
-        }
-
-        var sessionLabel = string.IsNullOrWhiteSpace(session.Title) ? session.SessionId : session.Title;
-        var confirmed = await _sessionTerminationConfirmation.ConfirmAsync(sessionLabel);
-        if (!confirmed)
-        {
-            Status = "Terminate cancelled.";
-            return false;
-        }
-
-        var isCurrent = string.Equals(CurrentSession?.SessionId, session.SessionId, StringComparison.Ordinal);
-        if (isCurrent && _gateway.IsConnected)
-        {
-            try
-            {
-                await _gateway.StopSessionAsync();
-            }
-            catch
-            {
-                // best effort; always close local transport after stop request attempt
-            }
-
-            _gateway.Disconnect();
-        }
-
-        _sessionStore.Delete(session.SessionId);
-        Sessions.Remove(session);
-        if (isCurrent)
-            CurrentSession = Sessions.FirstOrDefault();
-
-        Status = $"Session terminated: {sessionLabel}";
-        return true;
-    }
-
-    private async Task SendMessageAsync()
-    {
-        var text = (PendingMessage ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(text) || !_gateway.IsConnected) return;
-
-        if (CurrentSession != null && (CurrentSession.Title == "New chat" || string.IsNullOrWhiteSpace(CurrentSession.Title)))
-        {
-            CurrentSession.Title = text.Length > 60 ? text[..60] + "…" : text;
-            _sessionStore.UpdateTitle(CurrentSession.SessionId, CurrentSession.Title);
-            OnPropertyChanged(nameof(CurrentSessionTitle));
-            OnPropertyChanged(nameof(CurrentSessionTitleEditorText));
-        }
-
-        _gateway.AddUserMessage(new ChatMessage { IsUser = true, Text = text });
-        PendingMessage = "";
-
-        try
-        {
-            if (TryParseScriptRun(text, out var pathOrCommand, out var scriptType))
-                await _gateway.SendScriptRequestAsync(pathOrCommand, scriptType);
-            else
-                await _gateway.SendTextAsync(text);
-        }
-        catch (Exception ex)
-        {
-            _gateway.Messages.Add(new ChatMessage { IsError = true, Text = ex.Message });
-        }
-    }
-
-    private async Task SendAttachmentAsync()
-    {
-        if (!_gateway.IsConnected) return;
-        var picked = await _attachmentPicker.PickAsync();
-        if (picked == null) return;
-
-        try
-        {
-            _gateway.AddUserMessage(new ChatMessage { IsUser = true, Text = $"[Attachment: {picked.FileName}]" });
-            await _gateway.SendMediaAsync(picked.Content, picked.ContentType, picked.FileName);
-        }
-        catch (Exception ex)
-        {
-            _gateway.Messages.Add(new ChatMessage { IsError = true, Text = ex.Message });
-        }
-    }
-
-    private async Task UsePromptTemplateAsync()
-    {
-        var host = (Host ?? "").Trim();
-        var portText = (Port ?? DefaultPort).Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            Status = "Enter host to load templates.";
-            return;
-        }
-
-        if (!int.TryParse(portText, out var port) || port <= 0 || port > 65535)
-        {
-            Status = "Enter a valid port (1-65535).";
-            return;
-        }
-
-        var response = await _apiClient.ListPromptTemplatesAsync(host, port);
-        if (response == null || response.Templates.Count == 0)
-        {
-            Status = "No prompt templates available.";
-            return;
-        }
-
-        var template = await _promptTemplateSelector.SelectAsync(response.Templates.ToList());
-        if (template == null)
-        {
-            Status = "Prompt template selection cancelled.";
-            return;
-        }
-
-        var variables = PromptTemplateEngine.ExtractVariables(template.TemplateContent);
-        var data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
-        foreach (var variable in variables)
-        {
-            var value = await _promptVariableProvider.GetValueAsync(variable);
-            if (value == null)
-            {
-                Status = "Prompt template input cancelled.";
-                return;
-            }
-
-            data[variable] = value;
-        }
-
-        PendingMessage = PromptTemplateEngine.Render(template.TemplateContent, data);
-        await SendMessageAsync();
-    }
-
-    private void ArchiveMessage(ChatMessage? message)
-    {
-        if (message == null) return;
-        message.IsArchived = true;
-        _gateway.SetArchived(message, true);
     }
 
     private void OnGatewayConnectionStateChanged()
@@ -517,7 +277,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         }
     }
 
-    private static bool TryParseScriptRun(string text, out string pathOrCommand, out ScriptType scriptType)
+    public static bool TryParseScriptRun(string text, out string pathOrCommand, out ScriptType scriptType)
     {
         pathOrCommand = "";
         scriptType = ScriptType.Bash;
