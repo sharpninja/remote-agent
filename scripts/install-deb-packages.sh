@@ -45,8 +45,17 @@ done
 # ── Remove path ───────────────────────────────────────────────────────────────
 if [[ "$REMOVE" == "true" ]]; then
   echo "[install-deb] stopping remote-agent service..."
-  systemctl stop remote-agent.service 2>/dev/null || true
-  systemctl disable remote-agent.service 2>/dev/null || true
+  if [ -d /run/systemd/system ]; then
+    systemctl stop    remote-agent.service 2>/dev/null || true
+    systemctl disable remote-agent.service 2>/dev/null || true
+  else
+    _pid_file="/run/remote-agent.pid"
+    if [[ -f "$_pid_file" ]]; then
+      _pid="$(cat "$_pid_file" 2>/dev/null || true)"
+      [[ -n "$_pid" ]] && kill "$_pid" 2>/dev/null || true
+      rm -f "$_pid_file"
+    fi
+  fi
 
   echo "[install-deb] removing packages..."
   apt-get remove -y remote-agent-desktop remote-agent-service 2>/dev/null || true
@@ -85,9 +94,16 @@ apt-get update \
 
 # ── Install ───────────────────────────────────────────────────────────────────
 PACKAGES=()
-# Desktop declared before service so apt installs service first (dep ordering).
-[[ "$INSTALL_DESKTOP" == "true" ]] && PACKAGES+=(remote-agent-desktop)
-[[ "$INSTALL_SERVICE" == "true" && "$INSTALL_DESKTOP" == "false" ]] && PACKAGES+=(remote-agent-service)
+# Always include desktop when requested (it pulls service as a dep).
+# When both are requested with --reinstall, list both explicitly so apt
+# reinstalls service too (apt only reinstalls packages explicitly named).
+if [[ "$INSTALL_DESKTOP" == "true" ]]; then
+  PACKAGES+=(remote-agent-desktop)
+  # With --reinstall, explicitly name service so apt reinstalls it too.
+  [[ -n "$REINSTALL_FLAG" && "$INSTALL_SERVICE" == "true" ]] && PACKAGES+=(remote-agent-service)
+else
+  [[ "$INSTALL_SERVICE" == "true" ]] && PACKAGES+=(remote-agent-service)
+fi
 
 echo "[install-deb] installing: ${PACKAGES[*]}"
 apt-get install -y $REINSTALL_FLAG "${PACKAGES[@]}"
@@ -102,12 +118,26 @@ for pkg in remote-agent-service remote-agent-desktop; do
   fi
 done
 
-if systemctl is-active --quiet remote-agent.service 2>/dev/null; then
-  echo "  remote-agent.service         active (running)"
+# Check service status: prefer systemd, fall back to PID file on non-systemd (WSL).
+_svc_status="not running"
+if [ -d /run/systemd/system ]; then
+  systemctl is-active --quiet remote-agent.service 2>/dev/null \
+    && _svc_status="active (running)"
 else
-  echo "  remote-agent.service         inactive"
+  _pid_file="/run/remote-agent.pid"
+  if [[ -f "$_pid_file" ]]; then
+    _pid="$(cat "$_pid_file" 2>/dev/null || true)"
+    if [[ -n "$_pid" ]] && kill -0 "$_pid" 2>/dev/null; then
+      _svc_status="running (pid $_pid, no systemd)"
+    fi
+  fi
 fi
+printf "  %-30s %s\n" "remote-agent.service" "$_svc_status"
 echo "────────────────────────────────────────────────────────────────────────"
 echo ""
-echo "  Service logs : journalctl -u remote-agent.service -f"
+if [ -d /run/systemd/system ]; then
+  echo "  Service logs : journalctl -u remote-agent.service -f"
+else
+  echo "  Service logs : tail -f /var/log/remote-agent/service.log"
+fi
 echo "  Remove       : sudo $0 --remove"
