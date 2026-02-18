@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+# install-deb-packages.sh — Register the local APT repo and install Remote Agent packages.
+#
+# Usage:
+#   sudo ./scripts/install-deb-packages.sh [OPTIONS]
+#
+# Options:
+#   --repo-dir <path>      Directory containing the .deb files and APT index.
+#                          Default: <repo-root>/artifacts/
+#   --service-only         Install only remote-agent-service.
+#   --desktop-only         Install only remote-agent-desktop (pulls in service as dep).
+#   --reinstall            Pass --reinstall to apt-get (re-installs already-installed packages).
+#   --remove               Stop service and remove both packages instead of installing.
+#   --help
+
+set -euo pipefail
+
+if [[ "$EUID" -ne 0 ]]; then
+  echo "ERROR: this script must be run as root.  Use: sudo $0 $*" >&2
+  exit 1
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_DIR="$REPO_ROOT/artifacts"
+SOURCES_FILE="/etc/apt/sources.list.d/remote-agent-local.list"
+
+INSTALL_SERVICE=true
+INSTALL_DESKTOP=true
+REINSTALL_FLAG=""
+REMOVE=false
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --repo-dir)      REPO_DIR="$2"; shift 2 ;;
+    --service-only)  INSTALL_DESKTOP=false; shift ;;
+    --desktop-only)  INSTALL_SERVICE=false; shift ;;
+    --reinstall)     REINSTALL_FLAG="--reinstall"; shift ;;
+    --remove)        REMOVE=true; shift ;;
+    -h|--help) grep '^#' "$0" | head -n 15 | sed 's/^# \?//'; exit 0 ;;
+    *) echo "Unknown argument: $1" >&2; exit 1 ;;
+  esac
+done
+
+# ── Remove path ───────────────────────────────────────────────────────────────
+if [[ "$REMOVE" == "true" ]]; then
+  echo "[install-deb] stopping remote-agent service..."
+  systemctl stop remote-agent.service 2>/dev/null || true
+  systemctl disable remote-agent.service 2>/dev/null || true
+
+  echo "[install-deb] removing packages..."
+  apt-get remove -y remote-agent-desktop remote-agent-service 2>/dev/null || true
+
+  echo "[install-deb] removing local APT source..."
+  rm -f "$SOURCES_FILE"
+  apt-get update -o "Dir::Etc::sourcelist=$SOURCES_FILE" \
+                 -o "Dir::Etc::sourceparts=-" \
+                 -o "APT::Get::List-Cleanup=0" 2>/dev/null || true
+
+  echo "[install-deb] done."
+  exit 0
+fi
+
+# ── Validate repo dir ─────────────────────────────────────────────────────────
+if [[ ! -f "$REPO_DIR/Packages" ]]; then
+  echo "[install-deb] ERROR: APT index not found in $REPO_DIR" >&2
+  echo "[install-deb] Run ./scripts/setup-local-deb-repo.sh first." >&2
+  exit 1
+fi
+
+# ── Register APT source ───────────────────────────────────────────────────────
+echo "[install-deb] registering local APT source: file://${REPO_DIR}/"
+{
+  echo "# Remote Agent local test repository"
+  echo "# Remove: sudo rm $SOURCES_FILE && sudo apt-get update"
+  echo "deb [trusted=yes] file://${REPO_DIR}/ ./"
+} > "$SOURCES_FILE"
+
+# ── Update index ──────────────────────────────────────────────────────────────
+echo "[install-deb] running apt-get update..."
+apt-get update \
+  -o "Dir::Etc::sourcelist=$SOURCES_FILE" \
+  -o "Dir::Etc::sourceparts=-" \
+  -o "APT::Get::List-Cleanup=0"
+
+# ── Install ───────────────────────────────────────────────────────────────────
+PACKAGES=()
+# Desktop declared before service so apt installs service first (dep ordering).
+[[ "$INSTALL_DESKTOP" == "true" ]] && PACKAGES+=(remote-agent-desktop)
+[[ "$INSTALL_SERVICE" == "true" && "$INSTALL_DESKTOP" == "false" ]] && PACKAGES+=(remote-agent-service)
+
+echo "[install-deb] installing: ${PACKAGES[*]}"
+apt-get install -y $REINSTALL_FLAG "${PACKAGES[@]}"
+
+# ── Report ────────────────────────────────────────────────────────────────────
+echo ""
+echo "── Installation complete ───────────────────────────────────────────────"
+for pkg in remote-agent-service remote-agent-desktop; do
+  if dpkg -s "$pkg" &>/dev/null; then
+    ver=$(dpkg -s "$pkg" | awk '/^Version:/{print $2}')
+    printf "  %-30s %s\n" "$pkg" "$ver"
+  fi
+done
+
+if systemctl is-active --quiet remote-agent.service 2>/dev/null; then
+  echo "  remote-agent.service         active (running)"
+else
+  echo "  remote-agent.service         inactive"
+fi
+echo "────────────────────────────────────────────────────────────────────────"
+echo ""
+echo "  Service logs : journalctl -u remote-agent.service -f"
+echo "  Remove       : sudo $0 --remove"
