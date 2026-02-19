@@ -191,6 +191,15 @@ if ($existing) {
         Write-Host "[install] Service stopped."
     }
 
+    # Close any running desktop app processes.
+    $desktopProcs = Get-Process -Name "RemoteAgent.Desktop" -ErrorAction SilentlyContinue
+    if ($desktopProcs) {
+        Write-Host "[install] Closing RemoteAgent.Desktop processes..."
+        $desktopProcs | Stop-Process -Force
+        Start-Sleep -Milliseconds 500   # brief wait for handles to release
+        Write-Host "[install] Desktop app closed."
+    }
+
     Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion
 } else {
     Write-Host "[install] Installing package..."
