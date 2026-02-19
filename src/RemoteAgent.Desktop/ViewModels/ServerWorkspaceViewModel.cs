@@ -270,46 +270,6 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
         _sessionEventHandlers.Remove(session);
     }
 
-    private async Task ConnectSessionAsync(DesktopSessionViewModel session)    {
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
-            return;
-        }
-
-        var host = string.Equals(session.ConnectionMode, "direct", StringComparison.OrdinalIgnoreCase)
-            ? "127.0.0.1"
-            : (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
-        {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!_sessionEventHandlers.ContainsKey(session))
-            RegisterSessionEvents(session);
-
-        session.SessionClient.PerRequestContext = (PerRequestContext ?? "").Trim();
-        try
-        {
-            await session.SessionClient.ConnectAsync(
-                host,
-                port,
-                session.SessionId,
-                session.AgentId,
-                apiKey: ApiKey);
-            session.IsConnected = true;
-            session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] connected to {host}:{port}.");
-            StatusText = $"Connected {session.Title} ({session.ConnectionMode}).";
-        }
-        catch (Exception ex)
-        {
-            session.IsConnected = false;
-            session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] connection failed: {ex.Message}");
-            StatusText = $"Failed to connect {session.Title}: {ex.Message}";
-        }
-    }
-
     private async Task TerminateCurrentSessionAsync()
     {
         if (SelectedSession == null)
