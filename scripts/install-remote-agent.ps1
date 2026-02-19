@@ -182,6 +182,15 @@ Alternatively, build with: .\scripts\package-msix.ps1 -DevCert
 $existing = Get-AppxPackage -Name "RemoteAgent" -ErrorAction SilentlyContinue
 if ($existing) {
     Write-Host "[install] Updating existing package ($($existing.Version) -> installing)..."
+
+    # Stop the service before updating so the MSIX engine can replace locked files.
+    $svc = Get-Service $ServiceName -ErrorAction SilentlyContinue
+    if ($svc -and $svc.Status -ne "Stopped") {
+        Write-Host "[install] Stopping '$ServiceName' before update..."
+        Stop-Service $ServiceName -Force
+        Write-Host "[install] Service stopped."
+    }
+
     Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion
 } else {
     Write-Host "[install] Installing package..."
