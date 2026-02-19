@@ -108,3 +108,8 @@ if ($ServiceOnly)    { $params['ExcludeDesktop'] = $true }
 if ($DesktopOnly)    { $params['ExcludeService'] = $true }
 
 New-MsixPackage @params
+
+# Explicitly exit 0 to prevent $LASTEXITCODE set by any native command inside
+# New-MsixPackage (dotnet, makeappx, signtool) from causing the GitHub Actions
+# pwsh runner to report failure even when the package was created successfully.
+exit 0
