@@ -28,7 +28,8 @@ public class AgentGatewayService(
     AgentMcpConfigurationService agentMcpConfiguration,
     PromptTemplateService promptTemplateService,
     ConnectionProtectionService connectionProtection,
-    SessionCapacityService sessionCapacity) : AgentGateway.AgentGatewayBase
+    SessionCapacityService sessionCapacity,
+    AuthUserService authUsers) : AgentGateway.AgentGatewayBase
 {
     /// <summary>Strips ANSI escape sequences (e.g. color codes) from text before sending to the client.</summary>
     private static string StripAnsi(string? text)
@@ -871,6 +872,141 @@ public class AgentGatewayService(
 
         public Task SendInputAsync(string input, CancellationToken cancellationToken = default)
             => session.SendInputAsync(input, cancellationToken);
+    }
+
+    public override Task<CheckSessionCapacityResponse> CheckSessionCapacity(CheckSessionCapacityRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var status = sessionCapacity.GetStatus(request.AgentId);
+        var response = new CheckSessionCapacityResponse
+        {
+            CanCreateSession = status.CanCreateSession,
+            Reason = status.Reason,
+            MaxConcurrentSessions = status.MaxConcurrentSessions,
+            ActiveSessionCount = status.ActiveSessionCount,
+            RemainingServerCapacity = status.RemainingServerCapacity,
+            AgentId = status.AgentId,
+            HasAgentLimit = status.AgentMaxConcurrentSessions.HasValue,
+            AgentMaxConcurrentSessions = status.AgentMaxConcurrentSessions ?? 0,
+            AgentActiveSessionCount = status.AgentActiveSessionCount,
+            RemainingAgentCapacity = status.RemainingAgentCapacity ?? 0
+        };
+        return Task.FromResult(response);
+    }
+
+    public override Task<ListOpenSessionsResponse> ListOpenSessions(ListOpenSessionsRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new ListOpenSessionsResponse();
+        foreach (var s in sessionCapacity.ListOpenSessions())
+            response.Sessions.Add(new OpenSessionEntry { SessionId = s.SessionId, AgentId = s.AgentId, CanAcceptInput = s.CanAcceptInput });
+        return Task.FromResult(response);
+    }
+
+    public override Task<ListAbandonedSessionsResponse> ListAbandonedSessions(ListAbandonedSessionsRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new ListAbandonedSessionsResponse();
+        foreach (var s in sessionCapacity.ListAbandonedSessions())
+            response.Sessions.Add(new AbandonedSessionEntry { SessionId = s.SessionId, AgentId = s.AgentId, Reason = s.Reason, AbandonedUtc = s.AbandonedUtc.ToString("O") });
+        return Task.FromResult(response);
+    }
+
+    public override Task<TerminateSessionResponse> TerminateSession(TerminateSessionRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var success = sessionCapacity.TryTerminateSession(request.SessionId, out var reason);
+        return Task.FromResult(new TerminateSessionResponse { Success = success, Message = success ? "Session terminated." : reason });
+    }
+
+    public override Task<ListConnectedPeersResponse> ListConnectedPeers(ListConnectedPeersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new ListConnectedPeersResponse();
+        foreach (var p in connectionProtection.GetConnectedPeers())
+            response.Peers.Add(new ConnectedPeerEntry
+            {
+                Peer = p.Peer,
+                ActiveConnections = p.ActiveConnections,
+                IsBlocked = p.IsBlocked,
+                BlockedUntilUtc = p.BlockedUntilUtc?.ToString("O") ?? "",
+                LastSeenUtc = p.LastSeenUtc.ToString("O")
+            });
+        return Task.FromResult(response);
+    }
+
+    public override Task<ListConnectionHistoryResponse> ListConnectionHistory(ListConnectionHistoryRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var limit = request.Limit > 0 ? request.Limit : 500;
+        var response = new ListConnectionHistoryResponse();
+        foreach (var e in connectionProtection.GetConnectionHistory(limit))
+            response.Entries.Add(new global::RemoteAgent.Proto.ConnectionHistoryEntry
+            {
+                TimestampUtc = e.TimestampUtc.ToString("O"),
+                Peer = e.Peer,
+                Action = e.Action,
+                Allowed = e.Allowed,
+                Detail = e.Detail ?? ""
+            });
+        return Task.FromResult(response);
+    }
+
+    public override Task<ListBannedPeersResponse> ListBannedPeers(ListBannedPeersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new ListBannedPeersResponse();
+        foreach (var b in connectionProtection.GetBannedPeers())
+            response.Peers.Add(new global::RemoteAgent.Proto.BannedPeerEntry { Peer = b.Peer, Reason = b.Reason, BannedUtc = b.BannedUtc.ToString("O") });
+        return Task.FromResult(response);
+    }
+
+    public override Task<BanPeerResponse> BanPeer(BanPeerRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var ok = connectionProtection.BanPeer(request.Peer, request.Reason, nameof(AgentGatewayService));
+        return Task.FromResult(new BanPeerResponse { Success = ok, Message = ok ? "Peer banned." : "Invalid peer." });
+    }
+
+    public override Task<UnbanPeerResponse> UnbanPeer(UnbanPeerRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var ok = connectionProtection.UnbanPeer(request.Peer, nameof(AgentGatewayService));
+        return Task.FromResult(new UnbanPeerResponse { Success = ok, Message = ok ? "Peer unbanned." : "Peer not found." });
+    }
+
+    public override Task<ListAuthUsersResponse> ListAuthUsers(ListAuthUsersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new ListAuthUsersResponse();
+        foreach (var u in authUsers.List())
+            response.Users.Add(new AuthUserEntry { UserId = u.UserId, DisplayName = u.DisplayName, Role = u.Role, Enabled = u.Enabled, CreatedUtc = u.CreatedUtc.ToString("O"), UpdatedUtc = u.UpdatedUtc.ToString("O") });
+        return Task.FromResult(response);
+    }
+
+    public override Task<ListPermissionRolesResponse> ListPermissionRoles(ListPermissionRolesRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var response = new ListPermissionRolesResponse();
+        response.Roles.AddRange(authUsers.ListRoles());
+        return Task.FromResult(response);
+    }
+
+    public override Task<UpsertAuthUserResponse> UpsertAuthUser(UpsertAuthUserRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var entry = request.User ?? new AuthUserEntry();
+        var record = new AuthUserRecord { UserId = entry.UserId, DisplayName = entry.DisplayName, Role = entry.Role, Enabled = entry.Enabled };
+        var saved = authUsers.Upsert(record);
+        var resultEntry = new AuthUserEntry { UserId = saved.UserId, DisplayName = saved.DisplayName, Role = saved.Role, Enabled = saved.Enabled, CreatedUtc = saved.CreatedUtc.ToString("O"), UpdatedUtc = saved.UpdatedUtc.ToString("O") };
+        return Task.FromResult(new UpsertAuthUserResponse { Success = true, Message = "Auth user saved.", User = resultEntry });
+    }
+
+    public override Task<DeleteAuthUserResponse> DeleteAuthUser(DeleteAuthUserRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var ok = authUsers.Delete(request.UserId);
+        return Task.FromResult(new DeleteAuthUserResponse { Success = ok, Message = ok ? "Auth user deleted." : "Auth user not found." });
     }
 }
 

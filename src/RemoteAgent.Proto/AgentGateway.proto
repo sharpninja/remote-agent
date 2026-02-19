@@ -41,6 +41,20 @@ service AgentGateway {
   rpc UpsertPromptTemplate (UpsertPromptTemplateRequest) returns (UpsertPromptTemplateResponse);
   // Deletes a prompt template.
   rpc DeletePromptTemplate (DeletePromptTemplateRequest) returns (DeletePromptTemplateResponse);
+
+  rpc CheckSessionCapacity (CheckSessionCapacityRequest) returns (CheckSessionCapacityResponse);
+  rpc ListOpenSessions (ListOpenSessionsRequest) returns (ListOpenSessionsResponse);
+  rpc ListAbandonedSessions (ListAbandonedSessionsRequest) returns (ListAbandonedSessionsResponse);
+  rpc TerminateSession (TerminateSessionRequest) returns (TerminateSessionResponse);
+  rpc ListConnectedPeers (ListConnectedPeersRequest) returns (ListConnectedPeersResponse);
+  rpc ListConnectionHistory (ListConnectionHistoryRequest) returns (ListConnectionHistoryResponse);
+  rpc ListBannedPeers (ListBannedPeersRequest) returns (ListBannedPeersResponse);
+  rpc BanPeer (BanPeerRequest) returns (BanPeerResponse);
+  rpc UnbanPeer (UnbanPeerRequest) returns (UnbanPeerResponse);
+  rpc ListAuthUsers (ListAuthUsersRequest) returns (ListAuthUsersResponse);
+  rpc ListPermissionRoles (ListPermissionRolesRequest) returns (ListPermissionRolesResponse);
+  rpc UpsertAuthUser (UpsertAuthUserRequest) returns (UpsertAuthUserResponse);
+  rpc DeleteAuthUser (DeleteAuthUserRequest) returns (DeleteAuthUserResponse);
 }
 
 // ServerInfoRequest: optional client info for handshake (e.g. future compatibility).
@@ -321,3 +335,96 @@ message DeletePromptTemplateResponse {
   bool success = 1;
   string message = 2;
 }
+
+// Session capacity
+message CheckSessionCapacityRequest { string agent_id = 1; }
+message CheckSessionCapacityResponse {
+  bool can_create_session = 1;
+  string reason = 2;
+  int32 max_concurrent_sessions = 3;
+  int32 active_session_count = 4;
+  int32 remaining_server_capacity = 5;
+  string agent_id = 6;
+  int32 agent_max_concurrent_sessions = 7;
+  int32 agent_active_session_count = 8;
+  int32 remaining_agent_capacity = 9;
+  bool has_agent_limit = 10;
+}
+
+// Open sessions
+message ListOpenSessionsRequest {}
+message OpenSessionEntry {
+  string session_id = 1;
+  string agent_id = 2;
+  bool can_accept_input = 3;
+}
+message ListOpenSessionsResponse { repeated OpenSessionEntry sessions = 1; }
+
+// Abandoned sessions
+message ListAbandonedSessionsRequest {}
+message AbandonedSessionEntry {
+  string session_id = 1;
+  string agent_id = 2;
+  string reason = 3;
+  string abandoned_utc = 4;
+}
+message ListAbandonedSessionsResponse { repeated AbandonedSessionEntry sessions = 1; }
+
+// Terminate session
+message TerminateSessionRequest { string session_id = 1; }
+message TerminateSessionResponse { bool success = 1; string message = 2; }
+
+// Connected peers
+message ListConnectedPeersRequest {}
+message ConnectedPeerEntry {
+  string peer = 1;
+  int32 active_connections = 2;
+  bool is_blocked = 3;
+  string blocked_until_utc = 4;
+  string last_seen_utc = 5;
+}
+message ListConnectedPeersResponse { repeated ConnectedPeerEntry peers = 1; }
+
+// Connection history
+message ListConnectionHistoryRequest { int32 limit = 1; }
+message ConnectionHistoryEntry {
+  string timestamp_utc = 1;
+  string peer = 2;
+  string action = 3;
+  bool allowed = 4;
+  string detail = 5;
+}
+message ListConnectionHistoryResponse { repeated ConnectionHistoryEntry entries = 1; }
+
+// Banned peers
+message ListBannedPeersRequest {}
+message BannedPeerEntry {
+  string peer = 1;
+  string reason = 2;
+  string banned_utc = 3;
+}
+message ListBannedPeersResponse { repeated BannedPeerEntry peers = 1; }
+
+// Ban / unban
+message BanPeerRequest { string peer = 1; string reason = 2; }
+message BanPeerResponse { bool success = 1; string message = 2; }
+message UnbanPeerRequest { string peer = 1; }
+message UnbanPeerResponse { bool success = 1; string message = 2; }
+
+// Auth users
+message AuthUserEntry {
+  string user_id = 1;
+  string display_name = 2;
+  string role = 3;
+  bool enabled = 4;
+  string created_utc = 5;
+  string updated_utc = 6;
+}
+message ListAuthUsersRequest {}
+message ListAuthUsersResponse { repeated AuthUserEntry users = 1; }
+message ListPermissionRolesRequest {}
+message ListPermissionRolesResponse { repeated string roles = 1; }
+message UpsertAuthUserRequest { AuthUserEntry user = 1; }
+message UpsertAuthUserResponse { bool success = 1; string message = 2; AuthUserEntry user = 3; }
+message DeleteAuthUserRequest { string user_id = 1; }
+message DeleteAuthUserResponse { bool success = 1; string message = 2; }

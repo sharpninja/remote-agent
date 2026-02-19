@@ -116,6 +116,58 @@ namespace RemoteAgent.Proto {
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeletePromptTemplateRequest> __Marshaller_remoteagent_DeletePromptTemplateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeletePromptTemplateRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeletePromptTemplateResponse> __Marshaller_remoteagent_DeletePromptTemplateResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeletePromptTemplateResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.CheckSessionCapacityRequest> __Marshaller_remoteagent_CheckSessionCapacityRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.CheckSessionCapacityRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.CheckSessionCapacityResponse> __Marshaller_remoteagent_CheckSessionCapacityResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.CheckSessionCapacityResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListOpenSessionsRequest> __Marshaller_remoteagent_ListOpenSessionsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListOpenSessionsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListOpenSessionsResponse> __Marshaller_remoteagent_ListOpenSessionsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListOpenSessionsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListAbandonedSessionsRequest> __Marshaller_remoteagent_ListAbandonedSessionsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListAbandonedSessionsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListAbandonedSessionsResponse> __Marshaller_remoteagent_ListAbandonedSessionsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListAbandonedSessionsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.TerminateSessionRequest> __Marshaller_remoteagent_TerminateSessionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.TerminateSessionRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.TerminateSessionResponse> __Marshaller_remoteagent_TerminateSessionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.TerminateSessionResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListConnectedPeersRequest> __Marshaller_remoteagent_ListConnectedPeersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListConnectedPeersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListConnectedPeersResponse> __Marshaller_remoteagent_ListConnectedPeersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListConnectedPeersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListConnectionHistoryRequest> __Marshaller_remoteagent_ListConnectionHistoryRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListConnectionHistoryRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListConnectionHistoryResponse> __Marshaller_remoteagent_ListConnectionHistoryResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListConnectionHistoryResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListBannedPeersRequest> __Marshaller_remoteagent_ListBannedPeersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListBannedPeersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListBannedPeersResponse> __Marshaller_remoteagent_ListBannedPeersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListBannedPeersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.BanPeerRequest> __Marshaller_remoteagent_BanPeerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.BanPeerRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.BanPeerResponse> __Marshaller_remoteagent_BanPeerResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.BanPeerResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UnbanPeerRequest> __Marshaller_remoteagent_UnbanPeerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UnbanPeerRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UnbanPeerResponse> __Marshaller_remoteagent_UnbanPeerResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UnbanPeerResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListAuthUsersRequest> __Marshaller_remoteagent_ListAuthUsersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListAuthUsersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListAuthUsersResponse> __Marshaller_remoteagent_ListAuthUsersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListAuthUsersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListPermissionRolesRequest> __Marshaller_remoteagent_ListPermissionRolesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListPermissionRolesRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListPermissionRolesResponse> __Marshaller_remoteagent_ListPermissionRolesResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListPermissionRolesResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpsertAuthUserRequest> __Marshaller_remoteagent_UpsertAuthUserRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpsertAuthUserRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpsertAuthUserResponse> __Marshaller_remoteagent_UpsertAuthUserResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpsertAuthUserResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeleteAuthUserRequest> __Marshaller_remoteagent_DeleteAuthUserRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeleteAuthUserRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeleteAuthUserResponse> __Marshaller_remoteagent_DeleteAuthUserResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeleteAuthUserResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse> __Method_GetServerInfo = new grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse>(
@@ -252,6 +304,110 @@ namespace RemoteAgent.Proto {
         "DeletePromptTemplate",
         __Marshaller_remoteagent_DeletePromptTemplateRequest,
         __Marshaller_remoteagent_DeletePromptTemplateResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.CheckSessionCapacityRequest, global::RemoteAgent.Proto.CheckSessionCapacityResponse> __Method_CheckSessionCapacity = new grpc::Method<global::RemoteAgent.Proto.CheckSessionCapacityRequest, global::RemoteAgent.Proto.CheckSessionCapacityResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CheckSessionCapacity",
+        __Marshaller_remoteagent_CheckSessionCapacityRequest,
+        __Marshaller_remoteagent_CheckSessionCapacityResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListOpenSessionsRequest, global::RemoteAgent.Proto.ListOpenSessionsResponse> __Method_ListOpenSessions = new grpc::Method<global::RemoteAgent.Proto.ListOpenSessionsRequest, global::RemoteAgent.Proto.ListOpenSessionsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListOpenSessions",
+        __Marshaller_remoteagent_ListOpenSessionsRequest,
+        __Marshaller_remoteagent_ListOpenSessionsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListAbandonedSessionsRequest, global::RemoteAgent.Proto.ListAbandonedSessionsResponse> __Method_ListAbandonedSessions = new grpc::Method<global::RemoteAgent.Proto.ListAbandonedSessionsRequest, global::RemoteAgent.Proto.ListAbandonedSessionsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListAbandonedSessions",
+        __Marshaller_remoteagent_ListAbandonedSessionsRequest,
+        __Marshaller_remoteagent_ListAbandonedSessionsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.TerminateSessionRequest, global::RemoteAgent.Proto.TerminateSessionResponse> __Method_TerminateSession = new grpc::Method<global::RemoteAgent.Proto.TerminateSessionRequest, global::RemoteAgent.Proto.TerminateSessionResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TerminateSession",
+        __Marshaller_remoteagent_TerminateSessionRequest,
+        __Marshaller_remoteagent_TerminateSessionResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListConnectedPeersRequest, global::RemoteAgent.Proto.ListConnectedPeersResponse> __Method_ListConnectedPeers = new grpc::Method<global::RemoteAgent.Proto.ListConnectedPeersRequest, global::RemoteAgent.Proto.ListConnectedPeersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListConnectedPeers",
+        __Marshaller_remoteagent_ListConnectedPeersRequest,
+        __Marshaller_remoteagent_ListConnectedPeersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListConnectionHistoryRequest, global::RemoteAgent.Proto.ListConnectionHistoryResponse> __Method_ListConnectionHistory = new grpc::Method<global::RemoteAgent.Proto.ListConnectionHistoryRequest, global::RemoteAgent.Proto.ListConnectionHistoryResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListConnectionHistory",
+        __Marshaller_remoteagent_ListConnectionHistoryRequest,
+        __Marshaller_remoteagent_ListConnectionHistoryResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListBannedPeersRequest, global::RemoteAgent.Proto.ListBannedPeersResponse> __Method_ListBannedPeers = new grpc::Method<global::RemoteAgent.Proto.ListBannedPeersRequest, global::RemoteAgent.Proto.ListBannedPeersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListBannedPeers",
+        __Marshaller_remoteagent_ListBannedPeersRequest,
+        __Marshaller_remoteagent_ListBannedPeersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.BanPeerRequest, global::RemoteAgent.Proto.BanPeerResponse> __Method_BanPeer = new grpc::Method<global::RemoteAgent.Proto.BanPeerRequest, global::RemoteAgent.Proto.BanPeerResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "BanPeer",
+        __Marshaller_remoteagent_BanPeerRequest,
+        __Marshaller_remoteagent_BanPeerResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.UnbanPeerRequest, global::RemoteAgent.Proto.UnbanPeerResponse> __Method_UnbanPeer = new grpc::Method<global::RemoteAgent.Proto.UnbanPeerRequest, global::RemoteAgent.Proto.UnbanPeerResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UnbanPeer",
+        __Marshaller_remoteagent_UnbanPeerRequest,
+        __Marshaller_remoteagent_UnbanPeerResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListAuthUsersRequest, global::RemoteAgent.Proto.ListAuthUsersResponse> __Method_ListAuthUsers = new grpc::Method<global::RemoteAgent.Proto.ListAuthUsersRequest, global::RemoteAgent.Proto.ListAuthUsersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListAuthUsers",
+        __Marshaller_remoteagent_ListAuthUsersRequest,
+        __Marshaller_remoteagent_ListAuthUsersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListPermissionRolesRequest, global::RemoteAgent.Proto.ListPermissionRolesResponse> __Method_ListPermissionRoles = new grpc::Method<global::RemoteAgent.Proto.ListPermissionRolesRequest, global::RemoteAgent.Proto.ListPermissionRolesResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListPermissionRoles",
+        __Marshaller_remoteagent_ListPermissionRolesRequest,
+        __Marshaller_remoteagent_ListPermissionRolesResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.UpsertAuthUserRequest, global::RemoteAgent.Proto.UpsertAuthUserResponse> __Method_UpsertAuthUser = new grpc::Method<global::RemoteAgent.Proto.UpsertAuthUserRequest, global::RemoteAgent.Proto.UpsertAuthUserResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpsertAuthUser",
+        __Marshaller_remoteagent_UpsertAuthUserRequest,
+        __Marshaller_remoteagent_UpsertAuthUserResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.DeleteAuthUserRequest, global::RemoteAgent.Proto.DeleteAuthUserResponse> __Method_DeleteAuthUser = new grpc::Method<global::RemoteAgent.Proto.DeleteAuthUserRequest, global::RemoteAgent.Proto.DeleteAuthUserResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteAuthUser",
+        __Marshaller_remoteagent_DeleteAuthUserRequest,
+        __Marshaller_remoteagent_DeleteAuthUserResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -466,6 +622,84 @@ namespace RemoteAgent.Proto {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.DeletePromptTemplateResponse> DeletePromptTemplate(global::RemoteAgent.Proto.DeletePromptTemplateRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.CheckSessionCapacityResponse> CheckSessionCapacity(global::RemoteAgent.Proto.CheckSessionCapacityRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListOpenSessionsResponse> ListOpenSessions(global::RemoteAgent.Proto.ListOpenSessionsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListAbandonedSessionsResponse> ListAbandonedSessions(global::RemoteAgent.Proto.ListAbandonedSessionsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.TerminateSessionResponse> TerminateSession(global::RemoteAgent.Proto.TerminateSessionRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListConnectedPeersResponse> ListConnectedPeers(global::RemoteAgent.Proto.ListConnectedPeersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListConnectionHistoryResponse> ListConnectionHistory(global::RemoteAgent.Proto.ListConnectionHistoryRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListBannedPeersResponse> ListBannedPeers(global::RemoteAgent.Proto.ListBannedPeersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.BanPeerResponse> BanPeer(global::RemoteAgent.Proto.BanPeerRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.UnbanPeerResponse> UnbanPeer(global::RemoteAgent.Proto.UnbanPeerRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListAuthUsersResponse> ListAuthUsers(global::RemoteAgent.Proto.ListAuthUsersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListPermissionRolesResponse> ListPermissionRoles(global::RemoteAgent.Proto.ListPermissionRolesRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.UpsertAuthUserResponse> UpsertAuthUser(global::RemoteAgent.Proto.UpsertAuthUserRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.DeleteAuthUserResponse> DeleteAuthUser(global::RemoteAgent.Proto.DeleteAuthUserRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1267,6 +1501,266 @@ namespace RemoteAgent.Proto {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeletePromptTemplate, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.CheckSessionCapacityResponse CheckSessionCapacity(global::RemoteAgent.Proto.CheckSessionCapacityRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CheckSessionCapacity(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.CheckSessionCapacityResponse CheckSessionCapacity(global::RemoteAgent.Proto.CheckSessionCapacityRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CheckSessionCapacity, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.CheckSessionCapacityResponse> CheckSessionCapacityAsync(global::RemoteAgent.Proto.CheckSessionCapacityRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CheckSessionCapacityAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.CheckSessionCapacityResponse> CheckSessionCapacityAsync(global::RemoteAgent.Proto.CheckSessionCapacityRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CheckSessionCapacity, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListOpenSessionsResponse ListOpenSessions(global::RemoteAgent.Proto.ListOpenSessionsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListOpenSessions(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListOpenSessionsResponse ListOpenSessions(global::RemoteAgent.Proto.ListOpenSessionsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListOpenSessions, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListOpenSessionsResponse> ListOpenSessionsAsync(global::RemoteAgent.Proto.ListOpenSessionsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListOpenSessionsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListOpenSessionsResponse> ListOpenSessionsAsync(global::RemoteAgent.Proto.ListOpenSessionsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListOpenSessions, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListAbandonedSessionsResponse ListAbandonedSessions(global::RemoteAgent.Proto.ListAbandonedSessionsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListAbandonedSessions(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListAbandonedSessionsResponse ListAbandonedSessions(global::RemoteAgent.Proto.ListAbandonedSessionsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListAbandonedSessions, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListAbandonedSessionsResponse> ListAbandonedSessionsAsync(global::RemoteAgent.Proto.ListAbandonedSessionsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListAbandonedSessionsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListAbandonedSessionsResponse> ListAbandonedSessionsAsync(global::RemoteAgent.Proto.ListAbandonedSessionsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListAbandonedSessions, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.TerminateSessionResponse TerminateSession(global::RemoteAgent.Proto.TerminateSessionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TerminateSession(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.TerminateSessionResponse TerminateSession(global::RemoteAgent.Proto.TerminateSessionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TerminateSession, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.TerminateSessionResponse> TerminateSessionAsync(global::RemoteAgent.Proto.TerminateSessionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TerminateSessionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.TerminateSessionResponse> TerminateSessionAsync(global::RemoteAgent.Proto.TerminateSessionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TerminateSession, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListConnectedPeersResponse ListConnectedPeers(global::RemoteAgent.Proto.ListConnectedPeersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListConnectedPeers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListConnectedPeersResponse ListConnectedPeers(global::RemoteAgent.Proto.ListConnectedPeersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListConnectedPeers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListConnectedPeersResponse> ListConnectedPeersAsync(global::RemoteAgent.Proto.ListConnectedPeersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListConnectedPeersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListConnectedPeersResponse> ListConnectedPeersAsync(global::RemoteAgent.Proto.ListConnectedPeersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListConnectedPeers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListConnectionHistoryResponse ListConnectionHistory(global::RemoteAgent.Proto.ListConnectionHistoryRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListConnectionHistory(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListConnectionHistoryResponse ListConnectionHistory(global::RemoteAgent.Proto.ListConnectionHistoryRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListConnectionHistory, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListConnectionHistoryResponse> ListConnectionHistoryAsync(global::RemoteAgent.Proto.ListConnectionHistoryRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListConnectionHistoryAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListConnectionHistoryResponse> ListConnectionHistoryAsync(global::RemoteAgent.Proto.ListConnectionHistoryRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListConnectionHistory, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListBannedPeersResponse ListBannedPeers(global::RemoteAgent.Proto.ListBannedPeersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListBannedPeers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListBannedPeersResponse ListBannedPeers(global::RemoteAgent.Proto.ListBannedPeersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListBannedPeers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListBannedPeersResponse> ListBannedPeersAsync(global::RemoteAgent.Proto.ListBannedPeersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListBannedPeersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListBannedPeersResponse> ListBannedPeersAsync(global::RemoteAgent.Proto.ListBannedPeersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListBannedPeers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.BanPeerResponse BanPeer(global::RemoteAgent.Proto.BanPeerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BanPeer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.BanPeerResponse BanPeer(global::RemoteAgent.Proto.BanPeerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_BanPeer, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.BanPeerResponse> BanPeerAsync(global::RemoteAgent.Proto.BanPeerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BanPeerAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.BanPeerResponse> BanPeerAsync(global::RemoteAgent.Proto.BanPeerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_BanPeer, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UnbanPeerResponse UnbanPeer(global::RemoteAgent.Proto.UnbanPeerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UnbanPeer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UnbanPeerResponse UnbanPeer(global::RemoteAgent.Proto.UnbanPeerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UnbanPeer, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UnbanPeerResponse> UnbanPeerAsync(global::RemoteAgent.Proto.UnbanPeerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UnbanPeerAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UnbanPeerResponse> UnbanPeerAsync(global::RemoteAgent.Proto.UnbanPeerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UnbanPeer, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListAuthUsersResponse ListAuthUsers(global::RemoteAgent.Proto.ListAuthUsersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListAuthUsers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListAuthUsersResponse ListAuthUsers(global::RemoteAgent.Proto.ListAuthUsersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListAuthUsers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListAuthUsersResponse> ListAuthUsersAsync(global::RemoteAgent.Proto.ListAuthUsersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListAuthUsersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListAuthUsersResponse> ListAuthUsersAsync(global::RemoteAgent.Proto.ListAuthUsersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListAuthUsers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListPermissionRolesResponse ListPermissionRoles(global::RemoteAgent.Proto.ListPermissionRolesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListPermissionRoles(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListPermissionRolesResponse ListPermissionRoles(global::RemoteAgent.Proto.ListPermissionRolesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListPermissionRoles, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListPermissionRolesResponse> ListPermissionRolesAsync(global::RemoteAgent.Proto.ListPermissionRolesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListPermissionRolesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListPermissionRolesResponse> ListPermissionRolesAsync(global::RemoteAgent.Proto.ListPermissionRolesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListPermissionRoles, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpsertAuthUserResponse UpsertAuthUser(global::RemoteAgent.Proto.UpsertAuthUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpsertAuthUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpsertAuthUserResponse UpsertAuthUser(global::RemoteAgent.Proto.UpsertAuthUserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpsertAuthUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpsertAuthUserResponse> UpsertAuthUserAsync(global::RemoteAgent.Proto.UpsertAuthUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpsertAuthUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpsertAuthUserResponse> UpsertAuthUserAsync(global::RemoteAgent.Proto.UpsertAuthUserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpsertAuthUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.DeleteAuthUserResponse DeleteAuthUser(global::RemoteAgent.Proto.DeleteAuthUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteAuthUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.DeleteAuthUserResponse DeleteAuthUser(global::RemoteAgent.Proto.DeleteAuthUserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteAuthUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.DeleteAuthUserResponse> DeleteAuthUserAsync(global::RemoteAgent.Proto.DeleteAuthUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteAuthUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.DeleteAuthUserResponse> DeleteAuthUserAsync(global::RemoteAgent.Proto.DeleteAuthUserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteAuthUser, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override AgentGatewayClient NewInstance(ClientBaseConfiguration configuration)
@@ -1297,7 +1791,20 @@ namespace RemoteAgent.Proto {
           .AddMethod(__Method_GetAgentMcpServers, serviceImpl.GetAgentMcpServers)
           .AddMethod(__Method_ListPromptTemplates, serviceImpl.ListPromptTemplates)
           .AddMethod(__Method_UpsertPromptTemplate, serviceImpl.UpsertPromptTemplate)
-          .AddMethod(__Method_DeletePromptTemplate, serviceImpl.DeletePromptTemplate).Build();
+          .AddMethod(__Method_DeletePromptTemplate, serviceImpl.DeletePromptTemplate)
+          .AddMethod(__Method_CheckSessionCapacity, serviceImpl.CheckSessionCapacity)
+          .AddMethod(__Method_ListOpenSessions, serviceImpl.ListOpenSessions)
+          .AddMethod(__Method_ListAbandonedSessions, serviceImpl.ListAbandonedSessions)
+          .AddMethod(__Method_TerminateSession, serviceImpl.TerminateSession)
+          .AddMethod(__Method_ListConnectedPeers, serviceImpl.ListConnectedPeers)
+          .AddMethod(__Method_ListConnectionHistory, serviceImpl.ListConnectionHistory)
+          .AddMethod(__Method_ListBannedPeers, serviceImpl.ListBannedPeers)
+          .AddMethod(__Method_BanPeer, serviceImpl.BanPeer)
+          .AddMethod(__Method_UnbanPeer, serviceImpl.UnbanPeer)
+          .AddMethod(__Method_ListAuthUsers, serviceImpl.ListAuthUsers)
+          .AddMethod(__Method_ListPermissionRoles, serviceImpl.ListPermissionRoles)
+          .AddMethod(__Method_UpsertAuthUser, serviceImpl.UpsertAuthUser)
+          .AddMethod(__Method_DeleteAuthUser, serviceImpl.DeleteAuthUser).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -1324,6 +1831,19 @@ namespace RemoteAgent.Proto {
       serviceBinder.AddMethod(__Method_ListPromptTemplates, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListPromptTemplatesRequest, global::RemoteAgent.Proto.ListPromptTemplatesResponse>(serviceImpl.ListPromptTemplates));
       serviceBinder.AddMethod(__Method_UpsertPromptTemplate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpsertPromptTemplateRequest, global::RemoteAgent.Proto.UpsertPromptTemplateResponse>(serviceImpl.UpsertPromptTemplate));
       serviceBinder.AddMethod(__Method_DeletePromptTemplate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.DeletePromptTemplateRequest, global::RemoteAgent.Proto.DeletePromptTemplateResponse>(serviceImpl.DeletePromptTemplate));
+      serviceBinder.AddMethod(__Method_CheckSessionCapacity, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.CheckSessionCapacityRequest, global::RemoteAgent.Proto.CheckSessionCapacityResponse>(serviceImpl.CheckSessionCapacity));
+      serviceBinder.AddMethod(__Method_ListOpenSessions, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListOpenSessionsRequest, global::RemoteAgent.Proto.ListOpenSessionsResponse>(serviceImpl.ListOpenSessions));
+      serviceBinder.AddMethod(__Method_ListAbandonedSessions, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListAbandonedSessionsRequest, global::RemoteAgent.Proto.ListAbandonedSessionsResponse>(serviceImpl.ListAbandonedSessions));
+      serviceBinder.AddMethod(__Method_TerminateSession, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.TerminateSessionRequest, global::RemoteAgent.Proto.TerminateSessionResponse>(serviceImpl.TerminateSession));
+      serviceBinder.AddMethod(__Method_ListConnectedPeers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListConnectedPeersRequest, global::RemoteAgent.Proto.ListConnectedPeersResponse>(serviceImpl.ListConnectedPeers));
+      serviceBinder.AddMethod(__Method_ListConnectionHistory, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListConnectionHistoryRequest, global::RemoteAgent.Proto.ListConnectionHistoryResponse>(serviceImpl.ListConnectionHistory));
+      serviceBinder.AddMethod(__Method_ListBannedPeers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListBannedPeersRequest, global::RemoteAgent.Proto.ListBannedPeersResponse>(serviceImpl.ListBannedPeers));
+      serviceBinder.AddMethod(__Method_BanPeer, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.BanPeerRequest, global::RemoteAgent.Proto.BanPeerResponse>(serviceImpl.BanPeer));
+      serviceBinder.AddMethod(__Method_UnbanPeer, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UnbanPeerRequest, global::RemoteAgent.Proto.UnbanPeerResponse>(serviceImpl.UnbanPeer));
+      serviceBinder.AddMethod(__Method_ListAuthUsers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListAuthUsersRequest, global::RemoteAgent.Proto.ListAuthUsersResponse>(serviceImpl.ListAuthUsers));
+      serviceBinder.AddMethod(__Method_ListPermissionRoles, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListPermissionRolesRequest, global::RemoteAgent.Proto.ListPermissionRolesResponse>(serviceImpl.ListPermissionRoles));
+      serviceBinder.AddMethod(__Method_UpsertAuthUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpsertAuthUserRequest, global::RemoteAgent.Proto.UpsertAuthUserResponse>(serviceImpl.UpsertAuthUser));
+      serviceBinder.AddMethod(__Method_DeleteAuthUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.DeleteAuthUserRequest, global::RemoteAgent.Proto.DeleteAuthUserResponse>(serviceImpl.DeleteAuthUser));
     }
 
   }
