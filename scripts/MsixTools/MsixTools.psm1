@@ -272,6 +272,11 @@ function New-MsixPackage {
     $ErrorActionPreference = 'Stop'
     $tag = '[New-MsixPackage]'
 
+    # Resolve WorkspaceRoot to an absolute path using PowerShell's own resolver so that
+    # all derived paths (OutDir, project paths, icons, etc.) are also absolute.
+    # This handles both '.' and relative paths passed via -WorkspaceRoot.
+    $WorkspaceRoot = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($WorkspaceRoot)
+
     # ── Load msix.yml ──────────────────────────────────────────────────────────
     if (-not $ConfigPath) { $ConfigPath = Join-Path $WorkspaceRoot 'msix.yml' }
     $cfg = $null
@@ -300,9 +305,6 @@ function New-MsixPackage {
         $rel = Get-CfgValue $cfgOutput 'dir' 'artifacts'
         $OutDir = if ([System.IO.Path]::IsPathRooted($rel)) { $rel } else { Join-Path $WorkspaceRoot $rel }
     }
-    # Resolve to absolute path — .NET methods (e.g. Bitmap.Save) do not honour
-    # PowerShell's working directory and will fail with relative paths.
-    $OutDir = [System.IO.Path]::GetFullPath($OutDir)
     if (-not $IconSourceSvg) {
         $svg = Get-CfgValue $cfgIcons 'svg' ''
         if ($svg) { $IconSourceSvg = if ([System.IO.Path]::IsPathRooted($svg)) { $svg } else { Join-Path $WorkspaceRoot $svg } }
