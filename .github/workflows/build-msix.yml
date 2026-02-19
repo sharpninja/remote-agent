@@ -13,6 +13,7 @@ on:
       - 'src/RemoteAgent.Proto/**'
       - 'src/RemoteAgent.App.Logic/**'
       - 'scripts/package-msix.ps1'
+      - 'scripts/package-deb.sh'
       - 'scripts/install-remote-agent.ps1'
       - '.github/workflows/build-msix.yml'
   pull_request:
@@ -24,6 +25,7 @@ on:
       - 'src/RemoteAgent.Proto/**'
       - 'src/RemoteAgent.App.Logic/**'
       - 'scripts/package-msix.ps1'
+      - 'scripts/package-deb.sh'
       - 'scripts/install-remote-agent.ps1'
       - '.github/workflows/build-msix.yml'
   workflow_dispatch:
@@ -49,6 +51,10 @@ jobs:
   build-msix:
     name: Build MSIX (Windows)
     runs-on: windows-latest
+
+    outputs:
+      version:    ${{ steps.version.outputs.SemVer }}
+      versionMMP: ${{ steps.version.outputs.MajorMinorPatch }}
 
     permissions:
       contents: read
@@ -116,3 +122,114 @@ jobs:
             scripts/install-remote-agent.ps1
             scripts/package-msix.ps1
           retention-days: 30
+
+  # ── Build .deb packages (Linux) ───────────────────────────────────────────
+  build-deb:
+    name: Build .deb (Linux)
+    runs-on: ubuntu-latest
+
+    outputs:
+      version:    ${{ steps.version.outputs.SemVer }}
+      versionMMP: ${{ steps.version.outputs.MajorMinorPatch }}
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history for GitVersion
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Setup .NET 9 (desktop)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v3
+        with:
+          versionSpec: '6.x'
+
+      - name: Get version
+        id: version
+        uses: gittools/actions/gitversion/execute@v3
+        with:
+          useConfigFile: true
+
+      - name: Build .deb packages
+        env:
+          CONFIGURATION: ${{ github.event.inputs.configuration || 'Release' }}
+          SELF_CONTAINED: ${{ github.event.inputs.self_contained || 'false' }}
+          VERSION:        ${{ steps.version.outputs.SemVer }}
+        run: |
+          chmod +x scripts/package-deb.sh
+          args=(--configuration "$CONFIGURATION" --version "$VERSION")
+          [[ "$SELF_CONTAINED" == "true" ]] && args+=(--self-contained)
+          ./scripts/package-deb.sh "${args[@]}"
+
+      - name: Upload .deb artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: remote-agent-deb-${{ steps.version.outputs.MajorMinorPatch }}
+          path: artifacts/*.deb
+          if-no-files-found: error
+          retention-days: 30
+
+  # ── Create GitHub Release when both packages build successfully ────────────
+  release:
+    name: Create GitHub Release
+    needs: [build-msix, build-deb]
+    runs-on: ubuntu-latest
+
+    # Only create releases on direct pushes, not on PRs.
+    if: github.event_name == 'push'
+
+    permissions:
+      contents: write
+
+    env:
+      VERSION:     ${{ needs.build-msix.outputs.version }}
+      VERSION_MMP: ${{ needs.build-msix.outputs.versionMMP }}
+
+    steps:
+      - name: Download MSIX artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: remote-agent-msix-${{ needs.build-msix.outputs.versionMMP }}
+          path: release-assets/msix
+
+      - name: Download .deb artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: remote-agent-deb-${{ needs.build-msix.outputs.versionMMP }}
+          path: release-assets/deb
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:  ${{ github.repository }}
+          BRANCH:   ${{ github.ref_name }}
+        run: |
+          TAG="v${VERSION}"
+          PRERELEASE=""
+          [[ "$BRANCH" != "main" ]] && PRERELEASE="--prerelease"
+
+          # Collect all release assets (.msix, .deb, .cer if present).
+          mapfile -t FILES < <(find release-assets -type f \( -name '*.msix' -o -name '*.deb' -o -name '*.cer' \) | sort)
+
+          # Delete existing release for this tag (idempotent re-runs).
+          # This does NOT delete the git tag itself.
+          gh release delete "$TAG" --yes 2>/dev/null || true
+
+          gh release create "$TAG" \
+            --title "Remote Agent $TAG" \
+            --generate-notes \
+            $PRERELEASE \
+            "${FILES[@]}"
+
