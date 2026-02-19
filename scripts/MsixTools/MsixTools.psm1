@@ -272,10 +272,8 @@ function New-MsixPackage {
     $ErrorActionPreference = 'Stop'
     $tag = '[New-MsixPackage]'
 
-    # Resolve WorkspaceRoot to an absolute path using PowerShell's own resolver so that
-    # all derived paths (OutDir, project paths, icons, etc.) are also absolute.
-    # This handles both '.' and relative paths passed via -WorkspaceRoot.
-    $WorkspaceRoot = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($WorkspaceRoot)
+    # Establish an absolute WorkspaceRoot so all derived paths are also absolute.
+    $WorkspaceRoot = Convert-Path $WorkspaceRoot
 
     # ── Load msix.yml ──────────────────────────────────────────────────────────
     if (-not $ConfigPath) { $ConfigPath = Join-Path $WorkspaceRoot 'msix.yml' }
