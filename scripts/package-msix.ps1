@@ -225,6 +225,13 @@ if ($Clean) {
         dotnet clean "$proj" -c $Configuration
         if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
     }
+
+    # Restore after clean so publish can resolve packages correctly.
+    foreach ($proj in $projectsToClean) {
+        Write-Host "[package-msix] restoring $proj ..."
+        dotnet restore "$proj" --configfile "$NuGetConfig"
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    }
 }
 
 # ── Publish ───────────────────────────────────────────────────────────────────
