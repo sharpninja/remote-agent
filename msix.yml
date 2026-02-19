@@ -17,6 +17,7 @@ service:
   path: src/RemoteAgent.Service/RemoteAgent.Service.csproj
   framework: net10.0
   serviceName: RemoteAgentService
+  displayName: Remote Agent Service
   subDir: service
   startAccount: localSystem
   startupType: auto
