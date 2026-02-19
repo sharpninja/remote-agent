@@ -15,6 +15,10 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
+		// Allow gRPC over cleartext HTTP/2 (h2c) without TLS.
+		// Required because the local service uses Http1AndHttp2 without a certificate.
+		AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()

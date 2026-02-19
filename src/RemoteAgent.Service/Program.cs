@@ -46,7 +46,7 @@ public partial class Program
         {
             var listenPort = listenUri.Port;
             builder.WebHost.ConfigureKestrel(options =>
-                options.ListenAnyIP(listenPort, o => o.Protocols = HttpProtocols.Http2));
+                options.ListenAnyIP(listenPort, o => o.Protocols = HttpProtocols.Http1AndHttp2));
         }
 
         ConfigureServices(builder.Services, builder.Configuration);
