@@ -311,7 +311,9 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         var result = await _dispatcher.SendAsync(
             new OpenNewSessionRequest(Guid.NewGuid(), _ownerWindowFactory, CurrentServerViewModel));
 
-        if (!result.Success && result.ErrorMessage != "Cancelled.")
+        if (result.Success)
+            SelectedManagementSection = "Sessions";
+        else if (result.ErrorMessage != "Cancelled.")
             StatusText = $"Start session failed: {result.ErrorMessage}";
     }
 
