@@ -35,9 +35,9 @@ on:
         type: choice
         options: [Release, Debug]
       self_contained:
-        description: Publish self-contained (bundles .NET runtime)
+        description: Publish self-contained single-file (bundles .NET runtime)
         required: false
-        default: false
+        default: true
         type: boolean
       sign:
         description: Sign with dev certificate
@@ -84,16 +84,17 @@ jobs:
         shell: pwsh
         env:
           CONFIGURATION: ${{ github.event.inputs.configuration || 'Release' }}
-          SELF_CONTAINED: ${{ github.event.inputs.self_contained || 'false' }}
+          SELF_CONTAINED: ${{ github.event.inputs.self_contained || 'true' }}
           SIGN:           ${{ github.event.inputs.sign || 'false' }}
-          VERSION:        ${{ steps.version.outputs.MajorMinorPatch }}
+          VERSION:        ${{ steps.version.outputs.SemVer }}
         run: |
           $params = @{
             Configuration = $env:CONFIGURATION
             Version       = $env:VERSION
             OutDir        = "artifacts"
           }
-          if ($env:SELF_CONTAINED -eq 'true') { $params['SelfContained'] = $true }
+          if ($env:SELF_CONTAINED -ne 'false') { $params['SelfContained'] = $true  }
+          else                                 { $params['SelfContained'] = $false }
           if ($env:SIGN            -eq 'true') { $params['DevCert']       = $true }
           .\scripts\package-msix.ps1 @params
 

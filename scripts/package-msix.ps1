@@ -40,7 +40,7 @@
   Build configuration: Release (default) or Debug.
 
 .PARAMETER Version
-  Package version (e.g. 1.2.3). Defaults to GitVersion SemVer, then most recent git tag, else 1.0.0.
+  Package version (e.g. 1.2.3). Defaults to GitVersion SemVer, then most recent git tag, then next-version from GitVersion.yml.
 
 .PARAMETER Publisher
   MSIX Identity Publisher string, must match the signing certificate Subject exactly.
@@ -55,7 +55,8 @@
   The public certificate is exported to <OutDir>\remote-agent-dev.cer.
 
 .PARAMETER SelfContained
-  Publish self-contained packages (bundles .NET runtime; no runtime prereq on target).
+  Publish self-contained, single-file packages (bundles .NET runtime; no runtime prereq on target).
+  Default: $true. Pass -SelfContained $false for a framework-dependent build.
 
 .PARAMETER ServiceOnly
   Build and bundle only the service component; omit the desktop app.
@@ -85,7 +86,7 @@ param(
 
     [switch] $DevCert,
 
-    [switch] $SelfContained,
+    [bool] $SelfContained = $true,
 
     [switch] $ServiceOnly,
 
@@ -121,7 +122,17 @@ if (-not $Version) {
     if (-not $Version) {
         # Fallback: most recent git tag.
         $tag = git -C $RepoRoot describe --tags --abbrev=0 2>$null
-        if ($tag -match '^v?(\d+\.\d+\.\d+)') { $Version = $Matches[1] } else { $Version = "1.0.0" }
+        if ($tag -match '^v?(\d+\.\d+\.\d+)') {
+            $Version = $Matches[1]
+        } else {
+            # Last resort: read next-version from GitVersion.yml in the repo root.
+            $gvYml = Join-Path $RepoRoot "GitVersion.yml"
+            if (Test-Path $gvYml) {
+                $m = (Get-Content $gvYml | Select-String '^\s*next-version:\s*(.+)').Matches
+                if ($m.Count -gt 0) { $Version = $m[0].Groups[1].Value.Trim() }
+            }
+            if (-not $Version) { $Version = "0.1.0" }
+        }
     }
 }
 
@@ -149,10 +160,11 @@ Write-Host "[package-msix] service=$BuildService  desktop=$BuildDesktop  out=$Ou
 function Find-WinSdkTool([string]$Name) {
     $sdkRoot = "C:\Program Files (x86)\Windows Kits\10\bin"
     if (Test-Path $sdkRoot) {
-        Get-ChildItem $sdkRoot -Directory | Sort-Object Name -Descending | ForEach-Object {
+        $found = Get-ChildItem $sdkRoot -Directory | Sort-Object Name -Descending | ForEach-Object {
             $p = Join-Path $_.FullName "x64\$Name"
-            if (Test-Path $p) { return $p }
-        }
+            if (Test-Path $p) { $p }
+        } | Select-Object -First 1
+        if ($found) { return $found }
     }
     $inPath = Get-Command $Name -ErrorAction SilentlyContinue
     if ($inPath) { return $inPath.Source }
@@ -178,7 +190,7 @@ if ($SignTool) { Write-Host "[package-msix] signtool : $SignTool" }
 New-Item -ItemType Directory -Path $OutDir -Force | Out-Null
 
 # ── Publish ───────────────────────────────────────────────────────────────────
-$scFlag = if ($SelfContained) { "--self-contained true" } else { "" }
+$scFlag = if ($SelfContained) { "--self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true" } else { "" }
 
 if ($BuildService) {
     $ServicePub = Join-Path $OutDir "publish-service"
@@ -321,18 +333,18 @@ $serviceExtensionXml = ""
 if ($BuildService) {
     $serviceExtensionXml = @"
 
-  <Extensions>
-    <!-- Registers RemoteAgent.Service.exe as a Windows service that starts
-         automatically under LocalSystem when the MSIX package is installed.
-         The service is stopped and unregistered automatically on uninstall. -->
-    <desktop6:Extension Category="windows.service"
-                         Executable="$serviceExe"
-                         EntryPoint="Windows.FullTrustApplication">
-      <desktop6:Service Name="RemoteAgentService"
-                         StartupType="auto"
-                         StartAccount="localSystem" />
-    </desktop6:Extension>
-  </Extensions>
+      <Extensions>
+        <!-- Registers RemoteAgent.Service.exe as a Windows service that starts
+             automatically under LocalSystem when the MSIX package is installed.
+             The service is stopped and unregistered automatically on uninstall. -->
+        <desktop6:Extension Category="windows.service"
+                             Executable="$serviceExe"
+                             EntryPoint="Windows.FullTrustApplication">
+          <desktop6:Service Name="RemoteAgentService"
+                             StartupType="auto"
+                             StartAccount="localSystem" />
+        </desktop6:Extension>
+      </Extensions>
 "@
 }
 
@@ -376,6 +388,8 @@ $manifest = @"
     <!--                 by the MSIX AppContainer restrictions.                    -->
     <rescap:Capability Name="runFullTrust" />
     <rescap:Capability Name="allowElevation" />
+    <rescap:Capability Name="packagedServices" />
+    <rescap:Capability Name="localSystemServices" />
   </Capabilities>
 
   <Applications>
@@ -391,9 +405,10 @@ $manifest = @"
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"
                           Square310x310Logo="Assets\Square310x310Logo.png" />
       </uap:VisualElements>
+$serviceExtensionXml
     </Application>
   </Applications>
-$serviceExtensionXml
+
 </Package>
 "@
 
@@ -403,8 +418,10 @@ Write-Host "[package-msix] wrote AppxManifest.xml"
 
 # ── Run makeappx ──────────────────────────────────────────────────────────────
 Write-Host "[package-msix] packing $MsixFile ..."
-& $MakeAppx pack /d "$PkgRoot" /p "$MsixFile" /o /nv
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$makeappxProc = Start-Process -FilePath $MakeAppx `
+    -ArgumentList "pack", "/d", "`"$PkgRoot`"", "/p", "`"$MsixFile`"", "/o", "/nv" `
+    -NoNewWindow -PassThru -Wait
+if ($makeappxProc.ExitCode -ne 0) { exit $makeappxProc.ExitCode }
 Write-Host "[package-msix] packed: $MsixFile"
 
 # ── Sign ──────────────────────────────────────────────────────────────────────

@@ -81,6 +81,15 @@ if (-not $NoCert)   { $packageParams["DevCert"]       = $true }
 & "$ScriptDir\package-msix.ps1" @packageParams
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+# Locate the generated .msix file and display its full path.
+$msixFile = Get-ChildItem -Path $ArtifactsDir -Filter "*.msix" -File -ErrorAction SilentlyContinue |
+    Sort-Object LastWriteTime -Descending |
+    Select-Object -First 1
+if (-not $msixFile) {
+    Write-Error "[build-msix] MSIX package not found in $ArtifactsDir after packaging."
+}
+$MsixPath = $msixFile.FullName
+
 # ── Install (optional) ────────────────────────────────────────────────────────
 if ($Install) {
     Write-Host ""
@@ -97,4 +106,4 @@ if ($Install) {
 }
 
 Write-Host ""
-Write-Host "[build-msix] done."
+Write-Host "[build-msix] done.  MSIX: $MsixPath"
