@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.OpenSessionsPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.Security}"
+        RowDefinitions="Auto,Auto,*"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="Open Server Sessions" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="Sessions currently active on the server." />
+    <ListBox x:Name="OpenServerSessionsList"
+             Grid.Row="2"
+             ItemsSource="{Binding OpenServerSessions}"
+             SelectedItem="{Binding SelectedOpenServerSession}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="6">
+            <TextBlock Text="{Binding AgentId}" />
+            <TextBlock Text=":" />
+            <TextBlock Text="{Binding SessionId}" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+</UserControl>

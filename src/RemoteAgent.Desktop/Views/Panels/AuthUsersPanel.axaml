@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.AuthUsersPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.AuthUsers}"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="Auth Users and Permissions" />
+    <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
+      <TextBlock VerticalAlignment="Center" Text="User ID" />
+      <TextBox Width="180" Text="{Binding AuthUserId}" />
+      <TextBlock VerticalAlignment="Center" Text="Display Name" />
+      <TextBox Width="220" Text="{Binding AuthDisplayName}" />
+    </StackPanel>
+    <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
+      <TextBlock VerticalAlignment="Center" Text="Role" />
+      <ComboBox Width="180"
+                ItemsSource="{Binding PermissionRoles}"
+                SelectedItem="{Binding AuthRole}" />
+      <CheckBox IsChecked="{Binding AuthEnabled}" Content="Enabled" />
+    </StackPanel>
+    <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
+      <Button x:Name="RefreshAuthUsersButton" Command="{Binding RefreshAuthUsersCommand}">Refresh</Button>
+      <Button x:Name="SaveAuthUserButton" Command="{Binding SaveAuthUserCommand}">Save User</Button>
+      <Button x:Name="DeleteAuthUserButton" Command="{Binding DeleteAuthUserCommand}">Delete Selected</Button>
+    </StackPanel>
+    <TextBlock Grid.Row="4" FontWeight="SemiBold" Text="Users" />
+    <TextBlock Grid.Row="5" Opacity="0.7" Text="Select a user to edit their role/enablement." />
+    <ListBox x:Name="AuthUsersList"
+             Grid.Row="6"
+             ItemsSource="{Binding AuthUsers}"
+             SelectedItem="{Binding SelectedAuthUser}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel>
+            <TextBlock Text="{Binding UserId}" />
+            <TextBlock Opacity="0.7" Text="{Binding DisplayName}" />
+            <TextBlock Opacity="0.7" Text="{Binding Role}" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+</UserControl>

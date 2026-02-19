@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.McpPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.McpRegistry}"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,*,Auto,*"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="MCP Registry and Agent Mapping" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding McpStatus}" TextWrapping="Wrap" />
+    <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
+      <Button x:Name="RefreshMcpButton" Command="{Binding RefreshMcpCommand}">Refresh</Button>
+      <Button x:Name="SaveMcpServerButton" Command="{Binding SaveMcpServerCommand}">Save Server</Button>
+      <Button x:Name="DeleteMcpServerButton" Command="{Binding DeleteMcpServerCommand}">Delete Selected</Button>
+    </StackPanel>
+    <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
+      <TextBlock VerticalAlignment="Center" Text="Server ID" />
+      <TextBox Width="140" Text="{Binding McpServerId}" />
+      <TextBlock VerticalAlignment="Center" Text="Name" />
+      <TextBox Width="200" Text="{Binding McpDisplayName}" />
+      <TextBlock VerticalAlignment="Center" Text="Transport" />
+      <TextBox Width="100" Text="{Binding McpTransport}" />
+      <CheckBox IsChecked="{Binding McpEnabled}" Content="Enabled" />
+    </StackPanel>
+    <StackPanel Grid.Row="4" Orientation="Horizontal" Spacing="8">
+      <TextBlock VerticalAlignment="Center" Text="Endpoint" />
+      <TextBox Width="260" Text="{Binding McpEndpoint}" />
+      <TextBlock VerticalAlignment="Center" Text="Command" />
+      <TextBox Width="180" Text="{Binding McpCommand}" />
+    </StackPanel>
+    <StackPanel Grid.Row="5" Orientation="Horizontal" Spacing="8">
+      <TextBlock VerticalAlignment="Center" Text="Args" />
+      <TextBox Width="520" Text="{Binding McpArguments}" />
+    </StackPanel>
+    <ListBox x:Name="McpServersList"
+             Grid.Row="6"
+             ItemsSource="{Binding McpServers}"
+             SelectedItem="{Binding SelectedMcpServer}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="6">
+            <TextBlock Text="{Binding ServerId}" />
+            <TextBlock Text="{Binding Transport}" />
+            <TextBlock Text="{Binding DisplayName}" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    <TextBlock Grid.Row="7" FontWeight="SemiBold" Text="Agent MCP Server IDs (one per line)" />
+    <TextBox Grid.Row="8"
+             AcceptsReturn="True"
+             TextWrapping="Wrap"
+             Height="120"
+             Text="{Binding AgentMcpServerIdsText}" />
+    <Button Grid.Row="9" x:Name="SaveAgentMcpMappingButton" Command="{Binding SaveAgentMcpMappingCommand}">
+      Save Agent Mapping
+    </Button>
+  </Grid>
+</UserControl>

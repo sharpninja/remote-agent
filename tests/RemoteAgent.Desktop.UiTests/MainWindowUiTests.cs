@@ -53,23 +53,31 @@ public sealed class MainWindowUiTests
         var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var window = new MainWindow(vm);
 
-        window.FindControl<ComboBox>("ServerSelectorComboBox").Should().NotBeNull();
-        window.FindControl<Button>("NewServerButton").Should().NotBeNull();
-        window.FindControl<Button>("SaveServerButton").Should().NotBeNull();
-        window.FindControl<Button>("RemoveServerButton").Should().NotBeNull();
-        window.FindControl<TextBox>("ServerHostTextBox").Should().NotBeNull();
-
+        // Toolbar buttons are always visible in MainWindow
         window.FindControl<Button>("NewSessionButton").Should().NotBeNull();
         window.FindControl<Button>("TerminateSessionButton").Should().NotBeNull();
         window.FindControl<Button>("RefreshOpenSessionsButton").Should().NotBeNull();
         window.FindControl<Button>("TerminateOpenServerSessionButton").Should().NotBeNull();
         window.FindControl<Button>("CheckLocalServerButton").Should().NotBeNull();
         window.FindControl<Button>("ApplyLocalServerActionButton").Should().NotBeNull();
-        window.FindControl<Button>("StartLogMonitoringButton").Should().NotBeNull();
-        window.FindControl<Button>("ApplyLogFilterButton").Should().NotBeNull();
-        window.FindControl<TextBox>("LogServerIdFilterTextBox").Should().NotBeNull();
-        window.FindControl<TabControl>("SessionTabs").Should().NotBeNull();
         window.FindControl<NavigationView>("ManagementNavigationView").Should().NotBeNull();
+
+        // ServerSetup section (default)
+        window.FindControlDeep<ComboBox>("ServerSelectorComboBox").Should().NotBeNull();
+        window.FindControlDeep<Button>("NewServerButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SaveServerButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("RemoveServerButton").Should().NotBeNull();
+        window.FindControlDeep<TextBox>("ServerHostTextBox").Should().NotBeNull();
+
+        // StructuredLogs section
+        vm.SetManagementSection("StructuredLogs");
+        window.FindControlDeep<Button>("StartLogMonitoringButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("ApplyLogFilterButton").Should().NotBeNull();
+        window.FindControlDeep<TextBox>("LogServerIdFilterTextBox").Should().NotBeNull();
+
+        // Sessions section
+        vm.SetManagementSection("Sessions");
+        window.FindControlDeep<TabControl>("SessionTabs").Should().NotBeNull();
 
         window.Close();
     }
@@ -95,17 +103,25 @@ public sealed class MainWindowUiTests
         var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var window = new MainWindow(vm);
 
-        window.FindControl<Button>("RefreshSecurityButton").Should().NotBeNull();
-        window.FindControl<Button>("BanPeerButton").Should().NotBeNull();
-        window.FindControl<Button>("UnbanPeerButton").Should().NotBeNull();
-        window.FindControl<ListBox>("ConnectedPeersList").Should().NotBeNull();
-        window.FindControl<ListBox>("BannedPeersList").Should().NotBeNull();
-        window.FindControl<ListBox>("ConnectionHistoryList").Should().NotBeNull();
-        window.FindControl<ListBox>("AbandonedSessionsList").Should().NotBeNull();
-        window.FindControl<Button>("RefreshAuthUsersButton").Should().NotBeNull();
-        window.FindControl<Button>("SaveAuthUserButton").Should().NotBeNull();
-        window.FindControl<Button>("DeleteAuthUserButton").Should().NotBeNull();
-        window.FindControl<ListBox>("AuthUsersList").Should().NotBeNull();
+        // Security section
+        vm.SetManagementSection("Security");
+        window.FindControlDeep<Button>("RefreshSecurityButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("BanPeerButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("UnbanPeerButton").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("ConnectedPeersList").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("BannedPeersList").Should().NotBeNull();
+
+        // History section
+        vm.SetManagementSection("History");
+        window.FindControlDeep<ListBox>("ConnectionHistoryList").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("AbandonedSessionsList").Should().NotBeNull();
+
+        // AuthUsers section
+        vm.SetManagementSection("AuthUsers");
+        window.FindControlDeep<Button>("RefreshAuthUsersButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SaveAuthUserButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("DeleteAuthUserButton").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("AuthUsersList").Should().NotBeNull();
 
         window.Close();
     }
@@ -117,19 +133,27 @@ public sealed class MainWindowUiTests
         var vm = new MainWindowViewModel(new InMemoryServerRegistrationStore(), new StubWorkspaceFactory(), new StubLocalServerManager(false), _nullDispatcher, _nullAppLog);
         var window = new MainWindow(vm);
 
-        window.FindControl<Button>("RefreshPluginsButton").Should().NotBeNull();
-        window.FindControl<Button>("SavePluginsButton").Should().NotBeNull();
-        window.FindControl<ListBox>("LoadedPluginRunnerIdsList").Should().NotBeNull();
-        window.FindControl<Button>("RefreshMcpButton").Should().NotBeNull();
-        window.FindControl<Button>("SaveMcpServerButton").Should().NotBeNull();
-        window.FindControl<Button>("DeleteMcpServerButton").Should().NotBeNull();
-        window.FindControl<Button>("SaveAgentMcpMappingButton").Should().NotBeNull();
-        window.FindControl<ListBox>("McpServersList").Should().NotBeNull();
-        window.FindControl<Button>("RefreshPromptTemplatesButton").Should().NotBeNull();
-        window.FindControl<Button>("SavePromptTemplateButton").Should().NotBeNull();
-        window.FindControl<Button>("DeletePromptTemplateButton").Should().NotBeNull();
-        window.FindControl<Button>("SeedContextButton").Should().NotBeNull();
-        window.FindControl<ListBox>("PromptTemplatesList").Should().NotBeNull();
+        // Plugins section
+        vm.SetManagementSection("Plugins");
+        window.FindControlDeep<Button>("RefreshPluginsButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SavePluginsButton").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("LoadedPluginRunnerIdsList").Should().NotBeNull();
+
+        // Mcp section
+        vm.SetManagementSection("Mcp");
+        window.FindControlDeep<Button>("RefreshMcpButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SaveMcpServerButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("DeleteMcpServerButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SaveAgentMcpMappingButton").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("McpServersList").Should().NotBeNull();
+
+        // Prompts section
+        vm.SetManagementSection("Prompts");
+        window.FindControlDeep<Button>("RefreshPromptTemplatesButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SavePromptTemplateButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("DeletePromptTemplateButton").Should().NotBeNull();
+        window.FindControlDeep<Button>("SeedContextButton").Should().NotBeNull();
+        window.FindControlDeep<ListBox>("PromptTemplatesList").Should().NotBeNull();
 
         window.Close();
     }
@@ -137,9 +161,9 @@ public sealed class MainWindowUiTests
     [AvaloniaFact]
     public void SessionMessageInput_ShouldExposeCtrlEnterShortcut()
     {
-        // FR-2.6, TR-5.7: desktop Ctrl+Enter submits request
-        var axamlPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "MainWindow.axaml");
-        var content = File.ReadAllText(axamlPath);
+        // FR-2.6, TR-5.7: desktop Ctrl+Enter submits request — defined in SessionsPanel
+        var panelPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "Panels", "SessionsPanel.axaml");
+        var content = File.ReadAllText(panelPath);
 
         content.Should().Contain("SessionMessageInput");
         content.Should().Contain("Gesture=\"Ctrl+Enter\"");
@@ -149,17 +173,19 @@ public sealed class MainWindowUiTests
     [AvaloniaFact]
     public void LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
     {
-        // FR: management UI provides dedicated local-server status and controls in right-side navigation.
-        var axamlPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "MainWindow.axaml");
-        var content = File.ReadAllText(axamlPath);
+        // FR: NavigationView item and toolbar controls remain in MainWindow; status area is in LocalServerPanel.
+        var mainPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "MainWindow.axaml");
+        var panelPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "src", "RemoteAgent.Desktop", "Views", "Panels", "LocalServerPanel.axaml");
+        var mainContent = File.ReadAllText(mainPath);
+        var panelContent = File.ReadAllText(panelPath);
 
-        content.Should().Contain("ManagementNavigationView");
-        content.Should().Contain("NavigationViewItem");
-        content.Should().Contain("Tag=\"LocalServer\"");
-        content.Should().Contain("LocalServerStatusTextBlock");
-        content.Should().Contain("LocalServerStatusText");
-        content.Should().Contain("CheckLocalServerCommand");
-        content.Should().Contain("ApplyLocalServerActionCommand");
+        mainContent.Should().Contain("ManagementNavigationView");
+        mainContent.Should().Contain("NavigationViewItem");
+        mainContent.Should().Contain("Tag=\"LocalServer\"");
+        mainContent.Should().Contain("CheckLocalServerCommand");
+        mainContent.Should().Contain("ApplyLocalServerActionCommand");
+        panelContent.Should().Contain("LocalServerStatusTextBlock");
+        panelContent.Should().Contain("LocalServerStatusText");
     }
 
     [AvaloniaFact]
@@ -579,7 +605,7 @@ public sealed class MainWindowUiTests
     }
 
     private static readonly IRequestDispatcher _nullDispatcher = new NullRequestDispatcher();
-    private static readonly AppLogViewModel _nullAppLog = new(new NullRequestDispatcher(), new NullFileSaveDialogService());
+    private static readonly AppLogViewModel _nullAppLog = new(new NullRequestDispatcher(), new NullFileSaveDialogService(), "/tmp/test-logs");
 
     private static IRequestDispatcher CreateDispatcher(ILocalServerManager localServerManager)
     {

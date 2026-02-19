@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.StructuredLogsPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.StructuredLogs}"
+        RowDefinitions="Auto,Auto,Auto,Auto,*"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="Structured Log Viewer" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding LogMonitorStatus}" TextWrapping="Wrap" />
+    <Grid Grid.Row="2" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+      <TextBox Grid.Row="0" Grid.Column="0" Watermark="Level" Text="{Binding LogLevelFilter}" />
+      <TextBox Grid.Row="0" Grid.Column="1" Watermark="Event Type" Text="{Binding LogEventTypeFilter}" />
+      <TextBox Grid.Row="1" Grid.Column="0" Watermark="Session ID" Text="{Binding LogSessionIdFilter}" />
+      <TextBox Grid.Row="1" Grid.Column="1" Watermark="Correlation ID" Text="{Binding LogCorrelationIdFilter}" />
+      <TextBox Grid.Row="2" Grid.Column="0" Watermark="Component" Text="{Binding LogComponentFilter}" />
+      <TextBox Grid.Row="2" Grid.Column="1" Watermark="Search" Text="{Binding LogSearchFilter}" />
+      <TextBox Grid.Row="3" Grid.Column="0" Watermark="From UTC (ISO-8601)" Text="{Binding LogFromUtcFilter}" />
+      <TextBox Grid.Row="3" Grid.Column="1" Watermark="To UTC (ISO-8601)" Text="{Binding LogToUtcFilter}" />
+      <TextBox x:Name="LogServerIdFilterTextBox" Grid.Row="4" Grid.ColumnSpan="2" Watermark="Server ID" Text="{Binding LogServerIdFilter}" />
+    </Grid>
+    <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
+      <Button x:Name="StartLogMonitoringButton" Command="{Binding StartLogMonitoringCommand}">Start Monitor</Button>
+      <Button x:Name="StopLogMonitoringButton" Command="{Binding StopLogMonitoringCommand}">Stop Monitor</Button>
+      <Button x:Name="ApplyLogFilterButton" Command="{Binding ApplyLogFilterCommand}">Apply Filter</Button>
+      <Button x:Name="ClearLogFilterButton" Command="{Binding ClearLogFilterCommand}">Clear Filter</Button>
+    </StackPanel>
+    <ListBox x:Name="StructuredLogsList"
+             Grid.Row="4"
+             ItemsSource="{Binding VisibleStructuredLogs}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Border Margin="0,0,0,6"
+                  Padding="8"
+                  CornerRadius="6"
+                  Background="{DynamicResource WindowCardBackgroundBrush}"
+                  BorderBrush="{DynamicResource WindowBorderBrush}"
+                  BorderThickness="0">
+            <StackPanel Spacing="4">
+              <TextBlock FontWeight="SemiBold"
+                         Text="{Binding TimestampUtc}" />
+              <TextBlock Text="{Binding Level}" />
+              <TextBlock Text="{Binding EventType}" />
+              <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+              <TextBlock Opacity="0.7" Text="{Binding ServerDisplayName}" />
+              <TextBlock Opacity="0.7" Text="{Binding ServerId}" />
+              <TextBlock Opacity="0.7" Text="{Binding SessionId}" />
+              <TextBlock Opacity="0.7" Text="{Binding CorrelationId}" />
+            </StackPanel>
+          </Border>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+</UserControl>

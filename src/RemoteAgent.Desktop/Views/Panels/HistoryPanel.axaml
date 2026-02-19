@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.HistoryPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.Security}"
+        RowDefinitions="Auto,Auto,*,Auto,*"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="Connection History" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="Most recent connection/message events and abandoned sessions." />
+    <ListBox x:Name="ConnectionHistoryList"
+             Grid.Row="2"
+             ItemsSource="{Binding ConnectionHistory}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="6">
+            <TextBlock Text="{Binding TimestampUtc}" />
+            <TextBlock Text="{Binding Peer}" />
+            <TextBlock Text="{Binding Action}" />
+            <TextBlock Text="{Binding Allowed}" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    <TextBlock Grid.Row="3" FontWeight="SemiBold" Text="Abandoned Sessions" />
+    <ListBox x:Name="AbandonedSessionsList"
+             Grid.Row="4"
+             ItemsSource="{Binding AbandonedServerSessions}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel>
+            <TextBlock Text="{Binding SessionId}" />
+            <TextBlock Opacity="0.7" Text="{Binding AgentId}" />
+            <TextBlock Opacity="0.7" Text="{Binding Reason}" TextWrapping="Wrap" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+</UserControl>

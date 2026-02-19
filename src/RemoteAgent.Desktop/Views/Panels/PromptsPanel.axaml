@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.PromptsPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.PromptTemplates}"
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto,Auto"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="Prompt Templates and Session Seed Context" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding PromptTemplateStatus}" TextWrapping="Wrap" />
+    <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
+      <Button x:Name="RefreshPromptTemplatesButton" Command="{Binding RefreshPromptTemplatesCommand}">Refresh</Button>
+      <Button x:Name="SavePromptTemplateButton" Command="{Binding SavePromptTemplateCommand}">Save Template</Button>
+      <Button x:Name="DeletePromptTemplateButton" Command="{Binding DeletePromptTemplateCommand}">Delete Selected</Button>
+    </StackPanel>
+    <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
+      <TextBlock VerticalAlignment="Center" Text="Template ID" />
+      <TextBox Width="180" Text="{Binding PromptTemplateId}" />
+      <TextBlock VerticalAlignment="Center" Text="Name" />
+      <TextBox Width="220" Text="{Binding PromptTemplateName}" />
+    </StackPanel>
+    <TextBlock Grid.Row="4" Text="Description" />
+    <TextBox Grid.Row="5" Text="{Binding PromptTemplateDescription}" />
+    <ListBox x:Name="PromptTemplatesList"
+             Grid.Row="6"
+             ItemsSource="{Binding PromptTemplates}"
+             SelectedItem="{Binding SelectedPromptTemplate}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel>
+            <TextBlock Text="{Binding TemplateId}" />
+            <TextBlock Opacity="0.7" Text="{Binding DisplayName}" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    <TextBlock Grid.Row="7" Text="Template Content (Handlebars)" />
+    <TextBox Grid.Row="8"
+             AcceptsReturn="True"
+             TextWrapping="Wrap"
+             Height="120"
+             Text="{Binding PromptTemplateContent}" />
+    <TextBlock Grid.Row="9" Opacity="0.7" Text="{Binding SeedStatus}" TextWrapping="Wrap" />
+    <Grid Grid.Row="10" ColumnDefinitions="140,120,*,140,Auto">
+      <TextBox Watermark="Session ID" Text="{Binding SeedSessionId}" />
+      <TextBox Grid.Column="1" Watermark="Type" Text="{Binding SeedContextType}" />
+      <TextBox Grid.Column="2" Watermark="Seed content" Text="{Binding SeedContent}" />
+      <TextBox Grid.Column="3" Watermark="Source" Text="{Binding SeedSource}" />
+      <Button Grid.Column="4" x:Name="SeedContextButton" Command="{Binding SeedContextCommand}">Seed</Button>
+    </Grid>
+  </Grid>
+</UserControl>

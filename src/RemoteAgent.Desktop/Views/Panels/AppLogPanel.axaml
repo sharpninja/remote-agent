@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fa="using:FluentAvalonia.UI.Controls"
+             x:Class="RemoteAgent.Desktop.Views.Panels.AppLogPanel">
+  <Grid RowDefinitions="Auto,Auto,*,Auto,Auto"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="App Log" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="Log output captured from this management application." />
+    <ScrollViewer Grid.Row="2">
+      <ItemsControl x:Name="AppLogList"
+                    ItemsSource="{Binding AppLog.Entries}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <TextBlock FontFamily="Consolas,Courier New,monospace"
+                       FontSize="11"
+                       TextWrapping="Wrap"
+                       Text="{Binding, StringFormat='[{0:HH:mm:ss.fff}] [{1,-11}] {2}'}" />
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+    <WrapPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4,0,0">
+      <Button x:Name="AppLogClearButton"
+              Command="{Binding AppLog.ClearCommand}"
+              Margin="0,0,4,0">Clear</Button>
+      <Button x:Name="AppLogSaveTxtButton"
+              Command="{Binding AppLog.SaveAsTxtCommand}"
+              Margin="0,0,4,0">Save as Text</Button>
+      <Button x:Name="AppLogSaveJsonButton"
+              Command="{Binding AppLog.SaveAsJsonCommand}"
+              Margin="0,0,4,0">Save as JSON</Button>
+      <Button x:Name="AppLogSaveCsvButton"
+              Command="{Binding AppLog.SaveAsCsvCommand}"
+              Margin="0,0,4,0">Save as CSV</Button>
+      <Button x:Name="AppLogOpenFolderButton"
+              Command="{Binding AppLog.OpenLogsFolderCommand}">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <fa:FontIcon Glyph="&#xE8B7;" />
+          <TextBlock Text="Open Logs Folder" />
+        </StackPanel>
+      </Button>
+    </WrapPanel>
+    <TextBlock Grid.Row="4"
+               Opacity="0.7"
+               Text="{Binding AppLog.StatusText}"
+               TextWrapping="Wrap"
+               Margin="0,4,0,0" />
+  </Grid>
+</UserControl>

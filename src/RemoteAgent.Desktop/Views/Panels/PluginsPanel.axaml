@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.PluginsPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.Plugins}"
+        RowDefinitions="Auto,Auto,Auto,Auto,*,Auto,*"
+        Margin="8">
+    <TextBlock FontWeight="SemiBold" Text="Server Plugin Management" />
+    <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding PluginStatus}" TextWrapping="Wrap" />
+    <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
+      <Button x:Name="RefreshPluginsButton" Command="{Binding RefreshPluginsCommand}">Refresh</Button>
+      <Button x:Name="SavePluginsButton" Command="{Binding SavePluginsCommand}">Save</Button>
+    </StackPanel>
+    <TextBlock Grid.Row="3" FontWeight="SemiBold" Text="Configured Plugin Assemblies (one per line)" />
+    <TextBox Grid.Row="4"
+             AcceptsReturn="True"
+             TextWrapping="Wrap"
+             Height="160"
+             Text="{Binding PluginAssembliesText}" />
+    <TextBlock Grid.Row="5" FontWeight="SemiBold" Text="Loaded Runner IDs" />
+    <ListBox x:Name="LoadedPluginRunnerIdsList"
+             Grid.Row="6"
+             ItemsSource="{Binding LoadedPluginRunnerIds}" />
+  </Grid>
+</UserControl>
