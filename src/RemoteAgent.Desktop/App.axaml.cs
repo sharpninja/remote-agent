@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RemoteAgent.App.Logic;
@@ -31,6 +32,18 @@ public partial class App : Application
             StartupDiagnostics.LogException("App.Initialize failed during AvaloniaXamlLoader.Load", ex);
             throw;
         }
+
+        if (OperatingSystem.IsWindows())
+        {
+            Resources["IconFontFamily"] = new FontFamily("Segoe MDL2 Assets");
+            Resources["AppFontFamily"] = new FontFamily("Segoe UI");
+        }
+        else
+        {
+            Resources["IconFontFamily"] = FontFamily.Default;
+            Resources["AppFontFamily"] = FontFamily.Default;
+        }
+
         StartupDiagnostics.Log("App.Initialize complete.");
     }
 

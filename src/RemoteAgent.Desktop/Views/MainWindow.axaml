@@ -11,6 +11,7 @@
         MinWidth="760"
         MinHeight="600"
         Background="{DynamicResource WindowBackgroundBrush}"
+        FontFamily="{DynamicResource AppFontFamily}"
         Title="Remote Agent Management"
         mc:Ignorable="d">
   <Window.Resources>
@@ -57,6 +58,9 @@
     </Style>
     <Style Selector="fa|NavigationViewItem StackPanel">
       <Setter Property="Margin" Value="-14,0,0,0" />
+    </Style>
+    <Style Selector="fa|FontIcon">
+      <Setter Property="FontFamily" Value="{DynamicResource IconFontFamily}" />
     </Style>
     <Style Selector="fa|NavigationViewItem fa|FontIcon">
       <Setter Property="Margin" Value="2,0,0,0" />
