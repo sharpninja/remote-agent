@@ -15,6 +15,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private const string PrefServerHost = "ServerHost";
     private const string PrefServerPort = "ServerPort";
     private const string PrefPerRequestContext = "PerRequestContext";
+    private const string PrefApiKey = "ApiKey";
     private const string DefaultPort = "5244";
 
     /// <summary>Well-known ports offered in the port picker (Windows service = 5244, Linux/Docker = 5243).</summary>
@@ -37,6 +38,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
 
     private string _host = "";
     private string _port = DefaultPort;
+    private string _apiKey = "";
     private string _status = "Enter host and port, then Connect.";
     private string _pendingMessage = "";
     private string _perRequestContext = "";
@@ -54,7 +56,8 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         IPromptVariableProvider promptVariableProvider,
         ISessionTerminationConfirmation sessionTerminationConfirmation,
         INotificationService notificationService,
-        IRequestDispatcher dispatcher)
+        IRequestDispatcher dispatcher,
+        IDeepLinkService deepLinkService)
     {
         _sessionStore = sessionStore;
         _gateway = gateway;
@@ -79,6 +82,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         ArchiveMessageCommand = new Command<ChatMessage>(async msg => await RunAsync(new ArchiveMobileMessageRequest(Guid.NewGuid(), msg, this)));
         UsePromptTemplateCommand = new Command(async () => await RunAsync(new UsePromptTemplateRequest(Guid.NewGuid(), this)));
         BeginEditTitleCommand = new Command(() => { if (CurrentSession != null) IsEditingTitle = true; });
+        ScanQrCodeCommand = new Command(async () => await RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this)));
 
         _gateway.ConnectionStateChanged += OnGatewayConnectionStateChanged;
         _gateway.MessageReceived += OnGatewayMessageReceived;
@@ -87,6 +91,8 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         LoadSessions();
         if (Sessions.Count > 0)
             CurrentSession = Sessions[0];
+
+        deepLinkService.Subscribe(uri => _ = RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this) { RawUri = uri }));
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -104,6 +110,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     public ICommand ArchiveMessageCommand { get; }
     public ICommand UsePromptTemplateCommand { get; }
     public ICommand BeginEditTitleCommand { get; }
+    public ICommand ScanQrCodeCommand { get; }
 
     public string Host
     {
@@ -115,6 +122,16 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     {
         get => _port;
         set => Set(ref _port, value);
+    }
+
+    public string ApiKey
+    {
+        get => _apiKey;
+        set
+        {
+            if (Set(ref _apiKey, value ?? ""))
+                _preferences.Set(PrefApiKey, _apiKey);
+        }
     }
 
     public string Status
@@ -209,6 +226,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         Host = _preferences.Get(PrefServerHost, "");
         Port = _preferences.Get(PrefServerPort, DefaultPort);
         PerRequestContext = _preferences.Get(PrefPerRequestContext, "");
+        _apiKey = _preferences.Get(PrefApiKey, "");
     }
 
     private void SaveServerDetails(string host, int port)

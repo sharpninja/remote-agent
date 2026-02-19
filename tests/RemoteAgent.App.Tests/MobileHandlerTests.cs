@@ -192,6 +192,12 @@ public sealed class MobileHandlerTests
             => Task.FromResult(default(TResponse)!);
     }
 
+    private sealed class NullDeepLinkService : IDeepLinkService
+    {
+        public void Subscribe(Action<string> handler) { }
+        public void Dispatch(string rawUri) { }
+    }
+
     // -------------------------------------------------------------------------
     // Workspace factory
     // -------------------------------------------------------------------------
@@ -224,7 +230,8 @@ public sealed class MobileHandlerTests
             variableProvider ?? new StubPromptVariableProvider(),
             terminationConfirmation ?? new StubTerminationConfirmation(false),
             notificationService ?? new NullNotificationService(),
-            dispatcher ?? new NullRequestDispatcher());
+            dispatcher ?? new NullRequestDispatcher(),
+            new NullDeepLinkService());
     }
 
     // -------------------------------------------------------------------------

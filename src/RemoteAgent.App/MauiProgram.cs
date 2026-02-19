@@ -8,6 +8,7 @@ using RemoteAgent.App.Logic.ViewModels;
 using RemoteAgent.App.Requests;
 using RemoteAgent.App.Services;
 using RemoteAgent.App.ViewModels;
+using ZXing.Net.Maui.Controls;
 
 namespace RemoteAgent.App;
 
@@ -18,6 +19,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseBarcodeReader()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -37,6 +39,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IAppPreferences, MauiAppPreferences>();
 		builder.Services.AddSingleton<IAttachmentPicker, MauiAttachmentPicker>();
 		builder.Services.AddSingleton<INotificationService, PlatformNotificationServiceAdapter>();
+		builder.Services.AddSingleton<IDeepLinkService, DeepLinkService>();
 
 		builder.Services.AddSingleton<IRequestDispatcher, ServiceProviderRequestDispatcher>();
 		builder.Services.AddTransient<IRequestHandler<ConnectMobileSessionRequest, CommandResult>, ConnectMobileSessionHandler>();
@@ -50,6 +53,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<IRequestHandler<LoadMcpServersRequest, CommandResult>, LoadMcpServersHandler>();
 		builder.Services.AddTransient<IRequestHandler<SaveMcpServerRequest, CommandResult>, SaveMcpServerHandler>();
 		builder.Services.AddTransient<IRequestHandler<DeleteMcpServerRequest, CommandResult>, DeleteMcpServerHandler>();
+		builder.Services.AddTransient<IRequestHandler<ScanQrCodeRequest, CommandResult>, ScanQrCodeHandler>();
 
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainPageViewModel>();
@@ -66,6 +70,8 @@ public static class MauiProgram
 			new MauiPromptVariableProvider(() => sp.GetService<MainPage>()));
 		builder.Services.AddSingleton<ISessionTerminationConfirmation>(sp =>
 			new MauiSessionTerminationConfirmation(() => sp.GetService<MainPage>()));
+		builder.Services.AddSingleton<IQrCodeScanner>(sp =>
+			new MauiQrCodeScanner(() => sp.GetService<MainPage>()));
 
 		builder.Services.AddSingleton<McpRegistryPageViewModel>(sp =>
 			new McpRegistryPageViewModel(

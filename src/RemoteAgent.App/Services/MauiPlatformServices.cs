@@ -137,3 +137,23 @@ public sealed class PlatformNotificationServiceAdapter : INotificationService
 #endif
     }
 }
+
+public sealed class MauiQrCodeScanner(Func<Page?> pageFactory) : IQrCodeScanner
+{
+    public async Task<string?> ScanAsync()
+    {
+        var page = pageFactory();
+        if (page == null) return null;
+
+        var status = await Permissions.RequestAsync<Permissions.Camera>();
+        if (status != PermissionStatus.Granted)
+        {
+            await page.DisplayAlertAsync("Camera Permission", "Camera access is required to scan QR codes.", "OK");
+            return null;
+        }
+
+        var scanPage = new QrScannerPage();
+        await page.Navigation.PushModalAsync(scanPage);
+        return await scanPage.ResultTask;
+    }
+}

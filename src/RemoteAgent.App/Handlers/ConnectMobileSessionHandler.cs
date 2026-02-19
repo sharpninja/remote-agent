@@ -115,7 +115,8 @@ public sealed class ConnectMobileSessionHandler(
         workspace.Status = $"Connecting ({selectedMode})...";
         try
         {
-            await gateway.ConnectAsync(host, port, sessionToConnect.SessionId, sessionToConnect.AgentId, ct: ct);
+            await gateway.ConnectAsync(host, port, sessionToConnect.SessionId, sessionToConnect.AgentId,
+                apiKey: workspace.ApiKey, ct: ct);
             preferences.Set(PrefServerHost, host ?? "");
             preferences.Set(PrefServerPort, port.ToString());
             workspace.Host = host ?? "";
