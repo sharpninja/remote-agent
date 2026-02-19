@@ -54,8 +54,8 @@ internal static class SharedWorkspaceFactory
     public static StructuredLogsViewModel CreateStructuredLogsViewModel(IServerCapacityClient? client = null)
         => new StructuredLogsViewModel(new NullDispatcher(), StubConnectionContext.Default, new StubLogStore());
 
-    public static AppLogViewModel CreateAppLog() =>
-        new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService());
+    public static AppLogViewModel CreateAppLog(string logsFolder = "/tmp/test-logs") =>
+        new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService(), logsFolder);
 }
 
 internal sealed class StubConnectionContext : IServerConnectionContext
@@ -236,4 +236,15 @@ internal sealed class CapturingClipboardService : IClipboardService
 {
     public string? LastText { get; private set; }
     public Task SetTextAsync(string text) { LastText = text; return Task.CompletedTask; }
+}
+
+internal sealed class NullFolderOpenerService : IFolderOpenerService
+{
+    public void OpenFolder(string path) { }
+}
+
+internal sealed class CapturingFolderOpenerService : IFolderOpenerService
+{
+    public string? LastPath { get; private set; }
+    public void OpenFolder(string path) => LastPath = path;
 }

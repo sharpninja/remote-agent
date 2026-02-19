@@ -12,18 +12,21 @@ public sealed class AppLogViewModel : INotifyPropertyChanged
 {
     private readonly IRequestDispatcher _dispatcher;
     private readonly IFileSaveDialogService _saveDialog;
+    private readonly string _logsFolder;
     private string _statusText = "";
     private string _filterText = "";
 
-    public AppLogViewModel(IRequestDispatcher dispatcher, IFileSaveDialogService saveDialog)
+    public AppLogViewModel(IRequestDispatcher dispatcher, IFileSaveDialogService saveDialog, string logsFolder)
     {
         _dispatcher = dispatcher;
         _saveDialog = saveDialog;
+        _logsFolder = logsFolder;
 
         ClearCommand = new RelayCommand(() => _ = RunAsync(ClearAsync));
         SaveAsTxtCommand  = new RelayCommand(() => _ = RunAsync(() => SaveAsync("txt",  "app-log.txt",  "txt",  "Text files")));
         SaveAsJsonCommand = new RelayCommand(() => _ = RunAsync(() => SaveAsync("json", "app-log.json", "json", "JSON files")));
         SaveAsCsvCommand  = new RelayCommand(() => _ = RunAsync(() => SaveAsync("csv",  "app-log.csv",  "csv",  "CSV files")));
+        OpenLogsFolderCommand = new RelayCommand(() => _ = RunAsync(OpenLogsFolderAsync));
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -46,6 +49,7 @@ public sealed class AppLogViewModel : INotifyPropertyChanged
     public RelayCommand SaveAsTxtCommand { get; }
     public RelayCommand SaveAsJsonCommand { get; }
     public RelayCommand SaveAsCsvCommand { get; }
+    public RelayCommand OpenLogsFolderCommand { get; }
 
     /// <summary>Appends a new entry from the ILogger pipeline and respects the active filter.</summary>
     public void Append(AppLogEntry entry)
@@ -56,6 +60,13 @@ public sealed class AppLogViewModel : INotifyPropertyChanged
     private async Task ClearAsync()
     {
         await _dispatcher.SendAsync(new ClearAppLogRequest(Guid.NewGuid(), Workspace: this));
+    }
+
+    private async Task OpenLogsFolderAsync()
+    {
+        var result = await _dispatcher.SendAsync(new OpenLogsFolderRequest(Guid.NewGuid(), _logsFolder));
+        if (!result.Success)
+            StatusText = result.ErrorMessage ?? "Could not open logs folder.";
     }
 
     private async Task SaveAsync(string format, string suggestedName, string extension, string filterDescription)
