@@ -61,6 +61,10 @@
 .PARAMETER Clean
   Run 'dotnet clean' on each project before publishing.
 
+.PARAMETER Install
+  After packaging, call install-remote-agent.ps1 to install the package and start the service.
+  Requires the script to be run as Administrator.
+
 .PARAMETER ServiceOnly
   Build and bundle only the service component; omit the desktop app.
 
@@ -96,6 +100,8 @@ param(
     [switch] $DesktopOnly,
 
     [switch] $Clean,
+
+    [switch] $Install,
 
     [switch] $Force,
 
@@ -563,3 +569,14 @@ Write-Host "    .\scripts\install-remote-agent.ps1 -Uninstall"
 Write-Host "────────────────────────────────────────────────────────────────────────"
 Write-Host ""
 Write-Host "[package-msix] calculated version : $Version  (MSIX identity: $Version4)"
+
+# ── Install (optional) ────────────────────────────────────────────────────────
+if ($Install) {
+    Write-Host ""
+    Write-Host "[package-msix] installing package..."
+    $installParams = @{ MsixPath = $MsixFile }
+    $cerFile = Join-Path $OutDir "remote-agent-dev.cer"
+    if (Test-Path $cerFile) { $installParams["CertPath"] = $cerFile }
+    & (Join-Path $PSScriptRoot "install-remote-agent.ps1") @installParams
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
