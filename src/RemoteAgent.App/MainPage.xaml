@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:RemoteAgent.App.Converters"
+             xmlns:vm="clr-namespace:RemoteAgent.App.ViewModels"
              x:Class="RemoteAgent.App.MainPage"
              x:Name="ThisPage"
              Title="Remote Agent"
@@ -60,11 +61,10 @@
                            AutomationId="mobile_connect_host"
                            Text="{Binding Host, Mode=TwoWay}"
                            PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
-                    <Entry Placeholder="Port"
-                           AutomationId="mobile_connect_port"
-                           Text="{Binding Port, Mode=TwoWay}"
-                           Keyboard="Numeric"
-                           PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
+                    <Picker AutomationId="mobile_connect_port"
+                            ItemsSource="{x:Static vm:MainPageViewModel.AvailablePorts}"
+                            SelectedItem="{Binding Port, Mode=TwoWay}"
+                            Title="Port" />
                     <HorizontalStackLayout Spacing="8">
                         <Button AutomationId="mobile_connect_button" Text="Connect" Command="{Binding ConnectCommand}" />
                         <Button AutomationId="mobile_new_session_button" Text="New Session" Command="{Binding NewSessionCommand}" />
@@ -141,8 +141,10 @@
                            PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
                     <Label Style="{StaticResource IconLabelSmall}" Text="{StaticResource IconHashtag}"
                            TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
-                    <Entry x:Name="PortEntry" Text="{Binding Port, Mode=TwoWay}" Placeholder="Port" WidthRequest="70" Keyboard="Numeric"
-                           PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
+                    <Picker x:Name="PortPicker"
+                            ItemsSource="{x:Static vm:MainPageViewModel.AvailablePorts}"
+                            SelectedItem="{Binding Port, Mode=TwoWay}"
+                            Title="Port" WidthRequest="90" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
                     <HorizontalStackLayout Spacing="4">

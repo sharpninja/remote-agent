@@ -15,7 +15,10 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private const string PrefServerHost = "ServerHost";
     private const string PrefServerPort = "ServerPort";
     private const string PrefPerRequestContext = "PerRequestContext";
-    private const string DefaultPort = "5243";
+    private const string DefaultPort = "5244";
+
+    /// <summary>Well-known ports offered in the port picker (Windows service = 5244, Linux/Docker = 5243).</summary>
+    public static readonly IReadOnlyList<string> AvailablePorts = ["5244", "5243"];
 
     private readonly ISessionStore _sessionStore;
     private readonly IAgentGatewayClient _gateway;
