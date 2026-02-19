@@ -300,6 +300,9 @@ function New-MsixPackage {
         $rel = Get-CfgValue $cfgOutput 'dir' 'artifacts'
         $OutDir = if ([System.IO.Path]::IsPathRooted($rel)) { $rel } else { Join-Path $WorkspaceRoot $rel }
     }
+    # Resolve to absolute path — .NET methods (e.g. Bitmap.Save) do not honour
+    # PowerShell's working directory and will fail with relative paths.
+    $OutDir = [System.IO.Path]::GetFullPath($OutDir)
     if (-not $IconSourceSvg) {
         $svg = Get-CfgValue $cfgIcons 'svg' ''
         if ($svg) { $IconSourceSvg = if ([System.IO.Path]::IsPathRooted($svg)) { $svg } else { Join-Path $WorkspaceRoot $svg } }
