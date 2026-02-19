@@ -120,18 +120,21 @@ if (-not $Version) {
     } catch { }
 
     if (-not $Version) {
-        # Fallback: most recent git tag.
+        # Fallback: read next-version from GitVersion.yml (authoritative for this repo).
+        $gvYml = Join-Path $RepoRoot "GitVersion.yml"
+        if (Test-Path $gvYml) {
+            $m = (Get-Content $gvYml | Select-String '^\s*next-version:\s*(.+)').Matches
+            if ($m.Count -gt 0) { $Version = $m[0].Groups[1].Value.Trim() }
+        }
+    }
+
+    if (-not $Version) {
+        # Last resort: most recent git tag (may be unreliable if tags have pre-release suffixes).
         $tag = git -C $RepoRoot describe --tags --abbrev=0 2>$null
         if ($tag -match '^v?(\d+\.\d+\.\d+)') {
             $Version = $Matches[1]
         } else {
-            # Last resort: read next-version from GitVersion.yml in the repo root.
-            $gvYml = Join-Path $RepoRoot "GitVersion.yml"
-            if (Test-Path $gvYml) {
-                $m = (Get-Content $gvYml | Select-String '^\s*next-version:\s*(.+)').Matches
-                if ($m.Count -gt 0) { $Version = $m[0].Groups[1].Value.Trim() }
-            }
-            if (-not $Version) { $Version = "0.1.0" }
+            $Version = "0.1.0"
         }
     }
 }
