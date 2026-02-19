@@ -14,6 +14,7 @@
         Background="{DynamicResource WindowBackgroundBrush}"
         FontFamily="{DynamicResource AppFontFamily}"
         Title="Remote Agent Management"
+        Icon="avares://RemoteAgent.Desktop/Assets/AppIcon/appicon.png"
         mc:Ignorable="d">
   <Window.Resources>
     <x:Double x:Key="UnifiedUiFontSize">13</x:Double>

@@ -30,5 +30,9 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\Fonts\**\*" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon.png" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon-48.png" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon-32.png" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon-16.png" />
   </ItemGroup>
 </Project>
