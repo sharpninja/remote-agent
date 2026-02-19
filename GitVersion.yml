@@ -2,4 +2,6 @@
 # See https://gitversion.net/docs/reference/configuration
 workflow: GitHubFlow/v1
 # Start at 1.0.0 when no version tag exists yet
-next-version: 0.1.0
+next-version: 0.1.3
+
+

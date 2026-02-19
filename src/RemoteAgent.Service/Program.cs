@@ -62,8 +62,13 @@ public partial class Program
 
         // Write a success event once the host is fully started and listening.
         app.Lifetime.ApplicationStarted.Register(() =>
+        {
+            var logger = app.Services.GetRequiredService<ILogger<Program>>();
+            var urls   = string.Join(", ", app.Urls.DefaultIfEmpty(platformUrl ?? "unknown"));
+            logger.LogInformation("Remote Agent Service listening on {Urls}", urls);
             WriteEventLog(isError: false, 1000,
-                "Remote Agent Service started successfully."));
+                $"Remote Agent Service started successfully. Listening on: {urls}");
+        });
 
         try
         {

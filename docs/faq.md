@@ -30,39 +30,27 @@ instance launches.
 
 #### Starting manually
 
-Use `start-stop-daemon` to start the service as the `remote-agent` user:
+Use `remote-agent-ctl`, installed with the package:
 
 ```bash
-sudo start-stop-daemon --start --background \
-  --make-pidfile --pidfile /run/remote-agent.pid \
-  --chuid remote-agent \
-  --output /var/log/remote-agent/service.log \
-  --exec /usr/lib/remote-agent/service/RemoteAgent.Service
+sudo remote-agent-ctl start
+```
+
+The script works with or without systemd — it detects the active init system
+automatically and delegates to `systemctl` when available, or falls back to
+`start-stop-daemon` directly.
+
+You can also stop, restart, and check status with the same script:
+
+```bash
+sudo remote-agent-ctl stop
+sudo remote-agent-ctl restart
+sudo remote-agent-ctl status
 ```
 
 Environment overrides in `/etc/remote-agent/environment` (e.g.
-`ASPNETCORE_URLS`) are sourced automatically by the wrapper script. When
-calling `start-stop-daemon` directly, source that file first if needed:
-
-```bash
-set -a
-. /etc/remote-agent/environment
-set +a
-```
-
-#### Stopping manually
-
-```bash
-sudo start-stop-daemon --stop --retry 5 \
-  --pidfile /run/remote-agent.pid \
-  --exec /usr/lib/remote-agent/service/RemoteAgent.Service
-```
-
-Or stop it via the `--remove` flag of the install script:
-
-```bash
-sudo ./scripts/install-deb-packages.sh --remove
-```
+`ASPNETCORE_URLS`) are sourced automatically by the script when running without
+systemd.
 
 #### Checking whether the service is running
 
