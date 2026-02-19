@@ -116,7 +116,10 @@ if (-not $Version) {
     # Prefer GitVersion (dotnet tool) for accurate semver from branch/tag history.
     try {
         $gvJson = dotnet tool run dotnet-gitversion -- /output json 2>$null | ConvertFrom-Json
-        if ($gvJson -and $gvJson.SemVer) { $Version = $gvJson.SemVer }
+        if ($gvJson -and $gvJson.SemVer) {
+            $Version = $gvJson.SemVer
+            Write-Host "[package-msix] version source: dotnet-gitversion -> $Version"
+        }
     } catch { }
 
     if (-not $Version) {
@@ -124,7 +127,10 @@ if (-not $Version) {
         $gvYml = Join-Path $RepoRoot "GitVersion.yml"
         if (Test-Path $gvYml) {
             $m = (Get-Content $gvYml | Select-String '^\s*next-version:\s*(.+)').Matches
-            if ($m.Count -gt 0) { $Version = $m[0].Groups[1].Value.Trim() }
+            if ($m.Count -gt 0) {
+                $Version = $m[0].Groups[1].Value.Trim()
+                Write-Host "[package-msix] version source: GitVersion.yml next-version -> $Version"
+            }
         }
     }
 
@@ -133,10 +139,14 @@ if (-not $Version) {
         $tag = git -C $RepoRoot describe --tags --abbrev=0 2>$null
         if ($tag -match '^v?(\d+\.\d+\.\d+)') {
             $Version = $Matches[1]
+            Write-Host "[package-msix] version source: git tag ($tag) -> $Version"
         } else {
             $Version = "0.1.0"
+            Write-Host "[package-msix] version source: hardcoded fallback -> $Version"
         }
     }
+} else {
+    Write-Host "[package-msix] version source: -Version parameter -> $Version"
 }
 
 # MSIX Identity Version must be 4-part (major.minor.patch.revision).
