@@ -374,7 +374,7 @@ public sealed class MainWindowUiTests
                 .Register(new DeletePromptTemplateHandler(client))
                 .Register(new SeedSessionContextHandler(client))
                 .Register(new CreateDesktopSessionHandler(client, sessionFactory))
-                .Register(new TerminateDesktopSessionHandler())
+                .Register(new TerminateDesktopSessionHandler(client))
                 .Register(new SendDesktopMessageHandler());
             var vm = new ServerWorkspaceViewModel(context, client, logStore, sessionFactory, dispatcher);
             return new ServerWorkspaceLease(new DummyScope(), vm);

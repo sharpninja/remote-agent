@@ -92,6 +92,7 @@ internal sealed class StubCapacityClient : IServerCapacityClient
     public bool DeletePromptTemplateResult { get; set; } = true;
     public bool SetAgentMcpServersResult { get; set; } = true;
     public bool TerminateSessionResult { get; set; } = true;
+    public string? LastTerminatedSessionId { get; private set; }
     public bool SeedSessionContextResult { get; set; } = true;
     public RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot? CapacitySnapshot { get; set; } = null;
     public AuthUserSnapshot? UpsertAuthUserResult { get; set; } = new AuthUserSnapshot("user1", "User One", "viewer", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
@@ -104,8 +105,11 @@ internal sealed class StubCapacityClient : IServerCapacityClient
         Task.FromResult(CapacitySnapshot);
     public Task<IReadOnlyList<OpenServerSessionSnapshot>> GetOpenSessionsAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult<IReadOnlyList<OpenServerSessionSnapshot>>([]);
-    public Task<bool> TerminateSessionAsync(string host, int port, string sessionId, string? apiKey, CancellationToken cancellationToken = default) =>
-        Task.FromResult(TerminateSessionResult);
+    public Task<bool> TerminateSessionAsync(string host, int port, string sessionId, string? apiKey, CancellationToken cancellationToken = default)
+    {
+        LastTerminatedSessionId = sessionId;
+        return Task.FromResult(TerminateSessionResult);
+    }
     public Task<IReadOnlyList<AbandonedServerSessionSnapshot>> GetAbandonedSessionsAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult<IReadOnlyList<AbandonedServerSessionSnapshot>>([]);
     public Task<IReadOnlyList<ConnectedPeerSnapshot>> GetConnectedPeersAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default) =>
