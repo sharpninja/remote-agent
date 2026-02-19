@@ -10,7 +10,7 @@ public sealed class MauiConnectionModeSelector(Func<Page?> pageFactory) : IConne
         var page = pageFactory();
         if (page == null) return null;
 
-        var choice = await page.DisplayActionSheet("Connection mode", "Cancel", null, "Direct", "Server");
+        var choice = await page.DisplayActionSheetAsync("Connection mode", "Cancel", null, "Direct", "Server");
         if (string.IsNullOrWhiteSpace(choice) || string.Equals(choice, "Cancel", StringComparison.OrdinalIgnoreCase))
             return null;
         return string.Equals(choice, "Direct", StringComparison.OrdinalIgnoreCase) ? "direct" : "server";
@@ -28,7 +28,7 @@ public sealed class MauiAgentSelector(Func<Page?> pageFactory) : IAgentSelector
         var page = pageFactory();
         if (page == null) return null;
 
-        var choice = await page.DisplayActionSheet("Select agent", "Cancel", null, agents.ToArray());
+        var choice = await page.DisplayActionSheetAsync("Select agent", "Cancel", null, agents.ToArray());
         return string.IsNullOrEmpty(choice) ? null : choice;
     }
 }
@@ -75,7 +75,7 @@ public sealed class MauiPromptTemplateSelector(Func<Page?> pageFactory) : IPromp
         if (page == null) return null;
 
         var labels = templates.Select(x => string.IsNullOrWhiteSpace(x.DisplayName) ? x.TemplateId : x.DisplayName).ToArray();
-        var choice = await page.DisplayActionSheet("Select prompt template", "Cancel", null, labels);
+        var choice = await page.DisplayActionSheetAsync("Select prompt template", "Cancel", null, labels);
         if (string.IsNullOrWhiteSpace(choice) || string.Equals(choice, "Cancel", StringComparison.OrdinalIgnoreCase))
             return null;
 
@@ -109,7 +109,7 @@ public sealed class MauiSessionTerminationConfirmation(Func<Page?> pageFactory) 
         var page = pageFactory();
         if (page == null) return false;
 
-        return await page.DisplayAlert(
+        return await page.DisplayAlertAsync(
             "Terminate Session",
             $"Terminate '{sessionLabel}'? This removes the session from local history.",
             "Terminate",
@@ -124,7 +124,7 @@ public sealed class MauiDeleteMcpServerConfirmation(Func<Page?> pageFactory) : I
         var page = pageFactory();
         if (page == null) return false;
 
-        return await page.DisplayAlert("Delete MCP Server", $"Delete '{serverId}'?", "Delete", "Cancel");
+        return await page.DisplayAlertAsync("Delete MCP Server", $"Delete '{serverId}'?", "Delete", "Cancel");
     }
 }
 
