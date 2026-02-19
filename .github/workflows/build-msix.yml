@@ -96,7 +96,7 @@ jobs:
           if ($env:SELF_CONTAINED -ne 'false') { $params['SelfContained'] = $true  }
           else                                 { $params['SelfContained'] = $false }
           if ($env:SIGN            -eq 'true') { $params['DevCert']       = $true }
-          .\scripts\package-msix.ps1 @params
+          .\scripts\package-msix.ps1 @params -Force
 
       - name: Upload MSIX artifact
         uses: actions/upload-artifact@v4

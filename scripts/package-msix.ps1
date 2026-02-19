@@ -92,6 +92,8 @@ param(
 
     [switch] $DesktopOnly,
 
+    [switch] $Force,
+
     [string] $OutDir = ""
 )
 
@@ -428,6 +430,22 @@ $serviceExtensionXml
 $manifestPath = Join-Path $PkgRoot "AppxManifest.xml"
 $manifest | Set-Content -Path $manifestPath -Encoding UTF8
 Write-Host "[package-msix] wrote AppxManifest.xml"
+
+# ── Version / manifest review ─────────────────────────────────────────────────
+Write-Host ""
+Write-Host "── Version applied ─────────────────────────────────────────────────────"
+Write-Host "  SemVer        : $Version"
+Write-Host "  MSIX Identity : $Version4"
+Write-Host ""
+Write-Host "── AppxManifest.xml ────────────────────────────────────────────────────"
+Get-Content $manifestPath | ForEach-Object { Write-Host "  $_" }
+Write-Host "────────────────────────────────────────────────────────────────────────"
+Write-Host ""
+
+if (-not $Force) {
+    Write-Host "Press Enter to continue packaging, or Ctrl+C to abort ..."
+    $null = Read-Host
+}
 
 # ── Run makeappx ──────────────────────────────────────────────────────────────
 Write-Host "[package-msix] packing $MsixFile ..."
