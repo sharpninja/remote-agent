@@ -2,49 +2,162 @@
 
 ![Remote Agent](docs/logo.svg) [![Build and Deploy](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/sharpninja/remote-agent/actions/workflows/build-deploy.yml)
 
-Android app (MAUI) that talks to a Linux service over gRPC. The service spawns a Cursor agent process, forwards messages from the app to the agent, and streams agent output back to the app in real time. All interaction is logged.
+Android app (MAUI) and Avalonia desktop management app that communicate with a Linux gRPC service. The service spawns and manages configurable CLI agents (e.g. Cursor, Copilot, Ollama), bidirectionally streams messages, logs all interaction, and exposes HTTP management APIs.
 
-**Documentation (requirements, design):** [sharpninja.github.io/remote-agent](https://sharpninja.github.io/remote-agent)  
+**Documentation:** [sharpninja.github.io/remote-agent](https://sharpninja.github.io/remote-agent) — requirements, API reference, testing docs, and CLI agent guide.  
 ![QR: Documentation](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent)
+
+---
 
 ## Architecture
 
-- **RemoteAgent.App** – MAUI Android app with a chat UI. Connects to the service via gRPC (bidirectional streaming), sends user messages, and shows agent output and session events.
-- **RemoteAgent.Service** – .NET gRPC server (Linux/WSL). Listens for client connections, spawns a configurable agent process (e.g. Cursor agent), forwards app messages to the agent’s stdin, and streams stdout/stderr to the app. Writes a session log file per connection.
-- **RemoteAgent.Proto** – Shared gRPC contracts (`AgentGateway.proto`): `Connect(stream ClientMessage) returns (stream ServerMessage)`.
+Three components form the system:
 
-## Run the service (Linux / WSL)
+| Component | Technology | Description |
+|-----------|-----------|-------------|
+| **RemoteAgent.App** | MAUI Android (net10.0) | Chat client: connect/send/receive, notifications, multi-session management, media attachments, prompt templates |
+| **RemoteAgent.Desktop** | Avalonia (net9.0) | Management UI: sessions, structured logs, operator panels, server registration, plugin and MCP management |
+| **RemoteAgent.Service** | ASP.NET Core (net10.0) | gRPC + HTTP service: spawns agents, streams I/O, enforces session limits, exposes management APIs |
 
-1. Configure the agent command in `src/RemoteAgent.Service/appsettings.json` or `appsettings.Development.json`:
+Shared libraries:
 
-   ```json
-   "Agent": {
-     "Command": "/path/to/your/agent-or-script",
-     "Arguments": "",
-     "LogDirectory": ""
-   }
-   ```
+| Library | Description |
+|---------|-------------|
+| **RemoteAgent.Proto** | Protobuf contracts and generated gRPC C# (net10.0) |
+| **RemoteAgent.App.Logic** | CQRS foundation, ViewModels, shared handlers (net10.0) |
+| **RemoteAgent.Plugins.Ollama** | Ollama agent runner plugin (net10.0) |
 
-   For a quick test, use `/bin/cat` (echoes each line back). Leave `Command` empty if you only want to test connection; the app will get an error if it sends START without a command.
+### CQRS pattern
 
-2. From the repo root:
+All user actions flow through a consistent pipeline:
 
-   ```bash
-   dotnet run --project src/RemoteAgent.Service
-   ```
+- `IRequest<TResponse>` — every request carries a `Guid CorrelationId` generated at the UI command boundary
+- `IRequestHandler<TRequest, TResponse>` — stateless handlers; business logic only, no cross-cutting concerns
+- `ServiceProviderRequestDispatcher` — the sole cross-cutting point: Debug-level entry/exit logging with `[{CorrelationId}]`; throws `ArgumentException` on `Guid.Empty`
 
-   The service listens on `http://0.0.0.0:5243` (gRPC over HTTP/2).
+The desktop app has 32 handlers; the mobile app has 8 handlers; shared logic contributes 3 more.
 
-## Codex session seed
+### Desktop sub-VM decomposition
 
-For quick startup context in future Codex sessions, use `docs/SESSION-SEED-PROMPT.md`.
+`ServerWorkspaceViewModel` owns six sub-ViewModels, each backed by CQRS handlers:
 
-## Run the service with Docker
+| Sub-VM | Responsibility |
+|--------|---------------|
+| `SecurityViewModel` | Peers, ban list, open sessions |
+| `AuthUsersViewModel` | Auth users, permission roles |
+| `PluginsViewModel` | Plugin assemblies and runner IDs |
+| `McpRegistryDesktopViewModel` | MCP server registry and agent mappings |
+| `PromptTemplatesViewModel` | Prompt templates and seed context |
+| `StructuredLogsViewModel` | Log monitoring and filtering |
 
-The CI pipeline publishes the service image to **GitHub Container Registry (GHCR)**. Use the image from GHCR:
+### Management App Log (FR-12.12)
+
+The desktop captures its own `ILogger` output in real time:
+
+- `AppLoggerProvider` + `InMemoryAppLogStore` — intercepts all desktop log entries (timestamp, level, category, message, exception)
+- `AppLogViewModel` — observable collection with live filtering
+- `ClearAppLogHandler` / `SaveAppLogHandler` — clear or export to `.txt`, `.json`, or `.csv` via `IFileSaveDialogService`
+
+---
+
+## Project structure
+
+```text
+src/
+  RemoteAgent.Proto/              shared protobuf contracts + generated gRPC C# (net10.0)
+  RemoteAgent.App.Logic/          CQRS foundation, interfaces, ViewModels, handlers (net10.0)
+  RemoteAgent.App/                MAUI Android client (net10.0-android)
+  RemoteAgent.Desktop/            Avalonia desktop management app (net9.0)
+  RemoteAgent.Service/            ASP.NET Core gRPC + HTTP service (net10.0)
+  RemoteAgent.Plugins.Ollama/     Ollama agent runner plugin (net10.0)
+tests/
+  RemoteAgent.App.Tests/          89 unit tests (net10.0)
+  RemoteAgent.Desktop.UiTests/    151 unit tests (net9.0)
+  RemoteAgent.Mobile.UiTests/     mobile UI tests
+  RemoteAgent.Service.Tests/      service unit tests
+  RemoteAgent.Service.IntegrationTests/  isolated integration tests
+docs/
+  functional-requirements.md      67 FRs (all Done)
+  technical-requirements.md       112 TRs (all Done)
+  requirements-completion-summary.md
+  testing-strategy.md
+  implementing-cli-agents.md      guide for writing custom CLI agent plugins
+  SESSION-SEED-PROMPT.md          quick context seed for AI coding sessions
+```
+
+---
+
+## Protocol (gRPC)
+
+Contract: `Connect(stream ClientMessage) returns (stream ServerMessage)` in `AgentGateway.proto`.
+
+**ClientMessage**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `text` | string | User message forwarded to agent stdin |
+| `control` | enum | `START` (spawn agent) or `STOP` (kill agent) |
+| `script_request` | message | Run a bash or pwsh script; server returns stdout + stderr |
+| `media_upload` | bytes | Image or video bytes attached as agent context |
+
+**ServerMessage**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `output` | string | Agent stdout line |
+| `error` | string | Agent stderr line |
+| `event` | enum | `SESSION_STARTED`, `SESSION_STOPPED`, `SESSION_ERROR` |
+| `priority` | enum | `NORMAL`, `HIGH`, or `NOTIFY` (NOTIFY triggers a device system notification) |
+| `mcp_update` | message | Notifies client of MCP server enable/disable for the active session |
+
+Session logs are written under `Agent:LogDirectory` (default: system temp) as `remote-agent-{sessionId}.log`.
+
+---
+
+## Running the service
+
+### Prerequisites
+
+- .NET 10 SDK
+- Linux or WSL (the service targets Linux; use Docker on Windows)
+
+### Configure
+
+Edit `src/RemoteAgent.Service/appsettings.json`:
+
+```json
+"Agent": {
+  "Command": "/path/to/your/agent-or-script",
+  "Arguments": "",
+  "LogDirectory": "/var/log/remote-agent"
+}
+```
+
+For a quick smoke test use `"/bin/cat"`. Set `RunnerId` to `process` (Linux default), `copilot-windows`, or a registered plugin ID.
+
+### Start
+
+```bash
+dotnet run --project src/RemoteAgent.Service
+```
+
+The service listens on `http://0.0.0.0:5243` (gRPC over HTTP/2).
+
+Override any setting with environment variables using `__` as the section separator:
+
+```bash
+Agent__Command=/usr/local/bin/cursor Agent__LogDirectory=/tmp/logs dotnet run --project src/RemoteAgent.Service
+```
+
+---
+
+## Running with Docker
+
+The CI pipeline publishes to **GitHub Container Registry**:
 
 - **Image:** `ghcr.io/sharpninja/remote-agent/service:latest`
-- **Package page:** [ghcr.io/sharpninja/remote-agent/service](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice)
+- **Package:** [github.com/.../remote-agent/service](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice)  
+  ![QR: Docker image](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent%2Fpkgs%2Fcontainer%2Fremote-agent%252Fservice)
 
 ```bash
 docker run -p 5243:5243 \
@@ -54,143 +167,156 @@ docker run -p 5243:5243 \
   ghcr.io/sharpninja/remote-agent/service:latest
 ```
 
-For other forks, replace `sharpninja/remote-agent` with your `owner/repo`. Or build locally from the repo root:
+Build locally:
 
 ```bash
 docker build -t remote-agent-service .
 docker run -p 5243:5243 -e Agent__Command=/bin/cat remote-agent-service
 ```
 
-Override `Agent:Command` and `Agent:LogDirectory` via environment variables (e.g. `Agent__Command`, `Agent__LogDirectory`).
+---
 
-## Install the app via F-Droid (recommended)
+## Android app — install via F-Droid
 
-You can install the Remote Agent APK using the **F-Droid** client and this project’s F-Droid-style repository.
+### 1. Install F-Droid
 
-### 1. Install F-Droid on your Android device
+Download from [f-droid.org](https://f-droid.org) and install on your Android device.  
+![QR: F-Droid](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Ff-droid.org)
 
-- **From the website:** On your device, open a browser and go to [https://f-droid.org](https://f-droid.org). Download and install the **F-Droid** app from the official site.  
-  ![QR: F-Droid](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Ff-droid.org)
-- **From another store:** F-Droid is also available in some third-party stores; prefer the official [F-Droid.org](https://f-droid.org) build when possible.
+### 2. Add the Remote Agent repository
 
-### 2. Add the Remote Agent repository in F-Droid
-
-1. Open **F-Droid** on your device.
-2. Tap the **menu** (☰) or **Settings**.
-3. Go to **Repositories** (or **Manage Repositories**).
-4. Tap **Add repository** (or the **+** button).
-5. Enter the repository URL (replace `<owner>` and `<repo>` with the GitHub org/user and repo name):
-   ```
-   https://<owner>.github.io/<repo>/repo
-   ```
-   Example for this repo:
-   ```
-   https://sharpninja.github.io/remote-agent/repo
-   ```
+1. F-Droid → **Settings** → **Repositories** → **Add repository**
+2. Enter URL: `https://sharpninja.github.io/remote-agent/repo`  
    ![QR: F-Droid repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Frepo)
-6. Confirm. F-Droid will fetch the repo index. You may need to **Update** the repo list (pull-to-refresh or **Update** in the Repositories screen) so the app appears.
+3. Confirm, then pull-to-refresh to fetch the index.
 
-### 3. Install Remote Agent
+### 3. Install
 
-1. In F-Droid, open the **Latest** tab or search for **Remote Agent**.
-2. If the repo was just added, pull to refresh or wait for the repository to update.
-3. Tap **Remote Agent** and then **Install**.
+Search for **Remote Agent** in F-Droid and tap **Install**.
 
-You can also install the APK directly (without F-Droid) by opening the repo in a browser and downloading `remote-agent.apk` from the index page.  
+Direct APK download: `https://sharpninja.github.io/remote-agent/remote-agent.apk`  
 ![QR: Direct APK](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fremote-agent.apk)
 
-## Run the Android app (from source)
+---
 
-1. Build and run on an emulator or device:
+## Android app — build from source
 
-   ```bash
-   dotnet build src/RemoteAgent.App -f net10.0-android
-   dotnet build src/RemoteAgent.App -f net10.0-android -t:Run
-   ```
+```bash
+dotnet build src/RemoteAgent.App -f net10.0-android
+# Run on connected device or emulator:
+dotnet build src/RemoteAgent.App -f net10.0-android -t:Run
+```
 
-2. In the app, set **Host** and **Port**:
-   - Emulator: host `10.0.2.2`, port `5243` (to reach the host machine).
-   - Physical device on same LAN: use the Linux machine’s IP and port `5243`.
+| Device | Host | Port |
+|--------|------|------|
+| Android emulator | `10.0.2.2` | `5243` |
+| Physical device (same LAN) | Linux machine IP | `5243` |
 
-3. Tap **Connect**. The app sends a START control message; the service starts the agent process and streams output. Type in the box and tap **Send** to send a line to the agent. Tap **Disconnect** to stop the session and the agent.
+Tap **Connect** → the service spawns the configured agent and streams output. Enter text and tap **Send** to interact. Tap **Disconnect** to end the session.
 
-## Protocol (gRPC)
+---
 
-- **ClientMessage**  
-  - `text`: user message (forwarded to agent stdin).  
-  - `control`: `START` (spawn agent) or `STOP` (kill agent).
+## Desktop app — build from source
 
-- **ServerMessage**  
-  - `output`: agent stdout line.  
-  - `error`: agent stderr line.  
-  - `event`: `SESSION_STARTED`, `SESSION_STOPPED`, `SESSION_ERROR`.  
-  - `priority`: optional `NORMAL`, `HIGH`, or `NOTIFY`. When the app receives `NOTIFY`, it shows a system notification; tapping it opens the chat.
+```bash
+# Build and run (requires .NET 9 SDK):
+dotnet run --project src/RemoteAgent.Desktop
 
-**App behaviour**
+# Or use the full build+test script:
+./scripts/build-desktop-dotnet9.sh Release
+```
 
-- **Priority**  
-  Messages from the server can have priority `normal`, `high`, or `notify`. `notify` messages trigger a system notification on the device; tapping the notification opens the app (and the message is visible in the chat).
-
-- **Swipe to archive**  
-  In the chat, swipe a message left or right to archive it. Archived messages are hidden from the list.
-
-Session logs are written under `Agent:LogDirectory` (default: temp) as `remote-agent-{sessionId}.log`.
-
-## CI/CD (GitHub Actions)
-
-On push to `main` (or manual run), the workflow:
-
-1. **Builds** MAUI/service stack with **.NET 10** and desktop stack with **.NET 9**, plus Android APK.
-   Integration tests are intentionally excluded from this default pipeline.
-2. **Builds** the Docker image for the service and **publishes** it to GitHub Container Registry: `ghcr.io/<owner>/<repo>/service:latest` (and `@sha256:...`).
-3. **Updates** an F-Droid-style static repo and **deploys** it to **GitHub Pages**: index page with app info and a direct APK download; optional `index.xml` for repo clients.
-
-**Setup**
-
-- **GitHub Pages**: In the repo **Settings → Pages**, set “Build and deployment” to **GitHub Actions**. The workflow uses the `github-pages` environment and `actions/deploy-pages`.
-- **Container registry**: No extra setup; the workflow uses `GITHUB_TOKEN` to push to `ghcr.io`.
-
-**Artifacts**
-
-- APK: built in the `android` job and published via the Pages site (e.g. `https://<owner>.github.io/<repo>/remote-agent.apk`) as a static F-Droid-style repo.  
-  ![QR: APK](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent%2Fremote-agent.apk)
-- Docker image: built and pushed to **GitHub Container Registry** as `ghcr.io/sharpninja/remote-agent/service:latest` ([package](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice)).  
-  ![QR: Docker image URL](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent%2Fpkgs%2Fcontainer%2Fremote-agent%252Fservice)
-- Documentation: generated with **DocFX** from `docs/` and published at `https://<owner>.github.io/<repo>/` (site root; functional and technical requirements).  
-  ![QR: Docs](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fsharpninja.github.io%2Fremote-agent)
+---
 
 ## Tests
 
-Unit and integration tests use xUnit and FluentAssertions.
+**240 tests, 0 failures.** Frameworks: xUnit + FluentAssertions + coverlet.
 
-- **RemoteAgent.App.Tests** – Unit tests for `RemoteAgent.App.Logic`: `MarkdownFormat` (ToHtml, PlainToHtml, escaping, markdown features) and `ChatMessage` (DisplayText, RenderedHtml for user/event/agent/error).
-- **RemoteAgent.Service.Tests** – Unit tests for `AgentOptions`; integration tests for the gRPC service (in-memory test server via `WebApplicationFactory`):
-  - No command configured → client receives `SessionError` event.
-  - Default strategy (process on Linux, copilot-windows on Windows) → client sends START (and optionally text, STOP); tests pass whether or not the agent executable is on PATH (they accept "did not start" when the agent is unavailable).
+| Project | Tests | SDK | What is tested |
+|---------|-------|-----|---------------|
+| `RemoteAgent.App.Tests` | 89 | net10.0 | CQRS dispatcher, mobile handlers (8), MCP registry VM, prompt templates, markdown, chat messages, API client error handling |
+| `RemoteAgent.Desktop.UiTests` | 151 | net9.0 | All 32 desktop handlers, AppLog view, StructuredLogStore, ConnectionSettings VM |
 
-Run test suites:
-
-```bash
-dotnet test tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj
-dotnet test tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj
-dotnet test tests/RemoteAgent.Desktop.UiTests/RemoteAgent.Desktop.UiTests.csproj
-```
-
-Integration tests are isolated and intentionally excluded from normal CI pipeline runs. Run them explicitly:
+All test classes have `/// <summary>` XML documentation and `[Trait("Category","Requirements")]` attributes linking tests to FRs and TRs.
 
 ```bash
+# Run unit tests:
+dotnet test tests/RemoteAgent.App.Tests/
+dotnet test tests/RemoteAgent.Desktop.UiTests/
+
+# Run integration tests (isolated, not in default CI):
 ./scripts/test-integration.sh Release
 ```
 
-**Build note:** Do not use `-q` (quiet) with `dotnet build` or `dotnet restore`—.NET 10 SDK can fail with "Question build FAILED". Use `-v m` (minimal) or default verbosity. The repo's `Directory.Build.rsp` sets minimal verbosity for command-line builds; scripts use `-nologo` only (no `-q`).
+Integration tests can also be triggered via the `integration-tests.yml` workflow using `workflow_dispatch`.
 
-**Split SDK build:** this repo intentionally uses two SDK tracks.
-- **.NET 10** for MAUI app + service + shared libraries/tests: `./scripts/build-dotnet10.sh Release`
-- **.NET 9** for Avalonia desktop app + desktop UI tests: `./scripts/build-desktop-dotnet9.sh Release`
-- **Manual integration test workflow:** run `.github/workflows/integration-tests.yml` via **workflow_dispatch** when integration coverage is needed.
+---
 
-## Repository
+## Build scripts
 
-- **Source code:** [https://github.com/sharpninja/remote-agent](https://github.com/sharpninja/remote-agent)  
-  ![QR: GitHub repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent)
-- **Documentation:** [Implementing CLI agents](docs/implementing-cli-agents.md) — guide for creating custom agents that integrate with the server
+This repo uses two SDK tracks — MAUI requires .NET 10 and the Avalonia desktop targets .NET 9:
+
+| Script | SDK | Projects |
+|--------|-----|----------|
+| `./scripts/build-dotnet10.sh Release` | .NET 10 | MAUI app, service, shared libraries, App.Tests |
+| `./scripts/build-desktop-dotnet9.sh Release` | .NET 9 | Avalonia desktop, Desktop.UiTests |
+| `./scripts/test-integration.sh Release` | .NET 10 | Service integration tests (isolated) |
+
+> **Important:** Do not pass `-q` (quiet) to `dotnet build` or `dotnet restore`. The .NET 10 SDK can silently fail with quiet mode. Use default verbosity or `-v m`.
+
+All warnings are treated as errors (`TreatWarningsAsErrors=true` in `Directory.Build.props`). Fix root causes; do not suppress warnings with `#pragma warning disable` or `NoWarn`.
+
+---
+
+## CI/CD (GitHub Actions)
+
+`build-deploy.yml` runs on push to `main` or via manual dispatch:
+
+1. Builds .NET 10 stack (MAUI + service) and .NET 9 stack (desktop)
+2. Builds Android APK
+3. Pushes service Docker image to GHCR
+4. Updates F-Droid-style APK repository and deploys to GitHub Pages
+5. Generates DocFX documentation site and publishes to GitHub Pages
+
+| Artifact | URL |
+|----------|-----|
+| APK (direct) | `https://sharpninja.github.io/remote-agent/remote-agent.apk` |
+| F-Droid index | `https://sharpninja.github.io/remote-agent/repo` |
+| Docker image | `ghcr.io/sharpninja/remote-agent/service:latest` |
+| Documentation | `https://sharpninja.github.io/remote-agent` |
+
+**Setup for forks:**
+- Pages: Settings → Pages → Build and deployment → **GitHub Actions**
+- Container registry: no extra setup — uses `GITHUB_TOKEN`
+
+---
+
+## Contributing
+
+- All development happens on the **`develop`** branch; `main` is for production releases
+- Create feature branches from `develop`: `git checkout -b feature/description develop`
+- Target PRs to `develop`
+- Sign commits (GPG or SSH required by branch protection)
+- Run both build scripts (zero failures) before opening a PR
+- See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/REPOSITORY_RULES.md](docs/REPOSITORY_RULES.md)
+
+---
+
+## AI session seed
+
+For quick startup context in AI coding sessions (GitHub Copilot, Cursor, Codex), see [`docs/SESSION-SEED-PROMPT.md`](docs/SESSION-SEED-PROMPT.md).
+
+---
+
+## Links
+
+| | |
+|-|-|
+| Source code | [github.com/sharpninja/remote-agent](https://github.com/sharpninja/remote-agent) |
+| Documentation | [sharpninja.github.io/remote-agent](https://sharpninja.github.io/remote-agent) |
+| API reference | [sharpninja.github.io/remote-agent/api/](https://sharpninja.github.io/remote-agent/api/) |
+| Testing API reference | [sharpninja.github.io/remote-agent/api-tests/](https://sharpninja.github.io/remote-agent/api-tests/) |
+| Docker image | [ghcr.io/sharpninja/remote-agent/service](https://github.com/sharpninja/remote-agent/pkgs/container/remote-agent%2Fservice) |
+| CLI agent guide | [docs/implementing-cli-agents.md](docs/implementing-cli-agents.md) |
+
+![QR: GitHub repo](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fsharpninja%2Fremote-agent)
