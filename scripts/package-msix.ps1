@@ -231,7 +231,7 @@ if ($Clean) {
             $path = Join-Path $projDir $target
             if (Test-Path $path) {
                 Write-Host "[package-msix] removing $path ..."
-                Remove-Item $path -Recurse -Force
+                [System.IO.Directory]::Delete($path, $true)
             }
         }
     }
