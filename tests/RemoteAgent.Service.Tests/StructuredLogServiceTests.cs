@@ -2,9 +2,18 @@ using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Logging;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="StructuredLogService"/>. FR-1.5; TR-3.6, TR-13.1, TR-13.2, TR-18.1, TR-18.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.5")]
+[Trait("Requirement", "TR-3.6")]
+[Trait("Requirement", "TR-13.1")]
+[Trait("Requirement", "TR-13.2")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
 public class StructuredLogServiceTests : IDisposable
 {
     private readonly string _tempDir = Path.Combine(Path.GetTempPath(), "ra-logs-tests-" + Guid.NewGuid().ToString("N"));

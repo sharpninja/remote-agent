@@ -1,9 +1,15 @@
 using FluentAssertions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Storage;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="LiteDbLocalStorage"/>. TR-3.6, TR-11.1, TR-18.1.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "TR-3.6")]
+[Trait("Requirement", "TR-11.1")]
+[Trait("Requirement", "TR-18.1")]
 public class LiteDbLocalStorageTests
 {
     [Fact]
