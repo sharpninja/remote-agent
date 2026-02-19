@@ -213,24 +213,21 @@ New-Item -ItemType Directory -Path $OutDir -Force | Out-Null
 if ($Clean) {
     $projectsToClean = @()
     if ($BuildService) {
-        $projectsToClean += Join-Path $RepoRoot "src\RemoteAgent.Service\RemoteAgent.Service.csproj"
-        $ollamaProj = Join-Path $RepoRoot "src\RemoteAgent.Plugins.Ollama\RemoteAgent.Plugins.Ollama.csproj"
-        if (Test-Path $ollamaProj) { $projectsToClean += $ollamaProj }
+        $projectsToClean += Join-Path $RepoRoot "src\RemoteAgent.Service"
+        $ollamaDir = Join-Path $RepoRoot "src\RemoteAgent.Plugins.Ollama"
+        if (Test-Path $ollamaDir) { $projectsToClean += $ollamaDir }
     }
     if ($BuildDesktop) {
-        $projectsToClean += Join-Path $RepoRoot "src\RemoteAgent.Desktop\RemoteAgent.Desktop.csproj"
+        $projectsToClean += Join-Path $RepoRoot "src\RemoteAgent.Desktop"
     }
-    foreach ($proj in $projectsToClean) {
-        Write-Host "[package-msix] cleaning $proj ..."
-        dotnet clean "$proj" -c $Configuration
-        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    }
-
-    # Restore after clean so publish can resolve packages correctly.
-    foreach ($proj in $projectsToClean) {
-        Write-Host "[package-msix] restoring $proj ..."
-        dotnet restore "$proj" --configfile "$NuGetConfig"
-        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    foreach ($projDir in $projectsToClean) {
+        foreach ($target in @("bin", "obj")) {
+            $path = Join-Path $projDir $target
+            if (Test-Path $path) {
+                Write-Host "[package-msix] removing $path ..."
+                Remove-Item $path -Recurse -Force
+            }
+        }
     }
 }
 
