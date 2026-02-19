@@ -1,0 +1,325 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+  id: ILocalServerManager
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync(System.Threading.CancellationToken)
+  - RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync(System.Threading.CancellationToken)
+  - RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ILocalServerManager
+  nameWithType: ILocalServerManager
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ILocalServerManager
+    path: ../src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public interface ILocalServerManager
+    content.vb: Public Interface ILocalServerManager
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync(System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync(System.Threading.CancellationToken)
+  id: ProbeAsync(System.Threading.CancellationToken)
+  parent: RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+  langs:
+  - csharp
+  - vb
+  name: ProbeAsync(CancellationToken)
+  nameWithType: ILocalServerManager.ProbeAsync(CancellationToken)
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ProbeAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+    startLine: 17
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: Task<LocalServerProbeResult> ProbeAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult}
+    content.vb: Function ProbeAsync(cancellationToken As CancellationToken = Nothing) As Task(Of LocalServerProbeResult)
+  overload: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync*
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync(System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync(System.Threading.CancellationToken)
+  id: StartAsync(System.Threading.CancellationToken)
+  parent: RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+  langs:
+  - csharp
+  - vb
+  name: StartAsync(CancellationToken)
+  nameWithType: ILocalServerManager.StartAsync(CancellationToken)
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: Task<LocalServerActionResult> StartAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerActionResult}
+    content.vb: Function StartAsync(cancellationToken As CancellationToken = Nothing) As Task(Of LocalServerActionResult)
+  overload: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync*
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync(System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync(System.Threading.CancellationToken)
+  id: StopAsync(System.Threading.CancellationToken)
+  parent: RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+  langs:
+  - csharp
+  - vb
+  name: StopAsync(CancellationToken)
+  nameWithType: ILocalServerManager.StopAsync(CancellationToken)
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StopAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/LocalServerManager.cs
+    startLine: 19
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: Task<LocalServerActionResult> StopAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerActionResult}
+    content.vb: Function StopAsync(cancellationToken As CancellationToken = Nothing) As Task(Of LocalServerActionResult)
+  overload: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync
+  href: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.html#RemoteAgent_Desktop_Infrastructure_ILocalServerManager_ProbeAsync_System_Threading_CancellationToken_
+  name: ProbeAsync
+  nameWithType: ILocalServerManager.ProbeAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.ProbeAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult.html
+  name: Task<LocalServerProbeResult>
+  nameWithType: Task<LocalServerProbeResult>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult>
+  nameWithType.vb: Task(Of LocalServerProbeResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult)
+  name.vb: Task(Of LocalServerProbeResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult
+    name: LocalServerProbeResult
+    href: RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult
+    name: LocalServerProbeResult
+    href: RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync
+  href: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.html#RemoteAgent_Desktop_Infrastructure_ILocalServerManager_StartAsync_System_Threading_CancellationToken_
+  name: StartAsync
+  nameWithType: ILocalServerManager.StartAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StartAsync
+- uid: System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerActionResult}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Desktop.Infrastructure.LocalServerActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Desktop.Infrastructure.LocalServerActionResult.html
+  name: Task<LocalServerActionResult>
+  nameWithType: Task<LocalServerActionResult>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Desktop.Infrastructure.LocalServerActionResult>
+  nameWithType.vb: Task(Of LocalServerActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Desktop.Infrastructure.LocalServerActionResult)
+  name.vb: Task(Of LocalServerActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerActionResult
+    name: LocalServerActionResult
+    href: RemoteAgent.Desktop.Infrastructure.LocalServerActionResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerActionResult
+    name: LocalServerActionResult
+    href: RemoteAgent.Desktop.Infrastructure.LocalServerActionResult.html
+  - name: )
+- uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync
+  href: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.html#RemoteAgent_Desktop_Infrastructure_ILocalServerManager_StopAsync_System_Threading_CancellationToken_
+  name: StopAsync
+  nameWithType: ILocalServerManager.StopAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.ILocalServerManager.StopAsync

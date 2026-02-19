@@ -1,7 +1,9 @@
 // Minimal stubs for Microsoft.Maui.Controls types referenced by MainPageViewModel.
 // This lets the MAUI ViewModel be compiled and tested in a plain net10.0 test project.
+
 namespace Microsoft.Maui.Controls;
 
+/// <summary>Minimal stub for MAUI <c>Command</c> / <see cref="System.Windows.Input.ICommand"/> used by test projects targeting net10.0.</summary>
 public class Command : System.Windows.Input.ICommand
 {
     private readonly Action _execute;

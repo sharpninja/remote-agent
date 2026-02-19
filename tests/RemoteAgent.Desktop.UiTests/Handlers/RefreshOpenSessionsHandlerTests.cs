@@ -6,8 +6,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="RefreshOpenSessionsHandler"/>. FR-13.1; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.1")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class RefreshOpenSessionsHandlerTests
 {
+    // FR-13.1, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldReturnOk()
     {
@@ -21,6 +29,7 @@ public class RefreshOpenSessionsHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-13.1, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldSetStatusText()
     {
@@ -34,6 +43,7 @@ public class RefreshOpenSessionsHandlerTests
         workspace.StatusText.Should().Contain("open server session");
     }
 
+    // FR-13.1, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldClearAndRebuildOpenSessions()
     {

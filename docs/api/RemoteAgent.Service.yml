@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service
+  commentId: N:RemoteAgent.Service
+  id: RemoteAgent.Service
+  children:
+  - RemoteAgent.Service.AgentOptions
+  - RemoteAgent.Service.PairingUser
+  - RemoteAgent.Service.PluginLoader
+  - RemoteAgent.Service.PluginsOptions
+  - RemoteAgent.Service.Program
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Service
+  nameWithType: RemoteAgent.Service
+  fullName: RemoteAgent.Service
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Service
+references:
+- uid: RemoteAgent.Service.AgentOptions
+  commentId: T:RemoteAgent.Service.AgentOptions
+  href: RemoteAgent.Service.AgentOptions.html
+  name: AgentOptions
+  nameWithType: AgentOptions
+  fullName: RemoteAgent.Service.AgentOptions
+- uid: RemoteAgent.Service.PairingUser
+  commentId: T:RemoteAgent.Service.PairingUser
+  href: RemoteAgent.Service.PairingUser.html
+  name: PairingUser
+  nameWithType: PairingUser
+  fullName: RemoteAgent.Service.PairingUser
+- uid: RemoteAgent.Service.PluginLoader
+  commentId: T:RemoteAgent.Service.PluginLoader
+  href: RemoteAgent.Service.PluginLoader.html
+  name: PluginLoader
+  nameWithType: PluginLoader
+  fullName: RemoteAgent.Service.PluginLoader
+- uid: RemoteAgent.Service.PluginsOptions
+  commentId: T:RemoteAgent.Service.PluginsOptions
+  href: RemoteAgent.Service.PluginsOptions.html
+  name: PluginsOptions
+  nameWithType: PluginsOptions
+  fullName: RemoteAgent.Service.PluginsOptions
+- uid: RemoteAgent.Service.Program
+  commentId: T:RemoteAgent.Service.Program
+  href: RemoteAgent.Service.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: RemoteAgent.Service.Program

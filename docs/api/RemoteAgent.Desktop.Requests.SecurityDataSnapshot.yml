@@ -1,0 +1,718 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  commentId: T:RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  id: SecurityDataSnapshot
+  parent: RemoteAgent.Desktop.Requests
+  children:
+  - RemoteAgent.Desktop.Requests.SecurityDataSnapshot.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot})
+  - RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned
+  - RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned
+  - RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History
+  - RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers
+  langs:
+  - csharp
+  - vb
+  name: SecurityDataSnapshot
+  nameWithType: SecurityDataSnapshot
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SecurityDataSnapshot
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: 'public sealed record SecurityDataSnapshot : IEquatable<SecurityDataSnapshot>'
+    content.vb: Public NotInheritable Class SecurityDataSnapshot Implements IEquatable(Of SecurityDataSnapshot)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Desktop.Requests.SecurityDataSnapshot}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot})
+  commentId: M:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot})
+  id: '#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot},System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot})'
+  parent: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  langs:
+  - csharp
+  - vb
+  name: SecurityDataSnapshot(IReadOnlyList<AbandonedServerSessionSnapshot>, IReadOnlyList<ConnectedPeerSnapshot>, IReadOnlyList<ConnectionHistorySnapshot>, IReadOnlyList<BannedPeerSnapshot>)
+  nameWithType: SecurityDataSnapshot.SecurityDataSnapshot(IReadOnlyList<AbandonedServerSessionSnapshot>, IReadOnlyList<ConnectedPeerSnapshot>, IReadOnlyList<ConnectionHistorySnapshot>, IReadOnlyList<BannedPeerSnapshot>)
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.SecurityDataSnapshot(System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot>, System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot>, System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot>, System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public SecurityDataSnapshot(IReadOnlyList<AbandonedServerSessionSnapshot> Abandoned, IReadOnlyList<ConnectedPeerSnapshot> Peers, IReadOnlyList<ConnectionHistorySnapshot> History, IReadOnlyList<BannedPeerSnapshot> Banned)
+    parameters:
+    - id: Abandoned
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+    - id: Peers
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+    - id: History
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+    - id: Banned
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+    content.vb: Public Sub New(Abandoned As IReadOnlyList(Of AbandonedServerSessionSnapshot), Peers As IReadOnlyList(Of ConnectedPeerSnapshot), History As IReadOnlyList(Of ConnectionHistorySnapshot), Banned As IReadOnlyList(Of BannedPeerSnapshot))
+  overload: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.#ctor*
+  nameWithType.vb: SecurityDataSnapshot.New(IReadOnlyList(Of AbandonedServerSessionSnapshot), IReadOnlyList(Of ConnectedPeerSnapshot), IReadOnlyList(Of ConnectionHistorySnapshot), IReadOnlyList(Of BannedPeerSnapshot))
+  fullName.vb: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.New(System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot), System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot), System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot), System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot))
+  name.vb: New(IReadOnlyList(Of AbandonedServerSessionSnapshot), IReadOnlyList(Of ConnectedPeerSnapshot), IReadOnlyList(Of ConnectionHistorySnapshot), IReadOnlyList(Of BannedPeerSnapshot))
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned
+  commentId: P:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned
+  id: Abandoned
+  parent: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Abandoned
+  nameWithType: SecurityDataSnapshot.Abandoned
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Abandoned
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<AbandonedServerSessionSnapshot> Abandoned { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+    content.vb: Public Property Abandoned As IReadOnlyList(Of AbandonedServerSessionSnapshot)
+  overload: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned*
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers
+  commentId: P:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers
+  id: Peers
+  parent: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Peers
+  nameWithType: SecurityDataSnapshot.Peers
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Peers
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<ConnectedPeerSnapshot> Peers { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+    content.vb: Public Property Peers As IReadOnlyList(Of ConnectedPeerSnapshot)
+  overload: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers*
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History
+  commentId: P:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History
+  id: History
+  parent: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  langs:
+  - csharp
+  - vb
+  name: History
+  nameWithType: SecurityDataSnapshot.History
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: History
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<ConnectionHistorySnapshot> History { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+    content.vb: Public Property History As IReadOnlyList(Of ConnectionHistorySnapshot)
+  overload: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History*
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned
+  commentId: P:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned
+  id: Banned
+  parent: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Banned
+  nameWithType: SecurityDataSnapshot.Banned
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Banned
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshSecurityDataRequest.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<BannedPeerSnapshot> Banned { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+    content.vb: Public Property Banned As IReadOnlyList(Of BannedPeerSnapshot)
+  overload: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned*
+references:
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Desktop.Requests.SecurityDataSnapshot}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Requests.SecurityDataSnapshot}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SecurityDataSnapshot>
+  nameWithType: IEquatable<SecurityDataSnapshot>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Requests.SecurityDataSnapshot>
+  nameWithType.vb: IEquatable(Of SecurityDataSnapshot)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Requests.SecurityDataSnapshot)
+  name.vb: IEquatable(Of SecurityDataSnapshot)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+    name: SecurityDataSnapshot
+    href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+    name: SecurityDataSnapshot
+    href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.#ctor
+  href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html#RemoteAgent_Desktop_Requests_SecurityDataSnapshot__ctor_System_Collections_Generic_IReadOnlyList_RemoteAgent_Desktop_Infrastructure_AbandonedServerSessionSnapshot__System_Collections_Generic_IReadOnlyList_RemoteAgent_Desktop_Infrastructure_ConnectedPeerSnapshot__System_Collections_Generic_IReadOnlyList_RemoteAgent_Desktop_Infrastructure_ConnectionHistorySnapshot__System_Collections_Generic_IReadOnlyList_RemoteAgent_Desktop_Infrastructure_BannedPeerSnapshot__
+  name: SecurityDataSnapshot
+  nameWithType: SecurityDataSnapshot.SecurityDataSnapshot
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.SecurityDataSnapshot
+  nameWithType.vb: SecurityDataSnapshot.New
+  fullName.vb: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.New
+  name.vb: New
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot.html
+  name: IReadOnlyList<AbandonedServerSessionSnapshot>
+  nameWithType: IReadOnlyList<AbandonedServerSessionSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot>
+  nameWithType.vb: IReadOnlyList(Of AbandonedServerSessionSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot)
+  name.vb: IReadOnlyList(Of AbandonedServerSessionSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot
+    name: AbandonedServerSessionSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot
+    name: AbandonedServerSessionSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  name: IReadOnlyList<ConnectedPeerSnapshot>
+  nameWithType: IReadOnlyList<ConnectedPeerSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot>
+  nameWithType.vb: IReadOnlyList(Of ConnectedPeerSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot)
+  name.vb: IReadOnlyList(Of ConnectedPeerSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot.html
+  name: IReadOnlyList<ConnectionHistorySnapshot>
+  nameWithType: IReadOnlyList<ConnectionHistorySnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot>
+  nameWithType.vb: IReadOnlyList(Of ConnectionHistorySnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot)
+  name.vb: IReadOnlyList(Of ConnectionHistorySnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot
+    name: ConnectionHistorySnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot
+    name: ConnectionHistorySnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  name: IReadOnlyList<BannedPeerSnapshot>
+  nameWithType: IReadOnlyList<BannedPeerSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot>
+  nameWithType.vb: IReadOnlyList(Of BannedPeerSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot)
+  name.vb: IReadOnlyList(Of BannedPeerSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned
+  href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html#RemoteAgent_Desktop_Requests_SecurityDataSnapshot_Abandoned
+  name: Abandoned
+  nameWithType: SecurityDataSnapshot.Abandoned
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Abandoned
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers
+  href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html#RemoteAgent_Desktop_Requests_SecurityDataSnapshot_Peers
+  name: Peers
+  nameWithType: SecurityDataSnapshot.Peers
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Peers
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History
+  href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html#RemoteAgent_Desktop_Requests_SecurityDataSnapshot_History
+  name: History
+  nameWithType: SecurityDataSnapshot.History
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.History
+- uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned
+  href: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.html#RemoteAgent_Desktop_Requests_SecurityDataSnapshot_Banned
+  name: Banned
+  nameWithType: SecurityDataSnapshot.Banned
+  fullName: RemoteAgent.Desktop.Requests.SecurityDataSnapshot.Banned

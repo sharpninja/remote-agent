@@ -1,0 +1,582 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData
+  commentId: T:RemoteAgent.Desktop.Requests.AuthUsersData
+  id: AuthUsersData
+  parent: RemoteAgent.Desktop.Requests
+  children:
+  - RemoteAgent.Desktop.Requests.AuthUsersData.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot},System.Collections.Generic.IReadOnlyList{System.String})
+  - RemoteAgent.Desktop.Requests.AuthUsersData.Roles
+  - RemoteAgent.Desktop.Requests.AuthUsersData.Users
+  langs:
+  - csharp
+  - vb
+  name: AuthUsersData
+  nameWithType: AuthUsersData
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthUsersData
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: 'public sealed record AuthUsersData : IEquatable<AuthUsersData>'
+    content.vb: Public NotInheritable Class AuthUsersData Implements IEquatable(Of AuthUsersData)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Desktop.Requests.AuthUsersData}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot},System.Collections.Generic.IReadOnlyList{System.String})
+  commentId: M:RemoteAgent.Desktop.Requests.AuthUsersData.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot},System.Collections.Generic.IReadOnlyList{System.String})
+  id: '#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot},System.Collections.Generic.IReadOnlyList{System.String})'
+  parent: RemoteAgent.Desktop.Requests.AuthUsersData
+  langs:
+  - csharp
+  - vb
+  name: AuthUsersData(IReadOnlyList<AuthUserSnapshot>, IReadOnlyList<string>)
+  nameWithType: AuthUsersData.AuthUsersData(IReadOnlyList<AuthUserSnapshot>, IReadOnlyList<string>)
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData.AuthUsersData(System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot>, System.Collections.Generic.IReadOnlyList<string>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public AuthUsersData(IReadOnlyList<AuthUserSnapshot> Users, IReadOnlyList<string> Roles)
+    parameters:
+    - id: Users
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+    - id: Roles
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+    content.vb: Public Sub New(Users As IReadOnlyList(Of AuthUserSnapshot), Roles As IReadOnlyList(Of String))
+  overload: RemoteAgent.Desktop.Requests.AuthUsersData.#ctor*
+  nameWithType.vb: AuthUsersData.New(IReadOnlyList(Of AuthUserSnapshot), IReadOnlyList(Of String))
+  fullName.vb: RemoteAgent.Desktop.Requests.AuthUsersData.New(System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot), System.Collections.Generic.IReadOnlyList(Of String))
+  name.vb: New(IReadOnlyList(Of AuthUserSnapshot), IReadOnlyList(Of String))
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData.Users
+  commentId: P:RemoteAgent.Desktop.Requests.AuthUsersData.Users
+  id: Users
+  parent: RemoteAgent.Desktop.Requests.AuthUsersData
+  langs:
+  - csharp
+  - vb
+  name: Users
+  nameWithType: AuthUsersData.Users
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData.Users
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Users
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<AuthUserSnapshot> Users { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+    content.vb: Public Property Users As IReadOnlyList(Of AuthUserSnapshot)
+  overload: RemoteAgent.Desktop.Requests.AuthUsersData.Users*
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData.Roles
+  commentId: P:RemoteAgent.Desktop.Requests.AuthUsersData.Roles
+  id: Roles
+  parent: RemoteAgent.Desktop.Requests.AuthUsersData
+  langs:
+  - csharp
+  - vb
+  name: Roles
+  nameWithType: AuthUsersData.Roles
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData.Roles
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Roles
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshAuthUsersRequest.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<string> Roles { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+    content.vb: Public Property Roles As IReadOnlyList(Of String)
+  overload: RemoteAgent.Desktop.Requests.AuthUsersData.Roles*
+references:
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Desktop.Requests.AuthUsersData}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Requests.AuthUsersData}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AuthUsersData>
+  nameWithType: IEquatable<AuthUsersData>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Requests.AuthUsersData>
+  nameWithType.vb: IEquatable(Of AuthUsersData)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Requests.AuthUsersData)
+  name.vb: IEquatable(Of AuthUsersData)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.AuthUsersData
+    name: AuthUsersData
+    href: RemoteAgent.Desktop.Requests.AuthUsersData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.AuthUsersData
+    name: AuthUsersData
+    href: RemoteAgent.Desktop.Requests.AuthUsersData.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Requests.AuthUsersData.#ctor
+  href: RemoteAgent.Desktop.Requests.AuthUsersData.html#RemoteAgent_Desktop_Requests_AuthUsersData__ctor_System_Collections_Generic_IReadOnlyList_RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot__System_Collections_Generic_IReadOnlyList_System_String__
+  name: AuthUsersData
+  nameWithType: AuthUsersData.AuthUsersData
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData.AuthUsersData
+  nameWithType.vb: AuthUsersData.New
+  fullName.vb: RemoteAgent.Desktop.Requests.AuthUsersData.New
+  name.vb: New
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html
+  name: IReadOnlyList<AuthUserSnapshot>
+  nameWithType: IReadOnlyList<AuthUserSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot>
+  nameWithType.vb: IReadOnlyList(Of AuthUserSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot)
+  name.vb: IReadOnlyList(Of AuthUserSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+    name: AuthUserSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+    name: AuthUserSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: System.Collections.Generic.IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData.Users*
+  commentId: Overload:RemoteAgent.Desktop.Requests.AuthUsersData.Users
+  href: RemoteAgent.Desktop.Requests.AuthUsersData.html#RemoteAgent_Desktop_Requests_AuthUsersData_Users
+  name: Users
+  nameWithType: AuthUsersData.Users
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData.Users
+- uid: RemoteAgent.Desktop.Requests.AuthUsersData.Roles*
+  commentId: Overload:RemoteAgent.Desktop.Requests.AuthUsersData.Roles
+  href: RemoteAgent.Desktop.Requests.AuthUsersData.html#RemoteAgent_Desktop_Requests_AuthUsersData_Roles
+  name: Roles
+  nameWithType: AuthUsersData.Roles
+  fullName: RemoteAgent.Desktop.Requests.AuthUsersData.Roles

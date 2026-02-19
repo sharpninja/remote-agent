@@ -1,0 +1,1052 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService
+  commentId: T:RemoteAgent.Service.Services.ConnectionProtectionService
+  id: ConnectionProtectionService
+  parent: RemoteAgent.Service.Services
+  children:
+  - RemoteAgent.Service.Services.ConnectionProtectionService.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},RemoteAgent.Service.Logging.StructuredLogService)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer(System.String,System.String,System.String)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection(System.String)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers
+  - RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers
+  - RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory(System.Int32)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned(System.String)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer(System.String)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection(System.String,System.String)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage(System.String,System.String)
+  - RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: ConnectionProtectionService
+  nameWithType: ConnectionProtectionService
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionProtectionService
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  summary: Per-peer connection/message rate-limiting, DoS detection, peer bans, and connection-history telemetry.
+  example: []
+  syntax:
+    content: public sealed class ConnectionProtectionService
+    content.vb: Public NotInheritable Class ConnectionProtectionService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},RemoteAgent.Service.Logging.StructuredLogService)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},RemoteAgent.Service.Logging.StructuredLogService)
+  id: '#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},RemoteAgent.Service.Logging.StructuredLogService)'
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: ConnectionProtectionService(IOptions<AgentOptions>, StructuredLogService)
+  nameWithType: ConnectionProtectionService.ConnectionProtectionService(IOptions<AgentOptions>, StructuredLogService)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.ConnectionProtectionService(Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>, RemoteAgent.Service.Logging.StructuredLogService)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  summary: Per-peer connection/message rate-limiting, DoS detection, peer bans, and connection-history telemetry.
+  example: []
+  syntax:
+    content: public ConnectionProtectionService(IOptions<AgentOptions> options, StructuredLogService structuredLogs)
+    parameters:
+    - id: options
+      type: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+    - id: structuredLogs
+      type: RemoteAgent.Service.Logging.StructuredLogService
+    content.vb: Public Sub New(options As IOptions(Of AgentOptions), structuredLogs As StructuredLogService)
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.#ctor*
+  nameWithType.vb: ConnectionProtectionService.New(IOptions(Of AgentOptions), StructuredLogService)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.New(Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions), RemoteAgent.Service.Logging.StructuredLogService)
+  name.vb: New(IOptions(Of AgentOptions), StructuredLogService)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection(System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection(System.String,System.String)
+  id: TryOpenConnection(System.String,System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: TryOpenConnection(string?, string)
+  nameWithType: ConnectionProtectionService.TryOpenConnection(string?, string)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection(string?, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryOpenConnection
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public ConnectionDecision TryOpenConnection(string? peer, string component)
+    parameters:
+    - id: peer
+      type: System.String
+    - id: component
+      type: System.String
+    return:
+      type: RemoteAgent.Service.Services.ConnectionDecision
+    content.vb: Public Function TryOpenConnection(peer As String, component As String) As ConnectionDecision
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection*
+  nameWithType.vb: ConnectionProtectionService.TryOpenConnection(String, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection(String, String)
+  name.vb: TryOpenConnection(String, String)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection(System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection(System.String)
+  id: CloseConnection(System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: CloseConnection(string?)
+  nameWithType: ConnectionProtectionService.CloseConnection(string?)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CloseConnection
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 72
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public void CloseConnection(string? normalizedPeer)
+    parameters:
+    - id: normalizedPeer
+      type: System.String
+    content.vb: Public Sub CloseConnection(normalizedPeer As String)
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection*
+  nameWithType.vb: ConnectionProtectionService.CloseConnection(String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection(String)
+  name.vb: CloseConnection(String)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage(System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage(System.String,System.String)
+  id: TryRegisterClientMessage(System.String,System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: TryRegisterClientMessage(string?, string)
+  nameWithType: ConnectionProtectionService.TryRegisterClientMessage(string?, string)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage(string?, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryRegisterClientMessage
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 90
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool TryRegisterClientMessage(string? normalizedPeer, string component)
+    parameters:
+    - id: normalizedPeer
+      type: System.String
+    - id: component
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryRegisterClientMessage(normalizedPeer As String, component As String) As Boolean
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage*
+  nameWithType.vb: ConnectionProtectionService.TryRegisterClientMessage(String, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage(String, String)
+  name.vb: TryRegisterClientMessage(String, String)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers
+  id: GetConnectedPeers
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: GetConnectedPeers()
+  nameWithType: ConnectionProtectionService.GetConnectedPeers()
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetConnectedPeers
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 137
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public IReadOnlyList<ConnectedPeerSnapshot> GetConnectedPeers()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ConnectedPeerSnapshot}
+    content.vb: Public Function GetConnectedPeers() As IReadOnlyList(Of ConnectedPeerSnapshot)
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers*
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory(System.Int32)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory(System.Int32)
+  id: GetConnectionHistory(System.Int32)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: GetConnectionHistory(int)
+  nameWithType: ConnectionProtectionService.GetConnectionHistory(int)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory(int)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetConnectionHistory
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 160
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public IReadOnlyList<ConnectionHistoryEntry> GetConnectionHistory(int limit = 500)
+    parameters:
+    - id: limit
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ConnectionHistoryEntry}
+    content.vb: Public Function GetConnectionHistory(limit As Integer = 500) As IReadOnlyList(Of ConnectionHistoryEntry)
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory*
+  nameWithType.vb: ConnectionProtectionService.GetConnectionHistory(Integer)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory(Integer)
+  name.vb: GetConnectionHistory(Integer)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer(System.String,System.String,System.String)
+  id: BanPeer(System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: BanPeer(string, string?, string)
+  nameWithType: ConnectionProtectionService.BanPeer(string, string?, string)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer(string, string?, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BanPeer
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 172
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool BanPeer(string peer, string? reason, string component)
+    parameters:
+    - id: peer
+      type: System.String
+    - id: reason
+      type: System.String
+    - id: component
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function BanPeer(peer As String, reason As String, component As String) As Boolean
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer*
+  nameWithType.vb: ConnectionProtectionService.BanPeer(String, String, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer(String, String, String)
+  name.vb: BanPeer(String, String, String)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer(System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer(System.String,System.String)
+  id: UnbanPeer(System.String,System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: UnbanPeer(string, string)
+  nameWithType: ConnectionProtectionService.UnbanPeer(string, string)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UnbanPeer
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 191
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool UnbanPeer(string peer, string component)
+    parameters:
+    - id: peer
+      type: System.String
+    - id: component
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function UnbanPeer(peer As String, component As String) As Boolean
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer*
+  nameWithType.vb: ConnectionProtectionService.UnbanPeer(String, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer(String, String)
+  name.vb: UnbanPeer(String, String)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers
+  id: GetBannedPeers
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: GetBannedPeers()
+  nameWithType: ConnectionProtectionService.GetBannedPeers()
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetBannedPeers
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 212
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public IReadOnlyList<BannedPeerEntry> GetBannedPeers()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.BannedPeerEntry}
+    content.vb: Public Function GetBannedPeers() As IReadOnlyList(Of BannedPeerEntry)
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers*
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned(System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned(System.String)
+  id: IsPeerBanned(System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: IsPeerBanned(string)
+  nameWithType: ConnectionProtectionService.IsPeerBanned(string)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsPeerBanned
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 222
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool IsPeerBanned(string peer)
+    parameters:
+    - id: peer
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPeerBanned(peer As String) As Boolean
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned*
+  nameWithType.vb: ConnectionProtectionService.IsPeerBanned(String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned(String)
+  name.vb: IsPeerBanned(String)
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer(System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer(System.String)
+  id: NormalizePeer(System.String)
+  parent: RemoteAgent.Service.Services.ConnectionProtectionService
+  langs:
+  - csharp
+  - vb
+  name: NormalizePeer(string?)
+  nameWithType: ConnectionProtectionService.NormalizePeer(string?)
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NormalizePeer
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 269
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public static string NormalizePeer(string? peer)
+    parameters:
+    - id: peer
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function NormalizePeer(peer As String) As String
+  overload: RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer*
+  nameWithType.vb: ConnectionProtectionService.NormalizePeer(String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer(String)
+  name.vb: NormalizePeer(String)
+references:
+- uid: RemoteAgent.Service.Services
+  commentId: N:RemoteAgent.Service.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Services
+  nameWithType: RemoteAgent.Service.Services
+  fullName: RemoteAgent.Service.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.#ctor*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.#ctor
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService__ctor_Microsoft_Extensions_Options_IOptions_RemoteAgent_Service_AgentOptions__RemoteAgent_Service_Logging_StructuredLogService_
+  name: ConnectionProtectionService
+  nameWithType: ConnectionProtectionService.ConnectionProtectionService
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.ConnectionProtectionService
+  nameWithType.vb: ConnectionProtectionService.New
+  fullName.vb: RemoteAgent.Service.Services.ConnectionProtectionService.New
+  name.vb: New
+- uid: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: RemoteAgent.Service.AgentOptions.html
+  name: IOptions<AgentOptions>
+  nameWithType: IOptions<AgentOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>
+  nameWithType.vb: IOptions(Of AgentOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions)
+  name.vb: IOptions(Of AgentOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: )
+- uid: RemoteAgent.Service.Logging.StructuredLogService
+  commentId: T:RemoteAgent.Service.Logging.StructuredLogService
+  parent: RemoteAgent.Service.Logging
+  href: RemoteAgent.Service.Logging.StructuredLogService.html
+  name: StructuredLogService
+  nameWithType: StructuredLogService
+  fullName: RemoteAgent.Service.Logging.StructuredLogService
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+- uid: RemoteAgent.Service.Logging
+  commentId: N:RemoteAgent.Service.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Logging
+  nameWithType: RemoteAgent.Service.Logging
+  fullName: RemoteAgent.Service.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Logging
+    name: Logging
+    href: RemoteAgent.Service.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Logging
+    name: Logging
+    href: RemoteAgent.Service.Logging.html
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_TryOpenConnection_System_String_System_String_
+  name: TryOpenConnection
+  nameWithType: ConnectionProtectionService.TryOpenConnection
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.TryOpenConnection
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Services.ConnectionDecision
+  commentId: T:RemoteAgent.Service.Services.ConnectionDecision
+  parent: RemoteAgent.Service.Services
+  href: RemoteAgent.Service.Services.ConnectionDecision.html
+  name: ConnectionDecision
+  nameWithType: ConnectionDecision
+  fullName: RemoteAgent.Service.Services.ConnectionDecision
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_CloseConnection_System_String_
+  name: CloseConnection
+  nameWithType: ConnectionProtectionService.CloseConnection
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.CloseConnection
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_TryRegisterClientMessage_System_String_System_String_
+  name: TryRegisterClientMessage
+  nameWithType: ConnectionProtectionService.TryRegisterClientMessage
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.TryRegisterClientMessage
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_GetConnectedPeers
+  name: GetConnectedPeers
+  nameWithType: ConnectionProtectionService.GetConnectedPeers
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectedPeers
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ConnectedPeerSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ConnectedPeerSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Service.Services.ConnectedPeerSnapshot.html
+  name: IReadOnlyList<ConnectedPeerSnapshot>
+  nameWithType: IReadOnlyList<ConnectedPeerSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Service.Services.ConnectedPeerSnapshot>
+  nameWithType.vb: IReadOnlyList(Of ConnectedPeerSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Service.Services.ConnectedPeerSnapshot)
+  name.vb: IReadOnlyList(Of ConnectedPeerSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Services.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    href: RemoteAgent.Service.Services.ConnectedPeerSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    href: RemoteAgent.Service.Services.ConnectedPeerSnapshot.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_GetConnectionHistory_System_Int32_
+  name: GetConnectionHistory
+  nameWithType: ConnectionProtectionService.GetConnectionHistory
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.GetConnectionHistory
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ConnectionHistoryEntry}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ConnectionHistoryEntry}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html
+  name: IReadOnlyList<ConnectionHistoryEntry>
+  nameWithType: IReadOnlyList<ConnectionHistoryEntry>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Service.Services.ConnectionHistoryEntry>
+  nameWithType.vb: IReadOnlyList(Of ConnectionHistoryEntry)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Service.Services.ConnectionHistoryEntry)
+  name.vb: IReadOnlyList(Of ConnectionHistoryEntry)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Services.ConnectionHistoryEntry
+    name: ConnectionHistoryEntry
+    href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.ConnectionHistoryEntry
+    name: ConnectionHistoryEntry
+    href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html
+  - name: )
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_BanPeer_System_String_System_String_System_String_
+  name: BanPeer
+  nameWithType: ConnectionProtectionService.BanPeer
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.BanPeer
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_UnbanPeer_System_String_System_String_
+  name: UnbanPeer
+  nameWithType: ConnectionProtectionService.UnbanPeer
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.UnbanPeer
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_GetBannedPeers
+  name: GetBannedPeers
+  nameWithType: ConnectionProtectionService.GetBannedPeers
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.GetBannedPeers
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.BannedPeerEntry}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.BannedPeerEntry}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Service.Services.BannedPeerEntry.html
+  name: IReadOnlyList<BannedPeerEntry>
+  nameWithType: IReadOnlyList<BannedPeerEntry>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Service.Services.BannedPeerEntry>
+  nameWithType.vb: IReadOnlyList(Of BannedPeerEntry)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Service.Services.BannedPeerEntry)
+  name.vb: IReadOnlyList(Of BannedPeerEntry)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Services.BannedPeerEntry
+    name: BannedPeerEntry
+    href: RemoteAgent.Service.Services.BannedPeerEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.BannedPeerEntry
+    name: BannedPeerEntry
+    href: RemoteAgent.Service.Services.BannedPeerEntry.html
+  - name: )
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_IsPeerBanned_System_String_
+  name: IsPeerBanned
+  nameWithType: ConnectionProtectionService.IsPeerBanned
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.IsPeerBanned
+- uid: RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer
+  href: RemoteAgent.Service.Services.ConnectionProtectionService.html#RemoteAgent_Service_Services_ConnectionProtectionService_NormalizePeer_System_String_
+  name: NormalizePeer
+  nameWithType: ConnectionProtectionService.NormalizePeer
+  fullName: RemoteAgent.Service.Services.ConnectionProtectionService.NormalizePeer

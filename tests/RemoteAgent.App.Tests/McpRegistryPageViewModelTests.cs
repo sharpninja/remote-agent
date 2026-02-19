@@ -8,6 +8,13 @@ using RemoteAgent.Proto;
 using LogicRequests = RemoteAgent.App.Logic.Requests;
 namespace RemoteAgent.App.Tests;
 
+/// <summary>Tests for <see cref="RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel"/> CQRS dispatch. FR-12.5; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.5")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public sealed class McpRegistryPageViewModelTests
 {
     private sealed class InMemoryPreferences : IAppPreferences

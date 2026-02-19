@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Logging
+  commentId: N:RemoteAgent.Service.Logging
+  id: RemoteAgent.Service.Logging
+  children:
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  - RemoteAgent.Service.Logging.StructuredLogService
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Service.Logging
+  nameWithType: RemoteAgent.Service.Logging
+  fullName: RemoteAgent.Service.Logging
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Service
+references:
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  commentId: T:RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html
+  name: StructuredLogEntryRecord
+  nameWithType: StructuredLogEntryRecord
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+- uid: RemoteAgent.Service.Logging.StructuredLogService
+  commentId: T:RemoteAgent.Service.Logging.StructuredLogService
+  parent: RemoteAgent.Service.Logging
+  href: RemoteAgent.Service.Logging.StructuredLogService.html
+  name: StructuredLogService
+  nameWithType: StructuredLogService
+  fullName: RemoteAgent.Service.Logging.StructuredLogService
+- uid: RemoteAgent.Service.Logging
+  commentId: N:RemoteAgent.Service.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Logging
+  nameWithType: RemoteAgent.Service.Logging
+  fullName: RemoteAgent.Service.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Logging
+    name: Logging
+    href: RemoteAgent.Service.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Logging
+    name: Logging
+    href: RemoteAgent.Service.Logging.html

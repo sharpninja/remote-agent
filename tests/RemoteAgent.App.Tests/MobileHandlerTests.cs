@@ -10,6 +10,18 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.App.Tests;
 
+/// <summary>Unit tests for all 8 mobile CQRS handlers: Connect, Disconnect, CreateSession, TerminateSession, SendMessage, SendAttachment, ArchiveMessage, UsePromptTemplate. FR-2.1, FR-2.2, FR-4.1, FR-11.1, FR-12.5, FR-12.6; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-2.1")]
+[Trait("Requirement", "FR-2.2")]
+[Trait("Requirement", "FR-4.1")]
+[Trait("Requirement", "FR-11.1")]
+[Trait("Requirement", "FR-12.5")]
+[Trait("Requirement", "FR-12.6")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public sealed class MobileHandlerTests
 {
     // -------------------------------------------------------------------------

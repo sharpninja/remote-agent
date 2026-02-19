@@ -1,0 +1,1705 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  id: ServerWorkspaceViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.#ctor(RemoteAgent.Desktop.Infrastructure.CurrentServerContext,RemoteAgent.Desktop.Infrastructure.IServerCapacityClient,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore,RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PropertyChanged
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand
+  langs:
+  - csharp
+  - vb
+  name: ServerWorkspaceViewModel
+  nameWithType: ServerWorkspaceViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerWorkspaceViewModel
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: 'public sealed class ServerWorkspaceViewModel : IServerConnectionContext'
+    content.vb: Public NotInheritable Class ServerWorkspaceViewModel Implements IServerConnectionContext
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.#ctor(RemoteAgent.Desktop.Infrastructure.CurrentServerContext,RemoteAgent.Desktop.Infrastructure.IServerCapacityClient,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore,RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  commentId: M:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.#ctor(RemoteAgent.Desktop.Infrastructure.CurrentServerContext,RemoteAgent.Desktop.Infrastructure.IServerCapacityClient,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore,RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  id: '#ctor(RemoteAgent.Desktop.Infrastructure.CurrentServerContext,RemoteAgent.Desktop.Infrastructure.IServerCapacityClient,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore,RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)'
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: ServerWorkspaceViewModel(CurrentServerContext, IServerCapacityClient, IDesktopStructuredLogStore, IDesktopSessionViewModelFactory, IRequestDispatcher)
+  nameWithType: ServerWorkspaceViewModel.ServerWorkspaceViewModel(CurrentServerContext, IServerCapacityClient, IDesktopStructuredLogStore, IDesktopSessionViewModelFactory, IRequestDispatcher)
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ServerWorkspaceViewModel(RemoteAgent.Desktop.Infrastructure.CurrentServerContext, RemoteAgent.Desktop.Infrastructure.IServerCapacityClient, RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore, RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory, RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 31
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ServerWorkspaceViewModel(CurrentServerContext serverContext, IServerCapacityClient serverCapacityClient, IDesktopStructuredLogStore structuredLogStore, IDesktopSessionViewModelFactory sessionViewModelFactory, IRequestDispatcher dispatcher)
+    parameters:
+    - id: serverContext
+      type: RemoteAgent.Desktop.Infrastructure.CurrentServerContext
+    - id: serverCapacityClient
+      type: RemoteAgent.Desktop.Infrastructure.IServerCapacityClient
+    - id: structuredLogStore
+      type: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+    - id: sessionViewModelFactory
+      type: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+    - id: dispatcher
+      type: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+    content.vb: Public Sub New(serverContext As CurrentServerContext, serverCapacityClient As IServerCapacityClient, structuredLogStore As IDesktopStructuredLogStore, sessionViewModelFactory As IDesktopSessionViewModelFactory, dispatcher As IRequestDispatcher)
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.#ctor*
+  nameWithType.vb: ServerWorkspaceViewModel.New(CurrentServerContext, IServerCapacityClient, IDesktopStructuredLogStore, IDesktopSessionViewModelFactory, IRequestDispatcher)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.New(RemoteAgent.Desktop.Infrastructure.CurrentServerContext, RemoteAgent.Desktop.Infrastructure.IServerCapacityClient, RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore, RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory, RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  name.vb: New(CurrentServerContext, IServerCapacityClient, IDesktopStructuredLogStore, IDesktopSessionViewModelFactory, IRequestDispatcher)
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PropertyChanged
+  commentId: E:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: ServerWorkspaceViewModel.PropertyChanged
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 78
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel
+  id: CurrentServerLabel
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: CurrentServerLabel
+  nameWithType: ServerWorkspaceViewModel.CurrentServerLabel
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentServerLabel
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 90
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string CurrentServerLabel { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CurrentServerLabel As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId
+  id: CurrentServerId
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: CurrentServerId
+  nameWithType: ServerWorkspaceViewModel.CurrentServerId
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentServerId
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 95
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string CurrentServerId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CurrentServerId As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions
+  id: Sessions
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: Sessions
+  nameWithType: ServerWorkspaceViewModel.Sessions
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Sessions
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 97
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<DesktopSessionViewModel> Sessions { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel}
+    content.vb: Public ReadOnly Property Sessions As ObservableCollection(Of DesktopSessionViewModel)
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes
+  id: ConnectionModes
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectionModes
+  nameWithType: ServerWorkspaceViewModel.ConnectionModes
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionModes
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 98
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public IReadOnlyList<string> ConnectionModes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+    content.vb: Public ReadOnly Property ConnectionModes As IReadOnlyList(Of String)
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security
+  id: Security
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: Security
+  nameWithType: ServerWorkspaceViewModel.Security
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Security
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 101
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public SecurityViewModel Security { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+    content.vb: Public ReadOnly Property Security As SecurityViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers
+  id: AuthUsers
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: AuthUsers
+  nameWithType: ServerWorkspaceViewModel.AuthUsers
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthUsers
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 102
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public AuthUsersViewModel AuthUsers { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+    content.vb: Public ReadOnly Property AuthUsers As AuthUsersViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins
+  id: Plugins
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: Plugins
+  nameWithType: ServerWorkspaceViewModel.Plugins
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Plugins
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 103
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public PluginsViewModel Plugins { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.PluginsViewModel
+    content.vb: Public ReadOnly Property Plugins As PluginsViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry
+  id: McpRegistry
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: McpRegistry
+  nameWithType: ServerWorkspaceViewModel.McpRegistry
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: McpRegistry
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 104
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public McpRegistryDesktopViewModel McpRegistry { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+    content.vb: Public ReadOnly Property McpRegistry As McpRegistryDesktopViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates
+  id: PromptTemplates
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplates
+  nameWithType: ServerWorkspaceViewModel.PromptTemplates
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplates
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 105
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public PromptTemplatesViewModel PromptTemplates { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+    content.vb: Public ReadOnly Property PromptTemplates As PromptTemplatesViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs
+  id: StructuredLogs
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogs
+  nameWithType: ServerWorkspaceViewModel.StructuredLogs
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StructuredLogs
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 106
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public StructuredLogsViewModel StructuredLogs { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+    content.vb: Public ReadOnly Property StructuredLogs As StructuredLogsViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host
+  id: Host
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: ServerWorkspaceViewModel.Host
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Host
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 108
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string Host { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port
+  id: Port
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: ServerWorkspaceViewModel.Port
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Port
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 119
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string Port { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Port As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey
+  id: ApiKey
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: ServerWorkspaceViewModel.ApiKey
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ApiKey
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 130
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string ApiKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ApiKey As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext
+  id: PerRequestContext
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: PerRequestContext
+  nameWithType: ServerWorkspaceViewModel.PerRequestContext
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PerRequestContext
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 141
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PerRequestContext { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PerRequestContext As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode
+  id: SelectedConnectionMode
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedConnectionMode
+  nameWithType: ServerWorkspaceViewModel.SelectedConnectionMode
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedConnectionMode
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 152
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SelectedConnectionMode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SelectedConnectionMode As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId
+  id: SelectedAgentId
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedAgentId
+  nameWithType: ServerWorkspaceViewModel.SelectedAgentId
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedAgentId
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 163
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SelectedAgentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SelectedAgentId As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession
+  id: SelectedSession
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedSession
+  nameWithType: ServerWorkspaceViewModel.SelectedSession
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedSession
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 174
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public DesktopSessionViewModel? SelectedSession { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+    content.vb: Public Property SelectedSession As DesktopSessionViewModel
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText
+  id: StatusText
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: StatusText
+  nameWithType: ServerWorkspaceViewModel.StatusText
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StatusText
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 187
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string StatusText { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StatusText As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary
+  id: CapacitySummary
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: CapacitySummary
+  nameWithType: ServerWorkspaceViewModel.CapacitySummary
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CapacitySummary
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 198
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string CapacitySummary { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CapacitySummary As String
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand
+  id: NewSessionCommand
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: NewSessionCommand
+  nameWithType: ServerWorkspaceViewModel.NewSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NewSessionCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 209
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand NewSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property NewSessionCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand
+  id: CheckCapacityCommand
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: CheckCapacityCommand
+  nameWithType: ServerWorkspaceViewModel.CheckCapacityCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CheckCapacityCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 210
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand CheckCapacityCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property CheckCapacityCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  id: TerminateCurrentSessionCommand
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateCurrentSessionCommand
+  nameWithType: ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateCurrentSessionCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 211
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand TerminateCurrentSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property TerminateCurrentSessionCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand
+  id: TerminateSessionCommand
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateSessionCommand
+  nameWithType: ServerWorkspaceViewModel.TerminateSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateSessionCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 212
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand TerminateSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property TerminateSessionCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand
+  id: SendCurrentMessageCommand
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: SendCurrentMessageCommand
+  nameWithType: ServerWorkspaceViewModel.SendCurrentMessageCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendCurrentMessageCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 213
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand SendCurrentMessageCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SendCurrentMessageCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand
+  id: ToggleThemeCommand
+  parent: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  langs:
+  - csharp
+  - vb
+  name: ToggleThemeCommand
+  nameWithType: ServerWorkspaceViewModel.ToggleThemeCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToggleThemeCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ServerWorkspaceViewModel.cs
+    startLine: 214
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand ToggleThemeCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property ToggleThemeCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand*
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html
+  name: IServerConnectionContext
+  nameWithType: IServerConnectionContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.#ctor
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel__ctor_RemoteAgent_Desktop_Infrastructure_CurrentServerContext_RemoteAgent_Desktop_Infrastructure_IServerCapacityClient_RemoteAgent_Desktop_Logging_IDesktopStructuredLogStore_RemoteAgent_Desktop_ViewModels_IDesktopSessionViewModelFactory_RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_
+  name: ServerWorkspaceViewModel
+  nameWithType: ServerWorkspaceViewModel.ServerWorkspaceViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ServerWorkspaceViewModel
+  nameWithType.vb: ServerWorkspaceViewModel.New
+  fullName.vb: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.New
+  name.vb: New
+- uid: RemoteAgent.Desktop.Infrastructure.CurrentServerContext
+  commentId: T:RemoteAgent.Desktop.Infrastructure.CurrentServerContext
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.CurrentServerContext.html
+  name: CurrentServerContext
+  nameWithType: CurrentServerContext
+  fullName: RemoteAgent.Desktop.Infrastructure.CurrentServerContext
+- uid: RemoteAgent.Desktop.Infrastructure.IServerCapacityClient
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerCapacityClient
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.IServerCapacityClient.html
+  name: IServerCapacityClient
+  nameWithType: IServerCapacityClient
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerCapacityClient
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  commentId: T:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  parent: RemoteAgent.Desktop.Logging
+  href: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.html
+  name: IDesktopStructuredLogStore
+  nameWithType: IDesktopStructuredLogStore
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  commentId: T:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html
+  name: IDesktopSessionViewModelFactory
+  nameWithType: IDesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.Desktop.Logging
+  commentId: N:RemoteAgent.Desktop.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Logging
+  nameWithType: RemoteAgent.Desktop.Logging
+  fullName: RemoteAgent.Desktop.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_CurrentServerLabel
+  name: CurrentServerLabel
+  nameWithType: ServerWorkspaceViewModel.CurrentServerLabel
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerLabel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_CurrentServerId
+  name: CurrentServerId
+  nameWithType: ServerWorkspaceViewModel.CurrentServerId
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CurrentServerId
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_Sessions
+  name: Sessions
+  nameWithType: ServerWorkspaceViewModel.Sessions
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Sessions
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  name: ObservableCollection<DesktopSessionViewModel>
+  nameWithType: ObservableCollection<DesktopSessionViewModel>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel>
+  nameWithType.vb: ObservableCollection(Of DesktopSessionViewModel)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel)
+  name.vb: ObservableCollection(Of DesktopSessionViewModel)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+    name: DesktopSessionViewModel
+    href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+    name: DesktopSessionViewModel
+    href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_ConnectionModes
+  name: ConnectionModes
+  nameWithType: ServerWorkspaceViewModel.ConnectionModes
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ConnectionModes
+- uid: System.Collections.Generic.IReadOnlyList{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: System.Collections.Generic.IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_Security
+  name: Security
+  nameWithType: ServerWorkspaceViewModel.Security
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Security
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html
+  name: SecurityViewModel
+  nameWithType: SecurityViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_AuthUsers
+  name: AuthUsers
+  nameWithType: ServerWorkspaceViewModel.AuthUsers
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.AuthUsers
+- uid: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel.html
+  name: AuthUsersViewModel
+  nameWithType: AuthUsersViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_Plugins
+  name: Plugins
+  nameWithType: ServerWorkspaceViewModel.Plugins
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Plugins
+- uid: RemoteAgent.Desktop.ViewModels.PluginsViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.PluginsViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.PluginsViewModel.html
+  name: PluginsViewModel
+  nameWithType: PluginsViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.PluginsViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_McpRegistry
+  name: McpRegistry
+  nameWithType: ServerWorkspaceViewModel.McpRegistry
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.McpRegistry
+- uid: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel.html
+  name: McpRegistryDesktopViewModel
+  nameWithType: McpRegistryDesktopViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_PromptTemplates
+  name: PromptTemplates
+  nameWithType: ServerWorkspaceViewModel.PromptTemplates
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PromptTemplates
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html
+  name: PromptTemplatesViewModel
+  nameWithType: PromptTemplatesViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_StructuredLogs
+  name: StructuredLogs
+  nameWithType: ServerWorkspaceViewModel.StructuredLogs
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StructuredLogs
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html
+  name: StructuredLogsViewModel
+  nameWithType: StructuredLogsViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_Host
+  name: Host
+  nameWithType: ServerWorkspaceViewModel.Host
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Host
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_Port
+  name: Port
+  nameWithType: ServerWorkspaceViewModel.Port
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.Port
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_ApiKey
+  name: ApiKey
+  nameWithType: ServerWorkspaceViewModel.ApiKey
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ApiKey
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_PerRequestContext
+  name: PerRequestContext
+  nameWithType: ServerWorkspaceViewModel.PerRequestContext
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.PerRequestContext
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_SelectedConnectionMode
+  name: SelectedConnectionMode
+  nameWithType: ServerWorkspaceViewModel.SelectedConnectionMode
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedConnectionMode
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_SelectedAgentId
+  name: SelectedAgentId
+  nameWithType: ServerWorkspaceViewModel.SelectedAgentId
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedAgentId
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_SelectedSession
+  name: SelectedSession
+  nameWithType: ServerWorkspaceViewModel.SelectedSession
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SelectedSession
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  name: DesktopSessionViewModel
+  nameWithType: DesktopSessionViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_StatusText
+  name: StatusText
+  nameWithType: ServerWorkspaceViewModel.StatusText
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.StatusText
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_CapacitySummary
+  name: CapacitySummary
+  nameWithType: ServerWorkspaceViewModel.CapacitySummary
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CapacitySummary
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_NewSessionCommand
+  name: NewSessionCommand
+  nameWithType: ServerWorkspaceViewModel.NewSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.NewSessionCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_CheckCapacityCommand
+  name: CheckCapacityCommand
+  nameWithType: ServerWorkspaceViewModel.CheckCapacityCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.CheckCapacityCommand
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_TerminateCurrentSessionCommand
+  name: TerminateCurrentSessionCommand
+  nameWithType: ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateCurrentSessionCommand
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_TerminateSessionCommand
+  name: TerminateSessionCommand
+  nameWithType: ServerWorkspaceViewModel.TerminateSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.TerminateSessionCommand
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_SendCurrentMessageCommand
+  name: SendCurrentMessageCommand
+  nameWithType: ServerWorkspaceViewModel.SendCurrentMessageCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.SendCurrentMessageCommand
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html#RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_ToggleThemeCommand
+  name: ToggleThemeCommand
+  nameWithType: ServerWorkspaceViewModel.ToggleThemeCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.ToggleThemeCommand

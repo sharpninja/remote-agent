@@ -1,0 +1,769 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  id: ServiceProviderRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  children:
+  - RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher})
+  - RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ServiceProviderRequestDispatcher
+  nameWithType: ServiceProviderRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/ServiceProviderRequestDispatcher.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServiceProviderRequestDispatcher
+    path: ../src/RemoteAgent.App.Logic/Cqrs/ServiceProviderRequestDispatcher.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  summary: >-
+    Reflection-based dispatcher that resolves handlers from an <xref href="System.IServiceProvider" data-throw-if-not-resolved="false"></xref>
+
+    and provides cross-cutting Debug-level entry/exit logging with CorrelationId tracing.
+  example: []
+  syntax:
+    content: 'public sealed class ServiceProviderRequestDispatcher : IRequestDispatcher'
+    content.vb: Public NotInheritable Class ServiceProviderRequestDispatcher Implements IRequestDispatcher
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher})
+  commentId: M:RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher})
+  id: '#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher})'
+  parent: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  langs:
+  - csharp
+  - vb
+  name: ServiceProviderRequestDispatcher(IServiceProvider, ILogger<ServiceProviderRequestDispatcher>)
+  nameWithType: ServiceProviderRequestDispatcher.ServiceProviderRequestDispatcher(IServiceProvider, ILogger<ServiceProviderRequestDispatcher>)
+  fullName: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.ServiceProviderRequestDispatcher(System.IServiceProvider, Microsoft.Extensions.Logging.ILogger<RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/ServiceProviderRequestDispatcher.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/Cqrs/ServiceProviderRequestDispatcher.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: public ServiceProviderRequestDispatcher(IServiceProvider serviceProvider, ILogger<ServiceProviderRequestDispatcher> logger)
+    parameters:
+    - id: serviceProvider
+      type: System.IServiceProvider
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher}
+    content.vb: Public Sub New(serviceProvider As IServiceProvider, logger As ILogger(Of ServiceProviderRequestDispatcher))
+  overload: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.#ctor*
+  nameWithType.vb: ServiceProviderRequestDispatcher.New(IServiceProvider, ILogger(Of ServiceProviderRequestDispatcher))
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.New(System.IServiceProvider, Microsoft.Extensions.Logging.ILogger(Of RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher))
+  name.vb: New(IServiceProvider, ILogger(Of ServiceProviderRequestDispatcher))
+- uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  id: SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  langs:
+  - csharp
+  - vb
+  name: SendAsync<TResponse>(IRequest<TResponse>, CancellationToken)
+  nameWithType: ServiceProviderRequestDispatcher.SendAsync<TResponse>(IRequest<TResponse>, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync<TResponse>(RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/ServiceProviderRequestDispatcher.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendAsync
+    path: ../src/RemoteAgent.App.Logic/Cqrs/ServiceProviderRequestDispatcher.cs
+    startLine: 23
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  example: []
+  syntax:
+    content: public Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: RemoteAgent.App.Logic.Cqrs.IRequest{{TResponse}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: TResponse
+    return:
+      type: System.Threading.Tasks.Task{{TResponse}}
+    content.vb: Public Function SendAsync(Of TResponse)(request As IRequest(Of TResponse), cancellationToken As CancellationToken = Nothing) As Task(Of TResponse)
+  overload: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{{TResponse}},System.Threading.CancellationToken)
+  nameWithType.vb: ServiceProviderRequestDispatcher.SendAsync(Of TResponse)(IRequest(Of TResponse), CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync(Of TResponse)(RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse), System.Threading.CancellationToken)
+  name.vb: SendAsync(Of TResponse)(IRequest(Of TResponse), CancellationToken)
+references:
+- uid: System.IServiceProvider
+  commentId: T:System.IServiceProvider
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iserviceprovider
+  name: IServiceProvider
+  nameWithType: IServiceProvider
+  fullName: System.IServiceProvider
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.#ctor
+  href: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_ServiceProviderRequestDispatcher__ctor_System_IServiceProvider_Microsoft_Extensions_Logging_ILogger_RemoteAgent_App_Logic_Cqrs_ServiceProviderRequestDispatcher__
+  name: ServiceProviderRequestDispatcher
+  nameWithType: ServiceProviderRequestDispatcher.ServiceProviderRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.ServiceProviderRequestDispatcher
+  nameWithType.vb: ServiceProviderRequestDispatcher.New
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.html
+  name: ILogger<ServiceProviderRequestDispatcher>
+  nameWithType: ILogger<ServiceProviderRequestDispatcher>
+  fullName: Microsoft.Extensions.Logging.ILogger<RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher>
+  nameWithType.vb: ILogger(Of ServiceProviderRequestDispatcher)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher)
+  name.vb: ILogger(Of ServiceProviderRequestDispatcher)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+    name: ServiceProviderRequestDispatcher
+    href: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+    name: ServiceProviderRequestDispatcher
+    href: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync
+  href: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_ServiceProviderRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  name: SendAsync
+  nameWithType: ServiceProviderRequestDispatcher.SendAsync
+  fullName: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.SendAsync
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{{TResponse}},System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  name: SendAsync<TResponse>(IRequest<TResponse>, CancellationToken)
+  nameWithType: IRequestDispatcher.SendAsync<TResponse>(IRequest<TResponse>, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync<TResponse>(RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestDispatcher.SendAsync(Of TResponse)(IRequest(Of TResponse), CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync(Of TResponse)(RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse), System.Threading.CancellationToken)
+  name.vb: SendAsync(Of TResponse)(IRequest(Of TResponse), CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+    name: SendAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  - name: <
+  - name: TResponse
+  - name: '>'
+  - name: (
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: <
+  - name: TResponse
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+    name: SendAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+  - name: (
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{{TResponse}}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest{``0}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{{TResponse}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<TResponse>
+  nameWithType: Task<TResponse>
+  fullName: System.Threading.Tasks.Task<TResponse>
+  nameWithType.vb: Task(Of TResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of TResponse)
+  name.vb: Task(Of TResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+  isExternal: true
+  href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  name: SendAsync<TResponse>(IRequest<TResponse>, CancellationToken)
+  nameWithType: IRequestDispatcher.SendAsync<TResponse>(IRequest<TResponse>, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync<TResponse>(RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestDispatcher.SendAsync(Of TResponse)(IRequest(Of TResponse), CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync(Of TResponse)(RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse), System.Threading.CancellationToken)
+  name.vb: SendAsync(Of TResponse)(IRequest(Of TResponse), CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+    name: SendAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  - name: <
+  - name: TResponse
+  - name: '>'
+  - name: (
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: <
+  - name: TResponse
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.SendAsync``1(RemoteAgent.App.Logic.Cqrs.IRequest{``0},System.Threading.CancellationToken)
+    name: SendAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html#RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_SendAsync__1_RemoteAgent_App_Logic_Cqrs_IRequest___0__System_Threading_CancellationToken_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+  - name: (
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

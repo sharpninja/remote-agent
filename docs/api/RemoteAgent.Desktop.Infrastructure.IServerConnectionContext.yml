@@ -1,0 +1,365 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  id: IServerConnectionContext
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName
+  - RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId
+  langs:
+  - csharp
+  - vb
+  name: IServerConnectionContext
+  nameWithType: IServerConnectionContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IServerConnectionContext
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 2
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public interface IServerConnectionContext
+    content.vb: Public Interface IServerConnectionContext
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host
+  id: Host
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: IServerConnectionContext.Host
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Host
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string Host { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Host As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port
+  id: Port
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: IServerConnectionContext.Port
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Port
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string Port { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Port As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey
+  id: ApiKey
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: IServerConnectionContext.ApiKey
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ApiKey
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string ApiKey { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ApiKey As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId
+  id: SelectedAgentId
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: SelectedAgentId
+  nameWithType: IServerConnectionContext.SelectedAgentId
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedAgentId
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string SelectedAgentId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property SelectedAgentId As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode
+  id: SelectedConnectionMode
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: SelectedConnectionMode
+  nameWithType: IServerConnectionContext.SelectedConnectionMode
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedConnectionMode
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string SelectedConnectionMode { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property SelectedConnectionMode As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext
+  id: PerRequestContext
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: PerRequestContext
+  nameWithType: IServerConnectionContext.PerRequestContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PerRequestContext
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string PerRequestContext { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property PerRequestContext As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId
+  id: ServerId
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: ServerId
+  nameWithType: IServerConnectionContext.ServerId
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerId
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string ServerId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ServerId As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName
+  commentId: P:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName
+  id: ServerDisplayName
+  parent: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  langs:
+  - csharp
+  - vb
+  name: ServerDisplayName
+  nameWithType: IServerConnectionContext.ServerDisplayName
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerDisplayName
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IServerConnectionContext.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: string ServerDisplayName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ServerDisplayName As String
+  overload: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_Host
+  name: Host
+  nameWithType: IServerConnectionContext.Host
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Host
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_Port
+  name: Port
+  nameWithType: IServerConnectionContext.Port
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.Port
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_ApiKey
+  name: ApiKey
+  nameWithType: IServerConnectionContext.ApiKey
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ApiKey
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_SelectedAgentId
+  name: SelectedAgentId
+  nameWithType: IServerConnectionContext.SelectedAgentId
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedAgentId
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_SelectedConnectionMode
+  name: SelectedConnectionMode
+  nameWithType: IServerConnectionContext.SelectedConnectionMode
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.SelectedConnectionMode
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_PerRequestContext
+  name: PerRequestContext
+  nameWithType: IServerConnectionContext.PerRequestContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.PerRequestContext
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_ServerId
+  name: ServerId
+  nameWithType: IServerConnectionContext.ServerId
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerId
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html#RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_ServerDisplayName
+  name: ServerDisplayName
+  nameWithType: IServerConnectionContext.ServerDisplayName
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.ServerDisplayName

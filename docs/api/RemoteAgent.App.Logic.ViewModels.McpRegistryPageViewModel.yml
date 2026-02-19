@@ -1,0 +1,1359 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  commentId: T:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  id: McpRegistryPageViewModel
+  parent: RemoteAgent.App.Logic.ViewModels
+  children:
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.#ctor(RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.PropertyChanged
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer(RemoteAgent.Proto.McpServerDefinition)
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport
+  langs:
+  - csharp
+  - vb
+  name: McpRegistryPageViewModel
+  nameWithType: McpRegistryPageViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: McpRegistryPageViewModel
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public sealed class McpRegistryPageViewModel
+    content.vb: Public NotInheritable Class McpRegistryPageViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.#ctor(RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  commentId: M:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.#ctor(RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  id: '#ctor(RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)'
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: McpRegistryPageViewModel(IServerApiClient, IAppPreferences, ISessionTerminationConfirmation, IRequestDispatcher)
+  nameWithType: McpRegistryPageViewModel.McpRegistryPageViewModel(IServerApiClient, IAppPreferences, ISessionTerminationConfirmation, IRequestDispatcher)
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.McpRegistryPageViewModel(RemoteAgent.App.Logic.IServerApiClient, RemoteAgent.App.Logic.IAppPreferences, RemoteAgent.App.Logic.ISessionTerminationConfirmation, RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 31
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public McpRegistryPageViewModel(IServerApiClient apiClient, IAppPreferences preferences, ISessionTerminationConfirmation deleteConfirmation, IRequestDispatcher dispatcher)
+    parameters:
+    - id: apiClient
+      type: RemoteAgent.App.Logic.IServerApiClient
+    - id: preferences
+      type: RemoteAgent.App.Logic.IAppPreferences
+    - id: deleteConfirmation
+      type: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+    - id: dispatcher
+      type: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+    content.vb: Public Sub New(apiClient As IServerApiClient, preferences As IAppPreferences, deleteConfirmation As ISessionTerminationConfirmation, dispatcher As IRequestDispatcher)
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.#ctor*
+  nameWithType.vb: McpRegistryPageViewModel.New(IServerApiClient, IAppPreferences, ISessionTerminationConfirmation, IRequestDispatcher)
+  fullName.vb: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.New(RemoteAgent.App.Logic.IServerApiClient, RemoteAgent.App.Logic.IAppPreferences, RemoteAgent.App.Logic.ISessionTerminationConfirmation, RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  name.vb: New(IServerApiClient, IAppPreferences, ISessionTerminationConfirmation, IRequestDispatcher)
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.PropertyChanged
+  commentId: E:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: McpRegistryPageViewModel.PropertyChanged
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 51
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers
+  id: Servers
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Servers
+  nameWithType: McpRegistryPageViewModel.Servers
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Servers
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 53
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ObservableCollection<McpServerDefinition> Servers { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Proto.McpServerDefinition}
+    content.vb: Public ReadOnly Property Servers As ObservableCollection(Of McpServerDefinition)
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host
+  id: Host
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: McpRegistryPageViewModel.Host
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Host
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 55
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string Host { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port
+  id: Port
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: McpRegistryPageViewModel.Port
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Port
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 61
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string Port { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Port As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText
+  id: StatusText
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: StatusText
+  nameWithType: McpRegistryPageViewModel.StatusText
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StatusText
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 67
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string StatusText { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StatusText As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId
+  id: ServerId
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: ServerId
+  nameWithType: McpRegistryPageViewModel.ServerId
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerId
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 73
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string ServerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServerId As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName
+  id: DisplayName
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: McpRegistryPageViewModel.DisplayName
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayName
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 79
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport
+  id: Transport
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Transport
+  nameWithType: McpRegistryPageViewModel.Transport
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Transport
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 85
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string Transport { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Transport As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint
+  id: Endpoint
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Endpoint
+  nameWithType: McpRegistryPageViewModel.Endpoint
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Endpoint
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 91
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string Endpoint { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Endpoint As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command
+  id: Command
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: McpRegistryPageViewModel.Command
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Command
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 97
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string Command { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Command As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments
+  id: Arguments
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: McpRegistryPageViewModel.Arguments
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Arguments
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 103
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string Arguments { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Arguments As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType
+  id: AuthType
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: AuthType
+  nameWithType: McpRegistryPageViewModel.AuthType
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthType
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 109
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string AuthType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthType As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson
+  id: AuthConfigJson
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: AuthConfigJson
+  nameWithType: McpRegistryPageViewModel.AuthConfigJson
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthConfigJson
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 115
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string AuthConfigJson { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthConfigJson As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson
+  id: MetadataJson
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: MetadataJson
+  nameWithType: McpRegistryPageViewModel.MetadataJson
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MetadataJson
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 121
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public string MetadataJson { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MetadataJson As String
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled
+  id: Enabled
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: McpRegistryPageViewModel.Enabled
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Enabled
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 127
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public bool Enabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Enabled As Boolean
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand
+  id: RefreshCommand
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: RefreshCommand
+  nameWithType: McpRegistryPageViewModel.RefreshCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 133
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand RefreshCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property RefreshCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand
+  id: SaveCommand
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: SaveCommand
+  nameWithType: McpRegistryPageViewModel.SaveCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SaveCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 134
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand SaveCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SaveCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand
+  id: DeleteCommand
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: DeleteCommand
+  nameWithType: McpRegistryPageViewModel.DeleteCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 135
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand DeleteCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property DeleteCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand
+  id: ClearCommand
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: ClearCommand
+  nameWithType: McpRegistryPageViewModel.ClearCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 136
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand ClearCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property ClearCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer(RemoteAgent.Proto.McpServerDefinition)
+  commentId: M:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer(RemoteAgent.Proto.McpServerDefinition)
+  id: SelectServer(RemoteAgent.Proto.McpServerDefinition)
+  parent: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectServer(McpServerDefinition)
+  nameWithType: McpRegistryPageViewModel.SelectServer(McpServerDefinition)
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer(RemoteAgent.Proto.McpServerDefinition)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectServer
+    path: ../src/RemoteAgent.App.Logic/ViewModels/McpRegistryPageViewModel.cs
+    startLine: 138
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public void SelectServer(McpServerDefinition server)
+    parameters:
+    - id: server
+      type: RemoteAgent.Proto.McpServerDefinition
+    content.vb: Public Sub SelectServer(server As McpServerDefinition)
+  overload: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer*
+references:
+- uid: RemoteAgent.App.Logic.ViewModels
+  commentId: N:RemoteAgent.App.Logic.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.ViewModels
+  nameWithType: RemoteAgent.App.Logic.ViewModels
+  fullName: RemoteAgent.App.Logic.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.Logic.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.Logic.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.#ctor
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel__ctor_RemoteAgent_App_Logic_IServerApiClient_RemoteAgent_App_Logic_IAppPreferences_RemoteAgent_App_Logic_ISessionTerminationConfirmation_RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_
+  name: McpRegistryPageViewModel
+  nameWithType: McpRegistryPageViewModel.McpRegistryPageViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.McpRegistryPageViewModel
+  nameWithType.vb: McpRegistryPageViewModel.New
+  fullName.vb: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.IServerApiClient
+  commentId: T:RemoteAgent.App.Logic.IServerApiClient
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IServerApiClient.html
+  name: IServerApiClient
+  nameWithType: IServerApiClient
+  fullName: RemoteAgent.App.Logic.IServerApiClient
+- uid: RemoteAgent.App.Logic.IAppPreferences
+  commentId: T:RemoteAgent.App.Logic.IAppPreferences
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IAppPreferences.html
+  name: IAppPreferences
+  nameWithType: IAppPreferences
+  fullName: RemoteAgent.App.Logic.IAppPreferences
+- uid: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  commentId: T:RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.ISessionTerminationConfirmation.html
+  name: ISessionTerminationConfirmation
+  nameWithType: ISessionTerminationConfirmation
+  fullName: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Servers
+  name: Servers
+  nameWithType: McpRegistryPageViewModel.Servers
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Servers
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Proto.McpServerDefinition}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Proto.McpServerDefinition}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: ObservableCollection<McpServerDefinition>
+  nameWithType: ObservableCollection<McpServerDefinition>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Proto.McpServerDefinition>
+  nameWithType.vb: ObservableCollection(Of McpServerDefinition)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Proto.McpServerDefinition)
+  name.vb: ObservableCollection(Of McpServerDefinition)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Host
+  name: Host
+  nameWithType: McpRegistryPageViewModel.Host
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Host
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Port
+  name: Port
+  nameWithType: McpRegistryPageViewModel.Port
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Port
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_StatusText
+  name: StatusText
+  nameWithType: McpRegistryPageViewModel.StatusText
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.StatusText
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_ServerId
+  name: ServerId
+  nameWithType: McpRegistryPageViewModel.ServerId
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ServerId
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_DisplayName
+  name: DisplayName
+  nameWithType: McpRegistryPageViewModel.DisplayName
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DisplayName
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Transport
+  name: Transport
+  nameWithType: McpRegistryPageViewModel.Transport
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Transport
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Endpoint
+  name: Endpoint
+  nameWithType: McpRegistryPageViewModel.Endpoint
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Endpoint
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Command
+  name: Command
+  nameWithType: McpRegistryPageViewModel.Command
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Command
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Arguments
+  name: Arguments
+  nameWithType: McpRegistryPageViewModel.Arguments
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Arguments
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_AuthType
+  name: AuthType
+  nameWithType: McpRegistryPageViewModel.AuthType
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthType
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_AuthConfigJson
+  name: AuthConfigJson
+  nameWithType: McpRegistryPageViewModel.AuthConfigJson
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.AuthConfigJson
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_MetadataJson
+  name: MetadataJson
+  nameWithType: McpRegistryPageViewModel.MetadataJson
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.MetadataJson
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_Enabled
+  name: Enabled
+  nameWithType: McpRegistryPageViewModel.Enabled
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.Enabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_RefreshCommand
+  name: RefreshCommand
+  nameWithType: McpRegistryPageViewModel.RefreshCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.RefreshCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_SaveCommand
+  name: SaveCommand
+  nameWithType: McpRegistryPageViewModel.SaveCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SaveCommand
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_DeleteCommand
+  name: DeleteCommand
+  nameWithType: McpRegistryPageViewModel.DeleteCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.DeleteCommand
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_ClearCommand
+  name: ClearCommand
+  nameWithType: McpRegistryPageViewModel.ClearCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.ClearCommand
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html#RemoteAgent_App_Logic_ViewModels_McpRegistryPageViewModel_SelectServer_RemoteAgent_Proto_McpServerDefinition_
+  name: SelectServer
+  nameWithType: McpRegistryPageViewModel.SelectServer
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.SelectServer
+- uid: RemoteAgent.Proto.McpServerDefinition
+  commentId: T:RemoteAgent.Proto.McpServerDefinition
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: McpServerDefinition
+  nameWithType: McpServerDefinition
+  fullName: RemoteAgent.Proto.McpServerDefinition
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html

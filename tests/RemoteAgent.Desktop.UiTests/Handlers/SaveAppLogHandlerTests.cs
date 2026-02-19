@@ -7,8 +7,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="SaveAppLogHandler"/>. FR-12.12; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.12")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class SaveAppLogHandlerTests
 {
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenFilePathEmpty_ShouldReturnFail()
     {
@@ -26,6 +34,7 @@ public class SaveAppLogHandlerTests
         result.ErrorMessage.Should().Contain("File path");
     }
 
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenPathIsInvalid_ShouldReturnFail()
     {
@@ -42,6 +51,7 @@ public class SaveAppLogHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenPathIsValid_ShouldWriteFileAndReturnOk()
     {
@@ -69,6 +79,7 @@ public class SaveAppLogHandlerTests
         }
     }
 
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_JsonFormat_ShouldWriteJsonContent()
     {
@@ -96,6 +107,7 @@ public class SaveAppLogHandlerTests
         }
     }
 
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_CsvFormat_ShouldWriteCsvContent()
     {

@@ -1,0 +1,1195 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  id: PromptTemplatesViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PropertyChanged
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplatesViewModel
+  nameWithType: PromptTemplatesViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplatesViewModel
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public sealed class PromptTemplatesViewModel
+    content.vb: Public NotInheritable Class PromptTemplatesViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  commentId: M:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  id: '#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)'
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplatesViewModel(IRequestDispatcher, IServerConnectionContext)
+  nameWithType: PromptTemplatesViewModel.PromptTemplatesViewModel(IRequestDispatcher, IServerConnectionContext)
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplatesViewModel(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher, RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 27
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public PromptTemplatesViewModel(IRequestDispatcher dispatcher, IServerConnectionContext context)
+    parameters:
+    - id: dispatcher
+      type: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+    - id: context
+      type: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+    content.vb: Public Sub New(dispatcher As IRequestDispatcher, context As IServerConnectionContext)
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.#ctor*
+  nameWithType.vb: PromptTemplatesViewModel.New(IRequestDispatcher, IServerConnectionContext)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.New(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher, RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  name.vb: New(IRequestDispatcher, IServerConnectionContext)
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PropertyChanged
+  commentId: E:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: PromptTemplatesViewModel.PropertyChanged
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 45
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates
+  id: PromptTemplates
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplates
+  nameWithType: PromptTemplatesViewModel.PromptTemplates
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplates
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 47
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<PromptTemplateDefinition> PromptTemplates { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Proto.PromptTemplateDefinition}
+    content.vb: Public ReadOnly Property PromptTemplates As ObservableCollection(Of PromptTemplateDefinition)
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate
+  id: SelectedPromptTemplate
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedPromptTemplate
+  nameWithType: PromptTemplatesViewModel.SelectedPromptTemplate
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedPromptTemplate
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 49
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public PromptTemplateDefinition? SelectedPromptTemplate { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Proto.PromptTemplateDefinition
+    content.vb: Public Property SelectedPromptTemplate As PromptTemplateDefinition
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId
+  id: PromptTemplateId
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplateId
+  nameWithType: PromptTemplatesViewModel.PromptTemplateId
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplateId
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 68
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PromptTemplateId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PromptTemplateId As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName
+  id: PromptTemplateName
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplateName
+  nameWithType: PromptTemplatesViewModel.PromptTemplateName
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplateName
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 79
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PromptTemplateName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PromptTemplateName As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription
+  id: PromptTemplateDescription
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplateDescription
+  nameWithType: PromptTemplatesViewModel.PromptTemplateDescription
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplateDescription
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 90
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PromptTemplateDescription { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PromptTemplateDescription As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent
+  id: PromptTemplateContent
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplateContent
+  nameWithType: PromptTemplatesViewModel.PromptTemplateContent
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplateContent
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 101
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PromptTemplateContent { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PromptTemplateContent As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus
+  id: PromptTemplateStatus
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplateStatus
+  nameWithType: PromptTemplatesViewModel.PromptTemplateStatus
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplateStatus
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 112
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PromptTemplateStatus { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PromptTemplateStatus As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId
+  id: SeedSessionId
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SeedSessionId
+  nameWithType: PromptTemplatesViewModel.SeedSessionId
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedSessionId
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 123
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SeedSessionId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SeedSessionId As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType
+  id: SeedContextType
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SeedContextType
+  nameWithType: PromptTemplatesViewModel.SeedContextType
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedContextType
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 134
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SeedContextType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SeedContextType As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent
+  id: SeedContent
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SeedContent
+  nameWithType: PromptTemplatesViewModel.SeedContent
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedContent
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 145
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SeedContent { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SeedContent As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource
+  id: SeedSource
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SeedSource
+  nameWithType: PromptTemplatesViewModel.SeedSource
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedSource
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 156
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SeedSource { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SeedSource As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus
+  id: SeedStatus
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SeedStatus
+  nameWithType: PromptTemplatesViewModel.SeedStatus
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedStatus
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 167
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SeedStatus { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SeedStatus As String
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  id: RefreshPromptTemplatesCommand
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: RefreshPromptTemplatesCommand
+  nameWithType: PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshPromptTemplatesCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 178
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand RefreshPromptTemplatesCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property RefreshPromptTemplatesCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand
+  id: SavePromptTemplateCommand
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SavePromptTemplateCommand
+  nameWithType: PromptTemplatesViewModel.SavePromptTemplateCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SavePromptTemplateCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 179
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand SavePromptTemplateCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SavePromptTemplateCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand
+  id: DeletePromptTemplateCommand
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: DeletePromptTemplateCommand
+  nameWithType: PromptTemplatesViewModel.DeletePromptTemplateCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeletePromptTemplateCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 180
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand DeletePromptTemplateCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property DeletePromptTemplateCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand*
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand
+  id: SeedContextCommand
+  parent: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  langs:
+  - csharp
+  - vb
+  name: SeedContextCommand
+  nameWithType: PromptTemplatesViewModel.SeedContextCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedContextCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/PromptTemplatesViewModel.cs
+    startLine: 181
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand SeedContextCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SeedContextCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand*
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.#ctor
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel__ctor_RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_
+  name: PromptTemplatesViewModel
+  nameWithType: PromptTemplatesViewModel.PromptTemplatesViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplatesViewModel
+  nameWithType.vb: PromptTemplatesViewModel.New
+  fullName.vb: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html
+  name: IServerConnectionContext
+  nameWithType: IServerConnectionContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_PromptTemplates
+  name: PromptTemplates
+  nameWithType: PromptTemplatesViewModel.PromptTemplates
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplates
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Proto.PromptTemplateDefinition}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Proto.PromptTemplateDefinition}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  name: ObservableCollection<PromptTemplateDefinition>
+  nameWithType: ObservableCollection<PromptTemplateDefinition>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Proto.PromptTemplateDefinition>
+  nameWithType.vb: ObservableCollection(Of PromptTemplateDefinition)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Proto.PromptTemplateDefinition)
+  name.vb: ObservableCollection(Of PromptTemplateDefinition)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.PromptTemplateDefinition
+    name: PromptTemplateDefinition
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.PromptTemplateDefinition
+    name: PromptTemplateDefinition
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SelectedPromptTemplate
+  name: SelectedPromptTemplate
+  nameWithType: PromptTemplatesViewModel.SelectedPromptTemplate
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SelectedPromptTemplate
+- uid: RemoteAgent.Proto.PromptTemplateDefinition
+  commentId: T:RemoteAgent.Proto.PromptTemplateDefinition
+  parent: RemoteAgent.Proto
+  name: PromptTemplateDefinition
+  nameWithType: PromptTemplateDefinition
+  fullName: RemoteAgent.Proto.PromptTemplateDefinition
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_PromptTemplateId
+  name: PromptTemplateId
+  nameWithType: PromptTemplatesViewModel.PromptTemplateId
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_PromptTemplateName
+  name: PromptTemplateName
+  nameWithType: PromptTemplatesViewModel.PromptTemplateName
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateName
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_PromptTemplateDescription
+  name: PromptTemplateDescription
+  nameWithType: PromptTemplatesViewModel.PromptTemplateDescription
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateDescription
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_PromptTemplateContent
+  name: PromptTemplateContent
+  nameWithType: PromptTemplatesViewModel.PromptTemplateContent
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateContent
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_PromptTemplateStatus
+  name: PromptTemplateStatus
+  nameWithType: PromptTemplatesViewModel.PromptTemplateStatus
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.PromptTemplateStatus
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SeedSessionId
+  name: SeedSessionId
+  nameWithType: PromptTemplatesViewModel.SeedSessionId
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSessionId
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SeedContextType
+  name: SeedContextType
+  nameWithType: PromptTemplatesViewModel.SeedContextType
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextType
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SeedContent
+  name: SeedContent
+  nameWithType: PromptTemplatesViewModel.SeedContent
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContent
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SeedSource
+  name: SeedSource
+  nameWithType: PromptTemplatesViewModel.SeedSource
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedSource
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SeedStatus
+  name: SeedStatus
+  nameWithType: PromptTemplatesViewModel.SeedStatus
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedStatus
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_RefreshPromptTemplatesCommand
+  name: RefreshPromptTemplatesCommand
+  nameWithType: PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.RefreshPromptTemplatesCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SavePromptTemplateCommand
+  name: SavePromptTemplateCommand
+  nameWithType: PromptTemplatesViewModel.SavePromptTemplateCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SavePromptTemplateCommand
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_DeletePromptTemplateCommand
+  name: DeletePromptTemplateCommand
+  nameWithType: PromptTemplatesViewModel.DeletePromptTemplateCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.DeletePromptTemplateCommand
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html#RemoteAgent_Desktop_ViewModels_PromptTemplatesViewModel_SeedContextCommand
+  name: SeedContextCommand
+  nameWithType: PromptTemplatesViewModel.SeedContextCommand
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.SeedContextCommand

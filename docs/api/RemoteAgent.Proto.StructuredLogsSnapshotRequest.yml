@@ -1,0 +1,1501 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  commentId: T:RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  id: StructuredLogsSnapshotRequest
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(System.Object)
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffsetFieldNumber
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.LimitFieldNumber
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogsSnapshotRequest
+  nameWithType: StructuredLogsSnapshotRequest
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StructuredLogsSnapshotRequest
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3011
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: StructuredLogsSnapshotRequest fetches historical structured log rows from server storage.
+  example: []
+  syntax:
+    content: 'public sealed class StructuredLogsSnapshotRequest : IMessage<StructuredLogsSnapshotRequest>, IEquatable<StructuredLogsSnapshotRequest>, IDeepCloneable<StructuredLogsSnapshotRequest>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class StructuredLogsSnapshotRequest Implements IMessage(Of StructuredLogsSnapshotRequest), IEquatable(Of StructuredLogsSnapshotRequest), IDeepCloneable(Of StructuredLogsSnapshotRequest), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  - System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser
+  commentId: P:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser
+  id: Parser
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: StructuredLogsSnapshotRequest.Parser
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Parser
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3019
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageParser<StructuredLogsSnapshotRequest> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of StructuredLogsSnapshotRequest)
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser*
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor
+  commentId: P:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor
+  id: Descriptor
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: StructuredLogsSnapshotRequest.Descriptor
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Descriptor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3023
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor*
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogsSnapshotRequest()
+  nameWithType: StructuredLogsSnapshotRequest.StructuredLogsSnapshotRequest()
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.StructuredLogsSnapshotRequest()
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3035
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public StructuredLogsSnapshotRequest()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor*
+  nameWithType.vb: StructuredLogsSnapshotRequest.New()
+  fullName.vb: RemoteAgent.Proto.StructuredLogsSnapshotRequest.New()
+  name.vb: New()
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  id: '#ctor(RemoteAgent.Proto.StructuredLogsSnapshotRequest)'
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogsSnapshotRequest(StructuredLogsSnapshotRequest)
+  nameWithType: StructuredLogsSnapshotRequest.StructuredLogsSnapshotRequest(StructuredLogsSnapshotRequest)
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.StructuredLogsSnapshotRequest(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3043
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public StructuredLogsSnapshotRequest(StructuredLogsSnapshotRequest other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    content.vb: Public Sub New(other As StructuredLogsSnapshotRequest)
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor*
+  nameWithType.vb: StructuredLogsSnapshotRequest.New(StructuredLogsSnapshotRequest)
+  fullName.vb: RemoteAgent.Proto.StructuredLogsSnapshotRequest.New(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  name.vb: New(StructuredLogsSnapshotRequest)
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone
+  id: Clone
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: StructuredLogsSnapshotRequest.Clone()
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Clone
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3051
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public StructuredLogsSnapshotRequest Clone()
+    return:
+      type: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As StructuredLogsSnapshotRequest
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Clone
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffsetFieldNumber
+  commentId: F:RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffsetFieldNumber
+  id: FromOffsetFieldNumber
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: FromOffsetFieldNumber
+  nameWithType: StructuredLogsSnapshotRequest.FromOffsetFieldNumber
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffsetFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: FromOffsetFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3058
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "from_offset" field.
+  example: []
+  syntax:
+    content: public const int FromOffsetFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const FromOffsetFieldNumber As Integer = 1
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset
+  commentId: P:RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset
+  id: FromOffset
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: FromOffset
+  nameWithType: StructuredLogsSnapshotRequest.FromOffset
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: FromOffset
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3063
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: event id cursor; 0 means from beginning
+  example: []
+  syntax:
+    content: public long FromOffset { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property FromOffset As Long
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset*
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.LimitFieldNumber
+  commentId: F:RemoteAgent.Proto.StructuredLogsSnapshotRequest.LimitFieldNumber
+  id: LimitFieldNumber
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: LimitFieldNumber
+  nameWithType: StructuredLogsSnapshotRequest.LimitFieldNumber
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.LimitFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LimitFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3073
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "limit" field.
+  example: []
+  syntax:
+    content: public const int LimitFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const LimitFieldNumber As Integer = 2
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit
+  commentId: P:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit
+  id: Limit
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: Limit
+  nameWithType: StructuredLogsSnapshotRequest.Limit
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Limit
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3078
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: max number of rows to return; 0 means server default
+  example: []
+  syntax:
+    content: public int Limit { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Limit As Integer
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit*
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(System.Object)
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: StructuredLogsSnapshotRequest.Equals(object)
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3087
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals*
+  nameWithType.vb: StructuredLogsSnapshotRequest.Equals(Object)
+  fullName.vb: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  id: Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: Equals(StructuredLogsSnapshotRequest)
+  nameWithType: StructuredLogsSnapshotRequest.Equals(StructuredLogsSnapshotRequest)
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3093
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(StructuredLogsSnapshotRequest other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As StructuredLogsSnapshotRequest) As Boolean
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals*
+  implements:
+  - System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode
+  id: GetHashCode
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: StructuredLogsSnapshotRequest.GetHashCode()
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetHashCode
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3107
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode*
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString
+  id: ToString
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: StructuredLogsSnapshotRequest.ToString()
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3119
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString*
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: StructuredLogsSnapshotRequest.WriteTo(CodedOutputStream)
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: WriteTo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3125
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize
+  id: CalculateSize
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: StructuredLogsSnapshotRequest.CalculateSize()
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CalculateSize
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3163
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  id: MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(StructuredLogsSnapshotRequest)
+  nameWithType: StructuredLogsSnapshotRequest.MergeFrom(StructuredLogsSnapshotRequest)
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3179
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(StructuredLogsSnapshotRequest other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    content.vb: Public Sub MergeFrom(other As StructuredLogsSnapshotRequest)
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: StructuredLogsSnapshotRequest.MergeFrom(CodedInputStream)
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3194
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  commentId: T:Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: IMessage<StructuredLogsSnapshotRequest>
+  nameWithType: IMessage<StructuredLogsSnapshotRequest>
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.StructuredLogsSnapshotRequest>
+  nameWithType.vb: IMessage(Of StructuredLogsSnapshotRequest)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  name.vb: IMessage(Of StructuredLogsSnapshotRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  commentId: T:System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<StructuredLogsSnapshotRequest>
+  nameWithType: IEquatable<StructuredLogsSnapshotRequest>
+  fullName: System.IEquatable<RemoteAgent.Proto.StructuredLogsSnapshotRequest>
+  nameWithType.vb: IEquatable(Of StructuredLogsSnapshotRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  name.vb: IEquatable(Of StructuredLogsSnapshotRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  commentId: T:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: IDeepCloneable<StructuredLogsSnapshotRequest>
+  nameWithType: IDeepCloneable<StructuredLogsSnapshotRequest>
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.StructuredLogsSnapshotRequest>
+  nameWithType.vb: IDeepCloneable(Of StructuredLogsSnapshotRequest)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  name.vb: IDeepCloneable(Of StructuredLogsSnapshotRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_Parser
+  name: Parser
+  nameWithType: StructuredLogsSnapshotRequest.Parser
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser
+- uid: Google.Protobuf.MessageParser{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  commentId: T:Google.Protobuf.MessageParser{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: MessageParser<StructuredLogsSnapshotRequest>
+  nameWithType: MessageParser<StructuredLogsSnapshotRequest>
+  fullName: Google.Protobuf.MessageParser<RemoteAgent.Proto.StructuredLogsSnapshotRequest>
+  nameWithType.vb: MessageParser(Of StructuredLogsSnapshotRequest)
+  fullName.vb: Google.Protobuf.MessageParser(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  name.vb: MessageParser(Of StructuredLogsSnapshotRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_Descriptor
+  name: Descriptor
+  nameWithType: StructuredLogsSnapshotRequest.Descriptor
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.#ctor
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest__ctor
+  name: StructuredLogsSnapshotRequest
+  nameWithType: StructuredLogsSnapshotRequest.StructuredLogsSnapshotRequest
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.StructuredLogsSnapshotRequest
+  nameWithType.vb: StructuredLogsSnapshotRequest.New
+  fullName.vb: RemoteAgent.Proto.StructuredLogsSnapshotRequest.New
+  name.vb: New
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  commentId: T:RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: StructuredLogsSnapshotRequest
+  nameWithType: StructuredLogsSnapshotRequest
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_Clone
+  name: Clone
+  nameWithType: StructuredLogsSnapshotRequest.Clone
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Clone
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Clone
+  parent: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<StructuredLogsSnapshotRequest>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.StructuredLogsSnapshotRequest>.Clone()
+  nameWithType.vb: IDeepCloneable(Of StructuredLogsSnapshotRequest).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_FromOffset
+  name: FromOffset
+  nameWithType: StructuredLogsSnapshotRequest.FromOffset
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.FromOffset
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_Limit
+  name: Limit
+  nameWithType: StructuredLogsSnapshotRequest.Limit
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Limit
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_Equals_System_Object_
+  name: Equals
+  nameWithType: StructuredLogsSnapshotRequest.Equals
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  commentId: M:System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  parent: System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(StructuredLogsSnapshotRequest)
+  nameWithType: IEquatable<StructuredLogsSnapshotRequest>.Equals(StructuredLogsSnapshotRequest)
+  fullName: System.IEquatable<RemoteAgent.Proto.StructuredLogsSnapshotRequest>.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  nameWithType.vb: IEquatable(Of StructuredLogsSnapshotRequest).Equals(StructuredLogsSnapshotRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest).Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  spec.csharp:
+  - uid: System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.Equals(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_GetHashCode
+  name: GetHashCode
+  nameWithType: StructuredLogsSnapshotRequest.GetHashCode
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_ToString
+  name: ToString
+  nameWithType: StructuredLogsSnapshotRequest.ToString
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: StructuredLogsSnapshotRequest.WriteTo
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_CalculateSize
+  name: CalculateSize
+  nameWithType: StructuredLogsSnapshotRequest.CalculateSize
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom*
+  commentId: Overload:RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html#RemoteAgent_Proto_StructuredLogsSnapshotRequest_MergeFrom_RemoteAgent_Proto_StructuredLogsSnapshotRequest_
+  name: MergeFrom
+  nameWithType: StructuredLogsSnapshotRequest.MergeFrom
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest.MergeFrom
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  commentId: M:Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  parent: Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: MergeFrom(StructuredLogsSnapshotRequest)
+  nameWithType: IMessage<StructuredLogsSnapshotRequest>.MergeFrom(StructuredLogsSnapshotRequest)
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.StructuredLogsSnapshotRequest>.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  nameWithType.vb: IMessage(Of StructuredLogsSnapshotRequest).MergeFrom(StructuredLogsSnapshotRequest)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.StructuredLogsSnapshotRequest).MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.StructuredLogsSnapshotRequest}.MergeFrom(RemoteAgent.Proto.StructuredLogsSnapshotRequest)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+    name: StructuredLogsSnapshotRequest
+    href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

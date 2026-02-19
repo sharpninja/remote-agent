@@ -1,0 +1,1296 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.AgentOptions
+  commentId: T:RemoteAgent.Service.AgentOptions
+  id: AgentOptions
+  parent: RemoteAgent.Service
+  children:
+  - RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits
+  - RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  - RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote
+  - RemoteAgent.Service.AgentOptions.ApiKey
+  - RemoteAgent.Service.AgentOptions.Arguments
+  - RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  - RemoteAgent.Service.AgentOptions.Command
+  - RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  - RemoteAgent.Service.AgentOptions.DataDirectory
+  - RemoteAgent.Service.AgentOptions.DosBlockSeconds
+  - RemoteAgent.Service.AgentOptions.DosViolationThreshold
+  - RemoteAgent.Service.AgentOptions.EnableConnectionProtection
+  - RemoteAgent.Service.AgentOptions.LogDirectory
+  - RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow
+  - RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer
+  - RemoteAgent.Service.AgentOptions.MaxConcurrentSessions
+  - RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow
+  - RemoteAgent.Service.AgentOptions.PairingUsers
+  - RemoteAgent.Service.AgentOptions.RunnerId
+  - RemoteAgent.Service.AgentOptions.SectionName
+  langs:
+  - csharp
+  - vb
+  name: AgentOptions
+  nameWithType: AgentOptions
+  fullName: RemoteAgent.Service.AgentOptions
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentOptions
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Configuration for the agent process and storage (TR-3.2, TR-3.6, TR-10.1, TR-11.1, TR-11.2). Bound from the "Agent" section in appsettings.
+  remarks: Used by the service to spawn the Cursor agent (FR-1.2), write session logs (FR-1.5), and configure the data directory for LiteDB and media.
+  example:
+  - >-
+    <pre><code class="lang-csharp">// appsettings.json
+
+    "Agent": {
+      "Command": "/path/to/cursor-agent",
+      "Arguments": "",
+      "LogDirectory": "/var/log/remote-agent",
+      "RunnerId": "" (empty = OS default: process on Linux, copilot-windows on Windows),
+      "DataDirectory": "./data"
+    }</code></pre>
+  syntax:
+    content: public class AgentOptions
+    content.vb: Public Class AgentOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.AgentOptions.SectionName
+  commentId: F:RemoteAgent.Service.AgentOptions.SectionName
+  id: SectionName
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: SectionName
+  nameWithType: AgentOptions.SectionName
+  fullName: RemoteAgent.Service.AgentOptions.SectionName
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SectionName
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: 'Configuration section name: "Agent".'
+  example: []
+  syntax:
+    content: public const string SectionName = "Agent"
+    return:
+      type: System.String
+    content.vb: Public Const SectionName As String = "Agent"
+- uid: RemoteAgent.Service.AgentOptions.Command
+  commentId: P:RemoteAgent.Service.AgentOptions.Command
+  id: Command
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: AgentOptions.Command
+  fullName: RemoteAgent.Service.AgentOptions.Command
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Command
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Command to spawn the agent (FR-1.2, TR-3.2). For a quick test use <code>/bin/cat</code> to echo lines back.
+  example: []
+  syntax:
+    content: public string? Command { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Command As String
+  overload: RemoteAgent.Service.AgentOptions.Command*
+- uid: RemoteAgent.Service.AgentOptions.Arguments
+  commentId: P:RemoteAgent.Service.AgentOptions.Arguments
+  id: Arguments
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: AgentOptions.Arguments
+  fullName: RemoteAgent.Service.AgentOptions.Arguments
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Arguments
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Optional arguments passed to the agent command.
+  example: []
+  syntax:
+    content: public string? Arguments { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Arguments As String
+  overload: RemoteAgent.Service.AgentOptions.Arguments*
+- uid: RemoteAgent.Service.AgentOptions.LogDirectory
+  commentId: P:RemoteAgent.Service.AgentOptions.LogDirectory
+  id: LogDirectory
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: LogDirectory
+  nameWithType: AgentOptions.LogDirectory
+  fullName: RemoteAgent.Service.AgentOptions.LogDirectory
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogDirectory
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 27
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Directory for session log files (FR-1.5, TR-3.6). Defaults to temp. Files are named <code>remote-agent-{sessionId}.log</code>.
+  example: []
+  syntax:
+    content: public string? LogDirectory { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogDirectory As String
+  overload: RemoteAgent.Service.AgentOptions.LogDirectory*
+- uid: RemoteAgent.Service.AgentOptions.RunnerId
+  commentId: P:RemoteAgent.Service.AgentOptions.RunnerId
+  id: RunnerId
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: RunnerId
+  nameWithType: AgentOptions.RunnerId
+  fullName: RemoteAgent.Service.AgentOptions.RunnerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RunnerId
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 30
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: 'Runner to use: "process" (default), "copilot-windows" (GitHub Copilot CLI on Windows), or a plugin runner id from <xref href="RemoteAgent.Service.PluginsOptions" data-throw-if-not-resolved="false"></xref> (TR-10.1, FR-8.1).'
+  example: []
+  syntax:
+    content: public string? RunnerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RunnerId As String
+  overload: RemoteAgent.Service.AgentOptions.RunnerId*
+- uid: RemoteAgent.Service.AgentOptions.DataDirectory
+  commentId: P:RemoteAgent.Service.AgentOptions.DataDirectory
+  id: DataDirectory
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: DataDirectory
+  nameWithType: AgentOptions.DataDirectory
+  fullName: RemoteAgent.Service.AgentOptions.DataDirectory
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DataDirectory
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Data directory for LiteDB and uploaded media (TR-11.1, TR-11.2). Defaults to <code>./data</code>. Media is stored under <code>data/media/</code>.
+  example: []
+  syntax:
+    content: public string? DataDirectory { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DataDirectory As String
+  overload: RemoteAgent.Service.AgentOptions.DataDirectory*
+- uid: RemoteAgent.Service.AgentOptions.ApiKey
+  commentId: P:RemoteAgent.Service.AgentOptions.ApiKey
+  id: ApiKey
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: AgentOptions.ApiKey
+  fullName: RemoteAgent.Service.AgentOptions.ApiKey
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ApiKey
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 36
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Optional API key required from clients via gRPC metadata header <code>x-api-key</code>. Loopback clients can still be allowed without a key when <xref href="RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback" data-throw-if-not-resolved="false"></xref> is true.
+  example: []
+  syntax:
+    content: public string? ApiKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ApiKey As String
+  overload: RemoteAgent.Service.AgentOptions.ApiKey*
+- uid: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  commentId: P:RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  id: AllowUnauthenticatedLoopback
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: AllowUnauthenticatedLoopback
+  nameWithType: AgentOptions.AllowUnauthenticatedLoopback
+  fullName: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AllowUnauthenticatedLoopback
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 39
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Allows unauthenticated access from loopback peers, including when <xref href="RemoteAgent.Service.AgentOptions.ApiKey" data-throw-if-not-resolved="false"></xref> is configured. Enabled by default.
+  example: []
+  syntax:
+    content: public bool AllowUnauthenticatedLoopback { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowUnauthenticatedLoopback As Boolean
+  overload: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback*
+- uid: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote
+  commentId: P:RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote
+  id: AllowUnauthenticatedRemote
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: AllowUnauthenticatedRemote
+  nameWithType: AgentOptions.AllowUnauthenticatedRemote
+  fullName: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AllowUnauthenticatedRemote
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 42
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Allows unauthenticated remote (non-loopback) access when no <xref href="RemoteAgent.Service.AgentOptions.ApiKey" data-throw-if-not-resolved="false"></xref> is configured. Disabled by default; enable only for development/trusted networks.
+  example: []
+  syntax:
+    content: public bool AllowUnauthenticatedRemote { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowUnauthenticatedRemote As Boolean
+  overload: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote*
+- uid: RemoteAgent.Service.AgentOptions.PairingUsers
+  commentId: P:RemoteAgent.Service.AgentOptions.PairingUsers
+  id: PairingUsers
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: PairingUsers
+  nameWithType: AgentOptions.PairingUsers
+  fullName: RemoteAgent.Service.AgentOptions.PairingUsers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PairingUsers
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 49
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: >-
+    Users permitted to authenticate at <code>GET /pair</code> to retrieve the server API key as a QR code.
+
+    Each user has a username and a SHA-256 hex digest of their password.
+
+    Compute the hash with: <code>echo -n "password" | sha256sum</code>
+  example: []
+  syntax:
+    content: public List<PairingUser> PairingUsers { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RemoteAgent.Service.PairingUser}
+    content.vb: Public Property PairingUsers As List(Of PairingUser)
+  overload: RemoteAgent.Service.AgentOptions.PairingUsers*
+- uid: RemoteAgent.Service.AgentOptions.EnableConnectionProtection
+  commentId: P:RemoteAgent.Service.AgentOptions.EnableConnectionProtection
+  id: EnableConnectionProtection
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: EnableConnectionProtection
+  nameWithType: AgentOptions.EnableConnectionProtection
+  fullName: RemoteAgent.Service.AgentOptions.EnableConnectionProtection
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EnableConnectionProtection
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 52
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Enables per-peer connection protection (rate limiting + DoS safeguards).
+  example: []
+  syntax:
+    content: public bool EnableConnectionProtection { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property EnableConnectionProtection As Boolean
+  overload: RemoteAgent.Service.AgentOptions.EnableConnectionProtection*
+- uid: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  commentId: P:RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  id: ConnectionAttemptWindowSeconds
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: ConnectionAttemptWindowSeconds
+  nameWithType: AgentOptions.ConnectionAttemptWindowSeconds
+  fullName: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionAttemptWindowSeconds
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 55
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Sliding window for connection-attempt rate limiting.
+  example: []
+  syntax:
+    content: public int ConnectionAttemptWindowSeconds { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ConnectionAttemptWindowSeconds As Integer
+  overload: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds*
+- uid: RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow
+  commentId: P:RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow
+  id: MaxConnectionAttemptsPerWindow
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxConnectionAttemptsPerWindow
+  nameWithType: AgentOptions.MaxConnectionAttemptsPerWindow
+  fullName: RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MaxConnectionAttemptsPerWindow
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 58
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Maximum connection attempts per peer within <xref href="RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int MaxConnectionAttemptsPerWindow { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxConnectionAttemptsPerWindow As Integer
+  overload: RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow*
+- uid: RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer
+  commentId: P:RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer
+  id: MaxConcurrentConnectionsPerPeer
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxConcurrentConnectionsPerPeer
+  nameWithType: AgentOptions.MaxConcurrentConnectionsPerPeer
+  fullName: RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MaxConcurrentConnectionsPerPeer
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 61
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Maximum concurrent streaming connections allowed for a single peer.
+  example: []
+  syntax:
+    content: public int MaxConcurrentConnectionsPerPeer { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxConcurrentConnectionsPerPeer As Integer
+  overload: RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer*
+- uid: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  commentId: P:RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  id: ClientMessageWindowSeconds
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: ClientMessageWindowSeconds
+  nameWithType: AgentOptions.ClientMessageWindowSeconds
+  fullName: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClientMessageWindowSeconds
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 64
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Sliding window for inbound client-message rate limiting.
+  example: []
+  syntax:
+    content: public int ClientMessageWindowSeconds { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ClientMessageWindowSeconds As Integer
+  overload: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds*
+- uid: RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow
+  commentId: P:RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow
+  id: MaxClientMessagesPerWindow
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxClientMessagesPerWindow
+  nameWithType: AgentOptions.MaxClientMessagesPerWindow
+  fullName: RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MaxClientMessagesPerWindow
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 67
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Maximum inbound client messages per peer within <xref href="RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int MaxClientMessagesPerWindow { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxClientMessagesPerWindow As Integer
+  overload: RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow*
+- uid: RemoteAgent.Service.AgentOptions.DosViolationThreshold
+  commentId: P:RemoteAgent.Service.AgentOptions.DosViolationThreshold
+  id: DosViolationThreshold
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: DosViolationThreshold
+  nameWithType: AgentOptions.DosViolationThreshold
+  fullName: RemoteAgent.Service.AgentOptions.DosViolationThreshold
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DosViolationThreshold
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 70
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Number of violations before temporary peer blocking is applied.
+  example: []
+  syntax:
+    content: public int DosViolationThreshold { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DosViolationThreshold As Integer
+  overload: RemoteAgent.Service.AgentOptions.DosViolationThreshold*
+- uid: RemoteAgent.Service.AgentOptions.DosBlockSeconds
+  commentId: P:RemoteAgent.Service.AgentOptions.DosBlockSeconds
+  id: DosBlockSeconds
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: DosBlockSeconds
+  nameWithType: AgentOptions.DosBlockSeconds
+  fullName: RemoteAgent.Service.AgentOptions.DosBlockSeconds
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DosBlockSeconds
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 73
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Duration for temporary peer blocking once DoS threshold is reached.
+  example: []
+  syntax:
+    content: public int DosBlockSeconds { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DosBlockSeconds As Integer
+  overload: RemoteAgent.Service.AgentOptions.DosBlockSeconds*
+- uid: RemoteAgent.Service.AgentOptions.MaxConcurrentSessions
+  commentId: P:RemoteAgent.Service.AgentOptions.MaxConcurrentSessions
+  id: MaxConcurrentSessions
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxConcurrentSessions
+  nameWithType: AgentOptions.MaxConcurrentSessions
+  fullName: RemoteAgent.Service.AgentOptions.MaxConcurrentSessions
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MaxConcurrentSessions
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 76
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: Maximum concurrent active sessions across the server.
+  example: []
+  syntax:
+    content: public int MaxConcurrentSessions { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxConcurrentSessions As Integer
+  overload: RemoteAgent.Service.AgentOptions.MaxConcurrentSessions*
+- uid: RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits
+  commentId: P:RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits
+  id: AgentConcurrentSessionLimits
+  parent: RemoteAgent.Service.AgentOptions
+  langs:
+  - csharp
+  - vb
+  name: AgentConcurrentSessionLimits
+  nameWithType: AgentOptions.AgentConcurrentSessionLimits
+  fullName: RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/AgentOptions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentConcurrentSessionLimits
+    path: ../src/RemoteAgent.Service/AgentOptions.cs
+    startLine: 79
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service
+  summary: 'Optional per-agent concurrent session caps keyed by agent id (e.g. "process": 10).'
+  example: []
+  syntax:
+    content: public Dictionary<string, int> AgentConcurrentSessionLimits { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Int32}
+    content.vb: Public Property AgentConcurrentSessionLimits As Dictionary(Of String, Integer)
+  overload: RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits*
+references:
+- uid: RemoteAgent.Service
+  commentId: N:RemoteAgent.Service
+  href: RemoteAgent.html
+  name: RemoteAgent.Service
+  nameWithType: RemoteAgent.Service
+  fullName: RemoteAgent.Service
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.AgentOptions.Command*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.Command
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_Command
+  name: Command
+  nameWithType: AgentOptions.Command
+  fullName: RemoteAgent.Service.AgentOptions.Command
+- uid: RemoteAgent.Service.AgentOptions.Arguments*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.Arguments
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_Arguments
+  name: Arguments
+  nameWithType: AgentOptions.Arguments
+  fullName: RemoteAgent.Service.AgentOptions.Arguments
+- uid: RemoteAgent.Service.AgentOptions.LogDirectory*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.LogDirectory
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_LogDirectory
+  name: LogDirectory
+  nameWithType: AgentOptions.LogDirectory
+  fullName: RemoteAgent.Service.AgentOptions.LogDirectory
+- uid: RemoteAgent.Service.PluginsOptions
+  commentId: T:RemoteAgent.Service.PluginsOptions
+  href: RemoteAgent.Service.PluginsOptions.html
+  name: PluginsOptions
+  nameWithType: PluginsOptions
+  fullName: RemoteAgent.Service.PluginsOptions
+- uid: RemoteAgent.Service.AgentOptions.RunnerId*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.RunnerId
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_RunnerId
+  name: RunnerId
+  nameWithType: AgentOptions.RunnerId
+  fullName: RemoteAgent.Service.AgentOptions.RunnerId
+- uid: RemoteAgent.Service.AgentOptions.DataDirectory*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.DataDirectory
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_DataDirectory
+  name: DataDirectory
+  nameWithType: AgentOptions.DataDirectory
+  fullName: RemoteAgent.Service.AgentOptions.DataDirectory
+- uid: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  commentId: P:RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_AllowUnauthenticatedLoopback
+  name: AllowUnauthenticatedLoopback
+  nameWithType: AgentOptions.AllowUnauthenticatedLoopback
+  fullName: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+- uid: RemoteAgent.Service.AgentOptions.ApiKey*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.ApiKey
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_ApiKey
+  name: ApiKey
+  nameWithType: AgentOptions.ApiKey
+  fullName: RemoteAgent.Service.AgentOptions.ApiKey
+- uid: RemoteAgent.Service.AgentOptions.ApiKey
+  commentId: P:RemoteAgent.Service.AgentOptions.ApiKey
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_ApiKey
+  name: ApiKey
+  nameWithType: AgentOptions.ApiKey
+  fullName: RemoteAgent.Service.AgentOptions.ApiKey
+- uid: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_AllowUnauthenticatedLoopback
+  name: AllowUnauthenticatedLoopback
+  nameWithType: AgentOptions.AllowUnauthenticatedLoopback
+  fullName: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedLoopback
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_AllowUnauthenticatedRemote
+  name: AllowUnauthenticatedRemote
+  nameWithType: AgentOptions.AllowUnauthenticatedRemote
+  fullName: RemoteAgent.Service.AgentOptions.AllowUnauthenticatedRemote
+- uid: RemoteAgent.Service.AgentOptions.PairingUsers*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.PairingUsers
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_PairingUsers
+  name: PairingUsers
+  nameWithType: AgentOptions.PairingUsers
+  fullName: RemoteAgent.Service.AgentOptions.PairingUsers
+- uid: System.Collections.Generic.List{RemoteAgent.Service.PairingUser}
+  commentId: T:System.Collections.Generic.List{RemoteAgent.Service.PairingUser}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: RemoteAgent.Service.PairingUser.html
+  name: List<PairingUser>
+  nameWithType: List<PairingUser>
+  fullName: System.Collections.Generic.List<RemoteAgent.Service.PairingUser>
+  nameWithType.vb: List(Of PairingUser)
+  fullName.vb: System.Collections.Generic.List(Of RemoteAgent.Service.PairingUser)
+  name.vb: List(Of PairingUser)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.PairingUser
+    name: PairingUser
+    href: RemoteAgent.Service.PairingUser.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.PairingUser
+    name: PairingUser
+    href: RemoteAgent.Service.PairingUser.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Service.AgentOptions.EnableConnectionProtection*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.EnableConnectionProtection
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_EnableConnectionProtection
+  name: EnableConnectionProtection
+  nameWithType: AgentOptions.EnableConnectionProtection
+  fullName: RemoteAgent.Service.AgentOptions.EnableConnectionProtection
+- uid: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_ConnectionAttemptWindowSeconds
+  name: ConnectionAttemptWindowSeconds
+  nameWithType: AgentOptions.ConnectionAttemptWindowSeconds
+  fullName: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  commentId: P:RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_ConnectionAttemptWindowSeconds
+  name: ConnectionAttemptWindowSeconds
+  nameWithType: AgentOptions.ConnectionAttemptWindowSeconds
+  fullName: RemoteAgent.Service.AgentOptions.ConnectionAttemptWindowSeconds
+- uid: RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_MaxConnectionAttemptsPerWindow
+  name: MaxConnectionAttemptsPerWindow
+  nameWithType: AgentOptions.MaxConnectionAttemptsPerWindow
+  fullName: RemoteAgent.Service.AgentOptions.MaxConnectionAttemptsPerWindow
+- uid: RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_MaxConcurrentConnectionsPerPeer
+  name: MaxConcurrentConnectionsPerPeer
+  nameWithType: AgentOptions.MaxConcurrentConnectionsPerPeer
+  fullName: RemoteAgent.Service.AgentOptions.MaxConcurrentConnectionsPerPeer
+- uid: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_ClientMessageWindowSeconds
+  name: ClientMessageWindowSeconds
+  nameWithType: AgentOptions.ClientMessageWindowSeconds
+  fullName: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+- uid: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  commentId: P:RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_ClientMessageWindowSeconds
+  name: ClientMessageWindowSeconds
+  nameWithType: AgentOptions.ClientMessageWindowSeconds
+  fullName: RemoteAgent.Service.AgentOptions.ClientMessageWindowSeconds
+- uid: RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_MaxClientMessagesPerWindow
+  name: MaxClientMessagesPerWindow
+  nameWithType: AgentOptions.MaxClientMessagesPerWindow
+  fullName: RemoteAgent.Service.AgentOptions.MaxClientMessagesPerWindow
+- uid: RemoteAgent.Service.AgentOptions.DosViolationThreshold*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.DosViolationThreshold
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_DosViolationThreshold
+  name: DosViolationThreshold
+  nameWithType: AgentOptions.DosViolationThreshold
+  fullName: RemoteAgent.Service.AgentOptions.DosViolationThreshold
+- uid: RemoteAgent.Service.AgentOptions.DosBlockSeconds*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.DosBlockSeconds
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_DosBlockSeconds
+  name: DosBlockSeconds
+  nameWithType: AgentOptions.DosBlockSeconds
+  fullName: RemoteAgent.Service.AgentOptions.DosBlockSeconds
+- uid: RemoteAgent.Service.AgentOptions.MaxConcurrentSessions*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.MaxConcurrentSessions
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_MaxConcurrentSessions
+  name: MaxConcurrentSessions
+  nameWithType: AgentOptions.MaxConcurrentSessions
+  fullName: RemoteAgent.Service.AgentOptions.MaxConcurrentSessions
+- uid: RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits*
+  commentId: Overload:RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_AgentConcurrentSessionLimits
+  name: AgentConcurrentSessionLimits
+  nameWithType: AgentOptions.AgentConcurrentSessionLimits
+  fullName: RemoteAgent.Service.AgentOptions.AgentConcurrentSessionLimits
+- uid: System.Collections.Generic.Dictionary{System.String,System.Int32}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Dictionary<string, int>
+  nameWithType: Dictionary<string, int>
+  fullName: System.Collections.Generic.Dictionary<string, int>
+  nameWithType.vb: Dictionary(Of String, Integer)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Integer)
+  name.vb: Dictionary(Of String, Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

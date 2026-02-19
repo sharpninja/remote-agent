@@ -1,0 +1,642 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  commentId: T:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  id: AuthUserSnapshot
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.#ctor(System.String,System.String,System.String,System.Boolean,System.DateTimeOffset,System.DateTimeOffset)
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc
+  - RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId
+  langs:
+  - csharp
+  - vb
+  name: AuthUserSnapshot
+  nameWithType: AuthUserSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthUserSnapshot
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 691
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: 'public sealed record AuthUserSnapshot : IEquatable<AuthUserSnapshot>'
+    content.vb: Public NotInheritable Class AuthUserSnapshot Implements IEquatable(Of AuthUserSnapshot)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.#ctor(System.String,System.String,System.String,System.Boolean,System.DateTimeOffset,System.DateTimeOffset)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.#ctor(System.String,System.String,System.String,System.Boolean,System.DateTimeOffset,System.DateTimeOffset)
+  id: '#ctor(System.String,System.String,System.String,System.Boolean,System.DateTimeOffset,System.DateTimeOffset)'
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: AuthUserSnapshot(string, string, string, bool, DateTimeOffset, DateTimeOffset)
+  nameWithType: AuthUserSnapshot.AuthUserSnapshot(string, string, string, bool, DateTimeOffset, DateTimeOffset)
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.AuthUserSnapshot(string, string, string, bool, System.DateTimeOffset, System.DateTimeOffset)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 691
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public AuthUserSnapshot(string UserId, string DisplayName, string Role, bool Enabled, DateTimeOffset CreatedUtc, DateTimeOffset UpdatedUtc)
+    parameters:
+    - id: UserId
+      type: System.String
+    - id: DisplayName
+      type: System.String
+    - id: Role
+      type: System.String
+    - id: Enabled
+      type: System.Boolean
+    - id: CreatedUtc
+      type: System.DateTimeOffset
+    - id: UpdatedUtc
+      type: System.DateTimeOffset
+    content.vb: Public Sub New(UserId As String, DisplayName As String, Role As String, Enabled As Boolean, CreatedUtc As DateTimeOffset, UpdatedUtc As DateTimeOffset)
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.#ctor*
+  nameWithType.vb: AuthUserSnapshot.New(String, String, String, Boolean, DateTimeOffset, DateTimeOffset)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.New(String, String, String, Boolean, System.DateTimeOffset, System.DateTimeOffset)
+  name.vb: New(String, String, String, Boolean, DateTimeOffset, DateTimeOffset)
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId
+  id: UserId
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: AuthUserSnapshot.UserId
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UserId
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 692
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string UserId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserId As String
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId*
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName
+  id: DisplayName
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: AuthUserSnapshot.DisplayName
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayName
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 693
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string DisplayName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName*
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role
+  id: Role
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: AuthUserSnapshot.Role
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Role
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 694
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string Role { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Role As String
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role*
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled
+  id: Enabled
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: AuthUserSnapshot.Enabled
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Enabled
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 695
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public bool Enabled { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Enabled As Boolean
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled*
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc
+  id: CreatedUtc
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: CreatedUtc
+  nameWithType: AuthUserSnapshot.CreatedUtc
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreatedUtc
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 696
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public DateTimeOffset CreatedUtc { get; init; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property CreatedUtc As DateTimeOffset
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc*
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc
+  id: UpdatedUtc
+  parent: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+  langs:
+  - csharp
+  - vb
+  name: UpdatedUtc
+  nameWithType: AuthUserSnapshot.UpdatedUtc
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpdatedUtc
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 697
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public DateTimeOffset UpdatedUtc { get; init; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property UpdatedUtc As DateTimeOffset
+  overload: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AuthUserSnapshot>
+  nameWithType: IEquatable<AuthUserSnapshot>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot>
+  nameWithType.vb: IEquatable(Of AuthUserSnapshot)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot)
+  name.vb: IEquatable(Of AuthUserSnapshot)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+    name: AuthUserSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+    name: AuthUserSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.#ctor
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot__ctor_System_String_System_String_System_String_System_Boolean_System_DateTimeOffset_System_DateTimeOffset_
+  name: AuthUserSnapshot
+  nameWithType: AuthUserSnapshot.AuthUserSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.AuthUserSnapshot
+  nameWithType.vb: AuthUserSnapshot.New
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot_UserId
+  name: UserId
+  nameWithType: AuthUserSnapshot.UserId
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UserId
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot_DisplayName
+  name: DisplayName
+  nameWithType: AuthUserSnapshot.DisplayName
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.DisplayName
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot_Role
+  name: Role
+  nameWithType: AuthUserSnapshot.Role
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Role
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot_Enabled
+  name: Enabled
+  nameWithType: AuthUserSnapshot.Enabled
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.Enabled
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot_CreatedUtc
+  name: CreatedUtc
+  nameWithType: AuthUserSnapshot.CreatedUtc
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.CreatedUtc
+- uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc
+  href: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.html#RemoteAgent_Desktop_Infrastructure_AuthUserSnapshot_UpdatedUtc
+  name: UpdatedUtc
+  nameWithType: AuthUserSnapshot.UpdatedUtc
+  fullName: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot.UpdatedUtc

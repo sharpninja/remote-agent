@@ -1,0 +1,959 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient
+  commentId: T:RemoteAgent.App.Logic.IAgentGatewayClient
+  id: IAgentGatewayClient
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage(RemoteAgent.App.Services.ChatMessage)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.ConnectionStateChanged
+  - RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect
+  - RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected
+  - RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore(System.String)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.MessageReceived
+  - RemoteAgent.App.Logic.IAgentGatewayClient.Messages
+  - RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext
+  - RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived(RemoteAgent.App.Services.ChatMessage,System.Boolean)
+  - RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IAgentGatewayClient
+  nameWithType: IAgentGatewayClient
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IAgentGatewayClient
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Abstracts the gateway client for agent sessions, enabling testability and DI.
+  example: []
+  syntax:
+    content: public interface IAgentGatewayClient
+    content.vb: Public Interface IAgentGatewayClient
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.Messages
+  commentId: P:RemoteAgent.App.Logic.IAgentGatewayClient.Messages
+  id: Messages
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: Messages
+  nameWithType: IAgentGatewayClient.Messages
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.Messages
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Messages
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: ObservableCollection<ChatMessage> Messages { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.ChatMessage}
+    content.vb: ReadOnly Property Messages As ObservableCollection(Of ChatMessage)
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.Messages*
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected
+  commentId: P:RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected
+  id: IsConnected
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: IsConnected
+  nameWithType: IAgentGatewayClient.IsConnected
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsConnected
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: bool IsConnected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsConnected As Boolean
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected*
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext
+  commentId: P:RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext
+  id: PerRequestContext
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: PerRequestContext
+  nameWithType: IAgentGatewayClient.PerRequestContext
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PerRequestContext
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 13
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: string? PerRequestContext { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PerRequestContext As String
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext*
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectionStateChanged
+  commentId: E:RemoteAgent.App.Logic.IAgentGatewayClient.ConnectionStateChanged
+  id: ConnectionStateChanged
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectionStateChanged
+  nameWithType: IAgentGatewayClient.ConnectionStateChanged
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectionStateChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionStateChanged
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: event Action? ConnectionStateChanged
+    return:
+      type: System.Action
+    content.vb: Event ConnectionStateChanged As Action
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.MessageReceived
+  commentId: E:RemoteAgent.App.Logic.IAgentGatewayClient.MessageReceived
+  id: MessageReceived
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: MessageReceived
+  nameWithType: IAgentGatewayClient.MessageReceived
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.MessageReceived
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MessageReceived
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: event Action<ChatMessage>? MessageReceived
+    return:
+      type: System.Action{RemoteAgent.App.Services.ChatMessage}
+    content.vb: Event MessageReceived As Action(Of ChatMessage)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore(System.String)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore(System.String)
+  id: LoadFromStore(System.String)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: LoadFromStore(string?)
+  nameWithType: IAgentGatewayClient.LoadFromStore(string?)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LoadFromStore
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void LoadFromStore(string? sessionId = null)
+    parameters:
+    - id: sessionId
+      type: System.String
+    content.vb: Sub LoadFromStore(sessionId As String = Nothing)
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore*
+  nameWithType.vb: IAgentGatewayClient.LoadFromStore(String)
+  fullName.vb: RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore(String)
+  name.vb: LoadFromStore(String)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage(RemoteAgent.App.Services.ChatMessage)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage(RemoteAgent.App.Services.ChatMessage)
+  id: AddUserMessage(RemoteAgent.App.Services.ChatMessage)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: AddUserMessage(ChatMessage)
+  nameWithType: IAgentGatewayClient.AddUserMessage(ChatMessage)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage(RemoteAgent.App.Services.ChatMessage)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AddUserMessage
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 19
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void AddUserMessage(ChatMessage message)
+    parameters:
+    - id: message
+      type: RemoteAgent.App.Services.ChatMessage
+    content.vb: Sub AddUserMessage(message As ChatMessage)
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage*
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived(RemoteAgent.App.Services.ChatMessage,System.Boolean)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived(RemoteAgent.App.Services.ChatMessage,System.Boolean)
+  id: SetArchived(RemoteAgent.App.Services.ChatMessage,System.Boolean)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: SetArchived(ChatMessage, bool)
+  nameWithType: IAgentGatewayClient.SetArchived(ChatMessage, bool)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived(RemoteAgent.App.Services.ChatMessage, bool)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SetArchived
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 20
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void SetArchived(ChatMessage message, bool archived)
+    parameters:
+    - id: message
+      type: RemoteAgent.App.Services.ChatMessage
+    - id: archived
+      type: System.Boolean
+    content.vb: Sub SetArchived(message As ChatMessage, archived As Boolean)
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived*
+  nameWithType.vb: IAgentGatewayClient.SetArchived(ChatMessage, Boolean)
+  fullName.vb: RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived(RemoteAgent.App.Services.ChatMessage, Boolean)
+  name.vb: SetArchived(ChatMessage, Boolean)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectAsync(string, int, string?, string?, string?, string?, CancellationToken)
+  nameWithType: IAgentGatewayClient.ConnectAsync(string, int, string?, string?, string?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync(string, int, string?, string?, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectAsync
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 22
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: sessionId
+      type: System.String
+    - id: agentId
+      type: System.String
+    - id: clientVersion
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function ConnectAsync(host As String, port As Integer, sessionId As String = Nothing, agentId As String = Nothing, clientVersion As String = Nothing, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync*
+  nameWithType.vb: IAgentGatewayClient.ConnectAsync(String, Integer, String, String, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync(String, Integer, String, String, String, String, System.Threading.CancellationToken)
+  name.vb: ConnectAsync(String, Integer, String, String, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  id: SendTextAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: SendTextAsync(string, CancellationToken)
+  nameWithType: IAgentGatewayClient.SendTextAsync(string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendTextAsync
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task SendTextAsync(string text, CancellationToken ct = default)
+    parameters:
+    - id: text
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendTextAsync(text As String, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync*
+  nameWithType.vb: IAgentGatewayClient.SendTextAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync(String, System.Threading.CancellationToken)
+  name.vb: SendTextAsync(String, CancellationToken)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  id: SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: SendScriptRequestAsync(string, ScriptType, CancellationToken)
+  nameWithType: IAgentGatewayClient.SendScriptRequestAsync(string, ScriptType, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync(string, RemoteAgent.Proto.ScriptType, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendScriptRequestAsync
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 25
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task SendScriptRequestAsync(string pathOrCommand, ScriptType scriptType, CancellationToken ct = default)
+    parameters:
+    - id: pathOrCommand
+      type: System.String
+    - id: scriptType
+      type: RemoteAgent.Proto.ScriptType
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendScriptRequestAsync(pathOrCommand As String, scriptType As ScriptType, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync*
+  nameWithType.vb: IAgentGatewayClient.SendScriptRequestAsync(String, ScriptType, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync(String, RemoteAgent.Proto.ScriptType, System.Threading.CancellationToken)
+  name.vb: SendScriptRequestAsync(String, ScriptType, CancellationToken)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  id: SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: SendMediaAsync(byte[], string, string?, CancellationToken)
+  nameWithType: IAgentGatewayClient.SendMediaAsync(byte[], string, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync(byte[], string, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendMediaAsync
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 26
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task SendMediaAsync(byte[] content, string contentType, string? fileName, CancellationToken ct = default)
+    parameters:
+    - id: content
+      type: System.Byte[]
+    - id: contentType
+      type: System.String
+    - id: fileName
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendMediaAsync(content As Byte(), contentType As String, fileName As String, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync*
+  nameWithType.vb: IAgentGatewayClient.SendMediaAsync(Byte(), String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync(Byte(), String, String, System.Threading.CancellationToken)
+  name.vb: SendMediaAsync(Byte(), String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync(System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync(System.Threading.CancellationToken)
+  id: StopSessionAsync(System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: StopSessionAsync(CancellationToken)
+  nameWithType: IAgentGatewayClient.StopSessionAsync(CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StopSessionAsync
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 27
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task StopSessionAsync(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function StopSessionAsync(ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync*
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect
+  commentId: M:RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect
+  id: Disconnect
+  parent: RemoteAgent.App.Logic.IAgentGatewayClient
+  langs:
+  - csharp
+  - vb
+  name: Disconnect()
+  nameWithType: IAgentGatewayClient.Disconnect()
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Disconnect
+    path: ../src/RemoteAgent.App.Logic/IAgentGatewayClient.cs
+    startLine: 28
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void Disconnect()
+    content.vb: Sub Disconnect()
+  overload: RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.Messages*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.Messages
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_Messages
+  name: Messages
+  nameWithType: IAgentGatewayClient.Messages
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.Messages
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.ChatMessage}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.ChatMessage}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.App.Services.ChatMessage.html
+  name: ObservableCollection<ChatMessage>
+  nameWithType: ObservableCollection<ChatMessage>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.App.Services.ChatMessage>
+  nameWithType.vb: ObservableCollection(Of ChatMessage)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.App.Services.ChatMessage)
+  name.vb: ObservableCollection(Of ChatMessage)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+    href: RemoteAgent.App.Services.ChatMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+    href: RemoteAgent.App.Services.ChatMessage.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_IsConnected
+  name: IsConnected
+  nameWithType: IAgentGatewayClient.IsConnected
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.IsConnected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_PerRequestContext
+  name: PerRequestContext
+  nameWithType: IAgentGatewayClient.PerRequestContext
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.PerRequestContext
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Action{RemoteAgent.App.Services.ChatMessage}
+  commentId: T:System.Action{RemoteAgent.App.Services.ChatMessage}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ChatMessage>
+  nameWithType: Action<ChatMessage>
+  fullName: System.Action<RemoteAgent.App.Services.ChatMessage>
+  nameWithType.vb: Action(Of ChatMessage)
+  fullName.vb: System.Action(Of RemoteAgent.App.Services.ChatMessage)
+  name.vb: Action(Of ChatMessage)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+    href: RemoteAgent.App.Services.ChatMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+    href: RemoteAgent.App.Services.ChatMessage.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_LoadFromStore_System_String_
+  name: LoadFromStore
+  nameWithType: IAgentGatewayClient.LoadFromStore
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.LoadFromStore
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_AddUserMessage_RemoteAgent_App_Services_ChatMessage_
+  name: AddUserMessage
+  nameWithType: IAgentGatewayClient.AddUserMessage
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.AddUserMessage
+- uid: RemoteAgent.App.Services.ChatMessage
+  commentId: T:RemoteAgent.App.Services.ChatMessage
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ChatMessage.html
+  name: ChatMessage
+  nameWithType: ChatMessage
+  fullName: RemoteAgent.App.Services.ChatMessage
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_SetArchived_RemoteAgent_App_Services_ChatMessage_System_Boolean_
+  name: SetArchived
+  nameWithType: IAgentGatewayClient.SetArchived
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SetArchived
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_ConnectAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: ConnectAsync
+  nameWithType: IAgentGatewayClient.ConnectAsync
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.ConnectAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_SendTextAsync_System_String_System_Threading_CancellationToken_
+  name: SendTextAsync
+  nameWithType: IAgentGatewayClient.SendTextAsync
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SendTextAsync
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_SendScriptRequestAsync_System_String_RemoteAgent_Proto_ScriptType_System_Threading_CancellationToken_
+  name: SendScriptRequestAsync
+  nameWithType: IAgentGatewayClient.SendScriptRequestAsync
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SendScriptRequestAsync
+- uid: RemoteAgent.Proto.ScriptType
+  commentId: T:RemoteAgent.Proto.ScriptType
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ScriptType.html
+  name: ScriptType
+  nameWithType: ScriptType
+  fullName: RemoteAgent.Proto.ScriptType
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_SendMediaAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_
+  name: SendMediaAsync
+  nameWithType: IAgentGatewayClient.SendMediaAsync
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.SendMediaAsync
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_StopSessionAsync_System_Threading_CancellationToken_
+  name: StopSessionAsync
+  nameWithType: IAgentGatewayClient.StopSessionAsync
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.StopSessionAsync
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect
+  href: RemoteAgent.App.Logic.IAgentGatewayClient.html#RemoteAgent_App_Logic_IAgentGatewayClient_Disconnect
+  name: Disconnect
+  nameWithType: IAgentGatewayClient.Disconnect
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient.Disconnect

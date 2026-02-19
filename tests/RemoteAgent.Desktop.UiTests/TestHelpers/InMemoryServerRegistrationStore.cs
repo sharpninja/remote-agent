@@ -2,6 +2,7 @@ using RemoteAgent.Desktop.Infrastructure;
 
 namespace RemoteAgent.Desktop.UiTests.TestHelpers;
 
+/// <summary>In-memory <see cref="IServerRegistrationStore"/> stub used by Desktop handler tests. TR-18.3.</summary>
 public sealed class InMemoryServerRegistrationStore : IServerRegistrationStore
 {
     private readonly List<ServerRegistration> _servers =

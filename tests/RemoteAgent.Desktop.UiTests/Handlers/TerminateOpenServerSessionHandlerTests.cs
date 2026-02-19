@@ -6,8 +6,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="TerminateOpenServerSessionHandler"/>. FR-13.3; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.3")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class TerminateOpenServerSessionHandlerTests
 {
+    // FR-13.3, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenTerminateSucceeds_ShouldReturnOk()
     {
@@ -21,6 +29,7 @@ public class TerminateOpenServerSessionHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-13.3, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenTerminateFails_ShouldReturnFail()
     {
@@ -34,6 +43,7 @@ public class TerminateOpenServerSessionHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-13.3, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenTerminateSucceeds_ShouldSetStatusText()
     {
@@ -47,6 +57,7 @@ public class TerminateOpenServerSessionHandlerTests
         workspace.StatusText.Should().Contain("sess-xyz");
     }
 
+    // FR-13.3, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenTerminateSucceeds_ShouldRefreshOpenSessions()
     {

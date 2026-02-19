@@ -1,0 +1,826 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  commentId: T:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  id: DesktopStructuredLogRecord
+  parent: RemoteAgent.Desktop.Logging
+  children:
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort
+  - RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc
+  langs:
+  - csharp
+  - vb
+  name: DesktopStructuredLogRecord
+  nameWithType: DesktopStructuredLogRecord
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DesktopStructuredLogRecord
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 2
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public sealed class DesktopStructuredLogRecord
+    content.vb: Public NotInheritable Class DesktopStructuredLogRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id
+  id: Id
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: DesktopStructuredLogRecord.Id
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Id
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Id As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId
+  id: ServerId
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: ServerId
+  nameWithType: DesktopStructuredLogRecord.ServerId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerId
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string ServerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServerId As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName
+  id: ServerDisplayName
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: ServerDisplayName
+  nameWithType: DesktopStructuredLogRecord.ServerDisplayName
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerDisplayName
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string ServerDisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServerDisplayName As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId
+  id: EventId
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: EventId
+  nameWithType: DesktopStructuredLogRecord.EventId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EventId
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public long EventId { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property EventId As Long
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc
+  id: TimestampUtc
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: TimestampUtc
+  nameWithType: DesktopStructuredLogRecord.TimestampUtc
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TimestampUtc
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public DateTimeOffset TimestampUtc { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property TimestampUtc As DateTimeOffset
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level
+  id: Level
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: DesktopStructuredLogRecord.Level
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Level
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string Level { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Level As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType
+  id: EventType
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: EventType
+  nameWithType: DesktopStructuredLogRecord.EventType
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EventType
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string EventType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EventType As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message
+  id: Message
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: DesktopStructuredLogRecord.Message
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Message
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component
+  id: Component
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: Component
+  nameWithType: DesktopStructuredLogRecord.Component
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Component
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string Component { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Component As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId
+  id: SessionId
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: SessionId
+  nameWithType: DesktopStructuredLogRecord.SessionId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionId
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 13
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string? SessionId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SessionId As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: DesktopStructuredLogRecord.CorrelationId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string? CorrelationId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CorrelationId As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson
+  id: DetailsJson
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: DetailsJson
+  nameWithType: DesktopStructuredLogRecord.DetailsJson
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DetailsJson
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string? DetailsJson { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DetailsJson As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost
+  id: SourceHost
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: SourceHost
+  nameWithType: DesktopStructuredLogRecord.SourceHost
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SourceHost
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public string SourceHost { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SourceHost As String
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost*
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort
+  commentId: P:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort
+  id: SourcePort
+  parent: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+  langs:
+  - csharp
+  - vb
+  name: SourcePort
+  nameWithType: DesktopStructuredLogRecord.SourcePort
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SourcePort
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogRecord.cs
+    startLine: 17
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public int SourcePort { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SourcePort As Integer
+  overload: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort*
+references:
+- uid: RemoteAgent.Desktop.Logging
+  commentId: N:RemoteAgent.Desktop.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Logging
+  nameWithType: RemoteAgent.Desktop.Logging
+  fullName: RemoteAgent.Desktop.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_Id
+  name: Id
+  nameWithType: DesktopStructuredLogRecord.Id
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_ServerId
+  name: ServerId
+  nameWithType: DesktopStructuredLogRecord.ServerId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerId
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_ServerDisplayName
+  name: ServerDisplayName
+  nameWithType: DesktopStructuredLogRecord.ServerDisplayName
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.ServerDisplayName
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_EventId
+  name: EventId
+  nameWithType: DesktopStructuredLogRecord.EventId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventId
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_TimestampUtc
+  name: TimestampUtc
+  nameWithType: DesktopStructuredLogRecord.TimestampUtc
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.TimestampUtc
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_Level
+  name: Level
+  nameWithType: DesktopStructuredLogRecord.Level
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Level
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_EventType
+  name: EventType
+  nameWithType: DesktopStructuredLogRecord.EventType
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.EventType
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_Message
+  name: Message
+  nameWithType: DesktopStructuredLogRecord.Message
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Message
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_Component
+  name: Component
+  nameWithType: DesktopStructuredLogRecord.Component
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.Component
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_SessionId
+  name: SessionId
+  nameWithType: DesktopStructuredLogRecord.SessionId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SessionId
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_CorrelationId
+  name: CorrelationId
+  nameWithType: DesktopStructuredLogRecord.CorrelationId
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.CorrelationId
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_DetailsJson
+  name: DetailsJson
+  nameWithType: DesktopStructuredLogRecord.DetailsJson
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.DetailsJson
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_SourceHost
+  name: SourceHost
+  nameWithType: DesktopStructuredLogRecord.SourceHost
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourceHost
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort*
+  commentId: Overload:RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html#RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord_SourcePort
+  name: SourcePort
+  nameWithType: DesktopStructuredLogRecord.SourcePort
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.SourcePort
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

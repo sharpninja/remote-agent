@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ViewModels
+  commentId: N:RemoteAgent.App.Logic.ViewModels
+  id: RemoteAgent.App.Logic.ViewModels
+  children:
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  - RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Logic.ViewModels
+  nameWithType: RemoteAgent.App.Logic.ViewModels
+  fullName: RemoteAgent.App.Logic.ViewModels
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Logic
+references:
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  commentId: T:RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html
+  name: AppShellViewModel
+  nameWithType: AppShellViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  commentId: T:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  parent: RemoteAgent.App.Logic.ViewModels
+  href: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel.html
+  name: McpRegistryPageViewModel
+  nameWithType: McpRegistryPageViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+- uid: RemoteAgent.App.Logic.ViewModels
+  commentId: N:RemoteAgent.App.Logic.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.ViewModels
+  nameWithType: RemoteAgent.App.Logic.ViewModels
+  fullName: RemoteAgent.App.Logic.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.Logic.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.Logic.ViewModels.html

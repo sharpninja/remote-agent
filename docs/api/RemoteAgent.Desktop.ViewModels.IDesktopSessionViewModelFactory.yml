@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  commentId: T:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  id: IDesktopSessionViewModelFactory
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IDesktopSessionViewModelFactory
+  nameWithType: IDesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IDesktopSessionViewModelFactory
+    path: ../src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public interface IDesktopSessionViewModelFactory
+    content.vb: Public Interface IDesktopSessionViewModelFactory
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  id: Create(System.String,System.String,System.String)
+  parent: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  langs:
+  - csharp
+  - vb
+  name: Create(string, string, string)
+  nameWithType: IDesktopSessionViewModelFactory.Create(string, string, string)
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Create
+    path: ../src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: DesktopSessionViewModel Create(string title, string connectionMode, string agentId)
+    parameters:
+    - id: title
+      type: System.String
+    - id: connectionMode
+      type: System.String
+    - id: agentId
+      type: System.String
+    return:
+      type: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+    content.vb: Function Create(title As String, connectionMode As String, agentId As String) As DesktopSessionViewModel
+  overload: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create*
+  nameWithType.vb: IDesktopSessionViewModelFactory.Create(String, String, String)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(String, String, String)
+  name.vb: Create(String, String, String)
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create
+  href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html#RemoteAgent_Desktop_ViewModels_IDesktopSessionViewModelFactory_Create_System_String_System_String_System_String_
+  name: Create
+  nameWithType: IDesktopSessionViewModelFactory.Create
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  name: DesktopSessionViewModel
+  nameWithType: DesktopSessionViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

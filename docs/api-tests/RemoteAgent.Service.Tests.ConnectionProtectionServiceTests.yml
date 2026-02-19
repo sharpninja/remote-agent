@@ -1,0 +1,629 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  commentId: T:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  id: ConnectionProtectionServiceTests
+  parent: RemoteAgent.Service.Tests
+  children:
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.#ctor
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached
+  - RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  langs:
+  - csharp
+  - vb
+  name: ConnectionProtectionServiceTests
+  nameWithType: ConnectionProtectionServiceTests
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionProtectionServiceTests
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: 'public class ConnectionProtectionServiceTests : IDisposable'
+    content.vb: Public Class ConnectionProtectionServiceTests Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.#ctor
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: ConnectionProtectionServiceTests()
+  nameWithType: ConnectionProtectionServiceTests.ConnectionProtectionServiceTests()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.ConnectionProtectionServiceTests()
+  type: Constructor
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: public ConnectionProtectionServiceTests()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.#ctor*
+  nameWithType.vb: ConnectionProtectionServiceTests.New()
+  fullName.vb: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.New()
+  name.vb: New()
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached
+  id: TryOpenConnection_Denies_WhenConcurrentLimitReached
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: TryOpenConnection_Denies_WhenConcurrentLimitReached()
+  nameWithType: ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryOpenConnection_Denies_WhenConcurrentLimitReached
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void TryOpenConnection_Denies_WhenConcurrentLimitReached()
+    content.vb: >-
+      <Fact>
+
+      Public Sub TryOpenConnection_Denies_WhenConcurrentLimitReached()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  id: TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: TryRegisterClientMessage_Denies_WhenMessageRateExceeded()
+  nameWithType: ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 37
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void TryRegisterClientMessage_Denies_WhenMessageRateExceeded()
+    content.vb: >-
+      <Fact>
+
+      Public Sub TryRegisterClientMessage_Denies_WhenMessageRateExceeded()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold
+  id: TryOpenConnection_BlocksPeer_AfterDosThreshold
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: TryOpenConnection_BlocksPeer_AfterDosThreshold()
+  nameWithType: ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryOpenConnection_BlocksPeer_AfterDosThreshold
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 53
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void TryOpenConnection_BlocksPeer_AfterDosThreshold()
+    content.vb: >-
+      <Fact>
+
+      Public Sub TryOpenConnection_BlocksPeer_AfterDosThreshold()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned
+  id: BanPeer_DeniesFutureConnections_UntilUnbanned
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: BanPeer_DeniesFutureConnections_UntilUnbanned()
+  nameWithType: ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BanPeer_DeniesFutureConnections_UntilUnbanned
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 74
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void BanPeer_DeniesFutureConnections_UntilUnbanned()
+    content.vb: >-
+      <Fact>
+
+      Public Sub BanPeer_DeniesFutureConnections_UntilUnbanned()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents
+  id: GetConnectionHistory_ReturnsRecentEvents
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: GetConnectionHistory_ReturnsRecentEvents()
+  nameWithType: ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetConnectionHistory_ReturnsRecentEvents
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 91
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void GetConnectionHistory_ReturnsRecentEvents()
+    content.vb: >-
+      <Fact>
+
+      Public Sub GetConnectionHistory_ReturnsRecentEvents()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose
+  commentId: M:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose
+  id: Dispose
+  parent: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ConnectionProtectionServiceTests.Dispose()
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Dispose
+    path: ../tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs
+    startLine: 108
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: RemoteAgent.Service.Tests
+  commentId: N:RemoteAgent.Service.Tests
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Tests
+  nameWithType: RemoteAgent.Service.Tests
+  fullName: RemoteAgent.Service.Tests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Tests
+    name: Tests
+    href: RemoteAgent.Service.Tests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Tests
+    name: Tests
+    href: RemoteAgent.Service.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.#ctor*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.#ctor
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests__ctor
+  name: ConnectionProtectionServiceTests
+  nameWithType: ConnectionProtectionServiceTests.ConnectionProtectionServiceTests
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.ConnectionProtectionServiceTests
+  nameWithType.vb: ConnectionProtectionServiceTests.New
+  fullName.vb: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.New
+  name.vb: New
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests_TryOpenConnection_Denies_WhenConcurrentLimitReached
+  name: TryOpenConnection_Denies_WhenConcurrentLimitReached
+  nameWithType: ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_Denies_WhenConcurrentLimitReached
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests_TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  name: TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  nameWithType: ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryRegisterClientMessage_Denies_WhenMessageRateExceeded
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests_TryOpenConnection_BlocksPeer_AfterDosThreshold
+  name: TryOpenConnection_BlocksPeer_AfterDosThreshold
+  nameWithType: ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.TryOpenConnection_BlocksPeer_AfterDosThreshold
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests_BanPeer_DeniesFutureConnections_UntilUnbanned
+  name: BanPeer_DeniesFutureConnections_UntilUnbanned
+  nameWithType: ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.BanPeer_DeniesFutureConnections_UntilUnbanned
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests_GetConnectionHistory_ReturnsRecentEvents
+  name: GetConnectionHistory_ReturnsRecentEvents
+  nameWithType: ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.GetConnectionHistory_ReturnsRecentEvents
+- uid: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose*
+  commentId: Overload:RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose
+  href: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.html#RemoteAgent_Service_Tests_ConnectionProtectionServiceTests_Dispose
+  name: Dispose
+  nameWithType: ConnectionProtectionServiceTests.Dispose
+  fullName: RemoteAgent.Service.Tests.ConnectionProtectionServiceTests.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

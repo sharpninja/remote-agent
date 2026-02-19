@@ -1,0 +1,655 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  commentId: T:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  id: StartLogMonitoringHandlerTests
+  parent: RemoteAgent.Desktop.UiTests.Handlers
+  children:
+  - RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail
+  - RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail
+  - RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail
+  - RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  - RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  langs:
+  - csharp
+  - vb
+  name: StartLogMonitoringHandlerTests
+  nameWithType: StartLogMonitoringHandlerTests
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartLogMonitoringHandlerTests
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  summary: Tests for <xref href="RemoteAgent.Desktop.Handlers.StartLogMonitoringHandler" data-throw-if-not-resolved="false"></xref>. FR-12.11; TR-18.1, TR-18.2, TR-18.3, TR-18.4.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-12.11")]
+
+      [Trait("Requirement", "TR-18.1")]
+
+      [Trait("Requirement", "TR-18.2")]
+
+      [Trait("Requirement", "TR-18.3")]
+
+      [Trait("Requirement", "TR-18.4")]
+
+      public class StartLogMonitoringHandlerTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-12.11")>
+
+      <Trait("Requirement", "TR-18.1")>
+
+      <Trait("Requirement", "TR-18.2")>
+
+      <Trait("Requirement", "TR-18.3")>
+
+      <Trait("Requirement", "TR-18.4")>
+
+      Public Class StartLogMonitoringHandlerTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.11
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.4
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail
+  id: HandleAsync_WhenHostEmpty_ShouldReturnFail
+  parent: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_WhenHostEmpty_ShouldReturnFail()
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_WhenHostEmpty_ShouldReturnFail
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+    startLine: 17
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task HandleAsync_WhenHostEmpty_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function HandleAsync_WhenHostEmpty_ShouldReturnFail() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail
+  id: HandleAsync_WhenPortInvalid_ShouldReturnFail
+  parent: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_WhenPortInvalid_ShouldReturnFail()
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_WhenPortInvalid_ShouldReturnFail
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+    startLine: 32
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task HandleAsync_WhenPortInvalid_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function HandleAsync_WhenPortInvalid_ShouldReturnFail() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  id: HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  parent: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset()
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+    startLine: 46
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail
+  id: HandleAsync_WhenClientThrows_ShouldReturnFail
+  parent: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_WhenClientThrows_ShouldReturnFail()
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_WhenClientThrows_ShouldReturnFail
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+    startLine: 61
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task HandleAsync_WhenClientThrows_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function HandleAsync_WhenClientThrows_ShouldReturnFail() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  id: HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  parent: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus()
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs
+    startLine: 76
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.Desktop.Handlers.StartLogMonitoringHandler
+  commentId: T:RemoteAgent.Desktop.Handlers.StartLogMonitoringHandler
+  name: StartLogMonitoringHandler
+  nameWithType: StartLogMonitoringHandler
+  fullName: RemoteAgent.Desktop.Handlers.StartLogMonitoringHandler
+- uid: RemoteAgent.Desktop.UiTests.Handlers
+  commentId: N:RemoteAgent.Desktop.UiTests.Handlers
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.UiTests.Handlers
+  nameWithType: RemoteAgent.Desktop.UiTests.Handlers
+  fullName: RemoteAgent.Desktop.UiTests.Handlers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.Handlers
+    name: Handlers
+    href: RemoteAgent.Desktop.UiTests.Handlers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.Handlers
+    name: Handlers
+    href: RemoteAgent.Desktop.UiTests.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail
+  href: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_StartLogMonitoringHandlerTests_HandleAsync_WhenHostEmpty_ShouldReturnFail
+  name: HandleAsync_WhenHostEmpty_ShouldReturnFail
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenHostEmpty_ShouldReturnFail
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail
+  href: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_StartLogMonitoringHandlerTests_HandleAsync_WhenPortInvalid_ShouldReturnFail
+  name: HandleAsync_WhenPortInvalid_ShouldReturnFail
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenPortInvalid_ShouldReturnFail
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  href: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_StartLogMonitoringHandlerTests_HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  name: HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail
+  href: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_StartLogMonitoringHandlerTests_HandleAsync_WhenClientThrows_ShouldReturnFail
+  name: HandleAsync_WhenClientThrows_ShouldReturnFail
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenClientThrows_ShouldReturnFail
+- uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  href: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_StartLogMonitoringHandlerTests_HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  name: HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  nameWithType: StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests.HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus

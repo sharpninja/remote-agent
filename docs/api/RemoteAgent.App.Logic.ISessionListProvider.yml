@@ -1,0 +1,185 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ISessionListProvider
+  commentId: T:RemoteAgent.App.Logic.ISessionListProvider
+  id: ISessionListProvider
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.ISessionListProvider.GetSessions
+  langs:
+  - csharp
+  - vb
+  name: ISessionListProvider
+  nameWithType: ISessionListProvider
+  fullName: RemoteAgent.App.Logic.ISessionListProvider
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionListProvider.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ISessionListProvider
+    path: ../src/RemoteAgent.App.Logic/ISessionListProvider.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Read-only provider of current session list, decoupling shell from storage details.
+  example: []
+  syntax:
+    content: public interface ISessionListProvider
+    content.vb: Public Interface ISessionListProvider
+- uid: RemoteAgent.App.Logic.ISessionListProvider.GetSessions
+  commentId: M:RemoteAgent.App.Logic.ISessionListProvider.GetSessions
+  id: GetSessions
+  parent: RemoteAgent.App.Logic.ISessionListProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSessions()
+  nameWithType: ISessionListProvider.GetSessions()
+  fullName: RemoteAgent.App.Logic.ISessionListProvider.GetSessions()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionListProvider.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetSessions
+    path: ../src/RemoteAgent.App.Logic/ISessionListProvider.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: IReadOnlyList<SessionSummary> GetSessions()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.App.Logic.SessionSummary}
+    content.vb: Function GetSessions() As IReadOnlyList(Of SessionSummary)
+  overload: RemoteAgent.App.Logic.ISessionListProvider.GetSessions*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.ISessionListProvider.GetSessions*
+  commentId: Overload:RemoteAgent.App.Logic.ISessionListProvider.GetSessions
+  href: RemoteAgent.App.Logic.ISessionListProvider.html#RemoteAgent_App_Logic_ISessionListProvider_GetSessions
+  name: GetSessions
+  nameWithType: ISessionListProvider.GetSessions
+  fullName: RemoteAgent.App.Logic.ISessionListProvider.GetSessions
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.App.Logic.SessionSummary}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.App.Logic.SessionSummary}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.App.Logic.SessionSummary.html
+  name: IReadOnlyList<SessionSummary>
+  nameWithType: IReadOnlyList<SessionSummary>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.App.Logic.SessionSummary>
+  nameWithType.vb: IReadOnlyList(Of SessionSummary)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.App.Logic.SessionSummary)
+  name.vb: IReadOnlyList(Of SessionSummary)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.SessionSummary
+    name: SessionSummary
+    href: RemoteAgent.App.Logic.SessionSummary.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.SessionSummary
+    name: SessionSummary
+    href: RemoteAgent.App.Logic.SessionSummary.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true

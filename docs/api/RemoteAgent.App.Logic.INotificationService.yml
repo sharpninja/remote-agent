@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.INotificationService
+  commentId: T:RemoteAgent.App.Logic.INotificationService
+  id: INotificationService
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.INotificationService.Show(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: INotificationService
+  nameWithType: INotificationService
+  fullName: RemoteAgent.App.Logic.INotificationService
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: INotificationService
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 36
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public interface INotificationService
+    content.vb: Public Interface INotificationService
+- uid: RemoteAgent.App.Logic.INotificationService.Show(System.String,System.String)
+  commentId: M:RemoteAgent.App.Logic.INotificationService.Show(System.String,System.String)
+  id: Show(System.String,System.String)
+  parent: RemoteAgent.App.Logic.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: Show(string, string)
+  nameWithType: INotificationService.Show(string, string)
+  fullName: RemoteAgent.App.Logic.INotificationService.Show(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Show
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 38
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void Show(string title, string body)
+    parameters:
+    - id: title
+      type: System.String
+    - id: body
+      type: System.String
+    content.vb: Sub Show(title As String, body As String)
+  overload: RemoteAgent.App.Logic.INotificationService.Show*
+  nameWithType.vb: INotificationService.Show(String, String)
+  fullName.vb: RemoteAgent.App.Logic.INotificationService.Show(String, String)
+  name.vb: Show(String, String)
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.INotificationService.Show*
+  commentId: Overload:RemoteAgent.App.Logic.INotificationService.Show
+  href: RemoteAgent.App.Logic.INotificationService.html#RemoteAgent_App_Logic_INotificationService_Show_System_String_System_String_
+  name: Show
+  nameWithType: INotificationService.Show
+  fullName: RemoteAgent.App.Logic.INotificationService.Show
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

@@ -1,0 +1,712 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  commentId: T:RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  id: ArchiveMobileMessageHandler
+  parent: RemoteAgent.App.Handlers
+  children:
+  - RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.#ctor(RemoteAgent.App.Logic.IAgentGatewayClient)
+  - RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ArchiveMobileMessageHandler
+  nameWithType: ArchiveMobileMessageHandler
+  fullName: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App/Handlers/ArchiveMobileMessageHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ArchiveMobileMessageHandler
+    path: ../src/RemoteAgent.App/Handlers/ArchiveMobileMessageHandler.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Handlers
+  syntax:
+    content: 'public sealed class ArchiveMobileMessageHandler : IRequestHandler<ArchiveMobileMessageRequest, CommandResult>'
+    content.vb: Public NotInheritable Class ArchiveMobileMessageHandler Implements IRequestHandler(Of ArchiveMobileMessageRequest, CommandResult)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.#ctor(RemoteAgent.App.Logic.IAgentGatewayClient)
+  commentId: M:RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.#ctor(RemoteAgent.App.Logic.IAgentGatewayClient)
+  id: '#ctor(RemoteAgent.App.Logic.IAgentGatewayClient)'
+  parent: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  langs:
+  - csharp
+  - vb
+  name: ArchiveMobileMessageHandler(IAgentGatewayClient)
+  nameWithType: ArchiveMobileMessageHandler.ArchiveMobileMessageHandler(IAgentGatewayClient)
+  fullName: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.ArchiveMobileMessageHandler(RemoteAgent.App.Logic.IAgentGatewayClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App/Handlers/ArchiveMobileMessageHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App/Handlers/ArchiveMobileMessageHandler.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Handlers
+  syntax:
+    content: public ArchiveMobileMessageHandler(IAgentGatewayClient gateway)
+    parameters:
+    - id: gateway
+      type: RemoteAgent.App.Logic.IAgentGatewayClient
+    content.vb: Public Sub New(gateway As IAgentGatewayClient)
+  overload: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.#ctor*
+  nameWithType.vb: ArchiveMobileMessageHandler.New(IAgentGatewayClient)
+  fullName.vb: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.New(RemoteAgent.App.Logic.IAgentGatewayClient)
+  name.vb: New(IAgentGatewayClient)
+- uid: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+  id: HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync(ArchiveMobileMessageRequest, CancellationToken)
+  nameWithType: ArchiveMobileMessageHandler.HandleAsync(ArchiveMobileMessageRequest, CancellationToken)
+  fullName: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/Handlers/ArchiveMobileMessageHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync
+    path: ../src/RemoteAgent.App/Handlers/ArchiveMobileMessageHandler.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Handlers
+  example: []
+  syntax:
+    content: public Task<CommandResult> HandleAsync(ArchiveMobileMessageRequest request, CancellationToken ct = default)
+    parameters:
+    - id: request
+      type: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+    content.vb: Public Function HandleAsync(request As ArchiveMobileMessageRequest, ct As CancellationToken = Nothing) As Task(Of CommandResult)
+  overload: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+references:
+- uid: RemoteAgent.App.Handlers
+  commentId: N:RemoteAgent.App.Handlers
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Handlers
+  nameWithType: RemoteAgent.App.Handlers
+  fullName: RemoteAgent.App.Handlers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Handlers
+    name: Handlers
+    href: RemoteAgent.App.Handlers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Handlers
+    name: Handlers
+    href: RemoteAgent.App.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  name: IRequestHandler<ArchiveMobileMessageRequest, CommandResult>
+  nameWithType: IRequestHandler<ArchiveMobileMessageRequest, CommandResult>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.App.Requests.ArchiveMobileMessageRequest, RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: IRequestHandler(Of ArchiveMobileMessageRequest, CommandResult)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.App.Requests.ArchiveMobileMessageRequest, RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: IRequestHandler(Of ArchiveMobileMessageRequest, CommandResult)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: <
+  - uid: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+    name: ArchiveMobileMessageRequest
+    href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+    name: ArchiveMobileMessageRequest
+    href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.#ctor*
+  commentId: Overload:RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.#ctor
+  href: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.html#RemoteAgent_App_Handlers_ArchiveMobileMessageHandler__ctor_RemoteAgent_App_Logic_IAgentGatewayClient_
+  name: ArchiveMobileMessageHandler
+  nameWithType: ArchiveMobileMessageHandler.ArchiveMobileMessageHandler
+  fullName: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.ArchiveMobileMessageHandler
+  nameWithType.vb: ArchiveMobileMessageHandler.New
+  fullName.vb: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient
+  commentId: T:RemoteAgent.App.Logic.IAgentGatewayClient
+  parent: RemoteAgent.App.Logic
+  name: IAgentGatewayClient
+  nameWithType: IAgentGatewayClient
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+- uid: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync*
+  commentId: Overload:RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync
+  href: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.html#RemoteAgent_App_Handlers_ArchiveMobileMessageHandler_HandleAsync_RemoteAgent_App_Requests_ArchiveMobileMessageRequest_System_Threading_CancellationToken_
+  name: HandleAsync
+  nameWithType: ArchiveMobileMessageHandler.HandleAsync
+  fullName: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.HandleAsync
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  name: HandleAsync(ArchiveMobileMessageRequest, CancellationToken)
+  nameWithType: IRequestHandler<ArchiveMobileMessageRequest, CommandResult>.HandleAsync(ArchiveMobileMessageRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.App.Requests.ArchiveMobileMessageRequest, RemoteAgent.App.Logic.Cqrs.CommandResult>.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of ArchiveMobileMessageRequest, CommandResult).HandleAsync(ArchiveMobileMessageRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.App.Requests.ArchiveMobileMessageRequest, RemoteAgent.App.Logic.Cqrs.CommandResult).HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - uid: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+    name: ArchiveMobileMessageRequest
+    href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ArchiveMobileMessageRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ArchiveMobileMessageRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - uid: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+    name: ArchiveMobileMessageRequest
+    href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+  commentId: T:RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  name: ArchiveMobileMessageRequest
+  nameWithType: ArchiveMobileMessageRequest
+  fullName: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<CommandResult>
+  nameWithType: Task<CommandResult>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: Task(Of CommandResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: Task(Of CommandResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  name: HandleAsync(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Requests
+  commentId: N:RemoteAgent.App.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Requests
+  nameWithType: RemoteAgent.App.Requests
+  fullName: RemoteAgent.App.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

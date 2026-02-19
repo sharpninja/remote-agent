@@ -1,0 +1,246 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  id: IRequestHandler`2
+  parent: RemoteAgent.App.Logic.Cqrs
+  children:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/IRequestHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IRequestHandler
+    path: ../src/RemoteAgent.App.Logic/Cqrs/IRequestHandler.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  summary: Handler contract. One handler per request type.
+  example: []
+  syntax:
+    content: 'public interface IRequestHandler<TRequest, TResponse> where TRequest : IRequest<TResponse>'
+    typeParameters:
+    - id: TRequest
+    - id: TResponse
+    content.vb: Public Interface IRequestHandler(Of TRequest As IRequest(Of TResponse), TResponse)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  id: HandleAsync(`0,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/IRequestHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync
+    path: ../src/RemoteAgent.App.Logic/Cqrs/IRequestHandler.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: Task<TResponse> HandleAsync(TRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: '{TRequest}'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{{TResponse}}
+    content.vb: Function HandleAsync(request As TRequest, cancellationToken As CancellationToken = Nothing) As Task(Of TResponse)
+  overload: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync*
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, System.Threading.CancellationToken)
+references:
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync
+  href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  name: HandleAsync
+  nameWithType: IRequestHandler<TRequest, TResponse>.HandleAsync
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>.HandleAsync
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).HandleAsync
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse).HandleAsync
+- uid: '{TRequest}'
+  commentId: '!:TRequest'
+  definition: TRequest
+  name: TRequest
+  nameWithType: TRequest
+  fullName: TRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{{TResponse}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<TResponse>
+  nameWithType: Task<TResponse>
+  fullName: System.Threading.Tasks.Task<TResponse>
+  nameWithType.vb: Task(Of TResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of TResponse)
+  name.vb: Task(Of TResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: TRequest
+  commentId: '!:TRequest'
+  name: TRequest
+  nameWithType: TRequest
+  fullName: TRequest
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

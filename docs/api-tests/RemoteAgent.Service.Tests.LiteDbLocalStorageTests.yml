@@ -1,0 +1,349 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Tests.LiteDbLocalStorageTests
+  commentId: T:RemoteAgent.Service.Tests.LiteDbLocalStorageTests
+  id: LiteDbLocalStorageTests
+  parent: RemoteAgent.Service.Tests
+  children:
+  - RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist
+  langs:
+  - csharp
+  - vb
+  name: LiteDbLocalStorageTests
+  nameWithType: LiteDbLocalStorageTests
+  fullName: RemoteAgent.Service.Tests.LiteDbLocalStorageTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/LiteDbLocalStorageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LiteDbLocalStorageTests
+    path: ../tests/RemoteAgent.Service.Tests/LiteDbLocalStorageTests.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: public class LiteDbLocalStorageTests
+    content.vb: Public Class LiteDbLocalStorageTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist
+  commentId: M:RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist
+  id: SessionExists_ReturnsTrue_WhenEntriesExist
+  parent: RemoteAgent.Service.Tests.LiteDbLocalStorageTests
+  langs:
+  - csharp
+  - vb
+  name: SessionExists_ReturnsTrue_WhenEntriesExist()
+  nameWithType: LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist()
+  fullName: RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.Tests/LiteDbLocalStorageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionExists_ReturnsTrue_WhenEntriesExist
+    path: ../tests/RemoteAgent.Service.Tests/LiteDbLocalStorageTests.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Service.Tests
+  namespace: RemoteAgent.Service.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SessionExists_ReturnsTrue_WhenEntriesExist()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SessionExists_ReturnsTrue_WhenEntriesExist()
+  overload: RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.Service.Tests
+  commentId: N:RemoteAgent.Service.Tests
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Tests
+  nameWithType: RemoteAgent.Service.Tests
+  fullName: RemoteAgent.Service.Tests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Tests
+    name: Tests
+    href: RemoteAgent.Service.Tests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Tests
+    name: Tests
+    href: RemoteAgent.Service.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist*
+  commentId: Overload:RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist
+  href: RemoteAgent.Service.Tests.LiteDbLocalStorageTests.html#RemoteAgent_Service_Tests_LiteDbLocalStorageTests_SessionExists_ReturnsTrue_WhenEntriesExist
+  name: SessionExists_ReturnsTrue_WhenEntriesExist
+  nameWithType: LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist
+  fullName: RemoteAgent.Service.Tests.LiteDbLocalStorageTests.SessionExists_ReturnsTrue_WhenEntriesExist

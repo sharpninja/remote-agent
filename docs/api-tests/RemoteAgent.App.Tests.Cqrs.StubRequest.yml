@@ -1,0 +1,589 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest
+  commentId: T:RemoteAgent.App.Tests.Cqrs.StubRequest
+  id: StubRequest
+  parent: RemoteAgent.App.Tests.Cqrs
+  children:
+  - RemoteAgent.App.Tests.Cqrs.StubRequest.#ctor(System.Guid,System.String)
+  - RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId
+  - RemoteAgent.App.Tests.Cqrs.StubRequest.Value
+  langs:
+  - csharp
+  - vb
+  name: StubRequest
+  nameWithType: StubRequest
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StubRequest
+    path: ../tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests.Cqrs
+  syntax:
+    content: 'public sealed record StubRequest : IRequest<string>, IEquatable<StubRequest>'
+    content.vb: Public NotInheritable Class StubRequest Implements IRequest(Of String), IEquatable(Of StubRequest)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{System.String}
+  - System.IEquatable{RemoteAgent.App.Tests.Cqrs.StubRequest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest.#ctor(System.Guid,System.String)
+  commentId: M:RemoteAgent.App.Tests.Cqrs.StubRequest.#ctor(System.Guid,System.String)
+  id: '#ctor(System.Guid,System.String)'
+  parent: RemoteAgent.App.Tests.Cqrs.StubRequest
+  langs:
+  - csharp
+  - vb
+  name: StubRequest(Guid, string)
+  nameWithType: StubRequest.StubRequest(Guid, string)
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest.StubRequest(System.Guid, string)
+  type: Constructor
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests.Cqrs
+  syntax:
+    content: public StubRequest(Guid CorrelationId, string Value)
+    parameters:
+    - id: CorrelationId
+      type: System.Guid
+    - id: Value
+      type: System.String
+    content.vb: Public Sub New(CorrelationId As Guid, Value As String)
+  overload: RemoteAgent.App.Tests.Cqrs.StubRequest.#ctor*
+  nameWithType.vb: StubRequest.New(Guid, String)
+  fullName.vb: RemoteAgent.App.Tests.Cqrs.StubRequest.New(System.Guid, String)
+  name.vb: New(Guid, String)
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId
+  commentId: P:RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.App.Tests.Cqrs.StubRequest
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: StubRequest.CorrelationId
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests.Cqrs
+  example: []
+  syntax:
+    content: public Guid CorrelationId { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property CorrelationId As Guid
+  overload: RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{System.String}.CorrelationId
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest.Value
+  commentId: P:RemoteAgent.App.Tests.Cqrs.StubRequest.Value
+  id: Value
+  parent: RemoteAgent.App.Tests.Cqrs.StubRequest
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: StubRequest.Value
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest.Value
+  type: Property
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Value
+    path: ../tests/RemoteAgent.App.Tests/Cqrs/ServiceProviderRequestDispatcherTests.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests.Cqrs
+  syntax:
+    content: public string Value { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Value As String
+  overload: RemoteAgent.App.Tests.Cqrs.StubRequest.Value*
+references:
+- uid: RemoteAgent.App.Tests.Cqrs
+  commentId: N:RemoteAgent.App.Tests.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Tests.Cqrs
+  nameWithType: RemoteAgent.App.Tests.Cqrs
+  fullName: RemoteAgent.App.Tests.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  - name: .
+  - uid: RemoteAgent.App.Tests.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Tests.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  - name: .
+  - uid: RemoteAgent.App.Tests.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Tests.Cqrs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{System.String}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest{System.String}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IRequest<string>
+  nameWithType: IRequest<string>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<string>
+  nameWithType.vb: IRequest(Of String)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of String)
+  name.vb: IRequest(Of String)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.IEquatable{RemoteAgent.App.Tests.Cqrs.StubRequest}
+  commentId: T:System.IEquatable{RemoteAgent.App.Tests.Cqrs.StubRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<StubRequest>
+  nameWithType: IEquatable<StubRequest>
+  fullName: System.IEquatable<RemoteAgent.App.Tests.Cqrs.StubRequest>
+  nameWithType.vb: IEquatable(Of StubRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.App.Tests.Cqrs.StubRequest)
+  name.vb: IEquatable(Of StubRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.App.Tests.Cqrs.StubRequest
+    name: StubRequest
+    href: RemoteAgent.App.Tests.Cqrs.StubRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Tests.Cqrs.StubRequest
+    name: StubRequest
+    href: RemoteAgent.App.Tests.Cqrs.StubRequest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest.#ctor*
+  commentId: Overload:RemoteAgent.App.Tests.Cqrs.StubRequest.#ctor
+  href: RemoteAgent.App.Tests.Cqrs.StubRequest.html#RemoteAgent_App_Tests_Cqrs_StubRequest__ctor_System_Guid_System_String_
+  name: StubRequest
+  nameWithType: StubRequest.StubRequest
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest.StubRequest
+  nameWithType.vb: StubRequest.New
+  fullName.vb: RemoteAgent.App.Tests.Cqrs.StubRequest.New
+  name.vb: New
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId*
+  commentId: Overload:RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId
+  href: RemoteAgent.App.Tests.Cqrs.StubRequest.html#RemoteAgent_App_Tests_Cqrs_StubRequest_CorrelationId
+  name: CorrelationId
+  nameWithType: StubRequest.CorrelationId
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest.CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{System.String}.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest{System.String}.CorrelationId
+  parent: RemoteAgent.App.Logic.Cqrs.IRequest{System.String}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<string>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<string>.CorrelationId
+  nameWithType.vb: IRequest(Of String).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of String).CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest.Value*
+  commentId: Overload:RemoteAgent.App.Tests.Cqrs.StubRequest.Value
+  href: RemoteAgent.App.Tests.Cqrs.StubRequest.html#RemoteAgent_App_Tests_Cqrs_StubRequest_Value
+  name: Value
+  nameWithType: StubRequest.Value
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest.Value

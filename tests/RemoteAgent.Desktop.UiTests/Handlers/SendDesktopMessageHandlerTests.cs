@@ -7,8 +7,17 @@ using RemoteAgent.Desktop.ViewModels;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="SendDesktopMessageHandler"/>. FR-2.1, FR-2.2; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-2.1")]
+[Trait("Requirement", "FR-2.2")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class SendDesktopMessageHandlerTests
 {
+    // FR-2.1, FR-2.2, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenSessionIsNull_ShouldReturnFail()
     {
@@ -20,6 +29,7 @@ public class SendDesktopMessageHandlerTests
         result.ErrorMessage.Should().Contain("No session");
     }
 
+    // FR-2.1, FR-2.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_WhenMessageEmpty_ShouldReturnFail()
     {
@@ -36,6 +46,7 @@ public class SendDesktopMessageHandlerTests
         result.ErrorMessage.Should().Contain("empty");
     }
 
+    // FR-2.1, FR-2.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_WhenConnected_ShouldSendAndClearMessage()
     {
@@ -55,6 +66,7 @@ public class SendDesktopMessageHandlerTests
         session.Messages.Should().Contain(m => m.Contains("Hello"));
     }
 
+    // FR-2.1, FR-2.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_WhenNotConnected_ShouldReconnectAndSend()
     {
@@ -72,6 +84,7 @@ public class SendDesktopMessageHandlerTests
         fakeSession.IsConnected.Should().BeTrue();
     }
 
+    // FR-2.1, FR-2.2, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenNotConnectedAndHostEmpty_ShouldReturnFail()
     {

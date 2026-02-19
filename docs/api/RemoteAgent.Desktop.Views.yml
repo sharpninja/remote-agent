@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Views
+  commentId: N:RemoteAgent.Desktop.Views
+  id: RemoteAgent.Desktop.Views
+  children:
+  - RemoteAgent.Desktop.Views.ConnectionSettingsDialog
+  - RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+  - RemoteAgent.Desktop.Views.MainWindow
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop.Views
+  nameWithType: RemoteAgent.Desktop.Views
+  fullName: RemoteAgent.Desktop.Views
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop
+references:
+- uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+  commentId: T:RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+  parent: RemoteAgent.Desktop.Views
+  href: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult.html
+  name: ConnectionSettingsDialogResult
+  nameWithType: ConnectionSettingsDialogResult
+  fullName: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+- uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialog
+  commentId: T:RemoteAgent.Desktop.Views.ConnectionSettingsDialog
+  href: RemoteAgent.Desktop.Views.ConnectionSettingsDialog.html
+  name: ConnectionSettingsDialog
+  nameWithType: ConnectionSettingsDialog
+  fullName: RemoteAgent.Desktop.Views.ConnectionSettingsDialog
+- uid: RemoteAgent.Desktop.Views.MainWindow
+  commentId: T:RemoteAgent.Desktop.Views.MainWindow
+  href: RemoteAgent.Desktop.Views.MainWindow.html
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: RemoteAgent.Desktop.Views.MainWindow
+- uid: RemoteAgent.Desktop.Views
+  commentId: N:RemoteAgent.Desktop.Views
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Views
+  nameWithType: RemoteAgent.Desktop.Views
+  fullName: RemoteAgent.Desktop.Views
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Views
+    name: Views
+    href: RemoteAgent.Desktop.Views.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Views
+    name: Views
+    href: RemoteAgent.Desktop.Views.html

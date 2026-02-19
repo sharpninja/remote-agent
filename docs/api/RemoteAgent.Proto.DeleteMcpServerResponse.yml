@@ -1,0 +1,1484 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse
+  commentId: T:RemoteAgent.Proto.DeleteMcpServerResponse
+  id: DeleteMcpServerResponse
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.DeleteMcpServerResponse.#ctor
+  - RemoteAgent.Proto.DeleteMcpServerResponse.#ctor(RemoteAgent.Proto.DeleteMcpServerResponse)
+  - RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Clone
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Equals(System.Object)
+  - RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode
+  - RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(Google.Protobuf.CodedInputStream)
+  - RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Message
+  - RemoteAgent.Proto.DeleteMcpServerResponse.MessageFieldNumber
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Parser
+  - RemoteAgent.Proto.DeleteMcpServerResponse.Success
+  - RemoteAgent.Proto.DeleteMcpServerResponse.SuccessFieldNumber
+  - RemoteAgent.Proto.DeleteMcpServerResponse.ToString
+  - RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServerResponse
+  nameWithType: DeleteMcpServerResponse
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteMcpServerResponse
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8305
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: 'public sealed class DeleteMcpServerResponse : IMessage<DeleteMcpServerResponse>, IEquatable<DeleteMcpServerResponse>, IDeepCloneable<DeleteMcpServerResponse>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class DeleteMcpServerResponse Implements IMessage(Of DeleteMcpServerResponse), IEquatable(Of DeleteMcpServerResponse), IDeepCloneable(Of DeleteMcpServerResponse), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}
+  - System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Parser
+  commentId: P:RemoteAgent.Proto.DeleteMcpServerResponse.Parser
+  id: Parser
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: DeleteMcpServerResponse.Parser
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Parser
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Parser
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8313
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageParser<DeleteMcpServerResponse> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{RemoteAgent.Proto.DeleteMcpServerResponse}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of DeleteMcpServerResponse)
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Parser*
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor
+  commentId: P:RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor
+  id: Descriptor
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: DeleteMcpServerResponse.Descriptor
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Descriptor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8317
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor*
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.#ctor
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServerResponse()
+  nameWithType: DeleteMcpServerResponse.DeleteMcpServerResponse()
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.DeleteMcpServerResponse()
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8329
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public DeleteMcpServerResponse()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.#ctor*
+  nameWithType.vb: DeleteMcpServerResponse.New()
+  fullName.vb: RemoteAgent.Proto.DeleteMcpServerResponse.New()
+  name.vb: New()
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.#ctor(RemoteAgent.Proto.DeleteMcpServerResponse)
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.#ctor(RemoteAgent.Proto.DeleteMcpServerResponse)
+  id: '#ctor(RemoteAgent.Proto.DeleteMcpServerResponse)'
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServerResponse(DeleteMcpServerResponse)
+  nameWithType: DeleteMcpServerResponse.DeleteMcpServerResponse(DeleteMcpServerResponse)
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.DeleteMcpServerResponse(RemoteAgent.Proto.DeleteMcpServerResponse)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8337
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public DeleteMcpServerResponse(DeleteMcpServerResponse other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.DeleteMcpServerResponse
+    content.vb: Public Sub New(other As DeleteMcpServerResponse)
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.#ctor*
+  nameWithType.vb: DeleteMcpServerResponse.New(DeleteMcpServerResponse)
+  fullName.vb: RemoteAgent.Proto.DeleteMcpServerResponse.New(RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: New(DeleteMcpServerResponse)
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Clone
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.Clone
+  id: Clone
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: DeleteMcpServerResponse.Clone()
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Clone
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8345
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public DeleteMcpServerResponse Clone()
+    return:
+      type: RemoteAgent.Proto.DeleteMcpServerResponse
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As DeleteMcpServerResponse
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}.Clone
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.SuccessFieldNumber
+  commentId: F:RemoteAgent.Proto.DeleteMcpServerResponse.SuccessFieldNumber
+  id: SuccessFieldNumber
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: SuccessFieldNumber
+  nameWithType: DeleteMcpServerResponse.SuccessFieldNumber
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.SuccessFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SuccessFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8352
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "success" field.
+  example: []
+  syntax:
+    content: public const int SuccessFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const SuccessFieldNumber As Integer = 1
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Success
+  commentId: P:RemoteAgent.Proto.DeleteMcpServerResponse.Success
+  id: Success
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: DeleteMcpServerResponse.Success
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Success
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Success
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8354
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public bool Success { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Success As Boolean
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Success*
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.MessageFieldNumber
+  commentId: F:RemoteAgent.Proto.DeleteMcpServerResponse.MessageFieldNumber
+  id: MessageFieldNumber
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: MessageFieldNumber
+  nameWithType: DeleteMcpServerResponse.MessageFieldNumber
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.MessageFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MessageFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8364
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "message" field.
+  example: []
+  syntax:
+    content: public const int MessageFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const MessageFieldNumber As Integer = 2
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Message
+  commentId: P:RemoteAgent.Proto.DeleteMcpServerResponse.Message
+  id: Message
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: DeleteMcpServerResponse.Message
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Message
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Message
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8366
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Message*
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Equals(System.Object)
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: DeleteMcpServerResponse.Equals(object)
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8375
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Equals*
+  nameWithType.vb: DeleteMcpServerResponse.Equals(Object)
+  fullName.vb: RemoteAgent.Proto.DeleteMcpServerResponse.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  id: Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: Equals(DeleteMcpServerResponse)
+  nameWithType: DeleteMcpServerResponse.Equals(DeleteMcpServerResponse)
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8381
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(DeleteMcpServerResponse other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.DeleteMcpServerResponse
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As DeleteMcpServerResponse) As Boolean
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.Equals*
+  implements:
+  - System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode
+  id: GetHashCode
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DeleteMcpServerResponse.GetHashCode()
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetHashCode
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8395
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode*
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.ToString
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.ToString
+  id: ToString
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: DeleteMcpServerResponse.ToString()
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8407
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.ToString*
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: DeleteMcpServerResponse.WriteTo(CodedOutputStream)
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: WriteTo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8413
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize
+  id: CalculateSize
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: DeleteMcpServerResponse.CalculateSize()
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CalculateSize
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8451
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  id: MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(DeleteMcpServerResponse)
+  nameWithType: DeleteMcpServerResponse.MergeFrom(DeleteMcpServerResponse)
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8467
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(DeleteMcpServerResponse other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.DeleteMcpServerResponse
+    content.vb: Public Sub MergeFrom(other As DeleteMcpServerResponse)
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: RemoteAgent.Proto.DeleteMcpServerResponse
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: DeleteMcpServerResponse.MergeFrom(CodedInputStream)
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 8482
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}
+  commentId: T:Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: IMessage<DeleteMcpServerResponse>
+  nameWithType: IMessage<DeleteMcpServerResponse>
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.DeleteMcpServerResponse>
+  nameWithType.vb: IMessage(Of DeleteMcpServerResponse)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: IMessage(Of DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  commentId: T:System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DeleteMcpServerResponse>
+  nameWithType: IEquatable<DeleteMcpServerResponse>
+  fullName: System.IEquatable<RemoteAgent.Proto.DeleteMcpServerResponse>
+  nameWithType.vb: IEquatable(Of DeleteMcpServerResponse)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: IEquatable(Of DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  commentId: T:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: IDeepCloneable<DeleteMcpServerResponse>
+  nameWithType: IDeepCloneable<DeleteMcpServerResponse>
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.DeleteMcpServerResponse>
+  nameWithType.vb: IDeepCloneable(Of DeleteMcpServerResponse)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: IDeepCloneable(Of DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Parser*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.Parser
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_Parser
+  name: Parser
+  nameWithType: DeleteMcpServerResponse.Parser
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Parser
+- uid: Google.Protobuf.MessageParser{RemoteAgent.Proto.DeleteMcpServerResponse}
+  commentId: T:Google.Protobuf.MessageParser{RemoteAgent.Proto.DeleteMcpServerResponse}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: MessageParser<DeleteMcpServerResponse>
+  nameWithType: MessageParser<DeleteMcpServerResponse>
+  fullName: Google.Protobuf.MessageParser<RemoteAgent.Proto.DeleteMcpServerResponse>
+  nameWithType.vb: MessageParser(Of DeleteMcpServerResponse)
+  fullName.vb: Google.Protobuf.MessageParser(Of RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: MessageParser(Of DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_Descriptor
+  name: Descriptor
+  nameWithType: DeleteMcpServerResponse.Descriptor
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.#ctor*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.#ctor
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse__ctor
+  name: DeleteMcpServerResponse
+  nameWithType: DeleteMcpServerResponse.DeleteMcpServerResponse
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.DeleteMcpServerResponse
+  nameWithType.vb: DeleteMcpServerResponse.New
+  fullName.vb: RemoteAgent.Proto.DeleteMcpServerResponse.New
+  name.vb: New
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse
+  commentId: T:RemoteAgent.Proto.DeleteMcpServerResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: DeleteMcpServerResponse
+  nameWithType: DeleteMcpServerResponse
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Clone*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.Clone
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_Clone
+  name: Clone
+  nameWithType: DeleteMcpServerResponse.Clone
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Clone
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}.Clone
+  parent: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<DeleteMcpServerResponse>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.DeleteMcpServerResponse>.Clone()
+  nameWithType.vb: IDeepCloneable(Of DeleteMcpServerResponse).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.DeleteMcpServerResponse).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.DeleteMcpServerResponse}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Success*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.Success
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_Success
+  name: Success
+  nameWithType: DeleteMcpServerResponse.Success
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Success
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Message*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.Message
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_Message
+  name: Message
+  nameWithType: DeleteMcpServerResponse.Message
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Message
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.Equals*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.Equals
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_Equals_System_Object_
+  name: Equals
+  nameWithType: DeleteMcpServerResponse.Equals
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.Equals
+- uid: System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  commentId: M:System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  parent: System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(DeleteMcpServerResponse)
+  nameWithType: IEquatable<DeleteMcpServerResponse>.Equals(DeleteMcpServerResponse)
+  fullName: System.IEquatable<RemoteAgent.Proto.DeleteMcpServerResponse>.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  nameWithType.vb: IEquatable(Of DeleteMcpServerResponse).Equals(DeleteMcpServerResponse)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.DeleteMcpServerResponse).Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RemoteAgent.Proto.DeleteMcpServerResponse}.Equals(RemoteAgent.Proto.DeleteMcpServerResponse)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_GetHashCode
+  name: GetHashCode
+  nameWithType: DeleteMcpServerResponse.GetHashCode
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.ToString*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.ToString
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_ToString
+  name: ToString
+  nameWithType: DeleteMcpServerResponse.ToString
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.ToString
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: DeleteMcpServerResponse.WriteTo
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_CalculateSize
+  name: CalculateSize
+  nameWithType: DeleteMcpServerResponse.CalculateSize
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom*
+  commentId: Overload:RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html#RemoteAgent_Proto_DeleteMcpServerResponse_MergeFrom_RemoteAgent_Proto_DeleteMcpServerResponse_
+  name: MergeFrom
+  nameWithType: DeleteMcpServerResponse.MergeFrom
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse.MergeFrom
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  commentId: M:Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  parent: Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: MergeFrom(DeleteMcpServerResponse)
+  nameWithType: IMessage<DeleteMcpServerResponse>.MergeFrom(DeleteMcpServerResponse)
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.DeleteMcpServerResponse>.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  nameWithType.vb: IMessage(Of DeleteMcpServerResponse).MergeFrom(DeleteMcpServerResponse)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.DeleteMcpServerResponse).MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.DeleteMcpServerResponse}.MergeFrom(RemoteAgent.Proto.DeleteMcpServerResponse)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

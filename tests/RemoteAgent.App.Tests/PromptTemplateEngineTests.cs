@@ -3,6 +3,7 @@ using RemoteAgent.App.Logic;
 
 namespace RemoteAgent.App.Tests;
 
+/// <summary>Core tests for <see cref="RemoteAgent.App.Logic.PromptTemplateEngine"/> variable extraction and substitution. FR-14.2; TR-17.3.</summary>
 [Trait("Category", "Requirements")]
 [Trait("Requirement", "FR-14.2")]
 [Trait("Requirement", "TR-17.3")]

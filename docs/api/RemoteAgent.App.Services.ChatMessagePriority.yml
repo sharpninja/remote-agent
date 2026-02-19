@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Services.ChatMessagePriority
+  commentId: T:RemoteAgent.App.Services.ChatMessagePriority
+  id: ChatMessagePriority
+  parent: RemoteAgent.App.Services
+  children:
+  - RemoteAgent.App.Services.ChatMessagePriority.High
+  - RemoteAgent.App.Services.ChatMessagePriority.Normal
+  - RemoteAgent.App.Services.ChatMessagePriority.Notify
+  langs:
+  - csharp
+  - vb
+  name: ChatMessagePriority
+  nameWithType: ChatMessagePriority
+  fullName: RemoteAgent.App.Services.ChatMessagePriority
+  type: Enum
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ChatMessage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ChatMessagePriority
+    path: ../src/RemoteAgent.App.Logic/ChatMessage.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Services
+  summary: Message priority for chat messages (FR-3.1, FR-3.2). Normal and High for styling; Notify triggers a system notification and tap opens the app.
+  example: []
+  syntax:
+    content: public enum ChatMessagePriority
+    content.vb: Public Enum ChatMessagePriority
+- uid: RemoteAgent.App.Services.ChatMessagePriority.Normal
+  commentId: F:RemoteAgent.App.Services.ChatMessagePriority.Normal
+  id: Normal
+  parent: RemoteAgent.App.Services.ChatMessagePriority
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: ChatMessagePriority.Normal
+  fullName: RemoteAgent.App.Services.ChatMessagePriority.Normal
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ChatMessage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Normal
+    path: ../src/RemoteAgent.App.Logic/ChatMessage.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Services
+  syntax:
+    content: Normal = 0
+    return:
+      type: RemoteAgent.App.Services.ChatMessagePriority
+- uid: RemoteAgent.App.Services.ChatMessagePriority.High
+  commentId: F:RemoteAgent.App.Services.ChatMessagePriority.High
+  id: High
+  parent: RemoteAgent.App.Services.ChatMessagePriority
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: ChatMessagePriority.High
+  fullName: RemoteAgent.App.Services.ChatMessagePriority.High
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ChatMessage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: High
+    path: ../src/RemoteAgent.App.Logic/ChatMessage.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Services
+  syntax:
+    content: High = 1
+    return:
+      type: RemoteAgent.App.Services.ChatMessagePriority
+- uid: RemoteAgent.App.Services.ChatMessagePriority.Notify
+  commentId: F:RemoteAgent.App.Services.ChatMessagePriority.Notify
+  id: Notify
+  parent: RemoteAgent.App.Services.ChatMessagePriority
+  langs:
+  - csharp
+  - vb
+  name: Notify
+  nameWithType: ChatMessagePriority.Notify
+  fullName: RemoteAgent.App.Services.ChatMessagePriority.Notify
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ChatMessage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Notify
+    path: ../src/RemoteAgent.App.Logic/ChatMessage.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Services
+  syntax:
+    content: Notify = 2
+    return:
+      type: RemoteAgent.App.Services.ChatMessagePriority
+references:
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+- uid: RemoteAgent.App.Services.ChatMessagePriority
+  commentId: T:RemoteAgent.App.Services.ChatMessagePriority
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ChatMessagePriority.html
+  name: ChatMessagePriority
+  nameWithType: ChatMessagePriority
+  fullName: RemoteAgent.App.Services.ChatMessagePriority

@@ -1,0 +1,872 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests.ChatMessageTests
+  commentId: T:RemoteAgent.App.Tests.ChatMessageTests
+  id: ChatMessageTests
+  parent: RemoteAgent.App.Tests
+  children:
+  - RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText
+  - RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  - RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage
+  - RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText
+  - RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged
+  - RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal
+  - RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown
+  - RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument
+  - RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  - RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  - RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  langs:
+  - csharp
+  - vb
+  name: ChatMessageTests
+  nameWithType: ChatMessageTests
+  fullName: RemoteAgent.App.Tests.ChatMessageTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ChatMessageTests
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  summary: Chat message display, priority, archive, markdown rendering. FR-2.3, FR-3.1, FR-4.1, FR-7.2; TR-5.1, TR-5.3, TR-5.5.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-2.3")]
+
+      [Trait("Requirement", "FR-3.1")]
+
+      [Trait("Requirement", "FR-4.1")]
+
+      [Trait("Requirement", "FR-7.2")]
+
+      [Trait("Requirement", "TR-5.1")]
+
+      [Trait("Requirement", "TR-5.3")]
+
+      [Trait("Requirement", "TR-5.5")]
+
+      public class ChatMessageTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-2.3")>
+
+      <Trait("Requirement", "FR-3.1")>
+
+      <Trait("Requirement", "FR-4.1")>
+
+      <Trait("Requirement", "FR-7.2")>
+
+      <Trait("Requirement", "TR-5.1")>
+
+      <Trait("Requirement", "TR-5.3")>
+
+      <Trait("Requirement", "TR-5.5")>
+
+      Public Class ChatMessageTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-2.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-3.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-4.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-7.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-5.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-5.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-5.5
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage
+  id: DisplayText_WhenIsEvent_ReturnsEventMessage
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: DisplayText_WhenIsEvent_ReturnsEventMessage()
+  nameWithType: ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayText_WhenIsEvent_ReturnsEventMessage
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 17
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void DisplayText_WhenIsEvent_ReturnsEventMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub DisplayText_WhenIsEvent_ReturnsEventMessage()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText
+  id: DisplayText_WhenIsUser_ReturnsText
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: DisplayText_WhenIsUser_ReturnsText()
+  nameWithType: ChatMessageTests.DisplayText_WhenIsUser_ReturnsText()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayText_WhenIsUser_ReturnsText
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void DisplayText_WhenIsUser_ReturnsText()
+    content.vb: >-
+      <Fact>
+
+      Public Sub DisplayText_WhenIsUser_ReturnsText()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText
+  id: DisplayText_WhenAgent_ReturnsText
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: DisplayText_WhenAgent_ReturnsText()
+  nameWithType: ChatMessageTests.DisplayText_WhenAgent_ReturnsText()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayText_WhenAgent_ReturnsText
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 31
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void DisplayText_WhenAgent_ReturnsText()
+    content.vb: >-
+      <Fact>
+
+      Public Sub DisplayText_WhenAgent_ReturnsText()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  id: DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty()
+  nameWithType: ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 38
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty()
+    content.vb: >-
+      <Fact>
+
+      Public Sub DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  id: RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: RenderedHtml_WhenIsUser_ReturnsPlainHtml()
+  nameWithType: ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RenderedHtml_WhenIsUser_ReturnsPlainHtml
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 45
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void RenderedHtml_WhenIsUser_ReturnsPlainHtml()
+    content.vb: >-
+      <Fact>
+
+      Public Sub RenderedHtml_WhenIsUser_ReturnsPlainHtml()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  id: RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: RenderedHtml_WhenIsEvent_ReturnsPlainHtml()
+  nameWithType: ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 54
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void RenderedHtml_WhenIsEvent_ReturnsPlainHtml()
+    content.vb: >-
+      <Fact>
+
+      Public Sub RenderedHtml_WhenIsEvent_ReturnsPlainHtml()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown
+  id: RenderedHtml_WhenAgentOutput_RendersMarkdown
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: RenderedHtml_WhenAgentOutput_RendersMarkdown()
+  nameWithType: ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RenderedHtml_WhenAgentOutput_RendersMarkdown
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 61
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void RenderedHtml_WhenAgentOutput_RendersMarkdown()
+    content.vb: >-
+      <Fact>
+
+      Public Sub RenderedHtml_WhenAgentOutput_RendersMarkdown()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  id: RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: RenderedHtml_WhenIsError_DoesNotRenderMarkdown()
+  nameWithType: ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 68
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void RenderedHtml_WhenIsError_DoesNotRenderMarkdown()
+    content.vb: >-
+      <Fact>
+
+      Public Sub RenderedHtml_WhenIsError_DoesNotRenderMarkdown()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument
+  id: RenderedHtml_WhenAgent_AlwaysFullDocument
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: RenderedHtml_WhenAgent_AlwaysFullDocument()
+  nameWithType: ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RenderedHtml_WhenAgent_AlwaysFullDocument
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 76
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void RenderedHtml_WhenAgent_AlwaysFullDocument()
+    content.vb: >-
+      <Fact>
+
+      Public Sub RenderedHtml_WhenAgent_AlwaysFullDocument()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal
+  id: Priority_DefaultsToNormal
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: Priority_DefaultsToNormal()
+  nameWithType: ChatMessageTests.Priority_DefaultsToNormal()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Priority_DefaultsToNormal
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 84
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Priority_DefaultsToNormal()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Priority_DefaultsToNormal()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged
+  commentId: M:RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged
+  id: IsArchived_WhenSet_RaisesPropertyChanged
+  parent: RemoteAgent.App.Tests.ChatMessageTests
+  langs:
+  - csharp
+  - vb
+  name: IsArchived_WhenSet_RaisesPropertyChanged()
+  nameWithType: ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged()
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsArchived_WhenSet_RaisesPropertyChanged
+    path: ../tests/RemoteAgent.App.Tests/ChatMessageTests.cs
+    startLine: 91
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void IsArchived_WhenSet_RaisesPropertyChanged()
+    content.vb: >-
+      <Fact>
+
+      Public Sub IsArchived_WhenSet_RaisesPropertyChanged()
+  overload: RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.App.Tests
+  commentId: N:RemoteAgent.App.Tests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Tests
+  nameWithType: RemoteAgent.App.Tests
+  fullName: RemoteAgent.App.Tests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_DisplayText_WhenIsEvent_ReturnsEventMessage
+  name: DisplayText_WhenIsEvent_ReturnsEventMessage
+  nameWithType: ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsEvent_ReturnsEventMessage
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_DisplayText_WhenIsUser_ReturnsText
+  name: DisplayText_WhenIsUser_ReturnsText
+  nameWithType: ChatMessageTests.DisplayText_WhenIsUser_ReturnsText
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenIsUser_ReturnsText
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_DisplayText_WhenAgent_ReturnsText
+  name: DisplayText_WhenAgent_ReturnsText
+  nameWithType: ChatMessageTests.DisplayText_WhenAgent_ReturnsText
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenAgent_ReturnsText
+- uid: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  name: DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  nameWithType: ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.DisplayText_WhenEventAndNullEventMessage_ReturnsEmpty
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  name: RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  nameWithType: ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsUser_ReturnsPlainHtml
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  name: RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  nameWithType: ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsEvent_ReturnsPlainHtml
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_RenderedHtml_WhenAgentOutput_RendersMarkdown
+  name: RenderedHtml_WhenAgentOutput_RendersMarkdown
+  nameWithType: ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgentOutput_RendersMarkdown
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  name: RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  nameWithType: ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenIsError_DoesNotRenderMarkdown
+- uid: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_RenderedHtml_WhenAgent_AlwaysFullDocument
+  name: RenderedHtml_WhenAgent_AlwaysFullDocument
+  nameWithType: ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.RenderedHtml_WhenAgent_AlwaysFullDocument
+- uid: RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_Priority_DefaultsToNormal
+  name: Priority_DefaultsToNormal
+  nameWithType: ChatMessageTests.Priority_DefaultsToNormal
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.Priority_DefaultsToNormal
+- uid: RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged*
+  commentId: Overload:RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged
+  href: RemoteAgent.App.Tests.ChatMessageTests.html#RemoteAgent_App_Tests_ChatMessageTests_IsArchived_WhenSet_RaisesPropertyChanged
+  name: IsArchived_WhenSet_RaisesPropertyChanged
+  nameWithType: ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged
+  fullName: RemoteAgent.App.Tests.ChatMessageTests.IsArchived_WhenSet_RaisesPropertyChanged

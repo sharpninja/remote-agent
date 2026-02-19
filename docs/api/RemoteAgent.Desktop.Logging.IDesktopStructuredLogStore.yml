@@ -1,0 +1,378 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  commentId: T:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  id: IDesktopStructuredLogStore
+  parent: RemoteAgent.Desktop.Logging
+  children:
+  - RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId(System.String,System.Int32,System.String)
+  - RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query(RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter,System.Int32)
+  - RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch(System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord})
+  langs:
+  - csharp
+  - vb
+  name: IDesktopStructuredLogStore
+  nameWithType: IDesktopStructuredLogStore
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IDesktopStructuredLogStore
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: public interface IDesktopStructuredLogStore
+    content.vb: Public Interface IDesktopStructuredLogStore
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch(System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord})
+  commentId: M:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch(System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord})
+  id: UpsertBatch(System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord})
+  parent: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  langs:
+  - csharp
+  - vb
+  name: UpsertBatch(IEnumerable<DesktopStructuredLogRecord>)
+  nameWithType: IDesktopStructuredLogStore.UpsertBatch(IEnumerable<DesktopStructuredLogRecord>)
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch(System.Collections.Generic.IEnumerable<RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord>)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpsertBatch
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: void UpsertBatch(IEnumerable<DesktopStructuredLogRecord> logs)
+    parameters:
+    - id: logs
+      type: System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+    content.vb: Sub UpsertBatch(logs As IEnumerable(Of DesktopStructuredLogRecord))
+  overload: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch*
+  nameWithType.vb: IDesktopStructuredLogStore.UpsertBatch(IEnumerable(Of DesktopStructuredLogRecord))
+  fullName.vb: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch(System.Collections.Generic.IEnumerable(Of RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord))
+  name.vb: UpsertBatch(IEnumerable(Of DesktopStructuredLogRecord))
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query(RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter,System.Int32)
+  commentId: M:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query(RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter,System.Int32)
+  id: Query(RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter,System.Int32)
+  parent: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  langs:
+  - csharp
+  - vb
+  name: Query(DesktopStructuredLogFilter?, int)
+  nameWithType: IDesktopStructuredLogStore.Query(DesktopStructuredLogFilter?, int)
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query(RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter?, int)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Query
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: IReadOnlyList<DesktopStructuredLogRecord> Query(DesktopStructuredLogFilter? filter = null, int limit = 1000)
+    parameters:
+    - id: filter
+      type: RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter
+    - id: limit
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+    content.vb: Function Query(filter As DesktopStructuredLogFilter = Nothing, limit As Integer = 1000) As IReadOnlyList(Of DesktopStructuredLogRecord)
+  overload: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query*
+  nameWithType.vb: IDesktopStructuredLogStore.Query(DesktopStructuredLogFilter, Integer)
+  fullName.vb: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query(RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter, Integer)
+  name.vb: Query(DesktopStructuredLogFilter, Integer)
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId(System.String,System.Int32,System.String)
+  commentId: M:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId(System.String,System.Int32,System.String)
+  id: GetMaxEventId(System.String,System.Int32,System.String)
+  parent: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  langs:
+  - csharp
+  - vb
+  name: GetMaxEventId(string, int, string?)
+  nameWithType: IDesktopStructuredLogStore.GetMaxEventId(string, int, string?)
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId(string, int, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetMaxEventId
+    path: ../src/RemoteAgent.Desktop/Logging/DesktopStructuredLogStore.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Logging
+  syntax:
+    content: long GetMaxEventId(string host, int port, string? serverId = null)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: serverId
+      type: System.String
+    return:
+      type: System.Int64
+    content.vb: Function GetMaxEventId(host As String, port As Integer, serverId As String = Nothing) As Long
+  overload: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId*
+  nameWithType.vb: IDesktopStructuredLogStore.GetMaxEventId(String, Integer, String)
+  fullName.vb: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId(String, Integer, String)
+  name.vb: GetMaxEventId(String, Integer, String)
+references:
+- uid: RemoteAgent.Desktop.Logging
+  commentId: N:RemoteAgent.Desktop.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Logging
+  nameWithType: RemoteAgent.Desktop.Logging
+  fullName: RemoteAgent.Desktop.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch*
+  commentId: Overload:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch
+  href: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.html#RemoteAgent_Desktop_Logging_IDesktopStructuredLogStore_UpsertBatch_System_Collections_Generic_IEnumerable_RemoteAgent_Desktop_Logging_DesktopStructuredLogRecord__
+  name: UpsertBatch
+  nameWithType: IDesktopStructuredLogStore.UpsertBatch
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.UpsertBatch
+- uid: System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+  commentId: T:System.Collections.Generic.IEnumerable{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  name: IEnumerable<DesktopStructuredLogRecord>
+  nameWithType: IEnumerable<DesktopStructuredLogRecord>
+  fullName: System.Collections.Generic.IEnumerable<RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord>
+  nameWithType.vb: IEnumerable(Of DesktopStructuredLogRecord)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord)
+  name.vb: IEnumerable(Of DesktopStructuredLogRecord)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query*
+  commentId: Overload:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query
+  href: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.html#RemoteAgent_Desktop_Logging_IDesktopStructuredLogStore_Query_RemoteAgent_Desktop_Logging_DesktopStructuredLogFilter_System_Int32_
+  name: Query
+  nameWithType: IDesktopStructuredLogStore.Query
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.Query
+- uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter
+  commentId: T:RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter
+  parent: RemoteAgent.Desktop.Logging
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter.html
+  name: DesktopStructuredLogFilter
+  nameWithType: DesktopStructuredLogFilter
+  fullName: RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  name: IReadOnlyList<DesktopStructuredLogRecord>
+  nameWithType: IReadOnlyList<DesktopStructuredLogRecord>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord>
+  nameWithType.vb: IReadOnlyList(Of DesktopStructuredLogRecord)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord)
+  name.vb: IReadOnlyList(Of DesktopStructuredLogRecord)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId*
+  commentId: Overload:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId
+  href: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.html#RemoteAgent_Desktop_Logging_IDesktopStructuredLogStore_GetMaxEventId_System_String_System_Int32_System_String_
+  name: GetMaxEventId
+  nameWithType: IDesktopStructuredLogStore.GetMaxEventId
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.GetMaxEventId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long

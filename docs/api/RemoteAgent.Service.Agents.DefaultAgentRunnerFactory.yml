@@ -1,0 +1,607 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  commentId: T:RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  id: DefaultAgentRunnerFactory
+  parent: RemoteAgent.Service.Agents
+  children:
+  - RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner})
+  - RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner
+  langs:
+  - csharp
+  - vb
+  name: DefaultAgentRunnerFactory
+  nameWithType: DefaultAgentRunnerFactory
+  fullName: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/DefaultAgentRunnerFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DefaultAgentRunnerFactory
+    path: ../src/RemoteAgent.Service/Agents/DefaultAgentRunnerFactory.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Selects <xref href="RemoteAgent.Service.Agents.IAgentRunner" data-throw-if-not-resolved="false"></xref> by <xref href="RemoteAgent.Service.AgentOptions.RunnerId" data-throw-if-not-resolved="false"></xref> from a registry of named runners (TR-10.1).
+  remarks: 'When <xref href="RemoteAgent.Service.AgentOptions.RunnerId" data-throw-if-not-resolved="false"></xref> is not set: Linux (and other non-Windows) defaults to "process" (Cursor/agent CLI); Windows defaults to "copilot-windows". Falls back to "process" if the configured runner is not in the registry.'
+  example: []
+  syntax:
+    content: 'public sealed class DefaultAgentRunnerFactory : IAgentRunnerFactory'
+    content.vb: Public NotInheritable Class DefaultAgentRunnerFactory Implements IAgentRunnerFactory
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.Service.Agents.IAgentRunnerFactory
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner})
+  commentId: M:RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner})
+  id: '#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions},System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner})'
+  parent: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  langs:
+  - csharp
+  - vb
+  name: DefaultAgentRunnerFactory(IOptions<AgentOptions>, IReadOnlyDictionary<string, IAgentRunner>)
+  nameWithType: DefaultAgentRunnerFactory.DefaultAgentRunnerFactory(IOptions<AgentOptions>, IReadOnlyDictionary<string, IAgentRunner>)
+  fullName: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.DefaultAgentRunnerFactory(Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>, System.Collections.Generic.IReadOnlyDictionary<string, RemoteAgent.Service.Agents.IAgentRunner>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/DefaultAgentRunnerFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Service/Agents/DefaultAgentRunnerFactory.cs
+    startLine: 19
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Creates the factory with the given options and runner registry.
+  example: []
+  syntax:
+    content: public DefaultAgentRunnerFactory(IOptions<AgentOptions> options, IReadOnlyDictionary<string, IAgentRunner> runners)
+    parameters:
+    - id: options
+      type: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+    - id: runners
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner}
+    content.vb: Public Sub New(options As IOptions(Of AgentOptions), runners As IReadOnlyDictionary(Of String, IAgentRunner))
+  overload: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.#ctor*
+  nameWithType.vb: DefaultAgentRunnerFactory.New(IOptions(Of AgentOptions), IReadOnlyDictionary(Of String, IAgentRunner))
+  fullName.vb: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.New(Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions), System.Collections.Generic.IReadOnlyDictionary(Of String, RemoteAgent.Service.Agents.IAgentRunner))
+  name.vb: New(IOptions(Of AgentOptions), IReadOnlyDictionary(Of String, IAgentRunner))
+- uid: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner
+  commentId: M:RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner
+  id: GetRunner
+  parent: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  langs:
+  - csharp
+  - vb
+  name: GetRunner()
+  nameWithType: DefaultAgentRunnerFactory.GetRunner()
+  fullName: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/DefaultAgentRunnerFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetRunner
+    path: ../src/RemoteAgent.Service/Agents/DefaultAgentRunnerFactory.cs
+    startLine: 28
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Gets the configured runner (e.g. "process" or a plugin runner id from <xref href="RemoteAgent.Service.AgentOptions.RunnerId" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public IAgentRunner GetRunner()
+    return:
+      type: RemoteAgent.Service.Agents.IAgentRunner
+      description: The runner to use for starting agent sessions.
+    content.vb: Public Function GetRunner() As IAgentRunner
+  overload: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner*
+  implements:
+  - RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+references:
+- uid: RemoteAgent.Service.Agents.IAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunner
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentRunner.html
+  name: IAgentRunner
+  nameWithType: IAgentRunner
+  fullName: RemoteAgent.Service.Agents.IAgentRunner
+- uid: RemoteAgent.Service.AgentOptions.RunnerId
+  commentId: P:RemoteAgent.Service.AgentOptions.RunnerId
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_RunnerId
+  name: RunnerId
+  nameWithType: AgentOptions.RunnerId
+  fullName: RemoteAgent.Service.AgentOptions.RunnerId
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Service.Agents.IAgentRunnerFactory
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunnerFactory
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentRunnerFactory.html
+  name: IAgentRunnerFactory
+  nameWithType: IAgentRunnerFactory
+  fullName: RemoteAgent.Service.Agents.IAgentRunnerFactory
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.#ctor*
+  commentId: Overload:RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.#ctor
+  href: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.html#RemoteAgent_Service_Agents_DefaultAgentRunnerFactory__ctor_Microsoft_Extensions_Options_IOptions_RemoteAgent_Service_AgentOptions__System_Collections_Generic_IReadOnlyDictionary_System_String_RemoteAgent_Service_Agents_IAgentRunner__
+  name: DefaultAgentRunnerFactory
+  nameWithType: DefaultAgentRunnerFactory.DefaultAgentRunnerFactory
+  fullName: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.DefaultAgentRunnerFactory
+  nameWithType.vb: DefaultAgentRunnerFactory.New
+  fullName.vb: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.New
+  name.vb: New
+- uid: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: RemoteAgent.Service.AgentOptions.html
+  name: IOptions<AgentOptions>
+  nameWithType: IOptions<AgentOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>
+  nameWithType.vb: IOptions(Of AgentOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions)
+  name.vb: IOptions(Of AgentOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,RemoteAgent.Service.Agents.IAgentRunner}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IReadOnlyDictionary<string, IAgentRunner>
+  nameWithType: IReadOnlyDictionary<string, IAgentRunner>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, RemoteAgent.Service.Agents.IAgentRunner>
+  nameWithType.vb: IReadOnlyDictionary(Of String, IAgentRunner)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, RemoteAgent.Service.Agents.IAgentRunner)
+  name.vb: IReadOnlyDictionary(Of String, IAgentRunner)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Service.Agents.IAgentRunner
+    name: IAgentRunner
+    href: RemoteAgent.Service.Agents.IAgentRunner.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Service.Agents.IAgentRunner
+    name: IAgentRunner
+    href: RemoteAgent.Service.Agents.IAgentRunner.html
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner*
+  commentId: Overload:RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner
+  href: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.html#RemoteAgent_Service_Agents_DefaultAgentRunnerFactory_GetRunner
+  name: GetRunner
+  nameWithType: DefaultAgentRunnerFactory.GetRunner
+  fullName: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.GetRunner
+- uid: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+  commentId: M:RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+  parent: RemoteAgent.Service.Agents.IAgentRunnerFactory
+  href: RemoteAgent.Service.Agents.IAgentRunnerFactory.html#RemoteAgent_Service_Agents_IAgentRunnerFactory_GetRunner
+  name: GetRunner()
+  nameWithType: IAgentRunnerFactory.GetRunner()
+  fullName: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner()
+  spec.csharp:
+  - uid: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+    name: GetRunner
+    href: RemoteAgent.Service.Agents.IAgentRunnerFactory.html#RemoteAgent_Service_Agents_IAgentRunnerFactory_GetRunner
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+    name: GetRunner
+    href: RemoteAgent.Service.Agents.IAgentRunnerFactory.html#RemoteAgent_Service_Agents_IAgentRunnerFactory_GetRunner
+  - name: (
+  - name: )

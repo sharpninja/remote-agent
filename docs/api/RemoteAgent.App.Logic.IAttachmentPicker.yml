@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.IAttachmentPicker
+  commentId: T:RemoteAgent.App.Logic.IAttachmentPicker
+  id: IAttachmentPicker
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.IAttachmentPicker.PickAsync
+  langs:
+  - csharp
+  - vb
+  name: IAttachmentPicker
+  nameWithType: IAttachmentPicker
+  fullName: RemoteAgent.App.Logic.IAttachmentPicker
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IAttachmentPicker
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public interface IAttachmentPicker
+    content.vb: Public Interface IAttachmentPicker
+- uid: RemoteAgent.App.Logic.IAttachmentPicker.PickAsync
+  commentId: M:RemoteAgent.App.Logic.IAttachmentPicker.PickAsync
+  id: PickAsync
+  parent: RemoteAgent.App.Logic.IAttachmentPicker
+  langs:
+  - csharp
+  - vb
+  name: PickAsync()
+  nameWithType: IAttachmentPicker.PickAsync()
+  fullName: RemoteAgent.App.Logic.IAttachmentPicker.PickAsync()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PickAsync
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task<PickedAttachment?> PickAsync()
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.App.Logic.PickedAttachment}
+    content.vb: Function PickAsync() As Task(Of PickedAttachment)
+  overload: RemoteAgent.App.Logic.IAttachmentPicker.PickAsync*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.IAttachmentPicker.PickAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAttachmentPicker.PickAsync
+  href: RemoteAgent.App.Logic.IAttachmentPicker.html#RemoteAgent_App_Logic_IAttachmentPicker_PickAsync
+  name: PickAsync
+  nameWithType: IAttachmentPicker.PickAsync
+  fullName: RemoteAgent.App.Logic.IAttachmentPicker.PickAsync
+- uid: System.Threading.Tasks.Task{RemoteAgent.App.Logic.PickedAttachment}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.App.Logic.PickedAttachment}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.App.Logic.PickedAttachment.html
+  name: Task<PickedAttachment>
+  nameWithType: Task<PickedAttachment>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.App.Logic.PickedAttachment>
+  nameWithType.vb: Task(Of PickedAttachment)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.App.Logic.PickedAttachment)
+  name.vb: Task(Of PickedAttachment)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.PickedAttachment
+    name: PickedAttachment
+    href: RemoteAgent.App.Logic.PickedAttachment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.PickedAttachment
+    name: PickedAttachment
+    href: RemoteAgent.App.Logic.PickedAttachment.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

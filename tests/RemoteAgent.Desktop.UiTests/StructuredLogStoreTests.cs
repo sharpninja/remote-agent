@@ -3,14 +3,14 @@ using RemoteAgent.Desktop.Logging;
 
 namespace RemoteAgent.Desktop.UiTests;
 
+/// <summary>Tests for <see cref="DesktopStructuredLogStore"/>. FR-12.11; TR-8.1, TR-8.2.</summary>
 [Trait("Category", "Requirements")]
-[Trait("Requirement", "FR-12.2")]
-[Trait("Requirement", "FR-12.3")]
-[Trait("Requirement", "TR-11.1")]
-[Trait("Requirement", "TR-13.4")]
-[Trait("Requirement", "TR-13.5")]
+[Trait("Requirement", "FR-12.11")]
+[Trait("Requirement", "TR-8.1")]
+[Trait("Requirement", "TR-8.2")]
 public sealed class StructuredLogStoreTests
 {
+    // FR-12.11, TR-8.1
     [Fact]
     public void Query_ShouldApplyFilterCriteria()
     {

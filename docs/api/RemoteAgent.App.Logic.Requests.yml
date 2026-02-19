@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Requests
+  commentId: N:RemoteAgent.App.Logic.Requests
+  id: RemoteAgent.App.Logic.Requests
+  children:
+  - RemoteAgent.App.Logic.Requests.DeleteMcpServerRequest
+  - RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+  - RemoteAgent.App.Logic.Requests.SaveMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Logic.Requests
+  nameWithType: RemoteAgent.App.Logic.Requests
+  fullName: RemoteAgent.App.Logic.Requests
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Logic
+references:
+- uid: RemoteAgent.App.Logic.Requests.DeleteMcpServerRequest
+  commentId: T:RemoteAgent.App.Logic.Requests.DeleteMcpServerRequest
+  parent: RemoteAgent.App.Logic.Requests
+  href: RemoteAgent.App.Logic.Requests.DeleteMcpServerRequest.html
+  name: DeleteMcpServerRequest
+  nameWithType: DeleteMcpServerRequest
+  fullName: RemoteAgent.App.Logic.Requests.DeleteMcpServerRequest
+- uid: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+  commentId: T:RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+  parent: RemoteAgent.App.Logic.Requests
+  href: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest.html
+  name: LoadMcpServersRequest
+  nameWithType: LoadMcpServersRequest
+  fullName: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+- uid: RemoteAgent.App.Logic.Requests.SaveMcpServerRequest
+  commentId: T:RemoteAgent.App.Logic.Requests.SaveMcpServerRequest
+  parent: RemoteAgent.App.Logic.Requests
+  href: RemoteAgent.App.Logic.Requests.SaveMcpServerRequest.html
+  name: SaveMcpServerRequest
+  nameWithType: SaveMcpServerRequest
+  fullName: RemoteAgent.App.Logic.Requests.SaveMcpServerRequest
+- uid: RemoteAgent.App.Logic.Requests
+  commentId: N:RemoteAgent.App.Logic.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Requests
+  nameWithType: RemoteAgent.App.Logic.Requests
+  fullName: RemoteAgent.App.Logic.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Requests
+    name: Requests
+    href: RemoteAgent.App.Logic.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Requests
+    name: Requests
+    href: RemoteAgent.App.Logic.Requests.html

@@ -7,8 +7,17 @@ using RemoteAgent.Desktop.ViewModels;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="TerminateDesktopSessionHandler"/>. FR-12.3, FR-13.3; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.3")]
+[Trait("Requirement", "FR-13.3")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class TerminateDesktopSessionHandlerTests
 {
+    // FR-12.3, FR-13.3, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenSessionNull_ShouldReturnFail()
     {
@@ -22,6 +31,7 @@ public class TerminateDesktopSessionHandlerTests
         result.ErrorMessage.Should().Contain("No session");
     }
 
+    // FR-12.3, FR-13.3, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_ShouldRemoveSessionFromWorkspace()
     {
@@ -42,6 +52,7 @@ public class TerminateDesktopSessionHandlerTests
         workspace.Sessions.Should().NotContain(session);
     }
 
+    // FR-12.3, FR-13.3, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_ShouldSetStatusText()
     {
@@ -57,6 +68,7 @@ public class TerminateDesktopSessionHandlerTests
         workspace.StatusText.Should().Contain("My Session");
     }
 
+    // FR-12.3, FR-13.3, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_ShouldSelectNextSessionAfterRemoval()
     {

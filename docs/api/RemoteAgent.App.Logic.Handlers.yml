@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Handlers
+  commentId: N:RemoteAgent.App.Logic.Handlers
+  id: RemoteAgent.App.Logic.Handlers
+  children:
+  - RemoteAgent.App.Logic.Handlers.DeleteMcpServerHandler
+  - RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  - RemoteAgent.App.Logic.Handlers.SaveMcpServerHandler
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Logic.Handlers
+  nameWithType: RemoteAgent.App.Logic.Handlers
+  fullName: RemoteAgent.App.Logic.Handlers
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Logic
+references:
+- uid: RemoteAgent.App.Logic.Handlers.DeleteMcpServerHandler
+  commentId: T:RemoteAgent.App.Logic.Handlers.DeleteMcpServerHandler
+  href: RemoteAgent.App.Logic.Handlers.DeleteMcpServerHandler.html
+  name: DeleteMcpServerHandler
+  nameWithType: DeleteMcpServerHandler
+  fullName: RemoteAgent.App.Logic.Handlers.DeleteMcpServerHandler
+- uid: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  commentId: T:RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  href: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.html
+  name: LoadMcpServersHandler
+  nameWithType: LoadMcpServersHandler
+  fullName: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+- uid: RemoteAgent.App.Logic.Handlers.SaveMcpServerHandler
+  commentId: T:RemoteAgent.App.Logic.Handlers.SaveMcpServerHandler
+  href: RemoteAgent.App.Logic.Handlers.SaveMcpServerHandler.html
+  name: SaveMcpServerHandler
+  nameWithType: SaveMcpServerHandler
+  fullName: RemoteAgent.App.Logic.Handlers.SaveMcpServerHandler

@@ -1,0 +1,72 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Handlers
+  commentId: N:RemoteAgent.App.Handlers
+  id: RemoteAgent.App.Handlers
+  children:
+  - RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  - RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  - RemoteAgent.App.Handlers.CreateMobileSessionHandler
+  - RemoteAgent.App.Handlers.DisconnectMobileSessionHandler
+  - RemoteAgent.App.Handlers.SendMobileAttachmentHandler
+  - RemoteAgent.App.Handlers.SendMobileMessageHandler
+  - RemoteAgent.App.Handlers.TerminateMobileSessionHandler
+  - RemoteAgent.App.Handlers.UsePromptTemplateHandler
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Handlers
+  nameWithType: RemoteAgent.App.Handlers
+  fullName: RemoteAgent.App.Handlers
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Tests
+references:
+- uid: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  commentId: T:RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+  href: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler.html
+  name: ArchiveMobileMessageHandler
+  nameWithType: ArchiveMobileMessageHandler
+  fullName: RemoteAgent.App.Handlers.ArchiveMobileMessageHandler
+- uid: RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  commentId: T:RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  href: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.html
+  name: ConnectMobileSessionHandler
+  nameWithType: ConnectMobileSessionHandler
+  fullName: RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+- uid: RemoteAgent.App.Handlers.CreateMobileSessionHandler
+  commentId: T:RemoteAgent.App.Handlers.CreateMobileSessionHandler
+  href: RemoteAgent.App.Handlers.CreateMobileSessionHandler.html
+  name: CreateMobileSessionHandler
+  nameWithType: CreateMobileSessionHandler
+  fullName: RemoteAgent.App.Handlers.CreateMobileSessionHandler
+- uid: RemoteAgent.App.Handlers.DisconnectMobileSessionHandler
+  commentId: T:RemoteAgent.App.Handlers.DisconnectMobileSessionHandler
+  href: RemoteAgent.App.Handlers.DisconnectMobileSessionHandler.html
+  name: DisconnectMobileSessionHandler
+  nameWithType: DisconnectMobileSessionHandler
+  fullName: RemoteAgent.App.Handlers.DisconnectMobileSessionHandler
+- uid: RemoteAgent.App.Handlers.SendMobileAttachmentHandler
+  commentId: T:RemoteAgent.App.Handlers.SendMobileAttachmentHandler
+  href: RemoteAgent.App.Handlers.SendMobileAttachmentHandler.html
+  name: SendMobileAttachmentHandler
+  nameWithType: SendMobileAttachmentHandler
+  fullName: RemoteAgent.App.Handlers.SendMobileAttachmentHandler
+- uid: RemoteAgent.App.Handlers.SendMobileMessageHandler
+  commentId: T:RemoteAgent.App.Handlers.SendMobileMessageHandler
+  href: RemoteAgent.App.Handlers.SendMobileMessageHandler.html
+  name: SendMobileMessageHandler
+  nameWithType: SendMobileMessageHandler
+  fullName: RemoteAgent.App.Handlers.SendMobileMessageHandler
+- uid: RemoteAgent.App.Handlers.TerminateMobileSessionHandler
+  commentId: T:RemoteAgent.App.Handlers.TerminateMobileSessionHandler
+  href: RemoteAgent.App.Handlers.TerminateMobileSessionHandler.html
+  name: TerminateMobileSessionHandler
+  nameWithType: TerminateMobileSessionHandler
+  fullName: RemoteAgent.App.Handlers.TerminateMobileSessionHandler
+- uid: RemoteAgent.App.Handlers.UsePromptTemplateHandler
+  commentId: T:RemoteAgent.App.Handlers.UsePromptTemplateHandler
+  href: RemoteAgent.App.Handlers.UsePromptTemplateHandler.html
+  name: UsePromptTemplateHandler
+  nameWithType: UsePromptTemplateHandler
+  fullName: RemoteAgent.App.Handlers.UsePromptTemplateHandler

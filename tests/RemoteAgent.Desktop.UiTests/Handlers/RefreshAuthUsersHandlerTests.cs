@@ -6,8 +6,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="RefreshAuthUsersHandler"/>. FR-13.5; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.5")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class RefreshAuthUsersHandlerTests
 {
+    // FR-13.5, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldReturnOk()
     {
@@ -21,6 +29,7 @@ public class RefreshAuthUsersHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-13.5, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldPopulateDefaultViewerRole_WhenNoRolesReturned()
     {
@@ -34,6 +43,7 @@ public class RefreshAuthUsersHandlerTests
         workspace.PermissionRoles.Should().Contain("viewer");
     }
 
+    // FR-13.5, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldClearAndRebuildAuthUsersList()
     {

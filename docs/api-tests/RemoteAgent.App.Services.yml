@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  id: RemoteAgent.App.Services
+  children:
+  - RemoteAgent.App.Services.ISessionStore
+  - RemoteAgent.App.Services.SessionItem
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Tests
+references:
+- uid: RemoteAgent.App.Services.SessionItem
+  commentId: T:RemoteAgent.App.Services.SessionItem
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.SessionItem.html
+  name: SessionItem
+  nameWithType: SessionItem
+  fullName: RemoteAgent.App.Services.SessionItem
+- uid: RemoteAgent.App.Services.ISessionStore
+  commentId: T:RemoteAgent.App.Services.ISessionStore
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ISessionStore.html
+  name: ISessionStore
+  nameWithType: ISessionStore
+  fullName: RemoteAgent.App.Services.ISessionStore
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html

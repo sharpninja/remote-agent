@@ -1,0 +1,1141 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  commentId: T:RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  id: MainWindowUiTests
+  parent: RemoteAgent.Desktop.UiTests
+  children:
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  langs:
+  - csharp
+  - vb
+  name: MainWindowUiTests
+  nameWithType: MainWindowUiTests
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MainWindowUiTests
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  summary: Desktop UI coverage for FR-12.x and TR-8.6/TR-14.x using Avalonia headless tests.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-2.6")]
+
+      [Trait("Requirement", "FR-12.1")]
+
+      [Trait("Requirement", "FR-12.1.3")]
+
+      [Trait("Requirement", "FR-12.1.4")]
+
+      [Trait("Requirement", "FR-12.1.5")]
+
+      [Trait("Requirement", "FR-12.4")]
+
+      [Trait("Requirement", "FR-12.7")]
+
+      [Trait("Requirement", "FR-12.8")]
+
+      [Trait("Requirement", "FR-12.9")]
+
+      [Trait("Requirement", "FR-12.10")]
+
+      [Trait("Requirement", "FR-12.11")]
+
+      [Trait("Requirement", "FR-13.1")]
+
+      [Trait("Requirement", "FR-13.2")]
+
+      [Trait("Requirement", "FR-13.4")]
+
+      [Trait("Requirement", "FR-13.5")]
+
+      [Trait("Requirement", "FR-13.6")]
+
+      [Trait("Requirement", "FR-14.1")]
+
+      [Trait("Requirement", "TR-5.7")]
+
+      [Trait("Requirement", "TR-8.6")]
+
+      [Trait("Requirement", "TR-14.1")]
+
+      [Trait("Requirement", "TR-14.1.7")]
+
+      public sealed class MainWindowUiTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-2.6")>
+
+      <Trait("Requirement", "FR-12.1")>
+
+      <Trait("Requirement", "FR-12.1.3")>
+
+      <Trait("Requirement", "FR-12.1.4")>
+
+      <Trait("Requirement", "FR-12.1.5")>
+
+      <Trait("Requirement", "FR-12.4")>
+
+      <Trait("Requirement", "FR-12.7")>
+
+      <Trait("Requirement", "FR-12.8")>
+
+      <Trait("Requirement", "FR-12.9")>
+
+      <Trait("Requirement", "FR-12.10")>
+
+      <Trait("Requirement", "FR-12.11")>
+
+      <Trait("Requirement", "FR-13.1")>
+
+      <Trait("Requirement", "FR-13.2")>
+
+      <Trait("Requirement", "FR-13.4")>
+
+      <Trait("Requirement", "FR-13.5")>
+
+      <Trait("Requirement", "FR-13.6")>
+
+      <Trait("Requirement", "FR-14.1")>
+
+      <Trait("Requirement", "TR-5.7")>
+
+      <Trait("Requirement", "TR-8.6")>
+
+      <Trait("Requirement", "TR-14.1")>
+
+      <Trait("Requirement", "TR-14.1.7")>
+
+      Public NotInheritable Class MainWindowUiTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-2.6
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.1.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.1.4
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.1.5
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.4
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.7
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.8
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.9
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.10
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.11
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-13.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-13.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-13.4
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-13.5
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-13.6
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-14.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-5.7
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-8.6
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-14.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-14.1.7
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls
+  id: MainWindow_ShouldExposeExpectedManagementControls
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: MainWindow_ShouldExposeExpectedManagementControls()
+  nameWithType: MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MainWindow_ShouldExposeExpectedManagementControls
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public void MainWindow_ShouldExposeExpectedManagementControls()
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Sub MainWindow_ShouldExposeExpectedManagementControls()
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs
+  id: CurrentServerWorkspace_ShouldCreateSessionTabs
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: CurrentServerWorkspace_ShouldCreateSessionTabs()
+  nameWithType: MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentServerWorkspace_ShouldCreateSessionTabs
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 76
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task CurrentServerWorkspace_ShouldCreateSessionTabs()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function CurrentServerWorkspace_ShouldCreateSessionTabs() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  id: MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
+  nameWithType: MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 90
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public void MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Sub MainWindow_ShouldExposeSecurityHistoryAndAuthPanels()
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  id: MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
+  nameWithType: MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 112
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public void MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Sub MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels()
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  id: SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: SessionMessageInput_ShouldExposeCtrlEnterShortcut()
+  nameWithType: MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionMessageInput_ShouldExposeCtrlEnterShortcut
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 136
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public void SessionMessageInput_ShouldExposeCtrlEnterShortcut()
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Sub SessionMessageInput_ShouldExposeCtrlEnterShortcut()
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  id: LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
+  nameWithType: MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 148
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public void LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Sub LocalServerNavigationSection_ShouldExposeDedicatedStatusArea()
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext
+  id: SendCurrentMessage_ShouldPropagatePerRequestContext
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: SendCurrentMessage_ShouldPropagatePerRequestContext()
+  nameWithType: MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendCurrentMessage_ShouldPropagatePerRequestContext
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 164
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task SendCurrentMessage_ShouldPropagatePerRequestContext()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function SendCurrentMessage_ShouldPropagatePerRequestContext() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor
+  id: ConnectionDialog_ShouldExposePerRequestContextEditor
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: ConnectionDialog_ShouldExposePerRequestContextEditor()
+  nameWithType: MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionDialog_ShouldExposePerRequestContextEditor
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 186
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public void ConnectionDialog_ShouldExposePerRequestContextEditor()
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Sub ConnectionDialog_ShouldExposePerRequestContextEditor()
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers
+  id: MainWindow_ShouldSupportSwitchingRegisteredServers
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: MainWindow_ShouldSupportSwitchingRegisteredServers()
+  nameWithType: MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MainWindow_ShouldSupportSwitchingRegisteredServers
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 210
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task MainWindow_ShouldSupportSwitchingRegisteredServers()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function MainWindow_ShouldSupportSwitchingRegisteredServers() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  id: CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts()
+  nameWithType: MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 235
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  id: CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops()
+  nameWithType: MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 251
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  id: CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure()
+  nameWithType: MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 267
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  commentId: M:RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  id: RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  parent: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  langs:
+  - csharp
+  - vb
+  name: RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure()
+  nameWithType: MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure()
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+    path: ../tests/RemoteAgent.Desktop.UiTests/MainWindowUiTests.cs
+    startLine: 288
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure() As Task
+  overload: RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.Desktop.UiTests
+  commentId: N:RemoteAgent.Desktop.UiTests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.UiTests
+  nameWithType: RemoteAgent.Desktop.UiTests
+  fullName: RemoteAgent.Desktop.UiTests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_MainWindow_ShouldExposeExpectedManagementControls
+  name: MainWindow_ShouldExposeExpectedManagementControls
+  nameWithType: MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeExpectedManagementControls
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_CurrentServerWorkspace_ShouldCreateSessionTabs
+  name: CurrentServerWorkspace_ShouldCreateSessionTabs
+  nameWithType: MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CurrentServerWorkspace_ShouldCreateSessionTabs
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  name: MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  nameWithType: MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposeSecurityHistoryAndAuthPanels
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  name: MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  nameWithType: MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldExposePluginMcpAndPromptTemplatePanels
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  name: SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  nameWithType: MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SessionMessageInput_ShouldExposeCtrlEnterShortcut
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  name: LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  nameWithType: MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.LocalServerNavigationSection_ShouldExposeDedicatedStatusArea
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_SendCurrentMessage_ShouldPropagatePerRequestContext
+  name: SendCurrentMessage_ShouldPropagatePerRequestContext
+  nameWithType: MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.SendCurrentMessage_ShouldPropagatePerRequestContext
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_ConnectionDialog_ShouldExposePerRequestContextEditor
+  name: ConnectionDialog_ShouldExposePerRequestContextEditor
+  nameWithType: MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.ConnectionDialog_ShouldExposePerRequestContextEditor
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_MainWindow_ShouldSupportSwitchingRegisteredServers
+  name: MainWindow_ShouldSupportSwitchingRegisteredServers
+  nameWithType: MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.MainWindow_ShouldSupportSwitchingRegisteredServers
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  name: CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  nameWithType: MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenStopped_ShouldOfferStart_AndApplyStarts
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  name: CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  nameWithType: MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckLocalServer_WhenRunning_ShouldOfferStop_AndApplyStops
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  name: CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  nameWithType: MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.CheckCapacityCommand_WhenCapacityEndpointFails_ShouldSurfaceDetailedFailure
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html#RemoteAgent_Desktop_UiTests_MainWindowUiTests_RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  name: RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  nameWithType: MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests.RefreshPluginsCommand_WhenPluginsEndpointFails_ShouldSurfaceDetailedFailure

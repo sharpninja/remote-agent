@@ -1,0 +1,783 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  commentId: T:RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  id: ConnectMobileSessionHandler
+  parent: RemoteAgent.App.Handlers
+  children:
+  - RemoteAgent.App.Handlers.ConnectMobileSessionHandler.#ctor(RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAppPreferences)
+  - RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ConnectMobileSessionHandler
+  nameWithType: ConnectMobileSessionHandler
+  fullName: RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App/Handlers/ConnectMobileSessionHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectMobileSessionHandler
+    path: ../src/RemoteAgent.App/Handlers/ConnectMobileSessionHandler.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Handlers
+  syntax:
+    content: 'public sealed class ConnectMobileSessionHandler : IRequestHandler<ConnectMobileSessionRequest, CommandResult>'
+    content.vb: Public NotInheritable Class ConnectMobileSessionHandler Implements IRequestHandler(Of ConnectMobileSessionRequest, CommandResult)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.#ctor(RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAppPreferences)
+  commentId: M:RemoteAgent.App.Handlers.ConnectMobileSessionHandler.#ctor(RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAppPreferences)
+  id: '#ctor(RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAppPreferences)'
+  parent: RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  langs:
+  - csharp
+  - vb
+  name: ConnectMobileSessionHandler(IAgentGatewayClient, ISessionStore, IServerApiClient, IConnectionModeSelector, IAgentSelector, IAppPreferences)
+  nameWithType: ConnectMobileSessionHandler.ConnectMobileSessionHandler(IAgentGatewayClient, ISessionStore, IServerApiClient, IConnectionModeSelector, IAgentSelector, IAppPreferences)
+  fullName: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.ConnectMobileSessionHandler(RemoteAgent.App.Logic.IAgentGatewayClient, RemoteAgent.App.Services.ISessionStore, RemoteAgent.App.Logic.IServerApiClient, RemoteAgent.App.Logic.IConnectionModeSelector, RemoteAgent.App.Logic.IAgentSelector, RemoteAgent.App.Logic.IAppPreferences)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App/Handlers/ConnectMobileSessionHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App/Handlers/ConnectMobileSessionHandler.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Handlers
+  syntax:
+    content: public ConnectMobileSessionHandler(IAgentGatewayClient gateway, ISessionStore sessionStore, IServerApiClient apiClient, IConnectionModeSelector connectionModeSelector, IAgentSelector agentSelector, IAppPreferences preferences)
+    parameters:
+    - id: gateway
+      type: RemoteAgent.App.Logic.IAgentGatewayClient
+    - id: sessionStore
+      type: RemoteAgent.App.Services.ISessionStore
+    - id: apiClient
+      type: RemoteAgent.App.Logic.IServerApiClient
+    - id: connectionModeSelector
+      type: RemoteAgent.App.Logic.IConnectionModeSelector
+    - id: agentSelector
+      type: RemoteAgent.App.Logic.IAgentSelector
+    - id: preferences
+      type: RemoteAgent.App.Logic.IAppPreferences
+    content.vb: Public Sub New(gateway As IAgentGatewayClient, sessionStore As ISessionStore, apiClient As IServerApiClient, connectionModeSelector As IConnectionModeSelector, agentSelector As IAgentSelector, preferences As IAppPreferences)
+  overload: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.#ctor*
+  nameWithType.vb: ConnectMobileSessionHandler.New(IAgentGatewayClient, ISessionStore, IServerApiClient, IConnectionModeSelector, IAgentSelector, IAppPreferences)
+  fullName.vb: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.New(RemoteAgent.App.Logic.IAgentGatewayClient, RemoteAgent.App.Services.ISessionStore, RemoteAgent.App.Logic.IServerApiClient, RemoteAgent.App.Logic.IConnectionModeSelector, RemoteAgent.App.Logic.IAgentSelector, RemoteAgent.App.Logic.IAppPreferences)
+  name.vb: New(IAgentGatewayClient, ISessionStore, IServerApiClient, IConnectionModeSelector, IAgentSelector, IAppPreferences)
+- uid: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+  id: HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Handlers.ConnectMobileSessionHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync(ConnectMobileSessionRequest, CancellationToken)
+  nameWithType: ConnectMobileSessionHandler.HandleAsync(ConnectMobileSessionRequest, CancellationToken)
+  fullName: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/Handlers/ConnectMobileSessionHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync
+    path: ../src/RemoteAgent.App/Handlers/ConnectMobileSessionHandler.cs
+    startLine: 20
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Handlers
+  example: []
+  syntax:
+    content: public Task<CommandResult> HandleAsync(ConnectMobileSessionRequest request, CancellationToken ct = default)
+    parameters:
+    - id: request
+      type: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+    content.vb: Public Function HandleAsync(request As ConnectMobileSessionRequest, ct As CancellationToken = Nothing) As Task(Of CommandResult)
+  overload: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+references:
+- uid: RemoteAgent.App.Handlers
+  commentId: N:RemoteAgent.App.Handlers
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Handlers
+  nameWithType: RemoteAgent.App.Handlers
+  fullName: RemoteAgent.App.Handlers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Handlers
+    name: Handlers
+    href: RemoteAgent.App.Handlers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Handlers
+    name: Handlers
+    href: RemoteAgent.App.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  name: IRequestHandler<ConnectMobileSessionRequest, CommandResult>
+  nameWithType: IRequestHandler<ConnectMobileSessionRequest, CommandResult>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.App.Requests.ConnectMobileSessionRequest, RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: IRequestHandler(Of ConnectMobileSessionRequest, CommandResult)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.App.Requests.ConnectMobileSessionRequest, RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: IRequestHandler(Of ConnectMobileSessionRequest, CommandResult)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: <
+  - uid: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+    name: ConnectMobileSessionRequest
+    href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+    name: ConnectMobileSessionRequest
+    href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.#ctor*
+  commentId: Overload:RemoteAgent.App.Handlers.ConnectMobileSessionHandler.#ctor
+  href: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.html#RemoteAgent_App_Handlers_ConnectMobileSessionHandler__ctor_RemoteAgent_App_Logic_IAgentGatewayClient_RemoteAgent_App_Services_ISessionStore_RemoteAgent_App_Logic_IServerApiClient_RemoteAgent_App_Logic_IConnectionModeSelector_RemoteAgent_App_Logic_IAgentSelector_RemoteAgent_App_Logic_IAppPreferences_
+  name: ConnectMobileSessionHandler
+  nameWithType: ConnectMobileSessionHandler.ConnectMobileSessionHandler
+  fullName: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.ConnectMobileSessionHandler
+  nameWithType.vb: ConnectMobileSessionHandler.New
+  fullName.vb: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient
+  commentId: T:RemoteAgent.App.Logic.IAgentGatewayClient
+  parent: RemoteAgent.App.Logic
+  name: IAgentGatewayClient
+  nameWithType: IAgentGatewayClient
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient
+- uid: RemoteAgent.App.Services.ISessionStore
+  commentId: T:RemoteAgent.App.Services.ISessionStore
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ISessionStore.html
+  name: ISessionStore
+  nameWithType: ISessionStore
+  fullName: RemoteAgent.App.Services.ISessionStore
+- uid: RemoteAgent.App.Logic.IServerApiClient
+  commentId: T:RemoteAgent.App.Logic.IServerApiClient
+  parent: RemoteAgent.App.Logic
+  name: IServerApiClient
+  nameWithType: IServerApiClient
+  fullName: RemoteAgent.App.Logic.IServerApiClient
+- uid: RemoteAgent.App.Logic.IConnectionModeSelector
+  commentId: T:RemoteAgent.App.Logic.IConnectionModeSelector
+  parent: RemoteAgent.App.Logic
+  name: IConnectionModeSelector
+  nameWithType: IConnectionModeSelector
+  fullName: RemoteAgent.App.Logic.IConnectionModeSelector
+- uid: RemoteAgent.App.Logic.IAgentSelector
+  commentId: T:RemoteAgent.App.Logic.IAgentSelector
+  parent: RemoteAgent.App.Logic
+  name: IAgentSelector
+  nameWithType: IAgentSelector
+  fullName: RemoteAgent.App.Logic.IAgentSelector
+- uid: RemoteAgent.App.Logic.IAppPreferences
+  commentId: T:RemoteAgent.App.Logic.IAppPreferences
+  parent: RemoteAgent.App.Logic
+  name: IAppPreferences
+  nameWithType: IAppPreferences
+  fullName: RemoteAgent.App.Logic.IAppPreferences
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+- uid: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync*
+  commentId: Overload:RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync
+  href: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.html#RemoteAgent_App_Handlers_ConnectMobileSessionHandler_HandleAsync_RemoteAgent_App_Requests_ConnectMobileSessionRequest_System_Threading_CancellationToken_
+  name: HandleAsync
+  nameWithType: ConnectMobileSessionHandler.HandleAsync
+  fullName: RemoteAgent.App.Handlers.ConnectMobileSessionHandler.HandleAsync
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  name: HandleAsync(ConnectMobileSessionRequest, CancellationToken)
+  nameWithType: IRequestHandler<ConnectMobileSessionRequest, CommandResult>.HandleAsync(ConnectMobileSessionRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.App.Requests.ConnectMobileSessionRequest, RemoteAgent.App.Logic.Cqrs.CommandResult>.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of ConnectMobileSessionRequest, CommandResult).HandleAsync(ConnectMobileSessionRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.App.Requests.ConnectMobileSessionRequest, RemoteAgent.App.Logic.Cqrs.CommandResult).HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - uid: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+    name: ConnectMobileSessionRequest
+    href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Requests.ConnectMobileSessionRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Requests.ConnectMobileSessionRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - uid: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+    name: ConnectMobileSessionRequest
+    href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+  commentId: T:RemoteAgent.App.Requests.ConnectMobileSessionRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  name: ConnectMobileSessionRequest
+  nameWithType: ConnectMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<CommandResult>
+  nameWithType: Task<CommandResult>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: Task(Of CommandResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: Task(Of CommandResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  name: HandleAsync(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Requests
+  commentId: N:RemoteAgent.App.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Requests
+  nameWithType: RemoteAgent.App.Requests
+  fullName: RemoteAgent.App.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

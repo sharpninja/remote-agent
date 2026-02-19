@@ -1,0 +1,501 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService
+  commentId: T:RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService
+  id: AvaloniaFileSaveDialogService
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: AvaloniaFileSaveDialogService
+  nameWithType: AvaloniaFileSaveDialogService
+  fullName: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AvaloniaFileSaveDialogService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AvaloniaFileSaveDialogService
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AvaloniaFileSaveDialogService.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  summary: Avalonia implementation of IFileSaveDialogService using the main window's StorageProvider.
+  example: []
+  syntax:
+    content: 'public sealed class AvaloniaFileSaveDialogService : IFileSaveDialogService'
+    content.vb: Public NotInheritable Class AvaloniaFileSaveDialogService Implements IFileSaveDialogService
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  id: GetSaveFilePathAsync(System.String,System.String,System.String)
+  parent: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService
+  langs:
+  - csharp
+  - vb
+  name: GetSaveFilePathAsync(string, string, string)
+  nameWithType: AvaloniaFileSaveDialogService.GetSaveFilePathAsync(string, string, string)
+  fullName: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AvaloniaFileSaveDialogService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetSaveFilePathAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AvaloniaFileSaveDialogService.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  summary: >-
+    Prompts the user to choose a save location.
+
+    Returns the selected local file path, or <code>null</code> if the user cancelled.
+  example: []
+  syntax:
+    content: public Task<string?> GetSaveFilePathAsync(string suggestedName, string extension, string filterDescription)
+    parameters:
+    - id: suggestedName
+      type: System.String
+    - id: extension
+      type: System.String
+    - id: filterDescription
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Function GetSaveFilePathAsync(suggestedName As String, extension As String, filterDescription As String) As Task(Of String)
+  overload: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync*
+  implements:
+  - RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  nameWithType.vb: AvaloniaFileSaveDialogService.GetSaveFilePathAsync(String, String, String)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync(String, String, String)
+  name.vb: GetSaveFilePathAsync(String, String, String)
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.html
+  name: IFileSaveDialogService
+  nameWithType: IFileSaveDialogService
+  fullName: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync
+  href: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.html#RemoteAgent_Desktop_Infrastructure_AvaloniaFileSaveDialogService_GetSaveFilePathAsync_System_String_System_String_System_String_
+  name: GetSaveFilePathAsync
+  nameWithType: AvaloniaFileSaveDialogService.GetSaveFilePathAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService.GetSaveFilePathAsync
+- uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  parent: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  isExternal: true
+  href: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.html#RemoteAgent_Desktop_Infrastructure_IFileSaveDialogService_GetSaveFilePathAsync_System_String_System_String_System_String_
+  name: GetSaveFilePathAsync(string, string, string)
+  nameWithType: IFileSaveDialogService.GetSaveFilePathAsync(string, string, string)
+  fullName: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(string, string, string)
+  nameWithType.vb: IFileSaveDialogService.GetSaveFilePathAsync(String, String, String)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(String, String, String)
+  name.vb: GetSaveFilePathAsync(String, String, String)
+  spec.csharp:
+  - uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+    name: GetSaveFilePathAsync
+    href: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.html#RemoteAgent_Desktop_Infrastructure_IFileSaveDialogService_GetSaveFilePathAsync_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+    name: GetSaveFilePathAsync
+    href: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.html#RemoteAgent_Desktop_Infrastructure_IFileSaveDialogService_GetSaveFilePathAsync_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

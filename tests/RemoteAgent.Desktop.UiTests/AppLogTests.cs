@@ -9,15 +9,16 @@ using RemoteAgent.Desktop.ViewModels;
 
 namespace RemoteAgent.Desktop.UiTests;
 
+/// <summary>Tests for <see cref="AppLoggerProvider"/> and <see cref="InMemoryAppLogStore"/>. FR-12.12; TR-8.1, TR-8.2.</summary>
 [Trait("Category", "Requirements")]
 [Trait("Requirement", "FR-12.12")]
-[Trait("Requirement", "FR-12.12.1")]
-[Trait("Requirement", "FR-12.12.3")]
-[Trait("Requirement", "FR-12.12.4")]
+[Trait("Requirement", "TR-8.1")]
+[Trait("Requirement", "TR-8.2")]
 public sealed class AppLogTests
 {
     // ── FR-12.12.1: custom ILogger captures log entries ──────────────────────
 
+    // FR-12.12, TR-8.1
     [Fact]
     public void AppLoggerProvider_ShouldCaptureLogEntries()
     {
@@ -44,6 +45,7 @@ public sealed class AppLogTests
 
     // ── FR-12.12.3: ClearCommand empties the collection ──────────────────────
 
+    // FR-12.12, TR-8.1
     [Fact]
     public async Task ClearAppLogHandler_ShouldEmptyCollection()
     {
@@ -66,6 +68,7 @@ public sealed class AppLogTests
 
     // ── FR-12.12.4: SaveCommand writes txt, json, and csv ────────────────────
 
+    // FR-12.12, TR-8.2
     [Theory]
     [InlineData("txt")]
     [InlineData("json")]

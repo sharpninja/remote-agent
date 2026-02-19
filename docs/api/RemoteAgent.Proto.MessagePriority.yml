@@ -1,0 +1,220 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.MessagePriority
+  commentId: T:RemoteAgent.Proto.MessagePriority
+  id: MessagePriority
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.MessagePriority.High
+  - RemoteAgent.Proto.MessagePriority.Normal
+  - RemoteAgent.Proto.MessagePriority.Notify
+  - RemoteAgent.Proto.MessagePriority.Unspecified
+  langs:
+  - csharp
+  - vb
+  name: MessagePriority
+  nameWithType: MessagePriority
+  fullName: RemoteAgent.Proto.MessagePriority
+  type: Enum
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MessagePriority
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 219
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: 'MessagePriority: normal, high, or notify (system notification + tap to show).'
+  example: []
+  syntax:
+    content: public enum MessagePriority
+    content.vb: Public Enum MessagePriority
+- uid: RemoteAgent.Proto.MessagePriority.Unspecified
+  commentId: F:RemoteAgent.Proto.MessagePriority.Unspecified
+  id: Unspecified
+  parent: RemoteAgent.Proto.MessagePriority
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: MessagePriority.Unspecified
+  fullName: RemoteAgent.Proto.MessagePriority.Unspecified
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Unspecified
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 220
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("MESSAGE_PRIORITY_UNSPECIFIED")]
+
+      Unspecified = 0
+    return:
+      type: RemoteAgent.Proto.MessagePriority
+    content.vb: >-
+      <OriginalName("MESSAGE_PRIORITY_UNSPECIFIED")>
+
+      Unspecified = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: MESSAGE_PRIORITY_UNSPECIFIED
+- uid: RemoteAgent.Proto.MessagePriority.Normal
+  commentId: F:RemoteAgent.Proto.MessagePriority.Normal
+  id: Normal
+  parent: RemoteAgent.Proto.MessagePriority
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: MessagePriority.Normal
+  fullName: RemoteAgent.Proto.MessagePriority.Normal
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Normal
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 221
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("NORMAL")]
+
+      Normal = 1
+    return:
+      type: RemoteAgent.Proto.MessagePriority
+    content.vb: >-
+      <OriginalName("NORMAL")>
+
+      Normal = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NORMAL
+- uid: RemoteAgent.Proto.MessagePriority.High
+  commentId: F:RemoteAgent.Proto.MessagePriority.High
+  id: High
+  parent: RemoteAgent.Proto.MessagePriority
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: MessagePriority.High
+  fullName: RemoteAgent.Proto.MessagePriority.High
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: High
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 222
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("HIGH")]
+
+      High = 2
+    return:
+      type: RemoteAgent.Proto.MessagePriority
+    content.vb: >-
+      <OriginalName("HIGH")>
+
+      High = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HIGH
+- uid: RemoteAgent.Proto.MessagePriority.Notify
+  commentId: F:RemoteAgent.Proto.MessagePriority.Notify
+  id: Notify
+  parent: RemoteAgent.Proto.MessagePriority
+  langs:
+  - csharp
+  - vb
+  name: Notify
+  nameWithType: MessagePriority.Notify
+  fullName: RemoteAgent.Proto.MessagePriority.Notify
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Notify
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 223
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("NOTIFY")]
+
+      Notify = 3
+    return:
+      type: RemoteAgent.Proto.MessagePriority
+    content.vb: >-
+      <OriginalName("NOTIFY")>
+
+      Notify = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NOTIFY
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.Proto.MessagePriority
+  commentId: T:RemoteAgent.Proto.MessagePriority
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.MessagePriority.html
+  name: MessagePriority
+  nameWithType: MessagePriority
+  fullName: RemoteAgent.Proto.MessagePriority

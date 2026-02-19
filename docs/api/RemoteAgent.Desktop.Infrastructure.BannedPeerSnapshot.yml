@@ -1,0 +1,517 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  commentId: T:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  id: BannedPeerSnapshot
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.#ctor(System.String,System.String,System.DateTimeOffset)
+  - RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc
+  - RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer
+  - RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason
+  langs:
+  - csharp
+  - vb
+  name: BannedPeerSnapshot
+  nameWithType: BannedPeerSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BannedPeerSnapshot
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 686
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: 'public sealed record BannedPeerSnapshot : IEquatable<BannedPeerSnapshot>'
+    content.vb: Public NotInheritable Class BannedPeerSnapshot Implements IEquatable(Of BannedPeerSnapshot)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.#ctor(System.String,System.String,System.DateTimeOffset)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.#ctor(System.String,System.String,System.DateTimeOffset)
+  id: '#ctor(System.String,System.String,System.DateTimeOffset)'
+  parent: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  langs:
+  - csharp
+  - vb
+  name: BannedPeerSnapshot(string, string, DateTimeOffset)
+  nameWithType: BannedPeerSnapshot.BannedPeerSnapshot(string, string, DateTimeOffset)
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedPeerSnapshot(string, string, System.DateTimeOffset)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 686
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public BannedPeerSnapshot(string Peer, string Reason, DateTimeOffset BannedUtc)
+    parameters:
+    - id: Peer
+      type: System.String
+    - id: Reason
+      type: System.String
+    - id: BannedUtc
+      type: System.DateTimeOffset
+    content.vb: Public Sub New(Peer As String, Reason As String, BannedUtc As DateTimeOffset)
+  overload: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.#ctor*
+  nameWithType.vb: BannedPeerSnapshot.New(String, String, DateTimeOffset)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.New(String, String, System.DateTimeOffset)
+  name.vb: New(String, String, DateTimeOffset)
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer
+  commentId: P:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer
+  id: Peer
+  parent: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Peer
+  nameWithType: BannedPeerSnapshot.Peer
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Peer
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 687
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string Peer { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Peer As String
+  overload: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer*
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason
+  commentId: P:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason
+  id: Reason
+  parent: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  langs:
+  - csharp
+  - vb
+  name: Reason
+  nameWithType: BannedPeerSnapshot.Reason
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Reason
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 688
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string Reason { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Reason As String
+  overload: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason*
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc
+  commentId: P:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc
+  id: BannedUtc
+  parent: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  langs:
+  - csharp
+  - vb
+  name: BannedUtc
+  nameWithType: BannedPeerSnapshot.BannedUtc
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BannedUtc
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerCapacityClient.cs
+    startLine: 689
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public DateTimeOffset BannedUtc { get; init; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property BannedUtc As DateTimeOffset
+  overload: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<BannedPeerSnapshot>
+  nameWithType: IEquatable<BannedPeerSnapshot>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot>
+  nameWithType.vb: IEquatable(Of BannedPeerSnapshot)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot)
+  name.vb: IEquatable(Of BannedPeerSnapshot)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.#ctor
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html#RemoteAgent_Desktop_Infrastructure_BannedPeerSnapshot__ctor_System_String_System_String_System_DateTimeOffset_
+  name: BannedPeerSnapshot
+  nameWithType: BannedPeerSnapshot.BannedPeerSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedPeerSnapshot
+  nameWithType.vb: BannedPeerSnapshot.New
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html#RemoteAgent_Desktop_Infrastructure_BannedPeerSnapshot_Peer
+  name: Peer
+  nameWithType: BannedPeerSnapshot.Peer
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Peer
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html#RemoteAgent_Desktop_Infrastructure_BannedPeerSnapshot_Reason
+  name: Reason
+  nameWithType: BannedPeerSnapshot.Reason
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.Reason
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html#RemoteAgent_Desktop_Infrastructure_BannedPeerSnapshot_BannedUtc
+  name: BannedUtc
+  nameWithType: BannedPeerSnapshot.BannedUtc
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.BannedUtc

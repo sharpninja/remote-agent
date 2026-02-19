@@ -6,8 +6,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="SavePluginsHandler"/>. FR-12.5; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.5")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class SavePluginsHandlerTests
 {
+    // FR-12.5, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUpdateReturnsNull_ShouldReturnFail()
     {
@@ -22,6 +30,7 @@ public class SavePluginsHandlerTests
         workspace.PluginStatus.Should().Contain("Failed");
     }
 
+    // FR-12.5, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUpdateSucceeds_ShouldReturnOk()
     {
@@ -37,6 +46,7 @@ public class SavePluginsHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-12.5, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUpdateSucceeds_ShouldRefreshAssemblies()
     {

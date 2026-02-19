@@ -1,0 +1,111 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory
+  id: IServerWorkspaceFactory
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  langs:
+  - csharp
+  - vb
+  name: IServerWorkspaceFactory
+  nameWithType: IServerWorkspaceFactory
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerWorkspaceFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IServerWorkspaceFactory
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerWorkspaceFactory.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public interface IServerWorkspaceFactory
+    content.vb: Public Interface IServerWorkspaceFactory
+- uid: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  id: Create(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  parent: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory
+  langs:
+  - csharp
+  - vb
+  name: Create(ServerRegistration)
+  nameWithType: IServerWorkspaceFactory.Create(ServerRegistration)
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerWorkspaceFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Create
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerWorkspaceFactory.cs
+    startLine: 23
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: ServerWorkspaceLease Create(ServerRegistration registration)
+    parameters:
+    - id: registration
+      type: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+    return:
+      type: RemoteAgent.Desktop.Infrastructure.ServerWorkspaceLease
+    content.vb: Function Create(registration As ServerRegistration) As ServerWorkspaceLease
+  overload: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create
+  href: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.html#RemoteAgent_Desktop_Infrastructure_IServerWorkspaceFactory_Create_RemoteAgent_Desktop_Infrastructure_ServerRegistration_
+  name: Create
+  nameWithType: IServerWorkspaceFactory.Create
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory.Create
+- uid: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ServerRegistration
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.ServerRegistration.html
+  name: ServerRegistration
+  nameWithType: ServerRegistration
+  fullName: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+- uid: RemoteAgent.Desktop.Infrastructure.ServerWorkspaceLease
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ServerWorkspaceLease
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.ServerWorkspaceLease.html
+  name: ServerWorkspaceLease
+  nameWithType: ServerWorkspaceLease
+  fullName: RemoteAgent.Desktop.Infrastructure.ServerWorkspaceLease

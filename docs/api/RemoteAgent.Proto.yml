@@ -1,0 +1,618 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  id: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.AgentGateway
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  - RemoteAgent.Proto.AgentGatewayReflection
+  - RemoteAgent.Proto.Class1
+  - RemoteAgent.Proto.ClearSessionSeedContextRequest
+  - RemoteAgent.Proto.ClearSessionSeedContextResponse
+  - RemoteAgent.Proto.ClientMessage
+  - RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  - RemoteAgent.Proto.DeleteMcpServerRequest
+  - RemoteAgent.Proto.DeleteMcpServerResponse
+  - RemoteAgent.Proto.DeletePromptTemplateRequest
+  - RemoteAgent.Proto.DeletePromptTemplateResponse
+  - RemoteAgent.Proto.GetAgentMcpServersRequest
+  - RemoteAgent.Proto.GetAgentMcpServersResponse
+  - RemoteAgent.Proto.GetPluginsRequest
+  - RemoteAgent.Proto.GetPluginsResponse
+  - RemoteAgent.Proto.GetSessionSeedContextRequest
+  - RemoteAgent.Proto.GetSessionSeedContextResponse
+  - RemoteAgent.Proto.ListMcpServersRequest
+  - RemoteAgent.Proto.ListMcpServersResponse
+  - RemoteAgent.Proto.ListPromptTemplatesRequest
+  - RemoteAgent.Proto.ListPromptTemplatesResponse
+  - RemoteAgent.Proto.McpServerDefinition
+  - RemoteAgent.Proto.MediaChunk
+  - RemoteAgent.Proto.MediaUpload
+  - RemoteAgent.Proto.MessagePriority
+  - RemoteAgent.Proto.PromptTemplateDefinition
+  - RemoteAgent.Proto.ScriptRequest
+  - RemoteAgent.Proto.ScriptType
+  - RemoteAgent.Proto.SeedSessionContextRequest
+  - RemoteAgent.Proto.SeedSessionContextResponse
+  - RemoteAgent.Proto.ServerInfoRequest
+  - RemoteAgent.Proto.ServerInfoResponse
+  - RemoteAgent.Proto.ServerMessage
+  - RemoteAgent.Proto.ServerMessage.PayloadOneofCase
+  - RemoteAgent.Proto.SessionControl
+  - RemoteAgent.Proto.SessionControl.Types
+  - RemoteAgent.Proto.SessionControl.Types.Action
+  - RemoteAgent.Proto.SessionEvent
+  - RemoteAgent.Proto.SessionEvent.Types
+  - RemoteAgent.Proto.SessionEvent.Types.Kind
+  - RemoteAgent.Proto.SessionSeedContextEntry
+  - RemoteAgent.Proto.SetAgentMcpServersRequest
+  - RemoteAgent.Proto.SetAgentMcpServersResponse
+  - RemoteAgent.Proto.StructuredLogEntry
+  - RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  - RemoteAgent.Proto.StructuredLogsSnapshotResponse
+  - RemoteAgent.Proto.StructuredLogsStreamRequest
+  - RemoteAgent.Proto.UpdatePluginsRequest
+  - RemoteAgent.Proto.UpdatePluginsResponse
+  - RemoteAgent.Proto.UpsertMcpServerRequest
+  - RemoteAgent.Proto.UpsertMcpServerResponse
+  - RemoteAgent.Proto.UpsertPromptTemplateRequest
+  - RemoteAgent.Proto.UpsertPromptTemplateResponse
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Proto
+references:
+- uid: RemoteAgent.Proto.Class1
+  commentId: T:RemoteAgent.Proto.Class1
+  href: RemoteAgent.Proto.Class1.html
+  name: Class1
+  nameWithType: Class1
+  fullName: RemoteAgent.Proto.Class1
+- uid: RemoteAgent.Proto.AgentGatewayReflection
+  commentId: T:RemoteAgent.Proto.AgentGatewayReflection
+  href: RemoteAgent.Proto.AgentGatewayReflection.html
+  name: AgentGatewayReflection
+  nameWithType: AgentGatewayReflection
+  fullName: RemoteAgent.Proto.AgentGatewayReflection
+- uid: RemoteAgent.Proto.ScriptType
+  commentId: T:RemoteAgent.Proto.ScriptType
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ScriptType.html
+  name: ScriptType
+  nameWithType: ScriptType
+  fullName: RemoteAgent.Proto.ScriptType
+- uid: RemoteAgent.Proto.MessagePriority
+  commentId: T:RemoteAgent.Proto.MessagePriority
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.MessagePriority.html
+  name: MessagePriority
+  nameWithType: MessagePriority
+  fullName: RemoteAgent.Proto.MessagePriority
+- uid: RemoteAgent.Proto.ServerInfoRequest
+  commentId: T:RemoteAgent.Proto.ServerInfoRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerInfoRequest.html
+  name: ServerInfoRequest
+  nameWithType: ServerInfoRequest
+  fullName: RemoteAgent.Proto.ServerInfoRequest
+- uid: RemoteAgent.Proto.ServerInfoResponse
+  commentId: T:RemoteAgent.Proto.ServerInfoResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerInfoResponse.html
+  name: ServerInfoResponse
+  nameWithType: ServerInfoResponse
+  fullName: RemoteAgent.Proto.ServerInfoResponse
+- uid: RemoteAgent.Proto.ClientMessage
+  commentId: T:RemoteAgent.Proto.ClientMessage
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: ClientMessage
+  nameWithType: ClientMessage
+  fullName: RemoteAgent.Proto.ClientMessage
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  commentId: T:RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: ClientMessage.PayloadOneofCase
+  nameWithType: ClientMessage.PayloadOneofCase
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  spec.csharp:
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.html
+- uid: RemoteAgent.Proto.MediaUpload
+  commentId: T:RemoteAgent.Proto.MediaUpload
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.MediaUpload.html
+  name: MediaUpload
+  nameWithType: MediaUpload
+  fullName: RemoteAgent.Proto.MediaUpload
+- uid: RemoteAgent.Proto.ScriptRequest
+  commentId: T:RemoteAgent.Proto.ScriptRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ScriptRequest.html
+  name: ScriptRequest
+  nameWithType: ScriptRequest
+  fullName: RemoteAgent.Proto.ScriptRequest
+- uid: RemoteAgent.Proto.SessionControl
+  commentId: T:RemoteAgent.Proto.SessionControl
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionControl.html
+  name: SessionControl
+  nameWithType: SessionControl
+  fullName: RemoteAgent.Proto.SessionControl
+- uid: RemoteAgent.Proto.SessionControl.Types
+  commentId: T:RemoteAgent.Proto.SessionControl.Types
+  href: RemoteAgent.Proto.SessionControl.html
+  name: SessionControl.Types
+  nameWithType: SessionControl.Types
+  fullName: RemoteAgent.Proto.SessionControl.Types
+  spec.csharp:
+  - uid: RemoteAgent.Proto.SessionControl
+    name: SessionControl
+    href: RemoteAgent.Proto.SessionControl.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionControl.Types.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.SessionControl
+    name: SessionControl
+    href: RemoteAgent.Proto.SessionControl.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionControl.Types.html
+- uid: RemoteAgent.Proto.SessionControl.Types.Action
+  commentId: T:RemoteAgent.Proto.SessionControl.Types.Action
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionControl.html
+  name: SessionControl.Types.Action
+  nameWithType: SessionControl.Types.Action
+  fullName: RemoteAgent.Proto.SessionControl.Types.Action
+  spec.csharp:
+  - uid: RemoteAgent.Proto.SessionControl
+    name: SessionControl
+    href: RemoteAgent.Proto.SessionControl.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionControl.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types.Action
+    name: Action
+    href: RemoteAgent.Proto.SessionControl.Types.Action.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.SessionControl
+    name: SessionControl
+    href: RemoteAgent.Proto.SessionControl.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionControl.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types.Action
+    name: Action
+    href: RemoteAgent.Proto.SessionControl.Types.Action.html
+- uid: RemoteAgent.Proto.ServerMessage
+  commentId: T:RemoteAgent.Proto.ServerMessage
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerMessage.html
+  name: ServerMessage
+  nameWithType: ServerMessage
+  fullName: RemoteAgent.Proto.ServerMessage
+- uid: RemoteAgent.Proto.ServerMessage.PayloadOneofCase
+  commentId: T:RemoteAgent.Proto.ServerMessage.PayloadOneofCase
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerMessage.html
+  name: ServerMessage.PayloadOneofCase
+  nameWithType: ServerMessage.PayloadOneofCase
+  fullName: RemoteAgent.Proto.ServerMessage.PayloadOneofCase
+  spec.csharp:
+  - uid: RemoteAgent.Proto.ServerMessage
+    name: ServerMessage
+    href: RemoteAgent.Proto.ServerMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ServerMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ServerMessage.PayloadOneofCase.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.ServerMessage
+    name: ServerMessage
+    href: RemoteAgent.Proto.ServerMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ServerMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ServerMessage.PayloadOneofCase.html
+- uid: RemoteAgent.Proto.MediaChunk
+  commentId: T:RemoteAgent.Proto.MediaChunk
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.MediaChunk.html
+  name: MediaChunk
+  nameWithType: MediaChunk
+  fullName: RemoteAgent.Proto.MediaChunk
+- uid: RemoteAgent.Proto.SessionEvent
+  commentId: T:RemoteAgent.Proto.SessionEvent
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionEvent.html
+  name: SessionEvent
+  nameWithType: SessionEvent
+  fullName: RemoteAgent.Proto.SessionEvent
+- uid: RemoteAgent.Proto.SessionEvent.Types
+  commentId: T:RemoteAgent.Proto.SessionEvent.Types
+  href: RemoteAgent.Proto.SessionEvent.html
+  name: SessionEvent.Types
+  nameWithType: SessionEvent.Types
+  fullName: RemoteAgent.Proto.SessionEvent.Types
+  spec.csharp:
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+    href: RemoteAgent.Proto.SessionEvent.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionEvent.Types.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+    href: RemoteAgent.Proto.SessionEvent.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionEvent.Types.html
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+  commentId: T:RemoteAgent.Proto.SessionEvent.Types.Kind
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionEvent.html
+  name: SessionEvent.Types.Kind
+  nameWithType: SessionEvent.Types.Kind
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind
+  spec.csharp:
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+    href: RemoteAgent.Proto.SessionEvent.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionEvent.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+    name: Kind
+    href: RemoteAgent.Proto.SessionEvent.Types.Kind.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+    href: RemoteAgent.Proto.SessionEvent.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionEvent.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+    name: Kind
+    href: RemoteAgent.Proto.SessionEvent.Types.Kind.html
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  commentId: T:RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: StructuredLogsSnapshotRequest
+  nameWithType: StructuredLogsSnapshotRequest
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotResponse
+  commentId: T:RemoteAgent.Proto.StructuredLogsSnapshotResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogsSnapshotResponse.html
+  name: StructuredLogsSnapshotResponse
+  nameWithType: StructuredLogsSnapshotResponse
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotResponse
+- uid: RemoteAgent.Proto.StructuredLogsStreamRequest
+  commentId: T:RemoteAgent.Proto.StructuredLogsStreamRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogsStreamRequest.html
+  name: StructuredLogsStreamRequest
+  nameWithType: StructuredLogsStreamRequest
+  fullName: RemoteAgent.Proto.StructuredLogsStreamRequest
+- uid: RemoteAgent.Proto.StructuredLogEntry
+  commentId: T:RemoteAgent.Proto.StructuredLogEntry
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogEntry.html
+  name: StructuredLogEntry
+  nameWithType: StructuredLogEntry
+  fullName: RemoteAgent.Proto.StructuredLogEntry
+- uid: RemoteAgent.Proto.GetPluginsRequest
+  commentId: T:RemoteAgent.Proto.GetPluginsRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: GetPluginsRequest
+  nameWithType: GetPluginsRequest
+  fullName: RemoteAgent.Proto.GetPluginsRequest
+- uid: RemoteAgent.Proto.GetPluginsResponse
+  commentId: T:RemoteAgent.Proto.GetPluginsResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetPluginsResponse.html
+  name: GetPluginsResponse
+  nameWithType: GetPluginsResponse
+  fullName: RemoteAgent.Proto.GetPluginsResponse
+- uid: RemoteAgent.Proto.UpdatePluginsRequest
+  commentId: T:RemoteAgent.Proto.UpdatePluginsRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpdatePluginsRequest.html
+  name: UpdatePluginsRequest
+  nameWithType: UpdatePluginsRequest
+  fullName: RemoteAgent.Proto.UpdatePluginsRequest
+- uid: RemoteAgent.Proto.UpdatePluginsResponse
+  commentId: T:RemoteAgent.Proto.UpdatePluginsResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  name: UpdatePluginsResponse
+  nameWithType: UpdatePluginsResponse
+  fullName: RemoteAgent.Proto.UpdatePluginsResponse
+- uid: RemoteAgent.Proto.SeedSessionContextRequest
+  commentId: T:RemoteAgent.Proto.SeedSessionContextRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SeedSessionContextRequest.html
+  name: SeedSessionContextRequest
+  nameWithType: SeedSessionContextRequest
+  fullName: RemoteAgent.Proto.SeedSessionContextRequest
+- uid: RemoteAgent.Proto.SeedSessionContextResponse
+  commentId: T:RemoteAgent.Proto.SeedSessionContextResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  name: SeedSessionContextResponse
+  nameWithType: SeedSessionContextResponse
+  fullName: RemoteAgent.Proto.SeedSessionContextResponse
+- uid: RemoteAgent.Proto.GetSessionSeedContextRequest
+  commentId: T:RemoteAgent.Proto.GetSessionSeedContextRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetSessionSeedContextRequest.html
+  name: GetSessionSeedContextRequest
+  nameWithType: GetSessionSeedContextRequest
+  fullName: RemoteAgent.Proto.GetSessionSeedContextRequest
+- uid: RemoteAgent.Proto.SessionSeedContextEntry
+  commentId: T:RemoteAgent.Proto.SessionSeedContextEntry
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionSeedContextEntry.html
+  name: SessionSeedContextEntry
+  nameWithType: SessionSeedContextEntry
+  fullName: RemoteAgent.Proto.SessionSeedContextEntry
+- uid: RemoteAgent.Proto.GetSessionSeedContextResponse
+  commentId: T:RemoteAgent.Proto.GetSessionSeedContextResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetSessionSeedContextResponse.html
+  name: GetSessionSeedContextResponse
+  nameWithType: GetSessionSeedContextResponse
+  fullName: RemoteAgent.Proto.GetSessionSeedContextResponse
+- uid: RemoteAgent.Proto.ClearSessionSeedContextRequest
+  commentId: T:RemoteAgent.Proto.ClearSessionSeedContextRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClearSessionSeedContextRequest.html
+  name: ClearSessionSeedContextRequest
+  nameWithType: ClearSessionSeedContextRequest
+  fullName: RemoteAgent.Proto.ClearSessionSeedContextRequest
+- uid: RemoteAgent.Proto.ClearSessionSeedContextResponse
+  commentId: T:RemoteAgent.Proto.ClearSessionSeedContextResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClearSessionSeedContextResponse.html
+  name: ClearSessionSeedContextResponse
+  nameWithType: ClearSessionSeedContextResponse
+  fullName: RemoteAgent.Proto.ClearSessionSeedContextResponse
+- uid: RemoteAgent.Proto.McpServerDefinition
+  commentId: T:RemoteAgent.Proto.McpServerDefinition
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: McpServerDefinition
+  nameWithType: McpServerDefinition
+  fullName: RemoteAgent.Proto.McpServerDefinition
+- uid: RemoteAgent.Proto.ListMcpServersRequest
+  commentId: T:RemoteAgent.Proto.ListMcpServersRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ListMcpServersRequest.html
+  name: ListMcpServersRequest
+  nameWithType: ListMcpServersRequest
+  fullName: RemoteAgent.Proto.ListMcpServersRequest
+- uid: RemoteAgent.Proto.ListMcpServersResponse
+  commentId: T:RemoteAgent.Proto.ListMcpServersResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ListMcpServersResponse.html
+  name: ListMcpServersResponse
+  nameWithType: ListMcpServersResponse
+  fullName: RemoteAgent.Proto.ListMcpServersResponse
+- uid: RemoteAgent.Proto.UpsertMcpServerRequest
+  commentId: T:RemoteAgent.Proto.UpsertMcpServerRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpsertMcpServerRequest.html
+  name: UpsertMcpServerRequest
+  nameWithType: UpsertMcpServerRequest
+  fullName: RemoteAgent.Proto.UpsertMcpServerRequest
+- uid: RemoteAgent.Proto.UpsertMcpServerResponse
+  commentId: T:RemoteAgent.Proto.UpsertMcpServerResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  name: UpsertMcpServerResponse
+  nameWithType: UpsertMcpServerResponse
+  fullName: RemoteAgent.Proto.UpsertMcpServerResponse
+- uid: RemoteAgent.Proto.DeleteMcpServerRequest
+  commentId: T:RemoteAgent.Proto.DeleteMcpServerRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeleteMcpServerRequest.html
+  name: DeleteMcpServerRequest
+  nameWithType: DeleteMcpServerRequest
+  fullName: RemoteAgent.Proto.DeleteMcpServerRequest
+- uid: RemoteAgent.Proto.DeleteMcpServerResponse
+  commentId: T:RemoteAgent.Proto.DeleteMcpServerResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: DeleteMcpServerResponse
+  nameWithType: DeleteMcpServerResponse
+  fullName: RemoteAgent.Proto.DeleteMcpServerResponse
+- uid: RemoteAgent.Proto.SetAgentMcpServersRequest
+  commentId: T:RemoteAgent.Proto.SetAgentMcpServersRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SetAgentMcpServersRequest.html
+  name: SetAgentMcpServersRequest
+  nameWithType: SetAgentMcpServersRequest
+  fullName: RemoteAgent.Proto.SetAgentMcpServersRequest
+- uid: RemoteAgent.Proto.SetAgentMcpServersResponse
+  commentId: T:RemoteAgent.Proto.SetAgentMcpServersResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  name: SetAgentMcpServersResponse
+  nameWithType: SetAgentMcpServersResponse
+  fullName: RemoteAgent.Proto.SetAgentMcpServersResponse
+- uid: RemoteAgent.Proto.GetAgentMcpServersRequest
+  commentId: T:RemoteAgent.Proto.GetAgentMcpServersRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetAgentMcpServersRequest.html
+  name: GetAgentMcpServersRequest
+  nameWithType: GetAgentMcpServersRequest
+  fullName: RemoteAgent.Proto.GetAgentMcpServersRequest
+- uid: RemoteAgent.Proto.GetAgentMcpServersResponse
+  commentId: T:RemoteAgent.Proto.GetAgentMcpServersResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  name: GetAgentMcpServersResponse
+  nameWithType: GetAgentMcpServersResponse
+  fullName: RemoteAgent.Proto.GetAgentMcpServersResponse
+- uid: RemoteAgent.Proto.PromptTemplateDefinition
+  commentId: T:RemoteAgent.Proto.PromptTemplateDefinition
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.PromptTemplateDefinition.html
+  name: PromptTemplateDefinition
+  nameWithType: PromptTemplateDefinition
+  fullName: RemoteAgent.Proto.PromptTemplateDefinition
+- uid: RemoteAgent.Proto.ListPromptTemplatesRequest
+  commentId: T:RemoteAgent.Proto.ListPromptTemplatesRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ListPromptTemplatesRequest.html
+  name: ListPromptTemplatesRequest
+  nameWithType: ListPromptTemplatesRequest
+  fullName: RemoteAgent.Proto.ListPromptTemplatesRequest
+- uid: RemoteAgent.Proto.ListPromptTemplatesResponse
+  commentId: T:RemoteAgent.Proto.ListPromptTemplatesResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  name: ListPromptTemplatesResponse
+  nameWithType: ListPromptTemplatesResponse
+  fullName: RemoteAgent.Proto.ListPromptTemplatesResponse
+- uid: RemoteAgent.Proto.UpsertPromptTemplateRequest
+  commentId: T:RemoteAgent.Proto.UpsertPromptTemplateRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpsertPromptTemplateRequest.html
+  name: UpsertPromptTemplateRequest
+  nameWithType: UpsertPromptTemplateRequest
+  fullName: RemoteAgent.Proto.UpsertPromptTemplateRequest
+- uid: RemoteAgent.Proto.UpsertPromptTemplateResponse
+  commentId: T:RemoteAgent.Proto.UpsertPromptTemplateResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  name: UpsertPromptTemplateResponse
+  nameWithType: UpsertPromptTemplateResponse
+  fullName: RemoteAgent.Proto.UpsertPromptTemplateResponse
+- uid: RemoteAgent.Proto.DeletePromptTemplateRequest
+  commentId: T:RemoteAgent.Proto.DeletePromptTemplateRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeletePromptTemplateRequest.html
+  name: DeletePromptTemplateRequest
+  nameWithType: DeletePromptTemplateRequest
+  fullName: RemoteAgent.Proto.DeletePromptTemplateRequest
+- uid: RemoteAgent.Proto.DeletePromptTemplateResponse
+  commentId: T:RemoteAgent.Proto.DeletePromptTemplateResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  name: DeletePromptTemplateResponse
+  nameWithType: DeletePromptTemplateResponse
+  fullName: RemoteAgent.Proto.DeletePromptTemplateResponse
+- uid: RemoteAgent.Proto.AgentGateway
+  commentId: T:RemoteAgent.Proto.AgentGateway
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.AgentGateway.html
+  name: AgentGateway
+  nameWithType: AgentGateway
+  fullName: RemoteAgent.Proto.AgentGateway
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  commentId: T:RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.AgentGateway.html
+  name: AgentGateway.AgentGatewayBase
+  nameWithType: AgentGateway.AgentGatewayBase
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  spec.csharp:
+  - uid: RemoteAgent.Proto.AgentGateway
+    name: AgentGateway
+    href: RemoteAgent.Proto.AgentGateway.html
+  - name: .
+  - uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+    name: AgentGatewayBase
+    href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.AgentGateway
+    name: AgentGateway
+    href: RemoteAgent.Proto.AgentGateway.html
+  - name: .
+  - uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+    name: AgentGatewayBase
+    href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  commentId: T:RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.AgentGateway.html
+  name: AgentGateway.AgentGatewayClient
+  nameWithType: AgentGateway.AgentGatewayClient
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  spec.csharp:
+  - uid: RemoteAgent.Proto.AgentGateway
+    name: AgentGateway
+    href: RemoteAgent.Proto.AgentGateway.html
+  - name: .
+  - uid: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+    name: AgentGatewayClient
+    href: RemoteAgent.Proto.AgentGateway.AgentGatewayClient.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.AgentGateway
+    name: AgentGateway
+    href: RemoteAgent.Proto.AgentGateway.html
+  - name: .
+  - uid: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+    name: AgentGatewayClient
+    href: RemoteAgent.Proto.AgentGateway.AgentGatewayClient.html
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html

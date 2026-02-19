@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  id: IRequest`1
+  parent: RemoteAgent.App.Logic.Cqrs
+  children:
+  - RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  langs:
+  - csharp
+  - vb
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/IRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IRequest
+    path: ../src/RemoteAgent.App.Logic/Cqrs/IRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  summary: >-
+    Base interface for all CQRS request types. Every request carries a
+
+    <xref href="RemoteAgent.App.Logic.Cqrs.IRequest%601.CorrelationId" data-throw-if-not-resolved="false"></xref> for end-to-end tracing of UI interactions.
+  example: []
+  syntax:
+    content: public interface IRequest<TResponse>
+    typeParameters:
+    - id: TResponse
+      description: The handler return type.
+    content.vb: Public Interface IRequest(Of TResponse)
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/IRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.App.Logic/Cqrs/IRequest.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: Guid CorrelationId { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: ReadOnly Property CorrelationId As Guid
+  overload: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId*
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+references:
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html#RemoteAgent_App_Logic_Cqrs_IRequest_1_CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html#RemoteAgent_App_Logic_Cqrs_IRequest_1_CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

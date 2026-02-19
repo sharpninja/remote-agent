@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  id: RemoteAgent.App.Logic.Cqrs
+  children:
+  - RemoteAgent.App.Logic.Cqrs.CommandResult
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  - RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  - RemoteAgent.App.Logic.Cqrs.IRequest`1
+  - RemoteAgent.App.Logic.Cqrs.RelayCommand
+  - RemoteAgent.App.Logic.Cqrs.RelayCommand`1
+  - RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  - RemoteAgent.App.Logic.Cqrs.Unit
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Logic
+references:
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+  commentId: T:RemoteAgent.App.Logic.Cqrs.CommandResult
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult.html
+  name: CommandResult
+  nameWithType: CommandResult
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  name: CommandResult<T>
+  nameWithType: CommandResult<T>
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>
+  nameWithType.vb: CommandResult(Of T)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T)
+  name.vb: CommandResult(Of T)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+    href: RemoteAgent.App.Logic.Cqrs.IRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher.html
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.RelayCommand
+  commentId: T:RemoteAgent.App.Logic.Cqrs.RelayCommand
+  href: RemoteAgent.App.Logic.Cqrs.RelayCommand.html
+  name: RelayCommand
+  nameWithType: RelayCommand
+  fullName: RemoteAgent.App.Logic.Cqrs.RelayCommand
+- uid: RemoteAgent.App.Logic.Cqrs.RelayCommand`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.RelayCommand`1
+  href: RemoteAgent.App.Logic.Cqrs.RelayCommand-1.html
+  name: RelayCommand<T>
+  nameWithType: RelayCommand<T>
+  fullName: RemoteAgent.App.Logic.Cqrs.RelayCommand<T>
+  nameWithType.vb: RelayCommand(Of T)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.RelayCommand(Of T)
+  name.vb: RelayCommand(Of T)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.RelayCommand`1
+    name: RelayCommand
+    href: RemoteAgent.App.Logic.Cqrs.RelayCommand-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.RelayCommand`1
+    name: RelayCommand
+    href: RemoteAgent.App.Logic.Cqrs.RelayCommand-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+  href: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher.html
+  name: ServiceProviderRequestDispatcher
+  nameWithType: ServiceProviderRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.ServiceProviderRequestDispatcher
+- uid: RemoteAgent.App.Logic.Cqrs.Unit
+  commentId: T:RemoteAgent.App.Logic.Cqrs.Unit
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.Unit.html
+  name: Unit
+  nameWithType: Unit
+  fullName: RemoteAgent.App.Logic.Cqrs.Unit
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html

@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.SessionControl.Types.Action
+  commentId: T:RemoteAgent.Proto.SessionControl.Types.Action
+  id: SessionControl.Types.Action
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.SessionControl.Types.Action.Start
+  - RemoteAgent.Proto.SessionControl.Types.Action.Stop
+  - RemoteAgent.Proto.SessionControl.Types.Action.Unspecified
+  langs:
+  - csharp
+  - vb
+  name: SessionControl.Types.Action
+  nameWithType: SessionControl.Types.Action
+  fullName: RemoteAgent.Proto.SessionControl.Types.Action
+  type: Enum
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Action
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1981
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public enum SessionControl.Types.Action
+    content.vb: Public Enum SessionControl.Types.Action
+- uid: RemoteAgent.Proto.SessionControl.Types.Action.Unspecified
+  commentId: F:RemoteAgent.Proto.SessionControl.Types.Action.Unspecified
+  id: Unspecified
+  parent: RemoteAgent.Proto.SessionControl.Types.Action
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: SessionControl.Types.Action.Unspecified
+  fullName: RemoteAgent.Proto.SessionControl.Types.Action.Unspecified
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Unspecified
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1982
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("ACTION_UNSPECIFIED")]
+
+      Unspecified = 0
+    return:
+      type: RemoteAgent.Proto.SessionControl.Types.Action
+    content.vb: >-
+      <OriginalName("ACTION_UNSPECIFIED")>
+
+      Unspecified = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ACTION_UNSPECIFIED
+- uid: RemoteAgent.Proto.SessionControl.Types.Action.Start
+  commentId: F:RemoteAgent.Proto.SessionControl.Types.Action.Start
+  id: Start
+  parent: RemoteAgent.Proto.SessionControl.Types.Action
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: SessionControl.Types.Action.Start
+  fullName: RemoteAgent.Proto.SessionControl.Types.Action.Start
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Start
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1986
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: spawn agent and start session
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("START")]
+
+      Start = 1
+    return:
+      type: RemoteAgent.Proto.SessionControl.Types.Action
+    content.vb: >-
+      <OriginalName("START")>
+
+      Start = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: START
+- uid: RemoteAgent.Proto.SessionControl.Types.Action.Stop
+  commentId: F:RemoteAgent.Proto.SessionControl.Types.Action.Stop
+  id: Stop
+  parent: RemoteAgent.Proto.SessionControl.Types.Action
+  langs:
+  - csharp
+  - vb
+  name: Stop
+  nameWithType: SessionControl.Types.Action.Stop
+  fullName: RemoteAgent.Proto.SessionControl.Types.Action.Stop
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Stop
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1990
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: end session and stop agent
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("STOP")]
+
+      Stop = 2
+    return:
+      type: RemoteAgent.Proto.SessionControl.Types.Action
+    content.vb: >-
+      <OriginalName("STOP")>
+
+      Stop = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: STOP
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.Proto.SessionControl.Types.Action
+  commentId: T:RemoteAgent.Proto.SessionControl.Types.Action
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionControl.html
+  name: SessionControl.Types.Action
+  nameWithType: SessionControl.Types.Action
+  fullName: RemoteAgent.Proto.SessionControl.Types.Action
+  spec.csharp:
+  - uid: RemoteAgent.Proto.SessionControl
+    name: SessionControl
+    href: RemoteAgent.Proto.SessionControl.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionControl.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types.Action
+    name: Action
+    href: RemoteAgent.Proto.SessionControl.Types.Action.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.SessionControl
+    name: SessionControl
+    href: RemoteAgent.Proto.SessionControl.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionControl.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionControl.Types.Action
+    name: Action
+    href: RemoteAgent.Proto.SessionControl.Types.Action.html

@@ -1,0 +1,2080 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel
+  commentId: T:RemoteAgent.App.ViewModels.MainPageViewModel
+  id: MainPageViewModel
+  parent: RemoteAgent.App.ViewModels
+  children:
+  - RemoteAgent.App.ViewModels.MainPageViewModel.#ctor(RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAttachmentPicker,RemoteAgent.App.Logic.IPromptTemplateSelector,RemoteAgent.App.Logic.IPromptVariableProvider,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.INotificationService,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  - RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle(System.String)
+  - RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel
+  - RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession
+  - RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle
+  - RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText
+  - RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId
+  - RemoteAgent.App.ViewModels.MainPageViewModel.Host
+  - RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected
+  - RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle
+  - RemoteAgent.App.ViewModels.MainPageViewModel.Messages
+  - RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged
+  - RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage
+  - RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext
+  - RemoteAgent.App.ViewModels.MainPageViewModel.Port
+  - RemoteAgent.App.ViewModels.MainPageViewModel.PropertyChanged
+  - RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession(System.String)
+  - RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.Sessions
+  - RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession
+  - RemoteAgent.App.ViewModels.MainPageViewModel.Status
+  - RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync(System.String)
+  - RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand
+  - RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun(System.String,System.String@,RemoteAgent.Proto.ScriptType@)
+  - RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle(System.String,System.String)
+  - RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand
+  langs:
+  - csharp
+  - vb
+  name: MainPageViewModel
+  nameWithType: MainPageViewModel
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MainPageViewModel
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: 'public sealed class MainPageViewModel : ISessionCommandBus'
+    content.vb: Public NotInheritable Class MainPageViewModel Implements ISessionCommandBus
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.ISessionCommandBus
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.#ctor(RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAttachmentPicker,RemoteAgent.App.Logic.IPromptTemplateSelector,RemoteAgent.App.Logic.IPromptVariableProvider,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.INotificationService,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.#ctor(RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAttachmentPicker,RemoteAgent.App.Logic.IPromptTemplateSelector,RemoteAgent.App.Logic.IPromptVariableProvider,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.INotificationService,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  id: '#ctor(RemoteAgent.App.Services.ISessionStore,RemoteAgent.App.Logic.IAgentGatewayClient,RemoteAgent.App.Logic.IServerApiClient,RemoteAgent.App.Logic.IAppPreferences,RemoteAgent.App.Logic.IConnectionModeSelector,RemoteAgent.App.Logic.IAgentSelector,RemoteAgent.App.Logic.IAttachmentPicker,RemoteAgent.App.Logic.IPromptTemplateSelector,RemoteAgent.App.Logic.IPromptVariableProvider,RemoteAgent.App.Logic.ISessionTerminationConfirmation,RemoteAgent.App.Logic.INotificationService,RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)'
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: MainPageViewModel(ISessionStore, IAgentGatewayClient, IServerApiClient, IAppPreferences, IConnectionModeSelector, IAgentSelector, IAttachmentPicker, IPromptTemplateSelector, IPromptVariableProvider, ISessionTerminationConfirmation, INotificationService, IRequestDispatcher)
+  nameWithType: MainPageViewModel.MainPageViewModel(ISessionStore, IAgentGatewayClient, IServerApiClient, IAppPreferences, IConnectionModeSelector, IAgentSelector, IAttachmentPicker, IPromptTemplateSelector, IPromptVariableProvider, ISessionTerminationConfirmation, INotificationService, IRequestDispatcher)
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.MainPageViewModel(RemoteAgent.App.Services.ISessionStore, RemoteAgent.App.Logic.IAgentGatewayClient, RemoteAgent.App.Logic.IServerApiClient, RemoteAgent.App.Logic.IAppPreferences, RemoteAgent.App.Logic.IConnectionModeSelector, RemoteAgent.App.Logic.IAgentSelector, RemoteAgent.App.Logic.IAttachmentPicker, RemoteAgent.App.Logic.IPromptTemplateSelector, RemoteAgent.App.Logic.IPromptVariableProvider, RemoteAgent.App.Logic.ISessionTerminationConfirmation, RemoteAgent.App.Logic.INotificationService, RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 41
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public MainPageViewModel(ISessionStore sessionStore, IAgentGatewayClient gateway, IServerApiClient apiClient, IAppPreferences preferences, IConnectionModeSelector connectionModeSelector, IAgentSelector agentSelector, IAttachmentPicker attachmentPicker, IPromptTemplateSelector promptTemplateSelector, IPromptVariableProvider promptVariableProvider, ISessionTerminationConfirmation sessionTerminationConfirmation, INotificationService notificationService, IRequestDispatcher dispatcher)
+    parameters:
+    - id: sessionStore
+      type: RemoteAgent.App.Services.ISessionStore
+    - id: gateway
+      type: RemoteAgent.App.Logic.IAgentGatewayClient
+    - id: apiClient
+      type: RemoteAgent.App.Logic.IServerApiClient
+    - id: preferences
+      type: RemoteAgent.App.Logic.IAppPreferences
+    - id: connectionModeSelector
+      type: RemoteAgent.App.Logic.IConnectionModeSelector
+    - id: agentSelector
+      type: RemoteAgent.App.Logic.IAgentSelector
+    - id: attachmentPicker
+      type: RemoteAgent.App.Logic.IAttachmentPicker
+    - id: promptTemplateSelector
+      type: RemoteAgent.App.Logic.IPromptTemplateSelector
+    - id: promptVariableProvider
+      type: RemoteAgent.App.Logic.IPromptVariableProvider
+    - id: sessionTerminationConfirmation
+      type: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+    - id: notificationService
+      type: RemoteAgent.App.Logic.INotificationService
+    - id: dispatcher
+      type: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+    content.vb: Public Sub New(sessionStore As ISessionStore, gateway As IAgentGatewayClient, apiClient As IServerApiClient, preferences As IAppPreferences, connectionModeSelector As IConnectionModeSelector, agentSelector As IAgentSelector, attachmentPicker As IAttachmentPicker, promptTemplateSelector As IPromptTemplateSelector, promptVariableProvider As IPromptVariableProvider, sessionTerminationConfirmation As ISessionTerminationConfirmation, notificationService As INotificationService, dispatcher As IRequestDispatcher)
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.#ctor*
+  nameWithType.vb: MainPageViewModel.New(ISessionStore, IAgentGatewayClient, IServerApiClient, IAppPreferences, IConnectionModeSelector, IAgentSelector, IAttachmentPicker, IPromptTemplateSelector, IPromptVariableProvider, ISessionTerminationConfirmation, INotificationService, IRequestDispatcher)
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.New(RemoteAgent.App.Services.ISessionStore, RemoteAgent.App.Logic.IAgentGatewayClient, RemoteAgent.App.Logic.IServerApiClient, RemoteAgent.App.Logic.IAppPreferences, RemoteAgent.App.Logic.IConnectionModeSelector, RemoteAgent.App.Logic.IAgentSelector, RemoteAgent.App.Logic.IAttachmentPicker, RemoteAgent.App.Logic.IPromptTemplateSelector, RemoteAgent.App.Logic.IPromptVariableProvider, RemoteAgent.App.Logic.ISessionTerminationConfirmation, RemoteAgent.App.Logic.INotificationService, RemoteAgent.App.Logic.Cqrs.IRequestDispatcher)
+  name.vb: New(ISessionStore, IAgentGatewayClient, IServerApiClient, IAppPreferences, IConnectionModeSelector, IAgentSelector, IAttachmentPicker, IPromptTemplateSelector, IPromptVariableProvider, ISessionTerminationConfirmation, INotificationService, IRequestDispatcher)
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.PropertyChanged
+  commentId: E:RemoteAgent.App.ViewModels.MainPageViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: MainPageViewModel.PropertyChanged
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 88
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Sessions
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.Sessions
+  id: Sessions
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Sessions
+  nameWithType: MainPageViewModel.Sessions
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Sessions
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Sessions
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 90
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ObservableCollection<SessionItem> Sessions { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.SessionItem}
+    content.vb: Public ReadOnly Property Sessions As ObservableCollection(Of SessionItem)
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.Sessions*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Messages
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.Messages
+  id: Messages
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Messages
+  nameWithType: MainPageViewModel.Messages
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Messages
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Messages
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 91
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ObservableCollection<ChatMessage> Messages { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.ChatMessage}
+    content.vb: Public ReadOnly Property Messages As ObservableCollection(Of ChatMessage)
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.Messages*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand
+  id: ConnectCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectCommand
+  nameWithType: MainPageViewModel.ConnectCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 93
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand ConnectCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property ConnectCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand
+  id: DisconnectCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: DisconnectCommand
+  nameWithType: MainPageViewModel.DisconnectCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisconnectCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 94
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand DisconnectCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property DisconnectCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand
+  id: NewSessionCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: NewSessionCommand
+  nameWithType: MainPageViewModel.NewSessionCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NewSessionCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 95
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand NewSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property NewSessionCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand
+  id: TerminateCurrentSessionCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateCurrentSessionCommand
+  nameWithType: MainPageViewModel.TerminateCurrentSessionCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateCurrentSessionCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 96
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand TerminateCurrentSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property TerminateCurrentSessionCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand
+  id: TerminateSessionCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateSessionCommand
+  nameWithType: MainPageViewModel.TerminateSessionCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateSessionCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 97
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand TerminateSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property TerminateSessionCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand
+  id: SendMessageCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: SendMessageCommand
+  nameWithType: MainPageViewModel.SendMessageCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendMessageCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 98
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand SendMessageCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SendMessageCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand
+  id: AttachCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: AttachCommand
+  nameWithType: MainPageViewModel.AttachCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AttachCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 99
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand AttachCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property AttachCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand
+  id: ArchiveMessageCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: ArchiveMessageCommand
+  nameWithType: MainPageViewModel.ArchiveMessageCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ArchiveMessageCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 100
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand ArchiveMessageCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property ArchiveMessageCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand
+  id: UsePromptTemplateCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: UsePromptTemplateCommand
+  nameWithType: MainPageViewModel.UsePromptTemplateCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UsePromptTemplateCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 101
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand UsePromptTemplateCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property UsePromptTemplateCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand
+  id: BeginEditTitleCommand
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: BeginEditTitleCommand
+  nameWithType: MainPageViewModel.BeginEditTitleCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BeginEditTitleCommand
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 102
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public ICommand BeginEditTitleCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property BeginEditTitleCommand As ICommand
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Host
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.Host
+  id: Host
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: MainPageViewModel.Host
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Host
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Host
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 104
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string Host { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.Host*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Port
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.Port
+  id: Port
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: MainPageViewModel.Port
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Port
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Port
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 110
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string Port { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Port As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.Port*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Status
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.Status
+  id: Status
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: MainPageViewModel.Status
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Status
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Status
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 116
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string Status { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Status As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.Status*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage
+  id: PendingMessage
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: PendingMessage
+  nameWithType: MainPageViewModel.PendingMessage
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PendingMessage
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 122
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string PendingMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PendingMessage As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext
+  id: PerRequestContext
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: PerRequestContext
+  nameWithType: MainPageViewModel.PerRequestContext
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PerRequestContext
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 128
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string PerRequestContext { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PerRequestContext As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession
+  id: CurrentSession
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: CurrentSession
+  nameWithType: MainPageViewModel.CurrentSession
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentSession
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 142
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public SessionItem? CurrentSession { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.App.Services.SessionItem
+    content.vb: Public Property CurrentSession As SessionItem
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle
+  id: CurrentSessionTitle
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: CurrentSessionTitle
+  nameWithType: MainPageViewModel.CurrentSessionTitle
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentSessionTitle
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 158
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string CurrentSessionTitle { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CurrentSessionTitle As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText
+  id: CurrentSessionTitleEditorText
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: CurrentSessionTitleEditorText
+  nameWithType: MainPageViewModel.CurrentSessionTitleEditorText
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentSessionTitleEditorText
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 159
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string CurrentSessionTitleEditorText { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CurrentSessionTitleEditorText As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel
+  id: ConnectionModeLabel
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectionModeLabel
+  nameWithType: MainPageViewModel.ConnectionModeLabel
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionModeLabel
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 171
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public string ConnectionModeLabel { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ConnectionModeLabel As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected
+  id: IsConnected
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: IsConnected
+  nameWithType: MainPageViewModel.IsConnected
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsConnected
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 173
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public bool IsConnected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsConnected As Boolean
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle
+  commentId: P:RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle
+  id: IsEditingTitle
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: IsEditingTitle
+  nameWithType: MainPageViewModel.IsEditingTitle
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsEditingTitle
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 174
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public bool IsEditingTitle { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEditingTitle As Boolean
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle(System.String,System.String)
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle(System.String,System.String)
+  id: UpdateSessionTitle(System.String,System.String)
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: UpdateSessionTitle(string, string)
+  nameWithType: MainPageViewModel.UpdateSessionTitle(string, string)
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpdateSessionTitle
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 181
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  summary: Updates session title in store and fires property-changed notifications. Called by handlers.
+  example: []
+  syntax:
+    content: public void UpdateSessionTitle(string sessionId, string title)
+    parameters:
+    - id: sessionId
+      type: System.String
+    - id: title
+      type: System.String
+    content.vb: Public Sub UpdateSessionTitle(sessionId As String, title As String)
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle*
+  nameWithType.vb: MainPageViewModel.UpdateSessionTitle(String, String)
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle(String, String)
+  name.vb: UpdateSessionTitle(String, String)
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged
+  id: NotifyConnectionStateChanged
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: NotifyConnectionStateChanged()
+  nameWithType: MainPageViewModel.NotifyConnectionStateChanged()
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NotifyConnectionStateChanged
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 189
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  summary: Fires connection-state-change notifications. Called by handlers after connect/disconnect.
+  example: []
+  syntax:
+    content: public void NotifyConnectionStateChanged()
+    content.vb: Public Sub NotifyConnectionStateChanged()
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged*
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle(System.String)
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle(System.String)
+  id: CommitSessionTitle(System.String)
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: CommitSessionTitle(string)
+  nameWithType: MainPageViewModel.CommitSessionTitle(string)
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CommitSessionTitle
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 223
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public void CommitSessionTitle(string value)
+    parameters:
+    - id: value
+      type: System.String
+    content.vb: Public Sub CommitSessionTitle(value As String)
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle*
+  nameWithType.vb: MainPageViewModel.CommitSessionTitle(String)
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle(String)
+  name.vb: CommitSessionTitle(String)
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession
+  id: StartNewSession
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: StartNewSession()
+  nameWithType: MainPageViewModel.StartNewSession()
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartNewSession
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 234
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  example: []
+  syntax:
+    content: public void StartNewSession()
+    content.vb: Public Sub StartNewSession()
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession*
+  implements:
+  - RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync(System.String)
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync(System.String)
+  id: TerminateSessionByIdAsync(System.String)
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateSessionByIdAsync(string?)
+  nameWithType: MainPageViewModel.TerminateSessionByIdAsync(string?)
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateSessionByIdAsync
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 236
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public Task<bool> TerminateSessionByIdAsync(string? sessionId)
+    parameters:
+    - id: sessionId
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function TerminateSessionByIdAsync(sessionId As String) As Task(Of Boolean)
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync*
+  nameWithType.vb: MainPageViewModel.TerminateSessionByIdAsync(String)
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync(String)
+  name.vb: TerminateSessionByIdAsync(String)
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId
+  id: GetCurrentSessionId
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentSessionId()
+  nameWithType: MainPageViewModel.GetCurrentSessionId()
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetCurrentSessionId
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 248
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  example: []
+  syntax:
+    content: public string? GetCurrentSessionId()
+    return:
+      type: System.String
+    content.vb: Public Function GetCurrentSessionId() As String
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId*
+  implements:
+  - RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession(System.String)
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession(System.String)
+  id: SelectSession(System.String)
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectSession(string?)
+  nameWithType: MainPageViewModel.SelectSession(string?)
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectSession
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 250
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  example: []
+  syntax:
+    content: public bool SelectSession(string? sessionId)
+    parameters:
+    - id: sessionId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function SelectSession(sessionId As String) As Boolean
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession*
+  implements:
+  - RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+  nameWithType.vb: MainPageViewModel.SelectSession(String)
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession(String)
+  name.vb: SelectSession(String)
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun(System.String,System.String@,RemoteAgent.Proto.ScriptType@)
+  commentId: M:RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun(System.String,System.String@,RemoteAgent.Proto.ScriptType@)
+  id: TryParseScriptRun(System.String,System.String@,RemoteAgent.Proto.ScriptType@)
+  parent: RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: TryParseScriptRun(string, out string, out ScriptType)
+  nameWithType: MainPageViewModel.TryParseScriptRun(string, out string, out ScriptType)
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun(string, out string, out RemoteAgent.Proto.ScriptType)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryParseScriptRun
+    path: ../src/RemoteAgent.App/ViewModels/MainPageViewModel.cs
+    startLine: 279
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.ViewModels
+  syntax:
+    content: public static bool TryParseScriptRun(string text, out string pathOrCommand, out ScriptType scriptType)
+    parameters:
+    - id: text
+      type: System.String
+    - id: pathOrCommand
+      type: System.String
+    - id: scriptType
+      type: RemoteAgent.Proto.ScriptType
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryParseScriptRun(text As String, pathOrCommand As String, scriptType As ScriptType) As Boolean
+  overload: RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun*
+  nameWithType.vb: MainPageViewModel.TryParseScriptRun(String, String, ScriptType)
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun(String, String, RemoteAgent.Proto.ScriptType)
+  name.vb: TryParseScriptRun(String, String, ScriptType)
+references:
+- uid: RemoteAgent.App.ViewModels
+  commentId: N:RemoteAgent.App.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.App.ViewModels
+  nameWithType: RemoteAgent.App.ViewModels
+  fullName: RemoteAgent.App.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.ISessionCommandBus
+  commentId: T:RemoteAgent.App.Logic.ISessionCommandBus
+  parent: RemoteAgent.App.Logic
+  name: ISessionCommandBus
+  nameWithType: ISessionCommandBus
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.#ctor*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.#ctor
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel__ctor_RemoteAgent_App_Services_ISessionStore_RemoteAgent_App_Logic_IAgentGatewayClient_RemoteAgent_App_Logic_IServerApiClient_RemoteAgent_App_Logic_IAppPreferences_RemoteAgent_App_Logic_IConnectionModeSelector_RemoteAgent_App_Logic_IAgentSelector_RemoteAgent_App_Logic_IAttachmentPicker_RemoteAgent_App_Logic_IPromptTemplateSelector_RemoteAgent_App_Logic_IPromptVariableProvider_RemoteAgent_App_Logic_ISessionTerminationConfirmation_RemoteAgent_App_Logic_INotificationService_RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_
+  name: MainPageViewModel
+  nameWithType: MainPageViewModel.MainPageViewModel
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.MainPageViewModel
+  nameWithType.vb: MainPageViewModel.New
+  fullName.vb: RemoteAgent.App.ViewModels.MainPageViewModel.New
+  name.vb: New
+- uid: RemoteAgent.App.Services.ISessionStore
+  commentId: T:RemoteAgent.App.Services.ISessionStore
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ISessionStore.html
+  name: ISessionStore
+  nameWithType: ISessionStore
+  fullName: RemoteAgent.App.Services.ISessionStore
+- uid: RemoteAgent.App.Logic.IAgentGatewayClient
+  commentId: T:RemoteAgent.App.Logic.IAgentGatewayClient
+  parent: RemoteAgent.App.Logic
+  name: IAgentGatewayClient
+  nameWithType: IAgentGatewayClient
+  fullName: RemoteAgent.App.Logic.IAgentGatewayClient
+- uid: RemoteAgent.App.Logic.IServerApiClient
+  commentId: T:RemoteAgent.App.Logic.IServerApiClient
+  parent: RemoteAgent.App.Logic
+  name: IServerApiClient
+  nameWithType: IServerApiClient
+  fullName: RemoteAgent.App.Logic.IServerApiClient
+- uid: RemoteAgent.App.Logic.IAppPreferences
+  commentId: T:RemoteAgent.App.Logic.IAppPreferences
+  parent: RemoteAgent.App.Logic
+  name: IAppPreferences
+  nameWithType: IAppPreferences
+  fullName: RemoteAgent.App.Logic.IAppPreferences
+- uid: RemoteAgent.App.Logic.IConnectionModeSelector
+  commentId: T:RemoteAgent.App.Logic.IConnectionModeSelector
+  parent: RemoteAgent.App.Logic
+  name: IConnectionModeSelector
+  nameWithType: IConnectionModeSelector
+  fullName: RemoteAgent.App.Logic.IConnectionModeSelector
+- uid: RemoteAgent.App.Logic.IAgentSelector
+  commentId: T:RemoteAgent.App.Logic.IAgentSelector
+  parent: RemoteAgent.App.Logic
+  name: IAgentSelector
+  nameWithType: IAgentSelector
+  fullName: RemoteAgent.App.Logic.IAgentSelector
+- uid: RemoteAgent.App.Logic.IAttachmentPicker
+  commentId: T:RemoteAgent.App.Logic.IAttachmentPicker
+  parent: RemoteAgent.App.Logic
+  name: IAttachmentPicker
+  nameWithType: IAttachmentPicker
+  fullName: RemoteAgent.App.Logic.IAttachmentPicker
+- uid: RemoteAgent.App.Logic.IPromptTemplateSelector
+  commentId: T:RemoteAgent.App.Logic.IPromptTemplateSelector
+  parent: RemoteAgent.App.Logic
+  name: IPromptTemplateSelector
+  nameWithType: IPromptTemplateSelector
+  fullName: RemoteAgent.App.Logic.IPromptTemplateSelector
+- uid: RemoteAgent.App.Logic.IPromptVariableProvider
+  commentId: T:RemoteAgent.App.Logic.IPromptVariableProvider
+  parent: RemoteAgent.App.Logic
+  name: IPromptVariableProvider
+  nameWithType: IPromptVariableProvider
+  fullName: RemoteAgent.App.Logic.IPromptVariableProvider
+- uid: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  commentId: T:RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  parent: RemoteAgent.App.Logic
+  name: ISessionTerminationConfirmation
+  nameWithType: ISessionTerminationConfirmation
+  fullName: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+- uid: RemoteAgent.App.Logic.INotificationService
+  commentId: T:RemoteAgent.App.Logic.INotificationService
+  parent: RemoteAgent.App.Logic
+  name: INotificationService
+  nameWithType: INotificationService
+  fullName: RemoteAgent.App.Logic.INotificationService
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Sessions*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.Sessions
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_Sessions
+  name: Sessions
+  nameWithType: MainPageViewModel.Sessions
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Sessions
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.SessionItem}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.SessionItem}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.App.Services.SessionItem.html
+  name: ObservableCollection<SessionItem>
+  nameWithType: ObservableCollection<SessionItem>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.App.Services.SessionItem>
+  nameWithType.vb: ObservableCollection(Of SessionItem)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.App.Services.SessionItem)
+  name.vb: ObservableCollection(Of SessionItem)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Services.SessionItem
+    name: SessionItem
+    href: RemoteAgent.App.Services.SessionItem.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Services.SessionItem
+    name: SessionItem
+    href: RemoteAgent.App.Services.SessionItem.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Messages*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.Messages
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_Messages
+  name: Messages
+  nameWithType: MainPageViewModel.Messages
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Messages
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.ChatMessage}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Services.ChatMessage}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  name: ObservableCollection<ChatMessage>
+  nameWithType: ObservableCollection<ChatMessage>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.App.Services.ChatMessage>
+  nameWithType.vb: ObservableCollection(Of ChatMessage)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.App.Services.ChatMessage)
+  name.vb: ObservableCollection(Of ChatMessage)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+  - name: )
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_ConnectCommand
+  name: ConnectCommand
+  nameWithType: MainPageViewModel.ConnectCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_DisconnectCommand
+  name: DisconnectCommand
+  nameWithType: MainPageViewModel.DisconnectCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.DisconnectCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_NewSessionCommand
+  name: NewSessionCommand
+  nameWithType: MainPageViewModel.NewSessionCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.NewSessionCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_TerminateCurrentSessionCommand
+  name: TerminateCurrentSessionCommand
+  nameWithType: MainPageViewModel.TerminateCurrentSessionCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateCurrentSessionCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_TerminateSessionCommand
+  name: TerminateSessionCommand
+  nameWithType: MainPageViewModel.TerminateSessionCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_SendMessageCommand
+  name: SendMessageCommand
+  nameWithType: MainPageViewModel.SendMessageCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.SendMessageCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_AttachCommand
+  name: AttachCommand
+  nameWithType: MainPageViewModel.AttachCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.AttachCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_ArchiveMessageCommand
+  name: ArchiveMessageCommand
+  nameWithType: MainPageViewModel.ArchiveMessageCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.ArchiveMessageCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_UsePromptTemplateCommand
+  name: UsePromptTemplateCommand
+  nameWithType: MainPageViewModel.UsePromptTemplateCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.UsePromptTemplateCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_BeginEditTitleCommand
+  name: BeginEditTitleCommand
+  nameWithType: MainPageViewModel.BeginEditTitleCommand
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.BeginEditTitleCommand
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Host*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.Host
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_Host
+  name: Host
+  nameWithType: MainPageViewModel.Host
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Host
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Port*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.Port
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_Port
+  name: Port
+  nameWithType: MainPageViewModel.Port
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Port
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.Status*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.Status
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_Status
+  name: Status
+  nameWithType: MainPageViewModel.Status
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.Status
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_PendingMessage
+  name: PendingMessage
+  nameWithType: MainPageViewModel.PendingMessage
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.PendingMessage
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_PerRequestContext
+  name: PerRequestContext
+  nameWithType: MainPageViewModel.PerRequestContext
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.PerRequestContext
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_CurrentSession
+  name: CurrentSession
+  nameWithType: MainPageViewModel.CurrentSession
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSession
+- uid: RemoteAgent.App.Services.SessionItem
+  commentId: T:RemoteAgent.App.Services.SessionItem
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.SessionItem.html
+  name: SessionItem
+  nameWithType: SessionItem
+  fullName: RemoteAgent.App.Services.SessionItem
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_CurrentSessionTitle
+  name: CurrentSessionTitle
+  nameWithType: MainPageViewModel.CurrentSessionTitle
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitle
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_CurrentSessionTitleEditorText
+  name: CurrentSessionTitleEditorText
+  nameWithType: MainPageViewModel.CurrentSessionTitleEditorText
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CurrentSessionTitleEditorText
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_ConnectionModeLabel
+  name: ConnectionModeLabel
+  nameWithType: MainPageViewModel.ConnectionModeLabel
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.ConnectionModeLabel
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_IsConnected
+  name: IsConnected
+  nameWithType: MainPageViewModel.IsConnected
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.IsConnected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_IsEditingTitle
+  name: IsEditingTitle
+  nameWithType: MainPageViewModel.IsEditingTitle
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.IsEditingTitle
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_UpdateSessionTitle_System_String_System_String_
+  name: UpdateSessionTitle
+  nameWithType: MainPageViewModel.UpdateSessionTitle
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.UpdateSessionTitle
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_NotifyConnectionStateChanged
+  name: NotifyConnectionStateChanged
+  nameWithType: MainPageViewModel.NotifyConnectionStateChanged
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.NotifyConnectionStateChanged
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_CommitSessionTitle_System_String_
+  name: CommitSessionTitle
+  nameWithType: MainPageViewModel.CommitSessionTitle
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.CommitSessionTitle
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_StartNewSession
+  name: StartNewSession
+  nameWithType: MainPageViewModel.StartNewSession
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.StartNewSession
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  name: StartNewSession()
+  nameWithType: ISessionCommandBus.StartNewSession()
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession()
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+    name: StartNewSession
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+    name: StartNewSession
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_TerminateSessionByIdAsync_System_String_
+  name: TerminateSessionByIdAsync
+  nameWithType: MainPageViewModel.TerminateSessionByIdAsync
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TerminateSessionByIdAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_GetCurrentSessionId
+  name: GetCurrentSessionId
+  nameWithType: MainPageViewModel.GetCurrentSessionId
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.GetCurrentSessionId
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  name: GetCurrentSessionId()
+  nameWithType: ISessionCommandBus.GetCurrentSessionId()
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId()
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+    name: GetCurrentSessionId
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+    name: GetCurrentSessionId
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_SelectSession_System_String_
+  name: SelectSession
+  nameWithType: MainPageViewModel.SelectSession
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.SelectSession
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SelectSession(string)
+  nameWithType: ISessionCommandBus.SelectSession(string)
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(string)
+  nameWithType.vb: ISessionCommandBus.SelectSession(String)
+  fullName.vb: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(String)
+  name.vb: SelectSession(String)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+    name: SelectSession
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+    name: SelectSession
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun*
+  commentId: Overload:RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html#RemoteAgent_App_ViewModels_MainPageViewModel_TryParseScriptRun_System_String_System_String__RemoteAgent_Proto_ScriptType__
+  name: TryParseScriptRun
+  nameWithType: MainPageViewModel.TryParseScriptRun
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel.TryParseScriptRun
+- uid: RemoteAgent.Proto.ScriptType
+  commentId: T:RemoteAgent.Proto.ScriptType
+  parent: RemoteAgent.Proto
+  name: ScriptType
+  nameWithType: ScriptType
+  fullName: RemoteAgent.Proto.ScriptType
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto

@@ -10,6 +10,7 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Shared test infrastructure: stub implementations and workspace factories used across all Desktop handler unit tests. TR-18.3, TR-18.4.</summary>
 internal static class SharedWorkspaceFactory
 {
     public static ServerWorkspaceViewModel CreateWorkspace(

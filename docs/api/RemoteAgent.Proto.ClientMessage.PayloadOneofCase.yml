@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  commentId: T:RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  id: ClientMessage.PayloadOneofCase
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Control
+  - RemoteAgent.Proto.ClientMessage.PayloadOneofCase.MediaUpload
+  - RemoteAgent.Proto.ClientMessage.PayloadOneofCase.None
+  - RemoteAgent.Proto.ClientMessage.PayloadOneofCase.ScriptRequest
+  - RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Text
+  langs:
+  - csharp
+  - vb
+  name: ClientMessage.PayloadOneofCase
+  nameWithType: ClientMessage.PayloadOneofCase
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  type: Enum
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PayloadOneofCase
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 878
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Enum of possible cases for the "payload" oneof.
+  example: []
+  syntax:
+    content: public enum ClientMessage.PayloadOneofCase
+    content.vb: Public Enum ClientMessage.PayloadOneofCase
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.None
+  commentId: F:RemoteAgent.Proto.ClientMessage.PayloadOneofCase.None
+  id: None
+  parent: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ClientMessage.PayloadOneofCase.None
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.None
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: None
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 879
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: None = 0
+    return:
+      type: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Text
+  commentId: F:RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Text
+  id: Text
+  parent: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: ClientMessage.PayloadOneofCase.Text
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Text
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Text
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 880
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: Text = 1
+    return:
+      type: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Control
+  commentId: F:RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Control
+  id: Control
+  parent: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  langs:
+  - csharp
+  - vb
+  name: Control
+  nameWithType: ClientMessage.PayloadOneofCase.Control
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.Control
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Control
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 881
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: Control = 2
+    return:
+      type: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.ScriptRequest
+  commentId: F:RemoteAgent.Proto.ClientMessage.PayloadOneofCase.ScriptRequest
+  id: ScriptRequest
+  parent: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  langs:
+  - csharp
+  - vb
+  name: ScriptRequest
+  nameWithType: ClientMessage.PayloadOneofCase.ScriptRequest
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.ScriptRequest
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ScriptRequest
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 882
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: ScriptRequest = 3
+    return:
+      type: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.MediaUpload
+  commentId: F:RemoteAgent.Proto.ClientMessage.PayloadOneofCase.MediaUpload
+  id: MediaUpload
+  parent: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  langs:
+  - csharp
+  - vb
+  name: MediaUpload
+  nameWithType: ClientMessage.PayloadOneofCase.MediaUpload
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.MediaUpload
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MediaUpload
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 883
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: MediaUpload = 4
+    return:
+      type: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  commentId: T:RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: ClientMessage.PayloadOneofCase
+  nameWithType: ClientMessage.PayloadOneofCase
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  spec.csharp:
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.html

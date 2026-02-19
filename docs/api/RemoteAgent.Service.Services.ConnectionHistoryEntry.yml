@@ -1,0 +1,604 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  commentId: T:RemoteAgent.Service.Services.ConnectionHistoryEntry
+  id: ConnectionHistoryEntry
+  parent: RemoteAgent.Service.Services
+  children:
+  - RemoteAgent.Service.Services.ConnectionHistoryEntry.#ctor(System.DateTimeOffset,System.String,System.String,System.Boolean,System.String)
+  - RemoteAgent.Service.Services.ConnectionHistoryEntry.Action
+  - RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed
+  - RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail
+  - RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer
+  - RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc
+  langs:
+  - csharp
+  - vb
+  name: ConnectionHistoryEntry
+  nameWithType: ConnectionHistoryEntry
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionHistoryEntry
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 321
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: 'public sealed record ConnectionHistoryEntry : IEquatable<ConnectionHistoryEntry>'
+    content.vb: Public NotInheritable Class ConnectionHistoryEntry Implements IEquatable(Of ConnectionHistoryEntry)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Service.Services.ConnectionHistoryEntry}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.#ctor(System.DateTimeOffset,System.String,System.String,System.Boolean,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionHistoryEntry.#ctor(System.DateTimeOffset,System.String,System.String,System.Boolean,System.String)
+  id: '#ctor(System.DateTimeOffset,System.String,System.String,System.Boolean,System.String)'
+  parent: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: ConnectionHistoryEntry(DateTimeOffset, string, string, bool, string?)
+  nameWithType: ConnectionHistoryEntry.ConnectionHistoryEntry(DateTimeOffset, string, string, bool, string?)
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.ConnectionHistoryEntry(System.DateTimeOffset, string, string, bool, string?)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 321
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public ConnectionHistoryEntry(DateTimeOffset TimestampUtc, string Peer, string Action, bool Allowed, string? Detail)
+    parameters:
+    - id: TimestampUtc
+      type: System.DateTimeOffset
+    - id: Peer
+      type: System.String
+    - id: Action
+      type: System.String
+    - id: Allowed
+      type: System.Boolean
+    - id: Detail
+      type: System.String
+    content.vb: Public Sub New(TimestampUtc As DateTimeOffset, Peer As String, Action As String, Allowed As Boolean, Detail As String)
+  overload: RemoteAgent.Service.Services.ConnectionHistoryEntry.#ctor*
+  nameWithType.vb: ConnectionHistoryEntry.New(DateTimeOffset, String, String, Boolean, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionHistoryEntry.New(System.DateTimeOffset, String, String, Boolean, String)
+  name.vb: New(DateTimeOffset, String, String, Boolean, String)
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc
+  commentId: P:RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc
+  id: TimestampUtc
+  parent: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: TimestampUtc
+  nameWithType: ConnectionHistoryEntry.TimestampUtc
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TimestampUtc
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 322
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public DateTimeOffset TimestampUtc { get; init; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property TimestampUtc As DateTimeOffset
+  overload: RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc*
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer
+  commentId: P:RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer
+  id: Peer
+  parent: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: Peer
+  nameWithType: ConnectionHistoryEntry.Peer
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Peer
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 323
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string Peer { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Peer As String
+  overload: RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer*
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Action
+  commentId: P:RemoteAgent.Service.Services.ConnectionHistoryEntry.Action
+  id: Action
+  parent: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: Action
+  nameWithType: ConnectionHistoryEntry.Action
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Action
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Action
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 324
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string Action { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Action As String
+  overload: RemoteAgent.Service.Services.ConnectionHistoryEntry.Action*
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed
+  commentId: P:RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed
+  id: Allowed
+  parent: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: Allowed
+  nameWithType: ConnectionHistoryEntry.Allowed
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Allowed
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 325
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool Allowed { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Allowed As Boolean
+  overload: RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed*
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail
+  commentId: P:RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail
+  id: Detail
+  parent: RemoteAgent.Service.Services.ConnectionHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: Detail
+  nameWithType: ConnectionHistoryEntry.Detail
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Detail
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 326
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string? Detail { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Detail As String
+  overload: RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail*
+references:
+- uid: RemoteAgent.Service.Services
+  commentId: N:RemoteAgent.Service.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Services
+  nameWithType: RemoteAgent.Service.Services
+  fullName: RemoteAgent.Service.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Service.Services.ConnectionHistoryEntry}
+  commentId: T:System.IEquatable{RemoteAgent.Service.Services.ConnectionHistoryEntry}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ConnectionHistoryEntry>
+  nameWithType: IEquatable<ConnectionHistoryEntry>
+  fullName: System.IEquatable<RemoteAgent.Service.Services.ConnectionHistoryEntry>
+  nameWithType.vb: IEquatable(Of ConnectionHistoryEntry)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Service.Services.ConnectionHistoryEntry)
+  name.vb: IEquatable(Of ConnectionHistoryEntry)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Service.Services.ConnectionHistoryEntry
+    name: ConnectionHistoryEntry
+    href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.ConnectionHistoryEntry
+    name: ConnectionHistoryEntry
+    href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.#ctor*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionHistoryEntry.#ctor
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html#RemoteAgent_Service_Services_ConnectionHistoryEntry__ctor_System_DateTimeOffset_System_String_System_String_System_Boolean_System_String_
+  name: ConnectionHistoryEntry
+  nameWithType: ConnectionHistoryEntry.ConnectionHistoryEntry
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.ConnectionHistoryEntry
+  nameWithType.vb: ConnectionHistoryEntry.New
+  fullName.vb: RemoteAgent.Service.Services.ConnectionHistoryEntry.New
+  name.vb: New
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html#RemoteAgent_Service_Services_ConnectionHistoryEntry_TimestampUtc
+  name: TimestampUtc
+  nameWithType: ConnectionHistoryEntry.TimestampUtc
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.TimestampUtc
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html#RemoteAgent_Service_Services_ConnectionHistoryEntry_Peer
+  name: Peer
+  nameWithType: ConnectionHistoryEntry.Peer
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Peer
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Action*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionHistoryEntry.Action
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html#RemoteAgent_Service_Services_ConnectionHistoryEntry_Action
+  name: Action
+  nameWithType: ConnectionHistoryEntry.Action
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Action
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html#RemoteAgent_Service_Services_ConnectionHistoryEntry_Allowed
+  name: Allowed
+  nameWithType: ConnectionHistoryEntry.Allowed
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Allowed
+- uid: RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail
+  href: RemoteAgent.Service.Services.ConnectionHistoryEntry.html#RemoteAgent_Service_Services_ConnectionHistoryEntry_Detail
+  name: Detail
+  nameWithType: ConnectionHistoryEntry.Detail
+  fullName: RemoteAgent.Service.Services.ConnectionHistoryEntry.Detail

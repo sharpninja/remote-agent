@@ -1,0 +1,613 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Services.ConnectionDecision
+  commentId: T:RemoteAgent.Service.Services.ConnectionDecision
+  id: ConnectionDecision
+  parent: RemoteAgent.Service.Services
+  children:
+  - RemoteAgent.Service.Services.ConnectionDecision.#ctor(System.Boolean,System.String,System.String)
+  - RemoteAgent.Service.Services.ConnectionDecision.Allowed
+  - RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed(System.String)
+  - RemoteAgent.Service.Services.ConnectionDecision.CreateDenied(System.String,System.String)
+  - RemoteAgent.Service.Services.ConnectionDecision.DeniedReason
+  - RemoteAgent.Service.Services.ConnectionDecision.Peer
+  langs:
+  - csharp
+  - vb
+  name: ConnectionDecision
+  nameWithType: ConnectionDecision
+  fullName: RemoteAgent.Service.Services.ConnectionDecision
+  type: Struct
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionDecision
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 308
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: 'public readonly record struct ConnectionDecision : IEquatable<ConnectionDecision>'
+    content.vb: Public Structure ConnectionDecision Implements IEquatable(Of ConnectionDecision)
+  implements:
+  - System.IEquatable{RemoteAgent.Service.Services.ConnectionDecision}
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Service.Services.ConnectionDecision.#ctor(System.Boolean,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionDecision.#ctor(System.Boolean,System.String,System.String)
+  id: '#ctor(System.Boolean,System.String,System.String)'
+  parent: RemoteAgent.Service.Services.ConnectionDecision
+  langs:
+  - csharp
+  - vb
+  name: ConnectionDecision(bool, string, string?)
+  nameWithType: ConnectionDecision.ConnectionDecision(bool, string, string?)
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.ConnectionDecision(bool, string, string?)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 308
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public ConnectionDecision(bool Allowed, string Peer, string? DeniedReason)
+    parameters:
+    - id: Allowed
+      type: System.Boolean
+    - id: Peer
+      type: System.String
+    - id: DeniedReason
+      type: System.String
+    content.vb: Public Sub New(Allowed As Boolean, Peer As String, DeniedReason As String)
+  overload: RemoteAgent.Service.Services.ConnectionDecision.#ctor*
+  nameWithType.vb: ConnectionDecision.New(Boolean, String, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionDecision.New(Boolean, String, String)
+  name.vb: New(Boolean, String, String)
+- uid: RemoteAgent.Service.Services.ConnectionDecision.Allowed
+  commentId: P:RemoteAgent.Service.Services.ConnectionDecision.Allowed
+  id: Allowed
+  parent: RemoteAgent.Service.Services.ConnectionDecision
+  langs:
+  - csharp
+  - vb
+  name: Allowed
+  nameWithType: ConnectionDecision.Allowed
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.Allowed
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Allowed
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 308
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool Allowed { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Allowed As Boolean
+  overload: RemoteAgent.Service.Services.ConnectionDecision.Allowed*
+- uid: RemoteAgent.Service.Services.ConnectionDecision.Peer
+  commentId: P:RemoteAgent.Service.Services.ConnectionDecision.Peer
+  id: Peer
+  parent: RemoteAgent.Service.Services.ConnectionDecision
+  langs:
+  - csharp
+  - vb
+  name: Peer
+  nameWithType: ConnectionDecision.Peer
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.Peer
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Peer
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 308
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string Peer { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Peer As String
+  overload: RemoteAgent.Service.Services.ConnectionDecision.Peer*
+- uid: RemoteAgent.Service.Services.ConnectionDecision.DeniedReason
+  commentId: P:RemoteAgent.Service.Services.ConnectionDecision.DeniedReason
+  id: DeniedReason
+  parent: RemoteAgent.Service.Services.ConnectionDecision
+  langs:
+  - csharp
+  - vb
+  name: DeniedReason
+  nameWithType: ConnectionDecision.DeniedReason
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.DeniedReason
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeniedReason
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 308
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string? DeniedReason { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeniedReason As String
+  overload: RemoteAgent.Service.Services.ConnectionDecision.DeniedReason*
+- uid: RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed(System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed(System.String)
+  id: CreateAllowed(System.String)
+  parent: RemoteAgent.Service.Services.ConnectionDecision
+  langs:
+  - csharp
+  - vb
+  name: CreateAllowed(string)
+  nameWithType: ConnectionDecision.CreateAllowed(string)
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreateAllowed
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 310
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public static ConnectionDecision CreateAllowed(string peer)
+    parameters:
+    - id: peer
+      type: System.String
+    return:
+      type: RemoteAgent.Service.Services.ConnectionDecision
+    content.vb: Public Shared Function CreateAllowed(peer As String) As ConnectionDecision
+  overload: RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed*
+  nameWithType.vb: ConnectionDecision.CreateAllowed(String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed(String)
+  name.vb: CreateAllowed(String)
+- uid: RemoteAgent.Service.Services.ConnectionDecision.CreateDenied(System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.ConnectionDecision.CreateDenied(System.String,System.String)
+  id: CreateDenied(System.String,System.String)
+  parent: RemoteAgent.Service.Services.ConnectionDecision
+  langs:
+  - csharp
+  - vb
+  name: CreateDenied(string, string)
+  nameWithType: ConnectionDecision.CreateDenied(string, string)
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.CreateDenied(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreateDenied
+    path: ../src/RemoteAgent.Service/Services/ConnectionProtectionService.cs
+    startLine: 311
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public static ConnectionDecision CreateDenied(string peer, string reason)
+    parameters:
+    - id: peer
+      type: System.String
+    - id: reason
+      type: System.String
+    return:
+      type: RemoteAgent.Service.Services.ConnectionDecision
+    content.vb: Public Shared Function CreateDenied(peer As String, reason As String) As ConnectionDecision
+  overload: RemoteAgent.Service.Services.ConnectionDecision.CreateDenied*
+  nameWithType.vb: ConnectionDecision.CreateDenied(String, String)
+  fullName.vb: RemoteAgent.Service.Services.ConnectionDecision.CreateDenied(String, String)
+  name.vb: CreateDenied(String, String)
+references:
+- uid: RemoteAgent.Service.Services
+  commentId: N:RemoteAgent.Service.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Services
+  nameWithType: RemoteAgent.Service.Services
+  fullName: RemoteAgent.Service.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+- uid: System.IEquatable{RemoteAgent.Service.Services.ConnectionDecision}
+  commentId: T:System.IEquatable{RemoteAgent.Service.Services.ConnectionDecision}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ConnectionDecision>
+  nameWithType: IEquatable<ConnectionDecision>
+  fullName: System.IEquatable<RemoteAgent.Service.Services.ConnectionDecision>
+  nameWithType.vb: IEquatable(Of ConnectionDecision)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Service.Services.ConnectionDecision)
+  name.vb: IEquatable(Of ConnectionDecision)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Service.Services.ConnectionDecision
+    name: ConnectionDecision
+    href: RemoteAgent.Service.Services.ConnectionDecision.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.ConnectionDecision
+    name: ConnectionDecision
+    href: RemoteAgent.Service.Services.ConnectionDecision.html
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Service.Services.ConnectionDecision.#ctor*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionDecision.#ctor
+  href: RemoteAgent.Service.Services.ConnectionDecision.html#RemoteAgent_Service_Services_ConnectionDecision__ctor_System_Boolean_System_String_System_String_
+  name: ConnectionDecision
+  nameWithType: ConnectionDecision.ConnectionDecision
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.ConnectionDecision
+  nameWithType.vb: ConnectionDecision.New
+  fullName.vb: RemoteAgent.Service.Services.ConnectionDecision.New
+  name.vb: New
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Services.ConnectionDecision.Allowed*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionDecision.Allowed
+  href: RemoteAgent.Service.Services.ConnectionDecision.html#RemoteAgent_Service_Services_ConnectionDecision_Allowed
+  name: Allowed
+  nameWithType: ConnectionDecision.Allowed
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.Allowed
+- uid: RemoteAgent.Service.Services.ConnectionDecision.Peer*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionDecision.Peer
+  href: RemoteAgent.Service.Services.ConnectionDecision.html#RemoteAgent_Service_Services_ConnectionDecision_Peer
+  name: Peer
+  nameWithType: ConnectionDecision.Peer
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.Peer
+- uid: RemoteAgent.Service.Services.ConnectionDecision.DeniedReason*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionDecision.DeniedReason
+  href: RemoteAgent.Service.Services.ConnectionDecision.html#RemoteAgent_Service_Services_ConnectionDecision_DeniedReason
+  name: DeniedReason
+  nameWithType: ConnectionDecision.DeniedReason
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.DeniedReason
+- uid: RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed
+  href: RemoteAgent.Service.Services.ConnectionDecision.html#RemoteAgent_Service_Services_ConnectionDecision_CreateAllowed_System_String_
+  name: CreateAllowed
+  nameWithType: ConnectionDecision.CreateAllowed
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.CreateAllowed
+- uid: RemoteAgent.Service.Services.ConnectionDecision
+  commentId: T:RemoteAgent.Service.Services.ConnectionDecision
+  parent: RemoteAgent.Service.Services
+  href: RemoteAgent.Service.Services.ConnectionDecision.html
+  name: ConnectionDecision
+  nameWithType: ConnectionDecision
+  fullName: RemoteAgent.Service.Services.ConnectionDecision
+- uid: RemoteAgent.Service.Services.ConnectionDecision.CreateDenied*
+  commentId: Overload:RemoteAgent.Service.Services.ConnectionDecision.CreateDenied
+  href: RemoteAgent.Service.Services.ConnectionDecision.html#RemoteAgent_Service_Services_ConnectionDecision_CreateDenied_System_String_System_String_
+  name: CreateDenied
+  nameWithType: ConnectionDecision.CreateDenied
+  fullName: RemoteAgent.Service.Services.ConnectionDecision.CreateDenied

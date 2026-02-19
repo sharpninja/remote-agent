@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.TestHelpers
+  commentId: N:RemoteAgent.Desktop.UiTests.TestHelpers
+  id: RemoteAgent.Desktop.UiTests.TestHelpers
+  children:
+  - RemoteAgent.Desktop.UiTests.TestHelpers.InMemoryServerRegistrationStore
+  - RemoteAgent.Desktop.UiTests.TestHelpers.TestRequestDispatcher
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop.UiTests.TestHelpers
+  nameWithType: RemoteAgent.Desktop.UiTests.TestHelpers
+  fullName: RemoteAgent.Desktop.UiTests.TestHelpers
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+references:
+- uid: RemoteAgent.Desktop.UiTests.TestHelpers.InMemoryServerRegistrationStore
+  commentId: T:RemoteAgent.Desktop.UiTests.TestHelpers.InMemoryServerRegistrationStore
+  href: RemoteAgent.Desktop.UiTests.TestHelpers.InMemoryServerRegistrationStore.html
+  name: InMemoryServerRegistrationStore
+  nameWithType: InMemoryServerRegistrationStore
+  fullName: RemoteAgent.Desktop.UiTests.TestHelpers.InMemoryServerRegistrationStore
+- uid: RemoteAgent.Desktop.UiTests.TestHelpers.TestRequestDispatcher
+  commentId: T:RemoteAgent.Desktop.UiTests.TestHelpers.TestRequestDispatcher
+  parent: RemoteAgent.Desktop.UiTests.TestHelpers
+  href: RemoteAgent.Desktop.UiTests.TestHelpers.TestRequestDispatcher.html
+  name: TestRequestDispatcher
+  nameWithType: TestRequestDispatcher
+  fullName: RemoteAgent.Desktop.UiTests.TestHelpers.TestRequestDispatcher
+- uid: RemoteAgent.Desktop.UiTests.TestHelpers
+  commentId: N:RemoteAgent.Desktop.UiTests.TestHelpers
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.UiTests.TestHelpers
+  nameWithType: RemoteAgent.Desktop.UiTests.TestHelpers
+  fullName: RemoteAgent.Desktop.UiTests.TestHelpers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.TestHelpers
+    name: TestHelpers
+    href: RemoteAgent.Desktop.UiTests.TestHelpers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.TestHelpers
+    name: TestHelpers
+    href: RemoteAgent.Desktop.UiTests.TestHelpers.html

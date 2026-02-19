@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Plugins.Ollama
+  commentId: N:RemoteAgent.Plugins.Ollama
+  id: RemoteAgent.Plugins.Ollama
+  children:
+  - RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Plugins.Ollama
+  nameWithType: RemoteAgent.Plugins.Ollama
+  fullName: RemoteAgent.Plugins.Ollama
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Plugins.Ollama
+references:
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  commentId: T:RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html
+  name: OllamaAgentRunner
+  nameWithType: OllamaAgentRunner
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner

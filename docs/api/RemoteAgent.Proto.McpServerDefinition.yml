@@ -1,0 +1,2246 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.McpServerDefinition
+  commentId: T:RemoteAgent.Proto.McpServerDefinition
+  id: McpServerDefinition
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.McpServerDefinition.#ctor
+  - RemoteAgent.Proto.McpServerDefinition.#ctor(RemoteAgent.Proto.McpServerDefinition)
+  - RemoteAgent.Proto.McpServerDefinition.Arguments
+  - RemoteAgent.Proto.McpServerDefinition.ArgumentsFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.AuthConfigJson
+  - RemoteAgent.Proto.McpServerDefinition.AuthConfigJsonFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.AuthType
+  - RemoteAgent.Proto.McpServerDefinition.AuthTypeFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.CalculateSize
+  - RemoteAgent.Proto.McpServerDefinition.Clone
+  - RemoteAgent.Proto.McpServerDefinition.Command
+  - RemoteAgent.Proto.McpServerDefinition.CommandFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.CreatedUtc
+  - RemoteAgent.Proto.McpServerDefinition.CreatedUtcFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.Descriptor
+  - RemoteAgent.Proto.McpServerDefinition.DisplayName
+  - RemoteAgent.Proto.McpServerDefinition.DisplayNameFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.Enabled
+  - RemoteAgent.Proto.McpServerDefinition.EnabledFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.Endpoint
+  - RemoteAgent.Proto.McpServerDefinition.EndpointFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.Equals(RemoteAgent.Proto.McpServerDefinition)
+  - RemoteAgent.Proto.McpServerDefinition.Equals(System.Object)
+  - RemoteAgent.Proto.McpServerDefinition.GetHashCode
+  - RemoteAgent.Proto.McpServerDefinition.MergeFrom(Google.Protobuf.CodedInputStream)
+  - RemoteAgent.Proto.McpServerDefinition.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  - RemoteAgent.Proto.McpServerDefinition.MetadataJson
+  - RemoteAgent.Proto.McpServerDefinition.MetadataJsonFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.Parser
+  - RemoteAgent.Proto.McpServerDefinition.ServerId
+  - RemoteAgent.Proto.McpServerDefinition.ServerIdFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.ToString
+  - RemoteAgent.Proto.McpServerDefinition.Transport
+  - RemoteAgent.Proto.McpServerDefinition.TransportFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.UpdatedUtc
+  - RemoteAgent.Proto.McpServerDefinition.UpdatedUtcFieldNumber
+  - RemoteAgent.Proto.McpServerDefinition.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: McpServerDefinition
+  nameWithType: McpServerDefinition
+  fullName: RemoteAgent.Proto.McpServerDefinition
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: McpServerDefinition
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6704
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: 'public sealed class McpServerDefinition : IMessage<McpServerDefinition>, IEquatable<McpServerDefinition>, IDeepCloneable<McpServerDefinition>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class McpServerDefinition Implements IMessage(Of McpServerDefinition), IEquatable(Of McpServerDefinition), IDeepCloneable(Of McpServerDefinition), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}
+  - System.IEquatable{RemoteAgent.Proto.McpServerDefinition}
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Proto.McpServerDefinition.Parser
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Parser
+  id: Parser
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: McpServerDefinition.Parser
+  fullName: RemoteAgent.Proto.McpServerDefinition.Parser
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Parser
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6712
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageParser<McpServerDefinition> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{RemoteAgent.Proto.McpServerDefinition}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of McpServerDefinition)
+  overload: RemoteAgent.Proto.McpServerDefinition.Parser*
+- uid: RemoteAgent.Proto.McpServerDefinition.Descriptor
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Descriptor
+  id: Descriptor
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: McpServerDefinition.Descriptor
+  fullName: RemoteAgent.Proto.McpServerDefinition.Descriptor
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Descriptor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6716
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: RemoteAgent.Proto.McpServerDefinition.Descriptor*
+- uid: RemoteAgent.Proto.McpServerDefinition.#ctor
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: McpServerDefinition()
+  nameWithType: McpServerDefinition.McpServerDefinition()
+  fullName: RemoteAgent.Proto.McpServerDefinition.McpServerDefinition()
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6728
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public McpServerDefinition()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Proto.McpServerDefinition.#ctor*
+  nameWithType.vb: McpServerDefinition.New()
+  fullName.vb: RemoteAgent.Proto.McpServerDefinition.New()
+  name.vb: New()
+- uid: RemoteAgent.Proto.McpServerDefinition.#ctor(RemoteAgent.Proto.McpServerDefinition)
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.#ctor(RemoteAgent.Proto.McpServerDefinition)
+  id: '#ctor(RemoteAgent.Proto.McpServerDefinition)'
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: McpServerDefinition(McpServerDefinition)
+  nameWithType: McpServerDefinition.McpServerDefinition(McpServerDefinition)
+  fullName: RemoteAgent.Proto.McpServerDefinition.McpServerDefinition(RemoteAgent.Proto.McpServerDefinition)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6736
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public McpServerDefinition(McpServerDefinition other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.McpServerDefinition
+    content.vb: Public Sub New(other As McpServerDefinition)
+  overload: RemoteAgent.Proto.McpServerDefinition.#ctor*
+  nameWithType.vb: McpServerDefinition.New(McpServerDefinition)
+  fullName.vb: RemoteAgent.Proto.McpServerDefinition.New(RemoteAgent.Proto.McpServerDefinition)
+  name.vb: New(McpServerDefinition)
+- uid: RemoteAgent.Proto.McpServerDefinition.Clone
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.Clone
+  id: Clone
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: McpServerDefinition.Clone()
+  fullName: RemoteAgent.Proto.McpServerDefinition.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Clone
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6754
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public McpServerDefinition Clone()
+    return:
+      type: RemoteAgent.Proto.McpServerDefinition
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As McpServerDefinition
+  overload: RemoteAgent.Proto.McpServerDefinition.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}.Clone
+- uid: RemoteAgent.Proto.McpServerDefinition.ServerIdFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.ServerIdFieldNumber
+  id: ServerIdFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: ServerIdFieldNumber
+  nameWithType: McpServerDefinition.ServerIdFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.ServerIdFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerIdFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6761
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "server_id" field.
+  example: []
+  syntax:
+    content: public const int ServerIdFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const ServerIdFieldNumber As Integer = 1
+- uid: RemoteAgent.Proto.McpServerDefinition.ServerId
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.ServerId
+  id: ServerId
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: ServerId
+  nameWithType: McpServerDefinition.ServerId
+  fullName: RemoteAgent.Proto.McpServerDefinition.ServerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerId
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6766
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: stable id key
+  example: []
+  syntax:
+    content: public string ServerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServerId As String
+  overload: RemoteAgent.Proto.McpServerDefinition.ServerId*
+- uid: RemoteAgent.Proto.McpServerDefinition.DisplayNameFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.DisplayNameFieldNumber
+  id: DisplayNameFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: DisplayNameFieldNumber
+  nameWithType: McpServerDefinition.DisplayNameFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.DisplayNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayNameFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6776
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "display_name" field.
+  example: []
+  syntax:
+    content: public const int DisplayNameFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const DisplayNameFieldNumber As Integer = 2
+- uid: RemoteAgent.Proto.McpServerDefinition.DisplayName
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.DisplayName
+  id: DisplayName
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: McpServerDefinition.DisplayName
+  fullName: RemoteAgent.Proto.McpServerDefinition.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DisplayName
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6778
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: RemoteAgent.Proto.McpServerDefinition.DisplayName*
+- uid: RemoteAgent.Proto.McpServerDefinition.TransportFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.TransportFieldNumber
+  id: TransportFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: TransportFieldNumber
+  nameWithType: McpServerDefinition.TransportFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.TransportFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TransportFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6788
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "transport" field.
+  example: []
+  syntax:
+    content: public const int TransportFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const TransportFieldNumber As Integer = 3
+- uid: RemoteAgent.Proto.McpServerDefinition.Transport
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Transport
+  id: Transport
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Transport
+  nameWithType: McpServerDefinition.Transport
+  fullName: RemoteAgent.Proto.McpServerDefinition.Transport
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Transport
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6793
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: stdio, sse, websocket, http
+  example: []
+  syntax:
+    content: public string Transport { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Transport As String
+  overload: RemoteAgent.Proto.McpServerDefinition.Transport*
+- uid: RemoteAgent.Proto.McpServerDefinition.EndpointFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.EndpointFieldNumber
+  id: EndpointFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: EndpointFieldNumber
+  nameWithType: McpServerDefinition.EndpointFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.EndpointFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EndpointFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6803
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "endpoint" field.
+  example: []
+  syntax:
+    content: public const int EndpointFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const EndpointFieldNumber As Integer = 4
+- uid: RemoteAgent.Proto.McpServerDefinition.Endpoint
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Endpoint
+  id: Endpoint
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Endpoint
+  nameWithType: McpServerDefinition.Endpoint
+  fullName: RemoteAgent.Proto.McpServerDefinition.Endpoint
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Endpoint
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6808
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: url/endpoint for network transports
+  example: []
+  syntax:
+    content: public string Endpoint { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Endpoint As String
+  overload: RemoteAgent.Proto.McpServerDefinition.Endpoint*
+- uid: RemoteAgent.Proto.McpServerDefinition.CommandFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.CommandFieldNumber
+  id: CommandFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: CommandFieldNumber
+  nameWithType: McpServerDefinition.CommandFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.CommandFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CommandFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6818
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "command" field.
+  example: []
+  syntax:
+    content: public const int CommandFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const CommandFieldNumber As Integer = 5
+- uid: RemoteAgent.Proto.McpServerDefinition.Command
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Command
+  id: Command
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: McpServerDefinition.Command
+  fullName: RemoteAgent.Proto.McpServerDefinition.Command
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Command
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6823
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: command for stdio transport
+  example: []
+  syntax:
+    content: public string Command { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Command As String
+  overload: RemoteAgent.Proto.McpServerDefinition.Command*
+- uid: RemoteAgent.Proto.McpServerDefinition.ArgumentsFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.ArgumentsFieldNumber
+  id: ArgumentsFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: ArgumentsFieldNumber
+  nameWithType: McpServerDefinition.ArgumentsFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.ArgumentsFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ArgumentsFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6833
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "arguments" field.
+  example: []
+  syntax:
+    content: public const int ArgumentsFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const ArgumentsFieldNumber As Integer = 6
+- uid: RemoteAgent.Proto.McpServerDefinition.Arguments
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Arguments
+  id: Arguments
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: McpServerDefinition.Arguments
+  fullName: RemoteAgent.Proto.McpServerDefinition.Arguments
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Arguments
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6837
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public RepeatedField<string> Arguments { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{System.String}
+    content.vb: Public ReadOnly Property Arguments As RepeatedField(Of String)
+  overload: RemoteAgent.Proto.McpServerDefinition.Arguments*
+- uid: RemoteAgent.Proto.McpServerDefinition.AuthTypeFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.AuthTypeFieldNumber
+  id: AuthTypeFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: AuthTypeFieldNumber
+  nameWithType: McpServerDefinition.AuthTypeFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.AuthTypeFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthTypeFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6844
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "auth_type" field.
+  example: []
+  syntax:
+    content: public const int AuthTypeFieldNumber = 7
+    return:
+      type: System.Int32
+    content.vb: Public Const AuthTypeFieldNumber As Integer = 7
+- uid: RemoteAgent.Proto.McpServerDefinition.AuthType
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.AuthType
+  id: AuthType
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: AuthType
+  nameWithType: McpServerDefinition.AuthType
+  fullName: RemoteAgent.Proto.McpServerDefinition.AuthType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthType
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6849
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: none, bearer, api_key, custom
+  example: []
+  syntax:
+    content: public string AuthType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthType As String
+  overload: RemoteAgent.Proto.McpServerDefinition.AuthType*
+- uid: RemoteAgent.Proto.McpServerDefinition.AuthConfigJsonFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.AuthConfigJsonFieldNumber
+  id: AuthConfigJsonFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: AuthConfigJsonFieldNumber
+  nameWithType: McpServerDefinition.AuthConfigJsonFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.AuthConfigJsonFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthConfigJsonFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6859
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "auth_config_json" field.
+  example: []
+  syntax:
+    content: public const int AuthConfigJsonFieldNumber = 8
+    return:
+      type: System.Int32
+    content.vb: Public Const AuthConfigJsonFieldNumber As Integer = 8
+- uid: RemoteAgent.Proto.McpServerDefinition.AuthConfigJson
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.AuthConfigJson
+  id: AuthConfigJson
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: AuthConfigJson
+  nameWithType: McpServerDefinition.AuthConfigJson
+  fullName: RemoteAgent.Proto.McpServerDefinition.AuthConfigJson
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthConfigJson
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6864
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: structured auth config
+  example: []
+  syntax:
+    content: public string AuthConfigJson { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthConfigJson As String
+  overload: RemoteAgent.Proto.McpServerDefinition.AuthConfigJson*
+- uid: RemoteAgent.Proto.McpServerDefinition.EnabledFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.EnabledFieldNumber
+  id: EnabledFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: EnabledFieldNumber
+  nameWithType: McpServerDefinition.EnabledFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.EnabledFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EnabledFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6874
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "enabled" field.
+  example: []
+  syntax:
+    content: public const int EnabledFieldNumber = 9
+    return:
+      type: System.Int32
+    content.vb: Public Const EnabledFieldNumber As Integer = 9
+- uid: RemoteAgent.Proto.McpServerDefinition.Enabled
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.Enabled
+  id: Enabled
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: McpServerDefinition.Enabled
+  fullName: RemoteAgent.Proto.McpServerDefinition.Enabled
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Enabled
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6876
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public bool Enabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Enabled As Boolean
+  overload: RemoteAgent.Proto.McpServerDefinition.Enabled*
+- uid: RemoteAgent.Proto.McpServerDefinition.MetadataJsonFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.MetadataJsonFieldNumber
+  id: MetadataJsonFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: MetadataJsonFieldNumber
+  nameWithType: McpServerDefinition.MetadataJsonFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.MetadataJsonFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MetadataJsonFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6886
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "metadata_json" field.
+  example: []
+  syntax:
+    content: public const int MetadataJsonFieldNumber = 10
+    return:
+      type: System.Int32
+    content.vb: Public Const MetadataJsonFieldNumber As Integer = 10
+- uid: RemoteAgent.Proto.McpServerDefinition.MetadataJson
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.MetadataJson
+  id: MetadataJson
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: MetadataJson
+  nameWithType: McpServerDefinition.MetadataJson
+  fullName: RemoteAgent.Proto.McpServerDefinition.MetadataJson
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MetadataJson
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6891
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: free-form extra config
+  example: []
+  syntax:
+    content: public string MetadataJson { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MetadataJson As String
+  overload: RemoteAgent.Proto.McpServerDefinition.MetadataJson*
+- uid: RemoteAgent.Proto.McpServerDefinition.CreatedUtcFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.CreatedUtcFieldNumber
+  id: CreatedUtcFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: CreatedUtcFieldNumber
+  nameWithType: McpServerDefinition.CreatedUtcFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.CreatedUtcFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreatedUtcFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6901
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "created_utc" field.
+  example: []
+  syntax:
+    content: public const int CreatedUtcFieldNumber = 11
+    return:
+      type: System.Int32
+    content.vb: Public Const CreatedUtcFieldNumber As Integer = 11
+- uid: RemoteAgent.Proto.McpServerDefinition.CreatedUtc
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.CreatedUtc
+  id: CreatedUtc
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: CreatedUtc
+  nameWithType: McpServerDefinition.CreatedUtc
+  fullName: RemoteAgent.Proto.McpServerDefinition.CreatedUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreatedUtc
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6903
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public string CreatedUtc { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedUtc As String
+  overload: RemoteAgent.Proto.McpServerDefinition.CreatedUtc*
+- uid: RemoteAgent.Proto.McpServerDefinition.UpdatedUtcFieldNumber
+  commentId: F:RemoteAgent.Proto.McpServerDefinition.UpdatedUtcFieldNumber
+  id: UpdatedUtcFieldNumber
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: UpdatedUtcFieldNumber
+  nameWithType: McpServerDefinition.UpdatedUtcFieldNumber
+  fullName: RemoteAgent.Proto.McpServerDefinition.UpdatedUtcFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpdatedUtcFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6913
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "updated_utc" field.
+  example: []
+  syntax:
+    content: public const int UpdatedUtcFieldNumber = 12
+    return:
+      type: System.Int32
+    content.vb: Public Const UpdatedUtcFieldNumber As Integer = 12
+- uid: RemoteAgent.Proto.McpServerDefinition.UpdatedUtc
+  commentId: P:RemoteAgent.Proto.McpServerDefinition.UpdatedUtc
+  id: UpdatedUtc
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: UpdatedUtc
+  nameWithType: McpServerDefinition.UpdatedUtc
+  fullName: RemoteAgent.Proto.McpServerDefinition.UpdatedUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpdatedUtc
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6915
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public string UpdatedUtc { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedUtc As String
+  overload: RemoteAgent.Proto.McpServerDefinition.UpdatedUtc*
+- uid: RemoteAgent.Proto.McpServerDefinition.Equals(System.Object)
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: McpServerDefinition.Equals(object)
+  fullName: RemoteAgent.Proto.McpServerDefinition.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6924
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: RemoteAgent.Proto.McpServerDefinition.Equals*
+  nameWithType.vb: McpServerDefinition.Equals(Object)
+  fullName.vb: RemoteAgent.Proto.McpServerDefinition.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RemoteAgent.Proto.McpServerDefinition.Equals(RemoteAgent.Proto.McpServerDefinition)
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.Equals(RemoteAgent.Proto.McpServerDefinition)
+  id: Equals(RemoteAgent.Proto.McpServerDefinition)
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: Equals(McpServerDefinition)
+  nameWithType: McpServerDefinition.Equals(McpServerDefinition)
+  fullName: RemoteAgent.Proto.McpServerDefinition.Equals(RemoteAgent.Proto.McpServerDefinition)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6930
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(McpServerDefinition other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.McpServerDefinition
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As McpServerDefinition) As Boolean
+  overload: RemoteAgent.Proto.McpServerDefinition.Equals*
+  implements:
+  - System.IEquatable{RemoteAgent.Proto.McpServerDefinition}.Equals(RemoteAgent.Proto.McpServerDefinition)
+- uid: RemoteAgent.Proto.McpServerDefinition.GetHashCode
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.GetHashCode
+  id: GetHashCode
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: McpServerDefinition.GetHashCode()
+  fullName: RemoteAgent.Proto.McpServerDefinition.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetHashCode
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6954
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: RemoteAgent.Proto.McpServerDefinition.GetHashCode*
+- uid: RemoteAgent.Proto.McpServerDefinition.ToString
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.ToString
+  id: ToString
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: McpServerDefinition.ToString()
+  fullName: RemoteAgent.Proto.McpServerDefinition.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6976
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Proto.McpServerDefinition.ToString*
+- uid: RemoteAgent.Proto.McpServerDefinition.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: McpServerDefinition.WriteTo(CodedOutputStream)
+  fullName: RemoteAgent.Proto.McpServerDefinition.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: WriteTo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 6982
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: RemoteAgent.Proto.McpServerDefinition.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: RemoteAgent.Proto.McpServerDefinition.CalculateSize
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.CalculateSize
+  id: CalculateSize
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: McpServerDefinition.CalculateSize()
+  fullName: RemoteAgent.Proto.McpServerDefinition.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CalculateSize
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 7094
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: RemoteAgent.Proto.McpServerDefinition.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: RemoteAgent.Proto.McpServerDefinition.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  id: MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(McpServerDefinition)
+  nameWithType: McpServerDefinition.MergeFrom(McpServerDefinition)
+  fullName: RemoteAgent.Proto.McpServerDefinition.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 7138
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(McpServerDefinition other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.McpServerDefinition
+    content.vb: Public Sub MergeFrom(other As McpServerDefinition)
+  overload: RemoteAgent.Proto.McpServerDefinition.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+- uid: RemoteAgent.Proto.McpServerDefinition.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:RemoteAgent.Proto.McpServerDefinition.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: RemoteAgent.Proto.McpServerDefinition
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: McpServerDefinition.MergeFrom(CodedInputStream)
+  fullName: RemoteAgent.Proto.McpServerDefinition.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 7181
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: RemoteAgent.Proto.McpServerDefinition.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}
+  commentId: T:Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: IMessage<McpServerDefinition>
+  nameWithType: IMessage<McpServerDefinition>
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.McpServerDefinition>
+  nameWithType.vb: IMessage(Of McpServerDefinition)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.McpServerDefinition)
+  name.vb: IMessage(Of McpServerDefinition)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Proto.McpServerDefinition}
+  commentId: T:System.IEquatable{RemoteAgent.Proto.McpServerDefinition}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<McpServerDefinition>
+  nameWithType: IEquatable<McpServerDefinition>
+  fullName: System.IEquatable<RemoteAgent.Proto.McpServerDefinition>
+  nameWithType.vb: IEquatable(Of McpServerDefinition)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.McpServerDefinition)
+  name.vb: IEquatable(Of McpServerDefinition)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}
+  commentId: T:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: IDeepCloneable<McpServerDefinition>
+  nameWithType: IDeepCloneable<McpServerDefinition>
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.McpServerDefinition>
+  nameWithType.vb: IDeepCloneable(Of McpServerDefinition)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.McpServerDefinition)
+  name.vb: IDeepCloneable(Of McpServerDefinition)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition.Parser*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Parser
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Parser
+  name: Parser
+  nameWithType: McpServerDefinition.Parser
+  fullName: RemoteAgent.Proto.McpServerDefinition.Parser
+- uid: Google.Protobuf.MessageParser{RemoteAgent.Proto.McpServerDefinition}
+  commentId: T:Google.Protobuf.MessageParser{RemoteAgent.Proto.McpServerDefinition}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: MessageParser<McpServerDefinition>
+  nameWithType: MessageParser<McpServerDefinition>
+  fullName: Google.Protobuf.MessageParser<RemoteAgent.Proto.McpServerDefinition>
+  nameWithType.vb: MessageParser(Of McpServerDefinition)
+  fullName.vb: Google.Protobuf.MessageParser(Of RemoteAgent.Proto.McpServerDefinition)
+  name.vb: MessageParser(Of McpServerDefinition)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition.Descriptor*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Descriptor
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Descriptor
+  name: Descriptor
+  nameWithType: McpServerDefinition.Descriptor
+  fullName: RemoteAgent.Proto.McpServerDefinition.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: RemoteAgent.Proto.McpServerDefinition.#ctor*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.#ctor
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition__ctor
+  name: McpServerDefinition
+  nameWithType: McpServerDefinition.McpServerDefinition
+  fullName: RemoteAgent.Proto.McpServerDefinition.McpServerDefinition
+  nameWithType.vb: McpServerDefinition.New
+  fullName.vb: RemoteAgent.Proto.McpServerDefinition.New
+  name.vb: New
+- uid: RemoteAgent.Proto.McpServerDefinition
+  commentId: T:RemoteAgent.Proto.McpServerDefinition
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: McpServerDefinition
+  nameWithType: McpServerDefinition
+  fullName: RemoteAgent.Proto.McpServerDefinition
+- uid: RemoteAgent.Proto.McpServerDefinition.Clone*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Clone
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Clone
+  name: Clone
+  nameWithType: McpServerDefinition.Clone
+  fullName: RemoteAgent.Proto.McpServerDefinition.Clone
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}.Clone
+  parent: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<McpServerDefinition>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.McpServerDefinition>.Clone()
+  nameWithType.vb: IDeepCloneable(Of McpServerDefinition).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.McpServerDefinition).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.McpServerDefinition}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Proto.McpServerDefinition.ServerId*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.ServerId
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_ServerId
+  name: ServerId
+  nameWithType: McpServerDefinition.ServerId
+  fullName: RemoteAgent.Proto.McpServerDefinition.ServerId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Proto.McpServerDefinition.DisplayName*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.DisplayName
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_DisplayName
+  name: DisplayName
+  nameWithType: McpServerDefinition.DisplayName
+  fullName: RemoteAgent.Proto.McpServerDefinition.DisplayName
+- uid: RemoteAgent.Proto.McpServerDefinition.Transport*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Transport
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Transport
+  name: Transport
+  nameWithType: McpServerDefinition.Transport
+  fullName: RemoteAgent.Proto.McpServerDefinition.Transport
+- uid: RemoteAgent.Proto.McpServerDefinition.Endpoint*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Endpoint
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Endpoint
+  name: Endpoint
+  nameWithType: McpServerDefinition.Endpoint
+  fullName: RemoteAgent.Proto.McpServerDefinition.Endpoint
+- uid: RemoteAgent.Proto.McpServerDefinition.Command*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Command
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Command
+  name: Command
+  nameWithType: McpServerDefinition.Command
+  fullName: RemoteAgent.Proto.McpServerDefinition.Command
+- uid: RemoteAgent.Proto.McpServerDefinition.Arguments*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Arguments
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Arguments
+  name: Arguments
+  nameWithType: McpServerDefinition.Arguments
+  fullName: RemoteAgent.Proto.McpServerDefinition.Arguments
+- uid: Google.Protobuf.Collections.RepeatedField{System.String}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{System.String}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: RepeatedField<string>
+  nameWithType: RepeatedField<string>
+  fullName: Google.Protobuf.Collections.RepeatedField<string>
+  nameWithType.vb: RepeatedField(Of String)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of String)
+  name.vb: RepeatedField(Of String)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: RemoteAgent.Proto.McpServerDefinition.AuthType*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.AuthType
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_AuthType
+  name: AuthType
+  nameWithType: McpServerDefinition.AuthType
+  fullName: RemoteAgent.Proto.McpServerDefinition.AuthType
+- uid: RemoteAgent.Proto.McpServerDefinition.AuthConfigJson*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.AuthConfigJson
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_AuthConfigJson
+  name: AuthConfigJson
+  nameWithType: McpServerDefinition.AuthConfigJson
+  fullName: RemoteAgent.Proto.McpServerDefinition.AuthConfigJson
+- uid: RemoteAgent.Proto.McpServerDefinition.Enabled*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Enabled
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Enabled
+  name: Enabled
+  nameWithType: McpServerDefinition.Enabled
+  fullName: RemoteAgent.Proto.McpServerDefinition.Enabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Proto.McpServerDefinition.MetadataJson*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.MetadataJson
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_MetadataJson
+  name: MetadataJson
+  nameWithType: McpServerDefinition.MetadataJson
+  fullName: RemoteAgent.Proto.McpServerDefinition.MetadataJson
+- uid: RemoteAgent.Proto.McpServerDefinition.CreatedUtc*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.CreatedUtc
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_CreatedUtc
+  name: CreatedUtc
+  nameWithType: McpServerDefinition.CreatedUtc
+  fullName: RemoteAgent.Proto.McpServerDefinition.CreatedUtc
+- uid: RemoteAgent.Proto.McpServerDefinition.UpdatedUtc*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.UpdatedUtc
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_UpdatedUtc
+  name: UpdatedUtc
+  nameWithType: McpServerDefinition.UpdatedUtc
+  fullName: RemoteAgent.Proto.McpServerDefinition.UpdatedUtc
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition.Equals*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.Equals
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_Equals_System_Object_
+  name: Equals
+  nameWithType: McpServerDefinition.Equals
+  fullName: RemoteAgent.Proto.McpServerDefinition.Equals
+- uid: System.IEquatable{RemoteAgent.Proto.McpServerDefinition}.Equals(RemoteAgent.Proto.McpServerDefinition)
+  commentId: M:System.IEquatable{RemoteAgent.Proto.McpServerDefinition}.Equals(RemoteAgent.Proto.McpServerDefinition)
+  parent: System.IEquatable{RemoteAgent.Proto.McpServerDefinition}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(McpServerDefinition)
+  nameWithType: IEquatable<McpServerDefinition>.Equals(McpServerDefinition)
+  fullName: System.IEquatable<RemoteAgent.Proto.McpServerDefinition>.Equals(RemoteAgent.Proto.McpServerDefinition)
+  nameWithType.vb: IEquatable(Of McpServerDefinition).Equals(McpServerDefinition)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.McpServerDefinition).Equals(RemoteAgent.Proto.McpServerDefinition)
+  spec.csharp:
+  - uid: System.IEquatable{RemoteAgent.Proto.McpServerDefinition}.Equals(RemoteAgent.Proto.McpServerDefinition)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RemoteAgent.Proto.McpServerDefinition}.Equals(RemoteAgent.Proto.McpServerDefinition)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition.GetHashCode*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.GetHashCode
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_GetHashCode
+  name: GetHashCode
+  nameWithType: McpServerDefinition.GetHashCode
+  fullName: RemoteAgent.Proto.McpServerDefinition.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition.ToString*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.ToString
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_ToString
+  name: ToString
+  nameWithType: McpServerDefinition.ToString
+  fullName: RemoteAgent.Proto.McpServerDefinition.ToString
+- uid: RemoteAgent.Proto.McpServerDefinition.WriteTo*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.WriteTo
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: McpServerDefinition.WriteTo
+  fullName: RemoteAgent.Proto.McpServerDefinition.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: RemoteAgent.Proto.McpServerDefinition.CalculateSize*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.CalculateSize
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_CalculateSize
+  name: CalculateSize
+  nameWithType: McpServerDefinition.CalculateSize
+  fullName: RemoteAgent.Proto.McpServerDefinition.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition.MergeFrom*
+  commentId: Overload:RemoteAgent.Proto.McpServerDefinition.MergeFrom
+  href: RemoteAgent.Proto.McpServerDefinition.html#RemoteAgent_Proto_McpServerDefinition_MergeFrom_RemoteAgent_Proto_McpServerDefinition_
+  name: MergeFrom
+  nameWithType: McpServerDefinition.MergeFrom
+  fullName: RemoteAgent.Proto.McpServerDefinition.MergeFrom
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  commentId: M:Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  parent: Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: MergeFrom(McpServerDefinition)
+  nameWithType: IMessage<McpServerDefinition>.MergeFrom(McpServerDefinition)
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.McpServerDefinition>.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  nameWithType.vb: IMessage(Of McpServerDefinition).MergeFrom(McpServerDefinition)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.McpServerDefinition).MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.McpServerDefinition}.MergeFrom(RemoteAgent.Proto.McpServerDefinition)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

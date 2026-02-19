@@ -1,0 +1,983 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Services.SessionCapacityService
+  commentId: T:RemoteAgent.Service.Services.SessionCapacityService
+  id: SessionCapacityService
+  parent: RemoteAgent.Service.Services
+  children:
+  - RemoteAgent.Service.Services.SessionCapacityService.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})
+  - RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent(System.String)
+  - RemoteAgent.Service.Services.SessionCapacityService.GetStatus(System.String)
+  - RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions
+  - RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions
+  - RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned(System.String,System.String,System.String)
+  - RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession(System.String,System.String,RemoteAgent.Service.Agents.IAgentSession,System.String@)
+  - RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession(System.String,System.String@)
+  - RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: SessionCapacityService
+  nameWithType: SessionCapacityService
+  fullName: RemoteAgent.Service.Services.SessionCapacityService
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionCapacityService
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  summary: Tracks active sessions and evaluates session-capacity limits.
+  example: []
+  syntax:
+    content: public sealed class SessionCapacityService
+    content.vb: Public NotInheritable Class SessionCapacityService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Services.SessionCapacityService.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})
+  id: '#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})'
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: SessionCapacityService(IOptions<AgentOptions>)
+  nameWithType: SessionCapacityService.SessionCapacityService(IOptions<AgentOptions>)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.SessionCapacityService(Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  summary: Tracks active sessions and evaluates session-capacity limits.
+  example: []
+  syntax:
+    content: public SessionCapacityService(IOptions<AgentOptions> options)
+    parameters:
+    - id: options
+      type: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+    content.vb: Public Sub New(options As IOptions(Of AgentOptions))
+  overload: RemoteAgent.Service.Services.SessionCapacityService.#ctor*
+  nameWithType.vb: SessionCapacityService.New(IOptions(Of AgentOptions))
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.New(Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions))
+  name.vb: New(IOptions(Of AgentOptions))
+- uid: RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession(System.String,System.String,RemoteAgent.Service.Agents.IAgentSession,System.String@)
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession(System.String,System.String,RemoteAgent.Service.Agents.IAgentSession,System.String@)
+  id: TryRegisterSession(System.String,System.String,RemoteAgent.Service.Agents.IAgentSession,System.String@)
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: TryRegisterSession(string, string, IAgentSession, out string)
+  nameWithType: SessionCapacityService.TryRegisterSession(string, string, IAgentSession, out string)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession(string, string, RemoteAgent.Service.Agents.IAgentSession, out string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryRegisterSession
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 13
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool TryRegisterSession(string agentId, string sessionId, IAgentSession session, out string reason)
+    parameters:
+    - id: agentId
+      type: System.String
+    - id: sessionId
+      type: System.String
+    - id: session
+      type: RemoteAgent.Service.Agents.IAgentSession
+    - id: reason
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryRegisterSession(agentId As String, sessionId As String, session As IAgentSession, reason As String) As Boolean
+  overload: RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession*
+  nameWithType.vb: SessionCapacityService.TryRegisterSession(String, String, IAgentSession, String)
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession(String, String, RemoteAgent.Service.Agents.IAgentSession, String)
+  name.vb: TryRegisterSession(String, String, IAgentSession, String)
+- uid: RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession(System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession(System.String,System.String)
+  id: UnregisterSession(System.String,System.String)
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: UnregisterSession(string, string)
+  nameWithType: SessionCapacityService.UnregisterSession(string, string)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UnregisterSession
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 43
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public void UnregisterSession(string agentId, string sessionId)
+    parameters:
+    - id: agentId
+      type: System.String
+    - id: sessionId
+      type: System.String
+    content.vb: Public Sub UnregisterSession(agentId As String, sessionId As String)
+  overload: RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession*
+  nameWithType.vb: SessionCapacityService.UnregisterSession(String, String)
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession(String, String)
+  name.vb: UnregisterSession(String, String)
+- uid: RemoteAgent.Service.Services.SessionCapacityService.GetStatus(System.String)
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.GetStatus(System.String)
+  id: GetStatus(System.String)
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: GetStatus(string?)
+  nameWithType: SessionCapacityService.GetStatus(string?)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.GetStatus(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetStatus
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 59
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public SessionCapacityStatus GetStatus(string? agentId)
+    parameters:
+    - id: agentId
+      type: System.String
+    return:
+      type: RemoteAgent.Service.Services.SessionCapacityStatus
+    content.vb: Public Function GetStatus(agentId As String) As SessionCapacityStatus
+  overload: RemoteAgent.Service.Services.SessionCapacityService.GetStatus*
+  nameWithType.vb: SessionCapacityService.GetStatus(String)
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.GetStatus(String)
+  name.vb: GetStatus(String)
+- uid: RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent(System.String)
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent(System.String)
+  id: GetActiveSessionsForAgent(System.String)
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: GetActiveSessionsForAgent(string)
+  nameWithType: SessionCapacityService.GetActiveSessionsForAgent(string)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetActiveSessionsForAgent
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 99
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public IReadOnlyList<KeyValuePair<string, IAgentSession>> GetActiveSessionsForAgent(string agentId)
+    parameters:
+    - id: agentId
+      type: System.String
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Collections.Generic.KeyValuePair{System.String,RemoteAgent.Service.Agents.IAgentSession}}
+    content.vb: Public Function GetActiveSessionsForAgent(agentId As String) As IReadOnlyList(Of KeyValuePair(Of String, IAgentSession))
+  overload: RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent*
+  nameWithType.vb: SessionCapacityService.GetActiveSessionsForAgent(String)
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent(String)
+  name.vb: GetActiveSessionsForAgent(String)
+- uid: RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions
+  id: ListOpenSessions
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: ListOpenSessions()
+  nameWithType: SessionCapacityService.ListOpenSessions()
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ListOpenSessions
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 110
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public IReadOnlyList<ActiveSessionSnapshot> ListOpenSessions()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ActiveSessionSnapshot}
+    content.vb: Public Function ListOpenSessions() As IReadOnlyList(Of ActiveSessionSnapshot)
+  overload: RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions*
+- uid: RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession(System.String,System.String@)
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession(System.String,System.String@)
+  id: TryTerminateSession(System.String,System.String@)
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: TryTerminateSession(string, out string)
+  nameWithType: SessionCapacityService.TryTerminateSession(string, out string)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession(string, out string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryTerminateSession
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 133
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public bool TryTerminateSession(string sessionId, out string reason)
+    parameters:
+    - id: sessionId
+      type: System.String
+    - id: reason
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryTerminateSession(sessionId As String, reason As String) As Boolean
+  overload: RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession*
+  nameWithType.vb: SessionCapacityService.TryTerminateSession(String, String)
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession(String, String)
+  name.vb: TryTerminateSession(String, String)
+- uid: RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned(System.String,System.String,System.String)
+  id: MarkSessionAbandoned(System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: MarkSessionAbandoned(string, string, string?)
+  nameWithType: SessionCapacityService.MarkSessionAbandoned(string, string, string?)
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned(string, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MarkSessionAbandoned
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 172
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public void MarkSessionAbandoned(string sessionId, string agentId, string? reason = null)
+    parameters:
+    - id: sessionId
+      type: System.String
+    - id: agentId
+      type: System.String
+    - id: reason
+      type: System.String
+    content.vb: Public Sub MarkSessionAbandoned(sessionId As String, agentId As String, reason As String = Nothing)
+  overload: RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned*
+  nameWithType.vb: SessionCapacityService.MarkSessionAbandoned(String, String, String)
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned(String, String, String)
+  name.vb: MarkSessionAbandoned(String, String, String)
+- uid: RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions
+  commentId: M:RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions
+  id: ListAbandonedSessions
+  parent: RemoteAgent.Service.Services.SessionCapacityService
+  langs:
+  - csharp
+  - vb
+  name: ListAbandonedSessions()
+  nameWithType: SessionCapacityService.ListAbandonedSessions()
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/SessionCapacityService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ListAbandonedSessions
+    path: ../src/RemoteAgent.Service/Services/SessionCapacityService.cs
+    startLine: 185
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public IReadOnlyList<AbandonedSessionSnapshot> ListAbandonedSessions()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.AbandonedSessionSnapshot}
+    content.vb: Public Function ListAbandonedSessions() As IReadOnlyList(Of AbandonedSessionSnapshot)
+  overload: RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions*
+references:
+- uid: RemoteAgent.Service.Services
+  commentId: N:RemoteAgent.Service.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Services
+  nameWithType: RemoteAgent.Service.Services
+  fullName: RemoteAgent.Service.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Services.SessionCapacityService.#ctor*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.#ctor
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService__ctor_Microsoft_Extensions_Options_IOptions_RemoteAgent_Service_AgentOptions__
+  name: SessionCapacityService
+  nameWithType: SessionCapacityService.SessionCapacityService
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.SessionCapacityService
+  nameWithType.vb: SessionCapacityService.New
+  fullName.vb: RemoteAgent.Service.Services.SessionCapacityService.New
+  name.vb: New
+- uid: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: RemoteAgent.Service.AgentOptions.html
+  name: IOptions<AgentOptions>
+  nameWithType: IOptions<AgentOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>
+  nameWithType.vb: IOptions(Of AgentOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions)
+  name.vb: IOptions(Of AgentOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+- uid: RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_TryRegisterSession_System_String_System_String_RemoteAgent_Service_Agents_IAgentSession_System_String__
+  name: TryRegisterSession
+  nameWithType: SessionCapacityService.TryRegisterSession
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.TryRegisterSession
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Agents.IAgentSession
+  commentId: T:RemoteAgent.Service.Agents.IAgentSession
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentSession.html
+  name: IAgentSession
+  nameWithType: IAgentSession
+  fullName: RemoteAgent.Service.Agents.IAgentSession
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+- uid: RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_UnregisterSession_System_String_System_String_
+  name: UnregisterSession
+  nameWithType: SessionCapacityService.UnregisterSession
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.UnregisterSession
+- uid: RemoteAgent.Service.Services.SessionCapacityService.GetStatus*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.GetStatus
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_GetStatus_System_String_
+  name: GetStatus
+  nameWithType: SessionCapacityService.GetStatus
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.GetStatus
+- uid: RemoteAgent.Service.Services.SessionCapacityStatus
+  commentId: T:RemoteAgent.Service.Services.SessionCapacityStatus
+  parent: RemoteAgent.Service.Services
+  href: RemoteAgent.Service.Services.SessionCapacityStatus.html
+  name: SessionCapacityStatus
+  nameWithType: SessionCapacityStatus
+  fullName: RemoteAgent.Service.Services.SessionCapacityStatus
+- uid: RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_GetActiveSessionsForAgent_System_String_
+  name: GetActiveSessionsForAgent
+  nameWithType: SessionCapacityService.GetActiveSessionsForAgent
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.GetActiveSessionsForAgent
+- uid: System.Collections.Generic.IReadOnlyList{System.Collections.Generic.KeyValuePair{System.String,RemoteAgent.Service.Agents.IAgentSession}}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.Collections.Generic.KeyValuePair{System.String,RemoteAgent.Service.Agents.IAgentSession}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IReadOnlyList<KeyValuePair<string, IAgentSession>>
+  nameWithType: IReadOnlyList<KeyValuePair<string, IAgentSession>>
+  fullName: System.Collections.Generic.IReadOnlyList<System.Collections.Generic.KeyValuePair<string, RemoteAgent.Service.Agents.IAgentSession>>
+  nameWithType.vb: IReadOnlyList(Of KeyValuePair(Of String, IAgentSession))
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of System.Collections.Generic.KeyValuePair(Of String, RemoteAgent.Service.Agents.IAgentSession))
+  name.vb: IReadOnlyList(Of KeyValuePair(Of String, IAgentSession))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Service.Agents.IAgentSession
+    name: IAgentSession
+    href: RemoteAgent.Service.Agents.IAgentSession.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Service.Agents.IAgentSession
+    name: IAgentSession
+    href: RemoteAgent.Service.Agents.IAgentSession.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_ListOpenSessions
+  name: ListOpenSessions
+  nameWithType: SessionCapacityService.ListOpenSessions
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.ListOpenSessions
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ActiveSessionSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.ActiveSessionSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Service.Services.ActiveSessionSnapshot.html
+  name: IReadOnlyList<ActiveSessionSnapshot>
+  nameWithType: IReadOnlyList<ActiveSessionSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Service.Services.ActiveSessionSnapshot>
+  nameWithType.vb: IReadOnlyList(Of ActiveSessionSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Service.Services.ActiveSessionSnapshot)
+  name.vb: IReadOnlyList(Of ActiveSessionSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Services.ActiveSessionSnapshot
+    name: ActiveSessionSnapshot
+    href: RemoteAgent.Service.Services.ActiveSessionSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.ActiveSessionSnapshot
+    name: ActiveSessionSnapshot
+    href: RemoteAgent.Service.Services.ActiveSessionSnapshot.html
+  - name: )
+- uid: RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_TryTerminateSession_System_String_System_String__
+  name: TryTerminateSession
+  nameWithType: SessionCapacityService.TryTerminateSession
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.TryTerminateSession
+- uid: RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_MarkSessionAbandoned_System_String_System_String_System_String_
+  name: MarkSessionAbandoned
+  nameWithType: SessionCapacityService.MarkSessionAbandoned
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.MarkSessionAbandoned
+- uid: RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions*
+  commentId: Overload:RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions
+  href: RemoteAgent.Service.Services.SessionCapacityService.html#RemoteAgent_Service_Services_SessionCapacityService_ListAbandonedSessions
+  name: ListAbandonedSessions
+  nameWithType: SessionCapacityService.ListAbandonedSessions
+  fullName: RemoteAgent.Service.Services.SessionCapacityService.ListAbandonedSessions
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.AbandonedSessionSnapshot}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Service.Services.AbandonedSessionSnapshot}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Service.Services.AbandonedSessionSnapshot.html
+  name: IReadOnlyList<AbandonedSessionSnapshot>
+  nameWithType: IReadOnlyList<AbandonedSessionSnapshot>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Service.Services.AbandonedSessionSnapshot>
+  nameWithType.vb: IReadOnlyList(Of AbandonedSessionSnapshot)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Service.Services.AbandonedSessionSnapshot)
+  name.vb: IReadOnlyList(Of AbandonedSessionSnapshot)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Services.AbandonedSessionSnapshot
+    name: AbandonedSessionSnapshot
+    href: RemoteAgent.Service.Services.AbandonedSessionSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Services.AbandonedSessionSnapshot
+    name: AbandonedSessionSnapshot
+    href: RemoteAgent.Service.Services.AbandonedSessionSnapshot.html
+  - name: )

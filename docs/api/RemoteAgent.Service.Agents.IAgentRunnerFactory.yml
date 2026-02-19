@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Agents.IAgentRunnerFactory
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunnerFactory
+  id: IAgentRunnerFactory
+  parent: RemoteAgent.Service.Agents
+  children:
+  - RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+  langs:
+  - csharp
+  - vb
+  name: IAgentRunnerFactory
+  nameWithType: IAgentRunnerFactory
+  fullName: RemoteAgent.Service.Agents.IAgentRunnerFactory
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentRunnerFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IAgentRunnerFactory
+    path: ../src/RemoteAgent.Service/Agents/IAgentRunnerFactory.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Returns the agent runner selected by configuration (TR-10.1). Resolves <xref href="RemoteAgent.Service.AgentOptions.RunnerId" data-throw-if-not-resolved="false"></xref> to an <xref href="RemoteAgent.Service.Agents.IAgentRunner" data-throw-if-not-resolved="false"></xref> from the registry.
+  remarks: Default is the process runner; plugins add additional runners via <xref href="RemoteAgent.Service.PluginsOptions" data-throw-if-not-resolved="false"></xref> (FR-8.1).
+  example: []
+  syntax:
+    content: public interface IAgentRunnerFactory
+    content.vb: Public Interface IAgentRunnerFactory
+- uid: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+  commentId: M:RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+  id: GetRunner
+  parent: RemoteAgent.Service.Agents.IAgentRunnerFactory
+  langs:
+  - csharp
+  - vb
+  name: GetRunner()
+  nameWithType: IAgentRunnerFactory.GetRunner()
+  fullName: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentRunnerFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetRunner
+    path: ../src/RemoteAgent.Service/Agents/IAgentRunnerFactory.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Gets the configured runner (e.g. "process" or a plugin runner id from <xref href="RemoteAgent.Service.AgentOptions.RunnerId" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: IAgentRunner GetRunner()
+    return:
+      type: RemoteAgent.Service.Agents.IAgentRunner
+      description: The runner to use for starting agent sessions.
+    content.vb: Function GetRunner() As IAgentRunner
+  overload: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner*
+references:
+- uid: RemoteAgent.Service.AgentOptions.RunnerId
+  commentId: P:RemoteAgent.Service.AgentOptions.RunnerId
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_RunnerId
+  name: RunnerId
+  nameWithType: AgentOptions.RunnerId
+  fullName: RemoteAgent.Service.AgentOptions.RunnerId
+- uid: RemoteAgent.Service.Agents.IAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunner
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentRunner.html
+  name: IAgentRunner
+  nameWithType: IAgentRunner
+  fullName: RemoteAgent.Service.Agents.IAgentRunner
+- uid: RemoteAgent.Service.PluginsOptions
+  commentId: T:RemoteAgent.Service.PluginsOptions
+  href: RemoteAgent.Service.PluginsOptions.html
+  name: PluginsOptions
+  nameWithType: PluginsOptions
+  fullName: RemoteAgent.Service.PluginsOptions
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+- uid: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner
+  href: RemoteAgent.Service.Agents.IAgentRunnerFactory.html#RemoteAgent_Service_Agents_IAgentRunnerFactory_GetRunner
+  name: GetRunner
+  nameWithType: IAgentRunnerFactory.GetRunner
+  fullName: RemoteAgent.Service.Agents.IAgentRunnerFactory.GetRunner

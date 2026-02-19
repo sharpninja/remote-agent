@@ -1,0 +1,1005 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  commentId: T:RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  id: OllamaAgentRunner
+  parent: RemoteAgent.Plugins.Ollama
+  children:
+  - RemoteAgent.Plugins.Ollama.OllamaAgentRunner.#ctor(Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner},Microsoft.Extensions.Configuration.IConfiguration)
+  - RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose
+  - RemoteAgent.Plugins.Ollama.OllamaAgentRunner.RunnerId
+  - RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: OllamaAgentRunner
+  nameWithType: OllamaAgentRunner
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: OllamaAgentRunner
+    path: ../src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+    startLine: 29
+  assemblies:
+  - RemoteAgent.Plugins.Ollama
+  namespace: RemoteAgent.Plugins.Ollama
+  summary: >-
+    Agent runner that connects to a locally running <a href="https://ollama.com">Ollama</a>
+
+    instance via its HTTP chat API (FR-8.1, TR-10.1).
+  remarks: >-
+    <p>Select this runner by setting <code>Agent:RunnerId</code> to the full type name
+
+    <code>RemoteAgent.Plugins.Ollama.OllamaAgentRunner</code> in appsettings, and by adding
+
+    the plugin assembly path to <code>Plugins:Assemblies</code>.</p>
+
+    <p>Configuration keys read from the <code>Ollama</code> section:</p>
+
+    <ul><li><code>Ollama:BaseUrl</code> — Ollama base URL (default: <code>http://localhost:11434</code>).</li><li><code>Ollama:DefaultModel</code> — Model used when the <code>command</code> parameter is blank (default: <code>llama3.2</code>).</li><li><code>Ollama:TimeoutSeconds</code> — Per-request HTTP timeout in seconds (default: 300).</li></ul>
+
+    <p>The <code>command</code> parameter passed to <xref href="RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String%2cSystem.String%2cSystem.String%2cSystem.IO.StreamWriter%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> overrides the model
+
+    name for that individual session, allowing per-session model selection.</p>
+  example:
+  - >-
+    <pre><code class="lang-csharp">// appsettings.json
+
+    "Agent": { "RunnerId": "RemoteAgent.Plugins.Ollama.OllamaAgentRunner", "Command": "llama3.2" },
+
+    "Plugins": { "Assemblies": [ "./plugins/RemoteAgent.Plugins.Ollama.dll" ] },
+
+    "Ollama": { "BaseUrl": "http://localhost:11434", "DefaultModel": "llama3.2", "TimeoutSeconds": 300 }</code></pre>
+  syntax:
+    content: 'public sealed class OllamaAgentRunner : IAgentRunner, IDisposable'
+    content.vb: Public NotInheritable Class OllamaAgentRunner Implements IAgentRunner, IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.Service.Agents.IAgentRunner
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.RunnerId
+  commentId: F:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.RunnerId
+  id: RunnerId
+  parent: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  langs:
+  - csharp
+  - vb
+  name: RunnerId
+  nameWithType: OllamaAgentRunner.RunnerId
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.RunnerId
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RunnerId
+    path: ../src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+    startLine: 32
+  assemblies:
+  - RemoteAgent.Plugins.Ollama
+  namespace: RemoteAgent.Plugins.Ollama
+  summary: Full type name used as the runner id in <code>Agent:RunnerId</code>.
+  example: []
+  syntax:
+    content: public const string RunnerId = "RemoteAgent.Plugins.Ollama.OllamaAgentRunner"
+    return:
+      type: System.String
+    content.vb: Public Const RunnerId As String = "RemoteAgent.Plugins.Ollama.OllamaAgentRunner"
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.#ctor(Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner},Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.#ctor(Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner},Microsoft.Extensions.Configuration.IConfiguration)
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner},Microsoft.Extensions.Configuration.IConfiguration)'
+  parent: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  langs:
+  - csharp
+  - vb
+  name: OllamaAgentRunner(ILogger<OllamaAgentRunner>, IConfiguration)
+  nameWithType: OllamaAgentRunner.OllamaAgentRunner(ILogger<OllamaAgentRunner>, IConfiguration)
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.OllamaAgentRunner(Microsoft.Extensions.Logging.ILogger<RemoteAgent.Plugins.Ollama.OllamaAgentRunner>, Microsoft.Extensions.Configuration.IConfiguration)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+    startLine: 46
+  assemblies:
+  - RemoteAgent.Plugins.Ollama
+  namespace: RemoteAgent.Plugins.Ollama
+  summary: >-
+    Initialises the Ollama runner, configuring the shared <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> from
+
+    the <code>Ollama</code> configuration section.
+  example: []
+  syntax:
+    content: public OllamaAgentRunner(ILogger<OllamaAgentRunner> logger, IConfiguration configuration)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner}
+      description: Logger injected by the host service DI container.
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: >-
+        Application configuration; reads <code>Ollama:BaseUrl</code>,
+            <code>Ollama:DefaultModel</code>, and <code>Ollama:TimeoutSeconds</code>.
+    content.vb: Public Sub New(logger As ILogger(Of OllamaAgentRunner), configuration As IConfiguration)
+  overload: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.#ctor*
+  nameWithType.vb: OllamaAgentRunner.New(ILogger(Of OllamaAgentRunner), IConfiguration)
+  fullName.vb: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.New(Microsoft.Extensions.Logging.ILogger(Of RemoteAgent.Plugins.Ollama.OllamaAgentRunner), Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: New(ILogger(Of OllamaAgentRunner), IConfiguration)
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  id: StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  parent: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  langs:
+  - csharp
+  - vb
+  name: StartAsync(string?, string?, string, StreamWriter?, CancellationToken)
+  nameWithType: OllamaAgentRunner.StartAsync(string?, string?, string, StreamWriter?, CancellationToken)
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(string?, string?, string, System.IO.StreamWriter?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartAsync
+    path: ../src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+    startLine: 66
+  assemblies:
+  - RemoteAgent.Plugins.Ollama
+  namespace: RemoteAgent.Plugins.Ollama
+  summary: Starts an agent session. Returns null if the runner cannot start (e.g. command not configured).
+  example: []
+  syntax:
+    content: public Task<IAgentSession?> StartAsync(string? command, string? arguments, string sessionId, StreamWriter? logWriter, CancellationToken cancellationToken = default)
+    parameters:
+    - id: command
+      type: System.String
+      description: Agent command (e.g. executable path). May be ignored by plugin runners.
+    - id: arguments
+      type: System.String
+      description: Optional arguments. May be ignored by plugin runners.
+    - id: sessionId
+      type: System.String
+      description: Session identifier for logging (TR-3.6).
+    - id: logWriter
+      type: System.IO.StreamWriter
+      description: Optional session log writer (FR-1.5).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Service.Agents.IAgentSession}
+      description: An active session, or null if the runner could not start.
+    content.vb: Public Function StartAsync(command As String, arguments As String, sessionId As String, logWriter As StreamWriter, cancellationToken As CancellationToken = Nothing) As Task(Of IAgentSession)
+  overload: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync*
+  implements:
+  - RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  nameWithType.vb: OllamaAgentRunner.StartAsync(String, String, String, StreamWriter, CancellationToken)
+  fullName.vb: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(String, String, String, System.IO.StreamWriter, System.Threading.CancellationToken)
+  name.vb: StartAsync(String, String, String, StreamWriter, CancellationToken)
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose
+  commentId: M:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose
+  id: Dispose
+  parent: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: OllamaAgentRunner.Dispose()
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Dispose
+    path: ../src/RemoteAgent.Plugins.Ollama/OllamaAgentRunner.cs
+    startLine: 80
+  assemblies:
+  - RemoteAgent.Plugins.Ollama
+  namespace: RemoteAgent.Plugins.Ollama
+  summary: Disposes the shared <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> owned by this runner.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  isExternal: true
+  href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html#RemoteAgent_Plugins_Ollama_OllamaAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  name: StartAsync(string, string, string, StreamWriter, CancellationToken)
+  nameWithType: OllamaAgentRunner.StartAsync(string, string, string, StreamWriter, CancellationToken)
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(string, string, string, System.IO.StreamWriter, System.Threading.CancellationToken)
+  nameWithType.vb: OllamaAgentRunner.StartAsync(String, String, String, StreamWriter, CancellationToken)
+  fullName.vb: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(String, String, String, System.IO.StreamWriter, System.Threading.CancellationToken)
+  name.vb: StartAsync(String, String, String, StreamWriter, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+    name: StartAsync
+    href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html#RemoteAgent_Plugins_Ollama_OllamaAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.IO.StreamWriter
+    name: StreamWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+    name: StartAsync
+    href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html#RemoteAgent_Plugins_Ollama_OllamaAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.IO.StreamWriter
+    name: StreamWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Plugins.Ollama
+  commentId: N:RemoteAgent.Plugins.Ollama
+  href: RemoteAgent.html
+  name: RemoteAgent.Plugins.Ollama
+  nameWithType: RemoteAgent.Plugins.Ollama
+  fullName: RemoteAgent.Plugins.Ollama
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Plugins
+    name: Plugins
+    href: RemoteAgent.Plugins.html
+  - name: .
+  - uid: RemoteAgent.Plugins.Ollama
+    name: Ollama
+    href: RemoteAgent.Plugins.Ollama.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Plugins
+    name: Plugins
+    href: RemoteAgent.Plugins.html
+  - name: .
+  - uid: RemoteAgent.Plugins.Ollama
+    name: Ollama
+    href: RemoteAgent.Plugins.Ollama.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Service.Agents.IAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunner
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentRunner.html
+  name: IAgentRunner
+  nameWithType: IAgentRunner
+  fullName: RemoteAgent.Service.Agents.IAgentRunner
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  isExternal: true
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.#ctor*
+  commentId: Overload:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.#ctor
+  href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html#RemoteAgent_Plugins_Ollama_OllamaAgentRunner__ctor_Microsoft_Extensions_Logging_ILogger_RemoteAgent_Plugins_Ollama_OllamaAgentRunner__Microsoft_Extensions_Configuration_IConfiguration_
+  name: OllamaAgentRunner
+  nameWithType: OllamaAgentRunner.OllamaAgentRunner
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.OllamaAgentRunner
+  nameWithType.vb: OllamaAgentRunner.New
+  fullName.vb: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{RemoteAgent.Plugins.Ollama.OllamaAgentRunner}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html
+  name: ILogger<OllamaAgentRunner>
+  nameWithType: ILogger<OllamaAgentRunner>
+  fullName: Microsoft.Extensions.Logging.ILogger<RemoteAgent.Plugins.Ollama.OllamaAgentRunner>
+  nameWithType.vb: ILogger(Of OllamaAgentRunner)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of RemoteAgent.Plugins.Ollama.OllamaAgentRunner)
+  name.vb: ILogger(Of OllamaAgentRunner)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+    name: OllamaAgentRunner
+    href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner
+    name: OllamaAgentRunner
+    href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html
+  - name: )
+- uid: Microsoft.Extensions.Configuration.IConfiguration
+  commentId: T:Microsoft.Extensions.Configuration.IConfiguration
+  parent: Microsoft.Extensions.Configuration
+  isExternal: true
+  name: IConfiguration
+  nameWithType: IConfiguration
+  fullName: Microsoft.Extensions.Configuration.IConfiguration
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: Microsoft.Extensions.Configuration
+  commentId: N:Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync*
+  commentId: Overload:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync
+  href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html#RemoteAgent_Plugins_Ollama_OllamaAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  name: StartAsync
+  nameWithType: OllamaAgentRunner.StartAsync
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.StartAsync
+- uid: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  parent: RemoteAgent.Service.Agents.IAgentRunner
+  isExternal: true
+  href: RemoteAgent.Service.Agents.IAgentRunner.html#RemoteAgent_Service_Agents_IAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  name: StartAsync(string, string, string, StreamWriter, CancellationToken)
+  nameWithType: IAgentRunner.StartAsync(string, string, string, StreamWriter, CancellationToken)
+  fullName: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(string, string, string, System.IO.StreamWriter, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentRunner.StartAsync(String, String, String, StreamWriter, CancellationToken)
+  fullName.vb: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(String, String, String, System.IO.StreamWriter, System.Threading.CancellationToken)
+  name.vb: StartAsync(String, String, String, StreamWriter, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+    name: StartAsync
+    href: RemoteAgent.Service.Agents.IAgentRunner.html#RemoteAgent_Service_Agents_IAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.IO.StreamWriter
+    name: StreamWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+    name: StartAsync
+    href: RemoteAgent.Service.Agents.IAgentRunner.html#RemoteAgent_Service_Agents_IAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.IO.StreamWriter
+    name: StreamWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.IO.StreamWriter
+  commentId: T:System.IO.StreamWriter
+  parent: System.IO
+  isExternal: true
+  name: StreamWriter
+  nameWithType: StreamWriter
+  fullName: System.IO.StreamWriter
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.Service.Agents.IAgentSession}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Service.Agents.IAgentSession}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Service.Agents.IAgentSession.html
+  name: Task<IAgentSession>
+  nameWithType: Task<IAgentSession>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Service.Agents.IAgentSession>
+  nameWithType.vb: Task(Of IAgentSession)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Service.Agents.IAgentSession)
+  name.vb: Task(Of IAgentSession)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Agents.IAgentSession
+    name: IAgentSession
+    href: RemoteAgent.Service.Agents.IAgentSession.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Agents.IAgentSession
+    name: IAgentSession
+    href: RemoteAgent.Service.Agents.IAgentSession.html
+  - name: )
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose*
+  commentId: Overload:RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose
+  href: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.html#RemoteAgent_Plugins_Ollama_OllamaAgentRunner_Dispose
+  name: Dispose
+  nameWithType: OllamaAgentRunner.Dispose
+  fullName: RemoteAgent.Plugins.Ollama.OllamaAgentRunner.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

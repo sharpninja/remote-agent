@@ -6,8 +6,16 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="SavePromptTemplateHandler"/>. FR-12.6; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.6")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class SavePromptTemplateHandlerTests
 {
+    // FR-12.6, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUpsertSucceeds_ShouldReturnOk()
     {
@@ -22,6 +30,7 @@ public class SavePromptTemplateHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-12.6, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUpsertReturnsNull_ShouldReturnFail()
     {
@@ -36,6 +45,7 @@ public class SavePromptTemplateHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.6, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUpsertSucceeds_ShouldSetPromptTemplateStatus()
     {

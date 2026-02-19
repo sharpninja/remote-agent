@@ -1,0 +1,770 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  commentId: T:RemoteAgent.Service.Storage.LiteDbLocalStorage
+  id: LiteDbLocalStorage
+  parent: RemoteAgent.Service.Storage
+  children:
+  - RemoteAgent.Service.Storage.LiteDbLocalStorage.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})
+  - RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  - RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  - RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists(System.String)
+  langs:
+  - csharp
+  - vb
+  name: LiteDbLocalStorage
+  nameWithType: LiteDbLocalStorage
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LiteDbLocalStorage
+    path: ../src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: LiteDB implementation of local storage for requests and results (TR-11.1). Database file is under <xref href="RemoteAgent.Service.AgentOptions.DataDirectory" data-throw-if-not-resolved="false"></xref>.
+  remarks: Uses collection <code>request_results</code>. Summaries longer than 2000 characters are truncated. Failures are ignored so logging does not break the request pipeline.
+  example: []
+  syntax:
+    content: 'public sealed class LiteDbLocalStorage : ILocalStorage'
+    content.vb: Public NotInheritable Class LiteDbLocalStorage Implements ILocalStorage
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.Service.Storage.ILocalStorage
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})
+  commentId: M:RemoteAgent.Service.Storage.LiteDbLocalStorage.#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})
+  id: '#ctor(Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions})'
+  parent: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  langs:
+  - csharp
+  - vb
+  name: LiteDbLocalStorage(IOptions<AgentOptions>)
+  nameWithType: LiteDbLocalStorage.LiteDbLocalStorage(IOptions<AgentOptions>)
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.LiteDbLocalStorage(Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: 'Creates storage using <xref href="RemoteAgent.Service.AgentOptions.DataDirectory" data-throw-if-not-resolved="false"></xref> (defaults to <code>./data</code>). Database file: <code>remote-agent.db</code>.'
+  example: []
+  syntax:
+    content: public LiteDbLocalStorage(IOptions<AgentOptions> options)
+    parameters:
+    - id: options
+      type: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+    content.vb: Public Sub New(options As IOptions(Of AgentOptions))
+  overload: RemoteAgent.Service.Storage.LiteDbLocalStorage.#ctor*
+  nameWithType.vb: LiteDbLocalStorage.New(IOptions(Of AgentOptions))
+  fullName.vb: RemoteAgent.Service.Storage.LiteDbLocalStorage.New(Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions))
+  name.vb: New(IOptions(Of AgentOptions))
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  id: LogRequest(System.String,System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  langs:
+  - csharp
+  - vb
+  name: LogRequest(string, string, string, string?)
+  nameWithType: LiteDbLocalStorage.LogRequest(string, string, string, string?)
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest(string, string, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogRequest
+    path: ../src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Logs a client request (e.g. text message, control, script request, media upload).
+  example: []
+  syntax:
+    content: public void LogRequest(string sessionId, string kind, string summary, string? mediaPath = null)
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: Session identifier.
+    - id: kind
+      type: System.String
+      description: Kind of request (e.g. Text, Control, ScriptRequest, MediaUpload).
+    - id: summary
+      type: System.String
+      description: Short summary or content (truncated if long).
+    - id: mediaPath
+      type: System.String
+      description: Optional relative path to stored media (TR-11.2).
+    content.vb: Public Sub LogRequest(sessionId As String, kind As String, summary As String, mediaPath As String = Nothing)
+  overload: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest*
+  implements:
+  - RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  nameWithType.vb: LiteDbLocalStorage.LogRequest(String, String, String, String)
+  fullName.vb: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest(String, String, String, String)
+  name.vb: LogRequest(String, String, String, String)
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  id: LogResponse(System.String,System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  langs:
+  - csharp
+  - vb
+  name: LogResponse(string, string, string, string?)
+  nameWithType: LiteDbLocalStorage.LogResponse(string, string, string, string?)
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse(string, string, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogResponse
+    path: ../src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+    startLine: 30
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Logs a server/agent response (e.g. output, error, event).
+  example: []
+  syntax:
+    content: public void LogResponse(string sessionId, string kind, string summary, string? mediaPath = null)
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: Session identifier.
+    - id: kind
+      type: System.String
+      description: Kind of response (e.g. Output, Error, Event).
+    - id: summary
+      type: System.String
+      description: Short summary or content.
+    - id: mediaPath
+      type: System.String
+      description: Optional relative path to stored media.
+    content.vb: Public Sub LogResponse(sessionId As String, kind As String, summary As String, mediaPath As String = Nothing)
+  overload: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse*
+  implements:
+  - RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  nameWithType.vb: LiteDbLocalStorage.LogResponse(String, String, String, String)
+  fullName.vb: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse(String, String, String, String)
+  name.vb: LogResponse(String, String, String, String)
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists(System.String)
+  commentId: M:RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists(System.String)
+  id: SessionExists(System.String)
+  parent: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  langs:
+  - csharp
+  - vb
+  name: SessionExists(string)
+  nameWithType: LiteDbLocalStorage.SessionExists(string)
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionExists
+    path: ../src/RemoteAgent.Service/Storage/LiteDbLocalStorage.cs
+    startLine: 36
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Returns true when persisted records already exist for the given session id.
+  example: []
+  syntax:
+    content: public bool SessionExists(string sessionId)
+    parameters:
+    - id: sessionId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function SessionExists(sessionId As String) As Boolean
+  overload: RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists*
+  implements:
+  - RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+  nameWithType.vb: LiteDbLocalStorage.SessionExists(String)
+  fullName.vb: RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists(String)
+  name.vb: SessionExists(String)
+references:
+- uid: RemoteAgent.Service.AgentOptions.DataDirectory
+  commentId: P:RemoteAgent.Service.AgentOptions.DataDirectory
+  href: RemoteAgent.Service.AgentOptions.html#RemoteAgent_Service_AgentOptions_DataDirectory
+  name: DataDirectory
+  nameWithType: AgentOptions.DataDirectory
+  fullName: RemoteAgent.Service.AgentOptions.DataDirectory
+- uid: RemoteAgent.Service.Storage
+  commentId: N:RemoteAgent.Service.Storage
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Storage
+  nameWithType: RemoteAgent.Service.Storage
+  fullName: RemoteAgent.Service.Storage
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Service.Storage.ILocalStorage
+  commentId: T:RemoteAgent.Service.Storage.ILocalStorage
+  parent: RemoteAgent.Service.Storage
+  href: RemoteAgent.Service.Storage.ILocalStorage.html
+  name: ILocalStorage
+  nameWithType: ILocalStorage
+  fullName: RemoteAgent.Service.Storage.ILocalStorage
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.#ctor*
+  commentId: Overload:RemoteAgent.Service.Storage.LiteDbLocalStorage.#ctor
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html#RemoteAgent_Service_Storage_LiteDbLocalStorage__ctor_Microsoft_Extensions_Options_IOptions_RemoteAgent_Service_AgentOptions__
+  name: LiteDbLocalStorage
+  nameWithType: LiteDbLocalStorage.LiteDbLocalStorage
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.LiteDbLocalStorage
+  nameWithType.vb: LiteDbLocalStorage.New
+  fullName.vb: RemoteAgent.Service.Storage.LiteDbLocalStorage.New
+  name.vb: New
+- uid: Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{RemoteAgent.Service.AgentOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: RemoteAgent.Service.AgentOptions.html
+  name: IOptions<AgentOptions>
+  nameWithType: IOptions<AgentOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<RemoteAgent.Service.AgentOptions>
+  nameWithType.vb: IOptions(Of AgentOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of RemoteAgent.Service.AgentOptions)
+  name.vb: IOptions(Of AgentOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.AgentOptions
+    name: AgentOptions
+    href: RemoteAgent.Service.AgentOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest*
+  commentId: Overload:RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html#RemoteAgent_Service_Storage_LiteDbLocalStorage_LogRequest_System_String_System_String_System_String_System_String_
+  name: LogRequest
+  nameWithType: LiteDbLocalStorage.LogRequest
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogRequest
+- uid: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Storage.ILocalStorage
+  isExternal: true
+  href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogRequest_System_String_System_String_System_String_System_String_
+  name: LogRequest(string, string, string, string)
+  nameWithType: ILocalStorage.LogRequest(string, string, string, string)
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(string, string, string, string)
+  nameWithType.vb: ILocalStorage.LogRequest(String, String, String, String)
+  fullName.vb: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(String, String, String, String)
+  name.vb: LogRequest(String, String, String, String)
+  spec.csharp:
+  - uid: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+    name: LogRequest
+    href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogRequest_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+    name: LogRequest
+    href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogRequest_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse*
+  commentId: Overload:RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html#RemoteAgent_Service_Storage_LiteDbLocalStorage_LogResponse_System_String_System_String_System_String_System_String_
+  name: LogResponse
+  nameWithType: LiteDbLocalStorage.LogResponse
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.LogResponse
+- uid: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Storage.ILocalStorage
+  isExternal: true
+  href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogResponse_System_String_System_String_System_String_System_String_
+  name: LogResponse(string, string, string, string)
+  nameWithType: ILocalStorage.LogResponse(string, string, string, string)
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(string, string, string, string)
+  nameWithType.vb: ILocalStorage.LogResponse(String, String, String, String)
+  fullName.vb: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(String, String, String, String)
+  name.vb: LogResponse(String, String, String, String)
+  spec.csharp:
+  - uid: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+    name: LogResponse
+    href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogResponse_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+    name: LogResponse
+    href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogResponse_System_String_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists*
+  commentId: Overload:RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html#RemoteAgent_Service_Storage_LiteDbLocalStorage_SessionExists_System_String_
+  name: SessionExists
+  nameWithType: LiteDbLocalStorage.SessionExists
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage.SessionExists
+- uid: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+  commentId: M:RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+  parent: RemoteAgent.Service.Storage.ILocalStorage
+  isExternal: true
+  href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_SessionExists_System_String_
+  name: SessionExists(string)
+  nameWithType: ILocalStorage.SessionExists(string)
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(string)
+  nameWithType.vb: ILocalStorage.SessionExists(String)
+  fullName.vb: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(String)
+  name.vb: SessionExists(String)
+  spec.csharp:
+  - uid: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+    name: SessionExists
+    href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_SessionExists_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+    name: SessionExists
+    href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_SessionExists_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

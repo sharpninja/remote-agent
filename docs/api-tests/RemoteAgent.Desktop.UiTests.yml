@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests
+  commentId: N:RemoteAgent.Desktop.UiTests
+  id: RemoteAgent.Desktop.UiTests
+  children:
+  - RemoteAgent.Desktop.UiTests.AppLogTests
+  - RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  - RemoteAgent.Desktop.UiTests.StructuredLogStoreTests
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop.UiTests
+  nameWithType: RemoteAgent.Desktop.UiTests
+  fullName: RemoteAgent.Desktop.UiTests
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+references:
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests
+  commentId: T:RemoteAgent.Desktop.UiTests.AppLogTests
+  href: RemoteAgent.Desktop.UiTests.AppLogTests.html
+  name: AppLogTests
+  nameWithType: AppLogTests
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests
+- uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  commentId: T:RemoteAgent.Desktop.UiTests.MainWindowUiTests
+  href: RemoteAgent.Desktop.UiTests.MainWindowUiTests.html
+  name: MainWindowUiTests
+  nameWithType: MainWindowUiTests
+  fullName: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+- uid: RemoteAgent.Desktop.UiTests.StructuredLogStoreTests
+  commentId: T:RemoteAgent.Desktop.UiTests.StructuredLogStoreTests
+  href: RemoteAgent.Desktop.UiTests.StructuredLogStoreTests.html
+  name: StructuredLogStoreTests
+  nameWithType: StructuredLogStoreTests
+  fullName: RemoteAgent.Desktop.UiTests.StructuredLogStoreTests

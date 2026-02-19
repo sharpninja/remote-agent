@@ -1,0 +1,1284 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  id: SecurityViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.PropertyChanged
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand
+  langs:
+  - csharp
+  - vb
+  name: SecurityViewModel
+  nameWithType: SecurityViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SecurityViewModel
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public sealed class SecurityViewModel
+    content.vb: Public NotInheritable Class SecurityViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  commentId: M:RemoteAgent.Desktop.ViewModels.SecurityViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  id: '#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)'
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: SecurityViewModel(IRequestDispatcher, IServerConnectionContext)
+  nameWithType: SecurityViewModel.SecurityViewModel(IRequestDispatcher, IServerConnectionContext)
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SecurityViewModel(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher, RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 20
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public SecurityViewModel(IRequestDispatcher dispatcher, IServerConnectionContext context)
+    parameters:
+    - id: dispatcher
+      type: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+    - id: context
+      type: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+    content.vb: Public Sub New(dispatcher As IRequestDispatcher, context As IServerConnectionContext)
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.#ctor*
+  nameWithType.vb: SecurityViewModel.New(IRequestDispatcher, IServerConnectionContext)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.SecurityViewModel.New(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher, RemoteAgent.Desktop.Infrastructure.IServerConnectionContext)
+  name.vb: New(IRequestDispatcher, IServerConnectionContext)
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.PropertyChanged
+  commentId: E:RemoteAgent.Desktop.ViewModels.SecurityViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: SecurityViewModel.PropertyChanged
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 44
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions
+  id: OpenServerSessions
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: OpenServerSessions
+  nameWithType: SecurityViewModel.OpenServerSessions
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: OpenServerSessions
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 46
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<OpenServerSessionSnapshot> OpenServerSessions { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot}
+    content.vb: Public ReadOnly Property OpenServerSessions As ObservableCollection(Of OpenServerSessionSnapshot)
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions
+  id: AbandonedServerSessions
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: AbandonedServerSessions
+  nameWithType: SecurityViewModel.AbandonedServerSessions
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AbandonedServerSessions
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 47
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<AbandonedServerSessionSnapshot> AbandonedServerSessions { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+    content.vb: Public ReadOnly Property AbandonedServerSessions As ObservableCollection(Of AbandonedServerSessionSnapshot)
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers
+  id: ConnectedPeers
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectedPeers
+  nameWithType: SecurityViewModel.ConnectedPeers
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectedPeers
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<ConnectedPeerSnapshot> ConnectedPeers { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+    content.vb: Public ReadOnly Property ConnectedPeers As ObservableCollection(Of ConnectedPeerSnapshot)
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory
+  id: ConnectionHistory
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectionHistory
+  nameWithType: SecurityViewModel.ConnectionHistory
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionHistory
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 49
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<ConnectionHistorySnapshot> ConnectionHistory { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+    content.vb: Public ReadOnly Property ConnectionHistory As ObservableCollection(Of ConnectionHistorySnapshot)
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers
+  id: BannedPeers
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: BannedPeers
+  nameWithType: SecurityViewModel.BannedPeers
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BannedPeers
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 50
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<BannedPeerSnapshot> BannedPeers { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+    content.vb: Public ReadOnly Property BannedPeers As ObservableCollection(Of BannedPeerSnapshot)
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession
+  id: SelectedOpenServerSession
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedOpenServerSession
+  nameWithType: SecurityViewModel.SelectedOpenServerSession
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedOpenServerSession
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 52
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public OpenServerSessionSnapshot? SelectedOpenServerSession { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+    content.vb: Public Property SelectedOpenServerSession As OpenServerSessionSnapshot
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer
+  id: SelectedConnectedPeer
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedConnectedPeer
+  nameWithType: SecurityViewModel.SelectedConnectedPeer
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedConnectedPeer
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 64
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ConnectedPeerSnapshot? SelectedConnectedPeer { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+    content.vb: Public Property SelectedConnectedPeer As ConnectedPeerSnapshot
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer
+  id: SelectedBannedPeer
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedBannedPeer
+  nameWithType: SecurityViewModel.SelectedBannedPeer
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedBannedPeer
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 76
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public BannedPeerSnapshot? SelectedBannedPeer { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    content.vb: Public Property SelectedBannedPeer As BannedPeerSnapshot
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason
+  id: BanReason
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: BanReason
+  nameWithType: SecurityViewModel.BanReason
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BanReason
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 88
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string BanReason { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BanReason As String
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText
+  id: StatusText
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: StatusText
+  nameWithType: SecurityViewModel.StatusText
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StatusText
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 99
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string StatusText { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StatusText As String
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand
+  id: RefreshSecurityDataCommand
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: RefreshSecurityDataCommand
+  nameWithType: SecurityViewModel.RefreshSecurityDataCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshSecurityDataCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 110
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand RefreshSecurityDataCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property RefreshSecurityDataCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand
+  id: BanSelectedPeerCommand
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: BanSelectedPeerCommand
+  nameWithType: SecurityViewModel.BanSelectedPeerCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BanSelectedPeerCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 111
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand BanSelectedPeerCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property BanSelectedPeerCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand
+  id: UnbanSelectedPeerCommand
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: UnbanSelectedPeerCommand
+  nameWithType: SecurityViewModel.UnbanSelectedPeerCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UnbanSelectedPeerCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 112
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand UnbanSelectedPeerCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property UnbanSelectedPeerCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand
+  id: RefreshOpenSessionsCommand
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: RefreshOpenSessionsCommand
+  nameWithType: SecurityViewModel.RefreshOpenSessionsCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshOpenSessionsCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 113
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand RefreshOpenSessionsCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property RefreshOpenSessionsCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand*
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand
+  id: TerminateOpenServerSessionCommand
+  parent: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateOpenServerSessionCommand
+  nameWithType: SecurityViewModel.TerminateOpenServerSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateOpenServerSessionCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/SecurityViewModel.cs
+    startLine: 114
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand TerminateOpenServerSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property TerminateOpenServerSessionCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand*
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.#ctor
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel__ctor_RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_
+  name: SecurityViewModel
+  nameWithType: SecurityViewModel.SecurityViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SecurityViewModel
+  nameWithType.vb: SecurityViewModel.New
+  fullName.vb: RemoteAgent.Desktop.ViewModels.SecurityViewModel.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html
+  name: IServerConnectionContext
+  nameWithType: IServerConnectionContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_OpenServerSessions
+  name: OpenServerSessions
+  nameWithType: SecurityViewModel.OpenServerSessions
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.OpenServerSessions
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot.html
+  name: ObservableCollection<OpenServerSessionSnapshot>
+  nameWithType: ObservableCollection<OpenServerSessionSnapshot>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot>
+  nameWithType.vb: ObservableCollection(Of OpenServerSessionSnapshot)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot)
+  name.vb: ObservableCollection(Of OpenServerSessionSnapshot)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+    name: OpenServerSessionSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+    name: OpenServerSessionSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_AbandonedServerSessions
+  name: AbandonedServerSessions
+  nameWithType: SecurityViewModel.AbandonedServerSessions
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.AbandonedServerSessions
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot.html
+  name: ObservableCollection<AbandonedServerSessionSnapshot>
+  nameWithType: ObservableCollection<AbandonedServerSessionSnapshot>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot>
+  nameWithType.vb: ObservableCollection(Of AbandonedServerSessionSnapshot)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot)
+  name.vb: ObservableCollection(Of AbandonedServerSessionSnapshot)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot
+    name: AbandonedServerSessionSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot
+    name: AbandonedServerSessionSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot.html
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_ConnectedPeers
+  name: ConnectedPeers
+  nameWithType: SecurityViewModel.ConnectedPeers
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectedPeers
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  name: ObservableCollection<ConnectedPeerSnapshot>
+  nameWithType: ObservableCollection<ConnectedPeerSnapshot>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot>
+  nameWithType.vb: ObservableCollection(Of ConnectedPeerSnapshot)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot)
+  name.vb: ObservableCollection(Of ConnectedPeerSnapshot)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_ConnectionHistory
+  name: ConnectionHistory
+  nameWithType: SecurityViewModel.ConnectionHistory
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.ConnectionHistory
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot.html
+  name: ObservableCollection<ConnectionHistorySnapshot>
+  nameWithType: ObservableCollection<ConnectionHistorySnapshot>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot>
+  nameWithType.vb: ObservableCollection(Of ConnectionHistorySnapshot)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot)
+  name.vb: ObservableCollection(Of ConnectionHistorySnapshot)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot
+    name: ConnectionHistorySnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot
+    name: ConnectionHistorySnapshot
+    href: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot.html
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_BannedPeers
+  name: BannedPeers
+  nameWithType: SecurityViewModel.BannedPeers
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BannedPeers
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  name: ObservableCollection<BannedPeerSnapshot>
+  nameWithType: ObservableCollection<BannedPeerSnapshot>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot>
+  nameWithType.vb: ObservableCollection(Of BannedPeerSnapshot)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot)
+  name.vb: ObservableCollection(Of BannedPeerSnapshot)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_SelectedOpenServerSession
+  name: SelectedOpenServerSession
+  nameWithType: SecurityViewModel.SelectedOpenServerSession
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedOpenServerSession
+- uid: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+  commentId: T:RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot.html
+  name: OpenServerSessionSnapshot
+  nameWithType: OpenServerSessionSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_SelectedConnectedPeer
+  name: SelectedConnectedPeer
+  nameWithType: SecurityViewModel.SelectedConnectedPeer
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedConnectedPeer
+- uid: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot.html
+  name: ConnectedPeerSnapshot
+  nameWithType: ConnectedPeerSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_SelectedBannedPeer
+  name: SelectedBannedPeer
+  nameWithType: SecurityViewModel.SelectedBannedPeer
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.SelectedBannedPeer
+- uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  commentId: T:RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot.html
+  name: BannedPeerSnapshot
+  nameWithType: BannedPeerSnapshot
+  fullName: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_BanReason
+  name: BanReason
+  nameWithType: SecurityViewModel.BanReason
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanReason
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_StatusText
+  name: StatusText
+  nameWithType: SecurityViewModel.StatusText
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.StatusText
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_RefreshSecurityDataCommand
+  name: RefreshSecurityDataCommand
+  nameWithType: SecurityViewModel.RefreshSecurityDataCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshSecurityDataCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_BanSelectedPeerCommand
+  name: BanSelectedPeerCommand
+  nameWithType: SecurityViewModel.BanSelectedPeerCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.BanSelectedPeerCommand
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_UnbanSelectedPeerCommand
+  name: UnbanSelectedPeerCommand
+  nameWithType: SecurityViewModel.UnbanSelectedPeerCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.UnbanSelectedPeerCommand
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_RefreshOpenSessionsCommand
+  name: RefreshOpenSessionsCommand
+  nameWithType: SecurityViewModel.RefreshOpenSessionsCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.RefreshOpenSessionsCommand
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html#RemoteAgent_Desktop_ViewModels_SecurityViewModel_TerminateOpenServerSessionCommand
+  name: TerminateOpenServerSessionCommand
+  nameWithType: SecurityViewModel.TerminateOpenServerSessionCommand
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel.TerminateOpenServerSessionCommand

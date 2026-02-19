@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.ViewModels
+  commentId: N:RemoteAgent.App.ViewModels
+  id: RemoteAgent.App.ViewModels
+  children:
+  - RemoteAgent.App.ViewModels.MainPageViewModel
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.ViewModels
+  nameWithType: RemoteAgent.App.ViewModels
+  fullName: RemoteAgent.App.ViewModels
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Tests
+references:
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel
+  commentId: T:RemoteAgent.App.ViewModels.MainPageViewModel
+  parent: RemoteAgent.App.ViewModels
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html
+  name: MainPageViewModel
+  nameWithType: MainPageViewModel
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel
+- uid: RemoteAgent.App.ViewModels
+  commentId: N:RemoteAgent.App.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.App.ViewModels
+  nameWithType: RemoteAgent.App.ViewModels
+  fullName: RemoteAgent.App.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.ViewModels.html

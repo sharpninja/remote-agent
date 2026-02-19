@@ -7,8 +7,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="ClearAppLogHandler"/>. FR-12.12; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.12")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class ClearAppLogHandlerTests
 {
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldClearStoreAndViewModel()
     {
@@ -25,6 +33,7 @@ public class ClearAppLogHandlerTests
         workspace.Entries.Should().BeEmpty();
     }
 
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldSetStatusText()
     {
@@ -37,6 +46,7 @@ public class ClearAppLogHandlerTests
         workspace.StatusText.Should().Contain("cleared");
     }
 
+    // FR-12.12, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenStoreAlreadyEmpty_ShouldSucceed()
     {

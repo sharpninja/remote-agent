@@ -1,0 +1,745 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  commentId: T:RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  id: StructuredLogEntryRecord
+  parent: RemoteAgent.Service.Logging
+  children:
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId
+  - RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogEntryRecord
+  nameWithType: StructuredLogEntryRecord
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StructuredLogEntryRecord
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  summary: Structured operational log event written as one JSON object per line.
+  example: []
+  syntax:
+    content: public sealed class StructuredLogEntryRecord
+    content.vb: Public NotInheritable Class StructuredLogEntryRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId
+  id: EventId
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: EventId
+  nameWithType: StructuredLogEntryRecord.EventId
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EventId
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("event_id")]
+
+      public long EventId { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonPropertyName("event_id")>
+
+      Public Property EventId As Long
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: event_id
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc
+  id: TimestampUtc
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: TimestampUtc
+  nameWithType: StructuredLogEntryRecord.TimestampUtc
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TimestampUtc
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("timestamp_utc")]
+
+      public DateTimeOffset TimestampUtc { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: >-
+      <JsonPropertyName("timestamp_utc")>
+
+      Public Property TimestampUtc As DateTimeOffset
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timestamp_utc
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level
+  id: Level
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: StructuredLogEntryRecord.Level
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Level
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 13
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("level")]
+
+      public string Level { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("level")>
+
+      Public Property Level As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: level
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType
+  id: EventType
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: EventType
+  nameWithType: StructuredLogEntryRecord.EventType
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: EventType
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("event_type")]
+
+      public string EventType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("event_type")>
+
+      Public Property EventType As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: event_type
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message
+  id: Message
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: StructuredLogEntryRecord.Message
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Message
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 19
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("message")]
+
+      public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("message")>
+
+      Public Property Message As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: message
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component
+  id: Component
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: Component
+  nameWithType: StructuredLogEntryRecord.Component
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Component
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 22
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("component")]
+
+      public string Component { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("component")>
+
+      Public Property Component As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: component
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId
+  id: SessionId
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: SessionId
+  nameWithType: StructuredLogEntryRecord.SessionId
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionId
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 26
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("session_id")]
+
+      public string? SessionId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("session_id")>
+
+      Public Property SessionId As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: session_id
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: StructuredLogEntryRecord.CorrelationId
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 30
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("correlation_id")]
+
+      public string? CorrelationId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("correlation_id")>
+
+      Public Property CorrelationId As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: correlation_id
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson
+  commentId: P:RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson
+  id: DetailsJson
+  parent: RemoteAgent.Service.Logging.StructuredLogEntryRecord
+  langs:
+  - csharp
+  - vb
+  name: DetailsJson
+  nameWithType: StructuredLogEntryRecord.DetailsJson
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DetailsJson
+    path: ../src/RemoteAgent.Service/Logging/StructuredLogEntryRecord.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Logging
+  syntax:
+    content: >-
+      [JsonPropertyName("details_json")]
+
+      public string? DetailsJson { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("details_json")>
+
+      Public Property DetailsJson As String
+  overload: RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: details_json
+references:
+- uid: RemoteAgent.Service.Logging
+  commentId: N:RemoteAgent.Service.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Logging
+  nameWithType: RemoteAgent.Service.Logging
+  fullName: RemoteAgent.Service.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Logging
+    name: Logging
+    href: RemoteAgent.Service.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Logging
+    name: Logging
+    href: RemoteAgent.Service.Logging.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_EventId
+  name: EventId
+  nameWithType: StructuredLogEntryRecord.EventId
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventId
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_TimestampUtc
+  name: TimestampUtc
+  nameWithType: StructuredLogEntryRecord.TimestampUtc
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.TimestampUtc
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_Level
+  name: Level
+  nameWithType: StructuredLogEntryRecord.Level
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Level
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_EventType
+  name: EventType
+  nameWithType: StructuredLogEntryRecord.EventType
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.EventType
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_Message
+  name: Message
+  nameWithType: StructuredLogEntryRecord.Message
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Message
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_Component
+  name: Component
+  nameWithType: StructuredLogEntryRecord.Component
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.Component
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_SessionId
+  name: SessionId
+  nameWithType: StructuredLogEntryRecord.SessionId
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.SessionId
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_CorrelationId
+  name: CorrelationId
+  nameWithType: StructuredLogEntryRecord.CorrelationId
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.CorrelationId
+- uid: RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson*
+  commentId: Overload:RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson
+  href: RemoteAgent.Service.Logging.StructuredLogEntryRecord.html#RemoteAgent_Service_Logging_StructuredLogEntryRecord_DetailsJson
+  name: DetailsJson
+  nameWithType: StructuredLogEntryRecord.DetailsJson
+  fullName: RemoteAgent.Service.Logging.StructuredLogEntryRecord.DetailsJson

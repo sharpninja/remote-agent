@@ -1,0 +1,814 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  commentId: T:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  id: DeleteMcpServerRequest
+  parent: RemoteAgent.Desktop.Requests
+  children:
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.#ctor(System.Guid,System.String,System.Int32,System.String,System.String,RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel)
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString
+  - RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServerRequest
+  nameWithType: DeleteMcpServerRequest
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteMcpServerRequest
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: 'public sealed record DeleteMcpServerRequest : IRequest<CommandResult>, IEquatable<DeleteMcpServerRequest>'
+    content.vb: Public NotInheritable Class DeleteMcpServerRequest Implements IRequest(Of CommandResult), IEquatable(Of DeleteMcpServerRequest)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  - System.IEquatable{RemoteAgent.Desktop.Requests.DeleteMcpServerRequest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.#ctor(System.Guid,System.String,System.Int32,System.String,System.String,RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel)
+  commentId: M:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.#ctor(System.Guid,System.String,System.Int32,System.String,System.String,RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel)
+  id: '#ctor(System.Guid,System.String,System.Int32,System.String,System.String,RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel)'
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServerRequest(Guid, string, int, string, string?, McpRegistryDesktopViewModel)
+  nameWithType: DeleteMcpServerRequest.DeleteMcpServerRequest(Guid, string, int, string, string?, McpRegistryDesktopViewModel)
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.DeleteMcpServerRequest(System.Guid, string, int, string, string?, RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public DeleteMcpServerRequest(Guid CorrelationId, string Host, int Port, string ServerId, string? ApiKey, McpRegistryDesktopViewModel Workspace)
+    parameters:
+    - id: CorrelationId
+      type: System.Guid
+    - id: Host
+      type: System.String
+    - id: Port
+      type: System.Int32
+    - id: ServerId
+      type: System.String
+    - id: ApiKey
+      type: System.String
+    - id: Workspace
+      type: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+    content.vb: Public Sub New(CorrelationId As Guid, Host As String, Port As Integer, ServerId As String, ApiKey As String, Workspace As McpRegistryDesktopViewModel)
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.#ctor*
+  nameWithType.vb: DeleteMcpServerRequest.New(Guid, String, Integer, String, String, McpRegistryDesktopViewModel)
+  fullName.vb: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.New(System.Guid, String, Integer, String, String, RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel)
+  name.vb: New(Guid, String, Integer, String, String, McpRegistryDesktopViewModel)
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId
+  commentId: P:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: DeleteMcpServerRequest.CorrelationId
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  example: []
+  syntax:
+    content: public Guid CorrelationId { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property CorrelationId As Guid
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host
+  commentId: P:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host
+  id: Host
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: DeleteMcpServerRequest.Host
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Host
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public string Host { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host*
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port
+  commentId: P:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port
+  id: Port
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: DeleteMcpServerRequest.Port
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Port
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public int Port { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Port As Integer
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port*
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId
+  commentId: P:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId
+  id: ServerId
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: ServerId
+  nameWithType: DeleteMcpServerRequest.ServerId
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerId
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public string ServerId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServerId As String
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId*
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey
+  commentId: P:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey
+  id: ApiKey
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: DeleteMcpServerRequest.ApiKey
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ApiKey
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public string? ApiKey { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ApiKey As String
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey*
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace
+  commentId: P:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace
+  id: Workspace
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: Workspace
+  nameWithType: DeleteMcpServerRequest.Workspace
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Workspace
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public McpRegistryDesktopViewModel Workspace { get; init; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+    content.vb: Public Property Workspace As McpRegistryDesktopViewModel
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace*
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString
+  commentId: M:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString
+  id: ToString
+  parent: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: DeleteMcpServerRequest.ToString()
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Desktop/Requests/DeleteMcpServerRequest.cs
+    startLine: 13
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString*
+references:
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<CommandResult>
+  nameWithType: IRequest<CommandResult>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: IRequest(Of CommandResult)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: IRequest(Of CommandResult)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Desktop.Requests.DeleteMcpServerRequest}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Requests.DeleteMcpServerRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DeleteMcpServerRequest>
+  nameWithType: IEquatable<DeleteMcpServerRequest>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Requests.DeleteMcpServerRequest>
+  nameWithType.vb: IEquatable(Of DeleteMcpServerRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Requests.DeleteMcpServerRequest)
+  name.vb: IEquatable(Of DeleteMcpServerRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+    name: DeleteMcpServerRequest
+    href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+    name: DeleteMcpServerRequest
+    href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.#ctor
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest__ctor_System_Guid_System_String_System_Int32_System_String_System_String_RemoteAgent_Desktop_ViewModels_McpRegistryDesktopViewModel_
+  name: DeleteMcpServerRequest
+  nameWithType: DeleteMcpServerRequest.DeleteMcpServerRequest
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.DeleteMcpServerRequest
+  nameWithType.vb: DeleteMcpServerRequest.New
+  fullName.vb: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.New
+  name.vb: New
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel.html
+  name: McpRegistryDesktopViewModel
+  nameWithType: McpRegistryDesktopViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_CorrelationId
+  name: CorrelationId
+  nameWithType: DeleteMcpServerRequest.CorrelationId
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+  parent: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<CommandResult>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.CommandResult>.CorrelationId
+  nameWithType.vb: IRequest(Of CommandResult).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.CommandResult).CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_Host
+  name: Host
+  nameWithType: DeleteMcpServerRequest.Host
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Host
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_Port
+  name: Port
+  nameWithType: DeleteMcpServerRequest.Port
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Port
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_ServerId
+  name: ServerId
+  nameWithType: DeleteMcpServerRequest.ServerId
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ServerId
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_ApiKey
+  name: ApiKey
+  nameWithType: DeleteMcpServerRequest.ApiKey
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ApiKey
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_Workspace
+  name: Workspace
+  nameWithType: DeleteMcpServerRequest.Workspace
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.Workspace
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString*
+  commentId: Overload:RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString
+  href: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.html#RemoteAgent_Desktop_Requests_DeleteMcpServerRequest_ToString
+  name: ToString
+  nameWithType: DeleteMcpServerRequest.ToString
+  fullName: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest.ToString

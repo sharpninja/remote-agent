@@ -1,0 +1,297 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Agents.IAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunner
+  id: IAgentRunner
+  parent: RemoteAgent.Service.Agents
+  children:
+  - RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IAgentRunner
+  nameWithType: IAgentRunner
+  fullName: RemoteAgent.Service.Agents.IAgentRunner
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IAgentRunner
+    path: ../src/RemoteAgent.Service/Agents/IAgentRunner.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: 'Abstraction for starting an agent session (TR-10.1, FR-8.1). Implementations: process spawn (default) or plugin-backed agents.'
+  remarks: The service uses this to spawn the Cursor agent (FR-1.2) or a plugin-provided agent. Implementations forward stdin and stream stdout/stderr (TR-3.3, TR-3.4).
+  example:
+  - >-
+    <pre><code class="lang-csharp">var runner = agentRunnerFactory.GetRunner();
+
+    var session = await runner.StartAsync(cmd, args, sessionId, logWriter, ct);
+
+    if (session != null)
+        await session.SendInputAsync("Hello", ct);</code></pre>
+  syntax:
+    content: public interface IAgentRunner
+    content.vb: Public Interface IAgentRunner
+- uid: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Service.Agents.IAgentRunner.StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  id: StartAsync(System.String,System.String,System.String,System.IO.StreamWriter,System.Threading.CancellationToken)
+  parent: RemoteAgent.Service.Agents.IAgentRunner
+  langs:
+  - csharp
+  - vb
+  name: StartAsync(string?, string?, string, StreamWriter?, CancellationToken)
+  nameWithType: IAgentRunner.StartAsync(string?, string?, string, StreamWriter?, CancellationToken)
+  fullName: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(string?, string?, string, System.IO.StreamWriter?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentRunner.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartAsync
+    path: ../src/RemoteAgent.Service/Agents/IAgentRunner.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Starts an agent session. Returns null if the runner cannot start (e.g. command not configured).
+  example: []
+  syntax:
+    content: Task<IAgentSession?> StartAsync(string? command, string? arguments, string sessionId, StreamWriter? logWriter, CancellationToken cancellationToken = default)
+    parameters:
+    - id: command
+      type: System.String
+      description: Agent command (e.g. executable path). May be ignored by plugin runners.
+    - id: arguments
+      type: System.String
+      description: Optional arguments. May be ignored by plugin runners.
+    - id: sessionId
+      type: System.String
+      description: Session identifier for logging (TR-3.6).
+    - id: logWriter
+      type: System.IO.StreamWriter
+      description: Optional session log writer (FR-1.5).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Service.Agents.IAgentSession}
+      description: An active session, or null if the runner could not start.
+    content.vb: Function StartAsync(command As String, arguments As String, sessionId As String, logWriter As StreamWriter, cancellationToken As CancellationToken = Nothing) As Task(Of IAgentSession)
+  overload: RemoteAgent.Service.Agents.IAgentRunner.StartAsync*
+  nameWithType.vb: IAgentRunner.StartAsync(String, String, String, StreamWriter, CancellationToken)
+  fullName.vb: RemoteAgent.Service.Agents.IAgentRunner.StartAsync(String, String, String, System.IO.StreamWriter, System.Threading.CancellationToken)
+  name.vb: StartAsync(String, String, String, StreamWriter, CancellationToken)
+references:
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+- uid: RemoteAgent.Service.Agents.IAgentRunner.StartAsync*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentRunner.StartAsync
+  href: RemoteAgent.Service.Agents.IAgentRunner.html#RemoteAgent_Service_Agents_IAgentRunner_StartAsync_System_String_System_String_System_String_System_IO_StreamWriter_System_Threading_CancellationToken_
+  name: StartAsync
+  nameWithType: IAgentRunner.StartAsync
+  fullName: RemoteAgent.Service.Agents.IAgentRunner.StartAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IO.StreamWriter
+  commentId: T:System.IO.StreamWriter
+  parent: System.IO
+  isExternal: true
+  name: StreamWriter
+  nameWithType: StreamWriter
+  fullName: System.IO.StreamWriter
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.Service.Agents.IAgentSession}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Service.Agents.IAgentSession}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Service.Agents.IAgentSession.html
+  name: Task<IAgentSession>
+  nameWithType: Task<IAgentSession>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Service.Agents.IAgentSession>
+  nameWithType.vb: Task(Of IAgentSession)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Service.Agents.IAgentSession)
+  name.vb: Task(Of IAgentSession)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.Agents.IAgentSession
+    name: IAgentSession
+    href: RemoteAgent.Service.Agents.IAgentSession.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.Agents.IAgentSession
+    name: IAgentSession
+    href: RemoteAgent.Service.Agents.IAgentSession.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

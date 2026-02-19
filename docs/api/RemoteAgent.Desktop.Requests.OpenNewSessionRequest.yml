@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  commentId: T:RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  id: OpenNewSessionRequest
+  parent: RemoteAgent.Desktop.Requests
+  children:
+  - RemoteAgent.Desktop.Requests.OpenNewSessionRequest.#ctor(System.Guid,System.Func{Avalonia.Controls.Window},RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel)
+  - RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId
+  - RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory
+  - RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString
+  - RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace
+  langs:
+  - csharp
+  - vb
+  name: OpenNewSessionRequest
+  nameWithType: OpenNewSessionRequest
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: OpenNewSessionRequest
+    path: ../src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: 'public sealed record OpenNewSessionRequest : IRequest<CommandResult>, IEquatable<OpenNewSessionRequest>'
+    content.vb: Public NotInheritable Class OpenNewSessionRequest Implements IRequest(Of CommandResult), IEquatable(Of OpenNewSessionRequest)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  - System.IEquatable{RemoteAgent.Desktop.Requests.OpenNewSessionRequest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.#ctor(System.Guid,System.Func{Avalonia.Controls.Window},RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel)
+  commentId: M:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.#ctor(System.Guid,System.Func{Avalonia.Controls.Window},RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel)
+  id: '#ctor(System.Guid,System.Func{Avalonia.Controls.Window},RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel)'
+  parent: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: OpenNewSessionRequest(Guid, Func<Window?>, ServerWorkspaceViewModel)
+  nameWithType: OpenNewSessionRequest.OpenNewSessionRequest(Guid, Func<Window?>, ServerWorkspaceViewModel)
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OpenNewSessionRequest(System.Guid, System.Func<Avalonia.Controls.Window?>, RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public OpenNewSessionRequest(Guid CorrelationId, Func<Window?> OwnerWindowFactory, ServerWorkspaceViewModel Workspace)
+    parameters:
+    - id: CorrelationId
+      type: System.Guid
+    - id: OwnerWindowFactory
+      type: System.Func{Avalonia.Controls.Window}
+    - id: Workspace
+      type: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+    content.vb: Public Sub New(CorrelationId As Guid, OwnerWindowFactory As Func(Of Window), Workspace As ServerWorkspaceViewModel)
+  overload: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.#ctor*
+  nameWithType.vb: OpenNewSessionRequest.New(Guid, Func(Of Window), ServerWorkspaceViewModel)
+  fullName.vb: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.New(System.Guid, System.Func(Of Avalonia.Controls.Window), RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel)
+  name.vb: New(Guid, Func(Of Window), ServerWorkspaceViewModel)
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId
+  commentId: P:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: OpenNewSessionRequest.CorrelationId
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  example: []
+  syntax:
+    content: public Guid CorrelationId { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property CorrelationId As Guid
+  overload: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory
+  commentId: P:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory
+  id: OwnerWindowFactory
+  parent: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: OwnerWindowFactory
+  nameWithType: OpenNewSessionRequest.OwnerWindowFactory
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: OwnerWindowFactory
+    path: ../src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public Func<Window?> OwnerWindowFactory { get; init; }
+    parameters: []
+    return:
+      type: System.Func{Avalonia.Controls.Window}
+    content.vb: Public Property OwnerWindowFactory As Func(Of Window)
+  overload: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory*
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace
+  commentId: P:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace
+  id: Workspace
+  parent: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: Workspace
+  nameWithType: OpenNewSessionRequest.Workspace
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Workspace
+    path: ../src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public ServerWorkspaceViewModel Workspace { get; init; }
+    parameters: []
+    return:
+      type: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+    content.vb: Public Property Workspace As ServerWorkspaceViewModel
+  overload: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace*
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString
+  commentId: M:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString
+  id: ToString
+  parent: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: OpenNewSessionRequest.ToString()
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Desktop/Requests/OpenNewSessionRequest.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString*
+references:
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<CommandResult>
+  nameWithType: IRequest<CommandResult>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: IRequest(Of CommandResult)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: IRequest(Of CommandResult)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Desktop.Requests.OpenNewSessionRequest}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Requests.OpenNewSessionRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<OpenNewSessionRequest>
+  nameWithType: IEquatable<OpenNewSessionRequest>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Requests.OpenNewSessionRequest>
+  nameWithType.vb: IEquatable(Of OpenNewSessionRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Requests.OpenNewSessionRequest)
+  name.vb: IEquatable(Of OpenNewSessionRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+    name: OpenNewSessionRequest
+    href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+    name: OpenNewSessionRequest
+    href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.#ctor
+  href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html#RemoteAgent_Desktop_Requests_OpenNewSessionRequest__ctor_System_Guid_System_Func_Avalonia_Controls_Window__RemoteAgent_Desktop_ViewModels_ServerWorkspaceViewModel_
+  name: OpenNewSessionRequest
+  nameWithType: OpenNewSessionRequest.OpenNewSessionRequest
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OpenNewSessionRequest
+  nameWithType.vb: OpenNewSessionRequest.New
+  fullName.vb: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.New
+  name.vb: New
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Func{Avalonia.Controls.Window}
+  commentId: T:System.Func{Avalonia.Controls.Window}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<Window>
+  nameWithType: Func<Window>
+  fullName: System.Func<Avalonia.Controls.Window>
+  nameWithType.vb: Func(Of Window)
+  fullName.vb: System.Func(Of Avalonia.Controls.Window)
+  name.vb: Func(Of Window)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: Avalonia.Controls.Window
+    name: Window
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Avalonia.Controls.Window
+    name: Window
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html
+  name: ServerWorkspaceViewModel
+  nameWithType: ServerWorkspaceViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId*
+  commentId: Overload:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId
+  href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html#RemoteAgent_Desktop_Requests_OpenNewSessionRequest_CorrelationId
+  name: CorrelationId
+  nameWithType: OpenNewSessionRequest.CorrelationId
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+  parent: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<CommandResult>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.CommandResult>.CorrelationId
+  nameWithType.vb: IRequest(Of CommandResult).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.CommandResult).CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory*
+  commentId: Overload:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory
+  href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html#RemoteAgent_Desktop_Requests_OpenNewSessionRequest_OwnerWindowFactory
+  name: OwnerWindowFactory
+  nameWithType: OpenNewSessionRequest.OwnerWindowFactory
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.OwnerWindowFactory
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace*
+  commentId: Overload:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace
+  href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html#RemoteAgent_Desktop_Requests_OpenNewSessionRequest_Workspace
+  name: Workspace
+  nameWithType: OpenNewSessionRequest.Workspace
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.Workspace
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString*
+  commentId: Overload:RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString
+  href: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.html#RemoteAgent_Desktop_Requests_OpenNewSessionRequest_ToString
+  name: ToString
+  nameWithType: OpenNewSessionRequest.ToString
+  fullName: RemoteAgent.Desktop.Requests.OpenNewSessionRequest.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
