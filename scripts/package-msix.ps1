@@ -222,7 +222,7 @@ if ($Clean) {
     }
     foreach ($proj in $projectsToClean) {
         Write-Host "[package-msix] cleaning $proj ..."
-        dotnet clean "$proj" -c $Configuration --configfile "$NuGetConfig"
+        dotnet clean "$proj" -c $Configuration
         if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
     }
 }
