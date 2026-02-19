@@ -6,9 +6,10 @@
 
 .DESCRIPTION
   1. Optionally trusts the signing certificate (required for self-signed dev builds).
-  2. Installs the MSIX package via Add-AppxPackage (or updates an existing install).
-  3. Polls the Windows SCM until RemoteAgentService is registered (up to -TimeoutSeconds).
-  4. Starts the service and reports its final status.
+  2. If the package is unsigned, automatically signs it with a self-signed dev certificate.
+  3. Installs the MSIX package via Add-AppxPackage (or updates an existing install).
+  4. Polls the Windows SCM until RemoteAgentService is registered (up to -TimeoutSeconds).
+  5. Starts the service and reports its final status.
 
   The service is registered by the MSIX windows.service extension with StartupType=auto,
   so it will also start automatically on every subsequent boot.
@@ -102,21 +103,89 @@ if ($CertPath) {
     Write-Host "[install] Certificate trusted."
 }
 
-# ── Install or update the MSIX ────────────────────────────────────────────────
-# Determine if the package is signed so we can pass -AllowUnsigned when needed.
+# ── Auto-sign unsigned packages ───────────────────────────────────────────────
+# -AllowUnsigned requires Developer Mode; signing with a dev cert is more reliable.
 $sig = Get-AuthenticodeSignature -FilePath $MsixPath -ErrorAction SilentlyContinue
 $isSigned = $sig -and $sig.Status -eq 'Valid'
-if (-not $isSigned) { Write-Warning "[install] Package is unsigned — using -AllowUnsigned." }
 
+if (-not $isSigned) {
+    Write-Host "[install] Package is unsigned — auto-signing with a self-signed dev certificate."
+
+    # Locate signtool.exe from the Windows SDK.
+    $signTool = $null
+    $sdkRoot = "C:\Program Files (x86)\Windows Kits\10\bin"
+    if (Test-Path $sdkRoot) {
+        $signTool = Get-ChildItem $sdkRoot -Directory | Sort-Object Name -Descending | ForEach-Object {
+            $p = Join-Path $_.FullName "x64\signtool.exe"
+            if (Test-Path $p) { $p }
+        } | Select-Object -First 1
+    }
+    if (-not $signTool) {
+        $signTool = (Get-Command signtool.exe -ErrorAction SilentlyContinue)?.Source
+    }
+    if (-not $signTool) {
+        Write-Error @"
+signtool.exe not found. Install the Windows SDK:
+  winget install Microsoft.WindowsSDK.10.0.22621
+Alternatively, build with: .\scripts\package-msix.ps1 -DevCert
+"@
+    }
+
+    # Reuse or create a self-signed dev certificate matching the package publisher.
+    $publisher = "CN=RemoteAgent Dev"
+    $devCert = Get-ChildItem Cert:\CurrentUser\My |
+        Where-Object { $_.Subject -eq $publisher -and $_.NotAfter -gt (Get-Date) } |
+        Sort-Object NotAfter -Descending |
+        Select-Object -First 1
+
+    if (-not $devCert) {
+        Write-Host "[install] Creating self-signed dev certificate for '$publisher'..."
+        $devCert = New-SelfSignedCertificate `
+            -Type Custom `
+            -Subject $publisher `
+            -KeyUsage DigitalSignature `
+            -FriendlyName "Remote Agent Dev Certificate" `
+            -CertStoreLocation "Cert:\CurrentUser\My" `
+            -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+        Write-Host "[install] Dev certificate created: $($devCert.Thumbprint)"
+    } else {
+        Write-Host "[install] Reusing existing dev certificate: $($devCert.Thumbprint)"
+    }
+
+    # Trust the dev cert so the signed package can be installed.
+    $trustedRoot = Get-ChildItem Cert:\LocalMachine\Root |
+        Where-Object { $_.Thumbprint -eq $devCert.Thumbprint } |
+        Select-Object -First 1
+    if (-not $trustedRoot) {
+        Write-Host "[install] Trusting dev certificate in Cert:\LocalMachine\Root..."
+        $certStore = New-Object System.Security.Cryptography.X509Certificates.X509Store(
+            [System.Security.Cryptography.X509Certificates.StoreName]::Root,
+            [System.Security.Cryptography.X509Certificates.StoreLocation]::LocalMachine)
+        $certStore.Open([System.Security.Cryptography.X509Certificates.OpenFlags]::ReadWrite)
+        $certStore.Add($devCert)
+        $certStore.Close()
+        Write-Host "[install] Certificate trusted."
+    }
+
+    # Export the cert alongside the MSIX for future reference.
+    $cerPath = Join-Path (Split-Path $MsixPath) "remote-agent-dev.cer"
+    Export-Certificate -Cert $devCert -FilePath $cerPath -Type CERT | Out-Null
+
+    # Sign the MSIX in-place.
+    Write-Host "[install] Signing $MsixPath ..."
+    & $signTool sign /sha1 $devCert.Thumbprint /fd SHA256 /tr http://timestamp.digicert.com /td sha256 "$MsixPath"
+    if ($LASTEXITCODE -ne 0) { Write-Error "[install] signtool failed (exit $LASTEXITCODE)." }
+    Write-Host "[install] Package signed."
+}
+
+# ── Install or update the MSIX ────────────────────────────────────────────────
 $existing = Get-AppxPackage -Name "RemoteAgent" -ErrorAction SilentlyContinue
 if ($existing) {
     Write-Host "[install] Updating existing package ($($existing.Version) -> installing)..."
-    if ($isSigned) { Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion }
-    else           { Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion -AllowUnsigned }
+    Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion
 } else {
     Write-Host "[install] Installing package..."
-    if ($isSigned) { Add-AppxPackage -Path $MsixPath }
-    else           { Add-AppxPackage -Path $MsixPath -AllowUnsigned }
+    Add-AppxPackage -Path $MsixPath
 }
 Write-Host "[install] Package installed."
 
