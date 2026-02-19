@@ -50,9 +50,12 @@ scan_test_files() {
             }
             
             # Match class-level Trait annotations (before class declaration)
-            !in_class && /\[Trait\("Requirement", "'"$req_prefix"'-[0-9.]+"\)/ {
-                match($0, /"'"$req_prefix"'-([0-9.]+)"/, arr)
-                class_reqs[++class_req_count] = prefix "-" arr[1]
+            !in_class && /\[Trait\("Requirement", "[A-Z]+-[0-9.]+"\)/ {
+                match($0, /"([A-Z]+-[0-9.]+)"/, arr)
+                req_id = arr[1]
+                if (index(req_id, prefix) == 1) {
+                    class_reqs[++class_req_count] = req_id
+                }
             }
             
             # Match class declaration
@@ -63,9 +66,12 @@ scan_test_files() {
             }
             
             # Match method-level Trait annotations (inside class)
-            in_class && /\[Trait\("Requirement", "'"$req_prefix"'-[0-9.]+"\)/ {
-                match($0, /"'"$req_prefix"'-([0-9.]+)"/, arr)
-                method_reqs[++method_req_count] = prefix "-" arr[1]
+            in_class && /\[Trait\("Requirement", "[A-Z]+-[0-9.]+"\)/ {
+                match($0, /"([A-Z]+-[0-9.]+)"/, arr)
+                req_id = arr[1]
+                if (index(req_id, prefix) == 1) {
+                    method_reqs[++method_req_count] = req_id
+                }
             }
             
             # Match test attributes

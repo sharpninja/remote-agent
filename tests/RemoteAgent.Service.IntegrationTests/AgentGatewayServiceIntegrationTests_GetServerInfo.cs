@@ -5,7 +5,15 @@ using Xunit;
 
 namespace RemoteAgent.Service.IntegrationTests;
 
-/// <summary>Integration tests for GetServerInfo handshake.</summary>
+/// <summary>Integration tests for GetServerInfo handshake. FR-8.1, FR-9.1, FR-11.1.2, FR-12.5; TR-4.5, TR-10.1, TR-12.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-8.1")]
+[Trait("Requirement", "FR-9.1")]
+[Trait("Requirement", "FR-11.1.2")]
+[Trait("Requirement", "FR-12.5")]
+[Trait("Requirement", "TR-4.5")]
+[Trait("Requirement", "TR-10.1")]
+[Trait("Requirement", "TR-12.2")]
 public class AgentGatewayServiceIntegrationTests_GetServerInfo : IClassFixture<NoCommandWebApplicationFactory>
 {
     private readonly NoCommandWebApplicationFactory _factory;

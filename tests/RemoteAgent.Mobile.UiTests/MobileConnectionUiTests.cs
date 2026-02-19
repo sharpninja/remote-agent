@@ -7,12 +7,15 @@ using System.Diagnostics;
 namespace RemoteAgent.Mobile.UiTests;
 
 /// <summary>
-/// Mobile UI smoke coverage for FR-2.7 and TR-8.5 via Appium-hosted Android UI tests.
+/// Mobile UI smoke coverage for FR-1.1, FR-1.6, FR-2.4, FR-2.7, FR-7.2 and TR-2.1, TR-5.2, TR-5.8, TR-8.5 via Appium-hosted Android UI tests.
 /// </summary>
 [Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.1")]
+[Trait("Requirement", "FR-1.6")]
 [Trait("Requirement", "FR-2.4")]
 [Trait("Requirement", "FR-2.7")]
 [Trait("Requirement", "FR-7.2")]
+[Trait("Requirement", "TR-2.1")]
 [Trait("Requirement", "TR-5.2")]
 [Trait("Requirement", "TR-5.8")]
 [Trait("Requirement", "TR-8.5")]

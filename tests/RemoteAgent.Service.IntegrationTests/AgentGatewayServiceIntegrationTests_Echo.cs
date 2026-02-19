@@ -6,7 +6,18 @@ using Xunit.Abstractions;
 
 namespace RemoteAgent.Service.IntegrationTests;
 
-/// <summary>Integration tests: start default agent (strategy-chosen), send text, expect SessionStarted and echoed output.</summary>
+/// <summary>Integration tests: start default agent (strategy-chosen), send text, expect SessionStarted and echoed output. FR-1.2, FR-1.3, FR-1.4, FR-2.1, FR-2.2, FR-7.1; TR-2.3, TR-3.2, TR-3.3, TR-3.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.2")]
+[Trait("Requirement", "FR-1.3")]
+[Trait("Requirement", "FR-1.4")]
+[Trait("Requirement", "FR-2.1")]
+[Trait("Requirement", "FR-2.2")]
+[Trait("Requirement", "FR-7.1")]
+[Trait("Requirement", "TR-2.3")]
+[Trait("Requirement", "TR-3.2")]
+[Trait("Requirement", "TR-3.3")]
+[Trait("Requirement", "TR-3.4")]
 public class AgentGatewayServiceIntegrationTests_Echo : IClassFixture<CatWebApplicationFactory>
 {
     private readonly CatWebApplicationFactory _factory;
