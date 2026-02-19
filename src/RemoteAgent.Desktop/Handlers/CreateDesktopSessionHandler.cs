@@ -41,6 +41,9 @@ public sealed class CreateDesktopSessionHandler(
         var session = sessionFactory.Create(request.Title, request.ConnectionMode, request.AgentId);
         session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] session initialized ({session.ConnectionMode}).");
 
+        // Register UI message handlers BEFORE connecting so no messages are dropped.
+        request.Workspace.RegisterSessionEvents(session);
+
         var connectHost = string.Equals(request.ConnectionMode, "direct", StringComparison.OrdinalIgnoreCase)
             ? "127.0.0.1"
             : request.Host;

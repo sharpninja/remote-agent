@@ -45,6 +45,7 @@ public sealed class TerminateDesktopSessionHandler(IServerCapacityClient capacit
         session.SessionClient.Disconnect();
 
         var title = session.Title;
+        workspace.UnregisterSessionEvents(session);
         workspace.Sessions.Remove(session);
         if (workspace.SelectedSession == session)
             workspace.SelectedSession = workspace.Sessions.FirstOrDefault();

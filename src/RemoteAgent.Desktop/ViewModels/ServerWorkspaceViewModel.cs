@@ -231,8 +231,46 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
         await _dispatcher.SendAsync(new CheckSessionCapacityRequest(Guid.NewGuid(), host, port, SelectedAgentId, ApiKey, Workspace: this));
     }
 
-    private async Task ConnectSessionAsync(DesktopSessionViewModel session)
+    /// <summary>Subscribes the workspace's UI message handler to a session's events.
+    /// Must be called before connecting so no messages are missed.</summary>
+    public void RegisterSessionEvents(DesktopSessionViewModel session)
     {
+        if (_sessionEventHandlers.ContainsKey(session))
+            return;
+
+        Action<RemoteAgent.App.Services.ChatMessage> onMessage = message =>
+        {
+            var text = message.IsEvent
+                ? $"event: {message.EventMessage}"
+                : message.IsError
+                    ? $"error: {message.Text}"
+                    : message.Text;
+            Dispatcher.UIThread.Post(() =>
+            {
+                session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] agent: {text}");
+                session.IsConnected = session.SessionClient.IsConnected;
+            });
+        };
+        Action onConnectionStateChanged = () =>
+            Dispatcher.UIThread.Post(() => session.IsConnected = session.SessionClient.IsConnected);
+
+        _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged);
+        session.SessionClient.MessageReceived += onMessage;
+        session.SessionClient.ConnectionStateChanged += onConnectionStateChanged;
+    }
+
+    /// <summary>Unsubscribes the workspace's UI message handler from a session's events.</summary>
+    public void UnregisterSessionEvents(DesktopSessionViewModel session)
+    {
+        if (!_sessionEventHandlers.TryGetValue(session, out var handlers))
+            return;
+
+        session.SessionClient.MessageReceived -= handlers.OnMessage;
+        session.SessionClient.ConnectionStateChanged -= handlers.OnConnectionStateChanged;
+        _sessionEventHandlers.Remove(session);
+    }
+
+    private async Task ConnectSessionAsync(DesktopSessionViewModel session)    {
         if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
         {
             StatusText = "Port must be 1-65535.";
@@ -249,26 +287,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
         }
 
         if (!_sessionEventHandlers.ContainsKey(session))
-        {
-            Action<RemoteAgent.App.Services.ChatMessage> onMessage = message =>
-            {
-                var text = message.IsEvent
-                    ? $"event: {message.EventMessage}"
-                    : message.IsError
-                        ? $"error: {message.Text}"
-                        : message.Text;
-                Dispatcher.UIThread.Post(() =>
-                {
-                    session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] agent: {text}");
-                    session.IsConnected = session.SessionClient.IsConnected;
-                });
-            };
-            Action onConnectionStateChanged = () =>
-                Dispatcher.UIThread.Post(() => session.IsConnected = session.SessionClient.IsConnected);
-            _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged);
-            session.SessionClient.MessageReceived += onMessage;
-            session.SessionClient.ConnectionStateChanged += onConnectionStateChanged;
-        }
+            RegisterSessionEvents(session);
 
         session.SessionClient.PerRequestContext = (PerRequestContext ?? "").Trim();
         try

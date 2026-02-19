@@ -163,14 +163,19 @@ internal sealed class StubLogStore : IDesktopStructuredLogStore
 
 internal sealed class StubSessionFactory : IDesktopSessionViewModelFactory
 {
-    public DesktopSessionViewModel Create(string title, string connectionMode, string agentId) =>
-        new(new FakeAgentSession())
+    public FakeAgentSession LastFakeSession { get; private set; } = new();
+
+    public DesktopSessionViewModel Create(string title, string connectionMode, string agentId)
+    {
+        LastFakeSession = new FakeAgentSession();
+        return new(LastFakeSession)
         {
             Title = title,
             ConnectionMode = connectionMode,
             AgentId = agentId,
             SessionId = Guid.NewGuid().ToString("N")[..12]
         };
+    }
 }
 
 internal sealed class StubAppLogStore : IAppLogStore
@@ -191,8 +196,7 @@ internal sealed class FakeAgentSession : IAgentSessionClient
     public bool ThrowOnConnect { get; set; }
     public bool ThrowOnSend { get; set; }
     public event Action? ConnectionStateChanged;
-    public event Action<ChatMessage>? MessageReceived
-    { add { } remove { } }
+    public event Action<ChatMessage>? MessageReceived;
 
     public Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
     {
@@ -211,6 +215,7 @@ internal sealed class FakeAgentSession : IAgentSessionClient
     public Task SendScriptRequestAsync(string pathOrCommand, ScriptType scriptType, CancellationToken ct = default) => Task.CompletedTask;
     public Task SendMediaAsync(byte[] content, string contentType, string? fileName, CancellationToken ct = default) => Task.CompletedTask;
     public Task StopSessionAsync(CancellationToken ct = default) { Disconnect(); return Task.CompletedTask; }
+    public void SimulateMessage(ChatMessage message) => MessageReceived?.Invoke(message);
 }
 
 internal sealed class StubStructuredLogClient : IStructuredLogClient
