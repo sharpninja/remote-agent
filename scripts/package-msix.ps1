@@ -58,6 +58,9 @@
   Publish self-contained, single-file packages (bundles .NET runtime; no runtime prereq on target).
   Default: $true. Pass -SelfContained $false for a framework-dependent build.
 
+.PARAMETER Clean
+  Run 'dotnet clean' on each project before publishing.
+
 .PARAMETER ServiceOnly
   Build and bundle only the service component; omit the desktop app.
 
@@ -91,6 +94,8 @@ param(
     [switch] $ServiceOnly,
 
     [switch] $DesktopOnly,
+
+    [switch] $Clean,
 
     [switch] $Force,
 
@@ -203,6 +208,24 @@ if ($SignTool) { Write-Host "[package-msix] signtool : $SignTool" }
 
 # ── Ensure output directory ───────────────────────────────────────────────────
 New-Item -ItemType Directory -Path $OutDir -Force | Out-Null
+
+# ── Clean ─────────────────────────────────────────────────────────────────────
+if ($Clean) {
+    $projectsToClean = @()
+    if ($BuildService) {
+        $projectsToClean += Join-Path $RepoRoot "src\RemoteAgent.Service\RemoteAgent.Service.csproj"
+        $ollamaProj = Join-Path $RepoRoot "src\RemoteAgent.Plugins.Ollama\RemoteAgent.Plugins.Ollama.csproj"
+        if (Test-Path $ollamaProj) { $projectsToClean += $ollamaProj }
+    }
+    if ($BuildDesktop) {
+        $projectsToClean += Join-Path $RepoRoot "src\RemoteAgent.Desktop\RemoteAgent.Desktop.csproj"
+    }
+    foreach ($proj in $projectsToClean) {
+        Write-Host "[package-msix] cleaning $proj ..."
+        dotnet clean "$proj" -c $Configuration --configfile "$NuGetConfig"
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    }
+}
 
 # ── Publish ───────────────────────────────────────────────────────────────────
 $scFlag = if ($SelfContained) { "--self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true" } else { "" }
