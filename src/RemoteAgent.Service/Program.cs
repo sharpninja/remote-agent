@@ -351,7 +351,7 @@ public partial class Program
             var apiKey = options.Value.ApiKey?.Trim() ?? "";
             var host   = context.Request.Host.Host;
             var port   = context.Request.Host.Port
-                             ?? (context.Request.IsHttps ? 443 : (OperatingSystem.IsWindows() ? 5244 : 5243));
+                             ?? (context.Request.IsHttps ? 443 : 5243);
             var deepLink = $"remoteagent://pair?key={Uri.EscapeDataString(apiKey)}" +
                            $"&host={Uri.EscapeDataString(host)}&port={port}";
 
