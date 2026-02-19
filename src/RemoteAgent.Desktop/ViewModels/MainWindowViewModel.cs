@@ -51,6 +51,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         CheckLocalServerCommand = new RelayCommand(() => _ = RunCommandAsync("Starting local server status check...", CheckLocalServerAsync));
         ApplyLocalServerActionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting local server action...", ApplyLocalServerActionAsync), () => CanApplyLocalServerAction);
         CollapseStatusLogCommand = new RelayCommand(CollapseStatusLogPanel);
+        CopyStatusLogCommand = new RelayCommand(() => _ = ExecuteCopyStatusLogAsync());
         SetManagementSectionCommand = new RelayCommand<string>(sectionKey => _ = ExecuteSetManagementSectionAsync(sectionKey));
         ExpandStatusLogCommand = new RelayCommand(() => _ = ExecuteExpandStatusLogAsync());
         StartSessionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting new session...", StartSessionAsync), () => CurrentServerViewModel != null);
@@ -264,6 +265,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     public ICommand CheckLocalServerCommand { get; }
     public ICommand ApplyLocalServerActionCommand { get; }
     public ICommand CollapseStatusLogCommand { get; }
+    public ICommand CopyStatusLogCommand { get; }
     public ICommand SetManagementSectionCommand { get; }
     public ICommand ExpandStatusLogCommand { get; }
     public ICommand StartSessionCommand { get; }
@@ -513,6 +515,15 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     private void CollapseStatusLogPanel()
     {
         IsStatusLogExpanded = false;
+    }
+
+    private async Task ExecuteCopyStatusLogAsync()
+    {
+        var result = await _dispatcher.SendAsync(
+            new CopyStatusLogRequest(Guid.NewGuid(), [.. StatusLogEntries]));
+        StatusText = result.Success
+            ? "Status log copied to clipboard as markdown."
+            : $"Copy failed: {result.ErrorMessage}";
     }
 
     private void AppendStatusLogEntry(string message)

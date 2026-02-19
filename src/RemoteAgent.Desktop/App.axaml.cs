@@ -103,6 +103,7 @@ public partial class App : Application
         services.AddSingleton<ILoggerProvider, AppLoggerProvider>();
         services.AddLogging(builder => builder.AddDebug().SetMinimumLevel(LogLevel.Debug));
         services.AddSingleton<IFileSaveDialogService, AvaloniaFileSaveDialogService>();
+        services.AddSingleton<IClipboardService, AvaloniaClipboardService>();
         services.AddSingleton<AppLogViewModel>();
         services.AddSingleton<IRequestDispatcher, ServiceProviderRequestDispatcher>();
         services.AddTransient<IConnectionSettingsDialogService, AvaloniaConnectionSettingsDialogService>();
@@ -139,6 +140,7 @@ public partial class App : Application
         services.AddTransient<IRequestHandler<Requests.StartLogMonitoringRequest, CommandResult<Requests.StartLogMonitoringResult>>, StartLogMonitoringHandler>();
         services.AddTransient<IRequestHandler<Requests.ClearAppLogRequest, CommandResult>, ClearAppLogHandler>();
         services.AddTransient<IRequestHandler<Requests.SaveAppLogRequest, CommandResult>, SaveAppLogHandler>();
+        services.AddTransient<IRequestHandler<Requests.CopyStatusLogRequest, CommandResult>, CopyStatusLogHandler>();
 
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<MainWindow>();

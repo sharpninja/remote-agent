@@ -226,3 +226,14 @@ internal sealed class StubStructuredLogClient : IStructuredLogClient
         Func<StructuredLogEntry, Task> onEntry, string? apiKey = null, CancellationToken cancellationToken = default)
         => Task.CompletedTask;
 }
+
+internal sealed class NullClipboardService : IClipboardService
+{
+    public Task SetTextAsync(string text) => Task.CompletedTask;
+}
+
+internal sealed class CapturingClipboardService : IClipboardService
+{
+    public string? LastText { get; private set; }
+    public Task SetTextAsync(string text) { LastText = text; return Task.CompletedTask; }
+}
