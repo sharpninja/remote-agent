@@ -31,6 +31,11 @@ public partial class Program
             options.ServiceName = "Remote Agent Service";
         });
 
+        // Route ILogger output to the Windows Application Event Log on Windows so
+        // all Information+ messages appear alongside the service lifecycle events.
+        if (OperatingSystem.IsWindows())
+            ConfigureWindowsEventLog(builder);
+
         // Select the listen URL for the current platform from appsettings.json PlatformUrls.
         // Use ConfigureKestrel (explicit Listen* call) rather than UseUrls so that the
         // ASPNETCORE_URLS environment variable — set by 'dotnet run' from launchSettings.json
@@ -99,6 +104,17 @@ public partial class Program
         WriteEventLogCore(
             isError ? EventLogEntryType.Error : EventLogEntryType.Information,
             eventId, message);
+    }
+
+    /// <summary>Registers the Windows Application Event Log as an ILogger provider.
+    /// Always called from within an <see cref="OperatingSystem.IsWindows()"/> guard.</summary>
+    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+    private static void ConfigureWindowsEventLog(WebApplicationBuilder builder)
+    {
+        builder.Logging.AddEventLog(settings =>
+        {
+            settings.SourceName = "Remote Agent Service";
+        });
     }
 
     /// <summary>Windows-only inner implementation — always called from within an
