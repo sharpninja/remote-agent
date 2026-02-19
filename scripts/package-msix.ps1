@@ -59,7 +59,11 @@
   Default: $true. Pass -SelfContained $false for a framework-dependent build.
 
 .PARAMETER Clean
-  Run 'dotnet clean' on each project before publishing.
+  Delete bin/ and obj/ directories before publishing. Mutually exclusive with -NoBuild.
+
+.PARAMETER NoBuild
+  Skip dotnet publish and package using existing output in artifacts\publish-*.
+  Mutually exclusive with -Clean.
 
 .PARAMETER Install
   After packaging, call install-remote-agent.ps1 to install the package and start the service.
@@ -113,6 +117,8 @@ param(
 
     [switch] $Clean,
 
+    [switch] $NoBuild,
+
     [switch] $Install,
 
     [switch] $Force,
@@ -132,6 +138,7 @@ $RepoRoot = (Get-Item $PSScriptRoot).Parent.FullName
 # ── Validate mutually exclusive flags ────────────────────────────────────────
 if ($ServiceOnly -and $DesktopOnly) { Write-Error "-ServiceOnly and -DesktopOnly are mutually exclusive." }
 if ($DevCert -and $CertThumbprint)  { Write-Error "-DevCert and -CertThumbprint are mutually exclusive." }
+if ($Clean -and $NoBuild)           { Write-Error "-Clean and -NoBuild are mutually exclusive." }
 if (($BumpMajor.IsPresent + $BumpMinor.IsPresent + $BumpPatch.IsPresent) -gt 1) {
     Write-Error "-BumpMajor, -BumpMinor, and -BumpPatch are mutually exclusive."
 }
@@ -162,6 +169,7 @@ $params = @{
     WorkspaceRoot = $RepoRoot
     ConfigPath    = Join-Path $RepoRoot "msix.yml"
     Clean         = $Clean
+    NoBuild       = $NoBuild
     Force         = $Force
     Install       = $Install
 }

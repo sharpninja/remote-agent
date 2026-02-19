@@ -264,6 +264,7 @@ function New-MsixPackage {
         [string]      $CertThumbprint = '',
         [switch]      $DevCert,
         [switch]      $Clean,
+        [switch]      $NoBuild,
         [switch]      $Force,
         [switch]      $Install,
         [string]      $OutDir = ''
@@ -364,6 +365,9 @@ function New-MsixPackage {
     if ($DevCert -and $CertThumbprint) {
         Write-Error "$tag -DevCert and -CertThumbprint are mutually exclusive."
     }
+    if ($Clean -and $NoBuild) {
+        Write-Error "$tag -Clean and -NoBuild are mutually exclusive."
+    }
 
     # ── Version detection ─────────────────────────────────────────────────────
     if (-not $Version) {
@@ -431,22 +435,37 @@ function New-MsixPackage {
 
     if ($ServiceProject) {
         $ServicePub = Join-Path $OutDir 'publish-service'
-        Write-Host "$tag publishing service -> $ServicePub"
-        Invoke-Publish -ProjPath $ServiceProject['Path'] -Framework ($ServiceProject['Framework'] ?? 'net10.0') -OutPath $ServicePub -Extra $scFlags
+        if ($NoBuild) {
+            Write-Host "$tag skipping service build (-NoBuild), using: $ServicePub"
+            if (-not (Test-Path $ServicePub)) { throw "$tag -NoBuild specified but publish output not found: $ServicePub" }
+        } else {
+            Write-Host "$tag publishing service -> $ServicePub"
+            Invoke-Publish -ProjPath $ServiceProject['Path'] -Framework ($ServiceProject['Framework'] ?? 'net10.0') -OutPath $ServicePub -Extra $scFlags
+        }
 
         foreach ($pp in $PluginProjects) {
             $pOut = Join-Path $OutDir "publish-plugin-$([System.IO.Path]::GetFileNameWithoutExtension($pp['Path']))"
-            Write-Host "$tag publishing plugin -> $pOut"
-            Invoke-Publish -ProjPath $pp['Path'] -Framework ($pp['Framework'] ?? 'net10.0') -OutPath $pOut -Extra '--self-contained false'
             $pp['_Out']     = $pOut
             $pp['_DestSub'] = ($pp['DestSubDir'] ?? 'service\plugins') -replace '/', '\'
+            if ($NoBuild) {
+                Write-Host "$tag skipping plugin build (-NoBuild), using: $pOut"
+                if (-not (Test-Path $pOut)) { throw "$tag -NoBuild specified but plugin output not found: $pOut" }
+            } else {
+                Write-Host "$tag publishing plugin -> $pOut"
+                Invoke-Publish -ProjPath $pp['Path'] -Framework ($pp['Framework'] ?? 'net10.0') -OutPath $pOut -Extra '--self-contained false'
+            }
         }
     }
 
     if ($DesktopProject) {
         $DesktopPub = Join-Path $OutDir 'publish-desktop'
-        Write-Host "$tag publishing desktop -> $DesktopPub"
-        Invoke-Publish -ProjPath $DesktopProject['Path'] -Framework ($DesktopProject['Framework'] ?? 'net9.0') -OutPath $DesktopPub -Extra $scFlags
+        if ($NoBuild) {
+            Write-Host "$tag skipping desktop build (-NoBuild), using: $DesktopPub"
+            if (-not (Test-Path $DesktopPub)) { throw "$tag -NoBuild specified but publish output not found: $DesktopPub" }
+        } else {
+            Write-Host "$tag publishing desktop -> $DesktopPub"
+            Invoke-Publish -ProjPath $DesktopProject['Path'] -Framework ($DesktopProject['Framework'] ?? 'net9.0') -OutPath $DesktopPub -Extra $scFlags
+        }
     }
 
     # ── Assemble layout ───────────────────────────────────────────────────────
