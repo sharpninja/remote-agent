@@ -14,15 +14,15 @@ Coverage status values:
 | Requirement | Coverage | Tests |
 |---|---|---|
 | FR-1.1 | Covered | `HostBootstrapSmokeTests.*` (`tests/RemoteAgent.Service.IntegrationTests/HostBootstrapSmokeTests.cs`), `CheckLocalServerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/CheckLocalServerHandlerTests.cs`) |
-| FR-1.2 | Covered | `HostBootstrapSmokeTests.*` (`tests/RemoteAgent.Service.IntegrationTests/HostBootstrapSmokeTests.cs`), `ApplyLocalServerActionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/ApplyLocalServerActionHandlerTests.cs`) |
-| FR-1.3 | None | None |
-| FR-1.4 | None | None |
-| FR-1.5 | Covered | `StructuredLogServiceTests.*` (`tests/RemoteAgent.Service.Tests/StructuredLogServiceTests.cs`) |
+| FR-1.2 | Covered | `AgentGatewayServiceIntegrationTests_NoCommand.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_NoCommand.cs`), `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`), `HostBootstrapSmokeTests.*` (`tests/RemoteAgent.Service.IntegrationTests/HostBootstrapSmokeTests.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`), `ApplyLocalServerActionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/ApplyLocalServerActionHandlerTests.cs`) |
+| FR-1.3 | Covered | `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
+| FR-1.4 | Covered | `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
+| FR-1.5 | Covered | `StructuredLogServiceTests.*` (`tests/RemoteAgent.Service.Tests/StructuredLogServiceTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | FR-1.6 | None | None |
-| FR-2.1 | Covered | `SendDesktopMessageHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SendDesktopMessageHandlerTests.cs`) |
-| FR-2.2 | Covered | `SendDesktopMessageHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SendDesktopMessageHandlerTests.cs`) |
+| FR-2.1 | Covered | `SendDesktopMessageHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SendDesktopMessageHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
+| FR-2.2 | Covered | `SendDesktopMessageHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SendDesktopMessageHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
 | FR-2.3 | Covered | `MarkdownFormatTests.*` (`tests/RemoteAgent.App.Tests/MarkdownFormatTests.cs`), `ChatMessageTests.*` (`tests/RemoteAgent.App.Tests/ChatMessageTests.cs`) |
-| FR-2.4 | None | None |
+| FR-2.4 | Covered | `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`) |
 | FR-2.5 | None | None |
 | FR-2.6 | None | None |
 | FR-2.7 | None | None |
@@ -37,16 +37,16 @@ Coverage status values:
 | FR-5.3 | None | None |
 | FR-6.1 | None | None |
 | FR-6.2 | None | None |
-| FR-7.1 | None | None |
-| FR-7.2 | Covered | `ChatMessageTests.*` (`tests/RemoteAgent.App.Tests/ChatMessageTests.cs`) |
-| FR-8.1 | Covered | `PluginConfigurationServiceTests.*` (`tests/RemoteAgent.Service.Tests/PluginConfigurationServiceTests.cs`) |
-| FR-9.1 | None | None |
+| FR-7.1 | Covered | `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
+| FR-7.2 | Covered | `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`), `ChatMessageTests.*` (`tests/RemoteAgent.App.Tests/ChatMessageTests.cs`) |
+| FR-8.1 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`), `PluginConfigurationServiceTests.*` (`tests/RemoteAgent.Service.Tests/PluginConfigurationServiceTests.cs`) |
+| FR-9.1 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`) |
 | FR-9.2 | None | None |
 | FR-10.1 | None | None |
-| FR-11.1 | None | None |
-| FR-11.1.1 | None | None |
-| FR-11.1.2 | None | None |
-| FR-11.1.3 | None | None |
+| FR-11.1 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-11.1.1 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-11.1.2 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`) |
+| FR-11.1.3 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | FR-11.1.3.1 | None | None |
 | FR-11.1.3.2 | None | None |
 | FR-12.1 | Covered | `SetManagementSectionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SetManagementSectionHandlerTests.cs`), `OpenNewSessionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/OpenNewSessionHandlerTests.cs`), `ConnectionSettingsDialogViewModelTests.*` (`tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs`) |
@@ -55,13 +55,13 @@ Coverage status values:
 | FR-12.1.3 | None | None |
 | FR-12.1.4 | None | None |
 | FR-12.1.5 | None | None |
-| FR-12.2 | Covered | `ConnectionSettingsDialogViewModelTests.*` (`tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs`) |
+| FR-12.2 | Covered | `ConnectionSettingsDialogViewModelTests.*` (`tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | FR-12.3 | Covered | `TerminateDesktopSessionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/TerminateDesktopSessionHandlerTests.cs`) |
-| FR-12.4 | None | None |
-| FR-12.5 | Covered | `DeleteMcpServerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/DeleteMcpServerHandlerTests.cs`), `SavePluginsHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SavePluginsHandlerTests.cs`), `SaveAgentMcpMappingHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveAgentMcpMappingHandlerTests.cs`), `SaveMcpServerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveMcpServerHandlerTests.cs`), `RefreshMcpRegistryHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshMcpRegistryHandlerTests.cs`), `RefreshPluginsHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshPluginsHandlerTests.cs`) |
-| FR-12.6 | Covered | `SeedSessionContextHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SeedSessionContextHandlerTests.cs`), `DeletePromptTemplateHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/DeletePromptTemplateHandlerTests.cs`), `RefreshPromptTemplatesHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshPromptTemplatesHandlerTests.cs`), `SavePromptTemplateHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SavePromptTemplateHandlerTests.cs`) |
-| FR-12.7 | None | None |
-| FR-12.8 | None | None |
+| FR-12.4 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-12.5 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`), `DeleteMcpServerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/DeleteMcpServerHandlerTests.cs`), `SavePluginsHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SavePluginsHandlerTests.cs`), `SaveAgentMcpMappingHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveAgentMcpMappingHandlerTests.cs`), `SaveMcpServerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveMcpServerHandlerTests.cs`), `RefreshMcpRegistryHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshMcpRegistryHandlerTests.cs`), `RefreshPluginsHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshPluginsHandlerTests.cs`) |
+| FR-12.6 | Covered | `SeedSessionContextHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SeedSessionContextHandlerTests.cs`), `DeletePromptTemplateHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/DeletePromptTemplateHandlerTests.cs`), `RefreshPromptTemplatesHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshPromptTemplatesHandlerTests.cs`), `SavePromptTemplateHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SavePromptTemplateHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-12.7 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-12.8 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | FR-12.9 | Covered | `RemoveServerRegistrationHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RemoveServerRegistrationHandlerTests.cs`), `SaveServerRegistrationHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveServerRegistrationHandlerTests.cs`) |
 | FR-12.10 | None | None |
 | FR-12.11 | Covered | `ExpandStatusLogPanelHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/ExpandStatusLogPanelHandlerTests.cs`), `StartLogMonitoringHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/StartLogMonitoringHandlerTests.cs`) |
@@ -71,21 +71,21 @@ Coverage status values:
 | FR-12.12.3 | None | None |
 | FR-12.12.4 | None | None |
 | FR-12.12.5 | None | None |
-| FR-13.1 | Covered | `RefreshOpenSessionsHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshOpenSessionsHandlerTests.cs`) |
-| FR-13.2 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `RefreshSecurityDataHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshSecurityDataHandlerTests.cs`) |
-| FR-13.3 | Covered | `TerminateDesktopSessionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/TerminateDesktopSessionHandlerTests.cs`), `TerminateOpenServerSessionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/TerminateOpenServerSessionHandlerTests.cs`) |
-| FR-13.4 | Covered | `BanPeerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/BanPeerHandlerTests.cs`), `UnbanPeerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/UnbanPeerHandlerTests.cs`), `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `RefreshSecurityDataHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshSecurityDataHandlerTests.cs`) |
-| FR-13.5 | Covered | `DeleteAuthUserHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/DeleteAuthUserHandlerTests.cs`), `RefreshAuthUsersHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshAuthUsersHandlerTests.cs`), `SaveAuthUserHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveAuthUserHandlerTests.cs`) |
-| FR-13.6 | None | None |
-| FR-13.7 | Covered | `CheckSessionCapacityHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/CheckSessionCapacityHandlerTests.cs`) |
-| FR-13.8 | Covered | `CheckSessionCapacityHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/CheckSessionCapacityHandlerTests.cs`) |
-| FR-14.1 | Covered | `PromptTemplateServiceTests.*` (`tests/RemoteAgent.Service.Tests/PromptTemplateServiceTests.cs`) |
+| FR-13.1 | Covered | `RefreshOpenSessionsHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshOpenSessionsHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.2 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `RefreshSecurityDataHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshSecurityDataHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.3 | Covered | `TerminateDesktopSessionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/TerminateDesktopSessionHandlerTests.cs`), `TerminateOpenServerSessionHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/TerminateOpenServerSessionHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.4 | Covered | `BanPeerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/BanPeerHandlerTests.cs`), `UnbanPeerHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/UnbanPeerHandlerTests.cs`), `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `RefreshSecurityDataHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshSecurityDataHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.5 | Covered | `DeleteAuthUserHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/DeleteAuthUserHandlerTests.cs`), `RefreshAuthUsersHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/RefreshAuthUsersHandlerTests.cs`), `SaveAuthUserHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/SaveAuthUserHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.6 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.7 | Covered | `CheckSessionCapacityHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/CheckSessionCapacityHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-13.8 | Covered | `CheckSessionCapacityHandlerTests.*` (`tests/RemoteAgent.Desktop.UiTests/Handlers/CheckSessionCapacityHandlerTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-14.1 | Covered | `PromptTemplateServiceTests.*` (`tests/RemoteAgent.Service.Tests/PromptTemplateServiceTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | FR-14.2 | Covered | `PromptTemplateServiceTests.*` (`tests/RemoteAgent.Service.Tests/PromptTemplateServiceTests.cs`), `PromptTemplateEngineTests.*` (`tests/RemoteAgent.App.Tests/PromptTemplateEngineTests.cs`) |
-| FR-14.3 | None | None |
-| FR-14.4 | None | None |
-| FR-15.1 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
+| FR-14.3 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-14.4 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| FR-15.1 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | FR-15.2 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
-| FR-16.1 | None | None |
+| FR-16.1 | Covered | `AgentGatewayServiceIntegrationTests_NoCommand.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_NoCommand.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 
 ## Technical Requirements (TR)
 
@@ -100,21 +100,21 @@ Coverage status values:
 | TR-2.1.1 | None | None |
 | TR-2.1.2 | None | None |
 | TR-2.2 | Covered | `HostBootstrapSmokeTests.*` (`tests/RemoteAgent.Service.IntegrationTests/HostBootstrapSmokeTests.cs`), `AgentOptionsTests.*` (`tests/RemoteAgent.Service.Tests/AgentOptionsTests.cs`) |
-| TR-2.3 | None | None |
+| TR-2.3 | Covered | `AgentGatewayServiceIntegrationTests_NoCommand.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_NoCommand.cs`), `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
 | TR-2.4 | None | None |
 | TR-3.1 | Covered | `HostBootstrapSmokeTests.*` (`tests/RemoteAgent.Service.IntegrationTests/HostBootstrapSmokeTests.cs`), `AgentOptionsTests.*` (`tests/RemoteAgent.Service.Tests/AgentOptionsTests.cs`) |
-| TR-3.2 | Covered | `AgentOptionsTests.*` (`tests/RemoteAgent.Service.Tests/AgentOptionsTests.cs`) |
-| TR-3.3 | None | None |
-| TR-3.4 | None | None |
+| TR-3.2 | Covered | `AgentGatewayServiceIntegrationTests_NoCommand.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_NoCommand.cs`), `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`), `AgentOptionsTests.*` (`tests/RemoteAgent.Service.Tests/AgentOptionsTests.cs`) |
+| TR-3.3 | Covered | `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
+| TR-3.4 | Covered | `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`), `AgentGatewayServiceIntegrationTests_Echo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Echo.cs`) |
 | TR-3.5 | None | None |
 | TR-3.6 | Covered | `LiteDbLocalStorageTests.*` (`tests/RemoteAgent.Service.Tests/LiteDbLocalStorageTests.cs`), `StructuredLogServiceTests.*` (`tests/RemoteAgent.Service.Tests/StructuredLogServiceTests.cs`) |
 | TR-3.7 | None | None |
 | TR-3.8 | None | None |
 | TR-4.1 | None | None |
-| TR-4.2 | None | None |
-| TR-4.3 | None | None |
+| TR-4.2 | Covered | `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`) |
+| TR-4.3 | Covered | `AgentGatewayServiceIntegrationTests_NoCommand.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_NoCommand.cs`), `AgentGatewayServiceIntegrationTests_Stop.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_Stop.cs`) |
 | TR-4.4 | None | None |
-| TR-4.5 | None | None |
+| TR-4.5 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`), `AgentGatewayServiceIntegrationTests_CorrelationId.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_CorrelationId.cs`) |
 | TR-5.1 | Covered | `ChatMessageTests.*` (`tests/RemoteAgent.App.Tests/ChatMessageTests.cs`) |
 | TR-5.2 | None | None |
 | TR-5.3 | Covered | `MarkdownFormatTests.*` (`tests/RemoteAgent.App.Tests/MarkdownFormatTests.cs`), `ChatMessageTests.*` (`tests/RemoteAgent.App.Tests/ChatMessageTests.cs`) |
@@ -136,7 +136,7 @@ Coverage status values:
 | TR-7.3.5 | None | None |
 | TR-8.1 | None | None |
 | TR-8.2 | None | None |
-| TR-8.3 | None | None |
+| TR-8.3 | Covered | `AgentGatewayServiceIntegrationTests_NoCommand.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_NoCommand.cs`) |
 | TR-8.4 | None | None |
 | TR-8.4.1 | None | None |
 | TR-8.5 | None | None |
@@ -144,23 +144,23 @@ Coverage status values:
 | TR-9.1 | None | None |
 | TR-9.2 | None | None |
 | TR-9.3 | None | None |
-| TR-10.1 | Covered | `PluginConfigurationServiceTests.*` (`tests/RemoteAgent.Service.Tests/PluginConfigurationServiceTests.cs`) |
+| TR-10.1 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`), `PluginConfigurationServiceTests.*` (`tests/RemoteAgent.Service.Tests/PluginConfigurationServiceTests.cs`) |
 | TR-10.2 | Covered | `PluginConfigurationServiceTests.*` (`tests/RemoteAgent.Service.Tests/PluginConfigurationServiceTests.cs`) |
 | TR-11.1 | Covered | `LiteDbLocalStorageTests.*` (`tests/RemoteAgent.Service.Tests/LiteDbLocalStorageTests.cs`) |
 | TR-11.2 | None | None |
 | TR-11.3 | None | None |
-| TR-12.1 | None | None |
-| TR-12.1.1 | None | None |
+| TR-12.1 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-12.1.1 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | TR-12.1.2 | None | None |
 | TR-12.1.3 | None | None |
-| TR-12.2 | None | None |
+| TR-12.2 | Covered | `AgentGatewayServiceIntegrationTests_GetServerInfo.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_GetServerInfo.cs`) |
 | TR-12.2.1 | None | None |
 | TR-12.2.2 | None | None |
 | TR-13.1 | Covered | `StructuredLogServiceTests.*` (`tests/RemoteAgent.Service.Tests/StructuredLogServiceTests.cs`) |
 | TR-13.2 | Covered | `StructuredLogServiceTests.*` (`tests/RemoteAgent.Service.Tests/StructuredLogServiceTests.cs`) |
-| TR-13.3 | None | None |
-| TR-13.4 | None | None |
-| TR-13.5 | None | None |
+| TR-13.3 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-13.4 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-13.5 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | TR-13.6 | None | None |
 | TR-14.1 | None | None |
 | TR-14.1.0 | None | None |
@@ -178,16 +178,16 @@ Coverage status values:
 | TR-14.3 | None | None |
 | TR-14.4 | None | None |
 | TR-14.5 | None | None |
-| TR-15.1 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
-| TR-15.2 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
-| TR-15.3 | None | None |
-| TR-15.4 | None | None |
+| TR-15.1 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-15.2 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-15.3 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-15.4 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | TR-15.5 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
 | TR-15.6 | Covered | `ConnectionProtectionServiceTests.*` (`tests/RemoteAgent.Service.Tests/ConnectionProtectionServiceTests.cs`) |
-| TR-15.7 | None | None |
-| TR-15.8 | None | None |
-| TR-15.9 | None | None |
-| TR-15.10 | None | None |
+| TR-15.7 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-15.8 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-15.9 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
+| TR-15.10 | Covered | `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | TR-16.1 | None | None |
 | TR-16.2 | None | None |
 | TR-16.3 | None | None |
@@ -195,7 +195,7 @@ Coverage status values:
 | TR-16.5 | None | None |
 | TR-16.6 | None | None |
 | TR-16.7 | None | None |
-| TR-17.1 | Covered | `PromptTemplateServiceTests.*` (`tests/RemoteAgent.Service.Tests/PromptTemplateServiceTests.cs`) |
+| TR-17.1 | Covered | `PromptTemplateServiceTests.*` (`tests/RemoteAgent.Service.Tests/PromptTemplateServiceTests.cs`), `AgentGatewayServiceIntegrationTests_ManagementApis.*` (`tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs`) |
 | TR-17.2 | Covered | `PromptTemplateServiceTests.*` (`tests/RemoteAgent.Service.Tests/PromptTemplateServiceTests.cs`) |
 | TR-17.3 | Covered | `PromptTemplateEngineTests.*` (`tests/RemoteAgent.App.Tests/PromptTemplateEngineTests.cs`) |
 | TR-17.4 | None | None |

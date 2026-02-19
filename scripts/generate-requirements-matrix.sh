@@ -36,11 +36,10 @@ scan_test_files() {
     local req_prefix="$1"
     local output_map="$2"
     
-    # Find all test files
-    find "$TESTS_DIR" -name "*Tests.cs" -type f | while read -r test_file; do
+    # Find all test files and process them
+    local test_files=$(find "$TESTS_DIR" -name "*Tests*.cs" -type f)
+    for test_file in $test_files; do
         local rel_path="${test_file#$REPO_ROOT/}"
-        local class_name=""
-        local class_requirements=()
         
         # Read file with awk to better handle state
         awk -v prefix="$req_prefix" -v outfile="$output_map" -v filepath="$rel_path" '
