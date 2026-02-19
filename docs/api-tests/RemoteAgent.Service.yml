@@ -1,0 +1,35 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service
+  commentId: N:RemoteAgent.Service
+  id: RemoteAgent.Service
+  children:
+  - RemoteAgent.Service.IntegrationTests
+  - RemoteAgent.Service.Tests
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Service
+  nameWithType: RemoteAgent.Service
+  fullName: RemoteAgent.Service
+  type: Namespace
+  summary: gRPC service namespace — integration tests and unit tests.
+references:
+- uid: RemoteAgent
+  commentId: N:RemoteAgent
+  href: RemoteAgent.html
+  name: RemoteAgent
+  nameWithType: RemoteAgent
+  fullName: RemoteAgent
+- uid: RemoteAgent.Service.IntegrationTests
+  commentId: N:RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.Service.IntegrationTests.html
+  name: RemoteAgent.Service.IntegrationTests
+  nameWithType: RemoteAgent.Service.IntegrationTests
+  fullName: RemoteAgent.Service.IntegrationTests
+- uid: RemoteAgent.Service.Tests
+  commentId: N:RemoteAgent.Service.Tests
+  href: RemoteAgent.Service.Tests.html
+  name: RemoteAgent.Service.Tests
+  nameWithType: RemoteAgent.Service.Tests
+  fullName: RemoteAgent.Service.Tests
