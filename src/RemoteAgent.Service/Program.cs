@@ -42,11 +42,16 @@ public partial class Program
         // applicationUrl — cannot override the platform-specific port.
         var platformKey = OperatingSystem.IsWindows() ? "PlatformUrls:Windows" : "PlatformUrls:Linux";
         var platformUrl = builder.Configuration[platformKey];
+        int webPort = 0;
         if (!string.IsNullOrWhiteSpace(platformUrl) && Uri.TryCreate(platformUrl, UriKind.Absolute, out var listenUri))
         {
             var listenPort = listenUri.Port;
+            webPort = int.Parse("1" + listenPort);   // e.g. 5244 → 15244
             builder.WebHost.ConfigureKestrel(options =>
-                options.ListenAnyIP(listenPort, o => o.Protocols = HttpProtocols.Http2));
+            {
+                options.ListenAnyIP(listenPort, o => o.Protocols = HttpProtocols.Http2);
+                options.ListenAnyIP(webPort,    o => o.Protocols = HttpProtocols.Http1AndHttp2);
+            });
         }
 
         ConfigureServices(builder.Services, builder.Configuration);
@@ -63,7 +68,7 @@ public partial class Program
             throw;
         }
 
-        ConfigureEndpoints(app);
+        ConfigureEndpoints(app, webPort);
 
         // Write a success event once the host is fully started and listening.
         app.Lifetime.ApplicationStarted.Register(() =>
@@ -186,19 +191,24 @@ public partial class Program
         services.AddGrpc();
     }
 
-    public static void ConfigureEndpoints(IEndpointRouteBuilder endpoints)
+    public static void ConfigureEndpoints(IEndpointRouteBuilder endpoints, int webPort = 0)
     {
         endpoints.MapGrpcService<AgentGatewayService>();
         endpoints.MapGet("/", () => "RemoteAgent gRPC service. Use the Android app to connect.");
 
         // ── Device-pairing web flow ────────────────────────────────────────────
-        endpoints.MapGet("/pair", (IOptions<AgentOptions> options) =>
+        // Pairing endpoints are restricted to the HTTP/1+2 web port (e.g. 15244/15243)
+        // so gRPC traffic on the primary port is not affected.
+        var pairingHost = webPort > 0 ? $"*:{webPort}" : null;
+
+        var getLogin = endpoints.MapGet("/pair", (IOptions<AgentOptions> options) =>
         {
             var noPairingUsers = options.Value.PairingUsers.Count == 0;
             return Results.Content(PairingHtml.LoginPage(noPairingUsers: noPairingUsers), "text/html");
         });
+        if (pairingHost is not null) getLogin.RequireHost(pairingHost);
 
-        endpoints.MapPost("/pair", async (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        var postLogin = endpoints.MapPost("/pair", async (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
         {
             var form = await context.Request.ReadFormAsync();
             var username = form["username"].ToString();
@@ -219,8 +229,9 @@ public partial class Program
             });
             return Results.Redirect("/pair/key");
         }).DisableAntiforgery();
+        if (pairingHost is not null) postLogin.RequireHost(pairingHost);
 
-        endpoints.MapGet("/pair/key", (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        var getKey = endpoints.MapGet("/pair/key", (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
         {
             var token = context.Request.Cookies["ra_pair"];
             if (!sessions.Validate(token))
@@ -235,6 +246,7 @@ public partial class Program
 
             return Results.Content(PairingHtml.KeyPage(apiKey, deepLink), "text/html");
         });
+        if (pairingHost is not null) getKey.RequireHost(pairingHost);
     }
 
     private static bool VerifyPairingPassword(string plaintext, string sha256Hex)
