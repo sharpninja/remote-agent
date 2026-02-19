@@ -21,7 +21,7 @@ public partial class QrScannerPage : ContentPage
 
     public Task<string?> ResultTask => _tcs.Task;
 
-    private void OnBarcodesDetected(object sender, BarcodeDetectionEventArgs e)
+    private void OnBarcodesDetected(object? sender, BarcodeDetectionEventArgs e)
     {
         var value = e.Results.FirstOrDefault()?.Value;
         if (value == null || _handled) return;
@@ -33,7 +33,7 @@ public partial class QrScannerPage : ContentPage
         });
     }
 
-    private async void OnCancelClicked(object sender, EventArgs e)
+    private async void OnCancelClicked(object? sender, EventArgs e)
     {
         _handled = true;
         _tcs.TrySetResult(null);

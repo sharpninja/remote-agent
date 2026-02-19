@@ -12,14 +12,13 @@
                                         VerticalOptions="Fill" />
 
         <!-- Overlay: aim crosshair hint -->
-        <Frame BackgroundColor="Transparent"
-               BorderColor="White"
-               CornerRadius="12"
+        <Border BackgroundColor="Transparent"
+               Stroke="White"
+               StrokeShape="RoundRectangle 12"
                WidthRequest="220"
                HeightRequest="220"
                HorizontalOptions="Center"
-               VerticalOptions="Center"
-               IsClippedToBounds="False" />
+               VerticalOptions="Center" />
 
         <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,48" Spacing="12">
             <Label Text="Point at a Remote Agent pairing QR code"
