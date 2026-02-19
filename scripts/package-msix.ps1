@@ -71,6 +71,18 @@
 .PARAMETER DesktopOnly
   Build and bundle only the desktop component; omit the service and Windows service extension.
 
+.PARAMETER BumpMajor
+  Increment the major component of next-version in GitVersion.yml before building
+  (resets minor and patch to 0). Mutually exclusive with -BumpMinor and -BumpPatch.
+
+.PARAMETER BumpMinor
+  Increment the minor component of next-version in GitVersion.yml before building
+  (resets patch to 0). Mutually exclusive with -BumpMajor and -BumpPatch.
+
+.PARAMETER BumpPatch
+  Increment the patch component of next-version in GitVersion.yml before building.
+  Mutually exclusive with -BumpMajor and -BumpMinor.
+
 .PARAMETER OutDir
   Output directory for the .msix file. Default: <repo-root>\artifacts\.
 
@@ -105,6 +117,12 @@ param(
 
     [switch] $Force,
 
+    [switch] $BumpMajor,
+
+    [switch] $BumpMinor,
+
+    [switch] $BumpPatch,
+
     [string] $OutDir = ""
 )
 
@@ -120,9 +138,33 @@ if ($ServiceOnly -and $DesktopOnly) {
 if ($DevCert -and $CertThumbprint) {
     Write-Error "-DevCert and -CertThumbprint are mutually exclusive."
 }
+if (($BumpMajor.IsPresent + $BumpMinor.IsPresent + $BumpPatch.IsPresent) -gt 1) {
+    Write-Error "-BumpMajor, -BumpMinor, and -BumpPatch are mutually exclusive."
+}
 
 $BuildService = -not $DesktopOnly
 $BuildDesktop = -not $ServiceOnly
+
+# ── Version bump ──────────────────────────────────────────────────────────────
+if ($BumpMajor -or $BumpMinor -or $BumpPatch) {
+    $gvYml  = Join-Path $RepoRoot "GitVersion.yml"
+    if (-not (Test-Path $gvYml)) {
+        Write-Error "GitVersion.yml not found at $gvYml — cannot bump version."
+    }
+    $current = (Get-Content $gvYml | Select-String '^\s*next-version:\s*(.+)').Matches[0].Groups[1].Value.Trim()
+    $parts = $current -split '\.'
+    if ($parts.Count -lt 3 -or ($parts | Where-Object { $_ -notmatch '^\d+$' })) {
+        Write-Error "Cannot parse next-version '$current' in GitVersion.yml."
+    }
+    [int]$maj = $parts[0]; [int]$min = $parts[1]; [int]$pat = $parts[2]
+    if ($BumpMajor) { $maj++; $min = 0; $pat = 0 }
+    elseif ($BumpMinor) { $min++; $pat = 0 }
+    else               { $pat++ }
+    $newVer = "$maj.$min.$pat"
+    (Get-Content $gvYml -Raw) -replace '(?m)^(next-version:\s*).*', "`${1}$newVer" |
+        Set-Content $gvYml -Encoding UTF8 -NoNewline
+    Write-Host "[package-msix] bumped next-version: $current -> $newVer"
+}
 
 # ── Version detection ─────────────────────────────────────────────────────────
 if (-not $Version) {
