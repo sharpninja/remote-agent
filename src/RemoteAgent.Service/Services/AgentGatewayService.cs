@@ -352,6 +352,13 @@ public class AgentGatewayService(
                 detailsJson: null);
         }
 
+        Log(
+            $"Connection opened from {connectionPeer}. " +
+            $"Session log: {logPath} | " +
+            $"Structured log: {structuredLogs.FilePath} | " +
+            $"Database: {localStorage.DbPath}",
+            eventType: "connection_opened");
+
         IAgentSession? agentSession = null;
         string activeAgentId = "";
         var stopRequested = false;

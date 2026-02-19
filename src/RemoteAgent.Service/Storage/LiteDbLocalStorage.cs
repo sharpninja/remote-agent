@@ -11,6 +11,8 @@ public sealed class LiteDbLocalStorage : ILocalStorage
     private readonly string _dbPath;
     private const string CollectionName = "request_results";
 
+    public string DbPath => _dbPath;
+
     /// <summary>Creates storage using <see cref="AgentOptions.DataDirectory"/> (defaults to <c>./data</c>). Database file: <c>remote-agent.db</c>.</summary>
     public LiteDbLocalStorage(IOptions<AgentOptions> options)
     {
