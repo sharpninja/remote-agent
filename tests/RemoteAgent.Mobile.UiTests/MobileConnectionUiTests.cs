@@ -51,17 +51,64 @@ public sealed class MobileConnectionUiTests : IDisposable
     }
 
     [SkippableFact]
-    public void ConnectionView_PortField_ShouldDefaultToExpectedPort()
+    public void ConnectionView_PortPicker_ShouldDefaultToWindowsPort()
     {
         // FR-2.4: default endpoint configuration is prefilled for quick connection.
         Skip.IfNot(IsConfigured(), "Set MOBILE_APPIUM_SERVER_URL and MOBILE_APP_PATH (and device settings) to run mobile UI tests.");
         EnsureDriver();
 
         _driver.Should().NotBeNull();
-        var portInput = FindByAutomationId("mobile_connect_port");
-        var value = portInput.Text;
+        var portPicker = FindByAutomationId("mobile_connect_port");
+        var value = portPicker.Text;
         value.Should().NotBeNullOrWhiteSpace();
-        value.Should().Contain("5243");
+        value.Should().Be("5244", "5244 is the Windows service port and the expected default");
+    }
+
+    [SkippableFact]
+    public void ConnectionView_PortPicker_ShouldNotBeAnEditableTextField()
+    {
+        // Enforces that the port control is a Picker (combo box), not a free-text Entry.
+        // On Android, Entry renders as android.widget.EditText; Picker renders as a non-editable view.
+        Skip.IfNot(IsConfigured(), "Set MOBILE_APPIUM_SERVER_URL and MOBILE_APP_PATH (and device settings) to run mobile UI tests.");
+        EnsureDriver();
+
+        _driver.Should().NotBeNull();
+        var portPicker = FindByAutomationId("mobile_connect_port");
+        var className = portPicker.GetAttribute("className") ?? "";
+        className.Should().NotBe("android.widget.EditText",
+            "the port control must be a Picker (combo box), not a free-text Entry, to restrict input to known port values");
+    }
+
+    [SkippableFact]
+    public void ConnectionView_PortPicker_ShouldExposeWindowsAndLinuxPorts()
+    {
+        // Verifies the picker drop-down contains both well-known ports.
+        Skip.IfNot(IsConfigured(), "Set MOBILE_APPIUM_SERVER_URL and MOBILE_APP_PATH (and device settings) to run mobile UI tests.");
+        EnsureDriver();
+
+        _driver.Should().NotBeNull();
+
+        // Open the picker by tapping it.
+        FindByAutomationId("mobile_connect_port").Click();
+
+        // Wait briefly for the Android dialog to appear then search for both port labels.
+        Thread.Sleep(500);
+
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        IWebElement? windows5244 = null;
+        IWebElement? linux5243   = null;
+        while (!cts.IsCancellationRequested && (windows5244 is null || linux5243 is null))
+        {
+            try { windows5244 = _driver!.FindElement(MobileBy.XPath("//*[@text='5244']")); } catch { /* not yet visible */ }
+            try { linux5243   = _driver!.FindElement(MobileBy.XPath("//*[@text='5243']")); } catch { /* not yet visible */ }
+            if (windows5244 is null || linux5243 is null) Thread.Sleep(200);
+        }
+
+        windows5244.Should().NotBeNull("5244 (Windows service port) must appear as a picker option");
+        linux5243.Should().NotBeNull("5243 (Linux/Docker service port) must appear as a picker option");
+
+        // Dismiss the dialog without changing selection.
+        try { _driver!.PressKeyCode(4); /* BACK */ } catch { /* ignore */ }
     }
 
     private IWebElement FindByAutomationId(string id)

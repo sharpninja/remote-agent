@@ -25,7 +25,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
 
     private string _editDisplayName = "";
     private string _editHost = "127.0.0.1";
-    private string _editPort = "5243";
+    private string _editPort = ServiceDefaults.PortString;
     private string _editApiKey = "";
     private string _localServerActionLabel = "Check Local Server";
     private string _localServerStatusText = "Local server status not checked.";
@@ -453,7 +453,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             {
                 DisplayName = "Local Server",
                 Host = "127.0.0.1",
-                Port = 5243,
+                Port = ServiceDefaults.Port,
                 ApiKey = ""
             });
             Servers.Add(created);
@@ -502,7 +502,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     {
         EditDisplayName = "";
         EditHost = "127.0.0.1";
-        EditPort = "5243";
+        EditPort = ServiceDefaults.PortString;
         EditApiKey = "";
         StatusText = "New server draft ready.";
     }

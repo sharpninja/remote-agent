@@ -21,7 +21,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
     private readonly Dictionary<DesktopSessionViewModel, (Action<RemoteAgent.App.Services.ChatMessage> OnMessage, Action OnConnectionStateChanged)> _sessionEventHandlers = [];
     private DesktopSessionViewModel? _selectedSession;
     private string _host = "127.0.0.1";
-    private string _port = "5243";
+    private string _port = ServiceDefaults.PortString;
     private string _apiKey = "";
     private string _perRequestContext = "";
     private string _selectedConnectionMode = "server";

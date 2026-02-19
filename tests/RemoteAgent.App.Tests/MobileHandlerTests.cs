@@ -25,7 +25,7 @@ namespace RemoteAgent.App.Tests;
 public sealed class MobileHandlerTests
 {
     // -------------------------------------------------------------------------
-    // Stubs
+    // Stubs (internal so PortPickerViewModelTests can reuse them)
     // -------------------------------------------------------------------------
 
     private sealed class StubGateway : IAgentGatewayClient
@@ -195,6 +195,8 @@ public sealed class MobileHandlerTests
     // -------------------------------------------------------------------------
     // Workspace factory
     // -------------------------------------------------------------------------
+
+    internal static MainPageViewModel CreateDefaultViewModel() => CreateWorkspace();
 
     private static MainPageViewModel CreateWorkspace(
         StubGateway? gateway = null,

@@ -11,7 +11,7 @@ namespace RemoteAgent.Desktop.ViewModels;
 public sealed class ConnectionSettingsDialogViewModel : INotifyPropertyChanged
 {
     private string _host = "";
-    private string _port = "5243";
+    private string _port = ServiceDefaults.PortString;
     private string _selectedConnectionMode = "";
     private string _selectedAgentId = "";
     private string _apiKey = "";
