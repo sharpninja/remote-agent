@@ -1,0 +1,46 @@
+# msix.yml — MSIX package configuration for Remote Agent
+# Used by the MsixTools PowerShell module (scripts/MsixTools).
+#
+# Usage:
+#   .\scripts\package-msix.ps1 [-Clean] [-DevCert] [-Force] [-Install]
+#   .\scripts\package-msix.ps1 -BumpPatch -Clean -Force -Install
+#
+# Any value here can be overridden by passing the corresponding parameter
+# directly to package-msix.ps1 or New-MsixPackage.
+
+package:
+  name: RemoteAgent
+  displayName: Remote Agent
+  publisher: CN=RemoteAgent Dev
+
+service:
+  path: src/RemoteAgent.Service/RemoteAgent.Service.csproj
+  framework: net10.0
+  serviceName: RemoteAgentService
+  subDir: service
+  startAccount: localSystem
+  startupType: auto
+
+desktop:
+  path: src/RemoteAgent.Desktop/RemoteAgent.Desktop.csproj
+  framework: net9.0
+  subDir: desktop
+  displayName: Remote Agent Desktop
+  appId: RemoteAgentApp
+  processName: RemoteAgent.Desktop   # process name to kill before update
+
+plugins:
+  - path: src/RemoteAgent.Plugins.Ollama/RemoteAgent.Plugins.Ollama.csproj
+    framework: net10.0
+    destSubDir: service/plugins
+
+build:
+  configuration: Release
+  rid: win-x64
+  selfContained: true
+
+output:
+  dir: artifacts
+
+icons:
+  svg: src/RemoteAgent.Desktop/Assets/AppIcon/appicon.svg
