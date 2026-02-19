@@ -62,6 +62,9 @@ public sealed class MainWindowUiTests
         window.FindControl<Button>("ApplyLocalServerActionButton").Should().NotBeNull();
         window.FindControl<NavigationView>("ManagementNavigationView").Should().NotBeNull();
 
+        // Status log header buttons (always present in MainWindow AXAML)
+        window.FindControl<Button>("StatusLogOpenLogsFolderButton").Should().NotBeNull();
+
         // ServerSetup section (default)
         window.FindControlDeep<ComboBox>("ServerSelectorComboBox").Should().NotBeNull();
         window.FindControlDeep<Button>("NewServerButton").Should().NotBeNull();

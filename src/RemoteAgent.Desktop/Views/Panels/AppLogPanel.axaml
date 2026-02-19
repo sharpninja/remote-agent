@@ -34,10 +34,7 @@
               Margin="0,0,4,0">Save as CSV</Button>
       <Button x:Name="AppLogOpenFolderButton"
               Command="{Binding AppLog.OpenLogsFolderCommand}">
-        <StackPanel Orientation="Horizontal" Spacing="4">
-          <fa:FontIcon Glyph="&#xE8B7;" />
-          <TextBlock Text="Open Logs Folder" />
-        </StackPanel>
+        <fa:FontIcon Glyph="&#xED25;" />
       </Button>
     </WrapPanel>
     <TextBlock Grid.Row="4"

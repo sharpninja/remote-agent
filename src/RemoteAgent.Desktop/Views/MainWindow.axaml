@@ -175,18 +175,18 @@
           <Button DockPanel.Dock="Right"
                   Padding="6,2"
                   Command="{Binding CollapseStatusLogCommand}">
-            <StackPanel Orientation="Horizontal" Spacing="4">
-              <fa:FontIcon Glyph="&#xE711;" />
-              <TextBlock Text="Close" />
-            </StackPanel>
+            <fa:FontIcon Glyph="&#xE711;" />
           </Button>
           <Button DockPanel.Dock="Right"
                   Padding="6,2"
                   Command="{Binding CopyStatusLogCommand}">
-            <StackPanel Orientation="Horizontal" Spacing="4">
-              <fa:FontIcon Glyph="&#xE8C8;" />
-              <TextBlock Text="Copy as Markdown" />
-            </StackPanel>
+            <fa:FontIcon Glyph="&#xE8C8;" />
+          </Button>
+          <Button DockPanel.Dock="Right"
+                  Padding="6,2"
+                  x:Name="StatusLogOpenLogsFolderButton"
+                  Command="{Binding AppLog.OpenLogsFolderCommand}">
+            <fa:FontIcon Glyph="&#xED25;" />
           </Button>
         </DockPanel>
         <Border Grid.Row="1"
