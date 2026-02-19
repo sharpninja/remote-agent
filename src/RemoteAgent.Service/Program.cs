@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,10 +32,17 @@ public partial class Program
         });
 
         // Select the listen URL for the current platform from appsettings.json PlatformUrls.
+        // Use ConfigureKestrel (explicit Listen* call) rather than UseUrls so that the
+        // ASPNETCORE_URLS environment variable — set by 'dotnet run' from launchSettings.json
+        // applicationUrl — cannot override the platform-specific port.
         var platformKey = OperatingSystem.IsWindows() ? "PlatformUrls:Windows" : "PlatformUrls:Linux";
         var platformUrl = builder.Configuration[platformKey];
-        if (!string.IsNullOrWhiteSpace(platformUrl))
-            builder.WebHost.UseUrls(platformUrl);
+        if (!string.IsNullOrWhiteSpace(platformUrl) && Uri.TryCreate(platformUrl, UriKind.Absolute, out var listenUri))
+        {
+            var listenPort = listenUri.Port;
+            builder.WebHost.ConfigureKestrel(options =>
+                options.ListenAnyIP(listenPort, o => o.Protocols = HttpProtocols.Http1AndHttp2));
+        }
 
         ConfigureServices(builder.Services, builder.Configuration);
 
@@ -351,7 +359,7 @@ public partial class Program
             var apiKey = options.Value.ApiKey?.Trim() ?? "";
             var host   = context.Request.Host.Host;
             var port   = context.Request.Host.Port
-                             ?? (context.Request.IsHttps ? 443 : 5243);
+                             ?? (context.Request.IsHttps ? 443 : (OperatingSystem.IsWindows() ? 5244 : 5243));
             var deepLink = $"remoteagent://pair?key={Uri.EscapeDataString(apiKey)}" +
                            $"&host={Uri.EscapeDataString(host)}&port={port}";
 
