@@ -1,0 +1,28 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Plugins
+  commentId: N:RemoteAgent.Plugins
+  id: RemoteAgent.Plugins
+  children:
+  - RemoteAgent.Plugins.Ollama
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Plugins
+  nameWithType: RemoteAgent.Plugins
+  fullName: RemoteAgent.Plugins
+  type: Namespace
+  summary: Agent runner plugin namespace — extensible CLI agent integrations (e.g. Ollama).
+references:
+- uid: RemoteAgent.Plugins.Ollama
+  commentId: N:RemoteAgent.Plugins.Ollama
+  href: RemoteAgent.Plugins.Ollama.html
+  name: RemoteAgent.Plugins.Ollama
+  nameWithType: RemoteAgent.Plugins.Ollama
+  fullName: RemoteAgent.Plugins.Ollama
+- uid: RemoteAgent
+  commentId: N:RemoteAgent
+  href: RemoteAgent.html
+  name: RemoteAgent
+  nameWithType: RemoteAgent
+  fullName: RemoteAgent

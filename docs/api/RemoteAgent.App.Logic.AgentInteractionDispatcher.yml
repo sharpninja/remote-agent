@@ -1,0 +1,679 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher
+  commentId: T:RemoteAgent.App.Logic.AgentInteractionDispatcher
+  id: AgentInteractionDispatcher
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: AgentInteractionDispatcher
+  nameWithType: AgentInteractionDispatcher
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentInteraction.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentInteractionDispatcher
+    path: ../src/RemoteAgent.App.Logic/AgentInteraction.cs
+    startLine: 39
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Shared dispatcher that applies interaction protocol messages to a concrete session.
+  example: []
+  syntax:
+    content: public static class AgentInteractionDispatcher
+    content.vb: Public Module AgentInteractionDispatcher
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.Threading.CancellationToken)
+  id: TryIssueRequestContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentInteractionDispatcher
+  langs:
+  - csharp
+  - vb
+  name: TryIssueRequestContextAsync(IAgentInteractionSession?, string?, CancellationToken)
+  nameWithType: AgentInteractionDispatcher.TryIssueRequestContextAsync(IAgentInteractionSession?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentInteraction.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryIssueRequestContextAsync
+    path: ../src/RemoteAgent.App.Logic/AgentInteraction.cs
+    startLine: 41
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public static Task<bool> TryIssueRequestContextAsync(IAgentInteractionSession? session, string? requestContext, CancellationToken cancellationToken = default)
+    parameters:
+    - id: session
+      type: RemoteAgent.App.Logic.IAgentInteractionSession
+    - id: requestContext
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Shared Function TryIssueRequestContextAsync(session As IAgentInteractionSession, requestContext As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync*
+  nameWithType.vb: AgentInteractionDispatcher.TryIssueRequestContextAsync(IAgentInteractionSession, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession, String, System.Threading.CancellationToken)
+  name.vb: TryIssueRequestContextAsync(IAgentInteractionSession, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.String,System.Threading.CancellationToken)
+  id: TryIssueSeedContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentInteractionDispatcher
+  langs:
+  - csharp
+  - vb
+  name: TryIssueSeedContextAsync(IAgentInteractionSession?, string?, string?, CancellationToken)
+  nameWithType: AgentInteractionDispatcher.TryIssueSeedContextAsync(IAgentInteractionSession?, string?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession?, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentInteraction.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryIssueSeedContextAsync
+    path: ../src/RemoteAgent.App.Logic/AgentInteraction.cs
+    startLine: 50
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public static Task<bool> TryIssueSeedContextAsync(IAgentInteractionSession? session, string? contextType, string? content, CancellationToken cancellationToken = default)
+    parameters:
+    - id: session
+      type: RemoteAgent.App.Logic.IAgentInteractionSession
+    - id: contextType
+      type: System.String
+    - id: content
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Shared Function TryIssueSeedContextAsync(session As IAgentInteractionSession, contextType As String, content As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync*
+  nameWithType.vb: AgentInteractionDispatcher.TryIssueSeedContextAsync(IAgentInteractionSession, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync(RemoteAgent.App.Logic.IAgentInteractionSession, String, String, System.Threading.CancellationToken)
+  name.vb: TryIssueSeedContextAsync(IAgentInteractionSession, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: TryNotifyMcpUpdateAsync(RemoteAgent.App.Logic.IAgentInteractionSession,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentInteractionDispatcher
+  langs:
+  - csharp
+  - vb
+  name: TryNotifyMcpUpdateAsync(IAgentInteractionSession?, IEnumerable<string>, IEnumerable<string>, CancellationToken)
+  nameWithType: AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(IAgentInteractionSession?, IEnumerable<string>, IEnumerable<string>, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(RemoteAgent.App.Logic.IAgentInteractionSession?, System.Collections.Generic.IEnumerable<string>, System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentInteraction.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TryNotifyMcpUpdateAsync
+    path: ../src/RemoteAgent.App.Logic/AgentInteraction.cs
+    startLine: 58
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public static Task<bool> TryNotifyMcpUpdateAsync(IAgentInteractionSession? session, IEnumerable<string> enabledServerIds, IEnumerable<string> disabledServerIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: session
+      type: RemoteAgent.App.Logic.IAgentInteractionSession
+    - id: enabledServerIds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: disabledServerIds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Shared Function TryNotifyMcpUpdateAsync(session As IAgentInteractionSession, enabledServerIds As IEnumerable(Of String), disabledServerIds As IEnumerable(Of String), cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync*
+  nameWithType.vb: AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(IAgentInteractionSession, IEnumerable(Of String), IEnumerable(Of String), CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync(RemoteAgent.App.Logic.IAgentInteractionSession, System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: TryNotifyMcpUpdateAsync(IAgentInteractionSession, IEnumerable(Of String), IEnumerable(Of String), CancellationToken)
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync
+  href: RemoteAgent.App.Logic.AgentInteractionDispatcher.html#RemoteAgent_App_Logic_AgentInteractionDispatcher_TryIssueRequestContextAsync_RemoteAgent_App_Logic_IAgentInteractionSession_System_String_System_Threading_CancellationToken_
+  name: TryIssueRequestContextAsync
+  nameWithType: AgentInteractionDispatcher.TryIssueRequestContextAsync
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueRequestContextAsync
+- uid: RemoteAgent.App.Logic.IAgentInteractionSession
+  commentId: T:RemoteAgent.App.Logic.IAgentInteractionSession
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IAgentInteractionSession.html
+  name: IAgentInteractionSession
+  nameWithType: IAgentInteractionSession
+  fullName: RemoteAgent.App.Logic.IAgentInteractionSession
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync
+  href: RemoteAgent.App.Logic.AgentInteractionDispatcher.html#RemoteAgent_App_Logic_AgentInteractionDispatcher_TryIssueSeedContextAsync_RemoteAgent_App_Logic_IAgentInteractionSession_System_String_System_String_System_Threading_CancellationToken_
+  name: TryIssueSeedContextAsync
+  nameWithType: AgentInteractionDispatcher.TryIssueSeedContextAsync
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryIssueSeedContextAsync
+- uid: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync
+  href: RemoteAgent.App.Logic.AgentInteractionDispatcher.html#RemoteAgent_App_Logic_AgentInteractionDispatcher_TryNotifyMcpUpdateAsync_RemoteAgent_App_Logic_IAgentInteractionSession_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: TryNotifyMcpUpdateAsync
+  nameWithType: AgentInteractionDispatcher.TryNotifyMcpUpdateAsync
+  fullName: RemoteAgent.App.Logic.AgentInteractionDispatcher.TryNotifyMcpUpdateAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true

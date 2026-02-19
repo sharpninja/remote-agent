@@ -5,8 +5,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="ApplyLocalServerActionHandler"/>. FR-1.2; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.2")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class ApplyLocalServerActionHandlerTests
 {
+    // FR-1.2, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenRunning_ShouldStop()
     {
@@ -21,6 +29,7 @@ public class ApplyLocalServerActionHandlerTests
         result.Data!.IsRunning.Should().BeFalse();
     }
 
+    // FR-1.2, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenStopped_ShouldStart()
     {
@@ -35,6 +44,7 @@ public class ApplyLocalServerActionHandlerTests
         result.Data!.IsRunning.Should().BeTrue();
     }
 
+    // FR-1.2, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenActionFails_ShouldReturnFail()
     {
@@ -48,6 +58,7 @@ public class ApplyLocalServerActionHandlerTests
         result.ErrorMessage.Should().Contain("Failed");
     }
 
+    // FR-1.2, TR-18.4
     [Fact]
     public async Task HandleAsync_AfterAction_ShouldProbe()
     {

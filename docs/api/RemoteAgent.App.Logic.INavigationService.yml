@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.INavigationService
+  commentId: T:RemoteAgent.App.Logic.INavigationService
+  id: INavigationService
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.INavigationService.CloseFlyout
+  - RemoteAgent.App.Logic.INavigationService.NavigateToAsync(System.String)
+  langs:
+  - csharp
+  - vb
+  name: INavigationService
+  nameWithType: INavigationService
+  fullName: RemoteAgent.App.Logic.INavigationService
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/INavigationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: INavigationService
+    path: ../src/RemoteAgent.App.Logic/INavigationService.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Abstracts navigation for mobile shell-based apps, enabling testability.
+  example: []
+  syntax:
+    content: public interface INavigationService
+    content.vb: Public Interface INavigationService
+- uid: RemoteAgent.App.Logic.INavigationService.NavigateToAsync(System.String)
+  commentId: M:RemoteAgent.App.Logic.INavigationService.NavigateToAsync(System.String)
+  id: NavigateToAsync(System.String)
+  parent: RemoteAgent.App.Logic.INavigationService
+  langs:
+  - csharp
+  - vb
+  name: NavigateToAsync(string)
+  nameWithType: INavigationService.NavigateToAsync(string)
+  fullName: RemoteAgent.App.Logic.INavigationService.NavigateToAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/INavigationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NavigateToAsync
+    path: ../src/RemoteAgent.App.Logic/INavigationService.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task NavigateToAsync(string route)
+    parameters:
+    - id: route
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function NavigateToAsync(route As String) As Task
+  overload: RemoteAgent.App.Logic.INavigationService.NavigateToAsync*
+  nameWithType.vb: INavigationService.NavigateToAsync(String)
+  fullName.vb: RemoteAgent.App.Logic.INavigationService.NavigateToAsync(String)
+  name.vb: NavigateToAsync(String)
+- uid: RemoteAgent.App.Logic.INavigationService.CloseFlyout
+  commentId: M:RemoteAgent.App.Logic.INavigationService.CloseFlyout
+  id: CloseFlyout
+  parent: RemoteAgent.App.Logic.INavigationService
+  langs:
+  - csharp
+  - vb
+  name: CloseFlyout()
+  nameWithType: INavigationService.CloseFlyout()
+  fullName: RemoteAgent.App.Logic.INavigationService.CloseFlyout()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/INavigationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CloseFlyout
+    path: ../src/RemoteAgent.App.Logic/INavigationService.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void CloseFlyout()
+    content.vb: Sub CloseFlyout()
+  overload: RemoteAgent.App.Logic.INavigationService.CloseFlyout*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.INavigationService.NavigateToAsync*
+  commentId: Overload:RemoteAgent.App.Logic.INavigationService.NavigateToAsync
+  href: RemoteAgent.App.Logic.INavigationService.html#RemoteAgent_App_Logic_INavigationService_NavigateToAsync_System_String_
+  name: NavigateToAsync
+  nameWithType: INavigationService.NavigateToAsync
+  fullName: RemoteAgent.App.Logic.INavigationService.NavigateToAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Logic.INavigationService.CloseFlyout*
+  commentId: Overload:RemoteAgent.App.Logic.INavigationService.CloseFlyout
+  href: RemoteAgent.App.Logic.INavigationService.html#RemoteAgent_App_Logic_INavigationService_CloseFlyout
+  name: CloseFlyout
+  nameWithType: INavigationService.CloseFlyout
+  fullName: RemoteAgent.App.Logic.INavigationService.CloseFlyout

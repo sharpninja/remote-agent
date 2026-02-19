@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService
+  id: IConnectionSettingsDialogService
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync(Avalonia.Controls.Window,RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IConnectionSettingsDialogService
+  nameWithType: IConnectionSettingsDialogService
+  fullName: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IConnectionSettingsDialogService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IConnectionSettingsDialogService
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IConnectionSettingsDialogService.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public interface IConnectionSettingsDialogService
+    content.vb: Public Interface IConnectionSettingsDialogService
+- uid: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync(Avalonia.Controls.Window,RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync(Avalonia.Controls.Window,RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults,System.Threading.CancellationToken)
+  id: ShowAsync(Avalonia.Controls.Window,RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults,System.Threading.CancellationToken)
+  parent: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService
+  langs:
+  - csharp
+  - vb
+  name: ShowAsync(Window, ConnectionSettingsDefaults, CancellationToken)
+  nameWithType: IConnectionSettingsDialogService.ShowAsync(Window, ConnectionSettingsDefaults, CancellationToken)
+  fullName: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync(Avalonia.Controls.Window, RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IConnectionSettingsDialogService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ShowAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IConnectionSettingsDialogService.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: Task<ConnectionSettingsDialogResult?> ShowAsync(Window ownerWindow, ConnectionSettingsDefaults defaults, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ownerWindow
+      type: Avalonia.Controls.Window
+    - id: defaults
+      type: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult}
+    content.vb: Function ShowAsync(ownerWindow As Window, defaults As ConnectionSettingsDefaults, cancellationToken As CancellationToken = Nothing) As Task(Of ConnectionSettingsDialogResult)
+  overload: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync
+  href: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.html#RemoteAgent_Desktop_Infrastructure_IConnectionSettingsDialogService_ShowAsync_Avalonia_Controls_Window_RemoteAgent_Desktop_Infrastructure_ConnectionSettingsDefaults_System_Threading_CancellationToken_
+  name: ShowAsync
+  nameWithType: IConnectionSettingsDialogService.ShowAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService.ShowAsync
+- uid: Avalonia.Controls.Window
+  commentId: T:Avalonia.Controls.Window
+  parent: Avalonia.Controls
+  isExternal: true
+  name: Window
+  nameWithType: Window
+  fullName: Avalonia.Controls.Window
+- uid: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults.html
+  name: ConnectionSettingsDefaults
+  nameWithType: ConnectionSettingsDefaults
+  fullName: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult.html
+  name: Task<ConnectionSettingsDialogResult>
+  nameWithType: Task<ConnectionSettingsDialogResult>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult>
+  nameWithType.vb: Task(Of ConnectionSettingsDialogResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult)
+  name.vb: Task(Of ConnectionSettingsDialogResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+    name: ConnectionSettingsDialogResult
+    href: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+    name: ConnectionSettingsDialogResult
+    href: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult.html
+  - name: )
+- uid: Avalonia.Controls
+  commentId: N:Avalonia.Controls
+  isExternal: true
+  name: Avalonia.Controls
+  nameWithType: Avalonia.Controls
+  fullName: Avalonia.Controls
+  spec.csharp:
+  - uid: Avalonia
+    name: Avalonia
+    isExternal: true
+  - name: .
+  - uid: Avalonia.Controls
+    name: Controls
+    isExternal: true
+  spec.vb:
+  - uid: Avalonia
+    name: Avalonia
+    isExternal: true
+  - name: .
+  - uid: Avalonia.Controls
+    name: Controls
+    isExternal: true
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

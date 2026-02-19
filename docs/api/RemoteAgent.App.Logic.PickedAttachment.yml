@@ -1,0 +1,532 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.PickedAttachment
+  commentId: T:RemoteAgent.App.Logic.PickedAttachment
+  id: PickedAttachment
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.PickedAttachment.#ctor(System.Byte[],System.String,System.String)
+  - RemoteAgent.App.Logic.PickedAttachment.Content
+  - RemoteAgent.App.Logic.PickedAttachment.ContentType
+  - RemoteAgent.App.Logic.PickedAttachment.FileName
+  langs:
+  - csharp
+  - vb
+  name: PickedAttachment
+  nameWithType: PickedAttachment
+  fullName: RemoteAgent.App.Logic.PickedAttachment
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PickedAttachment
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: 'public sealed record PickedAttachment : IEquatable<PickedAttachment>'
+    content.vb: Public NotInheritable Class PickedAttachment Implements IEquatable(Of PickedAttachment)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.App.Logic.PickedAttachment}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.PickedAttachment.#ctor(System.Byte[],System.String,System.String)
+  commentId: M:RemoteAgent.App.Logic.PickedAttachment.#ctor(System.Byte[],System.String,System.String)
+  id: '#ctor(System.Byte[],System.String,System.String)'
+  parent: RemoteAgent.App.Logic.PickedAttachment
+  langs:
+  - csharp
+  - vb
+  name: PickedAttachment(byte[], string, string)
+  nameWithType: PickedAttachment.PickedAttachment(byte[], string, string)
+  fullName: RemoteAgent.App.Logic.PickedAttachment.PickedAttachment(byte[], string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public PickedAttachment(byte[] Content, string ContentType, string FileName)
+    parameters:
+    - id: Content
+      type: System.Byte[]
+    - id: ContentType
+      type: System.String
+    - id: FileName
+      type: System.String
+    content.vb: Public Sub New(Content As Byte(), ContentType As String, FileName As String)
+  overload: RemoteAgent.App.Logic.PickedAttachment.#ctor*
+  nameWithType.vb: PickedAttachment.New(Byte(), String, String)
+  fullName.vb: RemoteAgent.App.Logic.PickedAttachment.New(Byte(), String, String)
+  name.vb: New(Byte(), String, String)
+- uid: RemoteAgent.App.Logic.PickedAttachment.Content
+  commentId: P:RemoteAgent.App.Logic.PickedAttachment.Content
+  id: Content
+  parent: RemoteAgent.App.Logic.PickedAttachment
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: PickedAttachment.Content
+  fullName: RemoteAgent.App.Logic.PickedAttachment.Content
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Content
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public byte[] Content { get; init; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public Property Content As Byte()
+  overload: RemoteAgent.App.Logic.PickedAttachment.Content*
+- uid: RemoteAgent.App.Logic.PickedAttachment.ContentType
+  commentId: P:RemoteAgent.App.Logic.PickedAttachment.ContentType
+  id: ContentType
+  parent: RemoteAgent.App.Logic.PickedAttachment
+  langs:
+  - csharp
+  - vb
+  name: ContentType
+  nameWithType: PickedAttachment.ContentType
+  fullName: RemoteAgent.App.Logic.PickedAttachment.ContentType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ContentType
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public string ContentType { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContentType As String
+  overload: RemoteAgent.App.Logic.PickedAttachment.ContentType*
+- uid: RemoteAgent.App.Logic.PickedAttachment.FileName
+  commentId: P:RemoteAgent.App.Logic.PickedAttachment.FileName
+  id: FileName
+  parent: RemoteAgent.App.Logic.PickedAttachment
+  langs:
+  - csharp
+  - vb
+  name: FileName
+  nameWithType: PickedAttachment.FileName
+  fullName: RemoteAgent.App.Logic.PickedAttachment.FileName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: FileName
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public string FileName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FileName As String
+  overload: RemoteAgent.App.Logic.PickedAttachment.FileName*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.App.Logic.PickedAttachment}
+  commentId: T:System.IEquatable{RemoteAgent.App.Logic.PickedAttachment}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PickedAttachment>
+  nameWithType: IEquatable<PickedAttachment>
+  fullName: System.IEquatable<RemoteAgent.App.Logic.PickedAttachment>
+  nameWithType.vb: IEquatable(Of PickedAttachment)
+  fullName.vb: System.IEquatable(Of RemoteAgent.App.Logic.PickedAttachment)
+  name.vb: IEquatable(Of PickedAttachment)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.App.Logic.PickedAttachment
+    name: PickedAttachment
+    href: RemoteAgent.App.Logic.PickedAttachment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.PickedAttachment
+    name: PickedAttachment
+    href: RemoteAgent.App.Logic.PickedAttachment.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.PickedAttachment.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.PickedAttachment.#ctor
+  href: RemoteAgent.App.Logic.PickedAttachment.html#RemoteAgent_App_Logic_PickedAttachment__ctor_System_Byte___System_String_System_String_
+  name: PickedAttachment
+  nameWithType: PickedAttachment.PickedAttachment
+  fullName: RemoteAgent.App.Logic.PickedAttachment.PickedAttachment
+  nameWithType.vb: PickedAttachment.New
+  fullName.vb: RemoteAgent.App.Logic.PickedAttachment.New
+  name.vb: New
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.Logic.PickedAttachment.Content*
+  commentId: Overload:RemoteAgent.App.Logic.PickedAttachment.Content
+  href: RemoteAgent.App.Logic.PickedAttachment.html#RemoteAgent_App_Logic_PickedAttachment_Content
+  name: Content
+  nameWithType: PickedAttachment.Content
+  fullName: RemoteAgent.App.Logic.PickedAttachment.Content
+- uid: RemoteAgent.App.Logic.PickedAttachment.ContentType*
+  commentId: Overload:RemoteAgent.App.Logic.PickedAttachment.ContentType
+  href: RemoteAgent.App.Logic.PickedAttachment.html#RemoteAgent_App_Logic_PickedAttachment_ContentType
+  name: ContentType
+  nameWithType: PickedAttachment.ContentType
+  fullName: RemoteAgent.App.Logic.PickedAttachment.ContentType
+- uid: RemoteAgent.App.Logic.PickedAttachment.FileName*
+  commentId: Overload:RemoteAgent.App.Logic.PickedAttachment.FileName
+  href: RemoteAgent.App.Logic.PickedAttachment.html#RemoteAgent_App_Logic_PickedAttachment_FileName
+  name: FileName
+  nameWithType: PickedAttachment.FileName
+  fullName: RemoteAgent.App.Logic.PickedAttachment.FileName

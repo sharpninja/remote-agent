@@ -1,0 +1,1134 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  id: ConnectionSettingsDialogViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.#ctor(RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults)
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PropertyChanged
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.RequestClose
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage
+  langs:
+  - csharp
+  - vb
+  name: ConnectionSettingsDialogViewModel
+  nameWithType: ConnectionSettingsDialogViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionSettingsDialogViewModel
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public sealed class ConnectionSettingsDialogViewModel
+    content.vb: Public NotInheritable Class ConnectionSettingsDialogViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.#ctor(RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults)
+  commentId: M:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.#ctor(RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults)
+  id: '#ctor(RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults)'
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectionSettingsDialogViewModel(ConnectionSettingsDefaults)
+  nameWithType: ConnectionSettingsDialogViewModel.ConnectionSettingsDialogViewModel(ConnectionSettingsDefaults)
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionSettingsDialogViewModel(RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ConnectionSettingsDialogViewModel(ConnectionSettingsDefaults defaults)
+    parameters:
+    - id: defaults
+      type: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+    content.vb: Public Sub New(defaults As ConnectionSettingsDefaults)
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.#ctor*
+  nameWithType.vb: ConnectionSettingsDialogViewModel.New(ConnectionSettingsDefaults)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.New(RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults)
+  name.vb: New(ConnectionSettingsDefaults)
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PropertyChanged
+  commentId: E:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: ConnectionSettingsDialogViewModel.PropertyChanged
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 37
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.RequestClose
+  commentId: E:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.RequestClose
+  id: RequestClose
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: RequestClose
+  nameWithType: ConnectionSettingsDialogViewModel.RequestClose
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.RequestClose
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RequestClose
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 38
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public event Action<bool>? RequestClose
+    return:
+      type: System.Action{System.Boolean}
+    content.vb: Public Event RequestClose As Action(Of Boolean)
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes
+  id: ConnectionModes
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: ConnectionModes
+  nameWithType: ConnectionSettingsDialogViewModel.ConnectionModes
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionModes
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 40
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<string> ConnectionModes { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{System.String}
+    content.vb: Public ReadOnly Property ConnectionModes As ObservableCollection(Of String)
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host
+  id: Host
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: ConnectionSettingsDialogViewModel.Host
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Host
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 42
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string Host { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port
+  id: Port
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: ConnectionSettingsDialogViewModel.Port
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Port
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string Port { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Port As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  id: SelectedConnectionMode
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedConnectionMode
+  nameWithType: ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedConnectionMode
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 54
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SelectedConnectionMode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SelectedConnectionMode As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId
+  id: SelectedAgentId
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectedAgentId
+  nameWithType: ConnectionSettingsDialogViewModel.SelectedAgentId
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectedAgentId
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 60
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string SelectedAgentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SelectedAgentId As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey
+  id: ApiKey
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: ConnectionSettingsDialogViewModel.ApiKey
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ApiKey
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 66
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string ApiKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ApiKey As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext
+  id: PerRequestContext
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: PerRequestContext
+  nameWithType: ConnectionSettingsDialogViewModel.PerRequestContext
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PerRequestContext
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 72
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string PerRequestContext { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PerRequestContext As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage
+  id: ValidationMessage
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: ValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModel.ValidationMessage
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ValidationMessage
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 78
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string ValidationMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ValidationMessage As String
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted
+  id: IsAccepted
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: IsAccepted
+  nameWithType: ConnectionSettingsDialogViewModel.IsAccepted
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsAccepted
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 84
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public bool IsAccepted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsAccepted As Boolean
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand
+  id: SubmitCommand
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand
+  nameWithType: ConnectionSettingsDialogViewModel.SubmitCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 90
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand SubmitCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SubmitCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand
+  id: CancelCommand
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: CancelCommand
+  nameWithType: ConnectionSettingsDialogViewModel.CancelCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CancelCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 91
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand CancelCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property CancelCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand*
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult
+  commentId: M:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult
+  id: ToResult
+  parent: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  langs:
+  - csharp
+  - vb
+  name: ToResult()
+  nameWithType: ConnectionSettingsDialogViewModel.ToResult()
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToResult
+    path: ../src/RemoteAgent.Desktop/ViewModels/ConnectionSettingsDialogViewModel.cs
+    startLine: 93
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ConnectionSettingsDialogResult ToResult()
+    return:
+      type: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+    content.vb: Public Function ToResult() As ConnectionSettingsDialogResult
+  overload: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult*
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.#ctor
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel__ctor_RemoteAgent_Desktop_Infrastructure_ConnectionSettingsDefaults_
+  name: ConnectionSettingsDialogViewModel
+  nameWithType: ConnectionSettingsDialogViewModel.ConnectionSettingsDialogViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionSettingsDialogViewModel
+  nameWithType.vb: ConnectionSettingsDialogViewModel.New
+  fullName.vb: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.New
+  name.vb: New
+- uid: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults.html
+  name: ConnectionSettingsDefaults
+  nameWithType: ConnectionSettingsDefaults
+  fullName: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: System.Action{System.Boolean}
+  commentId: T:System.Action{System.Boolean}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<bool>
+  nameWithType: Action<bool>
+  fullName: System.Action<bool>
+  nameWithType.vb: Action(Of Boolean)
+  fullName.vb: System.Action(Of Boolean)
+  name.vb: Action(Of Boolean)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_ConnectionModes
+  name: ConnectionModes
+  nameWithType: ConnectionSettingsDialogViewModel.ConnectionModes
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ConnectionModes
+- uid: System.Collections.ObjectModel.ObservableCollection{System.String}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{System.String}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: ObservableCollection<string>
+  nameWithType: ObservableCollection<string>
+  fullName: System.Collections.ObjectModel.ObservableCollection<string>
+  nameWithType.vb: ObservableCollection(Of String)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of String)
+  name.vb: ObservableCollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_Host
+  name: Host
+  nameWithType: ConnectionSettingsDialogViewModel.Host
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Host
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_Port
+  name: Port
+  nameWithType: ConnectionSettingsDialogViewModel.Port
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.Port
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_SelectedConnectionMode
+  name: SelectedConnectionMode
+  nameWithType: ConnectionSettingsDialogViewModel.SelectedConnectionMode
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedConnectionMode
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_SelectedAgentId
+  name: SelectedAgentId
+  nameWithType: ConnectionSettingsDialogViewModel.SelectedAgentId
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SelectedAgentId
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_ApiKey
+  name: ApiKey
+  nameWithType: ConnectionSettingsDialogViewModel.ApiKey
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ApiKey
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_PerRequestContext
+  name: PerRequestContext
+  nameWithType: ConnectionSettingsDialogViewModel.PerRequestContext
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.PerRequestContext
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_ValidationMessage
+  name: ValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModel.ValidationMessage
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ValidationMessage
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_IsAccepted
+  name: IsAccepted
+  nameWithType: ConnectionSettingsDialogViewModel.IsAccepted
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.IsAccepted
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_SubmitCommand
+  name: SubmitCommand
+  nameWithType: ConnectionSettingsDialogViewModel.SubmitCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.SubmitCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_CancelCommand
+  name: CancelCommand
+  nameWithType: ConnectionSettingsDialogViewModel.CancelCommand
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.CancelCommand
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html#RemoteAgent_Desktop_ViewModels_ConnectionSettingsDialogViewModel_ToResult
+  name: ToResult
+  nameWithType: ConnectionSettingsDialogViewModel.ToResult
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.ToResult
+- uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+  commentId: T:RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+  parent: RemoteAgent.Desktop.Views
+  href: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult.html
+  name: ConnectionSettingsDialogResult
+  nameWithType: ConnectionSettingsDialogResult
+  fullName: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+- uid: RemoteAgent.Desktop.Views
+  commentId: N:RemoteAgent.Desktop.Views
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Views
+  nameWithType: RemoteAgent.Desktop.Views
+  fullName: RemoteAgent.Desktop.Views
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Views
+    name: Views
+    href: RemoteAgent.Desktop.Views.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Views
+    name: Views
+    href: RemoteAgent.Desktop.Views.html

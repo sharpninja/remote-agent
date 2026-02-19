@@ -1,0 +1,133 @@
+### YamlMime:TableOfContent
+items:
+- uid: RemoteAgent.Desktop.UiTests
+  name: RemoteAgent.Desktop.UiTests
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.UiTests.AppLogTests
+    name: AppLogTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.MainWindowUiTests
+    name: MainWindowUiTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.StructuredLogStoreTests
+    name: StructuredLogStoreTests
+    type: Class
+- uid: RemoteAgent.Desktop.UiTests.Handlers
+  name: RemoteAgent.Desktop.UiTests.Handlers
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.ApplyLocalServerActionHandlerTests
+    name: ApplyLocalServerActionHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.BanPeerHandlerTests
+    name: BanPeerHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.CheckLocalServerHandlerTests
+    name: CheckLocalServerHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.CheckSessionCapacityHandlerTests
+    name: CheckSessionCapacityHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.ClearAppLogHandlerTests
+    name: ClearAppLogHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+    name: CreateDesktopSessionHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.DeleteAuthUserHandlerTests
+    name: DeleteAuthUserHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.DeleteMcpServerHandlerTests
+    name: DeleteMcpServerHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.DeletePromptTemplateHandlerTests
+    name: DeletePromptTemplateHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.ExpandStatusLogPanelHandlerTests
+    name: ExpandStatusLogPanelHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.OpenNewSessionHandlerTests
+    name: OpenNewSessionHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RefreshAuthUsersHandlerTests
+    name: RefreshAuthUsersHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RefreshMcpRegistryHandlerTests
+    name: RefreshMcpRegistryHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RefreshOpenSessionsHandlerTests
+    name: RefreshOpenSessionsHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RefreshPluginsHandlerTests
+    name: RefreshPluginsHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RefreshPromptTemplatesHandlerTests
+    name: RefreshPromptTemplatesHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RefreshSecurityDataHandlerTests
+    name: RefreshSecurityDataHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.RemoveServerRegistrationHandlerTests
+    name: RemoveServerRegistrationHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SaveAgentMcpMappingHandlerTests
+    name: SaveAgentMcpMappingHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SaveAppLogHandlerTests
+    name: SaveAppLogHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SaveAuthUserHandlerTests
+    name: SaveAuthUserHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SaveMcpServerHandlerTests
+    name: SaveMcpServerHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SavePluginsHandlerTests
+    name: SavePluginsHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SavePromptTemplateHandlerTests
+    name: SavePromptTemplateHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SaveServerRegistrationHandlerTests
+    name: SaveServerRegistrationHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SeedSessionContextHandlerTests
+    name: SeedSessionContextHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SendDesktopMessageHandlerTests
+    name: SendDesktopMessageHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.SetManagementSectionHandlerTests
+    name: SetManagementSectionHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.StartLogMonitoringHandlerTests
+    name: StartLogMonitoringHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.TerminateDesktopSessionHandlerTests
+    name: TerminateDesktopSessionHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.TerminateOpenServerSessionHandlerTests
+    name: TerminateOpenServerSessionHandlerTests
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.Handlers.UnbanPeerHandlerTests
+    name: UnbanPeerHandlerTests
+    type: Class
+- uid: RemoteAgent.Desktop.UiTests.TestHelpers
+  name: RemoteAgent.Desktop.UiTests.TestHelpers
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.UiTests.TestHelpers.InMemoryServerRegistrationStore
+    name: InMemoryServerRegistrationStore
+    type: Class
+  - uid: RemoteAgent.Desktop.UiTests.TestHelpers.TestRequestDispatcher
+    name: TestRequestDispatcher
+    type: Class
+- uid: RemoteAgent.Desktop.UiTests.ViewModels
+  name: RemoteAgent.Desktop.UiTests.ViewModels
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+    name: ConnectionSettingsDialogViewModelTests
+    type: Class
+memberLayout: SamePage

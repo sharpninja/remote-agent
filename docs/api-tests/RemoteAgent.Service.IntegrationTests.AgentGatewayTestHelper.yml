@@ -1,0 +1,854 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  commentId: T:RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  id: AgentGatewayTestHelper
+  parent: RemoteAgent.Service.IntegrationTests
+  children:
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.AgentTimeoutSeconds
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.LogIntervalSeconds
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RequestWaitSecondsAfterReturn
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(RemoteAgent.Proto.AgentGateway.AgentGatewayClient,System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task},Xunit.Abstractions.ITestOutputHelper)
+  langs:
+  - csharp
+  - vb
+  name: AgentGatewayTestHelper
+  nameWithType: AgentGatewayTestHelper
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentGatewayTestHelper
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  summary: 'Helper for Connect tests: run agent invocation in a task, wait with timeout, then stop agent/complete stream if needed; logs agent stdout/stderr every second.'
+  example: []
+  syntax:
+    content: public static class AgentGatewayTestHelper
+    content.vb: Public Module AgentGatewayTestHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.AgentTimeoutSeconds
+  commentId: F:RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.AgentTimeoutSeconds
+  id: AgentTimeoutSeconds
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  langs:
+  - csharp
+  - vb
+  name: AgentTimeoutSeconds
+  nameWithType: AgentGatewayTestHelper.AgentTimeoutSeconds
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.AgentTimeoutSeconds
+  type: Field
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentTimeoutSeconds
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public const int AgentTimeoutSeconds = 20
+    return:
+      type: System.Int32
+    content.vb: Public Const AgentTimeoutSeconds As Integer = 20
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.LogIntervalSeconds
+  commentId: F:RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.LogIntervalSeconds
+  id: LogIntervalSeconds
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  langs:
+  - csharp
+  - vb
+  name: LogIntervalSeconds
+  nameWithType: AgentGatewayTestHelper.LogIntervalSeconds
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.LogIntervalSeconds
+  type: Field
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogIntervalSeconds
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public const int LogIntervalSeconds = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const LogIntervalSeconds As Integer = 1
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RequestWaitSecondsAfterReturn
+  commentId: F:RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RequestWaitSecondsAfterReturn
+  id: RequestWaitSecondsAfterReturn
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  langs:
+  - csharp
+  - vb
+  name: RequestWaitSecondsAfterReturn
+  nameWithType: AgentGatewayTestHelper.RequestWaitSecondsAfterReturn
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RequestWaitSecondsAfterReturn
+  type: Field
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RequestWaitSecondsAfterReturn
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public const int RequestWaitSecondsAfterReturn = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const RequestWaitSecondsAfterReturn As Integer = 3
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(RemoteAgent.Proto.AgentGateway.AgentGatewayClient,System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task},Xunit.Abstractions.ITestOutputHelper)
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(RemoteAgent.Proto.AgentGateway.AgentGatewayClient,System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task},Xunit.Abstractions.ITestOutputHelper)
+  id: RunAgentInvocationWithTimeoutAsync(RemoteAgent.Proto.AgentGateway.AgentGatewayClient,System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task},Xunit.Abstractions.ITestOutputHelper)
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper
+  langs:
+  - csharp
+  - vb
+  name: RunAgentInvocationWithTimeoutAsync(AgentGatewayClient, Func<AsyncDuplexStreamingCall<ClientMessage, ServerMessage>, CancellationToken, Task>, ITestOutputHelper)
+  nameWithType: AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(AgentGateway.AgentGatewayClient, Func<AsyncDuplexStreamingCall<ClientMessage, ServerMessage>, CancellationToken, Task>, ITestOutputHelper)
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(RemoteAgent.Proto.AgentGateway.AgentGatewayClient, System.Func<Grpc.Core.AsyncDuplexStreamingCall<RemoteAgent.Proto.ClientMessage, RemoteAgent.Proto.ServerMessage>, System.Threading.CancellationToken, System.Threading.Tasks.Task>, Xunit.Abstractions.ITestOutputHelper)
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RunAgentInvocationWithTimeoutAsync
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayTestHelper.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  summary: Runs the agent invocation asynchronously, waits up to timeout for completion. If timeout expires, sends Stop and completes request stream, then cancels call.
+  example: []
+  syntax:
+    content: public static Task<(List<string> Outputs, List<string> Errors, List<SessionEvent.Types.Kind> Events, List<string> EventMessages)> RunAgentInvocationWithTimeoutAsync(AgentGateway.AgentGatewayClient client, Func<AsyncDuplexStreamingCall<ClientMessage, ServerMessage>, CancellationToken, Task> writeRequestAsync, ITestOutputHelper output)
+    parameters:
+    - id: client
+      type: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+    - id: writeRequestAsync
+      type: System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task}
+    - id: output
+      type: Xunit.Abstractions.ITestOutputHelper
+    return:
+      type: System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}}
+    content.vb: Public Shared Function RunAgentInvocationWithTimeoutAsync(client As AgentGateway.AgentGatewayClient, writeRequestAsync As Func(Of AsyncDuplexStreamingCall(Of ClientMessage, ServerMessage), CancellationToken, Task), output As ITestOutputHelper) As Task(Of (Outputs As List(Of String), Errors As List(Of String), Events As List(Of SessionEvent.Types.Kind), EventMessages As List(Of String)))
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync*
+  nameWithType.vb: AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(AgentGateway.AgentGatewayClient, Func(Of AsyncDuplexStreamingCall(Of ClientMessage, ServerMessage), CancellationToken, Task), ITestOutputHelper)
+  fullName.vb: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync(RemoteAgent.Proto.AgentGateway.AgentGatewayClient, System.Func(Of Grpc.Core.AsyncDuplexStreamingCall(Of RemoteAgent.Proto.ClientMessage, RemoteAgent.Proto.ServerMessage), System.Threading.CancellationToken, System.Threading.Tasks.Task), Xunit.Abstractions.ITestOutputHelper)
+  name.vb: RunAgentInvocationWithTimeoutAsync(AgentGatewayClient, Func(Of AsyncDuplexStreamingCall(Of ClientMessage, ServerMessage), CancellationToken, Task), ITestOutputHelper)
+references:
+- uid: RemoteAgent.Service.IntegrationTests
+  commentId: N:RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.IntegrationTests
+  nameWithType: RemoteAgent.Service.IntegrationTests
+  fullName: RemoteAgent.Service.IntegrationTests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.IntegrationTests
+    name: IntegrationTests
+    href: RemoteAgent.Service.IntegrationTests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.IntegrationTests
+    name: IntegrationTests
+    href: RemoteAgent.Service.IntegrationTests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.html#RemoteAgent_Service_IntegrationTests_AgentGatewayTestHelper_RunAgentInvocationWithTimeoutAsync_RemoteAgent_Proto_AgentGateway_AgentGatewayClient_System_Func_Grpc_Core_AsyncDuplexStreamingCall_RemoteAgent_Proto_ClientMessage_RemoteAgent_Proto_ServerMessage__System_Threading_CancellationToken_System_Threading_Tasks_Task__Xunit_Abstractions_ITestOutputHelper_
+  name: RunAgentInvocationWithTimeoutAsync
+  nameWithType: AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayTestHelper.RunAgentInvocationWithTimeoutAsync
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  commentId: T:RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  parent: RemoteAgent.Proto
+  name: AgentGateway.AgentGatewayClient
+  nameWithType: AgentGateway.AgentGatewayClient
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+  spec.csharp:
+  - uid: RemoteAgent.Proto.AgentGateway
+    name: AgentGateway
+  - name: .
+  - uid: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+    name: AgentGatewayClient
+  spec.vb:
+  - uid: RemoteAgent.Proto.AgentGateway
+    name: AgentGateway
+  - name: .
+  - uid: RemoteAgent.Proto.AgentGateway.AgentGatewayClient
+    name: AgentGatewayClient
+- uid: System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task}
+  commentId: T:System.Func{Grpc.Core.AsyncDuplexStreamingCall{RemoteAgent.Proto.ClientMessage,RemoteAgent.Proto.ServerMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`3
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<AsyncDuplexStreamingCall<ClientMessage, ServerMessage>, CancellationToken, Task>
+  nameWithType: Func<AsyncDuplexStreamingCall<ClientMessage, ServerMessage>, CancellationToken, Task>
+  fullName: System.Func<Grpc.Core.AsyncDuplexStreamingCall<RemoteAgent.Proto.ClientMessage, RemoteAgent.Proto.ServerMessage>, System.Threading.CancellationToken, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of AsyncDuplexStreamingCall(Of ClientMessage, ServerMessage), CancellationToken, Task)
+  fullName.vb: System.Func(Of Grpc.Core.AsyncDuplexStreamingCall(Of RemoteAgent.Proto.ClientMessage, RemoteAgent.Proto.ServerMessage), System.Threading.CancellationToken, System.Threading.Tasks.Task)
+  name.vb: Func(Of AsyncDuplexStreamingCall(Of ClientMessage, ServerMessage), CancellationToken, Task)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: <
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.ServerMessage
+    name: ServerMessage
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.ServerMessage
+    name: ServerMessage
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+  - name: )
+- uid: Xunit.Abstractions.ITestOutputHelper
+  commentId: T:Xunit.Abstractions.ITestOutputHelper
+  parent: Xunit.Abstractions
+  isExternal: true
+  name: ITestOutputHelper
+  nameWithType: ITestOutputHelper
+  fullName: Xunit.Abstractions.ITestOutputHelper
+- uid: System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}}
+  commentId: T:System.Threading.Tasks.Task{System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Task<(List<string> Outputs, List<string> Errors, List<SessionEvent.Types.Kind> Events, List<string> EventMessages)>
+  nameWithType: Task<(List<string> Outputs, List<string> Errors, List<SessionEvent.Types.Kind> Events, List<string> EventMessages)>
+  fullName: System.Threading.Tasks.Task<(System.Collections.Generic.List<string> Outputs, System.Collections.Generic.List<string> Errors, System.Collections.Generic.List<RemoteAgent.Proto.SessionEvent.Types.Kind> Events, System.Collections.Generic.List<string> EventMessages)>
+  nameWithType.vb: Task(Of (Outputs As List(Of String), Errors As List(Of String), Events As List(Of SessionEvent.Types.Kind), EventMessages As List(Of String)))
+  fullName.vb: System.Threading.Tasks.Task(Of (Outputs As System.Collections.Generic.List(Of String), Errors As System.Collections.Generic.List(Of String), Events As System.Collections.Generic.List(Of RemoteAgent.Proto.SessionEvent.Types.Kind), EventMessages As System.Collections.Generic.List(Of String)))
+  name.vb: Task(Of (Outputs As List(Of String), Errors As List(Of String), Events As List(Of SessionEvent.Types.Kind), EventMessages As List(Of String)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.Outputs
+    name: Outputs
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.outputs
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.Errors
+    name: Errors
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.errors
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+    name: Kind
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.Events
+    name: Events
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.events
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.EventMessages
+    name: EventMessages
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.eventmessages
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.Outputs
+    name: Outputs
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.outputs
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.Errors
+    name: Errors
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.errors
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.Events
+    name: Events
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.events
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+    name: Kind
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{RemoteAgent.Proto.SessionEvent.Types.Kind},System.Collections.Generic.List{System.String}}.EventMessages
+    name: EventMessages
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.generic.list-system.string-,system.collections.generic.list-system.string-,system.collections.generic.list-remoteagent.proto.sessionevent.types.kind-,system.collections.generic.list-system.string--.eventmessages
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+  - name: )
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Xunit.Abstractions
+  commentId: N:Xunit.Abstractions
+  isExternal: true
+  name: Xunit.Abstractions
+  nameWithType: Xunit.Abstractions
+  fullName: Xunit.Abstractions
+  spec.csharp:
+  - uid: Xunit
+    name: Xunit
+    isExternal: true
+  - name: .
+  - uid: Xunit.Abstractions
+    name: Abstractions
+    isExternal: true
+  spec.vb:
+  - uid: Xunit
+    name: Xunit
+    isExternal: true
+  - name: .
+  - uid: Xunit.Abstractions
+    name: Abstractions
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

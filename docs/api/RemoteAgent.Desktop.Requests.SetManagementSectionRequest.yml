@@ -1,0 +1,576 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  commentId: T:RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  id: SetManagementSectionRequest
+  parent: RemoteAgent.Desktop.Requests
+  children:
+  - RemoteAgent.Desktop.Requests.SetManagementSectionRequest.#ctor(System.Guid,System.String)
+  - RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId
+  - RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey
+  langs:
+  - csharp
+  - vb
+  name: SetManagementSectionRequest
+  nameWithType: SetManagementSectionRequest
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SetManagementSectionRequest
+    path: ../src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: 'public sealed record SetManagementSectionRequest : IRequest<Unit>, IEquatable<SetManagementSectionRequest>'
+    content.vb: Public NotInheritable Class SetManagementSectionRequest Implements IRequest(Of Unit), IEquatable(Of SetManagementSectionRequest)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}
+  - System.IEquatable{RemoteAgent.Desktop.Requests.SetManagementSectionRequest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.#ctor(System.Guid,System.String)
+  commentId: M:RemoteAgent.Desktop.Requests.SetManagementSectionRequest.#ctor(System.Guid,System.String)
+  id: '#ctor(System.Guid,System.String)'
+  parent: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  langs:
+  - csharp
+  - vb
+  name: SetManagementSectionRequest(Guid, string)
+  nameWithType: SetManagementSectionRequest.SetManagementSectionRequest(Guid, string)
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SetManagementSectionRequest(System.Guid, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public SetManagementSectionRequest(Guid CorrelationId, string SectionKey)
+    parameters:
+    - id: CorrelationId
+      type: System.Guid
+    - id: SectionKey
+      type: System.String
+    content.vb: Public Sub New(CorrelationId As Guid, SectionKey As String)
+  overload: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.#ctor*
+  nameWithType.vb: SetManagementSectionRequest.New(Guid, String)
+  fullName.vb: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.New(System.Guid, String)
+  name.vb: New(Guid, String)
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId
+  commentId: P:RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: SetManagementSectionRequest.CorrelationId
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  example: []
+  syntax:
+    content: public Guid CorrelationId { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property CorrelationId As Guid
+  overload: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}.CorrelationId
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey
+  commentId: P:RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey
+  id: SectionKey
+  parent: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  langs:
+  - csharp
+  - vb
+  name: SectionKey
+  nameWithType: SetManagementSectionRequest.SectionKey
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SectionKey
+    path: ../src/RemoteAgent.Desktop/Requests/SetManagementSectionRequest.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public string SectionKey { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SectionKey As String
+  overload: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey*
+references:
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<Unit>
+  nameWithType: IRequest<Unit>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.Unit>
+  nameWithType.vb: IRequest(Of Unit)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.Unit)
+  name.vb: IRequest(Of Unit)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.Unit
+    name: Unit
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.Unit
+    name: Unit
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Desktop.Requests.SetManagementSectionRequest}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Requests.SetManagementSectionRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SetManagementSectionRequest>
+  nameWithType: IEquatable<SetManagementSectionRequest>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Requests.SetManagementSectionRequest>
+  nameWithType.vb: IEquatable(Of SetManagementSectionRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Requests.SetManagementSectionRequest)
+  name.vb: IEquatable(Of SetManagementSectionRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SetManagementSectionRequest.#ctor
+  href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html#RemoteAgent_Desktop_Requests_SetManagementSectionRequest__ctor_System_Guid_System_String_
+  name: SetManagementSectionRequest
+  nameWithType: SetManagementSectionRequest.SetManagementSectionRequest
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SetManagementSectionRequest
+  nameWithType.vb: SetManagementSectionRequest.New
+  fullName.vb: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.New
+  name.vb: New
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId
+  href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html#RemoteAgent_Desktop_Requests_SetManagementSectionRequest_CorrelationId
+  name: CorrelationId
+  nameWithType: SetManagementSectionRequest.CorrelationId
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}.CorrelationId
+  parent: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.Unit}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<Unit>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.Unit>.CorrelationId
+  nameWithType.vb: IRequest(Of Unit).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.Unit).CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey*
+  commentId: Overload:RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey
+  href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html#RemoteAgent_Desktop_Requests_SetManagementSectionRequest_SectionKey
+  name: SectionKey
+  nameWithType: SetManagementSectionRequest.SectionKey
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.SectionKey

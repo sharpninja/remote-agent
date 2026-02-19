@@ -1,0 +1,2665 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter
+  commentId: T:RemoteAgent.App.Logic.ServerApiClientAdapter
+  id: ServerApiClientAdapter
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ServerApiClientAdapter
+  nameWithType: ServerApiClientAdapter
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerApiClientAdapter
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Production implementation of <xref href="RemoteAgent.App.Logic.IServerApiClient" data-throw-if-not-resolved="false"></xref> that delegates to the static <xref href="RemoteAgent.App.Logic.ServerApiClient" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public sealed class ServerApiClientAdapter : IServerApiClient'
+    content.vb: Public NotInheritable Class ServerApiClientAdapter Implements IServerApiClient
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  id: GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetServerInfoAsync(string, int, string?, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.GetServerInfoAsync(string, int, string?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync(string, int, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetServerInfoAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<ServerInfoResponse?> GetServerInfoAsync(string host, int port, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: clientVersion
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ServerInfoResponse}
+    content.vb: Public Function GetServerInfoAsync(host As String, port As Integer, clientVersion As String = Nothing, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of ServerInfoResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.GetServerInfoAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: GetServerInfoAsync(String, Integer, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  id: ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: ListMcpServersAsync(string, int, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.ListMcpServersAsync(string, int, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync(string, int, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ListMcpServersAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<ListMcpServersResponse?> ListMcpServersAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ListMcpServersResponse}
+    content.vb: Public Function ListMcpServersAsync(host As String, port As Integer, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of ListMcpServersResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.ListMcpServersAsync(String, Integer, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: ListMcpServersAsync(String, Integer, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  id: UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: UpsertMcpServerAsync(string, int, McpServerDefinition, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.UpsertMcpServerAsync(string, int, McpServerDefinition, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync(string, int, RemoteAgent.Proto.McpServerDefinition, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpsertMcpServerAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<UpsertMcpServerResponse?> UpsertMcpServerAsync(string host, int port, McpServerDefinition server, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: server
+      type: RemoteAgent.Proto.McpServerDefinition
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertMcpServerResponse}
+    content.vb: Public Function UpsertMcpServerAsync(host As String, port As Integer, server As McpServerDefinition, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of UpsertMcpServerResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.UpsertMcpServerAsync(String, Integer, McpServerDefinition, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync(String, Integer, RemoteAgent.Proto.McpServerDefinition, String, System.Threading.CancellationToken)
+  name.vb: UpsertMcpServerAsync(String, Integer, McpServerDefinition, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServerAsync(string, int, string, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.DeleteMcpServerAsync(string, int, string, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync(string, int, string, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteMcpServerAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<DeleteMcpServerResponse?> DeleteMcpServerAsync(string host, int port, string serverId, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: serverId
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.DeleteMcpServerResponse}
+    content.vb: Public Function DeleteMcpServerAsync(host As String, port As Integer, serverId As String, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of DeleteMcpServerResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.DeleteMcpServerAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: DeleteMcpServerAsync(String, Integer, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  id: ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: ListPromptTemplatesAsync(string, int, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.ListPromptTemplatesAsync(string, int, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync(string, int, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ListPromptTemplatesAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<ListPromptTemplatesResponse?> ListPromptTemplatesAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ListPromptTemplatesResponse}
+    content.vb: Public Function ListPromptTemplatesAsync(host As String, port As Integer, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of ListPromptTemplatesResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.ListPromptTemplatesAsync(String, Integer, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: ListPromptTemplatesAsync(String, Integer, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  id: GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetPluginsAsync(string, int, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.GetPluginsAsync(string, int, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync(string, int, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetPluginsAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<GetPluginsResponse?> GetPluginsAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.GetPluginsResponse}
+    content.vb: Public Function GetPluginsAsync(host As String, port As Integer, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of GetPluginsResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.GetPluginsAsync(String, Integer, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: GetPluginsAsync(String, Integer, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  id: UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: UpdatePluginsAsync(string, int, IEnumerable<string>, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.UpdatePluginsAsync(string, int, IEnumerable<string>, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync(string, int, System.Collections.Generic.IEnumerable<string>, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpdatePluginsAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 27
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<UpdatePluginsResponse?> UpdatePluginsAsync(string host, int port, IEnumerable<string> assemblies, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: assemblies
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.UpdatePluginsResponse}
+    content.vb: Public Function UpdatePluginsAsync(host As String, port As Integer, assemblies As IEnumerable(Of String), apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of UpdatePluginsResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.UpdatePluginsAsync(String, Integer, IEnumerable(Of String), String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync(String, Integer, System.Collections.Generic.IEnumerable(Of String), String, System.Threading.CancellationToken)
+  name.vb: UpdatePluginsAsync(String, Integer, IEnumerable(Of String), String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  id: UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: UpsertPromptTemplateAsync(string, int, PromptTemplateDefinition, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.UpsertPromptTemplateAsync(string, int, PromptTemplateDefinition, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync(string, int, RemoteAgent.Proto.PromptTemplateDefinition, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpsertPromptTemplateAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 30
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<UpsertPromptTemplateResponse?> UpsertPromptTemplateAsync(string host, int port, PromptTemplateDefinition template, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: template
+      type: RemoteAgent.Proto.PromptTemplateDefinition
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertPromptTemplateResponse}
+    content.vb: Public Function UpsertPromptTemplateAsync(host As String, port As Integer, template As PromptTemplateDefinition, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of UpsertPromptTemplateResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.UpsertPromptTemplateAsync(String, Integer, PromptTemplateDefinition, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync(String, Integer, RemoteAgent.Proto.PromptTemplateDefinition, String, System.Threading.CancellationToken)
+  name.vb: UpsertPromptTemplateAsync(String, Integer, PromptTemplateDefinition, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  id: DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: DeletePromptTemplateAsync(string, int, string, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.DeletePromptTemplateAsync(string, int, string, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync(string, int, string, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeletePromptTemplateAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<DeletePromptTemplateResponse?> DeletePromptTemplateAsync(string host, int port, string templateId, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: templateId
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.DeletePromptTemplateResponse}
+    content.vb: Public Function DeletePromptTemplateAsync(host As String, port As Integer, templateId As String, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of DeletePromptTemplateResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.DeletePromptTemplateAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: DeletePromptTemplateAsync(String, Integer, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  id: GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetAgentMcpServersAsync(string, int, string, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.GetAgentMcpServersAsync(string, int, string, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync(string, int, string, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetAgentMcpServersAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 36
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<GetAgentMcpServersResponse?> GetAgentMcpServersAsync(string host, int port, string agentId, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: agentId
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.GetAgentMcpServersResponse}
+    content.vb: Public Function GetAgentMcpServersAsync(host As String, port As Integer, agentId As String, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of GetAgentMcpServersResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.GetAgentMcpServersAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: GetAgentMcpServersAsync(String, Integer, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  id: SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: SetAgentMcpServersAsync(string, int, string, IEnumerable<string>, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.SetAgentMcpServersAsync(string, int, string, IEnumerable<string>, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync(string, int, string, System.Collections.Generic.IEnumerable<string>, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SetAgentMcpServersAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 39
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<SetAgentMcpServersResponse?> SetAgentMcpServersAsync(string host, int port, string agentId, IEnumerable<string> serverIds, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: agentId
+      type: System.String
+    - id: serverIds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.SetAgentMcpServersResponse}
+    content.vb: Public Function SetAgentMcpServersAsync(host As String, port As Integer, agentId As String, serverIds As IEnumerable(Of String), apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of SetAgentMcpServersResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.SetAgentMcpServersAsync(String, Integer, String, IEnumerable(Of String), String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync(String, Integer, String, System.Collections.Generic.IEnumerable(Of String), String, System.Threading.CancellationToken)
+  name.vb: SetAgentMcpServersAsync(String, Integer, String, IEnumerable(Of String), String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: SeedSessionContextAsync(string, int, string, string, string, string?, string?, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.SeedSessionContextAsync(string, int, string, string, string, string?, string?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync(string, int, string, string, string, string?, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedSessionContextAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 42
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<SeedSessionContextResponse?> SeedSessionContextAsync(string host, int port, string sessionId, string contextType, string content, string? source = null, string? correlationId = null, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: sessionId
+      type: System.String
+    - id: contextType
+      type: System.String
+    - id: content
+      type: System.String
+    - id: source
+      type: System.String
+    - id: correlationId
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.SeedSessionContextResponse}
+    content.vb: Public Function SeedSessionContextAsync(host As String, port As Integer, sessionId As String, contextType As String, content As String, source As String = Nothing, correlationId As String = Nothing, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of SeedSessionContextResponse)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.SeedSessionContextAsync(String, Integer, String, String, String, String, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync(String, Integer, String, String, String, String, String, String, System.Threading.CancellationToken)
+  name.vb: SeedSessionContextAsync(String, Integer, String, String, String, String, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  id: GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.ServerApiClientAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetSessionCapacityAsync(string, int, string?, string?, CancellationToken)
+  nameWithType: ServerApiClientAdapter.GetSessionCapacityAsync(string, int, string?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync(string, int, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetSessionCapacityAsync
+    path: ../src/RemoteAgent.App.Logic/ServerApiClientAdapter.cs
+    startLine: 45
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task<SessionCapacitySnapshot?> GetSessionCapacityAsync(string host, int port, string? agentId = null, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: agentId
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.App.Logic.SessionCapacitySnapshot}
+    content.vb: Public Function GetSessionCapacityAsync(host As String, port As Integer, agentId As String = Nothing, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task(Of SessionCapacitySnapshot)
+  overload: RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync*
+  implements:
+  - RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: ServerApiClientAdapter.GetSessionCapacityAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: GetSessionCapacityAsync(String, Integer, String, String, CancellationToken)
+references:
+- uid: RemoteAgent.App.Logic.IServerApiClient
+  commentId: T:RemoteAgent.App.Logic.IServerApiClient
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IServerApiClient.html
+  name: IServerApiClient
+  nameWithType: IServerApiClient
+  fullName: RemoteAgent.App.Logic.IServerApiClient
+- uid: RemoteAgent.App.Logic.ServerApiClient
+  commentId: T:RemoteAgent.App.Logic.ServerApiClient
+  href: RemoteAgent.App.Logic.ServerApiClient.html
+  name: ServerApiClient
+  nameWithType: ServerApiClient
+  fullName: RemoteAgent.App.Logic.ServerApiClient
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_GetServerInfoAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: GetServerInfoAsync
+  nameWithType: ServerApiClientAdapter.GetServerInfoAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetServerInfoAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetServerInfoAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: GetServerInfoAsync(string, int, string, string, CancellationToken)
+  nameWithType: IServerApiClient.GetServerInfoAsync(string, int, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(string, int, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.GetServerInfoAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: GetServerInfoAsync(String, Integer, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: GetServerInfoAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetServerInfoAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetServerInfoAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: GetServerInfoAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetServerInfoAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ServerInfoResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ServerInfoResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ServerInfoResponse.html
+  name: Task<ServerInfoResponse>
+  nameWithType: Task<ServerInfoResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ServerInfoResponse>
+  nameWithType.vb: Task(Of ServerInfoResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ServerInfoResponse)
+  name.vb: Task(Of ServerInfoResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ServerInfoResponse
+    name: ServerInfoResponse
+    href: RemoteAgent.Proto.ServerInfoResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ServerInfoResponse
+    name: ServerInfoResponse
+    href: RemoteAgent.Proto.ServerInfoResponse.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_ListMcpServersAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: ListMcpServersAsync
+  nameWithType: ServerApiClientAdapter.ListMcpServersAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.ListMcpServersAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_ListMcpServersAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: ListMcpServersAsync(string, int, string, CancellationToken)
+  nameWithType: IServerApiClient.ListMcpServersAsync(string, int, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(string, int, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.ListMcpServersAsync(String, Integer, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: ListMcpServersAsync(String, Integer, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+    name: ListMcpServersAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_ListMcpServersAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.ListMcpServersAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+    name: ListMcpServersAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_ListMcpServersAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ListMcpServersResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ListMcpServersResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ListMcpServersResponse.html
+  name: Task<ListMcpServersResponse>
+  nameWithType: Task<ListMcpServersResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ListMcpServersResponse>
+  nameWithType.vb: Task(Of ListMcpServersResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ListMcpServersResponse)
+  name.vb: Task(Of ListMcpServersResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ListMcpServersResponse
+    name: ListMcpServersResponse
+    href: RemoteAgent.Proto.ListMcpServersResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ListMcpServersResponse
+    name: ListMcpServersResponse
+    href: RemoteAgent.Proto.ListMcpServersResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_UpsertMcpServerAsync_System_String_System_Int32_RemoteAgent_Proto_McpServerDefinition_System_String_System_Threading_CancellationToken_
+  name: UpsertMcpServerAsync
+  nameWithType: ServerApiClientAdapter.UpsertMcpServerAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertMcpServerAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpsertMcpServerAsync_System_String_System_Int32_RemoteAgent_Proto_McpServerDefinition_System_String_System_Threading_CancellationToken_
+  name: UpsertMcpServerAsync(string, int, McpServerDefinition, string, CancellationToken)
+  nameWithType: IServerApiClient.UpsertMcpServerAsync(string, int, McpServerDefinition, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(string, int, RemoteAgent.Proto.McpServerDefinition, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.UpsertMcpServerAsync(String, Integer, McpServerDefinition, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(String, Integer, RemoteAgent.Proto.McpServerDefinition, String, System.Threading.CancellationToken)
+  name.vb: UpsertMcpServerAsync(String, Integer, McpServerDefinition, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+    name: UpsertMcpServerAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpsertMcpServerAsync_System_String_System_Int32_RemoteAgent_Proto_McpServerDefinition_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.UpsertMcpServerAsync(System.String,System.Int32,RemoteAgent.Proto.McpServerDefinition,System.String,System.Threading.CancellationToken)
+    name: UpsertMcpServerAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpsertMcpServerAsync_System_String_System_Int32_RemoteAgent_Proto_McpServerDefinition_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+    href: RemoteAgent.Proto.McpServerDefinition.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Proto.McpServerDefinition
+  commentId: T:RemoteAgent.Proto.McpServerDefinition
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.McpServerDefinition.html
+  name: McpServerDefinition
+  nameWithType: McpServerDefinition
+  fullName: RemoteAgent.Proto.McpServerDefinition
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertMcpServerResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertMcpServerResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  name: Task<UpsertMcpServerResponse>
+  nameWithType: Task<UpsertMcpServerResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.UpsertMcpServerResponse>
+  nameWithType.vb: Task(Of UpsertMcpServerResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.UpsertMcpServerResponse)
+  name.vb: Task(Of UpsertMcpServerResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.UpsertMcpServerResponse
+    name: UpsertMcpServerResponse
+    href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.UpsertMcpServerResponse
+    name: UpsertMcpServerResponse
+    href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  - name: )
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_DeleteMcpServerAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: DeleteMcpServerAsync
+  nameWithType: ServerApiClientAdapter.DeleteMcpServerAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.DeleteMcpServerAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_DeleteMcpServerAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: DeleteMcpServerAsync(string, int, string, string, CancellationToken)
+  nameWithType: IServerApiClient.DeleteMcpServerAsync(string, int, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(string, int, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.DeleteMcpServerAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: DeleteMcpServerAsync(String, Integer, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: DeleteMcpServerAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_DeleteMcpServerAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.DeleteMcpServerAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: DeleteMcpServerAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_DeleteMcpServerAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.DeleteMcpServerResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.DeleteMcpServerResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: Task<DeleteMcpServerResponse>
+  nameWithType: Task<DeleteMcpServerResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.DeleteMcpServerResponse>
+  nameWithType.vb: Task(Of DeleteMcpServerResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: Task(Of DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_ListPromptTemplatesAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: ListPromptTemplatesAsync
+  nameWithType: ServerApiClientAdapter.ListPromptTemplatesAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.ListPromptTemplatesAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_ListPromptTemplatesAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: ListPromptTemplatesAsync(string, int, string, CancellationToken)
+  nameWithType: IServerApiClient.ListPromptTemplatesAsync(string, int, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(string, int, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.ListPromptTemplatesAsync(String, Integer, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: ListPromptTemplatesAsync(String, Integer, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+    name: ListPromptTemplatesAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_ListPromptTemplatesAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.ListPromptTemplatesAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+    name: ListPromptTemplatesAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_ListPromptTemplatesAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ListPromptTemplatesResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ListPromptTemplatesResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  name: Task<ListPromptTemplatesResponse>
+  nameWithType: Task<ListPromptTemplatesResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ListPromptTemplatesResponse>
+  nameWithType.vb: Task(Of ListPromptTemplatesResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ListPromptTemplatesResponse)
+  name.vb: Task(Of ListPromptTemplatesResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ListPromptTemplatesResponse
+    name: ListPromptTemplatesResponse
+    href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ListPromptTemplatesResponse
+    name: ListPromptTemplatesResponse
+    href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_GetPluginsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: GetPluginsAsync
+  nameWithType: ServerApiClientAdapter.GetPluginsAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetPluginsAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetPluginsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: GetPluginsAsync(string, int, string, CancellationToken)
+  nameWithType: IServerApiClient.GetPluginsAsync(string, int, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(string, int, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.GetPluginsAsync(String, Integer, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: GetPluginsAsync(String, Integer, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+    name: GetPluginsAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetPluginsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetPluginsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+    name: GetPluginsAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetPluginsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.GetPluginsResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.GetPluginsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.GetPluginsResponse.html
+  name: Task<GetPluginsResponse>
+  nameWithType: Task<GetPluginsResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.GetPluginsResponse>
+  nameWithType.vb: Task(Of GetPluginsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.GetPluginsResponse)
+  name.vb: Task(Of GetPluginsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetPluginsResponse
+    name: GetPluginsResponse
+    href: RemoteAgent.Proto.GetPluginsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetPluginsResponse
+    name: GetPluginsResponse
+    href: RemoteAgent.Proto.GetPluginsResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_UpdatePluginsAsync_System_String_System_Int32_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  name: UpdatePluginsAsync
+  nameWithType: ServerApiClientAdapter.UpdatePluginsAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.UpdatePluginsAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpdatePluginsAsync_System_String_System_Int32_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  name: UpdatePluginsAsync(string, int, IEnumerable<string>, string, CancellationToken)
+  nameWithType: IServerApiClient.UpdatePluginsAsync(string, int, IEnumerable<string>, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(string, int, System.Collections.Generic.IEnumerable<string>, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.UpdatePluginsAsync(String, Integer, IEnumerable(Of String), String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(String, Integer, System.Collections.Generic.IEnumerable(Of String), String, System.Threading.CancellationToken)
+  name.vb: UpdatePluginsAsync(String, Integer, IEnumerable(Of String), String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+    name: UpdatePluginsAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpdatePluginsAsync_System_String_System_Int32_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.UpdatePluginsAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+    name: UpdatePluginsAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpdatePluginsAsync_System_String_System_Int32_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.UpdatePluginsResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.UpdatePluginsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  name: Task<UpdatePluginsResponse>
+  nameWithType: Task<UpdatePluginsResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.UpdatePluginsResponse>
+  nameWithType.vb: Task(Of UpdatePluginsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.UpdatePluginsResponse)
+  name.vb: Task(Of UpdatePluginsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.UpdatePluginsResponse
+    name: UpdatePluginsResponse
+    href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.UpdatePluginsResponse
+    name: UpdatePluginsResponse
+    href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_UpsertPromptTemplateAsync_System_String_System_Int32_RemoteAgent_Proto_PromptTemplateDefinition_System_String_System_Threading_CancellationToken_
+  name: UpsertPromptTemplateAsync
+  nameWithType: ServerApiClientAdapter.UpsertPromptTemplateAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.UpsertPromptTemplateAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpsertPromptTemplateAsync_System_String_System_Int32_RemoteAgent_Proto_PromptTemplateDefinition_System_String_System_Threading_CancellationToken_
+  name: UpsertPromptTemplateAsync(string, int, PromptTemplateDefinition, string, CancellationToken)
+  nameWithType: IServerApiClient.UpsertPromptTemplateAsync(string, int, PromptTemplateDefinition, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(string, int, RemoteAgent.Proto.PromptTemplateDefinition, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.UpsertPromptTemplateAsync(String, Integer, PromptTemplateDefinition, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(String, Integer, RemoteAgent.Proto.PromptTemplateDefinition, String, System.Threading.CancellationToken)
+  name.vb: UpsertPromptTemplateAsync(String, Integer, PromptTemplateDefinition, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+    name: UpsertPromptTemplateAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpsertPromptTemplateAsync_System_String_System_Int32_RemoteAgent_Proto_PromptTemplateDefinition_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.PromptTemplateDefinition
+    name: PromptTemplateDefinition
+    href: RemoteAgent.Proto.PromptTemplateDefinition.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.UpsertPromptTemplateAsync(System.String,System.Int32,RemoteAgent.Proto.PromptTemplateDefinition,System.String,System.Threading.CancellationToken)
+    name: UpsertPromptTemplateAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_UpsertPromptTemplateAsync_System_String_System_Int32_RemoteAgent_Proto_PromptTemplateDefinition_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.PromptTemplateDefinition
+    name: PromptTemplateDefinition
+    href: RemoteAgent.Proto.PromptTemplateDefinition.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Proto.PromptTemplateDefinition
+  commentId: T:RemoteAgent.Proto.PromptTemplateDefinition
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.PromptTemplateDefinition.html
+  name: PromptTemplateDefinition
+  nameWithType: PromptTemplateDefinition
+  fullName: RemoteAgent.Proto.PromptTemplateDefinition
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertPromptTemplateResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertPromptTemplateResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  name: Task<UpsertPromptTemplateResponse>
+  nameWithType: Task<UpsertPromptTemplateResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.UpsertPromptTemplateResponse>
+  nameWithType.vb: Task(Of UpsertPromptTemplateResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.UpsertPromptTemplateResponse)
+  name.vb: Task(Of UpsertPromptTemplateResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.UpsertPromptTemplateResponse
+    name: UpsertPromptTemplateResponse
+    href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.UpsertPromptTemplateResponse
+    name: UpsertPromptTemplateResponse
+    href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_DeletePromptTemplateAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: DeletePromptTemplateAsync
+  nameWithType: ServerApiClientAdapter.DeletePromptTemplateAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.DeletePromptTemplateAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_DeletePromptTemplateAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: DeletePromptTemplateAsync(string, int, string, string, CancellationToken)
+  nameWithType: IServerApiClient.DeletePromptTemplateAsync(string, int, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(string, int, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.DeletePromptTemplateAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: DeletePromptTemplateAsync(String, Integer, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: DeletePromptTemplateAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_DeletePromptTemplateAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.DeletePromptTemplateAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: DeletePromptTemplateAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_DeletePromptTemplateAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.DeletePromptTemplateResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.DeletePromptTemplateResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  name: Task<DeletePromptTemplateResponse>
+  nameWithType: Task<DeletePromptTemplateResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.DeletePromptTemplateResponse>
+  nameWithType.vb: Task(Of DeletePromptTemplateResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.DeletePromptTemplateResponse)
+  name.vb: Task(Of DeletePromptTemplateResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeletePromptTemplateResponse
+    name: DeletePromptTemplateResponse
+    href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeletePromptTemplateResponse
+    name: DeletePromptTemplateResponse
+    href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_GetAgentMcpServersAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: GetAgentMcpServersAsync
+  nameWithType: ServerApiClientAdapter.GetAgentMcpServersAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetAgentMcpServersAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetAgentMcpServersAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: GetAgentMcpServersAsync(string, int, string, string, CancellationToken)
+  nameWithType: IServerApiClient.GetAgentMcpServersAsync(string, int, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(string, int, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.GetAgentMcpServersAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: GetAgentMcpServersAsync(String, Integer, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: GetAgentMcpServersAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetAgentMcpServersAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetAgentMcpServersAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: GetAgentMcpServersAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetAgentMcpServersAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.GetAgentMcpServersResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.GetAgentMcpServersResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  name: Task<GetAgentMcpServersResponse>
+  nameWithType: Task<GetAgentMcpServersResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.GetAgentMcpServersResponse>
+  nameWithType.vb: Task(Of GetAgentMcpServersResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.GetAgentMcpServersResponse)
+  name.vb: Task(Of GetAgentMcpServersResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetAgentMcpServersResponse
+    name: GetAgentMcpServersResponse
+    href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetAgentMcpServersResponse
+    name: GetAgentMcpServersResponse
+    href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_SetAgentMcpServersAsync_System_String_System_Int32_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  name: SetAgentMcpServersAsync
+  nameWithType: ServerApiClientAdapter.SetAgentMcpServersAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.SetAgentMcpServersAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_SetAgentMcpServersAsync_System_String_System_Int32_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  name: SetAgentMcpServersAsync(string, int, string, IEnumerable<string>, string, CancellationToken)
+  nameWithType: IServerApiClient.SetAgentMcpServersAsync(string, int, string, IEnumerable<string>, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(string, int, string, System.Collections.Generic.IEnumerable<string>, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.SetAgentMcpServersAsync(String, Integer, String, IEnumerable(Of String), String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(String, Integer, String, System.Collections.Generic.IEnumerable(Of String), String, System.Threading.CancellationToken)
+  name.vb: SetAgentMcpServersAsync(String, Integer, String, IEnumerable(Of String), String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+    name: SetAgentMcpServersAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_SetAgentMcpServersAsync_System_String_System_Int32_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.SetAgentMcpServersAsync(System.String,System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+    name: SetAgentMcpServersAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_SetAgentMcpServersAsync_System_String_System_Int32_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.SetAgentMcpServersResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.SetAgentMcpServersResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  name: Task<SetAgentMcpServersResponse>
+  nameWithType: Task<SetAgentMcpServersResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.SetAgentMcpServersResponse>
+  nameWithType.vb: Task(Of SetAgentMcpServersResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.SetAgentMcpServersResponse)
+  name.vb: Task(Of SetAgentMcpServersResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.SetAgentMcpServersResponse
+    name: SetAgentMcpServersResponse
+    href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.SetAgentMcpServersResponse
+    name: SetAgentMcpServersResponse
+    href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_SeedSessionContextAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: SeedSessionContextAsync
+  nameWithType: ServerApiClientAdapter.SeedSessionContextAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.SeedSessionContextAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_SeedSessionContextAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: SeedSessionContextAsync(string, int, string, string, string, string, string, string, CancellationToken)
+  nameWithType: IServerApiClient.SeedSessionContextAsync(string, int, string, string, string, string, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(string, int, string, string, string, string, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.SeedSessionContextAsync(String, Integer, String, String, String, String, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(String, Integer, String, String, String, String, String, String, System.Threading.CancellationToken)
+  name.vb: SeedSessionContextAsync(String, Integer, String, String, String, String, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+    name: SeedSessionContextAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_SeedSessionContextAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.SeedSessionContextAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+    name: SeedSessionContextAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_SeedSessionContextAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.SeedSessionContextResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.SeedSessionContextResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  name: Task<SeedSessionContextResponse>
+  nameWithType: Task<SeedSessionContextResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.SeedSessionContextResponse>
+  nameWithType.vb: Task(Of SeedSessionContextResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.SeedSessionContextResponse)
+  name.vb: Task(Of SeedSessionContextResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.SeedSessionContextResponse
+    name: SeedSessionContextResponse
+    href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.SeedSessionContextResponse
+    name: SeedSessionContextResponse
+    href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  - name: )
+- uid: RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync
+  href: RemoteAgent.App.Logic.ServerApiClientAdapter.html#RemoteAgent_App_Logic_ServerApiClientAdapter_GetSessionCapacityAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: GetSessionCapacityAsync
+  nameWithType: ServerApiClientAdapter.GetSessionCapacityAsync
+  fullName: RemoteAgent.App.Logic.ServerApiClientAdapter.GetSessionCapacityAsync
+- uid: RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IServerApiClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetSessionCapacityAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  name: GetSessionCapacityAsync(string, int, string, string, CancellationToken)
+  nameWithType: IServerApiClient.GetSessionCapacityAsync(string, int, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(string, int, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IServerApiClient.GetSessionCapacityAsync(String, Integer, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(String, Integer, String, String, System.Threading.CancellationToken)
+  name.vb: GetSessionCapacityAsync(String, Integer, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: GetSessionCapacityAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetSessionCapacityAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IServerApiClient.GetSessionCapacityAsync(System.String,System.Int32,System.String,System.String,System.Threading.CancellationToken)
+    name: GetSessionCapacityAsync
+    href: RemoteAgent.App.Logic.IServerApiClient.html#RemoteAgent_App_Logic_IServerApiClient_GetSessionCapacityAsync_System_String_System_Int32_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task{RemoteAgent.App.Logic.SessionCapacitySnapshot}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.App.Logic.SessionCapacitySnapshot}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.App.Logic.SessionCapacitySnapshot.html
+  name: Task<SessionCapacitySnapshot>
+  nameWithType: Task<SessionCapacitySnapshot>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.App.Logic.SessionCapacitySnapshot>
+  nameWithType.vb: Task(Of SessionCapacitySnapshot)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.App.Logic.SessionCapacitySnapshot)
+  name.vb: Task(Of SessionCapacitySnapshot)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.SessionCapacitySnapshot
+    name: SessionCapacitySnapshot
+    href: RemoteAgent.App.Logic.SessionCapacitySnapshot.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.SessionCapacitySnapshot
+    name: SessionCapacitySnapshot
+    href: RemoteAgent.App.Logic.SessionCapacitySnapshot.html
+  - name: )

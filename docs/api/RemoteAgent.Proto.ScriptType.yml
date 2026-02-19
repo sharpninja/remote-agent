@@ -1,0 +1,178 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.ScriptType
+  commentId: T:RemoteAgent.Proto.ScriptType
+  id: ScriptType
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.ScriptType.Bash
+  - RemoteAgent.Proto.ScriptType.Pwsh
+  - RemoteAgent.Proto.ScriptType.Unspecified
+  langs:
+  - csharp
+  - vb
+  name: ScriptType
+  nameWithType: ScriptType
+  fullName: RemoteAgent.Proto.ScriptType
+  type: Enum
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ScriptType
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 210
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public enum ScriptType
+    content.vb: Public Enum ScriptType
+- uid: RemoteAgent.Proto.ScriptType.Unspecified
+  commentId: F:RemoteAgent.Proto.ScriptType.Unspecified
+  id: Unspecified
+  parent: RemoteAgent.Proto.ScriptType
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: ScriptType.Unspecified
+  fullName: RemoteAgent.Proto.ScriptType.Unspecified
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Unspecified
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 211
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("SCRIPT_TYPE_UNSPECIFIED")]
+
+      Unspecified = 0
+    return:
+      type: RemoteAgent.Proto.ScriptType
+    content.vb: >-
+      <OriginalName("SCRIPT_TYPE_UNSPECIFIED")>
+
+      Unspecified = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SCRIPT_TYPE_UNSPECIFIED
+- uid: RemoteAgent.Proto.ScriptType.Bash
+  commentId: F:RemoteAgent.Proto.ScriptType.Bash
+  id: Bash
+  parent: RemoteAgent.Proto.ScriptType
+  langs:
+  - csharp
+  - vb
+  name: Bash
+  nameWithType: ScriptType.Bash
+  fullName: RemoteAgent.Proto.ScriptType.Bash
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Bash
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 212
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("BASH")]
+
+      Bash = 1
+    return:
+      type: RemoteAgent.Proto.ScriptType
+    content.vb: >-
+      <OriginalName("BASH")>
+
+      Bash = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BASH
+- uid: RemoteAgent.Proto.ScriptType.Pwsh
+  commentId: F:RemoteAgent.Proto.ScriptType.Pwsh
+  id: Pwsh
+  parent: RemoteAgent.Proto.ScriptType
+  langs:
+  - csharp
+  - vb
+  name: Pwsh
+  nameWithType: ScriptType.Pwsh
+  fullName: RemoteAgent.Proto.ScriptType.Pwsh
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Pwsh
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 213
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("PWSH")]
+
+      Pwsh = 2
+    return:
+      type: RemoteAgent.Proto.ScriptType
+    content.vb: >-
+      <OriginalName("PWSH")>
+
+      Pwsh = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PWSH
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.Proto.ScriptType
+  commentId: T:RemoteAgent.Proto.ScriptType
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ScriptType.html
+  name: ScriptType
+  nameWithType: ScriptType
+  fullName: RemoteAgent.Proto.ScriptType

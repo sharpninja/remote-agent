@@ -1,0 +1,623 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Storage.RequestResultRecord
+  commentId: T:RemoteAgent.Service.Storage.RequestResultRecord
+  id: RequestResultRecord
+  parent: RemoteAgent.Service.Storage
+  children:
+  - RemoteAgent.Service.Storage.RequestResultRecord.Id
+  - RemoteAgent.Service.Storage.RequestResultRecord.IsRequest
+  - RemoteAgent.Service.Storage.RequestResultRecord.Kind
+  - RemoteAgent.Service.Storage.RequestResultRecord.MediaPath
+  - RemoteAgent.Service.Storage.RequestResultRecord.SessionId
+  - RemoteAgent.Service.Storage.RequestResultRecord.Summary
+  - RemoteAgent.Service.Storage.RequestResultRecord.Timestamp
+  langs:
+  - csharp
+  - vb
+  name: RequestResultRecord
+  nameWithType: RequestResultRecord
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RequestResultRecord
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Stored request or result row in LiteDB (TR-11.1). Used by <xref href="RemoteAgent.Service.Storage.LiteDbLocalStorage" data-throw-if-not-resolved="false"></xref> for session history and replay.
+  example: []
+  syntax:
+    content: public class RequestResultRecord
+    content.vb: Public Class RequestResultRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Id
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.Id
+  id: Id
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: RequestResultRecord.Id
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Id
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Id
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: LiteDB document id.
+  example: []
+  syntax:
+    content: public ObjectId Id { get; set; }
+    parameters: []
+    return:
+      type: LiteDB.ObjectId
+    content.vb: Public Property Id As ObjectId
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.Id*
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.SessionId
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.SessionId
+  id: SessionId
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: SessionId
+  nameWithType: RequestResultRecord.SessionId
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.SessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionId
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Session identifier.
+  example: []
+  syntax:
+    content: public string SessionId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SessionId As String
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.SessionId*
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.IsRequest
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.IsRequest
+  id: IsRequest
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: IsRequest
+  nameWithType: RequestResultRecord.IsRequest
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.IsRequest
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsRequest
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 17
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: True if from client (request), false if from server/agent (response).
+  example: []
+  syntax:
+    content: public bool IsRequest { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequest As Boolean
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.IsRequest*
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Kind
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.Kind
+  id: Kind
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: RequestResultRecord.Kind
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Kind
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Kind
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 20
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: 'Kind of entry: Text, ScriptRequest, MediaUpload, Output, Error, Event, Media.'
+  example: []
+  syntax:
+    content: public string Kind { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Kind As String
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.Kind*
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Summary
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.Summary
+  id: Summary
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: Summary
+  nameWithType: RequestResultRecord.Summary
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Summary
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Summary
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 23
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Truncated or key content (e.g. first 2000 chars).
+  example: []
+  syntax:
+    content: public string Summary { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Summary As String
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.Summary*
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Timestamp
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.Timestamp
+  id: Timestamp
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: RequestResultRecord.Timestamp
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Timestamp
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Timestamp
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 26
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: When the entry was logged.
+  example: []
+  syntax:
+    content: public DateTimeOffset Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property Timestamp As DateTimeOffset
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.Timestamp*
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.MediaPath
+  commentId: P:RemoteAgent.Service.Storage.RequestResultRecord.MediaPath
+  id: MediaPath
+  parent: RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: MediaPath
+  nameWithType: RequestResultRecord.MediaPath
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.MediaPath
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MediaPath
+    path: ../src/RemoteAgent.Service/Storage/RequestResultRecord.cs
+    startLine: 29
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Relative path under DataDirectory for media (TR-11.2).
+  example: []
+  syntax:
+    content: public string? MediaPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MediaPath As String
+  overload: RemoteAgent.Service.Storage.RequestResultRecord.MediaPath*
+references:
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  commentId: T:RemoteAgent.Service.Storage.LiteDbLocalStorage
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html
+  name: LiteDbLocalStorage
+  nameWithType: LiteDbLocalStorage
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage
+- uid: RemoteAgent.Service.Storage
+  commentId: N:RemoteAgent.Service.Storage
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Storage
+  nameWithType: RemoteAgent.Service.Storage
+  fullName: RemoteAgent.Service.Storage
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Id*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.Id
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_Id
+  name: Id
+  nameWithType: RequestResultRecord.Id
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Id
+- uid: LiteDB.ObjectId
+  commentId: T:LiteDB.ObjectId
+  parent: LiteDB
+  isExternal: true
+  name: ObjectId
+  nameWithType: ObjectId
+  fullName: LiteDB.ObjectId
+- uid: LiteDB
+  commentId: N:LiteDB
+  isExternal: true
+  name: LiteDB
+  nameWithType: LiteDB
+  fullName: LiteDB
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.SessionId*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.SessionId
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_SessionId
+  name: SessionId
+  nameWithType: RequestResultRecord.SessionId
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.SessionId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.IsRequest*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.IsRequest
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_IsRequest
+  name: IsRequest
+  nameWithType: RequestResultRecord.IsRequest
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.IsRequest
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Kind*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.Kind
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_Kind
+  name: Kind
+  nameWithType: RequestResultRecord.Kind
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Kind
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Summary*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.Summary
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_Summary
+  name: Summary
+  nameWithType: RequestResultRecord.Summary
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Summary
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.Timestamp*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.Timestamp
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_Timestamp
+  name: Timestamp
+  nameWithType: RequestResultRecord.Timestamp
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.Timestamp
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: RemoteAgent.Service.Storage.RequestResultRecord.MediaPath*
+  commentId: Overload:RemoteAgent.Service.Storage.RequestResultRecord.MediaPath
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html#RemoteAgent_Service_Storage_RequestResultRecord_MediaPath
+  name: MediaPath
+  nameWithType: RequestResultRecord.MediaPath
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord.MediaPath

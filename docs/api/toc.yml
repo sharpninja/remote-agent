@@ -1,0 +1,419 @@
+### YamlMime:TableOfContent
+items:
+- uid: RemoteAgent.Desktop
+  name: RemoteAgent.Desktop
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.App
+    name: App
+    type: Class
+- uid: RemoteAgent.Desktop.Behaviors
+  name: RemoteAgent.Desktop.Behaviors
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.Behaviors.DoubleTapBehavior
+    name: DoubleTapBehavior
+    type: Class
+  - uid: RemoteAgent.Desktop.Behaviors.NavigationViewItemInvokedBehavior
+    name: NavigationViewItemInvokedBehavior
+    type: Class
+- uid: RemoteAgent.Desktop.Handlers
+  name: RemoteAgent.Desktop.Handlers
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.Handlers.ApplyLocalServerActionHandler
+    name: ApplyLocalServerActionHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.BanPeerHandler
+    name: BanPeerHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.CheckLocalServerHandler
+    name: CheckLocalServerHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.CheckSessionCapacityHandler
+    name: CheckSessionCapacityHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.ClearAppLogHandler
+    name: ClearAppLogHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.CreateDesktopSessionHandler
+    name: CreateDesktopSessionHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.DeleteAuthUserHandler
+    name: DeleteAuthUserHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.DeleteMcpServerHandler
+    name: DeleteMcpServerHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.DeletePromptTemplateHandler
+    name: DeletePromptTemplateHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.ExpandStatusLogPanelHandler
+    name: ExpandStatusLogPanelHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.OpenNewSessionHandler
+    name: OpenNewSessionHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RefreshAuthUsersHandler
+    name: RefreshAuthUsersHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RefreshMcpRegistryHandler
+    name: RefreshMcpRegistryHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RefreshOpenSessionsHandler
+    name: RefreshOpenSessionsHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RefreshPluginsHandler
+    name: RefreshPluginsHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RefreshPromptTemplatesHandler
+    name: RefreshPromptTemplatesHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RefreshSecurityDataHandler
+    name: RefreshSecurityDataHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.RemoveServerRegistrationHandler
+    name: RemoveServerRegistrationHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SaveAgentMcpMappingHandler
+    name: SaveAgentMcpMappingHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SaveAppLogHandler
+    name: SaveAppLogHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SaveAuthUserHandler
+    name: SaveAuthUserHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SaveMcpServerHandler
+    name: SaveMcpServerHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SavePluginsHandler
+    name: SavePluginsHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SavePromptTemplateHandler
+    name: SavePromptTemplateHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SaveServerRegistrationHandler
+    name: SaveServerRegistrationHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SeedSessionContextHandler
+    name: SeedSessionContextHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SendDesktopMessageHandler
+    name: SendDesktopMessageHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler
+    name: SetManagementSectionHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.StartLogMonitoringHandler
+    name: StartLogMonitoringHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.TerminateDesktopSessionHandler
+    name: TerminateDesktopSessionHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.TerminateOpenServerSessionHandler
+    name: TerminateOpenServerSessionHandler
+    type: Class
+  - uid: RemoteAgent.Desktop.Handlers.UnbanPeerHandler
+    name: UnbanPeerHandler
+    type: Class
+- uid: RemoteAgent.Desktop.Infrastructure
+  name: RemoteAgent.Desktop.Infrastructure
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.Infrastructure.AbandonedServerSessionSnapshot
+    name: AbandonedServerSessionSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+    name: AppLogEntry
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.AuthUserSnapshot
+    name: AuthUserSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.AvaloniaConnectionSettingsDialogService
+    name: AvaloniaConnectionSettingsDialogService
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.AvaloniaFileSaveDialogService
+    name: AvaloniaFileSaveDialogService
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.BannedPeerSnapshot
+    name: BannedPeerSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectedPeerSnapshot
+    name: ConnectedPeerSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectionHistorySnapshot
+    name: ConnectionHistorySnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ConnectionSettingsDefaults
+    name: ConnectionSettingsDefaults
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.CurrentServerContext
+    name: CurrentServerContext
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.IAppLogStore
+    name: IAppLogStore
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IConnectionSettingsDialogService
+    name: IConnectionSettingsDialogService
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+    name: IFileSaveDialogService
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.ILocalServerManager
+    name: ILocalServerManager
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IServerCapacityClient
+    name: IServerCapacityClient
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+    name: IServerConnectionContext
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+    name: IServerRegistrationStore
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IServerWorkspaceFactory
+    name: IServerWorkspaceFactory
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient
+    name: IStructuredLogClient
+    type: Interface
+  - uid: RemoteAgent.Desktop.Infrastructure.InMemoryAppLogStore
+    name: InMemoryAppLogStore
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.LiteDbServerRegistrationStore
+    name: LiteDbServerRegistrationStore
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerActionResult
+    name: LocalServerActionResult
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerManager
+    name: LocalServerManager
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.LocalServerProbeResult
+    name: LocalServerProbeResult
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.OpenServerSessionSnapshot
+    name: OpenServerSessionSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.PluginConfigurationSnapshot
+    name: PluginConfigurationSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ServerCapacityClient
+    name: ServerCapacityClient
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+    name: ServerRegistration
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ServerWorkspaceFactory
+    name: ServerWorkspaceFactory
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.ServerWorkspaceLease
+    name: ServerWorkspaceLease
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot
+    name: SessionCapacitySnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.StructuredLogClient
+    name: StructuredLogClient
+    type: Class
+  - uid: RemoteAgent.Desktop.Infrastructure.TerminateSessionResponse
+    name: TerminateSessionResponse
+    type: Class
+- uid: RemoteAgent.Desktop.Logging
+  name: RemoteAgent.Desktop.Logging
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.Logging.AppLoggerProvider
+    name: AppLoggerProvider
+    type: Class
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogFilter
+    name: DesktopStructuredLogFilter
+    type: Class
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    type: Class
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogStore
+    name: DesktopStructuredLogStore
+    type: Class
+  - uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+    name: IDesktopStructuredLogStore
+    type: Interface
+- uid: RemoteAgent.Desktop.Requests
+  name: RemoteAgent.Desktop.Requests
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.Requests.ApplyLocalServerActionRequest
+    name: ApplyLocalServerActionRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.AuthUsersData
+    name: AuthUsersData
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.BanPeerRequest
+    name: BanPeerRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.CheckLocalServerRequest
+    name: CheckLocalServerRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.CheckSessionCapacityRequest
+    name: CheckSessionCapacityRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.ClearAppLogRequest
+    name: ClearAppLogRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.CreateDesktopSessionRequest
+    name: CreateDesktopSessionRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.DeleteAuthUserRequest
+    name: DeleteAuthUserRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.DeleteMcpServerRequest
+    name: DeleteMcpServerRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.DeletePromptTemplateRequest
+    name: DeletePromptTemplateRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.ExpandStatusLogPanelRequest
+    name: ExpandStatusLogPanelRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.McpRegistryData
+    name: McpRegistryData
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.OpenNewSessionRequest
+    name: OpenNewSessionRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.PromptTemplatesData
+    name: PromptTemplatesData
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshAuthUsersRequest
+    name: RefreshAuthUsersRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshMcpRegistryRequest
+    name: RefreshMcpRegistryRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshOpenSessionsData
+    name: RefreshOpenSessionsData
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshOpenSessionsRequest
+    name: RefreshOpenSessionsRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshPluginsRequest
+    name: RefreshPluginsRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshPromptTemplatesRequest
+    name: RefreshPromptTemplatesRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RefreshSecurityDataRequest
+    name: RefreshSecurityDataRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.RemoveServerRegistrationRequest
+    name: RemoveServerRegistrationRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SaveAgentMcpMappingRequest
+    name: SaveAgentMcpMappingRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SaveAppLogRequest
+    name: SaveAppLogRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SaveAuthUserRequest
+    name: SaveAuthUserRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SaveMcpServerRequest
+    name: SaveMcpServerRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SavePluginsRequest
+    name: SavePluginsRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SavePromptTemplateRequest
+    name: SavePromptTemplateRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SaveServerRegistrationRequest
+    name: SaveServerRegistrationRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SecurityDataSnapshot
+    name: SecurityDataSnapshot
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SeedSessionContextRequest
+    name: SeedSessionContextRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SendDesktopMessageRequest
+    name: SendDesktopMessageRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.StartLogMonitoringRequest
+    name: StartLogMonitoringRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.StartLogMonitoringResult
+    name: StartLogMonitoringResult
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.TerminateDesktopSessionRequest
+    name: TerminateDesktopSessionRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.TerminateOpenServerSessionRequest
+    name: TerminateOpenServerSessionRequest
+    type: Class
+  - uid: RemoteAgent.Desktop.Requests.UnbanPeerRequest
+    name: UnbanPeerRequest
+    type: Class
+- uid: RemoteAgent.Desktop.ViewModels
+  name: RemoteAgent.Desktop.ViewModels
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.ViewModels.AppLogViewModel
+    name: AppLogViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+    name: AuthUsersViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+    name: ConnectionSettingsDialogViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+    name: DesktopSessionViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+    name: DesktopSessionViewModelFactory
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+    name: IDesktopSessionViewModelFactory
+    type: Interface
+  - uid: RemoteAgent.Desktop.ViewModels.MainWindowViewModel
+    name: MainWindowViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+    name: McpRegistryDesktopViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.PluginsViewModel
+    name: PluginsViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+    name: PromptTemplatesViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+    name: SecurityViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+    name: ServerWorkspaceViewModel
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.StatusLogEntry
+    name: StatusLogEntry
+    type: Class
+  - uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+    name: StructuredLogsViewModel
+    type: Class
+- uid: RemoteAgent.Desktop.Views
+  name: RemoteAgent.Desktop.Views
+  type: Namespace
+  items:
+  - uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialog
+    name: ConnectionSettingsDialog
+    type: Class
+  - uid: RemoteAgent.Desktop.Views.ConnectionSettingsDialogResult
+    name: ConnectionSettingsDialogResult
+    type: Class
+  - uid: RemoteAgent.Desktop.Views.MainWindow
+    name: MainWindow
+    type: Class
+memberLayout: SamePage

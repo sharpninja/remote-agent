@@ -773,7 +773,7 @@ To implement a new CLI agent:
 5. **Test**: Verify agent behavior independently and with server
 6. **Deploy**: Use Docker or direct deployment as appropriate
 
-For questions or support, see the [main README](/README.md) or open an issue on GitHub.
+For questions or support, see the [main README](https://github.com/sharpninja/remote-agent#readme) or open an issue on GitHub.
 
 ## References
 

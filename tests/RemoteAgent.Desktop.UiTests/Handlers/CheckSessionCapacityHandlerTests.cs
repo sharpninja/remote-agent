@@ -6,8 +6,17 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="CheckSessionCapacityHandler"/>. FR-13.7, FR-13.8; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.7")]
+[Trait("Requirement", "FR-13.8")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class CheckSessionCapacityHandlerTests
 {
+    // FR-13.7, FR-13.8, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenSnapshotIsNull_ShouldReturnFail()
     {
@@ -21,6 +30,7 @@ public class CheckSessionCapacityHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-13.7, FR-13.8, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenSnapshotReturned_ShouldPopulateCapacitySummary()
     {
@@ -36,6 +46,7 @@ public class CheckSessionCapacityHandlerTests
         workspace.CapacitySummary.Should().Contain("active");
     }
 
+    // FR-13.7, FR-13.8, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenCannotCreateSession_ShouldReturnOkWithReasonInStatus()
     {

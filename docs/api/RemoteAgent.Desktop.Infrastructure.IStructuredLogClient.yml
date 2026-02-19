@@ -1,0 +1,414 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IStructuredLogClient
+  id: IStructuredLogClient
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync(System.String,System.Int32,System.Int64,System.Int32,System.String,System.Threading.CancellationToken,System.Boolean)
+  - RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync(System.String,System.Int32,System.Int64,System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IStructuredLogClient
+  nameWithType: IStructuredLogClient
+  fullName: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IStructuredLogClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IStructuredLogClient
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IStructuredLogClient.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public interface IStructuredLogClient
+    content.vb: Public Interface IStructuredLogClient
+- uid: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync(System.String,System.Int32,System.Int64,System.Int32,System.String,System.Threading.CancellationToken,System.Boolean)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync(System.String,System.Int32,System.Int64,System.Int32,System.String,System.Threading.CancellationToken,System.Boolean)
+  id: GetStructuredLogsSnapshotAsync(System.String,System.Int32,System.Int64,System.Int32,System.String,System.Threading.CancellationToken,System.Boolean)
+  parent: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient
+  langs:
+  - csharp
+  - vb
+  name: GetStructuredLogsSnapshotAsync(string, int, long, int, string?, CancellationToken, bool)
+  nameWithType: IStructuredLogClient.GetStructuredLogsSnapshotAsync(string, int, long, int, string?, CancellationToken, bool)
+  fullName: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync(string, int, long, int, string?, System.Threading.CancellationToken, bool)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IStructuredLogClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetStructuredLogsSnapshotAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IStructuredLogClient.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: Task<StructuredLogsSnapshotResponse?> GetStructuredLogsSnapshotAsync(string host, int port, long fromOffset = 0, int limit = 5000, string? apiKey = null, CancellationToken cancellationToken = default, bool throwOnError = false)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: fromOffset
+      type: System.Int64
+    - id: limit
+      type: System.Int32
+    - id: apiKey
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    - id: throwOnError
+      type: System.Boolean
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.StructuredLogsSnapshotResponse}
+    content.vb: Function GetStructuredLogsSnapshotAsync(host As String, port As Integer, fromOffset As Long = 0, limit As Integer = 5000, apiKey As String = Nothing, cancellationToken As CancellationToken = Nothing, throwOnError As Boolean = False) As Task(Of StructuredLogsSnapshotResponse)
+  overload: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync*
+  nameWithType.vb: IStructuredLogClient.GetStructuredLogsSnapshotAsync(String, Integer, Long, Integer, String, CancellationToken, Boolean)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync(String, Integer, Long, Integer, String, System.Threading.CancellationToken, Boolean)
+  name.vb: GetStructuredLogsSnapshotAsync(String, Integer, Long, Integer, String, CancellationToken, Boolean)
+- uid: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync(System.String,System.Int32,System.Int64,System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync(System.String,System.Int32,System.Int64,System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)
+  id: MonitorStructuredLogsAsync(System.String,System.Int32,System.Int64,System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient
+  langs:
+  - csharp
+  - vb
+  name: MonitorStructuredLogsAsync(string, int, long, Func<StructuredLogEntry, Task>, string?, CancellationToken)
+  nameWithType: IStructuredLogClient.MonitorStructuredLogsAsync(string, int, long, Func<StructuredLogEntry, Task>, string?, CancellationToken)
+  fullName: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync(string, int, long, System.Func<RemoteAgent.Proto.StructuredLogEntry, System.Threading.Tasks.Task>, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IStructuredLogClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MonitorStructuredLogsAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IStructuredLogClient.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: Task MonitorStructuredLogsAsync(string host, int port, long fromOffset, Func<StructuredLogEntry, Task> onEntry, string? apiKey = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: fromOffset
+      type: System.Int64
+    - id: onEntry
+      type: System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task}
+    - id: apiKey
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function MonitorStructuredLogsAsync(host As String, port As Integer, fromOffset As Long, onEntry As Func(Of StructuredLogEntry, Task), apiKey As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync*
+  nameWithType.vb: IStructuredLogClient.MonitorStructuredLogsAsync(String, Integer, Long, Func(Of StructuredLogEntry, Task), String, CancellationToken)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync(String, Integer, Long, System.Func(Of RemoteAgent.Proto.StructuredLogEntry, System.Threading.Tasks.Task), String, System.Threading.CancellationToken)
+  name.vb: MonitorStructuredLogsAsync(String, Integer, Long, Func(Of StructuredLogEntry, Task), String, CancellationToken)
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync
+  href: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.html#RemoteAgent_Desktop_Infrastructure_IStructuredLogClient_GetStructuredLogsSnapshotAsync_System_String_System_Int32_System_Int64_System_Int32_System_String_System_Threading_CancellationToken_System_Boolean_
+  name: GetStructuredLogsSnapshotAsync
+  nameWithType: IStructuredLogClient.GetStructuredLogsSnapshotAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.GetStructuredLogsSnapshotAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.StructuredLogsSnapshotResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.StructuredLogsSnapshotResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<StructuredLogsSnapshotResponse>
+  nameWithType: Task<StructuredLogsSnapshotResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.StructuredLogsSnapshotResponse>
+  nameWithType.vb: Task(Of StructuredLogsSnapshotResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.StructuredLogsSnapshotResponse)
+  name.vb: Task(Of StructuredLogsSnapshotResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotResponse
+    name: StructuredLogsSnapshotResponse
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotResponse
+    name: StructuredLogsSnapshotResponse
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync
+  href: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.html#RemoteAgent_Desktop_Infrastructure_IStructuredLogClient_MonitorStructuredLogsAsync_System_String_System_Int32_System_Int64_System_Func_RemoteAgent_Proto_StructuredLogEntry_System_Threading_Tasks_Task__System_String_System_Threading_CancellationToken_
+  name: MonitorStructuredLogsAsync
+  nameWithType: IStructuredLogClient.MonitorStructuredLogsAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.IStructuredLogClient.MonitorStructuredLogsAsync
+- uid: System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task}
+  commentId: T:System.Func{RemoteAgent.Proto.StructuredLogEntry,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<StructuredLogEntry, Task>
+  nameWithType: Func<StructuredLogEntry, Task>
+  fullName: System.Func<RemoteAgent.Proto.StructuredLogEntry, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of StructuredLogEntry, Task)
+  fullName.vb: System.Func(Of RemoteAgent.Proto.StructuredLogEntry, System.Threading.Tasks.Task)
+  name.vb: Func(Of StructuredLogEntry, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogEntry
+    name: StructuredLogEntry
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogEntry
+    name: StructuredLogEntry
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

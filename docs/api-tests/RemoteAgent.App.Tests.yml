@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests
+  commentId: N:RemoteAgent.App.Tests
+  id: RemoteAgent.App.Tests
+  children:
+  - RemoteAgent.App.Tests.ChatMessageTests
+  - RemoteAgent.App.Tests.MarkdownFormatTests
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  - RemoteAgent.App.Tests.MobileHandlerTests
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  - RemoteAgent.App.Tests.ServerApiClientErrorHandlingTests
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Tests
+  nameWithType: RemoteAgent.App.Tests
+  fullName: RemoteAgent.App.Tests
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Tests
+references:
+- uid: RemoteAgent.App.Tests.ChatMessageTests
+  commentId: T:RemoteAgent.App.Tests.ChatMessageTests
+  href: RemoteAgent.App.Tests.ChatMessageTests.html
+  name: ChatMessageTests
+  nameWithType: ChatMessageTests
+  fullName: RemoteAgent.App.Tests.ChatMessageTests
+- uid: RemoteAgent.App.Tests.MarkdownFormatTests
+  commentId: T:RemoteAgent.App.Tests.MarkdownFormatTests
+  href: RemoteAgent.App.Tests.MarkdownFormatTests.html
+  name: MarkdownFormatTests
+  nameWithType: MarkdownFormatTests
+  fullName: RemoteAgent.App.Tests.MarkdownFormatTests
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  commentId: T:RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html
+  name: McpRegistryPageViewModelTests
+  nameWithType: McpRegistryPageViewModelTests
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+- uid: RemoteAgent.App.Tests.MobileHandlerTests
+  commentId: T:RemoteAgent.App.Tests.MobileHandlerTests
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html
+  name: MobileHandlerTests
+  nameWithType: MobileHandlerTests
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests
+  commentId: T:RemoteAgent.App.Tests.PromptTemplateEngineTests
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests.html
+  name: PromptTemplateEngineTests
+  nameWithType: PromptTemplateEngineTests
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  commentId: T:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html
+  name: PromptTemplateEngineTests_EdgeCases
+  nameWithType: PromptTemplateEngineTests_EdgeCases
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+- uid: RemoteAgent.App.Tests.ServerApiClientErrorHandlingTests
+  commentId: T:RemoteAgent.App.Tests.ServerApiClientErrorHandlingTests
+  href: RemoteAgent.App.Tests.ServerApiClientErrorHandlingTests.html
+  name: ServerApiClientErrorHandlingTests
+  nameWithType: ServerApiClientErrorHandlingTests
+  fullName: RemoteAgent.App.Tests.ServerApiClientErrorHandlingTests

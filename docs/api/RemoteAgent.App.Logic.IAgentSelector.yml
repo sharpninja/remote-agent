@@ -1,0 +1,217 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.IAgentSelector
+  commentId: T:RemoteAgent.App.Logic.IAgentSelector
+  id: IAgentSelector
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.IAgentSelector.SelectAsync(RemoteAgent.Proto.ServerInfoResponse)
+  langs:
+  - csharp
+  - vb
+  name: IAgentSelector
+  nameWithType: IAgentSelector
+  fullName: RemoteAgent.App.Logic.IAgentSelector
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IAgentSelector
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public interface IAgentSelector
+    content.vb: Public Interface IAgentSelector
+- uid: RemoteAgent.App.Logic.IAgentSelector.SelectAsync(RemoteAgent.Proto.ServerInfoResponse)
+  commentId: M:RemoteAgent.App.Logic.IAgentSelector.SelectAsync(RemoteAgent.Proto.ServerInfoResponse)
+  id: SelectAsync(RemoteAgent.Proto.ServerInfoResponse)
+  parent: RemoteAgent.App.Logic.IAgentSelector
+  langs:
+  - csharp
+  - vb
+  name: SelectAsync(ServerInfoResponse)
+  nameWithType: IAgentSelector.SelectAsync(ServerInfoResponse)
+  fullName: RemoteAgent.App.Logic.IAgentSelector.SelectAsync(RemoteAgent.Proto.ServerInfoResponse)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectAsync
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task<string?> SelectAsync(ServerInfoResponse serverInfo)
+    parameters:
+    - id: serverInfo
+      type: RemoteAgent.Proto.ServerInfoResponse
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Function SelectAsync(serverInfo As ServerInfoResponse) As Task(Of String)
+  overload: RemoteAgent.App.Logic.IAgentSelector.SelectAsync*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.IAgentSelector.SelectAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IAgentSelector.SelectAsync
+  href: RemoteAgent.App.Logic.IAgentSelector.html#RemoteAgent_App_Logic_IAgentSelector_SelectAsync_RemoteAgent_Proto_ServerInfoResponse_
+  name: SelectAsync
+  nameWithType: IAgentSelector.SelectAsync
+  fullName: RemoteAgent.App.Logic.IAgentSelector.SelectAsync
+- uid: RemoteAgent.Proto.ServerInfoResponse
+  commentId: T:RemoteAgent.Proto.ServerInfoResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerInfoResponse.html
+  name: ServerInfoResponse
+  nameWithType: ServerInfoResponse
+  fullName: RemoteAgent.Proto.ServerInfoResponse
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

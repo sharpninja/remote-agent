@@ -1,0 +1,1352 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.GetPluginsRequest
+  commentId: T:RemoteAgent.Proto.GetPluginsRequest
+  id: GetPluginsRequest
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.GetPluginsRequest.#ctor
+  - RemoteAgent.Proto.GetPluginsRequest.#ctor(RemoteAgent.Proto.GetPluginsRequest)
+  - RemoteAgent.Proto.GetPluginsRequest.CalculateSize
+  - RemoteAgent.Proto.GetPluginsRequest.Clone
+  - RemoteAgent.Proto.GetPluginsRequest.Descriptor
+  - RemoteAgent.Proto.GetPluginsRequest.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  - RemoteAgent.Proto.GetPluginsRequest.Equals(System.Object)
+  - RemoteAgent.Proto.GetPluginsRequest.GetHashCode
+  - RemoteAgent.Proto.GetPluginsRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  - RemoteAgent.Proto.GetPluginsRequest.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  - RemoteAgent.Proto.GetPluginsRequest.Parser
+  - RemoteAgent.Proto.GetPluginsRequest.ToString
+  - RemoteAgent.Proto.GetPluginsRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: GetPluginsRequest
+  nameWithType: GetPluginsRequest
+  fullName: RemoteAgent.Proto.GetPluginsRequest
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetPluginsRequest
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4176
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: 'public sealed class GetPluginsRequest : IMessage<GetPluginsRequest>, IEquatable<GetPluginsRequest>, IDeepCloneable<GetPluginsRequest>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class GetPluginsRequest Implements IMessage(Of GetPluginsRequest), IEquatable(Of GetPluginsRequest), IDeepCloneable(Of GetPluginsRequest), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}
+  - System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Proto.GetPluginsRequest.Parser
+  commentId: P:RemoteAgent.Proto.GetPluginsRequest.Parser
+  id: Parser
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: GetPluginsRequest.Parser
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Parser
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Parser
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4184
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageParser<GetPluginsRequest> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{RemoteAgent.Proto.GetPluginsRequest}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of GetPluginsRequest)
+  overload: RemoteAgent.Proto.GetPluginsRequest.Parser*
+- uid: RemoteAgent.Proto.GetPluginsRequest.Descriptor
+  commentId: P:RemoteAgent.Proto.GetPluginsRequest.Descriptor
+  id: Descriptor
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: GetPluginsRequest.Descriptor
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Descriptor
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Descriptor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4188
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: RemoteAgent.Proto.GetPluginsRequest.Descriptor*
+- uid: RemoteAgent.Proto.GetPluginsRequest.#ctor
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: GetPluginsRequest()
+  nameWithType: GetPluginsRequest.GetPluginsRequest()
+  fullName: RemoteAgent.Proto.GetPluginsRequest.GetPluginsRequest()
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4200
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public GetPluginsRequest()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Proto.GetPluginsRequest.#ctor*
+  nameWithType.vb: GetPluginsRequest.New()
+  fullName.vb: RemoteAgent.Proto.GetPluginsRequest.New()
+  name.vb: New()
+- uid: RemoteAgent.Proto.GetPluginsRequest.#ctor(RemoteAgent.Proto.GetPluginsRequest)
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.#ctor(RemoteAgent.Proto.GetPluginsRequest)
+  id: '#ctor(RemoteAgent.Proto.GetPluginsRequest)'
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: GetPluginsRequest(GetPluginsRequest)
+  nameWithType: GetPluginsRequest.GetPluginsRequest(GetPluginsRequest)
+  fullName: RemoteAgent.Proto.GetPluginsRequest.GetPluginsRequest(RemoteAgent.Proto.GetPluginsRequest)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4208
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public GetPluginsRequest(GetPluginsRequest other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.GetPluginsRequest
+    content.vb: Public Sub New(other As GetPluginsRequest)
+  overload: RemoteAgent.Proto.GetPluginsRequest.#ctor*
+  nameWithType.vb: GetPluginsRequest.New(GetPluginsRequest)
+  fullName.vb: RemoteAgent.Proto.GetPluginsRequest.New(RemoteAgent.Proto.GetPluginsRequest)
+  name.vb: New(GetPluginsRequest)
+- uid: RemoteAgent.Proto.GetPluginsRequest.Clone
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.Clone
+  id: Clone
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: GetPluginsRequest.Clone()
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Clone
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4214
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public GetPluginsRequest Clone()
+    return:
+      type: RemoteAgent.Proto.GetPluginsRequest
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As GetPluginsRequest
+  overload: RemoteAgent.Proto.GetPluginsRequest.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}.Clone
+- uid: RemoteAgent.Proto.GetPluginsRequest.Equals(System.Object)
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: GetPluginsRequest.Equals(object)
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4220
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: RemoteAgent.Proto.GetPluginsRequest.Equals*
+  nameWithType.vb: GetPluginsRequest.Equals(Object)
+  fullName.vb: RemoteAgent.Proto.GetPluginsRequest.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RemoteAgent.Proto.GetPluginsRequest.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  id: Equals(RemoteAgent.Proto.GetPluginsRequest)
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: Equals(GetPluginsRequest)
+  nameWithType: GetPluginsRequest.Equals(GetPluginsRequest)
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4226
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(GetPluginsRequest other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.GetPluginsRequest
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As GetPluginsRequest) As Boolean
+  overload: RemoteAgent.Proto.GetPluginsRequest.Equals*
+  implements:
+  - System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}.Equals(RemoteAgent.Proto.GetPluginsRequest)
+- uid: RemoteAgent.Proto.GetPluginsRequest.GetHashCode
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.GetHashCode
+  id: GetHashCode
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: GetPluginsRequest.GetHashCode()
+  fullName: RemoteAgent.Proto.GetPluginsRequest.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetHashCode
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4238
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: RemoteAgent.Proto.GetPluginsRequest.GetHashCode*
+- uid: RemoteAgent.Proto.GetPluginsRequest.ToString
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.ToString
+  id: ToString
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: GetPluginsRequest.ToString()
+  fullName: RemoteAgent.Proto.GetPluginsRequest.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4248
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Proto.GetPluginsRequest.ToString*
+- uid: RemoteAgent.Proto.GetPluginsRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: GetPluginsRequest.WriteTo(CodedOutputStream)
+  fullName: RemoteAgent.Proto.GetPluginsRequest.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: WriteTo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4254
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: RemoteAgent.Proto.GetPluginsRequest.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: RemoteAgent.Proto.GetPluginsRequest.CalculateSize
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.CalculateSize
+  id: CalculateSize
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: GetPluginsRequest.CalculateSize()
+  fullName: RemoteAgent.Proto.GetPluginsRequest.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CalculateSize
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4276
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: RemoteAgent.Proto.GetPluginsRequest.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: RemoteAgent.Proto.GetPluginsRequest.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  id: MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(GetPluginsRequest)
+  nameWithType: GetPluginsRequest.MergeFrom(GetPluginsRequest)
+  fullName: RemoteAgent.Proto.GetPluginsRequest.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4286
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(GetPluginsRequest other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.GetPluginsRequest
+    content.vb: Public Sub MergeFrom(other As GetPluginsRequest)
+  overload: RemoteAgent.Proto.GetPluginsRequest.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+- uid: RemoteAgent.Proto.GetPluginsRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:RemoteAgent.Proto.GetPluginsRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: RemoteAgent.Proto.GetPluginsRequest
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: GetPluginsRequest.MergeFrom(CodedInputStream)
+  fullName: RemoteAgent.Proto.GetPluginsRequest.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 4295
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: RemoteAgent.Proto.GetPluginsRequest.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}
+  commentId: T:Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: IMessage<GetPluginsRequest>
+  nameWithType: IMessage<GetPluginsRequest>
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.GetPluginsRequest>
+  nameWithType.vb: IMessage(Of GetPluginsRequest)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.GetPluginsRequest)
+  name.vb: IMessage(Of GetPluginsRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}
+  commentId: T:System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<GetPluginsRequest>
+  nameWithType: IEquatable<GetPluginsRequest>
+  fullName: System.IEquatable<RemoteAgent.Proto.GetPluginsRequest>
+  nameWithType.vb: IEquatable(Of GetPluginsRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.GetPluginsRequest)
+  name.vb: IEquatable(Of GetPluginsRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}
+  commentId: T:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: IDeepCloneable<GetPluginsRequest>
+  nameWithType: IDeepCloneable<GetPluginsRequest>
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.GetPluginsRequest>
+  nameWithType.vb: IDeepCloneable(Of GetPluginsRequest)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.GetPluginsRequest)
+  name.vb: IDeepCloneable(Of GetPluginsRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.GetPluginsRequest.Parser*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.Parser
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_Parser
+  name: Parser
+  nameWithType: GetPluginsRequest.Parser
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Parser
+- uid: Google.Protobuf.MessageParser{RemoteAgent.Proto.GetPluginsRequest}
+  commentId: T:Google.Protobuf.MessageParser{RemoteAgent.Proto.GetPluginsRequest}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: MessageParser<GetPluginsRequest>
+  nameWithType: MessageParser<GetPluginsRequest>
+  fullName: Google.Protobuf.MessageParser<RemoteAgent.Proto.GetPluginsRequest>
+  nameWithType.vb: MessageParser(Of GetPluginsRequest)
+  fullName.vb: Google.Protobuf.MessageParser(Of RemoteAgent.Proto.GetPluginsRequest)
+  name.vb: MessageParser(Of GetPluginsRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.GetPluginsRequest.Descriptor*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.Descriptor
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_Descriptor
+  name: Descriptor
+  nameWithType: GetPluginsRequest.Descriptor
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: RemoteAgent.Proto.GetPluginsRequest.#ctor*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.#ctor
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest__ctor
+  name: GetPluginsRequest
+  nameWithType: GetPluginsRequest.GetPluginsRequest
+  fullName: RemoteAgent.Proto.GetPluginsRequest.GetPluginsRequest
+  nameWithType.vb: GetPluginsRequest.New
+  fullName.vb: RemoteAgent.Proto.GetPluginsRequest.New
+  name.vb: New
+- uid: RemoteAgent.Proto.GetPluginsRequest
+  commentId: T:RemoteAgent.Proto.GetPluginsRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: GetPluginsRequest
+  nameWithType: GetPluginsRequest
+  fullName: RemoteAgent.Proto.GetPluginsRequest
+- uid: RemoteAgent.Proto.GetPluginsRequest.Clone*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.Clone
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_Clone
+  name: Clone
+  nameWithType: GetPluginsRequest.Clone
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Clone
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}.Clone
+  parent: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<GetPluginsRequest>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.GetPluginsRequest>.Clone()
+  nameWithType.vb: IDeepCloneable(Of GetPluginsRequest).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.GetPluginsRequest).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.GetPluginsRequest}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RemoteAgent.Proto.GetPluginsRequest.Equals*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.Equals
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_Equals_System_Object_
+  name: Equals
+  nameWithType: GetPluginsRequest.Equals
+  fullName: RemoteAgent.Proto.GetPluginsRequest.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  commentId: M:System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  parent: System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(GetPluginsRequest)
+  nameWithType: IEquatable<GetPluginsRequest>.Equals(GetPluginsRequest)
+  fullName: System.IEquatable<RemoteAgent.Proto.GetPluginsRequest>.Equals(RemoteAgent.Proto.GetPluginsRequest)
+  nameWithType.vb: IEquatable(Of GetPluginsRequest).Equals(GetPluginsRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.GetPluginsRequest).Equals(RemoteAgent.Proto.GetPluginsRequest)
+  spec.csharp:
+  - uid: System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}.Equals(RemoteAgent.Proto.GetPluginsRequest)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RemoteAgent.Proto.GetPluginsRequest}.Equals(RemoteAgent.Proto.GetPluginsRequest)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.GetPluginsRequest.GetHashCode*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.GetHashCode
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_GetHashCode
+  name: GetHashCode
+  nameWithType: GetPluginsRequest.GetHashCode
+  fullName: RemoteAgent.Proto.GetPluginsRequest.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.GetPluginsRequest.ToString*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.ToString
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_ToString
+  name: ToString
+  nameWithType: GetPluginsRequest.ToString
+  fullName: RemoteAgent.Proto.GetPluginsRequest.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Proto.GetPluginsRequest.WriteTo*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.WriteTo
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: GetPluginsRequest.WriteTo
+  fullName: RemoteAgent.Proto.GetPluginsRequest.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: RemoteAgent.Proto.GetPluginsRequest.CalculateSize*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.CalculateSize
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_CalculateSize
+  name: CalculateSize
+  nameWithType: GetPluginsRequest.CalculateSize
+  fullName: RemoteAgent.Proto.GetPluginsRequest.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.GetPluginsRequest.MergeFrom*
+  commentId: Overload:RemoteAgent.Proto.GetPluginsRequest.MergeFrom
+  href: RemoteAgent.Proto.GetPluginsRequest.html#RemoteAgent_Proto_GetPluginsRequest_MergeFrom_RemoteAgent_Proto_GetPluginsRequest_
+  name: MergeFrom
+  nameWithType: GetPluginsRequest.MergeFrom
+  fullName: RemoteAgent.Proto.GetPluginsRequest.MergeFrom
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  commentId: M:Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  parent: Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: MergeFrom(GetPluginsRequest)
+  nameWithType: IMessage<GetPluginsRequest>.MergeFrom(GetPluginsRequest)
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.GetPluginsRequest>.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  nameWithType.vb: IMessage(Of GetPluginsRequest).MergeFrom(GetPluginsRequest)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.GetPluginsRequest).MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.GetPluginsRequest}.MergeFrom(RemoteAgent.Proto.GetPluginsRequest)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.GetPluginsRequest
+    name: GetPluginsRequest
+    href: RemoteAgent.Proto.GetPluginsRequest.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

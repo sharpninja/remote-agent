@@ -5,8 +5,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="StartLogMonitoringHandler"/>. FR-12.11; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.11")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class StartLogMonitoringHandlerTests
 {
+    // FR-12.11, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenHostEmpty_ShouldReturnFail()
     {
@@ -21,6 +29,7 @@ public class StartLogMonitoringHandlerTests
         result.ErrorMessage.Should().Contain("Host");
     }
 
+    // FR-12.11, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenPortInvalid_ShouldReturnFail()
     {
@@ -34,6 +43,7 @@ public class StartLogMonitoringHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.11, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenSnapshotNull_ShouldReturnOkWithOriginalOffset()
     {
@@ -48,6 +58,7 @@ public class StartLogMonitoringHandlerTests
         result.Data!.NextOffset.Should().Be(42);
     }
 
+    // FR-12.11, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenClientThrows_ShouldReturnFail()
     {
@@ -62,6 +73,7 @@ public class StartLogMonitoringHandlerTests
         result.ErrorMessage.Should().Contain("Log snapshot failed");
     }
 
+    // FR-12.11, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenSuccessful_ShouldSetLogMonitorStatus()
     {

@@ -5,8 +5,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="BanPeerHandler"/>. FR-13.4; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.4")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class BanPeerHandlerTests
 {
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenBanSucceeds_ShouldSetStatusContainingBanned()
     {
@@ -21,6 +29,7 @@ public class BanPeerHandlerTests
         workspace.StatusText.Should().Contain("banned");
     }
 
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenBanFails_ShouldSetStatusWithFailure()
     {
@@ -34,6 +43,7 @@ public class BanPeerHandlerTests
         workspace.StatusText.Should().Contain("Failed");
     }
 
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldRefreshSecurityCollections()
     {

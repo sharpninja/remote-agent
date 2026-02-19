@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  id: RemoteAgent.Service.Agents
+  children:
+  - RemoteAgent.Service.Agents.CopilotWindowsAgentRunner
+  - RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  - RemoteAgent.Service.Agents.IAgentRunner
+  - RemoteAgent.Service.Agents.IAgentRunnerFactory
+  - RemoteAgent.Service.Agents.IAgentSession
+  - RemoteAgent.Service.Agents.ProcessAgentRunner
+  - RemoteAgent.Service.Agents.ProcessAgentSession
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Service
+references:
+- uid: RemoteAgent.Service.Agents.CopilotWindowsAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.CopilotWindowsAgentRunner
+  href: RemoteAgent.Service.Agents.CopilotWindowsAgentRunner.html
+  name: CopilotWindowsAgentRunner
+  nameWithType: CopilotWindowsAgentRunner
+  fullName: RemoteAgent.Service.Agents.CopilotWindowsAgentRunner
+- uid: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  commentId: T:RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+  href: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory.html
+  name: DefaultAgentRunnerFactory
+  nameWithType: DefaultAgentRunnerFactory
+  fullName: RemoteAgent.Service.Agents.DefaultAgentRunnerFactory
+- uid: RemoteAgent.Service.Agents.IAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunner
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentRunner.html
+  name: IAgentRunner
+  nameWithType: IAgentRunner
+  fullName: RemoteAgent.Service.Agents.IAgentRunner
+- uid: RemoteAgent.Service.Agents.IAgentRunnerFactory
+  commentId: T:RemoteAgent.Service.Agents.IAgentRunnerFactory
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentRunnerFactory.html
+  name: IAgentRunnerFactory
+  nameWithType: IAgentRunnerFactory
+  fullName: RemoteAgent.Service.Agents.IAgentRunnerFactory
+- uid: RemoteAgent.Service.Agents.IAgentSession
+  commentId: T:RemoteAgent.Service.Agents.IAgentSession
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentSession.html
+  name: IAgentSession
+  nameWithType: IAgentSession
+  fullName: RemoteAgent.Service.Agents.IAgentSession
+- uid: RemoteAgent.Service.Agents.ProcessAgentRunner
+  commentId: T:RemoteAgent.Service.Agents.ProcessAgentRunner
+  href: RemoteAgent.Service.Agents.ProcessAgentRunner.html
+  name: ProcessAgentRunner
+  nameWithType: ProcessAgentRunner
+  fullName: RemoteAgent.Service.Agents.ProcessAgentRunner
+- uid: RemoteAgent.Service.Agents.ProcessAgentSession
+  commentId: T:RemoteAgent.Service.Agents.ProcessAgentSession
+  href: RemoteAgent.Service.Agents.ProcessAgentSession.html
+  name: ProcessAgentSession
+  nameWithType: ProcessAgentSession
+  fullName: RemoteAgent.Service.Agents.ProcessAgentSession
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html

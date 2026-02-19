@@ -1,0 +1,704 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  commentId: T:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  id: RemoteAgentWebApplicationFactory
+  parent: RemoteAgent.Service.IntegrationTests
+  children:
+  - RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.#ctor(System.String,System.String,System.String,System.String,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  - RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress
+  - RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull
+  - RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler
+  - RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgentWebApplicationFactory
+  nameWithType: RemoteAgentWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RemoteAgentWebApplicationFactory
+    path: ../tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+    startLine: 20
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  summary: In-process test host for gRPC integration tests with configurable Agent settings.
+  example: []
+  syntax:
+    content: 'public class RemoteAgentWebApplicationFactory : IDisposable'
+    content.vb: Public Class RemoteAgentWebApplicationFactory Implements IDisposable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+  - RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+  - RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+  - RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+  - RemoteAgent.Service.IntegrationTests.NoCommandWebApplicationFactory
+  - RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+  - RemoteAgent.Service.IntegrationTests.SleepWebApplicationFactory
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.#ctor(System.String,System.String,System.String,System.String,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  commentId: M:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.#ctor(System.String,System.String,System.String,System.String,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})
+  id: '#ctor(System.String,System.String,System.String,System.String,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})'
+  parent: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgentWebApplicationFactory(string?, string?, string?, string?, bool, int?, int?, int?, int?, int?, int?)
+  nameWithType: RemoteAgentWebApplicationFactory.RemoteAgentWebApplicationFactory(string?, string?, string?, string?, bool, int?, int?, int?, int?, int?, int?)
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.RemoteAgentWebApplicationFactory(string?, string?, string?, string?, bool, int?, int?, int?, int?, int?, int?)
+  type: Constructor
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+    startLine: 28
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public RemoteAgentWebApplicationFactory(string? command = null, string? arguments = null, string? runnerId = null, string? apiKey = null, bool allowUnauthenticatedLoopback = true, int? maxConcurrentConnectionsPerPeer = null, int? maxConnectionAttemptsPerWindow = null, int? maxClientMessagesPerWindow = null, int? clientMessageWindowSeconds = null, int? maxConcurrentSessions = null, int? processAgentMaxConcurrentSessions = null)
+    parameters:
+    - id: command
+      type: System.String
+    - id: arguments
+      type: System.String
+    - id: runnerId
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: allowUnauthenticatedLoopback
+      type: System.Boolean
+    - id: maxConcurrentConnectionsPerPeer
+      type: System.Nullable{System.Int32}
+    - id: maxConnectionAttemptsPerWindow
+      type: System.Nullable{System.Int32}
+    - id: maxClientMessagesPerWindow
+      type: System.Nullable{System.Int32}
+    - id: clientMessageWindowSeconds
+      type: System.Nullable{System.Int32}
+    - id: maxConcurrentSessions
+      type: System.Nullable{System.Int32}
+    - id: processAgentMaxConcurrentSessions
+      type: System.Nullable{System.Int32}
+    content.vb: Public Sub New(command As String = Nothing, arguments As String = Nothing, runnerId As String = Nothing, apiKey As String = Nothing, allowUnauthenticatedLoopback As Boolean = True, maxConcurrentConnectionsPerPeer As Integer? = Nothing, maxConnectionAttemptsPerWindow As Integer? = Nothing, maxClientMessagesPerWindow As Integer? = Nothing, clientMessageWindowSeconds As Integer? = Nothing, maxConcurrentSessions As Integer? = Nothing, processAgentMaxConcurrentSessions As Integer? = Nothing)
+  overload: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.#ctor*
+  nameWithType.vb: RemoteAgentWebApplicationFactory.New(String, String, String, String, Boolean, Integer?, Integer?, Integer?, Integer?, Integer?, Integer?)
+  fullName.vb: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.New(String, String, String, String, Boolean, Integer?, Integer?, Integer?, Integer?, Integer?, Integer?)
+  name.vb: New(String, String, String, String, Boolean, Integer?, Integer?, Integer?, Integer?, Integer?, Integer?)
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler
+  commentId: M:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler
+  id: CreateHandler
+  parent: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateHandler()
+  nameWithType: RemoteAgentWebApplicationFactory.CreateHandler()
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreateHandler
+    path: ../tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+    startLine: 123
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public HttpMessageHandler CreateHandler()
+    return:
+      type: System.Net.Http.HttpMessageHandler
+    content.vb: Public Function CreateHandler() As HttpMessageHandler
+  overload: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler*
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress
+  commentId: P:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress
+  id: BaseAddress
+  parent: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  langs:
+  - csharp
+  - vb
+  name: BaseAddress
+  nameWithType: RemoteAgentWebApplicationFactory.BaseAddress
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress
+  type: Property
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: BaseAddress
+    path: ../tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+    startLine: 125
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public Uri BaseAddress { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public ReadOnly Property BaseAddress As Uri
+  overload: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress*
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull
+  commentId: M:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull
+  id: CreateAuthHeadersOrNull
+  parent: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateAuthHeadersOrNull()
+  nameWithType: RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull()
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreateAuthHeadersOrNull
+    path: ../tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+    startLine: 127
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public Metadata CreateAuthHeadersOrNull()
+    return:
+      type: Grpc.Core.Metadata
+    content.vb: Public Function CreateAuthHeadersOrNull() As Metadata
+  overload: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull*
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose
+  commentId: M:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose
+  id: Dispose
+  parent: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: RemoteAgentWebApplicationFactory.Dispose()
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Dispose
+    path: ../tests/RemoteAgent.Service.IntegrationTests/RemoteAgentWebApplicationFactory.cs
+    startLine: 134
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: RemoteAgent.Service.IntegrationTests
+  commentId: N:RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.IntegrationTests
+  nameWithType: RemoteAgent.Service.IntegrationTests
+  fullName: RemoteAgent.Service.IntegrationTests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.IntegrationTests
+    name: IntegrationTests
+    href: RemoteAgent.Service.IntegrationTests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.IntegrationTests
+    name: IntegrationTests
+    href: RemoteAgent.Service.IntegrationTests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.#ctor*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.#ctor
+  href: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.html#RemoteAgent_Service_IntegrationTests_RemoteAgentWebApplicationFactory__ctor_System_String_System_String_System_String_System_String_System_Boolean_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__
+  name: RemoteAgentWebApplicationFactory
+  nameWithType: RemoteAgentWebApplicationFactory.RemoteAgentWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.RemoteAgentWebApplicationFactory
+  nameWithType.vb: RemoteAgentWebApplicationFactory.New
+  fullName.vb: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler
+  href: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.html#RemoteAgent_Service_IntegrationTests_RemoteAgentWebApplicationFactory_CreateHandler
+  name: CreateHandler
+  nameWithType: RemoteAgentWebApplicationFactory.CreateHandler
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateHandler
+- uid: System.Net.Http.HttpMessageHandler
+  commentId: T:System.Net.Http.HttpMessageHandler
+  parent: System.Net.Http
+  isExternal: true
+  name: HttpMessageHandler
+  nameWithType: HttpMessageHandler
+  fullName: System.Net.Http.HttpMessageHandler
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress
+  href: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.html#RemoteAgent_Service_IntegrationTests_RemoteAgentWebApplicationFactory_BaseAddress
+  name: BaseAddress
+  nameWithType: RemoteAgentWebApplicationFactory.BaseAddress
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.BaseAddress
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull
+  href: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.html#RemoteAgent_Service_IntegrationTests_RemoteAgentWebApplicationFactory_CreateAuthHeadersOrNull
+  name: CreateAuthHeadersOrNull
+  nameWithType: RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.CreateAuthHeadersOrNull
+- uid: Grpc.Core.Metadata
+  commentId: T:Grpc.Core.Metadata
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/Metadata.cs
+  name: Metadata
+  nameWithType: Metadata
+  fullName: Grpc.Core.Metadata
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose
+  href: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.html#RemoteAgent_Service_IntegrationTests_RemoteAgentWebApplicationFactory_Dispose
+  name: Dispose
+  nameWithType: RemoteAgentWebApplicationFactory.Dispose
+  fullName: RemoteAgent.Service.IntegrationTests.RemoteAgentWebApplicationFactory.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

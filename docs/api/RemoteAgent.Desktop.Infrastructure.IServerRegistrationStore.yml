@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+  id: IServerRegistrationStore
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete(System.String)
+  - RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll
+  - RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  langs:
+  - csharp
+  - vb
+  name: IServerRegistrationStore
+  nameWithType: IServerRegistrationStore
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IServerRegistrationStore
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+    startLine: 4
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public interface IServerRegistrationStore
+    content.vb: Public Interface IServerRegistrationStore
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll
+  id: GetAll
+  parent: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+  langs:
+  - csharp
+  - vb
+  name: GetAll()
+  nameWithType: IServerRegistrationStore.GetAll()
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetAll
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: IReadOnlyList<ServerRegistration> GetAll()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ServerRegistration}
+    content.vb: Function GetAll() As IReadOnlyList(Of ServerRegistration)
+  overload: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  id: Upsert(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  parent: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+  langs:
+  - csharp
+  - vb
+  name: Upsert(ServerRegistration)
+  nameWithType: IServerRegistrationStore.Upsert(ServerRegistration)
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert(RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Upsert
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: ServerRegistration Upsert(ServerRegistration registration)
+    parameters:
+    - id: registration
+      type: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+    return:
+      type: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+    content.vb: Function Upsert(registration As ServerRegistration) As ServerRegistration
+  overload: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert*
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete(System.String)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete(System.String)
+  id: Delete(System.String)
+  parent: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore
+  langs:
+  - csharp
+  - vb
+  name: Delete(string)
+  nameWithType: IServerRegistrationStore.Delete(string)
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Delete
+    path: ../src/RemoteAgent.Desktop/Infrastructure/ServerRegistrationStore.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: bool Delete(string serverId)
+    parameters:
+    - id: serverId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Function Delete(serverId As String) As Boolean
+  overload: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete*
+  nameWithType.vb: IServerRegistrationStore.Delete(String)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete(String)
+  name.vb: Delete(String)
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll
+  href: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.html#RemoteAgent_Desktop_Infrastructure_IServerRegistrationStore_GetAll
+  name: GetAll
+  nameWithType: IServerRegistrationStore.GetAll
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.GetAll
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ServerRegistration}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Desktop.Infrastructure.ServerRegistration}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: RemoteAgent.Desktop.Infrastructure.ServerRegistration.html
+  name: IReadOnlyList<ServerRegistration>
+  nameWithType: IReadOnlyList<ServerRegistration>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Desktop.Infrastructure.ServerRegistration>
+  nameWithType.vb: IReadOnlyList(Of ServerRegistration)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Desktop.Infrastructure.ServerRegistration)
+  name.vb: IReadOnlyList(Of ServerRegistration)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+    name: ServerRegistration
+    href: RemoteAgent.Desktop.Infrastructure.ServerRegistration.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+    name: ServerRegistration
+    href: RemoteAgent.Desktop.Infrastructure.ServerRegistration.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert
+  href: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.html#RemoteAgent_Desktop_Infrastructure_IServerRegistrationStore_Upsert_RemoteAgent_Desktop_Infrastructure_ServerRegistration_
+  name: Upsert
+  nameWithType: IServerRegistrationStore.Upsert
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Upsert
+- uid: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+  commentId: T:RemoteAgent.Desktop.Infrastructure.ServerRegistration
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.ServerRegistration.html
+  name: ServerRegistration
+  nameWithType: ServerRegistration
+  fullName: RemoteAgent.Desktop.Infrastructure.ServerRegistration
+- uid: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete
+  href: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.html#RemoteAgent_Desktop_Infrastructure_IServerRegistrationStore_Delete_System_String_
+  name: Delete
+  nameWithType: IServerRegistrationStore.Delete
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerRegistrationStore.Delete
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

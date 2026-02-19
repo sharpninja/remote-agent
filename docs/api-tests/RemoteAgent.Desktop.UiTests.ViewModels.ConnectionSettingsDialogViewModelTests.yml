@@ -1,0 +1,917 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  commentId: T:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  id: ConnectionSettingsDialogViewModelTests
+  parent: RemoteAgent.Desktop.UiTests.ViewModels
+  children:
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues
+  langs:
+  - csharp
+  - vb
+  name: ConnectionSettingsDialogViewModelTests
+  nameWithType: ConnectionSettingsDialogViewModelTests
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionSettingsDialogViewModelTests
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  summary: Tests for <xref href="RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel" data-throw-if-not-resolved="false"></xref>. FR-12.1, FR-12.2; TR-18.1, TR-18.2, TR-18.3, TR-18.4.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-12.1")]
+
+      [Trait("Requirement", "FR-12.2")]
+
+      [Trait("Requirement", "TR-18.1")]
+
+      [Trait("Requirement", "TR-18.2")]
+
+      [Trait("Requirement", "TR-18.3")]
+
+      [Trait("Requirement", "TR-18.4")]
+
+      public class ConnectionSettingsDialogViewModelTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-12.1")>
+
+      <Trait("Requirement", "FR-12.2")>
+
+      <Trait("Requirement", "TR-18.1")>
+
+      <Trait("Requirement", "TR-18.2")>
+
+      <Trait("Requirement", "TR-18.3")>
+
+      <Trait("Requirement", "TR-18.4")>
+
+      Public Class ConnectionSettingsDialogViewModelTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.4
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults
+  id: Constructor_ShouldPopulateFromDefaults
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_ShouldPopulateFromDefaults()
+  nameWithType: ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Constructor_ShouldPopulateFromDefaults
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 28
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Constructor_ShouldPopulateFromDefaults()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Constructor_ShouldPopulateFromDefaults()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst
+  id: Constructor_WhenModeNotInList_ShouldSelectFirst
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_WhenModeNotInList_ShouldSelectFirst()
+  nameWithType: ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Constructor_WhenModeNotInList_ShouldSelectFirst
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 44
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Constructor_WhenModeNotInList_ShouldSelectFirst()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Constructor_WhenModeNotInList_ShouldSelectFirst()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  id: SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithValidInputs_ShouldSetIsAccepted()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 54
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithValidInputs_ShouldSetIsAccepted()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithValidInputs_ShouldSetIsAccepted()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  id: SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithEmptyHost_ShouldSetValidationMessage()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 69
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithEmptyHost_ShouldSetValidationMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithEmptyHost_ShouldSetValidationMessage()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  id: SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithInvalidPort_ShouldSetValidationMessage()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 81
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithInvalidPort_ShouldSetValidationMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithInvalidPort_ShouldSetValidationMessage()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  id: SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithPortZero_ShouldSetValidationMessage()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithPortZero_ShouldSetValidationMessage
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 93
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithPortZero_ShouldSetValidationMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithPortZero_ShouldSetValidationMessage()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  id: SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 105
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  id: SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithEmptyMode_ShouldSetValidationMessage()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 116
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithEmptyMode_ShouldSetValidationMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithEmptyMode_ShouldSetValidationMessage()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  id: SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage()
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 130
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  id: CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose()
+  nameWithType: ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 142
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose()
+    content.vb: >-
+      <Fact>
+
+      Public Sub CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues
+  id: ToResult_ShouldReturnTrimmedValues
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: ToResult_ShouldReturnTrimmedValues()
+  nameWithType: ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToResult_ShouldReturnTrimmedValues
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 156
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void ToResult_ShouldReturnTrimmedValues()
+    content.vb: >-
+      <Fact>
+
+      Public Sub ToResult_ShouldReturnTrimmedValues()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost
+  commentId: M:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost
+  id: PropertyChanged_ShouldFireForHost
+  parent: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged_ShouldFireForHost()
+  nameWithType: ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost()
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged_ShouldFireForHost
+    path: ../tests/RemoteAgent.Desktop.UiTests/ViewModels/ConnectionSettingsDialogViewModelTests.cs
+    startLine: 168
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.ViewModels
+  syntax:
+    content: >-
+      [Fact]
+
+      public void PropertyChanged_ShouldFireForHost()
+    content.vb: >-
+      <Fact>
+
+      Public Sub PropertyChanged_ShouldFireForHost()
+  overload: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  name: ConnectionSettingsDialogViewModel
+  nameWithType: ConnectionSettingsDialogViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+- uid: RemoteAgent.Desktop.UiTests.ViewModels
+  commentId: N:RemoteAgent.Desktop.UiTests.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.UiTests.ViewModels
+  nameWithType: RemoteAgent.Desktop.UiTests.ViewModels
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.UiTests.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.UiTests.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_Constructor_ShouldPopulateFromDefaults
+  name: Constructor_ShouldPopulateFromDefaults
+  nameWithType: ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_ShouldPopulateFromDefaults
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_Constructor_WhenModeNotInList_ShouldSelectFirst
+  name: Constructor_WhenModeNotInList_ShouldSelectFirst
+  nameWithType: ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.Constructor_WhenModeNotInList_ShouldSelectFirst
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  name: SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithValidInputs_ShouldSetIsAccepted
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  name: SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyHost_ShouldSetValidationMessage
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  name: SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithInvalidPort_ShouldSetValidationMessage
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  name: SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortZero_ShouldSetValidationMessage
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  name: SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  name: SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyMode_ShouldSetValidationMessage
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  name: SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  nameWithType: ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  name: CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  nameWithType: ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_ToResult_ShouldReturnTrimmedValues
+  name: ToResult_ShouldReturnTrimmedValues
+  nameWithType: ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.ToResult_ShouldReturnTrimmedValues
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html#RemoteAgent_Desktop_UiTests_ViewModels_ConnectionSettingsDialogViewModelTests_PropertyChanged_ShouldFireForHost
+  name: PropertyChanged_ShouldFireForHost
+  nameWithType: ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.PropertyChanged_ShouldFireForHost

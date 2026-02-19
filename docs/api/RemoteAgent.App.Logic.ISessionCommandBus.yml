@@ -1,0 +1,334 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ISessionCommandBus
+  commentId: T:RemoteAgent.App.Logic.ISessionCommandBus
+  id: ISessionCommandBus
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+  - RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+  - RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+  - RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ISessionCommandBus
+  nameWithType: ISessionCommandBus
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ISessionCommandBus
+    path: ../src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: >-
+    Abstracts session-related operations invoked from shell/flyout UI, decoupling 
+
+    AppShell from direct page references.
+  example: []
+  syntax:
+    content: public interface ISessionCommandBus
+    content.vb: Public Interface ISessionCommandBus
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+  id: StartNewSession
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  langs:
+  - csharp
+  - vb
+  name: StartNewSession()
+  nameWithType: ISessionCommandBus.StartNewSession()
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartNewSession
+    path: ../src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: void StartNewSession()
+    content.vb: Sub StartNewSession()
+  overload: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession*
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(System.String)
+  id: SelectSession(System.String)
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  langs:
+  - csharp
+  - vb
+  name: SelectSession(string?)
+  nameWithType: ISessionCommandBus.SelectSession(string?)
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectSession
+    path: ../src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: bool SelectSession(string? sessionId)
+    parameters:
+    - id: sessionId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Function SelectSession(sessionId As String) As Boolean
+  overload: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession*
+  nameWithType.vb: ISessionCommandBus.SelectSession(String)
+  fullName.vb: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession(String)
+  name.vb: SelectSession(String)
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync(System.String)
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync(System.String)
+  id: TerminateSessionAsync(System.String)
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  langs:
+  - csharp
+  - vb
+  name: TerminateSessionAsync(string?)
+  nameWithType: ISessionCommandBus.TerminateSessionAsync(string?)
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateSessionAsync
+    path: ../src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task<bool> TerminateSessionAsync(string? sessionId)
+    parameters:
+    - id: sessionId
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Function TerminateSessionAsync(sessionId As String) As Task(Of Boolean)
+  overload: RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync*
+  nameWithType.vb: ISessionCommandBus.TerminateSessionAsync(String)
+  fullName.vb: RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync(String)
+  name.vb: TerminateSessionAsync(String)
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+  commentId: M:RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+  id: GetCurrentSessionId
+  parent: RemoteAgent.App.Logic.ISessionCommandBus
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentSessionId()
+  nameWithType: ISessionCommandBus.GetCurrentSessionId()
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetCurrentSessionId
+    path: ../src/RemoteAgent.App.Logic/ISessionCommandBus.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: string? GetCurrentSessionId()
+    return:
+      type: System.String
+    content.vb: Function GetCurrentSessionId() As String
+  overload: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId*
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession*
+  commentId: Overload:RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+  href: RemoteAgent.App.Logic.ISessionCommandBus.html#RemoteAgent_App_Logic_ISessionCommandBus_StartNewSession
+  name: StartNewSession
+  nameWithType: ISessionCommandBus.StartNewSession
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.StartNewSession
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession*
+  commentId: Overload:RemoteAgent.App.Logic.ISessionCommandBus.SelectSession
+  href: RemoteAgent.App.Logic.ISessionCommandBus.html#RemoteAgent_App_Logic_ISessionCommandBus_SelectSession_System_String_
+  name: SelectSession
+  nameWithType: ISessionCommandBus.SelectSession
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.SelectSession
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync
+  href: RemoteAgent.App.Logic.ISessionCommandBus.html#RemoteAgent_App_Logic_ISessionCommandBus_TerminateSessionAsync_System_String_
+  name: TerminateSessionAsync
+  nameWithType: ISessionCommandBus.TerminateSessionAsync
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.TerminateSessionAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId*
+  commentId: Overload:RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId
+  href: RemoteAgent.App.Logic.ISessionCommandBus.html#RemoteAgent_App_Logic_ISessionCommandBus_GetCurrentSessionId
+  name: GetCurrentSessionId
+  nameWithType: ISessionCommandBus.GetCurrentSessionId
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus.GetCurrentSessionId

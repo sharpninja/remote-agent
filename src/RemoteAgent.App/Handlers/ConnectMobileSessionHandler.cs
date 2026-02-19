@@ -118,7 +118,7 @@ public sealed class ConnectMobileSessionHandler(
             await gateway.ConnectAsync(host, port, sessionToConnect.SessionId, sessionToConnect.AgentId, ct: ct);
             preferences.Set(PrefServerHost, host ?? "");
             preferences.Set(PrefServerPort, port.ToString());
-            workspace.Host = host;
+            workspace.Host = host ?? "";
             workspace.Port = port.ToString();
             workspace.Status = $"Connected ({selectedMode}).";
             workspace.NotifyConnectionStateChanged();
@@ -126,7 +126,6 @@ public sealed class ConnectMobileSessionHandler(
         catch (Exception ex)
         {
             workspace.Status = $"Failed: {ex.Message}";
-            workspace.NotifyConnectionStateChanged();
             return CommandResult.Fail(workspace.Status);
         }
 

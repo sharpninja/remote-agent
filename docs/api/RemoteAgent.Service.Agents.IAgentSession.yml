@@ -1,0 +1,495 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Agents.IAgentSession
+  commentId: T:RemoteAgent.Service.Agents.IAgentSession
+  id: IAgentSession
+  parent: RemoteAgent.Service.Agents
+  children:
+  - RemoteAgent.Service.Agents.IAgentSession.HasExited
+  - RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  - RemoteAgent.Service.Agents.IAgentSession.StandardError
+  - RemoteAgent.Service.Agents.IAgentSession.StandardOutput
+  - RemoteAgent.Service.Agents.IAgentSession.Stop
+  langs:
+  - csharp
+  - vb
+  name: IAgentSession
+  nameWithType: IAgentSession
+  fullName: RemoteAgent.Service.Agents.IAgentSession
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentSession.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IAgentSession
+    path: ../src/RemoteAgent.Service/Agents/IAgentSession.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Represents a running agent session (FR-7.1). Input is sent to the agent; stdout/stderr are read via the exposed readers (TR-3.3, TR-3.4).
+  remarks: Call <xref href="RemoteAgent.Service.Agents.IAgentSession.Stop" data-throw-if-not-resolved="false"></xref> or <xref href="System.IDisposable.Dispose" data-throw-if-not-resolved="false"></xref> when the session ends (e.g. client disconnect).
+  example:
+  - >-
+    <pre><code class="lang-csharp">string? line;
+
+    while ((line = await session.StandardOutput.ReadLineAsync(ct)) != null)
+        await responseStream.WriteAsync(new ServerMessage { Output = line }, ct);</code></pre>
+  syntax:
+    content: 'public interface IAgentSession : IDisposable'
+    content.vb: Public Interface IAgentSession Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  id: SendInputAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  langs:
+  - csharp
+  - vb
+  name: SendInputAsync(string, CancellationToken)
+  nameWithType: IAgentSession.SendInputAsync(string, CancellationToken)
+  fullName: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentSession.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendInputAsync
+    path: ../src/RemoteAgent.Service/Agents/IAgentSession.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Sends a line of text to the agent's stdin (FR-1.3, TR-3.3).
+  example: []
+  syntax:
+    content: Task SendInputAsync(string text, CancellationToken cancellationToken = default)
+    parameters:
+    - id: text
+      type: System.String
+      description: Line to forward to the agent.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendInputAsync(text As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync*
+  nameWithType.vb: IAgentSession.SendInputAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(String, System.Threading.CancellationToken)
+  name.vb: SendInputAsync(String, CancellationToken)
+- uid: RemoteAgent.Service.Agents.IAgentSession.StandardOutput
+  commentId: P:RemoteAgent.Service.Agents.IAgentSession.StandardOutput
+  id: StandardOutput
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  langs:
+  - csharp
+  - vb
+  name: StandardOutput
+  nameWithType: IAgentSession.StandardOutput
+  fullName: RemoteAgent.Service.Agents.IAgentSession.StandardOutput
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentSession.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StandardOutput
+    path: ../src/RemoteAgent.Service/Agents/IAgentSession.cs
+    startLine: 19
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Agent stdout. Read line-by-line with <code>ReadLineAsync</code> and stream to the client (FR-1.4).
+  example: []
+  syntax:
+    content: StreamReader StandardOutput { get; }
+    parameters: []
+    return:
+      type: System.IO.StreamReader
+    content.vb: ReadOnly Property StandardOutput As StreamReader
+  overload: RemoteAgent.Service.Agents.IAgentSession.StandardOutput*
+- uid: RemoteAgent.Service.Agents.IAgentSession.StandardError
+  commentId: P:RemoteAgent.Service.Agents.IAgentSession.StandardError
+  id: StandardError
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  langs:
+  - csharp
+  - vb
+  name: StandardError
+  nameWithType: IAgentSession.StandardError
+  fullName: RemoteAgent.Service.Agents.IAgentSession.StandardError
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentSession.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StandardError
+    path: ../src/RemoteAgent.Service/Agents/IAgentSession.cs
+    startLine: 22
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Agent stderr. Read line-by-line and send as <code>ServerMessage.Error</code> (TR-3.4).
+  example: []
+  syntax:
+    content: StreamReader StandardError { get; }
+    parameters: []
+    return:
+      type: System.IO.StreamReader
+    content.vb: ReadOnly Property StandardError As StreamReader
+  overload: RemoteAgent.Service.Agents.IAgentSession.StandardError*
+- uid: RemoteAgent.Service.Agents.IAgentSession.HasExited
+  commentId: P:RemoteAgent.Service.Agents.IAgentSession.HasExited
+  id: HasExited
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  langs:
+  - csharp
+  - vb
+  name: HasExited
+  nameWithType: IAgentSession.HasExited
+  fullName: RemoteAgent.Service.Agents.IAgentSession.HasExited
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentSession.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HasExited
+    path: ../src/RemoteAgent.Service/Agents/IAgentSession.cs
+    startLine: 25
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Whether the agent process has exited. When true, do not call <xref href="RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool HasExited { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property HasExited As Boolean
+  overload: RemoteAgent.Service.Agents.IAgentSession.HasExited*
+- uid: RemoteAgent.Service.Agents.IAgentSession.Stop
+  commentId: M:RemoteAgent.Service.Agents.IAgentSession.Stop
+  id: Stop
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: IAgentSession.Stop()
+  fullName: RemoteAgent.Service.Agents.IAgentSession.Stop()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Agents/IAgentSession.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Stop
+    path: ../src/RemoteAgent.Service/Agents/IAgentSession.cs
+    startLine: 28
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Agents
+  summary: Stops the agent (e.g. kill process). Call on disconnect (FR-7.1).
+  example: []
+  syntax:
+    content: void Stop()
+    content.vb: Sub [Stop]()
+  overload: RemoteAgent.Service.Agents.IAgentSession.Stop*
+references:
+- uid: RemoteAgent.Service.Agents.IAgentSession.Stop
+  commentId: M:RemoteAgent.Service.Agents.IAgentSession.Stop
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_Stop
+  name: Stop()
+  nameWithType: IAgentSession.Stop()
+  fullName: RemoteAgent.Service.Agents.IAgentSession.Stop()
+  spec.csharp:
+  - uid: RemoteAgent.Service.Agents.IAgentSession.Stop
+    name: Stop
+    href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Agents.IAgentSession.Stop
+    name: Stop
+    href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_Stop
+  - name: (
+  - name: )
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: RemoteAgent.Service.Agents
+  commentId: N:RemoteAgent.Service.Agents
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Agents
+  nameWithType: RemoteAgent.Service.Agents
+  fullName: RemoteAgent.Service.Agents
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Agents
+    name: Agents
+    href: RemoteAgent.Service.Agents.html
+- uid: RemoteAgent.Service.Agents.IAgentSession
+  commentId: T:RemoteAgent.Service.Agents.IAgentSession
+  parent: RemoteAgent.Service.Agents
+  href: RemoteAgent.Service.Agents.IAgentSession.html
+  name: IAgentSession
+  nameWithType: IAgentSession
+  fullName: RemoteAgent.Service.Agents.IAgentSession
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentSession.SendInputAsync
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  name: SendInputAsync
+  nameWithType: IAgentSession.SendInputAsync
+  fullName: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Service.Agents.IAgentSession.StandardOutput*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentSession.StandardOutput
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_StandardOutput
+  name: StandardOutput
+  nameWithType: IAgentSession.StandardOutput
+  fullName: RemoteAgent.Service.Agents.IAgentSession.StandardOutput
+- uid: System.IO.StreamReader
+  commentId: T:System.IO.StreamReader
+  parent: System.IO
+  isExternal: true
+  name: StreamReader
+  nameWithType: StreamReader
+  fullName: System.IO.StreamReader
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+- uid: RemoteAgent.Service.Agents.IAgentSession.StandardError*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentSession.StandardError
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_StandardError
+  name: StandardError
+  nameWithType: IAgentSession.StandardError
+  fullName: RemoteAgent.Service.Agents.IAgentSession.StandardError
+- uid: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.Service.Agents.IAgentSession
+  isExternal: true
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  name: SendInputAsync(string, CancellationToken)
+  nameWithType: IAgentSession.SendInputAsync(string, CancellationToken)
+  fullName: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentSession.SendInputAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(String, System.Threading.CancellationToken)
+  name.vb: SendInputAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+    name: SendInputAsync
+    href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Service.Agents.IAgentSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+    name: SendInputAsync
+    href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Service.Agents.IAgentSession.HasExited*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentSession.HasExited
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_HasExited
+  name: HasExited
+  nameWithType: IAgentSession.HasExited
+  fullName: RemoteAgent.Service.Agents.IAgentSession.HasExited
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Service.Agents.IAgentSession.Stop*
+  commentId: Overload:RemoteAgent.Service.Agents.IAgentSession.Stop
+  href: RemoteAgent.Service.Agents.IAgentSession.html#RemoteAgent_Service_Agents_IAgentSession_Stop
+  name: Stop
+  nameWithType: IAgentSession.Stop
+  fullName: RemoteAgent.Service.Agents.IAgentSession.Stop

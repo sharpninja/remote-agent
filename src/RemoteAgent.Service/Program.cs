@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,7 @@ using RemoteAgent.Service.Agents;
 using RemoteAgent.Service.Logging;
 using RemoteAgent.Service.Services;
 using RemoteAgent.Service.Storage;
+using RemoteAgent.Service.Web;
 
 namespace RemoteAgent.Service;
 
@@ -150,6 +153,7 @@ public partial class Program
         services.AddSingleton<ConnectionProtectionService>();
         services.AddSingleton<SessionCapacityService>();
         services.AddSingleton<AuthUserService>();
+        services.AddSingleton<PairingSessionService>();
         services.AddGrpc();
     }
 
@@ -308,12 +312,66 @@ public partial class Program
             return Results.Ok(new { success = ok, message = ok ? "Auth user deleted." : "Auth user not found." });
         });
         endpoints.MapGet("/", () => "RemoteAgent gRPC service. Use the Android app to connect.");
+
+        // ── Device-pairing web flow ────────────────────────────────────────────
+        endpoints.MapGet("/pair", (IOptions<AgentOptions> options) =>
+        {
+            var noPairingUsers = options.Value.PairingUsers.Count == 0;
+            return Results.Content(PairingHtml.LoginPage(noPairingUsers: noPairingUsers), "text/html");
+        });
+
+        endpoints.MapPost("/pair", async (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        {
+            var form = await context.Request.ReadFormAsync();
+            var username = form["username"].ToString();
+            var password = form["password"].ToString();
+
+            var user = options.Value.PairingUsers
+                .FirstOrDefault(u => string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase));
+
+            if (user is null || !VerifyPairingPassword(password, user.PasswordHash))
+                return Results.Content(PairingHtml.LoginPage(error: true), "text/html");
+
+            var token = sessions.CreateToken();
+            context.Response.Cookies.Append("ra_pair", token, new CookieOptions
+            {
+                HttpOnly  = true,
+                SameSite  = SameSiteMode.Strict,
+                Expires   = DateTimeOffset.UtcNow.AddHours(1)
+            });
+            return Results.Redirect("/pair/key");
+        }).DisableAntiforgery();
+
+        endpoints.MapGet("/pair/key", (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        {
+            var token = context.Request.Cookies["ra_pair"];
+            if (!sessions.Validate(token))
+                return Results.Redirect("/pair");
+
+            var apiKey = options.Value.ApiKey?.Trim() ?? "";
+            var host   = context.Request.Host.Host;
+            var port   = context.Request.Host.Port
+                             ?? (context.Request.IsHttps ? 443 : (OperatingSystem.IsWindows() ? 5244 : 5243));
+            var deepLink = $"remoteagent://pair?key={Uri.EscapeDataString(apiKey)}" +
+                           $"&host={Uri.EscapeDataString(host)}&port={port}";
+
+            return Results.Content(PairingHtml.KeyPage(apiKey, deepLink), "text/html");
+        });
+    }
+
+    private static bool VerifyPairingPassword(string plaintext, string sha256Hex)
+    {
+        var hash = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(plaintext)));
+        return string.Equals(hash, sha256Hex, StringComparison.OrdinalIgnoreCase);
     }
 
     private static bool IsAuthorizedHttp(HttpContext context, AgentOptions options)
     {
         var remote = context.Connection.RemoteIpAddress;
         if (options.AllowUnauthenticatedLoopback && remote != null && IPAddress.IsLoopback(remote))
+            return true;
+
+        if (options.AllowUnauthenticatedRemote)
             return true;
 
         var configuredApiKey = options.ApiKey?.Trim();

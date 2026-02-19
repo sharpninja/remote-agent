@@ -1,0 +1,726 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  commentId: T:RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  id: TerminateMobileSessionRequest
+  parent: RemoteAgent.App.Requests
+  children:
+  - RemoteAgent.App.Requests.TerminateMobileSessionRequest.#ctor(System.Guid,RemoteAgent.App.Services.SessionItem,RemoteAgent.App.ViewModels.MainPageViewModel)
+  - RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId
+  - RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session
+  - RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString
+  - RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace
+  langs:
+  - csharp
+  - vb
+  name: TerminateMobileSessionRequest
+  nameWithType: TerminateMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateMobileSessionRequest
+    path: ../src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Requests
+  syntax:
+    content: 'public sealed record TerminateMobileSessionRequest : IRequest<CommandResult>, IEquatable<TerminateMobileSessionRequest>'
+    content.vb: Public NotInheritable Class TerminateMobileSessionRequest Implements IRequest(Of CommandResult), IEquatable(Of TerminateMobileSessionRequest)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  - System.IEquatable{RemoteAgent.App.Requests.TerminateMobileSessionRequest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.#ctor(System.Guid,RemoteAgent.App.Services.SessionItem,RemoteAgent.App.ViewModels.MainPageViewModel)
+  commentId: M:RemoteAgent.App.Requests.TerminateMobileSessionRequest.#ctor(System.Guid,RemoteAgent.App.Services.SessionItem,RemoteAgent.App.ViewModels.MainPageViewModel)
+  id: '#ctor(System.Guid,RemoteAgent.App.Services.SessionItem,RemoteAgent.App.ViewModels.MainPageViewModel)'
+  parent: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: TerminateMobileSessionRequest(Guid, SessionItem?, MainPageViewModel)
+  nameWithType: TerminateMobileSessionRequest.TerminateMobileSessionRequest(Guid, SessionItem?, MainPageViewModel)
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.TerminateMobileSessionRequest(System.Guid, RemoteAgent.App.Services.SessionItem?, RemoteAgent.App.ViewModels.MainPageViewModel)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Requests
+  syntax:
+    content: public TerminateMobileSessionRequest(Guid CorrelationId, SessionItem? Session, MainPageViewModel Workspace)
+    parameters:
+    - id: CorrelationId
+      type: System.Guid
+    - id: Session
+      type: RemoteAgent.App.Services.SessionItem
+    - id: Workspace
+      type: RemoteAgent.App.ViewModels.MainPageViewModel
+    content.vb: Public Sub New(CorrelationId As Guid, Session As SessionItem, Workspace As MainPageViewModel)
+  overload: RemoteAgent.App.Requests.TerminateMobileSessionRequest.#ctor*
+  nameWithType.vb: TerminateMobileSessionRequest.New(Guid, SessionItem, MainPageViewModel)
+  fullName.vb: RemoteAgent.App.Requests.TerminateMobileSessionRequest.New(System.Guid, RemoteAgent.App.Services.SessionItem, RemoteAgent.App.ViewModels.MainPageViewModel)
+  name.vb: New(Guid, SessionItem, MainPageViewModel)
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId
+  commentId: P:RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: TerminateMobileSessionRequest.CorrelationId
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Requests
+  example: []
+  syntax:
+    content: public Guid CorrelationId { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property CorrelationId As Guid
+  overload: RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session
+  commentId: P:RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session
+  id: Session
+  parent: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: Session
+  nameWithType: TerminateMobileSessionRequest.Session
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Session
+    path: ../src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Requests
+  syntax:
+    content: public SessionItem? Session { get; init; }
+    parameters: []
+    return:
+      type: RemoteAgent.App.Services.SessionItem
+    content.vb: Public Property Session As SessionItem
+  overload: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session*
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace
+  commentId: P:RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace
+  id: Workspace
+  parent: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: Workspace
+  nameWithType: TerminateMobileSessionRequest.Workspace
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Workspace
+    path: ../src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Requests
+  syntax:
+    content: public MainPageViewModel Workspace { get; init; }
+    parameters: []
+    return:
+      type: RemoteAgent.App.ViewModels.MainPageViewModel
+    content.vb: Public Property Workspace As MainPageViewModel
+  overload: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace*
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString
+  commentId: M:RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString
+  id: ToString
+  parent: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: TerminateMobileSessionRequest.ToString()
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.App/Requests/TerminateMobileSessionRequest.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Requests
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString*
+references:
+- uid: RemoteAgent.App.Requests
+  commentId: N:RemoteAgent.App.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Requests
+  nameWithType: RemoteAgent.App.Requests
+  fullName: RemoteAgent.App.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<CommandResult>
+  nameWithType: IRequest<CommandResult>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: IRequest(Of CommandResult)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: IRequest(Of CommandResult)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+  - name: )
+- uid: System.IEquatable{RemoteAgent.App.Requests.TerminateMobileSessionRequest}
+  commentId: T:System.IEquatable{RemoteAgent.App.Requests.TerminateMobileSessionRequest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<TerminateMobileSessionRequest>
+  nameWithType: IEquatable<TerminateMobileSessionRequest>
+  fullName: System.IEquatable<RemoteAgent.App.Requests.TerminateMobileSessionRequest>
+  nameWithType.vb: IEquatable(Of TerminateMobileSessionRequest)
+  fullName.vb: System.IEquatable(Of RemoteAgent.App.Requests.TerminateMobileSessionRequest)
+  name.vb: IEquatable(Of TerminateMobileSessionRequest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+    name: TerminateMobileSessionRequest
+    href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+    name: TerminateMobileSessionRequest
+    href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequest`1
+  name: IRequest<TResponse>
+  nameWithType: IRequest<TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>
+  nameWithType.vb: IRequest(Of TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse)
+  name.vb: IRequest(Of TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequest`1
+    name: IRequest
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.#ctor*
+  commentId: Overload:RemoteAgent.App.Requests.TerminateMobileSessionRequest.#ctor
+  href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html#RemoteAgent_App_Requests_TerminateMobileSessionRequest__ctor_System_Guid_RemoteAgent_App_Services_SessionItem_RemoteAgent_App_ViewModels_MainPageViewModel_
+  name: TerminateMobileSessionRequest
+  nameWithType: TerminateMobileSessionRequest.TerminateMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.TerminateMobileSessionRequest
+  nameWithType.vb: TerminateMobileSessionRequest.New
+  fullName.vb: RemoteAgent.App.Requests.TerminateMobileSessionRequest.New
+  name.vb: New
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: RemoteAgent.App.Services.SessionItem
+  commentId: T:RemoteAgent.App.Services.SessionItem
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.SessionItem.html
+  name: SessionItem
+  nameWithType: SessionItem
+  fullName: RemoteAgent.App.Services.SessionItem
+- uid: RemoteAgent.App.ViewModels.MainPageViewModel
+  commentId: T:RemoteAgent.App.ViewModels.MainPageViewModel
+  parent: RemoteAgent.App.ViewModels
+  href: RemoteAgent.App.ViewModels.MainPageViewModel.html
+  name: MainPageViewModel
+  nameWithType: MainPageViewModel
+  fullName: RemoteAgent.App.ViewModels.MainPageViewModel
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+- uid: RemoteAgent.App.ViewModels
+  commentId: N:RemoteAgent.App.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.App.ViewModels
+  nameWithType: RemoteAgent.App.ViewModels
+  fullName: RemoteAgent.App.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.ViewModels.html
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId*
+  commentId: Overload:RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId
+  href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html#RemoteAgent_App_Requests_TerminateMobileSessionRequest_CorrelationId
+  name: CorrelationId
+  nameWithType: TerminateMobileSessionRequest.CorrelationId
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}.CorrelationId
+  parent: RemoteAgent.App.Logic.Cqrs.IRequest{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<CommandResult>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<RemoteAgent.App.Logic.Cqrs.CommandResult>.CorrelationId
+  nameWithType.vb: IRequest(Of CommandResult).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of RemoteAgent.App.Logic.Cqrs.CommandResult).CorrelationId
+- uid: RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  commentId: P:RemoteAgent.App.Logic.Cqrs.IRequest`1.CorrelationId
+  name: CorrelationId
+  nameWithType: IRequest<TResponse>.CorrelationId
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequest<TResponse>.CorrelationId
+  nameWithType.vb: IRequest(Of TResponse).CorrelationId
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequest(Of TResponse).CorrelationId
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session*
+  commentId: Overload:RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session
+  href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html#RemoteAgent_App_Requests_TerminateMobileSessionRequest_Session
+  name: Session
+  nameWithType: TerminateMobileSessionRequest.Session
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Session
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace*
+  commentId: Overload:RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace
+  href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html#RemoteAgent_App_Requests_TerminateMobileSessionRequest_Workspace
+  name: Workspace
+  nameWithType: TerminateMobileSessionRequest.Workspace
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.Workspace
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString*
+  commentId: Overload:RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString
+  href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html#RemoteAgent_App_Requests_TerminateMobileSessionRequest_ToString
+  name: ToString
+  nameWithType: TerminateMobileSessionRequest.ToString
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

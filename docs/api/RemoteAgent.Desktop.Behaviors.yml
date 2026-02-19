@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Behaviors
+  commentId: N:RemoteAgent.Desktop.Behaviors
+  id: RemoteAgent.Desktop.Behaviors
+  children:
+  - RemoteAgent.Desktop.Behaviors.DoubleTapBehavior
+  - RemoteAgent.Desktop.Behaviors.NavigationViewItemInvokedBehavior
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop.Behaviors
+  nameWithType: RemoteAgent.Desktop.Behaviors
+  fullName: RemoteAgent.Desktop.Behaviors
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop
+references:
+- uid: RemoteAgent.Desktop.Behaviors.DoubleTapBehavior
+  commentId: T:RemoteAgent.Desktop.Behaviors.DoubleTapBehavior
+  href: RemoteAgent.Desktop.Behaviors.DoubleTapBehavior.html
+  name: DoubleTapBehavior
+  nameWithType: DoubleTapBehavior
+  fullName: RemoteAgent.Desktop.Behaviors.DoubleTapBehavior
+- uid: RemoteAgent.Desktop.Behaviors.NavigationViewItemInvokedBehavior
+  commentId: T:RemoteAgent.Desktop.Behaviors.NavigationViewItemInvokedBehavior
+  href: RemoteAgent.Desktop.Behaviors.NavigationViewItemInvokedBehavior.html
+  name: NavigationViewItemInvokedBehavior
+  nameWithType: NavigationViewItemInvokedBehavior
+  fullName: RemoteAgent.Desktop.Behaviors.NavigationViewItemInvokedBehavior

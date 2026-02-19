@@ -1,0 +1,1351 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  id: StructuredLogsViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore)
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs(System.String,System.Int32,System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry})
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.PropertyChanged
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogsViewModel
+  nameWithType: StructuredLogsViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StructuredLogsViewModel
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public sealed class StructuredLogsViewModel
+    content.vb: Public NotInheritable Class StructuredLogsViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore)
+  commentId: M:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore)
+  id: '#ctor(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher,RemoteAgent.Desktop.Infrastructure.IServerConnectionContext,RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore)'
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogsViewModel(IRequestDispatcher, IServerConnectionContext, IDesktopStructuredLogStore)
+  nameWithType: StructuredLogsViewModel.StructuredLogsViewModel(IRequestDispatcher, IServerConnectionContext, IDesktopStructuredLogStore)
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StructuredLogsViewModel(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher, RemoteAgent.Desktop.Infrastructure.IServerConnectionContext, RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 31
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public StructuredLogsViewModel(IRequestDispatcher dispatcher, IServerConnectionContext context, IDesktopStructuredLogStore structuredLogStore)
+    parameters:
+    - id: dispatcher
+      type: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+    - id: context
+      type: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+    - id: structuredLogStore
+      type: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+    content.vb: Public Sub New(dispatcher As IRequestDispatcher, context As IServerConnectionContext, structuredLogStore As IDesktopStructuredLogStore)
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.#ctor*
+  nameWithType.vb: StructuredLogsViewModel.New(IRequestDispatcher, IServerConnectionContext, IDesktopStructuredLogStore)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.New(RemoteAgent.App.Logic.Cqrs.IRequestDispatcher, RemoteAgent.Desktop.Infrastructure.IServerConnectionContext, RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore)
+  name.vb: New(IRequestDispatcher, IServerConnectionContext, IDesktopStructuredLogStore)
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.PropertyChanged
+  commentId: E:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: StructuredLogsViewModel.PropertyChanged
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 51
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs
+  id: VisibleStructuredLogs
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: VisibleStructuredLogs
+  nameWithType: StructuredLogsViewModel.VisibleStructuredLogs
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: VisibleStructuredLogs
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 53
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ObservableCollection<DesktopStructuredLogRecord> VisibleStructuredLogs { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+    content.vb: Public ReadOnly Property VisibleStructuredLogs As ObservableCollection(Of DesktopStructuredLogRecord)
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter
+  id: LogLevelFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogLevelFilter
+  nameWithType: StructuredLogsViewModel.LogLevelFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogLevelFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 55
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogLevelFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogLevelFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter
+  id: LogEventTypeFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogEventTypeFilter
+  nameWithType: StructuredLogsViewModel.LogEventTypeFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogEventTypeFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 66
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogEventTypeFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogEventTypeFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter
+  id: LogSessionIdFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogSessionIdFilter
+  nameWithType: StructuredLogsViewModel.LogSessionIdFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogSessionIdFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 77
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogSessionIdFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogSessionIdFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter
+  id: LogCorrelationIdFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogCorrelationIdFilter
+  nameWithType: StructuredLogsViewModel.LogCorrelationIdFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogCorrelationIdFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 88
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogCorrelationIdFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogCorrelationIdFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter
+  id: LogComponentFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogComponentFilter
+  nameWithType: StructuredLogsViewModel.LogComponentFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogComponentFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 99
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogComponentFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogComponentFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter
+  id: LogServerIdFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogServerIdFilter
+  nameWithType: StructuredLogsViewModel.LogServerIdFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogServerIdFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 110
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogServerIdFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogServerIdFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter
+  id: LogSearchFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogSearchFilter
+  nameWithType: StructuredLogsViewModel.LogSearchFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogSearchFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 121
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogSearchFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogSearchFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter
+  id: LogFromUtcFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogFromUtcFilter
+  nameWithType: StructuredLogsViewModel.LogFromUtcFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogFromUtcFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 132
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogFromUtcFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogFromUtcFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter
+  id: LogToUtcFilter
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogToUtcFilter
+  nameWithType: StructuredLogsViewModel.LogToUtcFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogToUtcFilter
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 143
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogToUtcFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogToUtcFilter As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus
+  id: LogMonitorStatus
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: LogMonitorStatus
+  nameWithType: StructuredLogsViewModel.LogMonitorStatus
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogMonitorStatus
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 154
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public string LogMonitorStatus { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogMonitorStatus As String
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand
+  id: StartLogMonitoringCommand
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: StartLogMonitoringCommand
+  nameWithType: StructuredLogsViewModel.StartLogMonitoringCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartLogMonitoringCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 165
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand StartLogMonitoringCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property StartLogMonitoringCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand
+  id: StopLogMonitoringCommand
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: StopLogMonitoringCommand
+  nameWithType: StructuredLogsViewModel.StopLogMonitoringCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StopLogMonitoringCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 166
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand StopLogMonitoringCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property StopLogMonitoringCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand
+  id: ApplyLogFilterCommand
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: ApplyLogFilterCommand
+  nameWithType: StructuredLogsViewModel.ApplyLogFilterCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ApplyLogFilterCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 167
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand ApplyLogFilterCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property ApplyLogFilterCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand
+  commentId: P:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand
+  id: ClearLogFilterCommand
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: ClearLogFilterCommand
+  nameWithType: StructuredLogsViewModel.ClearLogFilterCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearLogFilterCommand
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 168
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public ICommand ClearLogFilterCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property ClearLogFilterCommand As ICommand
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand*
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs(System.String,System.Int32,System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry})
+  commentId: M:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs(System.String,System.Int32,System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry})
+  id: IngestStructuredLogs(System.String,System.Int32,System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry})
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: IngestStructuredLogs(string, int, IEnumerable<StructuredLogEntry>)
+  nameWithType: StructuredLogsViewModel.IngestStructuredLogs(string, int, IEnumerable<StructuredLogEntry>)
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs(string, int, System.Collections.Generic.IEnumerable<RemoteAgent.Proto.StructuredLogEntry>)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IngestStructuredLogs
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 170
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public void IngestStructuredLogs(string host, int port, IEnumerable<StructuredLogEntry> entries)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: entries
+      type: System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry}
+    content.vb: Public Sub IngestStructuredLogs(host As String, port As Integer, entries As IEnumerable(Of StructuredLogEntry))
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs*
+  nameWithType.vb: StructuredLogsViewModel.IngestStructuredLogs(String, Integer, IEnumerable(Of StructuredLogEntry))
+  fullName.vb: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs(String, Integer, System.Collections.Generic.IEnumerable(Of RemoteAgent.Proto.StructuredLogEntry))
+  name.vb: IngestStructuredLogs(String, Integer, IEnumerable(Of StructuredLogEntry))
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs
+  commentId: M:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs
+  id: ReloadStructuredLogs
+  parent: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: ReloadStructuredLogs()
+  nameWithType: StructuredLogsViewModel.ReloadStructuredLogs()
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ReloadStructuredLogs
+    path: ../src/RemoteAgent.Desktop/ViewModels/StructuredLogsViewModel.cs
+    startLine: 179
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public void ReloadStructuredLogs()
+    content.vb: Public Sub ReloadStructuredLogs()
+  overload: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs*
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.#ctor
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel__ctor_RemoteAgent_App_Logic_Cqrs_IRequestDispatcher_RemoteAgent_Desktop_Infrastructure_IServerConnectionContext_RemoteAgent_Desktop_Logging_IDesktopStructuredLogStore_
+  name: StructuredLogsViewModel
+  nameWithType: StructuredLogsViewModel.StructuredLogsViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StructuredLogsViewModel
+  nameWithType.vb: StructuredLogsViewModel.New
+  fullName.vb: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+  parent: RemoteAgent.App.Logic.Cqrs
+  name: IRequestDispatcher
+  nameWithType: IRequestDispatcher
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestDispatcher
+- uid: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+  parent: RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext.html
+  name: IServerConnectionContext
+  nameWithType: IServerConnectionContext
+  fullName: RemoteAgent.Desktop.Infrastructure.IServerConnectionContext
+- uid: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  commentId: T:RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+  parent: RemoteAgent.Desktop.Logging
+  href: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore.html
+  name: IDesktopStructuredLogStore
+  nameWithType: IDesktopStructuredLogStore
+  fullName: RemoteAgent.Desktop.Logging.IDesktopStructuredLogStore
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Logging
+  commentId: N:RemoteAgent.Desktop.Logging
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Logging
+  nameWithType: RemoteAgent.Desktop.Logging
+  fullName: RemoteAgent.Desktop.Logging
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Logging
+    name: Logging
+    href: RemoteAgent.Desktop.Logging.html
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_VisibleStructuredLogs
+  name: VisibleStructuredLogs
+  nameWithType: StructuredLogsViewModel.VisibleStructuredLogs
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.VisibleStructuredLogs
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  name: ObservableCollection<DesktopStructuredLogRecord>
+  nameWithType: ObservableCollection<DesktopStructuredLogRecord>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord>
+  nameWithType.vb: ObservableCollection(Of DesktopStructuredLogRecord)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord)
+  name.vb: ObservableCollection(Of DesktopStructuredLogRecord)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord
+    name: DesktopStructuredLogRecord
+    href: RemoteAgent.Desktop.Logging.DesktopStructuredLogRecord.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogLevelFilter
+  name: LogLevelFilter
+  nameWithType: StructuredLogsViewModel.LogLevelFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogLevelFilter
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogEventTypeFilter
+  name: LogEventTypeFilter
+  nameWithType: StructuredLogsViewModel.LogEventTypeFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogEventTypeFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogSessionIdFilter
+  name: LogSessionIdFilter
+  nameWithType: StructuredLogsViewModel.LogSessionIdFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSessionIdFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogCorrelationIdFilter
+  name: LogCorrelationIdFilter
+  nameWithType: StructuredLogsViewModel.LogCorrelationIdFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogCorrelationIdFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogComponentFilter
+  name: LogComponentFilter
+  nameWithType: StructuredLogsViewModel.LogComponentFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogComponentFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogServerIdFilter
+  name: LogServerIdFilter
+  nameWithType: StructuredLogsViewModel.LogServerIdFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogServerIdFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogSearchFilter
+  name: LogSearchFilter
+  nameWithType: StructuredLogsViewModel.LogSearchFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogSearchFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogFromUtcFilter
+  name: LogFromUtcFilter
+  nameWithType: StructuredLogsViewModel.LogFromUtcFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogFromUtcFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogToUtcFilter
+  name: LogToUtcFilter
+  nameWithType: StructuredLogsViewModel.LogToUtcFilter
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogToUtcFilter
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_LogMonitorStatus
+  name: LogMonitorStatus
+  nameWithType: StructuredLogsViewModel.LogMonitorStatus
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.LogMonitorStatus
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_StartLogMonitoringCommand
+  name: StartLogMonitoringCommand
+  nameWithType: StructuredLogsViewModel.StartLogMonitoringCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StartLogMonitoringCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_StopLogMonitoringCommand
+  name: StopLogMonitoringCommand
+  nameWithType: StructuredLogsViewModel.StopLogMonitoringCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.StopLogMonitoringCommand
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_ApplyLogFilterCommand
+  name: ApplyLogFilterCommand
+  nameWithType: StructuredLogsViewModel.ApplyLogFilterCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ApplyLogFilterCommand
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_ClearLogFilterCommand
+  name: ClearLogFilterCommand
+  nameWithType: StructuredLogsViewModel.ClearLogFilterCommand
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ClearLogFilterCommand
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_IngestStructuredLogs_System_String_System_Int32_System_Collections_Generic_IEnumerable_RemoteAgent_Proto_StructuredLogEntry__
+  name: IngestStructuredLogs
+  nameWithType: StructuredLogsViewModel.IngestStructuredLogs
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.IngestStructuredLogs
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry}
+  commentId: T:System.Collections.Generic.IEnumerable{RemoteAgent.Proto.StructuredLogEntry}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<StructuredLogEntry>
+  nameWithType: IEnumerable<StructuredLogEntry>
+  fullName: System.Collections.Generic.IEnumerable<RemoteAgent.Proto.StructuredLogEntry>
+  nameWithType.vb: IEnumerable(Of StructuredLogEntry)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of RemoteAgent.Proto.StructuredLogEntry)
+  name.vb: IEnumerable(Of StructuredLogEntry)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogEntry
+    name: StructuredLogEntry
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogEntry
+    name: StructuredLogEntry
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html#RemoteAgent_Desktop_ViewModels_StructuredLogsViewModel_ReloadStructuredLogs
+  name: ReloadStructuredLogs
+  nameWithType: StructuredLogsViewModel.ReloadStructuredLogs
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.ReloadStructuredLogs

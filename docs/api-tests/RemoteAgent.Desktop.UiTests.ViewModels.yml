@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.ViewModels
+  commentId: N:RemoteAgent.Desktop.UiTests.ViewModels
+  id: RemoteAgent.Desktop.UiTests.ViewModels
+  children:
+  - RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop.UiTests.ViewModels
+  nameWithType: RemoteAgent.Desktop.UiTests.ViewModels
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+references:
+- uid: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  commentId: T:RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests
+  href: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests.html
+  name: ConnectionSettingsDialogViewModelTests
+  nameWithType: ConnectionSettingsDialogViewModelTests
+  fullName: RemoteAgent.Desktop.UiTests.ViewModels.ConnectionSettingsDialogViewModelTests

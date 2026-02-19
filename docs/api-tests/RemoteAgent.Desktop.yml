@@ -1,0 +1,28 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop
+  commentId: N:RemoteAgent.Desktop
+  id: RemoteAgent.Desktop
+  children:
+  - RemoteAgent.Desktop.UiTests
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop
+  nameWithType: RemoteAgent.Desktop
+  fullName: RemoteAgent.Desktop
+  type: Namespace
+  summary: Avalonia desktop management app namespace — UI tests and test infrastructure.
+references:
+- uid: RemoteAgent
+  commentId: N:RemoteAgent
+  href: RemoteAgent.html
+  name: RemoteAgent
+  nameWithType: RemoteAgent
+  fullName: RemoteAgent
+- uid: RemoteAgent.Desktop.UiTests
+  commentId: N:RemoteAgent.Desktop.UiTests
+  href: RemoteAgent.Desktop.UiTests.html
+  name: RemoteAgent.Desktop.UiTests
+  nameWithType: RemoteAgent.Desktop.UiTests
+  fullName: RemoteAgent.Desktop.UiTests

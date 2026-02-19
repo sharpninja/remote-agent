@@ -5,8 +5,16 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="UnbanPeerHandler"/>. FR-13.4; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.4")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class UnbanPeerHandlerTests
 {
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUnbanSucceeds_ShouldReturnOk()
     {
@@ -20,6 +28,7 @@ public class UnbanPeerHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUnbanFails_ShouldReturnOkWithFailureStatus()
     {
@@ -33,6 +42,7 @@ public class UnbanPeerHandlerTests
         workspace.StatusText.Should().Contain("Failed");
     }
 
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenUnbanSucceeds_ShouldSetStatusContainingUnbanned()
     {
@@ -46,6 +56,7 @@ public class UnbanPeerHandlerTests
         workspace.StatusText.Should().Contain("unbanned");
     }
 
+    // FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldRefreshSecurityCollections()
     {

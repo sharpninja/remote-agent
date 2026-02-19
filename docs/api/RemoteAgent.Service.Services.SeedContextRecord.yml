@@ -1,0 +1,526 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Services.SeedContextRecord
+  commentId: T:RemoteAgent.Service.Services.SeedContextRecord
+  id: SeedContextRecord
+  parent: RemoteAgent.Service.Services
+  children:
+  - RemoteAgent.Service.Services.SeedContextRecord.Content
+  - RemoteAgent.Service.Services.SeedContextRecord.ContextType
+  - RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc
+  - RemoteAgent.Service.Services.SeedContextRecord.SeedId
+  - RemoteAgent.Service.Services.SeedContextRecord.SessionId
+  - RemoteAgent.Service.Services.SeedContextRecord.Source
+  langs:
+  - csharp
+  - vb
+  name: SeedContextRecord
+  nameWithType: SeedContextRecord
+  fullName: RemoteAgent.Service.Services.SeedContextRecord
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedContextRecord
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 216
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public sealed class SeedContextRecord
+    content.vb: Public NotInheritable Class SeedContextRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Service.Services.SeedContextRecord.SeedId
+  commentId: P:RemoteAgent.Service.Services.SeedContextRecord.SeedId
+  id: SeedId
+  parent: RemoteAgent.Service.Services.SeedContextRecord
+  langs:
+  - csharp
+  - vb
+  name: SeedId
+  nameWithType: SeedContextRecord.SeedId
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.SeedId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedId
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 218
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: >-
+      [BsonId]
+
+      public string SeedId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <BsonId>
+
+      Public Property SeedId As String
+  overload: RemoteAgent.Service.Services.SeedContextRecord.SeedId*
+  attributes:
+  - type: LiteDB.BsonIdAttribute
+    ctor: LiteDB.BsonIdAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.Services.SeedContextRecord.SessionId
+  commentId: P:RemoteAgent.Service.Services.SeedContextRecord.SessionId
+  id: SessionId
+  parent: RemoteAgent.Service.Services.SeedContextRecord
+  langs:
+  - csharp
+  - vb
+  name: SessionId
+  nameWithType: SeedContextRecord.SessionId
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.SessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionId
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 220
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string SessionId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SessionId As String
+  overload: RemoteAgent.Service.Services.SeedContextRecord.SessionId*
+- uid: RemoteAgent.Service.Services.SeedContextRecord.ContextType
+  commentId: P:RemoteAgent.Service.Services.SeedContextRecord.ContextType
+  id: ContextType
+  parent: RemoteAgent.Service.Services.SeedContextRecord
+  langs:
+  - csharp
+  - vb
+  name: ContextType
+  nameWithType: SeedContextRecord.ContextType
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.ContextType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ContextType
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 221
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string ContextType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContextType As String
+  overload: RemoteAgent.Service.Services.SeedContextRecord.ContextType*
+- uid: RemoteAgent.Service.Services.SeedContextRecord.Content
+  commentId: P:RemoteAgent.Service.Services.SeedContextRecord.Content
+  id: Content
+  parent: RemoteAgent.Service.Services.SeedContextRecord
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: SeedContextRecord.Content
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.Content
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Content
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 222
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string Content { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Content As String
+  overload: RemoteAgent.Service.Services.SeedContextRecord.Content*
+- uid: RemoteAgent.Service.Services.SeedContextRecord.Source
+  commentId: P:RemoteAgent.Service.Services.SeedContextRecord.Source
+  id: Source
+  parent: RemoteAgent.Service.Services.SeedContextRecord
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: SeedContextRecord.Source
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.Source
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Source
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 223
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public string Source { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Source As String
+  overload: RemoteAgent.Service.Services.SeedContextRecord.Source*
+- uid: RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc
+  commentId: P:RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc
+  id: CreatedUtc
+  parent: RemoteAgent.Service.Services.SeedContextRecord
+  langs:
+  - csharp
+  - vb
+  name: CreatedUtc
+  nameWithType: SeedContextRecord.CreatedUtc
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreatedUtc
+    path: ../src/RemoteAgent.Service/Services/AgentMcpConfigurationService.cs
+    startLine: 224
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Services
+  syntax:
+    content: public DateTimeOffset CreatedUtc { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property CreatedUtc As DateTimeOffset
+  overload: RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc*
+references:
+- uid: RemoteAgent.Service.Services
+  commentId: N:RemoteAgent.Service.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Services
+  nameWithType: RemoteAgent.Service.Services
+  fullName: RemoteAgent.Service.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Services
+    name: Services
+    href: RemoteAgent.Service.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Services.SeedContextRecord.SeedId*
+  commentId: Overload:RemoteAgent.Service.Services.SeedContextRecord.SeedId
+  href: RemoteAgent.Service.Services.SeedContextRecord.html#RemoteAgent_Service_Services_SeedContextRecord_SeedId
+  name: SeedId
+  nameWithType: SeedContextRecord.SeedId
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.SeedId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Service.Services.SeedContextRecord.SessionId*
+  commentId: Overload:RemoteAgent.Service.Services.SeedContextRecord.SessionId
+  href: RemoteAgent.Service.Services.SeedContextRecord.html#RemoteAgent_Service_Services_SeedContextRecord_SessionId
+  name: SessionId
+  nameWithType: SeedContextRecord.SessionId
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.SessionId
+- uid: RemoteAgent.Service.Services.SeedContextRecord.ContextType*
+  commentId: Overload:RemoteAgent.Service.Services.SeedContextRecord.ContextType
+  href: RemoteAgent.Service.Services.SeedContextRecord.html#RemoteAgent_Service_Services_SeedContextRecord_ContextType
+  name: ContextType
+  nameWithType: SeedContextRecord.ContextType
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.ContextType
+- uid: RemoteAgent.Service.Services.SeedContextRecord.Content*
+  commentId: Overload:RemoteAgent.Service.Services.SeedContextRecord.Content
+  href: RemoteAgent.Service.Services.SeedContextRecord.html#RemoteAgent_Service_Services_SeedContextRecord_Content
+  name: Content
+  nameWithType: SeedContextRecord.Content
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.Content
+- uid: RemoteAgent.Service.Services.SeedContextRecord.Source*
+  commentId: Overload:RemoteAgent.Service.Services.SeedContextRecord.Source
+  href: RemoteAgent.Service.Services.SeedContextRecord.html#RemoteAgent_Service_Services_SeedContextRecord_Source
+  name: Source
+  nameWithType: SeedContextRecord.Source
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.Source
+- uid: RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc*
+  commentId: Overload:RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc
+  href: RemoteAgent.Service.Services.SeedContextRecord.html#RemoteAgent_Service_Services_SeedContextRecord_CreatedUtc
+  name: CreatedUtc
+  nameWithType: SeedContextRecord.CreatedUtc
+  fullName: RemoteAgent.Service.Services.SeedContextRecord.CreatedUtc
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset

@@ -4,6 +4,14 @@ using RemoteAgent.Desktop.ViewModels;
 
 namespace RemoteAgent.Desktop.UiTests.ViewModels;
 
+/// <summary>Tests for <see cref="ConnectionSettingsDialogViewModel"/>. FR-12.1, FR-12.2; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.1")]
+[Trait("Requirement", "FR-12.2")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class ConnectionSettingsDialogViewModelTests
 {
     private static ConnectionSettingsDefaults CreateDefaults(
@@ -17,6 +25,7 @@ public class ConnectionSettingsDialogViewModelTests
         new(host, port, mode, agentId, apiKey, perRequestContext,
             modes ?? new List<string> { "server", "client" });
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void Constructor_ShouldPopulateFromDefaults()
     {
@@ -32,6 +41,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ConnectionModes.Should().Contain("client");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void Constructor_WhenModeNotInList_ShouldSelectFirst()
     {
@@ -41,6 +51,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.SelectedConnectionMode.Should().Be("server");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithValidInputs_ShouldSetIsAccepted()
     {
@@ -55,6 +66,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ValidationMessage.Should().BeEmpty();
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithEmptyHost_ShouldSetValidationMessage()
     {
@@ -66,6 +78,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ValidationMessage.Should().Contain("Host");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithInvalidPort_ShouldSetValidationMessage()
     {
@@ -77,6 +90,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ValidationMessage.Should().Contain("Port");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithPortZero_ShouldSetValidationMessage()
     {
@@ -88,6 +102,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ValidationMessage.Should().Contain("Port");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithPortTooHigh_ShouldSetValidationMessage()
     {
@@ -98,6 +113,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.IsAccepted.Should().BeFalse();
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithEmptyMode_ShouldSetValidationMessage()
     {
@@ -111,6 +127,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ValidationMessage.Should().Contain("Mode");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void SubmitCommand_WithEmptyAgent_ShouldSetValidationMessage()
     {
@@ -122,6 +139,7 @@ public class ConnectionSettingsDialogViewModelTests
         vm.ValidationMessage.Should().Contain("Agent");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void CancelCommand_ShouldSetIsAcceptedFalseAndRaiseClose()
     {
@@ -135,6 +153,7 @@ public class ConnectionSettingsDialogViewModelTests
         closeAccepted.Should().BeFalse();
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void ToResult_ShouldReturnTrimmedValues()
     {
@@ -146,6 +165,7 @@ public class ConnectionSettingsDialogViewModelTests
         result.Port.Should().Be("5243");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void PropertyChanged_ShouldFireForHost()
     {

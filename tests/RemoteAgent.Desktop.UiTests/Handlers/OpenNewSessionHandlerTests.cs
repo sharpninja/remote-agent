@@ -14,8 +14,16 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="OpenNewSessionHandler"/>. FR-12.1; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.1")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class OpenNewSessionHandlerTests
 {
+    // FR-12.1, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_WhenDialogReturnsNull_ShouldReturnCancelled()
     {
@@ -31,6 +39,7 @@ public class OpenNewSessionHandlerTests
         result.ErrorMessage.Should().Be("Cancelled.");
     }
 
+    // FR-12.1, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_WhenDialogReturnsResult_ShouldApplyToWorkspace()
     {
@@ -53,6 +62,7 @@ public class OpenNewSessionHandlerTests
         workspace.PerRequestContext.Should().Be("context");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public async Task HandleAsync_WhenNoOwnerWindow_ShouldReturnFail()
     {
@@ -68,6 +78,7 @@ public class OpenNewSessionHandlerTests
         result.ErrorMessage.Should().Contain("owner window");
     }
 
+    // FR-12.1, TR-18.4
     [Fact]
     public void Request_ToString_ShouldNotThrow()
     {

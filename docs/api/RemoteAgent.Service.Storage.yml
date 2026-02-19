@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Storage
+  commentId: N:RemoteAgent.Service.Storage
+  id: RemoteAgent.Service.Storage
+  children:
+  - RemoteAgent.Service.Storage.ILocalStorage
+  - RemoteAgent.Service.Storage.LiteDbLocalStorage
+  - RemoteAgent.Service.Storage.RequestResultRecord
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Service.Storage
+  nameWithType: RemoteAgent.Service.Storage
+  fullName: RemoteAgent.Service.Storage
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Service
+references:
+- uid: RemoteAgent.Service.Storage.ILocalStorage
+  commentId: T:RemoteAgent.Service.Storage.ILocalStorage
+  parent: RemoteAgent.Service.Storage
+  href: RemoteAgent.Service.Storage.ILocalStorage.html
+  name: ILocalStorage
+  nameWithType: ILocalStorage
+  fullName: RemoteAgent.Service.Storage.ILocalStorage
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  commentId: T:RemoteAgent.Service.Storage.LiteDbLocalStorage
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html
+  name: LiteDbLocalStorage
+  nameWithType: LiteDbLocalStorage
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage
+- uid: RemoteAgent.Service.Storage.RequestResultRecord
+  commentId: T:RemoteAgent.Service.Storage.RequestResultRecord
+  href: RemoteAgent.Service.Storage.RequestResultRecord.html
+  name: RequestResultRecord
+  nameWithType: RequestResultRecord
+  fullName: RemoteAgent.Service.Storage.RequestResultRecord
+- uid: RemoteAgent.Service.Storage
+  commentId: N:RemoteAgent.Service.Storage
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Storage
+  nameWithType: RemoteAgent.Service.Storage
+  fullName: RemoteAgent.Service.Storage
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html

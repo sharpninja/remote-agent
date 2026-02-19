@@ -1,0 +1,220 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  commentId: T:RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  id: IFileSaveDialogService
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IFileSaveDialogService
+  nameWithType: IFileSaveDialogService
+  fullName: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IFileSaveDialogService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IFileSaveDialogService
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IFileSaveDialogService.cs
+    startLine: 3
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  summary: Abstracts the platform save-file dialog so ViewModels remain testable.
+  example: []
+  syntax:
+    content: public interface IFileSaveDialogService
+    content.vb: Public Interface IFileSaveDialogService
+- uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(System.String,System.String,System.String)
+  id: GetSaveFilePathAsync(System.String,System.String,System.String)
+  parent: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService
+  langs:
+  - csharp
+  - vb
+  name: GetSaveFilePathAsync(string, string, string)
+  nameWithType: IFileSaveDialogService.GetSaveFilePathAsync(string, string, string)
+  fullName: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/IFileSaveDialogService.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetSaveFilePathAsync
+    path: ../src/RemoteAgent.Desktop/Infrastructure/IFileSaveDialogService.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  summary: >-
+    Prompts the user to choose a save location.
+
+    Returns the selected local file path, or <code>null</code> if the user cancelled.
+  example: []
+  syntax:
+    content: Task<string?> GetSaveFilePathAsync(string suggestedName, string extension, string filterDescription)
+    parameters:
+    - id: suggestedName
+      type: System.String
+    - id: extension
+      type: System.String
+    - id: filterDescription
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Function GetSaveFilePathAsync(suggestedName As String, extension As String, filterDescription As String) As Task(Of String)
+  overload: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync*
+  nameWithType.vb: IFileSaveDialogService.GetSaveFilePathAsync(String, String, String)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync(String, String, String)
+  name.vb: GetSaveFilePathAsync(String, String, String)
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync
+  href: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.html#RemoteAgent_Desktop_Infrastructure_IFileSaveDialogService_GetSaveFilePathAsync_System_String_System_String_System_String_
+  name: GetSaveFilePathAsync
+  nameWithType: IFileSaveDialogService.GetSaveFilePathAsync
+  fullName: RemoteAgent.Desktop.Infrastructure.IFileSaveDialogService.GetSaveFilePathAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

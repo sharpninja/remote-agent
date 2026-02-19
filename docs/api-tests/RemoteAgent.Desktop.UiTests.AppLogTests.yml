@@ -1,0 +1,542 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests
+  commentId: T:RemoteAgent.Desktop.UiTests.AppLogTests
+  id: AppLogTests
+  parent: RemoteAgent.Desktop.UiTests
+  children:
+  - RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries
+  - RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection
+  - RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(System.String)
+  langs:
+  - csharp
+  - vb
+  name: AppLogTests
+  nameWithType: AppLogTests
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AppLogTests
+    path: ../tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  summary: Tests for <xref href="RemoteAgent.Desktop.Logging.AppLoggerProvider" data-throw-if-not-resolved="false"></xref> and <xref href="RemoteAgent.Desktop.Infrastructure.InMemoryAppLogStore" data-throw-if-not-resolved="false"></xref>. FR-12.12; TR-8.1, TR-8.2.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-12.12")]
+
+      [Trait("Requirement", "TR-8.1")]
+
+      [Trait("Requirement", "TR-8.2")]
+
+      public sealed class AppLogTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-12.12")>
+
+      <Trait("Requirement", "TR-8.1")>
+
+      <Trait("Requirement", "TR-8.2")>
+
+      Public NotInheritable Class AppLogTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.12
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-8.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-8.2
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries
+  commentId: M:RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries
+  id: AppLoggerProvider_ShouldCaptureLogEntries
+  parent: RemoteAgent.Desktop.UiTests.AppLogTests
+  langs:
+  - csharp
+  - vb
+  name: AppLoggerProvider_ShouldCaptureLogEntries()
+  nameWithType: AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries()
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AppLoggerProvider_ShouldCaptureLogEntries
+    path: ../tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void AppLoggerProvider_ShouldCaptureLogEntries()
+    content.vb: >-
+      <Fact>
+
+      Public Sub AppLoggerProvider_ShouldCaptureLogEntries()
+  overload: RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection
+  commentId: M:RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection
+  id: ClearAppLogHandler_ShouldEmptyCollection
+  parent: RemoteAgent.Desktop.UiTests.AppLogTests
+  langs:
+  - csharp
+  - vb
+  name: ClearAppLogHandler_ShouldEmptyCollection()
+  nameWithType: AppLogTests.ClearAppLogHandler_ShouldEmptyCollection()
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearAppLogHandler_ShouldEmptyCollection
+    path: ../tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task ClearAppLogHandler_ShouldEmptyCollection()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function ClearAppLogHandler_ShouldEmptyCollection() As Task
+  overload: RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(System.String)
+  commentId: M:RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(System.String)
+  id: SaveAppLogHandler_ShouldWriteAllThreeFormats(System.String)
+  parent: RemoteAgent.Desktop.UiTests.AppLogTests
+  langs:
+  - csharp
+  - vb
+  name: SaveAppLogHandler_ShouldWriteAllThreeFormats(string)
+  nameWithType: AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(string)
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(string)
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SaveAppLogHandler_ShouldWriteAllThreeFormats
+    path: ../tests/RemoteAgent.Desktop.UiTests/AppLogTests.cs
+    startLine: 71
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "txt" })]
+
+      [InlineData(new object[] { "json" })]
+
+      [InlineData(new object[] { "csv" })]
+
+      public Task SaveAppLogHandler_ShouldWriteAllThreeFormats(string format)
+    parameters:
+    - id: format
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "txt" })>
+
+      <InlineData(New Object() { "json" })>
+
+      <InlineData(New Object() { "csv" })>
+
+      Public Function SaveAppLogHandler_ShouldWriteAllThreeFormats(format As String) As Task
+  overload: RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(String)
+  fullName.vb: RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats(String)
+  name.vb: SaveAppLogHandler_ShouldWriteAllThreeFormats(String)
+references:
+- uid: RemoteAgent.Desktop.Logging.AppLoggerProvider
+  commentId: T:RemoteAgent.Desktop.Logging.AppLoggerProvider
+  name: AppLoggerProvider
+  nameWithType: AppLoggerProvider
+  fullName: RemoteAgent.Desktop.Logging.AppLoggerProvider
+- uid: RemoteAgent.Desktop.Infrastructure.InMemoryAppLogStore
+  commentId: T:RemoteAgent.Desktop.Infrastructure.InMemoryAppLogStore
+  name: InMemoryAppLogStore
+  nameWithType: InMemoryAppLogStore
+  fullName: RemoteAgent.Desktop.Infrastructure.InMemoryAppLogStore
+- uid: RemoteAgent.Desktop.UiTests
+  commentId: N:RemoteAgent.Desktop.UiTests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.UiTests
+  nameWithType: RemoteAgent.Desktop.UiTests
+  fullName: RemoteAgent.Desktop.UiTests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries
+  href: RemoteAgent.Desktop.UiTests.AppLogTests.html#RemoteAgent_Desktop_UiTests_AppLogTests_AppLoggerProvider_ShouldCaptureLogEntries
+  name: AppLoggerProvider_ShouldCaptureLogEntries
+  nameWithType: AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests.AppLoggerProvider_ShouldCaptureLogEntries
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection
+  href: RemoteAgent.Desktop.UiTests.AppLogTests.html#RemoteAgent_Desktop_UiTests_AppLogTests_ClearAppLogHandler_ShouldEmptyCollection
+  name: ClearAppLogHandler_ShouldEmptyCollection
+  nameWithType: AppLogTests.ClearAppLogHandler_ShouldEmptyCollection
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests.ClearAppLogHandler_ShouldEmptyCollection
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats
+  href: RemoteAgent.Desktop.UiTests.AppLogTests.html#RemoteAgent_Desktop_UiTests_AppLogTests_SaveAppLogHandler_ShouldWriteAllThreeFormats_System_String_
+  name: SaveAppLogHandler_ShouldWriteAllThreeFormats
+  nameWithType: AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats
+  fullName: RemoteAgent.Desktop.UiTests.AppLogTests.SaveAppLogHandler_ShouldWriteAllThreeFormats
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

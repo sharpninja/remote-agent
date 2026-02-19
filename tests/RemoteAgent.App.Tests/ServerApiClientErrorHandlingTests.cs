@@ -3,6 +3,12 @@ using RemoteAgent.App.Logic;
 
 namespace RemoteAgent.App.Tests;
 
+/// <summary>Error-handling tests for <see cref="RemoteAgent.App.Logic.IServerApiClient"/> implementations. FR-1.1, FR-12.2; TR-8.1, TR-8.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.1")]
+[Trait("Requirement", "FR-12.2")]
+[Trait("Requirement", "TR-8.1")]
+[Trait("Requirement", "TR-8.2")]
 public sealed class ServerApiClientErrorHandlingTests
 {
     [Fact]

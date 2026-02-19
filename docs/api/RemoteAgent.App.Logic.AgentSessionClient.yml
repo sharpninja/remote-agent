@@ -1,0 +1,1635 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.AgentSessionClient
+  commentId: T:RemoteAgent.App.Logic.AgentSessionClient
+  id: AgentSessionClient
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.AgentSessionClient.#ctor(System.Func{RemoteAgent.Proto.MediaChunk,System.String})
+  - RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput
+  - RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentSessionClient.ConnectionStateChanged
+  - RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId
+  - RemoteAgent.App.Logic.AgentSessionClient.Disconnect
+  - RemoteAgent.App.Logic.AgentSessionClient.IsConnected
+  - RemoteAgent.App.Logic.AgentSessionClient.MessageReceived
+  - RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext
+  - RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync(System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  - RemoteAgent.App.Logic.AgentSessionClient.ServerInfo
+  - RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: AgentSessionClient
+  nameWithType: AgentSessionClient
+  fullName: RemoteAgent.App.Logic.AgentSessionClient
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentSessionClient
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Shared streaming session client used by desktop and mobile chat surfaces.
+  example: []
+  syntax:
+    content: 'public sealed class AgentSessionClient : IAgentSessionClient, IAgentInteractionSession'
+    content.vb: Public NotInheritable Class AgentSessionClient Implements IAgentSessionClient, IAgentInteractionSession
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient
+  - RemoteAgent.App.Logic.IAgentInteractionSession
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.AgentSessionClient.#ctor(System.Func{RemoteAgent.Proto.MediaChunk,System.String})
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.#ctor(System.Func{RemoteAgent.Proto.MediaChunk,System.String})
+  id: '#ctor(System.Func{RemoteAgent.Proto.MediaChunk,System.String})'
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: AgentSessionClient(Func<MediaChunk, string>?)
+  nameWithType: AgentSessionClient.AgentSessionClient(Func<MediaChunk, string>?)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.AgentSessionClient(System.Func<RemoteAgent.Proto.MediaChunk, string>?)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Shared streaming session client used by desktop and mobile chat surfaces.
+  example: []
+  syntax:
+    content: public AgentSessionClient(Func<MediaChunk, string>? mediaTextFormatter = null)
+    parameters:
+    - id: mediaTextFormatter
+      type: System.Func{RemoteAgent.Proto.MediaChunk,System.String}
+    content.vb: Public Sub New(mediaTextFormatter As Func(Of MediaChunk, String) = Nothing)
+  overload: RemoteAgent.App.Logic.AgentSessionClient.#ctor*
+  nameWithType.vb: AgentSessionClient.New(Func(Of MediaChunk, String))
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.New(System.Func(Of RemoteAgent.Proto.MediaChunk, String))
+  name.vb: New(Func(Of MediaChunk, String))
+- uid: RemoteAgent.App.Logic.AgentSessionClient.IsConnected
+  commentId: P:RemoteAgent.App.Logic.AgentSessionClient.IsConnected
+  id: IsConnected
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: IsConnected
+  nameWithType: AgentSessionClient.IsConnected
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.IsConnected
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IsConnected
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 41
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public bool IsConnected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsConnected As Boolean
+  overload: RemoteAgent.App.Logic.AgentSessionClient.IsConnected*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.IsConnected
+- uid: RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput
+  commentId: P:RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput
+  id: CanAcceptInput
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: CanAcceptInput
+  nameWithType: AgentSessionClient.CanAcceptInput
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CanAcceptInput
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 42
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: True when the target can accept input.
+  example: []
+  syntax:
+    content: public bool CanAcceptInput { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanAcceptInput As Boolean
+  overload: RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput*
+  implements:
+  - RemoteAgent.App.Logic.IAgentInteractionSession.CanAcceptInput
+- uid: RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId
+  commentId: P:RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId
+  id: CurrentSessionId
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: CurrentSessionId
+  nameWithType: AgentSessionClient.CurrentSessionId
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CurrentSessionId
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 43
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public string? CurrentSessionId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CurrentSessionId As String
+  overload: RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.CurrentSessionId
+- uid: RemoteAgent.App.Logic.AgentSessionClient.ServerInfo
+  commentId: P:RemoteAgent.App.Logic.AgentSessionClient.ServerInfo
+  id: ServerInfo
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: ServerInfo
+  nameWithType: AgentSessionClient.ServerInfo
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.ServerInfo
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ServerInfo
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 44
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public ServerInfoResponse? ServerInfo { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Proto.ServerInfoResponse
+    content.vb: Public Property ServerInfo As ServerInfoResponse
+  overload: RemoteAgent.App.Logic.AgentSessionClient.ServerInfo*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.ServerInfo
+- uid: RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext
+  commentId: P:RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext
+  id: PerRequestContext
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: PerRequestContext
+  nameWithType: AgentSessionClient.PerRequestContext
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PerRequestContext
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 45
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public string? PerRequestContext { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PerRequestContext As String
+  overload: RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.PerRequestContext
+- uid: RemoteAgent.App.Logic.AgentSessionClient.ConnectionStateChanged
+  commentId: E:RemoteAgent.App.Logic.AgentSessionClient.ConnectionStateChanged
+  id: ConnectionStateChanged
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectionStateChanged
+  nameWithType: AgentSessionClient.ConnectionStateChanged
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.ConnectionStateChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionStateChanged
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 47
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public event Action? ConnectionStateChanged
+    return:
+      type: System.Action
+    content.vb: Public Event ConnectionStateChanged As Action
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.ConnectionStateChanged
+- uid: RemoteAgent.App.Logic.AgentSessionClient.MessageReceived
+  commentId: E:RemoteAgent.App.Logic.AgentSessionClient.MessageReceived
+  id: MessageReceived
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: MessageReceived
+  nameWithType: AgentSessionClient.MessageReceived
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.MessageReceived
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MessageReceived
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public event Action<ChatMessage>? MessageReceived
+    return:
+      type: System.Action{RemoteAgent.App.Services.ChatMessage}
+    content.vb: Public Event MessageReceived As Action(Of ChatMessage)
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.MessageReceived
+- uid: RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: ConnectAsync(string, int, string?, string?, string?, string?, CancellationToken)
+  nameWithType: AgentSessionClient.ConnectAsync(string, int, string?, string?, string?, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync(string, int, string?, string?, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectAsync
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 50
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
+    parameters:
+    - id: host
+      type: System.String
+    - id: port
+      type: System.Int32
+    - id: sessionId
+      type: System.String
+    - id: agentId
+      type: System.String
+    - id: clientVersion
+      type: System.String
+    - id: apiKey
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function ConnectAsync(host As String, port As Integer, sessionId As String = Nothing, agentId As String = Nothing, clientVersion As String = Nothing, apiKey As String = Nothing, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: AgentSessionClient.ConnectAsync(String, Integer, String, String, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync(String, Integer, String, String, String, String, System.Threading.CancellationToken)
+  name.vb: ConnectAsync(String, Integer, String, String, String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentSessionClient.Disconnect
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.Disconnect
+  id: Disconnect
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: Disconnect()
+  nameWithType: AgentSessionClient.Disconnect()
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.Disconnect()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Disconnect
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 92
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public void Disconnect()
+    content.vb: Public Sub Disconnect()
+  overload: RemoteAgent.App.Logic.AgentSessionClient.Disconnect*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.Disconnect
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync(System.String,System.Threading.CancellationToken)
+  id: SendInputAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: SendInputAsync(string, CancellationToken)
+  nameWithType: AgentSessionClient.SendInputAsync(string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendInputAsync
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 114
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  summary: Sends one input line/message to the target agent.
+  example: []
+  syntax:
+    content: public Task SendInputAsync(string input, CancellationToken cancellationToken = default)
+    parameters:
+    - id: input
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendInputAsync(input As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync*
+  implements:
+  - RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: AgentSessionClient.SendInputAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync(String, System.Threading.CancellationToken)
+  name.vb: SendInputAsync(String, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  id: SendTextAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: SendTextAsync(string, CancellationToken)
+  nameWithType: AgentSessionClient.SendTextAsync(string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendTextAsync
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 119
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task SendTextAsync(string text, CancellationToken ct = default)
+    parameters:
+    - id: text
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendTextAsync(text As String, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: AgentSessionClient.SendTextAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync(String, System.Threading.CancellationToken)
+  name.vb: SendTextAsync(String, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  id: SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: SendScriptRequestAsync(string, ScriptType, CancellationToken)
+  nameWithType: AgentSessionClient.SendScriptRequestAsync(string, ScriptType, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync(string, RemoteAgent.Proto.ScriptType, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendScriptRequestAsync
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 134
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task SendScriptRequestAsync(string pathOrCommand, ScriptType scriptType, CancellationToken ct = default)
+    parameters:
+    - id: pathOrCommand
+      type: System.String
+    - id: scriptType
+      type: RemoteAgent.Proto.ScriptType
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendScriptRequestAsync(pathOrCommand As String, scriptType As ScriptType, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  nameWithType.vb: AgentSessionClient.SendScriptRequestAsync(String, ScriptType, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync(String, RemoteAgent.Proto.ScriptType, System.Threading.CancellationToken)
+  name.vb: SendScriptRequestAsync(String, ScriptType, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  id: SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: SendMediaAsync(byte[], string, string?, CancellationToken)
+  nameWithType: AgentSessionClient.SendMediaAsync(byte[], string, string?, CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync(byte[], string, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendMediaAsync
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 153
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task SendMediaAsync(byte[] content, string contentType, string? fileName, CancellationToken ct = default)
+    parameters:
+    - id: content
+      type: System.Byte[]
+    - id: contentType
+      type: System.String
+    - id: fileName
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendMediaAsync(content As Byte(), contentType As String, fileName As String, ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: AgentSessionClient.SendMediaAsync(Byte(), String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync(Byte(), String, String, System.Threading.CancellationToken)
+  name.vb: SendMediaAsync(Byte(), String, String, CancellationToken)
+- uid: RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  id: StopSessionAsync(System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.AgentSessionClient
+  langs:
+  - csharp
+  - vb
+  name: StopSessionAsync(CancellationToken)
+  nameWithType: AgentSessionClient.StopSessionAsync(CancellationToken)
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/AgentSessionClient.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StopSessionAsync
+    path: ../src/RemoteAgent.App.Logic/AgentSessionClient.cs
+    startLine: 173
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  example: []
+  syntax:
+    content: public Task StopSessionAsync(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function StopSessionAsync(ct As CancellationToken = Nothing) As Task
+  overload: RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync*
+  implements:
+  - RemoteAgent.App.Logic.IAgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.IAgentSessionClient
+  commentId: T:RemoteAgent.App.Logic.IAgentSessionClient
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html
+  name: IAgentSessionClient
+  nameWithType: IAgentSessionClient
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient
+- uid: RemoteAgent.App.Logic.IAgentInteractionSession
+  commentId: T:RemoteAgent.App.Logic.IAgentInteractionSession
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IAgentInteractionSession.html
+  name: IAgentInteractionSession
+  nameWithType: IAgentInteractionSession
+  fullName: RemoteAgent.App.Logic.IAgentInteractionSession
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.AgentSessionClient.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.#ctor
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient__ctor_System_Func_RemoteAgent_Proto_MediaChunk_System_String__
+  name: AgentSessionClient
+  nameWithType: AgentSessionClient.AgentSessionClient
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.AgentSessionClient
+  nameWithType.vb: AgentSessionClient.New
+  fullName.vb: RemoteAgent.App.Logic.AgentSessionClient.New
+  name.vb: New
+- uid: System.Func{RemoteAgent.Proto.MediaChunk,System.String}
+  commentId: T:System.Func{RemoteAgent.Proto.MediaChunk,System.String}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<MediaChunk, string>
+  nameWithType: Func<MediaChunk, string>
+  fullName: System.Func<RemoteAgent.Proto.MediaChunk, string>
+  nameWithType.vb: Func(Of MediaChunk, String)
+  fullName.vb: System.Func(Of RemoteAgent.Proto.MediaChunk, String)
+  name.vb: Func(Of MediaChunk, String)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: RemoteAgent.App.Logic.AgentSessionClient.IsConnected*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.IsConnected
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_IsConnected
+  name: IsConnected
+  nameWithType: AgentSessionClient.IsConnected
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.IsConnected
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.IsConnected
+  commentId: P:RemoteAgent.App.Logic.IAgentSessionClient.IsConnected
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_IsConnected
+  name: IsConnected
+  nameWithType: IAgentSessionClient.IsConnected
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.IsConnected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_CanAcceptInput
+  name: CanAcceptInput
+  nameWithType: AgentSessionClient.CanAcceptInput
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.CanAcceptInput
+- uid: RemoteAgent.App.Logic.IAgentInteractionSession.CanAcceptInput
+  commentId: P:RemoteAgent.App.Logic.IAgentInteractionSession.CanAcceptInput
+  parent: RemoteAgent.App.Logic.IAgentInteractionSession
+  href: RemoteAgent.App.Logic.IAgentInteractionSession.html#RemoteAgent_App_Logic_IAgentInteractionSession_CanAcceptInput
+  name: CanAcceptInput
+  nameWithType: IAgentInteractionSession.CanAcceptInput
+  fullName: RemoteAgent.App.Logic.IAgentInteractionSession.CanAcceptInput
+- uid: RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_CurrentSessionId
+  name: CurrentSessionId
+  nameWithType: AgentSessionClient.CurrentSessionId
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.CurrentSessionId
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.CurrentSessionId
+  commentId: P:RemoteAgent.App.Logic.IAgentSessionClient.CurrentSessionId
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_CurrentSessionId
+  name: CurrentSessionId
+  nameWithType: IAgentSessionClient.CurrentSessionId
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.CurrentSessionId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.Logic.AgentSessionClient.ServerInfo*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.ServerInfo
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_ServerInfo
+  name: ServerInfo
+  nameWithType: AgentSessionClient.ServerInfo
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.ServerInfo
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.ServerInfo
+  commentId: P:RemoteAgent.App.Logic.IAgentSessionClient.ServerInfo
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_ServerInfo
+  name: ServerInfo
+  nameWithType: IAgentSessionClient.ServerInfo
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.ServerInfo
+- uid: RemoteAgent.Proto.ServerInfoResponse
+  commentId: T:RemoteAgent.Proto.ServerInfoResponse
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerInfoResponse.html
+  name: ServerInfoResponse
+  nameWithType: ServerInfoResponse
+  fullName: RemoteAgent.Proto.ServerInfoResponse
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_PerRequestContext
+  name: PerRequestContext
+  nameWithType: AgentSessionClient.PerRequestContext
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.PerRequestContext
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.PerRequestContext
+  commentId: P:RemoteAgent.App.Logic.IAgentSessionClient.PerRequestContext
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_PerRequestContext
+  name: PerRequestContext
+  nameWithType: IAgentSessionClient.PerRequestContext
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.PerRequestContext
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.ConnectionStateChanged
+  commentId: E:RemoteAgent.App.Logic.IAgentSessionClient.ConnectionStateChanged
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_ConnectionStateChanged
+  name: ConnectionStateChanged
+  nameWithType: IAgentSessionClient.ConnectionStateChanged
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.ConnectionStateChanged
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.MessageReceived
+  commentId: E:RemoteAgent.App.Logic.IAgentSessionClient.MessageReceived
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_MessageReceived
+  name: MessageReceived
+  nameWithType: IAgentSessionClient.MessageReceived
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.MessageReceived
+- uid: System.Action{RemoteAgent.App.Services.ChatMessage}
+  commentId: T:System.Action{RemoteAgent.App.Services.ChatMessage}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ChatMessage>
+  nameWithType: Action<ChatMessage>
+  fullName: System.Action<RemoteAgent.App.Services.ChatMessage>
+  nameWithType.vb: Action(Of ChatMessage)
+  fullName.vb: System.Action(Of RemoteAgent.App.Services.ChatMessage)
+  name.vb: Action(Of ChatMessage)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+    href: RemoteAgent.App.Services.ChatMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Services.ChatMessage
+    name: ChatMessage
+    href: RemoteAgent.App.Services.ChatMessage.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_ConnectAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: ConnectAsync
+  nameWithType: AgentSessionClient.ConnectAsync
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.ConnectAsync
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_ConnectAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: ConnectAsync(string, int, string, string, string, string, CancellationToken)
+  nameWithType: IAgentSessionClient.ConnectAsync(string, int, string, string, string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(string, int, string, string, string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentSessionClient.ConnectAsync(String, Integer, String, String, String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(String, Integer, String, String, String, String, System.Threading.CancellationToken)
+  name.vb: ConnectAsync(String, Integer, String, String, String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+    name: ConnectAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_ConnectAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.ConnectAsync(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+    name: ConnectAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_ConnectAsync_System_String_System_Int32_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Logic.AgentSessionClient.Disconnect*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.Disconnect
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_Disconnect
+  name: Disconnect
+  nameWithType: AgentSessionClient.Disconnect
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.Disconnect
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.Disconnect
+  commentId: M:RemoteAgent.App.Logic.IAgentSessionClient.Disconnect
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_Disconnect
+  name: Disconnect()
+  nameWithType: IAgentSessionClient.Disconnect()
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.Disconnect()
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.Disconnect
+    name: Disconnect
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_Disconnect
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.Disconnect
+    name: Disconnect
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_Disconnect
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_SendInputAsync_System_String_System_Threading_CancellationToken_
+  name: SendInputAsync
+  nameWithType: AgentSessionClient.SendInputAsync
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendInputAsync
+- uid: RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentInteractionSession
+  isExternal: true
+  href: RemoteAgent.App.Logic.IAgentInteractionSession.html#RemoteAgent_App_Logic_IAgentInteractionSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  name: SendInputAsync(string, CancellationToken)
+  nameWithType: IAgentInteractionSession.SendInputAsync(string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentInteractionSession.SendInputAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(String, System.Threading.CancellationToken)
+  name.vb: SendInputAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+    name: SendInputAsync
+    href: RemoteAgent.App.Logic.IAgentInteractionSession.html#RemoteAgent_App_Logic_IAgentInteractionSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentInteractionSession.SendInputAsync(System.String,System.Threading.CancellationToken)
+    name: SendInputAsync
+    href: RemoteAgent.App.Logic.IAgentInteractionSession.html#RemoteAgent_App_Logic_IAgentInteractionSession_SendInputAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_SendTextAsync_System_String_System_Threading_CancellationToken_
+  name: SendTextAsync
+  nameWithType: AgentSessionClient.SendTextAsync
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendTextAsync
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendTextAsync_System_String_System_Threading_CancellationToken_
+  name: SendTextAsync(string, CancellationToken)
+  nameWithType: IAgentSessionClient.SendTextAsync(string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentSessionClient.SendTextAsync(String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(String, System.Threading.CancellationToken)
+  name.vb: SendTextAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+    name: SendTextAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendTextAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.SendTextAsync(System.String,System.Threading.CancellationToken)
+    name: SendTextAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendTextAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_SendScriptRequestAsync_System_String_RemoteAgent_Proto_ScriptType_System_Threading_CancellationToken_
+  name: SendScriptRequestAsync
+  nameWithType: AgentSessionClient.SendScriptRequestAsync
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendScriptRequestAsync
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendScriptRequestAsync_System_String_RemoteAgent_Proto_ScriptType_System_Threading_CancellationToken_
+  name: SendScriptRequestAsync(string, ScriptType, CancellationToken)
+  nameWithType: IAgentSessionClient.SendScriptRequestAsync(string, ScriptType, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(string, RemoteAgent.Proto.ScriptType, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentSessionClient.SendScriptRequestAsync(String, ScriptType, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(String, RemoteAgent.Proto.ScriptType, System.Threading.CancellationToken)
+  name.vb: SendScriptRequestAsync(String, ScriptType, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+    name: SendScriptRequestAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendScriptRequestAsync_System_String_RemoteAgent_Proto_ScriptType_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.ScriptType
+    name: ScriptType
+    href: RemoteAgent.Proto.ScriptType.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.SendScriptRequestAsync(System.String,RemoteAgent.Proto.ScriptType,System.Threading.CancellationToken)
+    name: SendScriptRequestAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendScriptRequestAsync_System_String_RemoteAgent_Proto_ScriptType_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.Proto.ScriptType
+    name: ScriptType
+    href: RemoteAgent.Proto.ScriptType.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Proto.ScriptType
+  commentId: T:RemoteAgent.Proto.ScriptType
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ScriptType.html
+  name: ScriptType
+  nameWithType: ScriptType
+  fullName: RemoteAgent.Proto.ScriptType
+- uid: RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_SendMediaAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_
+  name: SendMediaAsync
+  nameWithType: AgentSessionClient.SendMediaAsync
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.SendMediaAsync
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendMediaAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_
+  name: SendMediaAsync(byte[], string, string, CancellationToken)
+  nameWithType: IAgentSessionClient.SendMediaAsync(byte[], string, string, CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(byte[], string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IAgentSessionClient.SendMediaAsync(Byte(), String, String, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(Byte(), String, String, System.Threading.CancellationToken)
+  name.vb: SendMediaAsync(Byte(), String, String, CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+    name: SendMediaAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendMediaAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.SendMediaAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)
+    name: SendMediaAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_SendMediaAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync*
+  commentId: Overload:RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync
+  href: RemoteAgent.App.Logic.AgentSessionClient.html#RemoteAgent_App_Logic_AgentSessionClient_StopSessionAsync_System_Threading_CancellationToken_
+  name: StopSessionAsync
+  nameWithType: AgentSessionClient.StopSessionAsync
+  fullName: RemoteAgent.App.Logic.AgentSessionClient.StopSessionAsync
+- uid: RemoteAgent.App.Logic.IAgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.IAgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.IAgentSessionClient
+  isExternal: true
+  href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_StopSessionAsync_System_Threading_CancellationToken_
+  name: StopSessionAsync(CancellationToken)
+  nameWithType: IAgentSessionClient.StopSessionAsync(CancellationToken)
+  fullName: RemoteAgent.App.Logic.IAgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+    name: StopSessionAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_StopSessionAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.IAgentSessionClient.StopSessionAsync(System.Threading.CancellationToken)
+    name: StopSessionAsync
+    href: RemoteAgent.App.Logic.IAgentSessionClient.html#RemoteAgent_App_Logic_IAgentSessionClient_StopSessionAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )

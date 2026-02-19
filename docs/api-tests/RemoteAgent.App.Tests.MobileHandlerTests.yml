@@ -1,0 +1,1437 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests.MobileHandlerTests
+  commentId: T:RemoteAgent.App.Tests.MobileHandlerTests
+  id: MobileHandlerTests
+  parent: RemoteAgent.App.Tests
+  children:
+  - RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  - RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  - RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  - RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  - RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  - RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  - RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  - RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  - RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  - RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  langs:
+  - csharp
+  - vb
+  name: MobileHandlerTests
+  nameWithType: MobileHandlerTests
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MobileHandlerTests
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 13
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  summary: 'Unit tests for all 8 mobile CQRS handlers: Connect, Disconnect, CreateSession, TerminateSession, SendMessage, SendAttachment, ArchiveMessage, UsePromptTemplate. FR-2.1, FR-2.2, FR-4.1, FR-11.1, FR-12.5, FR-12.6; TR-18.1, TR-18.2, TR-18.3, TR-18.4.'
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-2.1")]
+
+      [Trait("Requirement", "FR-2.2")]
+
+      [Trait("Requirement", "FR-4.1")]
+
+      [Trait("Requirement", "FR-11.1")]
+
+      [Trait("Requirement", "FR-12.5")]
+
+      [Trait("Requirement", "FR-12.6")]
+
+      [Trait("Requirement", "TR-18.1")]
+
+      [Trait("Requirement", "TR-18.2")]
+
+      [Trait("Requirement", "TR-18.3")]
+
+      [Trait("Requirement", "TR-18.4")]
+
+      public sealed class MobileHandlerTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-2.1")>
+
+      <Trait("Requirement", "FR-2.2")>
+
+      <Trait("Requirement", "FR-4.1")>
+
+      <Trait("Requirement", "FR-11.1")>
+
+      <Trait("Requirement", "FR-12.5")>
+
+      <Trait("Requirement", "FR-12.6")>
+
+      <Trait("Requirement", "TR-18.1")>
+
+      <Trait("Requirement", "TR-18.2")>
+
+      <Trait("Requirement", "TR-18.3")>
+
+      <Trait("Requirement", "TR-18.4")>
+
+      Public NotInheritable Class MobileHandlerTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-2.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-2.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-4.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-11.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.5
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.6
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.4
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  id: Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk()
+  nameWithType: MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 231
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  id: Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Connect_WhenModeSelectorCancelled_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Connect_WhenModeSelectorCancelled_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 256
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Connect_WhenModeSelectorCancelled_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Connect_WhenModeSelectorCancelled_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  id: Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 271
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  id: Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Connect_WhenGatewayConnectThrows_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Connect_WhenGatewayConnectThrows_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 288
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Connect_WhenGatewayConnectThrows_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Connect_WhenGatewayConnectThrows_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  id: Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Disconnect_ShouldCallGatewayDisconnectAndReturnOk()
+  nameWithType: MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 310
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Disconnect_ShouldCallGatewayDisconnectAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Disconnect_ShouldCallGatewayDisconnectAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  id: CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: CreateSession_ShouldAddSessionToWorkspaceAndReturnOk()
+  nameWithType: MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 327
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task CreateSession_ShouldAddSessionToWorkspaceAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function CreateSession_ShouldAddSessionToWorkspaceAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  id: Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk()
+  nameWithType: MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 348
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail
+  id: Terminate_WhenCancelled_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Terminate_WhenCancelled_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Terminate_WhenCancelled_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 369
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Terminate_WhenCancelled_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Terminate_WhenCancelled_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail
+  id: Terminate_WhenSessionNull_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Terminate_WhenSessionNull_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Terminate_WhenSessionNull_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 387
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Terminate_WhenSessionNull_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Terminate_WhenSessionNull_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  id: Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway()
+  nameWithType: MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 404
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  id: SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: SendMessage_WhenConnectedWithText_ShouldSendAndClearPending()
+  nameWithType: MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 429
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SendMessage_WhenConnectedWithText_ShouldSendAndClearPending()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SendMessage_WhenConnectedWithText_ShouldSendAndClearPending() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail
+  id: SendMessage_WhenNotConnected_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: SendMessage_WhenNotConnected_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendMessage_WhenNotConnected_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 445
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SendMessage_WhenNotConnected_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SendMessage_WhenNotConnected_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail
+  id: SendMessage_WhenPendingEmpty_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: SendMessage_WhenPendingEmpty_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendMessage_WhenPendingEmpty_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 459
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SendMessage_WhenPendingEmpty_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SendMessage_WhenPendingEmpty_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  id: SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk()
+  nameWithType: MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 477
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail
+  id: SendAttachment_WhenNotConnected_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: SendAttachment_WhenNotConnected_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendAttachment_WhenNotConnected_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 492
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SendAttachment_WhenNotConnected_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SendAttachment_WhenNotConnected_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  id: SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: SendAttachment_WhenPickerReturnsNull_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 506
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SendAttachment_WhenPickerReturnsNull_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SendAttachment_WhenPickerReturnsNull_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  id: Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk()
+  nameWithType: MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 525
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail
+  id: Archive_WhenMessageNull_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: Archive_WhenMessageNull_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Archive_WhenMessageNull_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 541
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Archive_WhenMessageNull_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Archive_WhenMessageNull_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  id: UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk()
+  nameWithType: MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 559
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail
+  id: UseTemplate_WhenHostEmpty_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: UseTemplate_WhenHostEmpty_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UseTemplate_WhenHostEmpty_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 589
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task UseTemplate_WhenHostEmpty_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function UseTemplate_WhenHostEmpty_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  id: UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: UseTemplate_WhenTemplateListEmpty_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 604
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task UseTemplate_WhenTemplateListEmpty_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function UseTemplate_WhenTemplateListEmpty_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  commentId: M:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  id: UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  parent: RemoteAgent.App.Tests.MobileHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail()
+  nameWithType: MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail()
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+    path: ../tests/RemoteAgent.App.Tests/MobileHandlerTests.cs
+    startLine: 622
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail() As Task
+  overload: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.App.Tests
+  commentId: N:RemoteAgent.App.Tests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Tests
+  nameWithType: RemoteAgent.App.Tests
+  fullName: RemoteAgent.App.Tests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  name: Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  nameWithType: MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  name: Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  nameWithType: MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenModeSelectorCancelled_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  name: Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  nameWithType: MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  name: Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  nameWithType: MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Connect_WhenGatewayConnectThrows_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  name: Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  nameWithType: MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Disconnect_ShouldCallGatewayDisconnectAndReturnOk
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  name: CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  nameWithType: MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.CreateSession_ShouldAddSessionToWorkspaceAndReturnOk
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  name: Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  nameWithType: MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenConfirmed_ShouldRemoveSessionAndReturnOk
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Terminate_WhenCancelled_ShouldReturnFail
+  name: Terminate_WhenCancelled_ShouldReturnFail
+  nameWithType: MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCancelled_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Terminate_WhenSessionNull_ShouldReturnFail
+  name: Terminate_WhenSessionNull_ShouldReturnFail
+  nameWithType: MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenSessionNull_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  name: Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  nameWithType: MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Terminate_WhenCurrentSessionTerminated_ShouldDisconnectGateway
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  name: SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  nameWithType: MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenConnectedWithText_ShouldSendAndClearPending
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_SendMessage_WhenNotConnected_ShouldReturnFail
+  name: SendMessage_WhenNotConnected_ShouldReturnFail
+  nameWithType: MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenNotConnected_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_SendMessage_WhenPendingEmpty_ShouldReturnFail
+  name: SendMessage_WhenPendingEmpty_ShouldReturnFail
+  nameWithType: MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendMessage_WhenPendingEmpty_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  name: SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  nameWithType: MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenConnectedAndFilePicked_ShouldSendMediaAndReturnOk
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_SendAttachment_WhenNotConnected_ShouldReturnFail
+  name: SendAttachment_WhenNotConnected_ShouldReturnFail
+  nameWithType: MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenNotConnected_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  name: SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  nameWithType: MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.SendAttachment_WhenPickerReturnsNull_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  name: Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  nameWithType: MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNotNull_ShouldArchiveAndReturnOk
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_Archive_WhenMessageNull_ShouldReturnFail
+  name: Archive_WhenMessageNull_ShouldReturnFail
+  nameWithType: MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.Archive_WhenMessageNull_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  name: UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  nameWithType: MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplatesAvailableAndFilled_ShouldSendRenderedMessageAndReturnOk
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_UseTemplate_WhenHostEmpty_ShouldReturnFail
+  name: UseTemplate_WhenHostEmpty_ShouldReturnFail
+  nameWithType: MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenHostEmpty_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  name: UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  nameWithType: MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateListEmpty_ShouldReturnFail
+- uid: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  href: RemoteAgent.App.Tests.MobileHandlerTests.html#RemoteAgent_App_Tests_MobileHandlerTests_UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  name: UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  nameWithType: MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail
+  fullName: RemoteAgent.App.Tests.MobileHandlerTests.UseTemplate_WhenTemplateSelectorCancelled_ShouldReturnFail

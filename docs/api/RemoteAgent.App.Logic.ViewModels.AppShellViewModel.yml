@@ -1,0 +1,862 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  commentId: T:RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  id: AppShellViewModel
+  parent: RemoteAgent.App.Logic.ViewModels
+  children:
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.#ctor(RemoteAgent.App.Logic.ISessionListProvider,RemoteAgent.App.Logic.ISessionCommandBus,RemoteAgent.App.Logic.INavigationService)
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.PropertyChanged
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand
+  - RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand
+  langs:
+  - csharp
+  - vb
+  name: AppShellViewModel
+  nameWithType: AppShellViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AppShellViewModel
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public sealed class AppShellViewModel
+    content.vb: Public NotInheritable Class AppShellViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.#ctor(RemoteAgent.App.Logic.ISessionListProvider,RemoteAgent.App.Logic.ISessionCommandBus,RemoteAgent.App.Logic.INavigationService)
+  commentId: M:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.#ctor(RemoteAgent.App.Logic.ISessionListProvider,RemoteAgent.App.Logic.ISessionCommandBus,RemoteAgent.App.Logic.INavigationService)
+  id: '#ctor(RemoteAgent.App.Logic.ISessionListProvider,RemoteAgent.App.Logic.ISessionCommandBus,RemoteAgent.App.Logic.INavigationService)'
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: AppShellViewModel(ISessionListProvider, ISessionCommandBus, INavigationService)
+  nameWithType: AppShellViewModel.AppShellViewModel(ISessionListProvider, ISessionCommandBus, INavigationService)
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.AppShellViewModel(RemoteAgent.App.Logic.ISessionListProvider, RemoteAgent.App.Logic.ISessionCommandBus, RemoteAgent.App.Logic.INavigationService)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public AppShellViewModel(ISessionListProvider sessionListProvider, ISessionCommandBus sessionBus, INavigationService navigation)
+    parameters:
+    - id: sessionListProvider
+      type: RemoteAgent.App.Logic.ISessionListProvider
+    - id: sessionBus
+      type: RemoteAgent.App.Logic.ISessionCommandBus
+    - id: navigation
+      type: RemoteAgent.App.Logic.INavigationService
+    content.vb: Public Sub New(sessionListProvider As ISessionListProvider, sessionBus As ISessionCommandBus, navigation As INavigationService)
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.#ctor*
+  nameWithType.vb: AppShellViewModel.New(ISessionListProvider, ISessionCommandBus, INavigationService)
+  fullName.vb: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.New(RemoteAgent.App.Logic.ISessionListProvider, RemoteAgent.App.Logic.ISessionCommandBus, RemoteAgent.App.Logic.INavigationService)
+  name.vb: New(ISessionListProvider, ISessionCommandBus, INavigationService)
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.PropertyChanged
+  commentId: E:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.PropertyChanged
+  id: PropertyChanged
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: AppShellViewModel.PropertyChanged
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems
+  id: SessionItems
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: SessionItems
+  nameWithType: AppShellViewModel.SessionItems
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionItems
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 35
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ObservableCollection<SessionSummary> SessionItems { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Logic.SessionSummary}
+    content.vb: Public ReadOnly Property SessionItems As ObservableCollection(Of SessionSummary)
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand
+  id: StartSessionCommand
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: StartSessionCommand
+  nameWithType: AppShellViewModel.StartSessionCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StartSessionCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 37
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand StartSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property StartSessionCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand
+  id: SelectSessionCommand
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: SelectSessionCommand
+  nameWithType: AppShellViewModel.SelectSessionCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectSessionCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 38
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand SelectSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property SelectSessionCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand
+  id: TerminateSessionCommand
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: TerminateSessionCommand
+  nameWithType: AppShellViewModel.TerminateSessionCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TerminateSessionCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 39
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand TerminateSessionCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property TerminateSessionCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand
+  id: NavigateToSettingsCommand
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: NavigateToSettingsCommand
+  nameWithType: AppShellViewModel.NavigateToSettingsCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NavigateToSettingsCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 40
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand NavigateToSettingsCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property NavigateToSettingsCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand
+  id: NavigateToAccountCommand
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: NavigateToAccountCommand
+  nameWithType: AppShellViewModel.NavigateToAccountCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: NavigateToAccountCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 41
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand NavigateToAccountCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property NavigateToAccountCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand
+  commentId: P:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand
+  id: OpenSessionsCommand
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: OpenSessionsCommand
+  nameWithType: AppShellViewModel.OpenSessionsCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: OpenSessionsCommand
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 42
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public ICommand OpenSessionsCommand { get; }
+    parameters: []
+    return:
+      type: System.Windows.Input.ICommand
+    content.vb: Public ReadOnly Property OpenSessionsCommand As ICommand
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand*
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions
+  commentId: M:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions
+  id: RefreshSessions
+  parent: RemoteAgent.App.Logic.ViewModels.AppShellViewModel
+  langs:
+  - csharp
+  - vb
+  name: RefreshSessions()
+  nameWithType: AppShellViewModel.RefreshSessions()
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshSessions
+    path: ../src/RemoteAgent.App.Logic/ViewModels/AppShellViewModel.cs
+    startLine: 44
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.ViewModels
+  syntax:
+    content: public void RefreshSessions()
+    content.vb: Public Sub RefreshSessions()
+  overload: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions*
+references:
+- uid: RemoteAgent.App.Logic.ViewModels
+  commentId: N:RemoteAgent.App.Logic.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.ViewModels
+  nameWithType: RemoteAgent.App.Logic.ViewModels
+  fullName: RemoteAgent.App.Logic.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.Logic.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.ViewModels
+    name: ViewModels
+    href: RemoteAgent.App.Logic.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.#ctor
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel__ctor_RemoteAgent_App_Logic_ISessionListProvider_RemoteAgent_App_Logic_ISessionCommandBus_RemoteAgent_App_Logic_INavigationService_
+  name: AppShellViewModel
+  nameWithType: AppShellViewModel.AppShellViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.AppShellViewModel
+  nameWithType.vb: AppShellViewModel.New
+  fullName.vb: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.ISessionListProvider
+  commentId: T:RemoteAgent.App.Logic.ISessionListProvider
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.ISessionListProvider.html
+  name: ISessionListProvider
+  nameWithType: ISessionListProvider
+  fullName: RemoteAgent.App.Logic.ISessionListProvider
+- uid: RemoteAgent.App.Logic.ISessionCommandBus
+  commentId: T:RemoteAgent.App.Logic.ISessionCommandBus
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.ISessionCommandBus.html
+  name: ISessionCommandBus
+  nameWithType: ISessionCommandBus
+  fullName: RemoteAgent.App.Logic.ISessionCommandBus
+- uid: RemoteAgent.App.Logic.INavigationService
+  commentId: T:RemoteAgent.App.Logic.INavigationService
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.INavigationService.html
+  name: INavigationService
+  nameWithType: INavigationService
+  fullName: RemoteAgent.App.Logic.INavigationService
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_SessionItems
+  name: SessionItems
+  nameWithType: AppShellViewModel.SessionItems
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SessionItems
+- uid: System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Logic.SessionSummary}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{RemoteAgent.App.Logic.SessionSummary}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: RemoteAgent.App.Logic.SessionSummary.html
+  name: ObservableCollection<SessionSummary>
+  nameWithType: ObservableCollection<SessionSummary>
+  fullName: System.Collections.ObjectModel.ObservableCollection<RemoteAgent.App.Logic.SessionSummary>
+  nameWithType.vb: ObservableCollection(Of SessionSummary)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of RemoteAgent.App.Logic.SessionSummary)
+  name.vb: ObservableCollection(Of SessionSummary)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.SessionSummary
+    name: SessionSummary
+    href: RemoteAgent.App.Logic.SessionSummary.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.SessionSummary
+    name: SessionSummary
+    href: RemoteAgent.App.Logic.SessionSummary.html
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_StartSessionCommand
+  name: StartSessionCommand
+  nameWithType: AppShellViewModel.StartSessionCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.StartSessionCommand
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_SelectSessionCommand
+  name: SelectSessionCommand
+  nameWithType: AppShellViewModel.SelectSessionCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.SelectSessionCommand
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_TerminateSessionCommand
+  name: TerminateSessionCommand
+  nameWithType: AppShellViewModel.TerminateSessionCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.TerminateSessionCommand
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_NavigateToSettingsCommand
+  name: NavigateToSettingsCommand
+  nameWithType: AppShellViewModel.NavigateToSettingsCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToSettingsCommand
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_NavigateToAccountCommand
+  name: NavigateToAccountCommand
+  nameWithType: AppShellViewModel.NavigateToAccountCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.NavigateToAccountCommand
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_OpenSessionsCommand
+  name: OpenSessionsCommand
+  nameWithType: AppShellViewModel.OpenSessionsCommand
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.OpenSessionsCommand
+- uid: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions*
+  commentId: Overload:RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions
+  href: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.html#RemoteAgent_App_Logic_ViewModels_AppShellViewModel_RefreshSessions
+  name: RefreshSessions
+  nameWithType: AppShellViewModel.RefreshSessions
+  fullName: RemoteAgent.App.Logic.ViewModels.AppShellViewModel.RefreshSessions

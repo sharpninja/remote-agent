@@ -30,6 +30,11 @@ public sealed class ThrowingHandler : IRequestHandler<ThrowingRequest, string>
 
 public sealed record UnregisteredRequest(Guid CorrelationId) : IRequest<string>;
 
+/// <summary>Tests for <see cref="ServiceProviderRequestDispatcher"/>: resolve, invoke, missing-handler, CancellationToken passthrough, CorrelationId validation, and Debug-level entry/exit logging. TR-18.1, TR-18.2, TR-18.3.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
 public class ServiceProviderRequestDispatcherTests
 {
     private static (ServiceProviderRequestDispatcher Dispatcher, CapturingLogger<ServiceProviderRequestDispatcher> Logger) CreateDispatcher(

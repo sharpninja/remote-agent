@@ -7,12 +7,20 @@ using RemoteAgent.Desktop.UiTests.TestHelpers;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="SaveServerRegistrationHandler"/>. FR-12.9; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.9")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class SaveServerRegistrationHandlerTests
 {
     private readonly InMemoryServerRegistrationStore _store = new();
 
     private SaveServerRegistrationHandler CreateHandler() => new(_store);
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithValidData_ShouldReturnOk()
     {
@@ -29,6 +37,7 @@ public class SaveServerRegistrationHandlerTests
         result.Data.DisplayName.Should().Be("Test Server");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithExistingServerId_ShouldUpsert()
     {
@@ -53,6 +62,7 @@ public class SaveServerRegistrationHandlerTests
         result.Data.Host.Should().Be("10.0.0.1");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithEmptyHost_ShouldReturnFail()
     {
@@ -66,6 +76,7 @@ public class SaveServerRegistrationHandlerTests
         result.ErrorMessage.Should().Contain("host");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithWhitespaceHost_ShouldReturnFail()
     {
@@ -78,6 +89,7 @@ public class SaveServerRegistrationHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithInvalidPort_Zero_ShouldReturnFail()
     {
@@ -91,6 +103,7 @@ public class SaveServerRegistrationHandlerTests
         result.ErrorMessage.Should().Contain("port");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithInvalidPort_TooHigh_ShouldReturnFail()
     {
@@ -104,6 +117,7 @@ public class SaveServerRegistrationHandlerTests
         result.ErrorMessage.Should().Contain("port");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithNegativePort_ShouldReturnFail()
     {
@@ -116,6 +130,7 @@ public class SaveServerRegistrationHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithBlankDisplayName_ShouldUseHostPort()
     {
@@ -129,6 +144,7 @@ public class SaveServerRegistrationHandlerTests
         result.Data!.DisplayName.Should().Be("myhost:9999");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithNullServerId_ShouldGenerateNewId()
     {
@@ -142,6 +158,7 @@ public class SaveServerRegistrationHandlerTests
         result.Data!.ServerId.Should().NotBeNullOrWhiteSpace();
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public void Request_ToString_ShouldRedactApiKey()
     {

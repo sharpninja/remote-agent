@@ -1,0 +1,703 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  id: CommandResult`1
+  parent: RemoteAgent.App.Logic.Cqrs
+  children:
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1.#ctor(System.Boolean,`0,System.String)
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1.Data
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1.ErrorMessage
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1.Fail(System.String)
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1.Ok(`0)
+  - RemoteAgent.App.Logic.Cqrs.CommandResult`1.Success
+  langs:
+  - csharp
+  - vb
+  name: CommandResult<T>
+  nameWithType: CommandResult<T>
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CommandResult
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  summary: Result type for handlers that return data on success or fail with a message.
+  example: []
+  syntax:
+    content: 'public record CommandResult<T> : IEquatable<CommandResult<T>> where T : class'
+    typeParameters:
+    - id: T
+    content.vb: Public Class CommandResult(Of T As Class) Implements IEquatable(Of CommandResult(Of T))
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.App.Logic.Cqrs.CommandResult`1}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: CommandResult(Of T)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T)
+  name.vb: CommandResult(Of T)
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.#ctor(System.Boolean,`0,System.String)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.CommandResult`1.#ctor(System.Boolean,`0,System.String)
+  id: '#ctor(System.Boolean,`0,System.String)'
+  parent: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  langs:
+  - csharp
+  - vb
+  name: CommandResult(bool, T?, string?)
+  nameWithType: CommandResult<T>.CommandResult(bool, T?, string?)
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.CommandResult(bool, T?, string?)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  summary: Result type for handlers that return data on success or fail with a message.
+  example: []
+  syntax:
+    content: public CommandResult(bool Success, T? Data = null, string? ErrorMessage = null)
+    parameters:
+    - id: Success
+      type: System.Boolean
+    - id: Data
+      type: '{T}'
+    - id: ErrorMessage
+      type: System.String
+    content.vb: Public Sub New(Success As Boolean, Data As T = Nothing, ErrorMessage As String = Nothing)
+  overload: RemoteAgent.App.Logic.Cqrs.CommandResult`1.#ctor*
+  nameWithType.vb: CommandResult(Of T).New(Boolean, T, String)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).New(Boolean, T, String)
+  name.vb: New(Boolean, T, String)
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Success
+  commentId: P:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Success
+  id: Success
+  parent: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: CommandResult<T>.Success
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Success
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Success
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: public bool Success { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Success As Boolean
+  overload: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Success*
+  nameWithType.vb: CommandResult(Of T).Success
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Success
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Data
+  commentId: P:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Data
+  id: Data
+  parent: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: CommandResult<T>.Data
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Data
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Data
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: public T? Data { get; init; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public Property Data As T
+  overload: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Data*
+  nameWithType.vb: CommandResult(Of T).Data
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Data
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.ErrorMessage
+  commentId: P:RemoteAgent.App.Logic.Cqrs.CommandResult`1.ErrorMessage
+  id: ErrorMessage
+  parent: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: CommandResult<T>.ErrorMessage
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.ErrorMessage
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ErrorMessage
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 14
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: public string? ErrorMessage { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ErrorMessage As String
+  overload: RemoteAgent.App.Logic.Cqrs.CommandResult`1.ErrorMessage*
+  nameWithType.vb: CommandResult(Of T).ErrorMessage
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).ErrorMessage
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Ok(`0)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Ok(`0)
+  id: Ok(`0)
+  parent: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  langs:
+  - csharp
+  - vb
+  name: Ok(T)
+  nameWithType: CommandResult<T>.Ok(T)
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Ok(T)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Ok
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 17
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: public static CommandResult<T> Ok(T data)
+    parameters:
+    - id: data
+      type: '{T}'
+    return:
+      type: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    content.vb: Public Shared Function Ok(data As T) As CommandResult(Of T)
+  overload: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Ok*
+  nameWithType.vb: CommandResult(Of T).Ok(T)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Ok(T)
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Fail(System.String)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Fail(System.String)
+  id: Fail(System.String)
+  parent: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  langs:
+  - csharp
+  - vb
+  name: Fail(string)
+  nameWithType: CommandResult<T>.Fail(string)
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Fail(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Fail
+    path: ../src/RemoteAgent.App.Logic/Cqrs/CommandResult.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Cqrs
+  syntax:
+    content: public static CommandResult<T> Fail(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    content.vb: Public Shared Function Fail(message As String) As CommandResult(Of T)
+  overload: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Fail*
+  nameWithType.vb: CommandResult(Of T).Fail(String)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Fail(String)
+  name.vb: Fail(String)
+references:
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.App.Logic.Cqrs.CommandResult`1}
+  commentId: T:System.IEquatable{RemoteAgent.App.Logic.Cqrs.CommandResult`1}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<CommandResult<T>>
+  nameWithType: IEquatable<CommandResult<T>>
+  fullName: System.IEquatable<RemoteAgent.App.Logic.Cqrs.CommandResult<T>>
+  nameWithType.vb: IEquatable(Of CommandResult(Of T))
+  fullName.vb: System.IEquatable(Of RemoteAgent.App.Logic.Cqrs.CommandResult(Of T))
+  name.vb: IEquatable(Of CommandResult(Of T))
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.CommandResult`1.#ctor
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html#RemoteAgent_App_Logic_Cqrs_CommandResult_1__ctor_System_Boolean__0_System_String_
+  name: CommandResult
+  nameWithType: CommandResult<T>.CommandResult
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.CommandResult
+  nameWithType.vb: CommandResult(Of T).New
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).New
+  name.vb: New
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Success*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Success
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html#RemoteAgent_App_Logic_Cqrs_CommandResult_1_Success
+  name: Success
+  nameWithType: CommandResult<T>.Success
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Success
+  nameWithType.vb: CommandResult(Of T).Success
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Success
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Data*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Data
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html#RemoteAgent_App_Logic_Cqrs_CommandResult_1_Data
+  name: Data
+  nameWithType: CommandResult<T>.Data
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Data
+  nameWithType.vb: CommandResult(Of T).Data
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Data
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.ErrorMessage*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.CommandResult`1.ErrorMessage
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html#RemoteAgent_App_Logic_Cqrs_CommandResult_1_ErrorMessage
+  name: ErrorMessage
+  nameWithType: CommandResult<T>.ErrorMessage
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.ErrorMessage
+  nameWithType.vb: CommandResult(Of T).ErrorMessage
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).ErrorMessage
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Ok*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Ok
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html#RemoteAgent_App_Logic_Cqrs_CommandResult_1_Ok__0_
+  name: Ok
+  nameWithType: CommandResult<T>.Ok
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Ok
+  nameWithType.vb: CommandResult(Of T).Ok
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Ok
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  commentId: T:RemoteAgent.App.Logic.Cqrs.CommandResult`1
+  parent: RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  name: CommandResult<T>
+  nameWithType: CommandResult<T>
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>
+  nameWithType.vb: CommandResult(Of T)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T)
+  name.vb: CommandResult(Of T)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.CommandResult`1.Fail*
+  commentId: Overload:RemoteAgent.App.Logic.Cqrs.CommandResult`1.Fail
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult-1.html#RemoteAgent_App_Logic_Cqrs_CommandResult_1_Fail_System_String_
+  name: Fail
+  nameWithType: CommandResult<T>.Fail
+  fullName: RemoteAgent.App.Logic.Cqrs.CommandResult<T>.Fail
+  nameWithType.vb: CommandResult(Of T).Fail
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.CommandResult(Of T).Fail

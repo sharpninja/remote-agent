@@ -1,0 +1,246 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.Storage.ILocalStorage
+  commentId: T:RemoteAgent.Service.Storage.ILocalStorage
+  id: ILocalStorage
+  parent: RemoteAgent.Service.Storage
+  children:
+  - RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  - RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  - RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILocalStorage
+  nameWithType: ILocalStorage
+  fullName: RemoteAgent.Service.Storage.ILocalStorage
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/ILocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ILocalStorage
+    path: ../src/RemoteAgent.Service/Storage/ILocalStorage.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Local storage of requests and results for history and replay (TR-11.1).
+  remarks: Implemented by <xref href="RemoteAgent.Service.Storage.LiteDbLocalStorage" data-throw-if-not-resolved="false"></xref>. Each request/response (text, control, script, media, output, error, event) is logged with session id, kind, and a truncated summary.
+  example:
+  - >-
+    <pre><code class="lang-csharp">localStorage.LogRequest(sessionId, "Text", msg.Text);
+
+    localStorage.LogResponse(sessionId, "Output", stdout);</code></pre>
+  syntax:
+    content: public interface ILocalStorage
+    content.vb: Public Interface ILocalStorage
+- uid: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Storage.ILocalStorage.LogRequest(System.String,System.String,System.String,System.String)
+  id: LogRequest(System.String,System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Storage.ILocalStorage
+  langs:
+  - csharp
+  - vb
+  name: LogRequest(string, string, string, string?)
+  nameWithType: ILocalStorage.LogRequest(string, string, string, string?)
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(string, string, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/ILocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogRequest
+    path: ../src/RemoteAgent.Service/Storage/ILocalStorage.cs
+    startLine: 16
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Logs a client request (e.g. text message, control, script request, media upload).
+  example: []
+  syntax:
+    content: void LogRequest(string sessionId, string kind, string summary, string? mediaPath = null)
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: Session identifier.
+    - id: kind
+      type: System.String
+      description: Kind of request (e.g. Text, Control, ScriptRequest, MediaUpload).
+    - id: summary
+      type: System.String
+      description: Short summary or content (truncated if long).
+    - id: mediaPath
+      type: System.String
+      description: Optional relative path to stored media (TR-11.2).
+    content.vb: Sub LogRequest(sessionId As String, kind As String, summary As String, mediaPath As String = Nothing)
+  overload: RemoteAgent.Service.Storage.ILocalStorage.LogRequest*
+  nameWithType.vb: ILocalStorage.LogRequest(String, String, String, String)
+  fullName.vb: RemoteAgent.Service.Storage.ILocalStorage.LogRequest(String, String, String, String)
+  name.vb: LogRequest(String, String, String, String)
+- uid: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Service.Storage.ILocalStorage.LogResponse(System.String,System.String,System.String,System.String)
+  id: LogResponse(System.String,System.String,System.String,System.String)
+  parent: RemoteAgent.Service.Storage.ILocalStorage
+  langs:
+  - csharp
+  - vb
+  name: LogResponse(string, string, string, string?)
+  nameWithType: ILocalStorage.LogResponse(string, string, string, string?)
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(string, string, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/ILocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LogResponse
+    path: ../src/RemoteAgent.Service/Storage/ILocalStorage.cs
+    startLine: 23
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Logs a server/agent response (e.g. output, error, event).
+  example: []
+  syntax:
+    content: void LogResponse(string sessionId, string kind, string summary, string? mediaPath = null)
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: Session identifier.
+    - id: kind
+      type: System.String
+      description: Kind of response (e.g. Output, Error, Event).
+    - id: summary
+      type: System.String
+      description: Short summary or content.
+    - id: mediaPath
+      type: System.String
+      description: Optional relative path to stored media.
+    content.vb: Sub LogResponse(sessionId As String, kind As String, summary As String, mediaPath As String = Nothing)
+  overload: RemoteAgent.Service.Storage.ILocalStorage.LogResponse*
+  nameWithType.vb: ILocalStorage.LogResponse(String, String, String, String)
+  fullName.vb: RemoteAgent.Service.Storage.ILocalStorage.LogResponse(String, String, String, String)
+  name.vb: LogResponse(String, String, String, String)
+- uid: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+  commentId: M:RemoteAgent.Service.Storage.ILocalStorage.SessionExists(System.String)
+  id: SessionExists(System.String)
+  parent: RemoteAgent.Service.Storage.ILocalStorage
+  langs:
+  - csharp
+  - vb
+  name: SessionExists(string)
+  nameWithType: ILocalStorage.SessionExists(string)
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Service/Storage/ILocalStorage.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionExists
+    path: ../src/RemoteAgent.Service/Storage/ILocalStorage.cs
+    startLine: 26
+  assemblies:
+  - RemoteAgent.Service
+  namespace: RemoteAgent.Service.Storage
+  summary: Returns true when persisted records already exist for the given session id.
+  example: []
+  syntax:
+    content: bool SessionExists(string sessionId)
+    parameters:
+    - id: sessionId
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Function SessionExists(sessionId As String) As Boolean
+  overload: RemoteAgent.Service.Storage.ILocalStorage.SessionExists*
+  nameWithType.vb: ILocalStorage.SessionExists(String)
+  fullName.vb: RemoteAgent.Service.Storage.ILocalStorage.SessionExists(String)
+  name.vb: SessionExists(String)
+references:
+- uid: RemoteAgent.Service.Storage.LiteDbLocalStorage
+  commentId: T:RemoteAgent.Service.Storage.LiteDbLocalStorage
+  href: RemoteAgent.Service.Storage.LiteDbLocalStorage.html
+  name: LiteDbLocalStorage
+  nameWithType: LiteDbLocalStorage
+  fullName: RemoteAgent.Service.Storage.LiteDbLocalStorage
+- uid: RemoteAgent.Service.Storage
+  commentId: N:RemoteAgent.Service.Storage
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.Storage
+  nameWithType: RemoteAgent.Service.Storage
+  fullName: RemoteAgent.Service.Storage
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.Storage
+    name: Storage
+    href: RemoteAgent.Service.Storage.html
+- uid: RemoteAgent.Service.Storage.ILocalStorage.LogRequest*
+  commentId: Overload:RemoteAgent.Service.Storage.ILocalStorage.LogRequest
+  href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogRequest_System_String_System_String_System_String_System_String_
+  name: LogRequest
+  nameWithType: ILocalStorage.LogRequest
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.LogRequest
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Service.Storage.ILocalStorage.LogResponse*
+  commentId: Overload:RemoteAgent.Service.Storage.ILocalStorage.LogResponse
+  href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_LogResponse_System_String_System_String_System_String_System_String_
+  name: LogResponse
+  nameWithType: ILocalStorage.LogResponse
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.LogResponse
+- uid: RemoteAgent.Service.Storage.ILocalStorage.SessionExists*
+  commentId: Overload:RemoteAgent.Service.Storage.ILocalStorage.SessionExists
+  href: RemoteAgent.Service.Storage.ILocalStorage.html#RemoteAgent_Service_Storage_ILocalStorage_SessionExists_System_String_
+  name: SessionExists
+  nameWithType: ILocalStorage.SessionExists
+  fullName: RemoteAgent.Service.Storage.ILocalStorage.SessionExists
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

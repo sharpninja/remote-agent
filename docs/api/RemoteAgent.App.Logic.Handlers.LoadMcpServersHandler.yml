@@ -1,0 +1,760 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  commentId: T:RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  id: LoadMcpServersHandler
+  parent: RemoteAgent.App.Logic.Handlers
+  children:
+  - RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.#ctor(RemoteAgent.App.Logic.IServerApiClient)
+  - RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: LoadMcpServersHandler
+  nameWithType: LoadMcpServersHandler
+  fullName: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Handlers/LoadMcpServersHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: LoadMcpServersHandler
+    path: ../src/RemoteAgent.App.Logic/Handlers/LoadMcpServersHandler.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Handlers
+  syntax:
+    content: 'public sealed class LoadMcpServersHandler : IRequestHandler<LoadMcpServersRequest, CommandResult>'
+    content.vb: Public NotInheritable Class LoadMcpServersHandler Implements IRequestHandler(Of LoadMcpServersRequest, CommandResult)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.#ctor(RemoteAgent.App.Logic.IServerApiClient)
+  commentId: M:RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.#ctor(RemoteAgent.App.Logic.IServerApiClient)
+  id: '#ctor(RemoteAgent.App.Logic.IServerApiClient)'
+  parent: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  langs:
+  - csharp
+  - vb
+  name: LoadMcpServersHandler(IServerApiClient)
+  nameWithType: LoadMcpServersHandler.LoadMcpServersHandler(IServerApiClient)
+  fullName: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.LoadMcpServersHandler(RemoteAgent.App.Logic.IServerApiClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Handlers/LoadMcpServersHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.App.Logic/Handlers/LoadMcpServersHandler.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Handlers
+  syntax:
+    content: public LoadMcpServersHandler(IServerApiClient apiClient)
+    parameters:
+    - id: apiClient
+      type: RemoteAgent.App.Logic.IServerApiClient
+    content.vb: Public Sub New(apiClient As IServerApiClient)
+  overload: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.#ctor*
+  nameWithType.vb: LoadMcpServersHandler.New(IServerApiClient)
+  fullName.vb: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.New(RemoteAgent.App.Logic.IServerApiClient)
+  name.vb: New(IServerApiClient)
+- uid: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+  id: HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync(LoadMcpServersRequest, CancellationToken)
+  nameWithType: LoadMcpServersHandler.HandleAsync(LoadMcpServersRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/Handlers/LoadMcpServersHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync
+    path: ../src/RemoteAgent.App.Logic/Handlers/LoadMcpServersHandler.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic.Handlers
+  example: []
+  syntax:
+    content: public Task<CommandResult> HandleAsync(LoadMcpServersRequest request, CancellationToken ct = default)
+    parameters:
+    - id: request
+      type: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+    content.vb: Public Function HandleAsync(request As LoadMcpServersRequest, ct As CancellationToken = Nothing) As Task(Of CommandResult)
+  overload: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+references:
+- uid: RemoteAgent.App.Logic.Handlers
+  commentId: N:RemoteAgent.App.Logic.Handlers
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Handlers
+  nameWithType: RemoteAgent.App.Logic.Handlers
+  fullName: RemoteAgent.App.Logic.Handlers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Handlers
+    name: Handlers
+    href: RemoteAgent.App.Logic.Handlers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Handlers
+    name: Handlers
+    href: RemoteAgent.App.Logic.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  name: IRequestHandler<LoadMcpServersRequest, CommandResult>
+  nameWithType: IRequestHandler<LoadMcpServersRequest, CommandResult>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: IRequestHandler(Of LoadMcpServersRequest, CommandResult)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: IRequestHandler(Of LoadMcpServersRequest, CommandResult)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  - name: <
+  - uid: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+    name: LoadMcpServersRequest
+    href: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult.html
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+    name: LoadMcpServersRequest
+    href: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Logic.Cqrs.html
+- uid: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.#ctor*
+  commentId: Overload:RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.#ctor
+  href: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.html#RemoteAgent_App_Logic_Handlers_LoadMcpServersHandler__ctor_RemoteAgent_App_Logic_IServerApiClient_
+  name: LoadMcpServersHandler
+  nameWithType: LoadMcpServersHandler.LoadMcpServersHandler
+  fullName: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.LoadMcpServersHandler
+  nameWithType.vb: LoadMcpServersHandler.New
+  fullName.vb: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.New
+  name.vb: New
+- uid: RemoteAgent.App.Logic.IServerApiClient
+  commentId: T:RemoteAgent.App.Logic.IServerApiClient
+  parent: RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.IServerApiClient.html
+  name: IServerApiClient
+  nameWithType: IServerApiClient
+  fullName: RemoteAgent.App.Logic.IServerApiClient
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync*
+  commentId: Overload:RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync
+  href: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.html#RemoteAgent_App_Logic_Handlers_LoadMcpServersHandler_HandleAsync_RemoteAgent_App_Logic_Requests_LoadMcpServersRequest_System_Threading_CancellationToken_
+  name: HandleAsync
+  nameWithType: LoadMcpServersHandler.HandleAsync
+  fullName: RemoteAgent.App.Logic.Handlers.LoadMcpServersHandler.HandleAsync
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  name: HandleAsync(LoadMcpServersRequest, CancellationToken)
+  nameWithType: IRequestHandler<LoadMcpServersRequest, CommandResult>.HandleAsync(LoadMcpServersRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, RemoteAgent.App.Logic.Cqrs.CommandResult>.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of LoadMcpServersRequest, CommandResult).HandleAsync(LoadMcpServersRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, RemoteAgent.App.Logic.Cqrs.CommandResult).HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+    name: LoadMcpServersRequest
+    href: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,RemoteAgent.App.Logic.Cqrs.CommandResult}.HandleAsync(RemoteAgent.App.Logic.Requests.LoadMcpServersRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+    name: LoadMcpServersRequest
+    href: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+  commentId: T:RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+  parent: RemoteAgent.App.Logic.Requests
+  href: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest.html
+  name: LoadMcpServersRequest
+  nameWithType: LoadMcpServersRequest
+  fullName: RemoteAgent.App.Logic.Requests.LoadMcpServersRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.CommandResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.App.Logic.Cqrs.CommandResult.html
+  name: Task<CommandResult>
+  nameWithType: Task<CommandResult>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.App.Logic.Cqrs.CommandResult>
+  nameWithType.vb: Task(Of CommandResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.App.Logic.Cqrs.CommandResult)
+  name.vb: Task(Of CommandResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.CommandResult
+    name: CommandResult
+    href: RemoteAgent.App.Logic.Cqrs.CommandResult.html
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  name: HandleAsync(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+    href: RemoteAgent.App.Logic.Cqrs.IRequestHandler-2.html#RemoteAgent_App_Logic_Cqrs_IRequestHandler_2_HandleAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.App.Logic.Requests
+  commentId: N:RemoteAgent.App.Logic.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic.Requests
+  nameWithType: RemoteAgent.App.Logic.Requests
+  fullName: RemoteAgent.App.Logic.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Requests
+    name: Requests
+    href: RemoteAgent.App.Logic.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  - name: .
+  - uid: RemoteAgent.App.Logic.Requests
+    name: Requests
+    href: RemoteAgent.App.Logic.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

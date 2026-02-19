@@ -1,0 +1,242 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+  commentId: T:RemoteAgent.Proto.SessionEvent.Types.Kind
+  id: SessionEvent.Types.Kind
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.SessionEvent.Types.Kind.SessionError
+  - RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStarted
+  - RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStopped
+  - RemoteAgent.Proto.SessionEvent.Types.Kind.Unspecified
+  langs:
+  - csharp
+  - vb
+  name: SessionEvent.Types.Kind
+  nameWithType: SessionEvent.Types.Kind
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind
+  type: Enum
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Kind
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2996
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public enum SessionEvent.Types.Kind
+    content.vb: Public Enum SessionEvent.Types.Kind
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind.Unspecified
+  commentId: F:RemoteAgent.Proto.SessionEvent.Types.Kind.Unspecified
+  id: Unspecified
+  parent: RemoteAgent.Proto.SessionEvent.Types.Kind
+  langs:
+  - csharp
+  - vb
+  name: Unspecified
+  nameWithType: SessionEvent.Types.Kind.Unspecified
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind.Unspecified
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Unspecified
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2997
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("KIND_UNSPECIFIED")]
+
+      Unspecified = 0
+    return:
+      type: RemoteAgent.Proto.SessionEvent.Types.Kind
+    content.vb: >-
+      <OriginalName("KIND_UNSPECIFIED")>
+
+      Unspecified = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: KIND_UNSPECIFIED
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStarted
+  commentId: F:RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStarted
+  id: SessionStarted
+  parent: RemoteAgent.Proto.SessionEvent.Types.Kind
+  langs:
+  - csharp
+  - vb
+  name: SessionStarted
+  nameWithType: SessionEvent.Types.Kind.SessionStarted
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStarted
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionStarted
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2998
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("SESSION_STARTED")]
+
+      SessionStarted = 1
+    return:
+      type: RemoteAgent.Proto.SessionEvent.Types.Kind
+    content.vb: >-
+      <OriginalName("SESSION_STARTED")>
+
+      SessionStarted = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SESSION_STARTED
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStopped
+  commentId: F:RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStopped
+  id: SessionStopped
+  parent: RemoteAgent.Proto.SessionEvent.Types.Kind
+  langs:
+  - csharp
+  - vb
+  name: SessionStopped
+  nameWithType: SessionEvent.Types.Kind.SessionStopped
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind.SessionStopped
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionStopped
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2999
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("SESSION_STOPPED")]
+
+      SessionStopped = 2
+    return:
+      type: RemoteAgent.Proto.SessionEvent.Types.Kind
+    content.vb: >-
+      <OriginalName("SESSION_STOPPED")>
+
+      SessionStopped = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SESSION_STOPPED
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind.SessionError
+  commentId: F:RemoteAgent.Proto.SessionEvent.Types.Kind.SessionError
+  id: SessionError
+  parent: RemoteAgent.Proto.SessionEvent.Types.Kind
+  langs:
+  - csharp
+  - vb
+  name: SessionError
+  nameWithType: SessionEvent.Types.Kind.SessionError
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind.SessionError
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionError
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 3000
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: >-
+      [OriginalName("SESSION_ERROR")]
+
+      SessionError = 3
+    return:
+      type: RemoteAgent.Proto.SessionEvent.Types.Kind
+    content.vb: >-
+      <OriginalName("SESSION_ERROR")>
+
+      SessionError = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SESSION_ERROR
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+  commentId: T:RemoteAgent.Proto.SessionEvent.Types.Kind
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionEvent.html
+  name: SessionEvent.Types.Kind
+  nameWithType: SessionEvent.Types.Kind
+  fullName: RemoteAgent.Proto.SessionEvent.Types.Kind
+  spec.csharp:
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+    href: RemoteAgent.Proto.SessionEvent.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionEvent.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+    name: Kind
+    href: RemoteAgent.Proto.SessionEvent.Types.Kind.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.SessionEvent
+    name: SessionEvent
+    href: RemoteAgent.Proto.SessionEvent.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types
+    name: Types
+    href: RemoteAgent.Proto.SessionEvent.Types.html
+  - name: .
+  - uid: RemoteAgent.Proto.SessionEvent.Types.Kind
+    name: Kind
+    href: RemoteAgent.Proto.SessionEvent.Types.Kind.html

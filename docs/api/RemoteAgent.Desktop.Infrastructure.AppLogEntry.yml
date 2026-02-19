@@ -1,0 +1,637 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  commentId: T:RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  id: AppLogEntry
+  parent: RemoteAgent.Desktop.Infrastructure
+  children:
+  - RemoteAgent.Desktop.Infrastructure.AppLogEntry.#ctor(System.DateTimeOffset,Microsoft.Extensions.Logging.LogLevel,System.String,System.String,System.String)
+  - RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category
+  - RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage
+  - RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level
+  - RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message
+  - RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp
+  langs:
+  - csharp
+  - vb
+  name: AppLogEntry
+  nameWithType: AppLogEntry
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AppLogEntry
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  summary: Represents a single captured log entry from the management app's ILogger pipeline.
+  example: []
+  syntax:
+    content: 'public sealed record AppLogEntry : IEquatable<AppLogEntry>'
+    content.vb: Public NotInheritable Class AppLogEntry Implements IEquatable(Of AppLogEntry)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Desktop.Infrastructure.AppLogEntry}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.#ctor(System.DateTimeOffset,Microsoft.Extensions.Logging.LogLevel,System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.Infrastructure.AppLogEntry.#ctor(System.DateTimeOffset,Microsoft.Extensions.Logging.LogLevel,System.String,System.String,System.String)
+  id: '#ctor(System.DateTimeOffset,Microsoft.Extensions.Logging.LogLevel,System.String,System.String,System.String)'
+  parent: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  langs:
+  - csharp
+  - vb
+  name: AppLogEntry(DateTimeOffset, LogLevel, string, string, string?)
+  nameWithType: AppLogEntry.AppLogEntry(DateTimeOffset, LogLevel, string, string, string?)
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.AppLogEntry(System.DateTimeOffset, Microsoft.Extensions.Logging.LogLevel, string, string, string?)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  summary: Represents a single captured log entry from the management app's ILogger pipeline.
+  example: []
+  syntax:
+    content: public AppLogEntry(DateTimeOffset Timestamp, LogLevel Level, string Category, string Message, string? ExceptionMessage)
+    parameters:
+    - id: Timestamp
+      type: System.DateTimeOffset
+    - id: Level
+      type: Microsoft.Extensions.Logging.LogLevel
+    - id: Category
+      type: System.String
+    - id: Message
+      type: System.String
+    - id: ExceptionMessage
+      type: System.String
+    content.vb: Public Sub New(Timestamp As DateTimeOffset, Level As LogLevel, Category As String, Message As String, ExceptionMessage As String)
+  overload: RemoteAgent.Desktop.Infrastructure.AppLogEntry.#ctor*
+  nameWithType.vb: AppLogEntry.New(DateTimeOffset, LogLevel, String, String, String)
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.AppLogEntry.New(System.DateTimeOffset, Microsoft.Extensions.Logging.LogLevel, String, String, String)
+  name.vb: New(DateTimeOffset, LogLevel, String, String, String)
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp
+  id: Timestamp
+  parent: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: AppLogEntry.Timestamp
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Timestamp
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public DateTimeOffset Timestamp { get; init; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property Timestamp As DateTimeOffset
+  overload: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp*
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level
+  id: Level
+  parent: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: AppLogEntry.Level
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Level
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public LogLevel Level { get; init; }
+    parameters: []
+    return:
+      type: Microsoft.Extensions.Logging.LogLevel
+    content.vb: Public Property Level As LogLevel
+  overload: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level*
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category
+  id: Category
+  parent: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  langs:
+  - csharp
+  - vb
+  name: Category
+  nameWithType: AppLogEntry.Category
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Category
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string Category { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Category As String
+  overload: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category*
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message
+  id: Message
+  parent: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: AppLogEntry.Message
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Message
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string Message { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message*
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage
+  commentId: P:RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage
+  id: ExceptionMessage
+  parent: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+  langs:
+  - csharp
+  - vb
+  name: ExceptionMessage
+  nameWithType: AppLogEntry.ExceptionMessage
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ExceptionMessage
+    path: ../src/RemoteAgent.Desktop/Infrastructure/AppLogEntry.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Infrastructure
+  syntax:
+    content: public string? ExceptionMessage { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExceptionMessage As String
+  overload: RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage*
+references:
+- uid: RemoteAgent.Desktop.Infrastructure
+  commentId: N:RemoteAgent.Desktop.Infrastructure
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Infrastructure
+  nameWithType: RemoteAgent.Desktop.Infrastructure
+  fullName: RemoteAgent.Desktop.Infrastructure
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Infrastructure
+    name: Infrastructure
+    href: RemoteAgent.Desktop.Infrastructure.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Desktop.Infrastructure.AppLogEntry}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Infrastructure.AppLogEntry}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AppLogEntry>
+  nameWithType: IEquatable<AppLogEntry>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Infrastructure.AppLogEntry>
+  nameWithType.vb: IEquatable(Of AppLogEntry)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Infrastructure.AppLogEntry)
+  name.vb: IEquatable(Of AppLogEntry)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+    name: AppLogEntry
+    href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry
+    name: AppLogEntry
+    href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AppLogEntry.#ctor
+  href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html#RemoteAgent_Desktop_Infrastructure_AppLogEntry__ctor_System_DateTimeOffset_Microsoft_Extensions_Logging_LogLevel_System_String_System_String_System_String_
+  name: AppLogEntry
+  nameWithType: AppLogEntry.AppLogEntry
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.AppLogEntry
+  nameWithType.vb: AppLogEntry.New
+  fullName.vb: RemoteAgent.Desktop.Infrastructure.AppLogEntry.New
+  name.vb: New
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Microsoft.Extensions.Logging.LogLevel
+  commentId: T:Microsoft.Extensions.Logging.LogLevel
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: Microsoft.Extensions.Logging.LogLevel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp
+  href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html#RemoteAgent_Desktop_Infrastructure_AppLogEntry_Timestamp
+  name: Timestamp
+  nameWithType: AppLogEntry.Timestamp
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Timestamp
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level
+  href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html#RemoteAgent_Desktop_Infrastructure_AppLogEntry_Level
+  name: Level
+  nameWithType: AppLogEntry.Level
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Level
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category
+  href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html#RemoteAgent_Desktop_Infrastructure_AppLogEntry_Category
+  name: Category
+  nameWithType: AppLogEntry.Category
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Category
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message
+  href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html#RemoteAgent_Desktop_Infrastructure_AppLogEntry_Message
+  name: Message
+  nameWithType: AppLogEntry.Message
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.Message
+- uid: RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage*
+  commentId: Overload:RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage
+  href: RemoteAgent.Desktop.Infrastructure.AppLogEntry.html#RemoteAgent_Desktop_Infrastructure_AppLogEntry_ExceptionMessage
+  name: ExceptionMessage
+  nameWithType: AppLogEntry.ExceptionMessage
+  fullName: RemoteAgent.Desktop.Infrastructure.AppLogEntry.ExceptionMessage

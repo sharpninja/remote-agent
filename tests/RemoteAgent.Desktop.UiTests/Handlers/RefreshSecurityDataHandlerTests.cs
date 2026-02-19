@@ -6,8 +6,17 @@ using RemoteAgent.Desktop.Requests;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="RefreshSecurityDataHandler"/>. FR-13.2, FR-13.4; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.2")]
+[Trait("Requirement", "FR-13.4")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class RefreshSecurityDataHandlerTests
 {
+    // FR-13.2, FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldReturnOk()
     {
@@ -21,6 +30,7 @@ public class RefreshSecurityDataHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-13.2, FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldSetStatusText()
     {
@@ -34,6 +44,7 @@ public class RefreshSecurityDataHandlerTests
         workspace.StatusText.Should().Contain("refreshed");
     }
 
+    // FR-13.2, FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldClearAbandonedSessionsWhenNoneReturned()
     {
@@ -49,6 +60,7 @@ public class RefreshSecurityDataHandlerTests
         workspace.AbandonedServerSessions.Should().BeEmpty();
     }
 
+    // FR-13.2, FR-13.4, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldClearBannedPeers()
     {

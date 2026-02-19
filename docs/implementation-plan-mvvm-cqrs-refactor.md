@@ -2,7 +2,7 @@
 
 This plan completes the refactoring described in the session handoff: **no code-behind**, **strict MVVM**, **strict CQRS** for all UI commands/events, with full test coverage and passing unit, integration, and UI tests.
 
-**References:** [TR-18.1–TR-18.4](technical-requirements.md#18-ui-commandevent-cqrs-testability), [SESSION_HANDOFF](../SESSION_HANDOFF_2026-02-18T12-26-48-0600.md).
+**References:** [TR-18.1–TR-18.4](technical-requirements.md#18-ui-commandevent-cqrs-testability), SESSION_HANDOFF_2026-02-18T12-26-48-0600.
 
 ---
 

@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Requests
+  commentId: N:RemoteAgent.App.Requests
+  id: RemoteAgent.App.Requests
+  children:
+  - RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+  - RemoteAgent.App.Requests.ConnectMobileSessionRequest
+  - RemoteAgent.App.Requests.CreateMobileSessionRequest
+  - RemoteAgent.App.Requests.DisconnectMobileSessionRequest
+  - RemoteAgent.App.Requests.SendMobileAttachmentRequest
+  - RemoteAgent.App.Requests.SendMobileMessageRequest
+  - RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  - RemoteAgent.App.Requests.UsePromptTemplateRequest
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Requests
+  nameWithType: RemoteAgent.App.Requests
+  fullName: RemoteAgent.App.Requests
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Tests
+references:
+- uid: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+  commentId: T:RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.ArchiveMobileMessageRequest.html
+  name: ArchiveMobileMessageRequest
+  nameWithType: ArchiveMobileMessageRequest
+  fullName: RemoteAgent.App.Requests.ArchiveMobileMessageRequest
+- uid: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+  commentId: T:RemoteAgent.App.Requests.ConnectMobileSessionRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.ConnectMobileSessionRequest.html
+  name: ConnectMobileSessionRequest
+  nameWithType: ConnectMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.ConnectMobileSessionRequest
+- uid: RemoteAgent.App.Requests.CreateMobileSessionRequest
+  commentId: T:RemoteAgent.App.Requests.CreateMobileSessionRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.CreateMobileSessionRequest.html
+  name: CreateMobileSessionRequest
+  nameWithType: CreateMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.CreateMobileSessionRequest
+- uid: RemoteAgent.App.Requests.DisconnectMobileSessionRequest
+  commentId: T:RemoteAgent.App.Requests.DisconnectMobileSessionRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.DisconnectMobileSessionRequest.html
+  name: DisconnectMobileSessionRequest
+  nameWithType: DisconnectMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.DisconnectMobileSessionRequest
+- uid: RemoteAgent.App.Requests.SendMobileAttachmentRequest
+  commentId: T:RemoteAgent.App.Requests.SendMobileAttachmentRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.SendMobileAttachmentRequest.html
+  name: SendMobileAttachmentRequest
+  nameWithType: SendMobileAttachmentRequest
+  fullName: RemoteAgent.App.Requests.SendMobileAttachmentRequest
+- uid: RemoteAgent.App.Requests.SendMobileMessageRequest
+  commentId: T:RemoteAgent.App.Requests.SendMobileMessageRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.SendMobileMessageRequest.html
+  name: SendMobileMessageRequest
+  nameWithType: SendMobileMessageRequest
+  fullName: RemoteAgent.App.Requests.SendMobileMessageRequest
+- uid: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  commentId: T:RemoteAgent.App.Requests.TerminateMobileSessionRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.TerminateMobileSessionRequest.html
+  name: TerminateMobileSessionRequest
+  nameWithType: TerminateMobileSessionRequest
+  fullName: RemoteAgent.App.Requests.TerminateMobileSessionRequest
+- uid: RemoteAgent.App.Requests.UsePromptTemplateRequest
+  commentId: T:RemoteAgent.App.Requests.UsePromptTemplateRequest
+  parent: RemoteAgent.App.Requests
+  href: RemoteAgent.App.Requests.UsePromptTemplateRequest.html
+  name: UsePromptTemplateRequest
+  nameWithType: UsePromptTemplateRequest
+  fullName: RemoteAgent.App.Requests.UsePromptTemplateRequest
+- uid: RemoteAgent.App.Requests
+  commentId: N:RemoteAgent.App.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Requests
+  nameWithType: RemoteAgent.App.Requests
+  fullName: RemoteAgent.App.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Requests
+    name: Requests
+    href: RemoteAgent.App.Requests.html

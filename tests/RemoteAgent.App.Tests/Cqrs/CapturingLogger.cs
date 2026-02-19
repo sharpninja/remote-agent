@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace RemoteAgent.App.Tests.Cqrs;
 
+/// <summary>Test helper that captures <see cref="ILogger{T}"/> entries for assertion in dispatcher tests. TR-18.1, TR-18.2.</summary>
 internal sealed class CapturingLogger<T> : ILogger<T>
 {
     public List<(LogLevel Level, string Message, Exception? Exception)> Entries { get; } = [];

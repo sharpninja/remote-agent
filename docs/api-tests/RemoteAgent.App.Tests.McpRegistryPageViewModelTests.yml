@@ -1,0 +1,1208 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  commentId: T:RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  id: McpRegistryPageViewModelTests
+  parent: RemoteAgent.App.Tests
+  children:
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(System.String,System.String[])
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  - RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields
+  langs:
+  - csharp
+  - vb
+  name: McpRegistryPageViewModelTests
+  nameWithType: McpRegistryPageViewModelTests
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: McpRegistryPageViewModelTests
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  summary: Tests for <xref href="RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel" data-throw-if-not-resolved="false"></xref> CQRS dispatch. FR-12.5; TR-18.1, TR-18.2, TR-18.3, TR-18.4.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-12.5")]
+
+      [Trait("Requirement", "TR-18.1")]
+
+      [Trait("Requirement", "TR-18.2")]
+
+      [Trait("Requirement", "TR-18.3")]
+
+      [Trait("Requirement", "TR-18.4")]
+
+      public sealed class McpRegistryPageViewModelTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-12.5")>
+
+      <Trait("Requirement", "TR-18.1")>
+
+      <Trait("Requirement", "TR-18.2")>
+
+      <Trait("Requirement", "TR-18.3")>
+
+      <Trait("Requirement", "TR-18.4")>
+
+      Public NotInheritable Class McpRegistryPageViewModelTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.5
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.4
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences
+  id: Constructor_LoadsHostAndPortFromPreferences
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_LoadsHostAndPortFromPreferences()
+  nameWithType: McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Constructor_LoadsHostAndPortFromPreferences
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 118
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Constructor_LoadsHostAndPortFromPreferences()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Constructor_LoadsHostAndPortFromPreferences()
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  id: Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_DefaultsPortTo5243_WhenNotInPreferences()
+  nameWithType: McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Constructor_DefaultsPortTo5243_WhenNotInPreferences
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 131
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Constructor_DefaultsPortTo5243_WhenNotInPreferences()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Constructor_DefaultsPortTo5243_WhenNotInPreferences()
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData
+  id: RefreshAsync_PopulatesServers_WhenApiReturnsData
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: RefreshAsync_PopulatesServers_WhenApiReturnsData()
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshAsync_PopulatesServers_WhenApiReturnsData
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 138
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task RefreshAsync_PopulatesServers_WhenApiReturnsData()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function RefreshAsync_PopulatesServers_WhenApiReturnsData() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  id: RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: RefreshAsync_SetsErrorStatus_WhenApiReturnsNull()
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 154
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task RefreshAsync_SetsErrorStatus_WhenApiReturnsNull()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function RefreshAsync_SetsErrorStatus_WhenApiReturnsNull() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  id: RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty()
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 166
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  id: RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid()
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 178
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields
+  id: SelectServer_PopulatesAllFields
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SelectServer_PopulatesAllFields()
+  nameWithType: McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SelectServer_PopulatesAllFields
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 191
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void SelectServer_PopulatesAllFields()
+    content.vb: >-
+      <Fact>
+
+      Public Sub SelectServer_PopulatesAllFields()
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  id: SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SaveAsync_SetsFailedStatus_WhenApiReturnsNull()
+  nameWithType: McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 225
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SaveAsync_SetsFailedStatus_WhenApiReturnsNull()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SaveAsync_SetsFailedStatus_WhenApiReturnsNull() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  id: SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SaveAsync_SetsValidationMessage_WhenApiReturnsFailure()
+  nameWithType: McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 238
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SaveAsync_SetsValidationMessage_WhenApiReturnsFailure()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SaveAsync_SetsValidationMessage_WhenApiReturnsFailure() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  id: SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: SaveAsync_RefreshesAndUpdatesStatus_OnSuccess()
+  nameWithType: McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 251
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SaveAsync_RefreshesAndUpdatesStatus_OnSuccess()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SaveAsync_RefreshesAndUpdatesStatus_OnSuccess() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed
+  id: DeleteAsync_RemovesServer_WhenConfirmed
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync_RemovesServer_WhenConfirmed()
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteAsync_RemovesServer_WhenConfirmed
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 265
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task DeleteAsync_RemovesServer_WhenConfirmed()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function DeleteAsync_RemovesServer_WhenConfirmed() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled
+  id: DeleteAsync_DoesNothing_WhenCancelled
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync_DoesNothing_WhenCancelled()
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteAsync_DoesNothing_WhenCancelled
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 281
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task DeleteAsync_DoesNothing_WhenCancelled()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function DeleteAsync_DoesNothing_WhenCancelled() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  id: DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty()
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 296
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  id: DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync_SetsErrorStatus_WhenApiReturnsNull()
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 310
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task DeleteAsync_SetsErrorStatus_WhenApiReturnsNull()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function DeleteAsync_SetsErrorStatus_WhenApiReturnsNull() As Task
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields
+  id: ClearCommand_ResetsAllFields
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: ClearCommand_ResetsAllFields()
+  nameWithType: McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearCommand_ResetsAllFields
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 324
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void ClearCommand_ResetsAllFields()
+    content.vb: >-
+      <Fact>
+
+      Public Sub ClearCommand_ResetsAllFields()
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(System.String,System.String[])
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(System.String,System.String[])
+  id: ParseArguments_HandlesVariousInputs(System.String,System.String[])
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: ParseArguments_HandlesVariousInputs(string?, string[])
+  nameWithType: McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(string?, string[])
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(string?, string[])
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ParseArguments_HandlesVariousInputs
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 341
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "--verbose --debug", new string[] { "--verbose", "--debug" } })]
+
+      [InlineData(new object[] { "\"hello world\" test", new string[] { "hello world", "test" } })]
+
+      [InlineData(new object[] { "", new string[] { } })]
+
+      [InlineData(new object[] { null, new string[] { } })]
+
+      public void ParseArguments_HandlesVariousInputs(string? input, string[] expected)
+    parameters:
+    - id: input
+      type: System.String
+    - id: expected
+      type: System.String[]
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "--verbose --debug", New String() { "--verbose", "--debug" } })>
+
+      <InlineData(New Object() { """hello world"" test", New String() { "hello world", "test" } })>
+
+      <InlineData(New Object() { "", New String() { } })>
+
+      <InlineData(New Object() { Nothing, New String() { } })>
+
+      Public Sub ParseArguments_HandlesVariousInputs(input As String, expected As String())
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(String, String())
+  fullName.vb: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs(String, String())
+  name.vb: ParseArguments_HandlesVariousInputs(String, String())
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty
+  commentId: M:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty
+  id: PropertyChanged_IsRaisedForEachProperty
+  parent: RemoteAgent.App.Tests.McpRegistryPageViewModelTests
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged_IsRaisedForEachProperty()
+  nameWithType: McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty()
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PropertyChanged_IsRaisedForEachProperty
+    path: ../tests/RemoteAgent.App.Tests/McpRegistryPageViewModelTests.cs
+    startLine: 352
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void PropertyChanged_IsRaisedForEachProperty()
+    content.vb: >-
+      <Fact>
+
+      Public Sub PropertyChanged_IsRaisedForEachProperty()
+  overload: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  commentId: T:RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+  name: McpRegistryPageViewModel
+  nameWithType: McpRegistryPageViewModel
+  fullName: RemoteAgent.App.Logic.ViewModels.McpRegistryPageViewModel
+- uid: RemoteAgent.App.Tests
+  commentId: N:RemoteAgent.App.Tests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Tests
+  nameWithType: RemoteAgent.App.Tests
+  fullName: RemoteAgent.App.Tests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_Constructor_LoadsHostAndPortFromPreferences
+  name: Constructor_LoadsHostAndPortFromPreferences
+  nameWithType: McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_LoadsHostAndPortFromPreferences
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  name: Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  nameWithType: McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.Constructor_DefaultsPortTo5243_WhenNotInPreferences
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_RefreshAsync_PopulatesServers_WhenApiReturnsData
+  name: RefreshAsync_PopulatesServers_WhenApiReturnsData
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_PopulatesServers_WhenApiReturnsData
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  name: RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsErrorStatus_WhenApiReturnsNull
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  name: RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsHostRequiredStatus_WhenHostIsEmpty
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  name: RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  nameWithType: McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.RefreshAsync_SetsPortRequiredStatus_WhenPortIsInvalid
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_SelectServer_PopulatesAllFields
+  name: SelectServer_PopulatesAllFields
+  nameWithType: McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SelectServer_PopulatesAllFields
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  name: SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  nameWithType: McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsFailedStatus_WhenApiReturnsNull
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  name: SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  nameWithType: McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_SetsValidationMessage_WhenApiReturnsFailure
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  name: SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  nameWithType: McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.SaveAsync_RefreshesAndUpdatesStatus_OnSuccess
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_DeleteAsync_RemovesServer_WhenConfirmed
+  name: DeleteAsync_RemovesServer_WhenConfirmed
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_RemovesServer_WhenConfirmed
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_DeleteAsync_DoesNothing_WhenCancelled
+  name: DeleteAsync_DoesNothing_WhenCancelled
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_DoesNothing_WhenCancelled
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  name: DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenServerIdIsEmpty
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  name: DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  nameWithType: McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.DeleteAsync_SetsErrorStatus_WhenApiReturnsNull
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_ClearCommand_ResetsAllFields
+  name: ClearCommand_ResetsAllFields
+  nameWithType: McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ClearCommand_ResetsAllFields
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_ParseArguments_HandlesVariousInputs_System_String_System_String___
+  name: ParseArguments_HandlesVariousInputs
+  nameWithType: McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.ParseArguments_HandlesVariousInputs
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty*
+  commentId: Overload:RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty
+  href: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.html#RemoteAgent_App_Tests_McpRegistryPageViewModelTests_PropertyChanged_IsRaisedForEachProperty
+  name: PropertyChanged_IsRaisedForEachProperty
+  nameWithType: McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty
+  fullName: RemoteAgent.App.Tests.McpRegistryPageViewModelTests.PropertyChanged_IsRaisedForEachProperty

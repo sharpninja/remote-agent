@@ -1,0 +1,666 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  commentId: T:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  id: CreateDesktopSessionHandlerTests
+  parent: RemoteAgent.Desktop.UiTests.Handlers
+  children:
+  - RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  - RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  - RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  - RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  - RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail
+  langs:
+  - csharp
+  - vb
+  name: CreateDesktopSessionHandlerTests
+  nameWithType: CreateDesktopSessionHandlerTests
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreateDesktopSessionHandlerTests
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  summary: Tests for <xref href="RemoteAgent.Desktop.Handlers.CreateDesktopSessionHandler" data-throw-if-not-resolved="false"></xref>. FR-12.1, FR-12.2; TR-18.1, TR-18.2, TR-18.3, TR-18.4.
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-12.1")]
+
+      [Trait("Requirement", "FR-12.2")]
+
+      [Trait("Requirement", "TR-18.1")]
+
+      [Trait("Requirement", "TR-18.2")]
+
+      [Trait("Requirement", "TR-18.3")]
+
+      [Trait("Requirement", "TR-18.4")]
+
+      public class CreateDesktopSessionHandlerTests
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-12.1")>
+
+      <Trait("Requirement", "FR-12.2")>
+
+      <Trait("Requirement", "TR-18.1")>
+
+      <Trait("Requirement", "TR-18.2")>
+
+      <Trait("Requirement", "TR-18.3")>
+
+      <Trait("Requirement", "TR-18.4")>
+
+      Public Class CreateDesktopSessionHandlerTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-12.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.1
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.3
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-18.4
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  id: HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  parent: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession()
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+    startLine: 21
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  id: HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  parent: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail()
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+    startLine: 39
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  id: HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  parent: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail()
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+    startLine: 54
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  id: HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  parent: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_DirectMode_ShouldSkipCapacityCheck()
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_DirectMode_ShouldSkipCapacityCheck
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+    startLine: 71
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task HandleAsync_DirectMode_ShouldSkipCapacityCheck()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function HandleAsync_DirectMode_ShouldSkipCapacityCheck() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail
+  commentId: M:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail
+  id: HandleAsync_WhenConnectThrows_ShouldReturnFail
+  parent: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync_WhenConnectThrows_ShouldReturnFail()
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail()
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync_WhenConnectThrows_ShouldReturnFail
+    path: ../tests/RemoteAgent.Desktop.UiTests/Handlers/CreateDesktopSessionHandlerTests.cs
+    startLine: 87
+  assemblies:
+  - RemoteAgent.Desktop.UiTests
+  namespace: RemoteAgent.Desktop.UiTests.Handlers
+  syntax:
+    content: >-
+      [AvaloniaFact]
+
+      public Task HandleAsync_WhenConnectThrows_ShouldReturnFail()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <AvaloniaFact>
+
+      Public Function HandleAsync_WhenConnectThrows_ShouldReturnFail() As Task
+  overload: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail*
+  attributes:
+  - type: Avalonia.Headless.XUnit.AvaloniaFactAttribute
+    ctor: Avalonia.Headless.XUnit.AvaloniaFactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.Desktop.Handlers.CreateDesktopSessionHandler
+  commentId: T:RemoteAgent.Desktop.Handlers.CreateDesktopSessionHandler
+  name: CreateDesktopSessionHandler
+  nameWithType: CreateDesktopSessionHandler
+  fullName: RemoteAgent.Desktop.Handlers.CreateDesktopSessionHandler
+- uid: RemoteAgent.Desktop.UiTests.Handlers
+  commentId: N:RemoteAgent.Desktop.UiTests.Handlers
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.UiTests.Handlers
+  nameWithType: RemoteAgent.Desktop.UiTests.Handlers
+  fullName: RemoteAgent.Desktop.UiTests.Handlers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.Handlers
+    name: Handlers
+    href: RemoteAgent.Desktop.UiTests.Handlers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests
+    name: UiTests
+    href: RemoteAgent.Desktop.UiTests.html
+  - name: .
+  - uid: RemoteAgent.Desktop.UiTests.Handlers
+    name: Handlers
+    href: RemoteAgent.Desktop.UiTests.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  href: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_CreateDesktopSessionHandlerTests_HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  name: HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  href: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_CreateDesktopSessionHandlerTests_HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  name: HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  href: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_CreateDesktopSessionHandlerTests_HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  name: HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  href: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_CreateDesktopSessionHandlerTests_HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  name: HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_DirectMode_ShouldSkipCapacityCheck
+- uid: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail*
+  commentId: Overload:RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail
+  href: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.html#RemoteAgent_Desktop_UiTests_Handlers_CreateDesktopSessionHandlerTests_HandleAsync_WhenConnectThrows_ShouldReturnFail
+  name: HandleAsync_WhenConnectThrows_ShouldReturnFail
+  nameWithType: CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail
+  fullName: RemoteAgent.Desktop.UiTests.Handlers.CreateDesktopSessionHandlerTests.HandleAsync_WhenConnectThrows_ShouldReturnFail

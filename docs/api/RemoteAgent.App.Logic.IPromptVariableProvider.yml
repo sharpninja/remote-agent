@@ -1,0 +1,209 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.IPromptVariableProvider
+  commentId: T:RemoteAgent.App.Logic.IPromptVariableProvider
+  id: IPromptVariableProvider
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IPromptVariableProvider
+  nameWithType: IPromptVariableProvider
+  fullName: RemoteAgent.App.Logic.IPromptVariableProvider
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: IPromptVariableProvider
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 26
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public interface IPromptVariableProvider
+    content.vb: Public Interface IPromptVariableProvider
+- uid: RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync(System.String)
+  commentId: M:RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync(System.String)
+  id: GetValueAsync(System.String)
+  parent: RemoteAgent.App.Logic.IPromptVariableProvider
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsync(string)
+  nameWithType: IPromptVariableProvider.GetValueAsync(string)
+  fullName: RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetValueAsync
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 28
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task<string?> GetValueAsync(string variableName)
+    parameters:
+    - id: variableName
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Function GetValueAsync(variableName As String) As Task(Of String)
+  overload: RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync*
+  nameWithType.vb: IPromptVariableProvider.GetValueAsync(String)
+  fullName.vb: RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync(String)
+  name.vb: GetValueAsync(String)
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync*
+  commentId: Overload:RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync
+  href: RemoteAgent.App.Logic.IPromptVariableProvider.html#RemoteAgent_App_Logic_IPromptVariableProvider_GetValueAsync_System_String_
+  name: GetValueAsync
+  nameWithType: IPromptVariableProvider.GetValueAsync
+  fullName: RemoteAgent.App.Logic.IPromptVariableProvider.GetValueAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

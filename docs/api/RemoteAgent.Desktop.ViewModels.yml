@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  id: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.AppLogViewModel
+  - RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+  - RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  - RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  - RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  - RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  - RemoteAgent.Desktop.ViewModels.MainWindowViewModel
+  - RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  - RemoteAgent.Desktop.ViewModels.PluginsViewModel
+  - RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  - RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  - RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  - RemoteAgent.Desktop.ViewModels.StatusLogEntry
+  - RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop
+references:
+- uid: RemoteAgent.Desktop.ViewModels.AppLogViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.AppLogViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.AppLogViewModel.html
+  name: AppLogViewModel
+  nameWithType: AppLogViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.AppLogViewModel
+- uid: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel.html
+  name: AuthUsersViewModel
+  nameWithType: AuthUsersViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.AuthUsersViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel.html
+  name: ConnectionSettingsDialogViewModel
+  nameWithType: ConnectionSettingsDialogViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ConnectionSettingsDialogViewModel
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  name: DesktopSessionViewModel
+  nameWithType: DesktopSessionViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  commentId: T:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html
+  name: IDesktopSessionViewModelFactory
+  nameWithType: IDesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  commentId: T:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.html
+  name: DesktopSessionViewModelFactory
+  nameWithType: DesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+- uid: RemoteAgent.Desktop.ViewModels.MainWindowViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.MainWindowViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.MainWindowViewModel.html
+  name: MainWindowViewModel
+  nameWithType: MainWindowViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.MainWindowViewModel
+- uid: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel.html
+  name: McpRegistryDesktopViewModel
+  nameWithType: McpRegistryDesktopViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.McpRegistryDesktopViewModel
+- uid: RemoteAgent.Desktop.ViewModels.PluginsViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.PluginsViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.PluginsViewModel.html
+  name: PluginsViewModel
+  nameWithType: PluginsViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.PluginsViewModel
+- uid: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel.html
+  name: PromptTemplatesViewModel
+  nameWithType: PromptTemplatesViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.PromptTemplatesViewModel
+- uid: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.SecurityViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.SecurityViewModel.html
+  name: SecurityViewModel
+  nameWithType: SecurityViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.SecurityViewModel
+- uid: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel.html
+  name: ServerWorkspaceViewModel
+  nameWithType: ServerWorkspaceViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.ServerWorkspaceViewModel
+- uid: RemoteAgent.Desktop.ViewModels.StatusLogEntry
+  commentId: T:RemoteAgent.Desktop.ViewModels.StatusLogEntry
+  href: RemoteAgent.Desktop.ViewModels.StatusLogEntry.html
+  name: StatusLogEntry
+  nameWithType: StatusLogEntry
+  fullName: RemoteAgent.Desktop.ViewModels.StatusLogEntry
+- uid: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel.html
+  name: StructuredLogsViewModel
+  nameWithType: StructuredLogsViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.StructuredLogsViewModel
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html

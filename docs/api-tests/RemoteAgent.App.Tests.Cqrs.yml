@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests.Cqrs
+  commentId: N:RemoteAgent.App.Tests.Cqrs
+  id: RemoteAgent.App.Tests.Cqrs
+  children:
+  - RemoteAgent.App.Tests.Cqrs.ServiceProviderRequestDispatcherTests
+  - RemoteAgent.App.Tests.Cqrs.StubHandler
+  - RemoteAgent.App.Tests.Cqrs.StubRequest
+  - RemoteAgent.App.Tests.Cqrs.ThrowingHandler
+  - RemoteAgent.App.Tests.Cqrs.ThrowingRequest
+  - RemoteAgent.App.Tests.Cqrs.UnregisteredRequest
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Tests.Cqrs
+  nameWithType: RemoteAgent.App.Tests.Cqrs
+  fullName: RemoteAgent.App.Tests.Cqrs
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Tests
+references:
+- uid: RemoteAgent.App.Tests.Cqrs.StubRequest
+  commentId: T:RemoteAgent.App.Tests.Cqrs.StubRequest
+  parent: RemoteAgent.App.Tests.Cqrs
+  href: RemoteAgent.App.Tests.Cqrs.StubRequest.html
+  name: StubRequest
+  nameWithType: StubRequest
+  fullName: RemoteAgent.App.Tests.Cqrs.StubRequest
+- uid: RemoteAgent.App.Tests.Cqrs.StubHandler
+  commentId: T:RemoteAgent.App.Tests.Cqrs.StubHandler
+  href: RemoteAgent.App.Tests.Cqrs.StubHandler.html
+  name: StubHandler
+  nameWithType: StubHandler
+  fullName: RemoteAgent.App.Tests.Cqrs.StubHandler
+- uid: RemoteAgent.App.Tests.Cqrs.ThrowingRequest
+  commentId: T:RemoteAgent.App.Tests.Cqrs.ThrowingRequest
+  parent: RemoteAgent.App.Tests.Cqrs
+  href: RemoteAgent.App.Tests.Cqrs.ThrowingRequest.html
+  name: ThrowingRequest
+  nameWithType: ThrowingRequest
+  fullName: RemoteAgent.App.Tests.Cqrs.ThrowingRequest
+- uid: RemoteAgent.App.Tests.Cqrs.ThrowingHandler
+  commentId: T:RemoteAgent.App.Tests.Cqrs.ThrowingHandler
+  href: RemoteAgent.App.Tests.Cqrs.ThrowingHandler.html
+  name: ThrowingHandler
+  nameWithType: ThrowingHandler
+  fullName: RemoteAgent.App.Tests.Cqrs.ThrowingHandler
+- uid: RemoteAgent.App.Tests.Cqrs.UnregisteredRequest
+  commentId: T:RemoteAgent.App.Tests.Cqrs.UnregisteredRequest
+  href: RemoteAgent.App.Tests.Cqrs.UnregisteredRequest.html
+  name: UnregisteredRequest
+  nameWithType: UnregisteredRequest
+  fullName: RemoteAgent.App.Tests.Cqrs.UnregisteredRequest
+- uid: RemoteAgent.App.Tests.Cqrs.ServiceProviderRequestDispatcherTests
+  commentId: T:RemoteAgent.App.Tests.Cqrs.ServiceProviderRequestDispatcherTests
+  href: RemoteAgent.App.Tests.Cqrs.ServiceProviderRequestDispatcherTests.html
+  name: ServiceProviderRequestDispatcherTests
+  nameWithType: ServiceProviderRequestDispatcherTests
+  fullName: RemoteAgent.App.Tests.Cqrs.ServiceProviderRequestDispatcherTests
+- uid: RemoteAgent.App.Tests.Cqrs
+  commentId: N:RemoteAgent.App.Tests.Cqrs
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Tests.Cqrs
+  nameWithType: RemoteAgent.App.Tests.Cqrs
+  fullName: RemoteAgent.App.Tests.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  - name: .
+  - uid: RemoteAgent.App.Tests.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Tests.Cqrs.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  - name: .
+  - uid: RemoteAgent.App.Tests.Cqrs
+    name: Cqrs
+    href: RemoteAgent.App.Tests.Cqrs.html

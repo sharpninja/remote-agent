@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  id: RemoteAgent.App.Services
+  children:
+  - RemoteAgent.App.Services.ChatMessage
+  - RemoteAgent.App.Services.ChatMessagePriority
+  - RemoteAgent.App.Services.MarkdownFormat
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  type: Namespace
+  assemblies:
+  - RemoteAgent.App.Logic
+references:
+- uid: RemoteAgent.App.Services.ChatMessagePriority
+  commentId: T:RemoteAgent.App.Services.ChatMessagePriority
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ChatMessagePriority.html
+  name: ChatMessagePriority
+  nameWithType: ChatMessagePriority
+  fullName: RemoteAgent.App.Services.ChatMessagePriority
+- uid: RemoteAgent.App.Services.ChatMessage
+  commentId: T:RemoteAgent.App.Services.ChatMessage
+  parent: RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.ChatMessage.html
+  name: ChatMessage
+  nameWithType: ChatMessage
+  fullName: RemoteAgent.App.Services.ChatMessage
+- uid: RemoteAgent.App.Services.MarkdownFormat
+  commentId: T:RemoteAgent.App.Services.MarkdownFormat
+  href: RemoteAgent.App.Services.MarkdownFormat.html
+  name: MarkdownFormat
+  nameWithType: MarkdownFormat
+  fullName: RemoteAgent.App.Services.MarkdownFormat
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html

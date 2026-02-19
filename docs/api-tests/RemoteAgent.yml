@@ -1,0 +1,36 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent
+  commentId: N:RemoteAgent
+  id: RemoteAgent
+  children:
+  - RemoteAgent.App
+  - RemoteAgent.Desktop
+  - RemoteAgent.Service
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent
+  nameWithType: RemoteAgent
+  fullName: RemoteAgent
+  type: Namespace
+  summary: Root namespace for the Remote Agent project.
+references:
+- uid: RemoteAgent.App
+  commentId: N:RemoteAgent.App
+  href: RemoteAgent.App.html
+  name: RemoteAgent.App
+  nameWithType: RemoteAgent.App
+  fullName: RemoteAgent.App
+- uid: RemoteAgent.Desktop
+  commentId: N:RemoteAgent.Desktop
+  href: RemoteAgent.Desktop.html
+  name: RemoteAgent.Desktop
+  nameWithType: RemoteAgent.Desktop
+  fullName: RemoteAgent.Desktop
+- uid: RemoteAgent.Service
+  commentId: N:RemoteAgent.Service
+  href: RemoteAgent.Service.html
+  name: RemoteAgent.Service
+  nameWithType: RemoteAgent.Service
+  fullName: RemoteAgent.Service

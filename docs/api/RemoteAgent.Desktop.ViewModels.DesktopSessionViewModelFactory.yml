@@ -1,0 +1,461 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  commentId: T:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  id: DesktopSessionViewModelFactory
+  parent: RemoteAgent.Desktop.ViewModels
+  children:
+  - RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.#ctor(System.IServiceProvider)
+  - RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: DesktopSessionViewModelFactory
+  nameWithType: DesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DesktopSessionViewModelFactory
+    path: ../src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: 'public sealed class DesktopSessionViewModelFactory : IDesktopSessionViewModelFactory'
+    content.vb: Public NotInheritable Class DesktopSessionViewModelFactory Implements IDesktopSessionViewModelFactory
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.#ctor(System.IServiceProvider)
+  commentId: M:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.#ctor(System.IServiceProvider)
+  id: '#ctor(System.IServiceProvider)'
+  parent: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  langs:
+  - csharp
+  - vb
+  name: DesktopSessionViewModelFactory(IServiceProvider)
+  nameWithType: DesktopSessionViewModelFactory.DesktopSessionViewModelFactory(IServiceProvider)
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.DesktopSessionViewModelFactory(System.IServiceProvider)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  syntax:
+    content: public DesktopSessionViewModelFactory(IServiceProvider services)
+    parameters:
+    - id: services
+      type: System.IServiceProvider
+    content.vb: Public Sub New(services As IServiceProvider)
+  overload: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.#ctor*
+  nameWithType.vb: DesktopSessionViewModelFactory.New(IServiceProvider)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.New(System.IServiceProvider)
+  name.vb: New(IServiceProvider)
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  id: Create(System.String,System.String,System.String)
+  parent: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory
+  langs:
+  - csharp
+  - vb
+  name: Create(string, string, string)
+  nameWithType: DesktopSessionViewModelFactory.Create(string, string, string)
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Create
+    path: ../src/RemoteAgent.Desktop/ViewModels/DesktopSessionViewModelFactory.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.ViewModels
+  example: []
+  syntax:
+    content: public DesktopSessionViewModel Create(string title, string connectionMode, string agentId)
+    parameters:
+    - id: title
+      type: System.String
+    - id: connectionMode
+      type: System.String
+    - id: agentId
+      type: System.String
+    return:
+      type: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+    content.vb: Public Function Create(title As String, connectionMode As String, agentId As String) As DesktopSessionViewModel
+  overload: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create*
+  implements:
+  - RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  nameWithType.vb: DesktopSessionViewModelFactory.Create(String, String, String)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create(String, String, String)
+  name.vb: Create(String, String, String)
+references:
+- uid: RemoteAgent.Desktop.ViewModels
+  commentId: N:RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.ViewModels
+  nameWithType: RemoteAgent.Desktop.ViewModels
+  fullName: RemoteAgent.Desktop.ViewModels
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.ViewModels
+    name: ViewModels
+    href: RemoteAgent.Desktop.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  commentId: T:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html
+  name: IDesktopSessionViewModelFactory
+  nameWithType: IDesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.#ctor
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.html#RemoteAgent_Desktop_ViewModels_DesktopSessionViewModelFactory__ctor_System_IServiceProvider_
+  name: DesktopSessionViewModelFactory
+  nameWithType: DesktopSessionViewModelFactory.DesktopSessionViewModelFactory
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.DesktopSessionViewModelFactory
+  nameWithType.vb: DesktopSessionViewModelFactory.New
+  fullName.vb: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.New
+  name.vb: New
+- uid: System.IServiceProvider
+  commentId: T:System.IServiceProvider
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iserviceprovider
+  name: IServiceProvider
+  nameWithType: IServiceProvider
+  fullName: System.IServiceProvider
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create*
+  commentId: Overload:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.html#RemoteAgent_Desktop_ViewModels_DesktopSessionViewModelFactory_Create_System_String_System_String_System_String_
+  name: Create
+  nameWithType: DesktopSessionViewModelFactory.Create
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModelFactory.Create
+- uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  commentId: M:RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+  parent: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory
+  isExternal: true
+  href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html#RemoteAgent_Desktop_ViewModels_IDesktopSessionViewModelFactory_Create_System_String_System_String_System_String_
+  name: Create(string, string, string)
+  nameWithType: IDesktopSessionViewModelFactory.Create(string, string, string)
+  fullName: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(string, string, string)
+  nameWithType.vb: IDesktopSessionViewModelFactory.Create(String, String, String)
+  fullName.vb: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(String, String, String)
+  name.vb: Create(String, String, String)
+  spec.csharp:
+  - uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+    name: Create
+    href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html#RemoteAgent_Desktop_ViewModels_IDesktopSessionViewModelFactory_Create_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.Create(System.String,System.String,System.String)
+    name: Create
+    href: RemoteAgent.Desktop.ViewModels.IDesktopSessionViewModelFactory.html#RemoteAgent_Desktop_ViewModels_IDesktopSessionViewModelFactory_Create_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  commentId: T:RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel
+  parent: RemoteAgent.Desktop.ViewModels
+  href: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel.html
+  name: DesktopSessionViewModel
+  nameWithType: DesktopSessionViewModel
+  fullName: RemoteAgent.Desktop.ViewModels.DesktopSessionViewModel

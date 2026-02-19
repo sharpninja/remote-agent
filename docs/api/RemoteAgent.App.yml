@@ -1,0 +1,35 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App
+  commentId: N:RemoteAgent.App
+  id: RemoteAgent.App
+  children:
+  - RemoteAgent.App.Logic
+  - RemoteAgent.App.Services
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.App
+  nameWithType: RemoteAgent.App
+  fullName: RemoteAgent.App
+  type: Namespace
+  summary: MAUI Android client application namespace — ViewModels, handlers, services, and requests.
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.App.Logic.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.App.Services.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+- uid: RemoteAgent
+  commentId: N:RemoteAgent
+  href: RemoteAgent.html
+  name: RemoteAgent
+  nameWithType: RemoteAgent
+  fullName: RemoteAgent

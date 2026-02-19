@@ -7,12 +7,20 @@ using RemoteAgent.Desktop.UiTests.TestHelpers;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="RemoveServerRegistrationHandler"/>. FR-12.9; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.9")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class RemoveServerRegistrationHandlerTests
 {
     private readonly InMemoryServerRegistrationStore _store = new();
 
     private RemoveServerRegistrationHandler CreateHandler() => new(_store);
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithExistingServer_ShouldReturnOk()
     {
@@ -32,6 +40,7 @@ public class RemoveServerRegistrationHandlerTests
         result.Success.Should().BeTrue();
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithNonExistentServer_ShouldReturnFail()
     {
@@ -44,6 +53,7 @@ public class RemoveServerRegistrationHandlerTests
         result.ErrorMessage.Should().Contain("Ghost");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithEmptyServerId_ShouldReturnFail()
     {
@@ -56,6 +66,7 @@ public class RemoveServerRegistrationHandlerTests
         result.ErrorMessage.Should().Contain("Server ID");
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_WithWhitespaceServerId_ShouldReturnFail()
     {
@@ -67,6 +78,7 @@ public class RemoveServerRegistrationHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.9, TR-18.4
     [Fact]
     public async Task HandleAsync_ShouldRemoveFromStore()
     {

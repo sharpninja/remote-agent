@@ -1,5 +1,51 @@
 {
-  "metadata": [],
+  "metadata": [
+    {
+      "src": [
+        { "files": ["src/RemoteAgent.App.Logic/RemoteAgent.App.Logic.csproj"], "src": ".." },
+        { "files": ["src/RemoteAgent.Proto/RemoteAgent.Proto.csproj"], "src": ".." },
+        { "files": ["src/RemoteAgent.Service/RemoteAgent.Service.csproj"], "src": ".." },
+        { "files": ["src/RemoteAgent.Plugins.Ollama/RemoteAgent.Plugins.Ollama.csproj"], "src": ".." }
+      ],
+      "dest": "api",
+      "filter": "filterConfig.yml",
+      "properties": {
+        "TargetFramework": "net10.0"
+      }
+    },
+    {
+      "src": [
+        { "files": ["src/RemoteAgent.Desktop/RemoteAgent.Desktop.csproj"], "src": ".." }
+      ],
+      "dest": "api",
+      "filter": "filterConfig.yml",
+      "properties": {
+        "TargetFramework": "net9.0"
+      }
+    },
+    {
+      "src": [
+        { "files": ["tests/RemoteAgent.App.Tests/RemoteAgent.App.Tests.csproj"], "src": ".." },
+        { "files": ["tests/RemoteAgent.Service.Tests/RemoteAgent.Service.Tests.csproj"], "src": ".." },
+        { "files": ["tests/RemoteAgent.Service.IntegrationTests/RemoteAgent.Service.IntegrationTests.csproj"], "src": ".." }
+      ],
+      "dest": "api-tests",
+      "filter": "filterConfig.yml",
+      "properties": {
+        "TargetFramework": "net10.0"
+      }
+    },
+    {
+      "src": [
+        { "files": ["tests/RemoteAgent.Desktop.UiTests/RemoteAgent.Desktop.UiTests.csproj"], "src": ".." }
+      ],
+      "dest": "api-tests",
+      "filter": "filterConfig.yml",
+      "properties": {
+        "TargetFramework": "net9.0"
+      }
+    }
+  ],
   "build": {
     "content": [
       {
@@ -7,6 +53,20 @@
           "**/*.md",
           "toc.yml"
         ],
+        "src": ".",
+        "dest": ".",
+        "exclude": [
+          "api/**",
+          "api-tests/**"
+        ]
+      },
+      {
+        "files": ["api/**.yml", "api/index.md"],
+        "src": ".",
+        "dest": "."
+      },
+      {
+        "files": ["api-tests/**.yml", "api-tests/index.md"],
         "src": ".",
         "dest": "."
       }

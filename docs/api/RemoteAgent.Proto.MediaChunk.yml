@@ -1,0 +1,1563 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.MediaChunk
+  commentId: T:RemoteAgent.Proto.MediaChunk
+  id: MediaChunk
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.MediaChunk.#ctor
+  - RemoteAgent.Proto.MediaChunk.#ctor(RemoteAgent.Proto.MediaChunk)
+  - RemoteAgent.Proto.MediaChunk.CalculateSize
+  - RemoteAgent.Proto.MediaChunk.Clone
+  - RemoteAgent.Proto.MediaChunk.Content
+  - RemoteAgent.Proto.MediaChunk.ContentFieldNumber
+  - RemoteAgent.Proto.MediaChunk.ContentType
+  - RemoteAgent.Proto.MediaChunk.ContentTypeFieldNumber
+  - RemoteAgent.Proto.MediaChunk.Descriptor
+  - RemoteAgent.Proto.MediaChunk.Equals(RemoteAgent.Proto.MediaChunk)
+  - RemoteAgent.Proto.MediaChunk.Equals(System.Object)
+  - RemoteAgent.Proto.MediaChunk.FileName
+  - RemoteAgent.Proto.MediaChunk.FileNameFieldNumber
+  - RemoteAgent.Proto.MediaChunk.GetHashCode
+  - RemoteAgent.Proto.MediaChunk.MergeFrom(Google.Protobuf.CodedInputStream)
+  - RemoteAgent.Proto.MediaChunk.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  - RemoteAgent.Proto.MediaChunk.Parser
+  - RemoteAgent.Proto.MediaChunk.ToString
+  - RemoteAgent.Proto.MediaChunk.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: MediaChunk
+  nameWithType: MediaChunk
+  fullName: RemoteAgent.Proto.MediaChunk
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MediaChunk
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2490
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: 'MediaChunk: image/media sent from server to app. App stores in DCIM/Remote Agent (TR-11.3).'
+  example: []
+  syntax:
+    content: 'public sealed class MediaChunk : IMessage<MediaChunk>, IEquatable<MediaChunk>, IDeepCloneable<MediaChunk>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class MediaChunk Implements IMessage(Of MediaChunk), IEquatable(Of MediaChunk), IDeepCloneable(Of MediaChunk), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}
+  - System.IEquatable{RemoteAgent.Proto.MediaChunk}
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Proto.MediaChunk.Parser
+  commentId: P:RemoteAgent.Proto.MediaChunk.Parser
+  id: Parser
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: MediaChunk.Parser
+  fullName: RemoteAgent.Proto.MediaChunk.Parser
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Parser
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2498
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageParser<MediaChunk> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{RemoteAgent.Proto.MediaChunk}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of MediaChunk)
+  overload: RemoteAgent.Proto.MediaChunk.Parser*
+- uid: RemoteAgent.Proto.MediaChunk.Descriptor
+  commentId: P:RemoteAgent.Proto.MediaChunk.Descriptor
+  id: Descriptor
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: MediaChunk.Descriptor
+  fullName: RemoteAgent.Proto.MediaChunk.Descriptor
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Descriptor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2502
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: RemoteAgent.Proto.MediaChunk.Descriptor*
+- uid: RemoteAgent.Proto.MediaChunk.#ctor
+  commentId: M:RemoteAgent.Proto.MediaChunk.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: MediaChunk()
+  nameWithType: MediaChunk.MediaChunk()
+  fullName: RemoteAgent.Proto.MediaChunk.MediaChunk()
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2514
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public MediaChunk()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Proto.MediaChunk.#ctor*
+  nameWithType.vb: MediaChunk.New()
+  fullName.vb: RemoteAgent.Proto.MediaChunk.New()
+  name.vb: New()
+- uid: RemoteAgent.Proto.MediaChunk.#ctor(RemoteAgent.Proto.MediaChunk)
+  commentId: M:RemoteAgent.Proto.MediaChunk.#ctor(RemoteAgent.Proto.MediaChunk)
+  id: '#ctor(RemoteAgent.Proto.MediaChunk)'
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: MediaChunk(MediaChunk)
+  nameWithType: MediaChunk.MediaChunk(MediaChunk)
+  fullName: RemoteAgent.Proto.MediaChunk.MediaChunk(RemoteAgent.Proto.MediaChunk)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2522
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public MediaChunk(MediaChunk other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.MediaChunk
+    content.vb: Public Sub New(other As MediaChunk)
+  overload: RemoteAgent.Proto.MediaChunk.#ctor*
+  nameWithType.vb: MediaChunk.New(MediaChunk)
+  fullName.vb: RemoteAgent.Proto.MediaChunk.New(RemoteAgent.Proto.MediaChunk)
+  name.vb: New(MediaChunk)
+- uid: RemoteAgent.Proto.MediaChunk.Clone
+  commentId: M:RemoteAgent.Proto.MediaChunk.Clone
+  id: Clone
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: MediaChunk.Clone()
+  fullName: RemoteAgent.Proto.MediaChunk.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Clone
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2531
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public MediaChunk Clone()
+    return:
+      type: RemoteAgent.Proto.MediaChunk
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As MediaChunk
+  overload: RemoteAgent.Proto.MediaChunk.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}.Clone
+- uid: RemoteAgent.Proto.MediaChunk.ContentFieldNumber
+  commentId: F:RemoteAgent.Proto.MediaChunk.ContentFieldNumber
+  id: ContentFieldNumber
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: ContentFieldNumber
+  nameWithType: MediaChunk.ContentFieldNumber
+  fullName: RemoteAgent.Proto.MediaChunk.ContentFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ContentFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2538
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "content" field.
+  example: []
+  syntax:
+    content: public const int ContentFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const ContentFieldNumber As Integer = 1
+- uid: RemoteAgent.Proto.MediaChunk.Content
+  commentId: P:RemoteAgent.Proto.MediaChunk.Content
+  id: Content
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: MediaChunk.Content
+  fullName: RemoteAgent.Proto.MediaChunk.Content
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Content
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2540
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public ByteString Content { get; set; }
+    parameters: []
+    return:
+      type: Google.Protobuf.ByteString
+    content.vb: Public Property Content As ByteString
+  overload: RemoteAgent.Proto.MediaChunk.Content*
+- uid: RemoteAgent.Proto.MediaChunk.ContentTypeFieldNumber
+  commentId: F:RemoteAgent.Proto.MediaChunk.ContentTypeFieldNumber
+  id: ContentTypeFieldNumber
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: ContentTypeFieldNumber
+  nameWithType: MediaChunk.ContentTypeFieldNumber
+  fullName: RemoteAgent.Proto.MediaChunk.ContentTypeFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ContentTypeFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2550
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "content_type" field.
+  example: []
+  syntax:
+    content: public const int ContentTypeFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const ContentTypeFieldNumber As Integer = 2
+- uid: RemoteAgent.Proto.MediaChunk.ContentType
+  commentId: P:RemoteAgent.Proto.MediaChunk.ContentType
+  id: ContentType
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: ContentType
+  nameWithType: MediaChunk.ContentType
+  fullName: RemoteAgent.Proto.MediaChunk.ContentType
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ContentType
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2555
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: e.g. image/png
+  example: []
+  syntax:
+    content: public string ContentType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContentType As String
+  overload: RemoteAgent.Proto.MediaChunk.ContentType*
+- uid: RemoteAgent.Proto.MediaChunk.FileNameFieldNumber
+  commentId: F:RemoteAgent.Proto.MediaChunk.FileNameFieldNumber
+  id: FileNameFieldNumber
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: FileNameFieldNumber
+  nameWithType: MediaChunk.FileNameFieldNumber
+  fullName: RemoteAgent.Proto.MediaChunk.FileNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: FileNameFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2565
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "file_name" field.
+  example: []
+  syntax:
+    content: public const int FileNameFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const FileNameFieldNumber As Integer = 3
+- uid: RemoteAgent.Proto.MediaChunk.FileName
+  commentId: P:RemoteAgent.Proto.MediaChunk.FileName
+  id: FileName
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: FileName
+  nameWithType: MediaChunk.FileName
+  fullName: RemoteAgent.Proto.MediaChunk.FileName
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: FileName
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2570
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: suggested filename
+  example: []
+  syntax:
+    content: public string FileName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FileName As String
+  overload: RemoteAgent.Proto.MediaChunk.FileName*
+- uid: RemoteAgent.Proto.MediaChunk.Equals(System.Object)
+  commentId: M:RemoteAgent.Proto.MediaChunk.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: MediaChunk.Equals(object)
+  fullName: RemoteAgent.Proto.MediaChunk.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2579
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: RemoteAgent.Proto.MediaChunk.Equals*
+  nameWithType.vb: MediaChunk.Equals(Object)
+  fullName.vb: RemoteAgent.Proto.MediaChunk.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RemoteAgent.Proto.MediaChunk.Equals(RemoteAgent.Proto.MediaChunk)
+  commentId: M:RemoteAgent.Proto.MediaChunk.Equals(RemoteAgent.Proto.MediaChunk)
+  id: Equals(RemoteAgent.Proto.MediaChunk)
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: Equals(MediaChunk)
+  nameWithType: MediaChunk.Equals(MediaChunk)
+  fullName: RemoteAgent.Proto.MediaChunk.Equals(RemoteAgent.Proto.MediaChunk)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2585
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(MediaChunk other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.MediaChunk
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As MediaChunk) As Boolean
+  overload: RemoteAgent.Proto.MediaChunk.Equals*
+  implements:
+  - System.IEquatable{RemoteAgent.Proto.MediaChunk}.Equals(RemoteAgent.Proto.MediaChunk)
+- uid: RemoteAgent.Proto.MediaChunk.GetHashCode
+  commentId: M:RemoteAgent.Proto.MediaChunk.GetHashCode
+  id: GetHashCode
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: MediaChunk.GetHashCode()
+  fullName: RemoteAgent.Proto.MediaChunk.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetHashCode
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2600
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: RemoteAgent.Proto.MediaChunk.GetHashCode*
+- uid: RemoteAgent.Proto.MediaChunk.ToString
+  commentId: M:RemoteAgent.Proto.MediaChunk.ToString
+  id: ToString
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: MediaChunk.ToString()
+  fullName: RemoteAgent.Proto.MediaChunk.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2613
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Proto.MediaChunk.ToString*
+- uid: RemoteAgent.Proto.MediaChunk.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:RemoteAgent.Proto.MediaChunk.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: MediaChunk.WriteTo(CodedOutputStream)
+  fullName: RemoteAgent.Proto.MediaChunk.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: WriteTo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2619
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: RemoteAgent.Proto.MediaChunk.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: RemoteAgent.Proto.MediaChunk.CalculateSize
+  commentId: M:RemoteAgent.Proto.MediaChunk.CalculateSize
+  id: CalculateSize
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: MediaChunk.CalculateSize()
+  fullName: RemoteAgent.Proto.MediaChunk.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CalculateSize
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2665
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: RemoteAgent.Proto.MediaChunk.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: RemoteAgent.Proto.MediaChunk.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  commentId: M:RemoteAgent.Proto.MediaChunk.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  id: MergeFrom(RemoteAgent.Proto.MediaChunk)
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(MediaChunk)
+  nameWithType: MediaChunk.MergeFrom(MediaChunk)
+  fullName: RemoteAgent.Proto.MediaChunk.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2684
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(MediaChunk other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.MediaChunk
+    content.vb: Public Sub MergeFrom(other As MediaChunk)
+  overload: RemoteAgent.Proto.MediaChunk.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}.MergeFrom(RemoteAgent.Proto.MediaChunk)
+- uid: RemoteAgent.Proto.MediaChunk.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:RemoteAgent.Proto.MediaChunk.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: RemoteAgent.Proto.MediaChunk
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: MediaChunk.MergeFrom(CodedInputStream)
+  fullName: RemoteAgent.Proto.MediaChunk.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 2702
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: RemoteAgent.Proto.MediaChunk.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}
+  commentId: T:Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: RemoteAgent.Proto.MediaChunk.html
+  name: IMessage<MediaChunk>
+  nameWithType: IMessage<MediaChunk>
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.MediaChunk>
+  nameWithType.vb: IMessage(Of MediaChunk)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.MediaChunk)
+  name.vb: IMessage(Of MediaChunk)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Proto.MediaChunk}
+  commentId: T:System.IEquatable{RemoteAgent.Proto.MediaChunk}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<MediaChunk>
+  nameWithType: IEquatable<MediaChunk>
+  fullName: System.IEquatable<RemoteAgent.Proto.MediaChunk>
+  nameWithType.vb: IEquatable(Of MediaChunk)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.MediaChunk)
+  name.vb: IEquatable(Of MediaChunk)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}
+  commentId: T:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: RemoteAgent.Proto.MediaChunk.html
+  name: IDeepCloneable<MediaChunk>
+  nameWithType: IDeepCloneable<MediaChunk>
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.MediaChunk>
+  nameWithType.vb: IDeepCloneable(Of MediaChunk)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.MediaChunk)
+  name.vb: IDeepCloneable(Of MediaChunk)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.MediaChunk.Parser*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.Parser
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_Parser
+  name: Parser
+  nameWithType: MediaChunk.Parser
+  fullName: RemoteAgent.Proto.MediaChunk.Parser
+- uid: Google.Protobuf.MessageParser{RemoteAgent.Proto.MediaChunk}
+  commentId: T:Google.Protobuf.MessageParser{RemoteAgent.Proto.MediaChunk}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: RemoteAgent.Proto.MediaChunk.html
+  name: MessageParser<MediaChunk>
+  nameWithType: MessageParser<MediaChunk>
+  fullName: Google.Protobuf.MessageParser<RemoteAgent.Proto.MediaChunk>
+  nameWithType.vb: MessageParser(Of MediaChunk)
+  fullName.vb: Google.Protobuf.MessageParser(Of RemoteAgent.Proto.MediaChunk)
+  name.vb: MessageParser(Of MediaChunk)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.MediaChunk.Descriptor*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.Descriptor
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_Descriptor
+  name: Descriptor
+  nameWithType: MediaChunk.Descriptor
+  fullName: RemoteAgent.Proto.MediaChunk.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: RemoteAgent.Proto.MediaChunk.#ctor*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.#ctor
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk__ctor
+  name: MediaChunk
+  nameWithType: MediaChunk.MediaChunk
+  fullName: RemoteAgent.Proto.MediaChunk.MediaChunk
+  nameWithType.vb: MediaChunk.New
+  fullName.vb: RemoteAgent.Proto.MediaChunk.New
+  name.vb: New
+- uid: RemoteAgent.Proto.MediaChunk
+  commentId: T:RemoteAgent.Proto.MediaChunk
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.MediaChunk.html
+  name: MediaChunk
+  nameWithType: MediaChunk
+  fullName: RemoteAgent.Proto.MediaChunk
+- uid: RemoteAgent.Proto.MediaChunk.Clone*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.Clone
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_Clone
+  name: Clone
+  nameWithType: MediaChunk.Clone
+  fullName: RemoteAgent.Proto.MediaChunk.Clone
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}.Clone
+  parent: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<MediaChunk>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.MediaChunk>.Clone()
+  nameWithType.vb: IDeepCloneable(Of MediaChunk).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.MediaChunk).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.MediaChunk}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Proto.MediaChunk.Content*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.Content
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_Content
+  name: Content
+  nameWithType: MediaChunk.Content
+  fullName: RemoteAgent.Proto.MediaChunk.Content
+- uid: Google.Protobuf.ByteString
+  commentId: T:Google.Protobuf.ByteString
+  parent: Google.Protobuf
+  isExternal: true
+  name: ByteString
+  nameWithType: ByteString
+  fullName: Google.Protobuf.ByteString
+- uid: RemoteAgent.Proto.MediaChunk.ContentType*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.ContentType
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_ContentType
+  name: ContentType
+  nameWithType: MediaChunk.ContentType
+  fullName: RemoteAgent.Proto.MediaChunk.ContentType
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Proto.MediaChunk.FileName*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.FileName
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_FileName
+  name: FileName
+  nameWithType: MediaChunk.FileName
+  fullName: RemoteAgent.Proto.MediaChunk.FileName
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RemoteAgent.Proto.MediaChunk.Equals*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.Equals
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_Equals_System_Object_
+  name: Equals
+  nameWithType: MediaChunk.Equals
+  fullName: RemoteAgent.Proto.MediaChunk.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{RemoteAgent.Proto.MediaChunk}.Equals(RemoteAgent.Proto.MediaChunk)
+  commentId: M:System.IEquatable{RemoteAgent.Proto.MediaChunk}.Equals(RemoteAgent.Proto.MediaChunk)
+  parent: System.IEquatable{RemoteAgent.Proto.MediaChunk}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(MediaChunk)
+  nameWithType: IEquatable<MediaChunk>.Equals(MediaChunk)
+  fullName: System.IEquatable<RemoteAgent.Proto.MediaChunk>.Equals(RemoteAgent.Proto.MediaChunk)
+  nameWithType.vb: IEquatable(Of MediaChunk).Equals(MediaChunk)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.MediaChunk).Equals(RemoteAgent.Proto.MediaChunk)
+  spec.csharp:
+  - uid: System.IEquatable{RemoteAgent.Proto.MediaChunk}.Equals(RemoteAgent.Proto.MediaChunk)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RemoteAgent.Proto.MediaChunk}.Equals(RemoteAgent.Proto.MediaChunk)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.MediaChunk.GetHashCode*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.GetHashCode
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_GetHashCode
+  name: GetHashCode
+  nameWithType: MediaChunk.GetHashCode
+  fullName: RemoteAgent.Proto.MediaChunk.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.MediaChunk.ToString*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.ToString
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_ToString
+  name: ToString
+  nameWithType: MediaChunk.ToString
+  fullName: RemoteAgent.Proto.MediaChunk.ToString
+- uid: RemoteAgent.Proto.MediaChunk.WriteTo*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.WriteTo
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: MediaChunk.WriteTo
+  fullName: RemoteAgent.Proto.MediaChunk.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: RemoteAgent.Proto.MediaChunk.CalculateSize*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.CalculateSize
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_CalculateSize
+  name: CalculateSize
+  nameWithType: MediaChunk.CalculateSize
+  fullName: RemoteAgent.Proto.MediaChunk.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.MediaChunk.MergeFrom*
+  commentId: Overload:RemoteAgent.Proto.MediaChunk.MergeFrom
+  href: RemoteAgent.Proto.MediaChunk.html#RemoteAgent_Proto_MediaChunk_MergeFrom_RemoteAgent_Proto_MediaChunk_
+  name: MergeFrom
+  nameWithType: MediaChunk.MergeFrom
+  fullName: RemoteAgent.Proto.MediaChunk.MergeFrom
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  commentId: M:Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  parent: Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: RemoteAgent.Proto.MediaChunk.html
+  name: MergeFrom(MediaChunk)
+  nameWithType: IMessage<MediaChunk>.MergeFrom(MediaChunk)
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.MediaChunk>.MergeFrom(RemoteAgent.Proto.MediaChunk)
+  nameWithType.vb: IMessage(Of MediaChunk).MergeFrom(MediaChunk)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.MediaChunk).MergeFrom(RemoteAgent.Proto.MediaChunk)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}.MergeFrom(RemoteAgent.Proto.MediaChunk)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.MediaChunk}.MergeFrom(RemoteAgent.Proto.MediaChunk)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.MediaChunk
+    name: MediaChunk
+    href: RemoteAgent.Proto.MediaChunk.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

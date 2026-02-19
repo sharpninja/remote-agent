@@ -1,0 +1,508 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Requests.McpRegistryData
+  commentId: T:RemoteAgent.Desktop.Requests.McpRegistryData
+  id: McpRegistryData
+  parent: RemoteAgent.Desktop.Requests
+  children:
+  - RemoteAgent.Desktop.Requests.McpRegistryData.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition})
+  - RemoteAgent.Desktop.Requests.McpRegistryData.Servers
+  langs:
+  - csharp
+  - vb
+  name: McpRegistryData
+  nameWithType: McpRegistryData
+  fullName: RemoteAgent.Desktop.Requests.McpRegistryData
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshMcpRegistryRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: McpRegistryData
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshMcpRegistryRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: 'public sealed record McpRegistryData : IEquatable<McpRegistryData>'
+    content.vb: Public NotInheritable Class McpRegistryData Implements IEquatable(Of McpRegistryData)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RemoteAgent.Desktop.Requests.McpRegistryData}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Requests.McpRegistryData.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition})
+  commentId: M:RemoteAgent.Desktop.Requests.McpRegistryData.#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition})
+  id: '#ctor(System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition})'
+  parent: RemoteAgent.Desktop.Requests.McpRegistryData
+  langs:
+  - csharp
+  - vb
+  name: McpRegistryData(IReadOnlyList<McpServerDefinition>)
+  nameWithType: McpRegistryData.McpRegistryData(IReadOnlyList<McpServerDefinition>)
+  fullName: RemoteAgent.Desktop.Requests.McpRegistryData.McpRegistryData(System.Collections.Generic.IReadOnlyList<RemoteAgent.Proto.McpServerDefinition>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshMcpRegistryRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshMcpRegistryRequest.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public McpRegistryData(IReadOnlyList<McpServerDefinition> Servers)
+    parameters:
+    - id: Servers
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition}
+    content.vb: Public Sub New(Servers As IReadOnlyList(Of McpServerDefinition))
+  overload: RemoteAgent.Desktop.Requests.McpRegistryData.#ctor*
+  nameWithType.vb: McpRegistryData.New(IReadOnlyList(Of McpServerDefinition))
+  fullName.vb: RemoteAgent.Desktop.Requests.McpRegistryData.New(System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Proto.McpServerDefinition))
+  name.vb: New(IReadOnlyList(Of McpServerDefinition))
+- uid: RemoteAgent.Desktop.Requests.McpRegistryData.Servers
+  commentId: P:RemoteAgent.Desktop.Requests.McpRegistryData.Servers
+  id: Servers
+  parent: RemoteAgent.Desktop.Requests.McpRegistryData
+  langs:
+  - csharp
+  - vb
+  name: Servers
+  nameWithType: McpRegistryData.Servers
+  fullName: RemoteAgent.Desktop.Requests.McpRegistryData.Servers
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Requests/RefreshMcpRegistryRequest.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Servers
+    path: ../src/RemoteAgent.Desktop/Requests/RefreshMcpRegistryRequest.cs
+    startLine: 8
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Requests
+  syntax:
+    content: public IReadOnlyList<McpServerDefinition> Servers { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition}
+    content.vb: Public Property Servers As IReadOnlyList(Of McpServerDefinition)
+  overload: RemoteAgent.Desktop.Requests.McpRegistryData.Servers*
+references:
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RemoteAgent.Desktop.Requests.McpRegistryData}
+  commentId: T:System.IEquatable{RemoteAgent.Desktop.Requests.McpRegistryData}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<McpRegistryData>
+  nameWithType: IEquatable<McpRegistryData>
+  fullName: System.IEquatable<RemoteAgent.Desktop.Requests.McpRegistryData>
+  nameWithType.vb: IEquatable(Of McpRegistryData)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Desktop.Requests.McpRegistryData)
+  name.vb: IEquatable(Of McpRegistryData)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.McpRegistryData
+    name: McpRegistryData
+    href: RemoteAgent.Desktop.Requests.McpRegistryData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.McpRegistryData
+    name: McpRegistryData
+    href: RemoteAgent.Desktop.Requests.McpRegistryData.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.McpRegistryData.#ctor*
+  commentId: Overload:RemoteAgent.Desktop.Requests.McpRegistryData.#ctor
+  href: RemoteAgent.Desktop.Requests.McpRegistryData.html#RemoteAgent_Desktop_Requests_McpRegistryData__ctor_System_Collections_Generic_IReadOnlyList_RemoteAgent_Proto_McpServerDefinition__
+  name: McpRegistryData
+  nameWithType: McpRegistryData.McpRegistryData
+  fullName: RemoteAgent.Desktop.Requests.McpRegistryData.McpRegistryData
+  nameWithType.vb: McpRegistryData.New
+  fullName.vb: RemoteAgent.Desktop.Requests.McpRegistryData.New
+  name.vb: New
+- uid: System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RemoteAgent.Proto.McpServerDefinition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  name: IReadOnlyList<McpServerDefinition>
+  nameWithType: IReadOnlyList<McpServerDefinition>
+  fullName: System.Collections.Generic.IReadOnlyList<RemoteAgent.Proto.McpServerDefinition>
+  nameWithType.vb: IReadOnlyList(Of McpServerDefinition)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of RemoteAgent.Proto.McpServerDefinition)
+  name.vb: IReadOnlyList(Of McpServerDefinition)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.McpServerDefinition
+    name: McpServerDefinition
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: RemoteAgent.Desktop.Requests.McpRegistryData.Servers*
+  commentId: Overload:RemoteAgent.Desktop.Requests.McpRegistryData.Servers
+  href: RemoteAgent.Desktop.Requests.McpRegistryData.html#RemoteAgent_Desktop_Requests_McpRegistryData_Servers
+  name: Servers
+  nameWithType: McpRegistryData.Servers
+  fullName: RemoteAgent.Desktop.Requests.McpRegistryData.Servers

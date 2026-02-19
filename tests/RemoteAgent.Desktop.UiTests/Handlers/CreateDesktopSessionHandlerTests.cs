@@ -8,8 +8,17 @@ using RemoteAgent.Desktop.ViewModels;
 
 namespace RemoteAgent.Desktop.UiTests.Handlers;
 
+/// <summary>Tests for <see cref="CreateDesktopSessionHandler"/>. FR-12.1, FR-12.2; TR-18.1, TR-18.2, TR-18.3, TR-18.4.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-12.1")]
+[Trait("Requirement", "FR-12.2")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+[Trait("Requirement", "TR-18.3")]
+[Trait("Requirement", "TR-18.4")]
 public class CreateDesktopSessionHandlerTests
 {
+    // FR-12.1, FR-12.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_ServerMode_WhenCapacityAvailable_ShouldAddSession()
     {
@@ -27,6 +36,7 @@ public class CreateDesktopSessionHandlerTests
         workspace.SelectedSession.Should().NotBeNull();
     }
 
+    // FR-12.1, FR-12.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_ServerMode_WhenCapacityNull_ShouldReturnFail()
     {
@@ -41,6 +51,7 @@ public class CreateDesktopSessionHandlerTests
         result.Success.Should().BeFalse();
     }
 
+    // FR-12.1, FR-12.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_ServerMode_WhenCapacityFull_ShouldReturnFail()
     {
@@ -57,6 +68,7 @@ public class CreateDesktopSessionHandlerTests
         result.ErrorMessage.Should().Contain("No capacity");
     }
 
+    // FR-12.1, FR-12.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_DirectMode_ShouldSkipCapacityCheck()
     {
@@ -72,6 +84,7 @@ public class CreateDesktopSessionHandlerTests
         workspace.Sessions.Should().HaveCount(1);
     }
 
+    // FR-12.1, FR-12.2, TR-18.4
     [AvaloniaFact]
     public async Task HandleAsync_WhenConnectThrows_ShouldReturnFail()
     {

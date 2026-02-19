@@ -1,0 +1,517 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Services.SessionItem
+  commentId: T:RemoteAgent.App.Services.SessionItem
+  id: SessionItem
+  parent: RemoteAgent.App.Services
+  children:
+  - RemoteAgent.App.Services.SessionItem.AgentId
+  - RemoteAgent.App.Services.SessionItem.ConnectionMode
+  - RemoteAgent.App.Services.SessionItem.CreatedAt
+  - RemoteAgent.App.Services.SessionItem.SessionId
+  - RemoteAgent.App.Services.SessionItem.Title
+  langs:
+  - csharp
+  - vb
+  name: SessionItem
+  nameWithType: SessionItem
+  fullName: RemoteAgent.App.Services.SessionItem
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.App/Services/SessionItem.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionItem
+    path: ../src/RemoteAgent.App/Services/SessionItem.cs
+    startLine: 3
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Services
+  summary: Represents a chat session (FR-11.1, TR-12.1.3). Persisted in local storage with session_id, title, and agent_id.
+  example: []
+  syntax:
+    content: public class SessionItem
+    content.vb: Public Class SessionItem
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.App.Services.SessionItem.SessionId
+  commentId: P:RemoteAgent.App.Services.SessionItem.SessionId
+  id: SessionId
+  parent: RemoteAgent.App.Services.SessionItem
+  langs:
+  - csharp
+  - vb
+  name: SessionId
+  nameWithType: SessionItem.SessionId
+  fullName: RemoteAgent.App.Services.SessionItem.SessionId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Services/SessionItem.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionId
+    path: ../src/RemoteAgent.App/Services/SessionItem.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Services
+  summary: Unique session id; used in SessionControl and for routing (FR-11.1.1).
+  example: []
+  syntax:
+    content: public string SessionId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SessionId As String
+  overload: RemoteAgent.App.Services.SessionItem.SessionId*
+- uid: RemoteAgent.App.Services.SessionItem.Title
+  commentId: P:RemoteAgent.App.Services.SessionItem.Title
+  id: Title
+  parent: RemoteAgent.App.Services.SessionItem
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: SessionItem.Title
+  fullName: RemoteAgent.App.Services.SessionItem.Title
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Services/SessionItem.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Title
+    path: ../src/RemoteAgent.App/Services/SessionItem.cs
+    startLine: 9
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Services
+  summary: User-definable title; defaults to first request text (FR-11.1.3, TR-12.2.1).
+  example: []
+  syntax:
+    content: public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: RemoteAgent.App.Services.SessionItem.Title*
+- uid: RemoteAgent.App.Services.SessionItem.AgentId
+  commentId: P:RemoteAgent.App.Services.SessionItem.AgentId
+  id: AgentId
+  parent: RemoteAgent.App.Services.SessionItem
+  langs:
+  - csharp
+  - vb
+  name: AgentId
+  nameWithType: SessionItem.AgentId
+  fullName: RemoteAgent.App.Services.SessionItem.AgentId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Services/SessionItem.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentId
+    path: ../src/RemoteAgent.App/Services/SessionItem.cs
+    startLine: 12
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Services
+  summary: Agent runner id (e.g. "process", "copilot-windows"); from server list (FR-11.1.2).
+  example: []
+  syntax:
+    content: public string AgentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AgentId As String
+  overload: RemoteAgent.App.Services.SessionItem.AgentId*
+- uid: RemoteAgent.App.Services.SessionItem.ConnectionMode
+  commentId: P:RemoteAgent.App.Services.SessionItem.ConnectionMode
+  id: ConnectionMode
+  parent: RemoteAgent.App.Services.SessionItem
+  langs:
+  - csharp
+  - vb
+  name: ConnectionMode
+  nameWithType: SessionItem.ConnectionMode
+  fullName: RemoteAgent.App.Services.SessionItem.ConnectionMode
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Services/SessionItem.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionMode
+    path: ../src/RemoteAgent.App/Services/SessionItem.cs
+    startLine: 15
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Services
+  summary: 'Connection mode for this session: "direct" or "server".'
+  example: []
+  syntax:
+    content: public string ConnectionMode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ConnectionMode As String
+  overload: RemoteAgent.App.Services.SessionItem.ConnectionMode*
+- uid: RemoteAgent.App.Services.SessionItem.CreatedAt
+  commentId: P:RemoteAgent.App.Services.SessionItem.CreatedAt
+  id: CreatedAt
+  parent: RemoteAgent.App.Services.SessionItem
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: SessionItem.CreatedAt
+  fullName: RemoteAgent.App.Services.SessionItem.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.App/Services/SessionItem.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CreatedAt
+    path: ../src/RemoteAgent.App/Services/SessionItem.cs
+    startLine: 18
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Services
+  summary: When the session was created.
+  example: []
+  syntax:
+    content: public DateTimeOffset CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property CreatedAt As DateTimeOffset
+  overload: RemoteAgent.App.Services.SessionItem.CreatedAt*
+references:
+- uid: RemoteAgent.App.Services
+  commentId: N:RemoteAgent.App.Services
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Services
+  nameWithType: RemoteAgent.App.Services
+  fullName: RemoteAgent.App.Services
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Services
+    name: Services
+    href: RemoteAgent.App.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Services.SessionItem.SessionId*
+  commentId: Overload:RemoteAgent.App.Services.SessionItem.SessionId
+  href: RemoteAgent.App.Services.SessionItem.html#RemoteAgent_App_Services_SessionItem_SessionId
+  name: SessionId
+  nameWithType: SessionItem.SessionId
+  fullName: RemoteAgent.App.Services.SessionItem.SessionId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.Services.SessionItem.Title*
+  commentId: Overload:RemoteAgent.App.Services.SessionItem.Title
+  href: RemoteAgent.App.Services.SessionItem.html#RemoteAgent_App_Services_SessionItem_Title
+  name: Title
+  nameWithType: SessionItem.Title
+  fullName: RemoteAgent.App.Services.SessionItem.Title
+- uid: RemoteAgent.App.Services.SessionItem.AgentId*
+  commentId: Overload:RemoteAgent.App.Services.SessionItem.AgentId
+  href: RemoteAgent.App.Services.SessionItem.html#RemoteAgent_App_Services_SessionItem_AgentId
+  name: AgentId
+  nameWithType: SessionItem.AgentId
+  fullName: RemoteAgent.App.Services.SessionItem.AgentId
+- uid: RemoteAgent.App.Services.SessionItem.ConnectionMode*
+  commentId: Overload:RemoteAgent.App.Services.SessionItem.ConnectionMode
+  href: RemoteAgent.App.Services.SessionItem.html#RemoteAgent_App_Services_SessionItem_ConnectionMode
+  name: ConnectionMode
+  nameWithType: SessionItem.ConnectionMode
+  fullName: RemoteAgent.App.Services.SessionItem.ConnectionMode
+- uid: RemoteAgent.App.Services.SessionItem.CreatedAt*
+  commentId: Overload:RemoteAgent.App.Services.SessionItem.CreatedAt
+  href: RemoteAgent.App.Services.SessionItem.html#RemoteAgent_App_Services_SessionItem_CreatedAt
+  name: CreatedAt
+  nameWithType: SessionItem.CreatedAt
+  fullName: RemoteAgent.App.Services.SessionItem.CreatedAt
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset

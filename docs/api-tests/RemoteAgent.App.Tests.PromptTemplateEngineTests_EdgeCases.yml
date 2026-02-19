@@ -1,0 +1,608 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  commentId: T:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  id: PromptTemplateEngineTests_EdgeCases
+  parent: RemoteAgent.App.Tests
+  children:
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(System.String,System.String)
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty
+  - RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplateEngineTests_EdgeCases
+  nameWithType: PromptTemplateEngineTests_EdgeCases
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplateEngineTests_EdgeCases
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 6
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  summary: 'Prompt template engine: empty/missing variables, Handlebars edge cases. FR-14.2, TR-17.3.'
+  example: []
+  syntax:
+    content: >-
+      [Trait("Category", "Requirements")]
+
+      [Trait("Requirement", "FR-14.2")]
+
+      [Trait("Requirement", "TR-17.3")]
+
+      public sealed class PromptTemplateEngineTests_EdgeCases
+    content.vb: >-
+      <Trait("Category", "Requirements")>
+
+      <Trait("Requirement", "FR-14.2")>
+
+      <Trait("Requirement", "TR-17.3")>
+
+      Public NotInheritable Class PromptTemplateEngineTests_EdgeCases
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Category
+    - type: System.String
+      value: Requirements
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: FR-14.2
+  - type: Xunit.TraitAttribute
+    ctor: Xunit.TraitAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Requirement
+    - type: System.String
+      value: TR-17.3
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  commentId: M:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  id: ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  parent: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  langs:
+  - csharp
+  - vb
+  name: ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace()
+  nameWithType: PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace()
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 11
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace()
+    content.vb: >-
+      <Fact>
+
+      Public Sub ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace()
+  overload: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  commentId: M:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  id: ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  parent: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  langs:
+  - csharp
+  - vb
+  name: ExtractVariables_ReturnsEmpty_WhenNoPlaceholders()
+  nameWithType: PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders()
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 19
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void ExtractVariables_ReturnsEmpty_WhenNoPlaceholders()
+    content.vb: >-
+      <Fact>
+
+      Public Sub ExtractVariables_ReturnsEmpty_WhenNoPlaceholders()
+  overload: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(System.String,System.String)
+  commentId: M:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(System.String,System.String)
+  id: ExtractVariables_HandlesWhitespaceInsideBraces(System.String,System.String)
+  parent: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  langs:
+  - csharp
+  - vb
+  name: ExtractVariables_HandlesWhitespaceInsideBraces(string, string)
+  nameWithType: PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(string, string)
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(string, string)
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ExtractVariables_HandlesWhitespaceInsideBraces
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 26
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "{{a}}", "a" })]
+
+      [InlineData(new object[] { "{{ a }}", "a" })]
+
+      [InlineData(new object[] { "{{  incident_id  }}", "incident_id" })]
+
+      public void ExtractVariables_HandlesWhitespaceInsideBraces(string template, string expectedVar)
+    parameters:
+    - id: template
+      type: System.String
+    - id: expectedVar
+      type: System.String
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "{{a}}", "a" })>
+
+      <InlineData(New Object() { "{{ a }}", "a" })>
+
+      <InlineData(New Object() { "{{  incident_id  }}", "incident_id" })>
+
+      Public Sub ExtractVariables_HandlesWhitespaceInsideBraces(template As String, expectedVar As String)
+  overload: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(String, String)
+  fullName.vb: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces(String, String)
+  name.vb: ExtractVariables_HandlesWhitespaceInsideBraces(String, String)
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty
+  commentId: M:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty
+  id: Render_WithMissingVariable_ReplacesWithEmpty
+  parent: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  langs:
+  - csharp
+  - vb
+  name: Render_WithMissingVariable_ReplacesWithEmpty()
+  nameWithType: PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty()
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Render_WithMissingVariable_ReplacesWithEmpty
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 36
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Render_WithMissingVariable_ReplacesWithEmpty()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Render_WithMissingVariable_ReplacesWithEmpty()
+  overload: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty
+  commentId: M:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty
+  id: Render_WithNullValue_ReplacesWithEmpty
+  parent: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  langs:
+  - csharp
+  - vb
+  name: Render_WithNullValue_ReplacesWithEmpty()
+  nameWithType: PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty()
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Render_WithNullValue_ReplacesWithEmpty
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Render_WithNullValue_ReplacesWithEmpty()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Render_WithNullValue_ReplacesWithEmpty()
+  overload: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty
+  commentId: M:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty
+  id: Render_EmptyTemplate_ReturnsEmpty
+  parent: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases
+  langs:
+  - csharp
+  - vb
+  name: Render_EmptyTemplate_ReturnsEmpty()
+  nameWithType: PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty()
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Render_EmptyTemplate_ReturnsEmpty
+    path: ../tests/RemoteAgent.App.Tests/PromptTemplateEngineTests_EdgeCases.cs
+    startLine: 58
+  assemblies:
+  - RemoteAgent.App.Tests
+  namespace: RemoteAgent.App.Tests
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Render_EmptyTemplate_ReturnsEmpty()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Render_EmptyTemplate_ReturnsEmpty()
+  overload: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.App.Tests
+  commentId: N:RemoteAgent.App.Tests
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Tests
+  nameWithType: RemoteAgent.App.Tests
+  fullName: RemoteAgent.App.Tests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Tests
+    name: Tests
+    href: RemoteAgent.App.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace*
+  commentId: Overload:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html#RemoteAgent_App_Tests_PromptTemplateEngineTests_EdgeCases_ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  name: ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  nameWithType: PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenTemplateNullOrWhitespace
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders*
+  commentId: Overload:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html#RemoteAgent_App_Tests_PromptTemplateEngineTests_EdgeCases_ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  name: ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  nameWithType: PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_ReturnsEmpty_WhenNoPlaceholders
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces*
+  commentId: Overload:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html#RemoteAgent_App_Tests_PromptTemplateEngineTests_EdgeCases_ExtractVariables_HandlesWhitespaceInsideBraces_System_String_System_String_
+  name: ExtractVariables_HandlesWhitespaceInsideBraces
+  nameWithType: PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.ExtractVariables_HandlesWhitespaceInsideBraces
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty*
+  commentId: Overload:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html#RemoteAgent_App_Tests_PromptTemplateEngineTests_EdgeCases_Render_WithMissingVariable_ReplacesWithEmpty
+  name: Render_WithMissingVariable_ReplacesWithEmpty
+  nameWithType: PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithMissingVariable_ReplacesWithEmpty
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty*
+  commentId: Overload:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html#RemoteAgent_App_Tests_PromptTemplateEngineTests_EdgeCases_Render_WithNullValue_ReplacesWithEmpty
+  name: Render_WithNullValue_ReplacesWithEmpty
+  nameWithType: PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_WithNullValue_ReplacesWithEmpty
+- uid: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty*
+  commentId: Overload:RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty
+  href: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.html#RemoteAgent_App_Tests_PromptTemplateEngineTests_EdgeCases_Render_EmptyTemplate_ReturnsEmpty
+  name: Render_EmptyTemplate_ReturnsEmpty
+  nameWithType: PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty
+  fullName: RemoteAgent.App.Tests.PromptTemplateEngineTests_EdgeCases.Render_EmptyTemplate_ReturnsEmpty

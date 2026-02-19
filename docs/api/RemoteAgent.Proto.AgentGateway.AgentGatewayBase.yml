@@ -1,0 +1,1923 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  commentId: T:RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  id: AgentGateway.AgentGatewayBase
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext(RemoteAgent.Proto.ClearSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect(Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage},Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage},Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer(RemoteAgent.Proto.DeleteMcpServerRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate(RemoteAgent.Proto.DeletePromptTemplateRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers(RemoteAgent.Proto.GetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins(RemoteAgent.Proto.GetPluginsRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo(RemoteAgent.Proto.ServerInfoRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext(RemoteAgent.Proto.GetSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot(RemoteAgent.Proto.StructuredLogsSnapshotRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers(RemoteAgent.Proto.ListMcpServersRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates(RemoteAgent.Proto.ListPromptTemplatesRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext(RemoteAgent.Proto.SeedSessionContextRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers(RemoteAgent.Proto.SetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs(RemoteAgent.Proto.StructuredLogsStreamRequest,Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry},Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins(RemoteAgent.Proto.UpdatePluginsRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer(RemoteAgent.Proto.UpsertMcpServerRequest,Grpc.Core.ServerCallContext)
+  - RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate(RemoteAgent.Proto.UpsertPromptTemplateRequest,Grpc.Core.ServerCallContext)
+  langs:
+  - csharp
+  - vb
+  name: AgentGateway.AgentGatewayBase
+  nameWithType: AgentGateway.AgentGatewayBase
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentGatewayBase
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 262
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Base class for server-side implementations of AgentGateway
+  example: []
+  syntax:
+    content: >-
+      [BindServiceMethod(typeof(AgentGateway), "BindService")]
+
+      public abstract class AgentGateway.AgentGatewayBase
+    content.vb: >-
+      <BindServiceMethod(GetType(AgentGateway), "BindService")>
+
+      Public MustInherit Class AgentGateway.AgentGatewayBase
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - RemoteAgent.Service.Services.AgentGatewayService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Grpc.Core.BindServiceMethodAttribute
+    ctor: Grpc.Core.BindServiceMethodAttribute.#ctor(System.Type,System.String)
+    arguments:
+    - type: System.Type
+      value: RemoteAgent.Proto.AgentGateway
+    - type: System.String
+      value: BindService
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo(RemoteAgent.Proto.ServerInfoRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo(RemoteAgent.Proto.ServerInfoRequest,Grpc.Core.ServerCallContext)
+  id: GetServerInfo(RemoteAgent.Proto.ServerInfoRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: GetServerInfo(ServerInfoRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.GetServerInfo(ServerInfoRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo(RemoteAgent.Proto.ServerInfoRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetServerInfo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 271
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: GetServerInfo returns server version and capabilities. Call when starting a connection.
+  example: []
+  syntax:
+    content: public virtual Task<ServerInfoResponse> GetServerInfo(ServerInfoRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.ServerInfoRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ServerInfoResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function GetServerInfo(request As ServerInfoRequest, context As ServerCallContext) As Task(Of ServerInfoResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect(Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage},Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage},Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect(Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage},Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage},Grpc.Core.ServerCallContext)
+  id: Connect(Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage},Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage},Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: Connect(IAsyncStreamReader<ClientMessage>, IServerStreamWriter<ServerMessage>, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.Connect(IAsyncStreamReader<ClientMessage>, IServerStreamWriter<ServerMessage>, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect(Grpc.Core.IAsyncStreamReader<RemoteAgent.Proto.ClientMessage>, Grpc.Core.IServerStreamWriter<RemoteAgent.Proto.ServerMessage>, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Connect
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 285
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: >-
+    Connect opens a persistent duplex stream. Client sends messages;
+
+    server streams agent output and session events.
+  example: []
+  syntax:
+    content: public virtual Task Connect(IAsyncStreamReader<ClientMessage> requestStream, IServerStreamWriter<ServerMessage> responseStream, ServerCallContext context)
+    parameters:
+    - id: requestStream
+      type: Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage}
+      description: Used for reading requests from the client.
+    - id: responseStream
+      type: Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage}
+      description: Used for sending responses back to the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task indicating completion of the handler.
+    content.vb: Public Overridable Function Connect(requestStream As IAsyncStreamReader(Of ClientMessage), responseStream As IServerStreamWriter(Of ServerMessage), context As ServerCallContext) As Task
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect*
+  nameWithType.vb: AgentGateway.AgentGatewayBase.Connect(IAsyncStreamReader(Of ClientMessage), IServerStreamWriter(Of ServerMessage), ServerCallContext)
+  fullName.vb: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect(Grpc.Core.IAsyncStreamReader(Of RemoteAgent.Proto.ClientMessage), Grpc.Core.IServerStreamWriter(Of RemoteAgent.Proto.ServerMessage), Grpc.Core.ServerCallContext)
+  name.vb: Connect(IAsyncStreamReader(Of ClientMessage), IServerStreamWriter(Of ServerMessage), ServerCallContext)
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot(RemoteAgent.Proto.StructuredLogsSnapshotRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot(RemoteAgent.Proto.StructuredLogsSnapshotRequest,Grpc.Core.ServerCallContext)
+  id: GetStructuredLogsSnapshot(RemoteAgent.Proto.StructuredLogsSnapshotRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: GetStructuredLogsSnapshot(StructuredLogsSnapshotRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot(StructuredLogsSnapshotRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot(RemoteAgent.Proto.StructuredLogsSnapshotRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetStructuredLogsSnapshot
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 297
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns structured logs from disk starting after from_offset (inclusive behavior handled by server).
+  example: []
+  syntax:
+    content: public virtual Task<StructuredLogsSnapshotResponse> GetStructuredLogsSnapshot(StructuredLogsSnapshotRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.StructuredLogsSnapshotResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function GetStructuredLogsSnapshot(request As StructuredLogsSnapshotRequest, context As ServerCallContext) As Task(Of StructuredLogsSnapshotResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs(RemoteAgent.Proto.StructuredLogsStreamRequest,Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry},Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs(RemoteAgent.Proto.StructuredLogsStreamRequest,Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry},Grpc.Core.ServerCallContext)
+  id: StreamStructuredLogs(RemoteAgent.Proto.StructuredLogsStreamRequest,Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry},Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: StreamStructuredLogs(StructuredLogsStreamRequest, IServerStreamWriter<StructuredLogEntry>, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.StreamStructuredLogs(StructuredLogsStreamRequest, IServerStreamWriter<StructuredLogEntry>, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs(RemoteAgent.Proto.StructuredLogsStreamRequest, Grpc.Core.IServerStreamWriter<RemoteAgent.Proto.StructuredLogEntry>, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StreamStructuredLogs
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 310
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Streams structured logs in real time; includes replay from from_offset first.
+  example: []
+  syntax:
+    content: public virtual Task StreamStructuredLogs(StructuredLogsStreamRequest request, IServerStreamWriter<StructuredLogEntry> responseStream, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.StructuredLogsStreamRequest
+      description: The request received from the client.
+    - id: responseStream
+      type: Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry}
+      description: Used for sending responses back to the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task indicating completion of the handler.
+    content.vb: Public Overridable Function StreamStructuredLogs(request As StructuredLogsStreamRequest, responseStream As IServerStreamWriter(Of StructuredLogEntry), context As ServerCallContext) As Task
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs*
+  nameWithType.vb: AgentGateway.AgentGatewayBase.StreamStructuredLogs(StructuredLogsStreamRequest, IServerStreamWriter(Of StructuredLogEntry), ServerCallContext)
+  fullName.vb: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs(RemoteAgent.Proto.StructuredLogsStreamRequest, Grpc.Core.IServerStreamWriter(Of RemoteAgent.Proto.StructuredLogEntry), Grpc.Core.ServerCallContext)
+  name.vb: StreamStructuredLogs(StructuredLogsStreamRequest, IServerStreamWriter(Of StructuredLogEntry), ServerCallContext)
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins(RemoteAgent.Proto.GetPluginsRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins(RemoteAgent.Proto.GetPluginsRequest,Grpc.Core.ServerCallContext)
+  id: GetPlugins(RemoteAgent.Proto.GetPluginsRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: GetPlugins(GetPluginsRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.GetPlugins(GetPluginsRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins(RemoteAgent.Proto.GetPluginsRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetPlugins
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 322
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns plugin assembly configuration and loaded runner ids.
+  example: []
+  syntax:
+    content: public virtual Task<GetPluginsResponse> GetPlugins(GetPluginsRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.GetPluginsRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.GetPluginsResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function GetPlugins(request As GetPluginsRequest, context As ServerCallContext) As Task(Of GetPluginsResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins(RemoteAgent.Proto.UpdatePluginsRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins(RemoteAgent.Proto.UpdatePluginsRequest,Grpc.Core.ServerCallContext)
+  id: UpdatePlugins(RemoteAgent.Proto.UpdatePluginsRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: UpdatePlugins(UpdatePluginsRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.UpdatePlugins(UpdatePluginsRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins(RemoteAgent.Proto.UpdatePluginsRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpdatePlugins
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 334
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Updates configured plugin assemblies. Newly configured plugins require service restart to load.
+  example: []
+  syntax:
+    content: public virtual Task<UpdatePluginsResponse> UpdatePlugins(UpdatePluginsRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.UpdatePluginsRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.UpdatePluginsResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function UpdatePlugins(request As UpdatePluginsRequest, context As ServerCallContext) As Task(Of UpdatePluginsResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext(RemoteAgent.Proto.SeedSessionContextRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext(RemoteAgent.Proto.SeedSessionContextRequest,Grpc.Core.ServerCallContext)
+  id: SeedSessionContext(RemoteAgent.Proto.SeedSessionContextRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: SeedSessionContext(SeedSessionContextRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.SeedSessionContext(SeedSessionContextRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext(RemoteAgent.Proto.SeedSessionContextRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SeedSessionContext
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 346
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Seeds a session with context for the next start (or immediate consumption by session-aware workflows).
+  example: []
+  syntax:
+    content: public virtual Task<SeedSessionContextResponse> SeedSessionContext(SeedSessionContextRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.SeedSessionContextRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.SeedSessionContextResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SeedSessionContext(request As SeedSessionContextRequest, context As ServerCallContext) As Task(Of SeedSessionContextResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext(RemoteAgent.Proto.GetSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext(RemoteAgent.Proto.GetSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  id: GetSessionSeedContext(RemoteAgent.Proto.GetSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: GetSessionSeedContext(GetSessionSeedContextRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.GetSessionSeedContext(GetSessionSeedContextRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext(RemoteAgent.Proto.GetSessionSeedContextRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetSessionSeedContext
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 358
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns queued seed context entries for a session.
+  example: []
+  syntax:
+    content: public virtual Task<GetSessionSeedContextResponse> GetSessionSeedContext(GetSessionSeedContextRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.GetSessionSeedContextRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.GetSessionSeedContextResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function GetSessionSeedContext(request As GetSessionSeedContextRequest, context As ServerCallContext) As Task(Of GetSessionSeedContextResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext(RemoteAgent.Proto.ClearSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext(RemoteAgent.Proto.ClearSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  id: ClearSessionSeedContext(RemoteAgent.Proto.ClearSessionSeedContextRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: ClearSessionSeedContext(ClearSessionSeedContextRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.ClearSessionSeedContext(ClearSessionSeedContextRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext(RemoteAgent.Proto.ClearSessionSeedContextRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearSessionSeedContext
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 370
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Clears queued seed context entries for a session.
+  example: []
+  syntax:
+    content: public virtual Task<ClearSessionSeedContextResponse> ClearSessionSeedContext(ClearSessionSeedContextRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.ClearSessionSeedContextRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ClearSessionSeedContextResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function ClearSessionSeedContext(request As ClearSessionSeedContextRequest, context As ServerCallContext) As Task(Of ClearSessionSeedContextResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers(RemoteAgent.Proto.ListMcpServersRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers(RemoteAgent.Proto.ListMcpServersRequest,Grpc.Core.ServerCallContext)
+  id: ListMcpServers(RemoteAgent.Proto.ListMcpServersRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: ListMcpServers(ListMcpServersRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.ListMcpServers(ListMcpServersRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers(RemoteAgent.Proto.ListMcpServersRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ListMcpServers
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 382
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Lists configured MCP servers.
+  example: []
+  syntax:
+    content: public virtual Task<ListMcpServersResponse> ListMcpServers(ListMcpServersRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.ListMcpServersRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ListMcpServersResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function ListMcpServers(request As ListMcpServersRequest, context As ServerCallContext) As Task(Of ListMcpServersResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer(RemoteAgent.Proto.UpsertMcpServerRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer(RemoteAgent.Proto.UpsertMcpServerRequest,Grpc.Core.ServerCallContext)
+  id: UpsertMcpServer(RemoteAgent.Proto.UpsertMcpServerRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: UpsertMcpServer(UpsertMcpServerRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.UpsertMcpServer(UpsertMcpServerRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer(RemoteAgent.Proto.UpsertMcpServerRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpsertMcpServer
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 394
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates or updates an MCP server definition.
+  example: []
+  syntax:
+    content: public virtual Task<UpsertMcpServerResponse> UpsertMcpServer(UpsertMcpServerRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.UpsertMcpServerRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertMcpServerResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function UpsertMcpServer(request As UpsertMcpServerRequest, context As ServerCallContext) As Task(Of UpsertMcpServerResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer(RemoteAgent.Proto.DeleteMcpServerRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer(RemoteAgent.Proto.DeleteMcpServerRequest,Grpc.Core.ServerCallContext)
+  id: DeleteMcpServer(RemoteAgent.Proto.DeleteMcpServerRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: DeleteMcpServer(DeleteMcpServerRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.DeleteMcpServer(DeleteMcpServerRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer(RemoteAgent.Proto.DeleteMcpServerRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeleteMcpServer
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 406
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Deletes an MCP server definition and removes agent associations.
+  example: []
+  syntax:
+    content: public virtual Task<DeleteMcpServerResponse> DeleteMcpServer(DeleteMcpServerRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.DeleteMcpServerRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.DeleteMcpServerResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function DeleteMcpServer(request As DeleteMcpServerRequest, context As ServerCallContext) As Task(Of DeleteMcpServerResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers(RemoteAgent.Proto.SetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers(RemoteAgent.Proto.SetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  id: SetAgentMcpServers(RemoteAgent.Proto.SetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: SetAgentMcpServers(SetAgentMcpServersRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.SetAgentMcpServers(SetAgentMcpServersRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers(RemoteAgent.Proto.SetAgentMcpServersRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SetAgentMcpServers
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 418
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Sets MCP servers associated with an agent.
+  example: []
+  syntax:
+    content: public virtual Task<SetAgentMcpServersResponse> SetAgentMcpServers(SetAgentMcpServersRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.SetAgentMcpServersRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.SetAgentMcpServersResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SetAgentMcpServers(request As SetAgentMcpServersRequest, context As ServerCallContext) As Task(Of SetAgentMcpServersResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers(RemoteAgent.Proto.GetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers(RemoteAgent.Proto.GetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  id: GetAgentMcpServers(RemoteAgent.Proto.GetAgentMcpServersRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: GetAgentMcpServers(GetAgentMcpServersRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.GetAgentMcpServers(GetAgentMcpServersRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers(RemoteAgent.Proto.GetAgentMcpServersRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetAgentMcpServers
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 430
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Gets MCP servers associated with an agent.
+  example: []
+  syntax:
+    content: public virtual Task<GetAgentMcpServersResponse> GetAgentMcpServers(GetAgentMcpServersRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.GetAgentMcpServersRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.GetAgentMcpServersResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function GetAgentMcpServers(request As GetAgentMcpServersRequest, context As ServerCallContext) As Task(Of GetAgentMcpServersResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates(RemoteAgent.Proto.ListPromptTemplatesRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates(RemoteAgent.Proto.ListPromptTemplatesRequest,Grpc.Core.ServerCallContext)
+  id: ListPromptTemplates(RemoteAgent.Proto.ListPromptTemplatesRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: ListPromptTemplates(ListPromptTemplatesRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.ListPromptTemplates(ListPromptTemplatesRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates(RemoteAgent.Proto.ListPromptTemplatesRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ListPromptTemplates
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 442
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Lists prompt templates available to clients.
+  example: []
+  syntax:
+    content: public virtual Task<ListPromptTemplatesResponse> ListPromptTemplates(ListPromptTemplatesRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.ListPromptTemplatesRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.ListPromptTemplatesResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function ListPromptTemplates(request As ListPromptTemplatesRequest, context As ServerCallContext) As Task(Of ListPromptTemplatesResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate(RemoteAgent.Proto.UpsertPromptTemplateRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate(RemoteAgent.Proto.UpsertPromptTemplateRequest,Grpc.Core.ServerCallContext)
+  id: UpsertPromptTemplate(RemoteAgent.Proto.UpsertPromptTemplateRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: UpsertPromptTemplate(UpsertPromptTemplateRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.UpsertPromptTemplate(UpsertPromptTemplateRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate(RemoteAgent.Proto.UpsertPromptTemplateRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: UpsertPromptTemplate
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 454
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates or updates a prompt template.
+  example: []
+  syntax:
+    content: public virtual Task<UpsertPromptTemplateResponse> UpsertPromptTemplate(UpsertPromptTemplateRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.UpsertPromptTemplateRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertPromptTemplateResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function UpsertPromptTemplate(request As UpsertPromptTemplateRequest, context As ServerCallContext) As Task(Of UpsertPromptTemplateResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate*
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate(RemoteAgent.Proto.DeletePromptTemplateRequest,Grpc.Core.ServerCallContext)
+  commentId: M:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate(RemoteAgent.Proto.DeletePromptTemplateRequest,Grpc.Core.ServerCallContext)
+  id: DeletePromptTemplate(RemoteAgent.Proto.DeletePromptTemplateRequest,Grpc.Core.ServerCallContext)
+  parent: RemoteAgent.Proto.AgentGateway.AgentGatewayBase
+  langs:
+  - csharp
+  - vb
+  name: DeletePromptTemplate(DeletePromptTemplateRequest, ServerCallContext)
+  nameWithType: AgentGateway.AgentGatewayBase.DeletePromptTemplate(DeletePromptTemplateRequest, ServerCallContext)
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate(RemoteAgent.Proto.DeletePromptTemplateRequest, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: DeletePromptTemplate
+    path: ../src/RemoteAgent.Proto/Generated/AgentGatewayGrpc.cs
+    startLine: 466
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Deletes a prompt template.
+  example: []
+  syntax:
+    content: public virtual Task<DeletePromptTemplateResponse> DeletePromptTemplate(DeletePromptTemplateRequest request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: RemoteAgent.Proto.DeletePromptTemplateRequest
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.Proto.DeletePromptTemplateResponse}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function DeletePromptTemplate(request As DeletePromptTemplateRequest, context As ServerCallContext) As Task(Of DeletePromptTemplateResponse)
+  overload: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate*
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_GetServerInfo_RemoteAgent_Proto_ServerInfoRequest_Grpc_Core_ServerCallContext_
+  name: GetServerInfo
+  nameWithType: AgentGateway.AgentGatewayBase.GetServerInfo
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetServerInfo
+- uid: RemoteAgent.Proto.ServerInfoRequest
+  commentId: T:RemoteAgent.Proto.ServerInfoRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ServerInfoRequest.html
+  name: ServerInfoRequest
+  nameWithType: ServerInfoRequest
+  fullName: RemoteAgent.Proto.ServerInfoRequest
+- uid: Grpc.Core.ServerCallContext
+  commentId: T:Grpc.Core.ServerCallContext
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/ServerCallContext.cs
+  name: ServerCallContext
+  nameWithType: ServerCallContext
+  fullName: Grpc.Core.ServerCallContext
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ServerInfoResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ServerInfoResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ServerInfoResponse.html
+  name: Task<ServerInfoResponse>
+  nameWithType: Task<ServerInfoResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ServerInfoResponse>
+  nameWithType.vb: Task(Of ServerInfoResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ServerInfoResponse)
+  name.vb: Task(Of ServerInfoResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ServerInfoResponse
+    name: ServerInfoResponse
+    href: RemoteAgent.Proto.ServerInfoResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ServerInfoResponse
+    name: ServerInfoResponse
+    href: RemoteAgent.Proto.ServerInfoResponse.html
+  - name: )
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_Connect_Grpc_Core_IAsyncStreamReader_RemoteAgent_Proto_ClientMessage__Grpc_Core_IServerStreamWriter_RemoteAgent_Proto_ServerMessage__Grpc_Core_ServerCallContext_
+  name: Connect
+  nameWithType: AgentGateway.AgentGatewayBase.Connect
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.Connect
+- uid: Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage}
+  commentId: T:Grpc.Core.IAsyncStreamReader{RemoteAgent.Proto.ClientMessage}
+  parent: Grpc.Core
+  definition: Grpc.Core.IAsyncStreamReader`1
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IAsyncStreamReader.cs
+  name: IAsyncStreamReader<ClientMessage>
+  nameWithType: IAsyncStreamReader<ClientMessage>
+  fullName: Grpc.Core.IAsyncStreamReader<RemoteAgent.Proto.ClientMessage>
+  nameWithType.vb: IAsyncStreamReader(Of ClientMessage)
+  fullName.vb: Grpc.Core.IAsyncStreamReader(Of RemoteAgent.Proto.ClientMessage)
+  name.vb: IAsyncStreamReader(Of ClientMessage)
+  spec.csharp:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: <
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage}
+  commentId: T:Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.ServerMessage}
+  parent: Grpc.Core
+  definition: Grpc.Core.IServerStreamWriter`1
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<ServerMessage>
+  nameWithType: IServerStreamWriter<ServerMessage>
+  fullName: Grpc.Core.IServerStreamWriter<RemoteAgent.Proto.ServerMessage>
+  nameWithType.vb: IServerStreamWriter(Of ServerMessage)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of RemoteAgent.Proto.ServerMessage)
+  name.vb: IServerStreamWriter(Of ServerMessage)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - uid: RemoteAgent.Proto.ServerMessage
+    name: ServerMessage
+    href: RemoteAgent.Proto.ServerMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ServerMessage
+    name: ServerMessage
+    href: RemoteAgent.Proto.ServerMessage.html
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Grpc.Core.IAsyncStreamReader`1
+  commentId: T:Grpc.Core.IAsyncStreamReader`1
+  isExternal: true
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IAsyncStreamReader.cs
+  name: IAsyncStreamReader<T>
+  nameWithType: IAsyncStreamReader<T>
+  fullName: Grpc.Core.IAsyncStreamReader<T>
+  nameWithType.vb: IAsyncStreamReader(Of T)
+  fullName.vb: Grpc.Core.IAsyncStreamReader(Of T)
+  name.vb: IAsyncStreamReader(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Grpc.Core.IServerStreamWriter`1
+  commentId: T:Grpc.Core.IServerStreamWriter`1
+  isExternal: true
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<T>
+  nameWithType: IServerStreamWriter<T>
+  fullName: Grpc.Core.IServerStreamWriter<T>
+  nameWithType.vb: IServerStreamWriter(Of T)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of T)
+  name.vb: IServerStreamWriter(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_GetStructuredLogsSnapshot_RemoteAgent_Proto_StructuredLogsSnapshotRequest_Grpc_Core_ServerCallContext_
+  name: GetStructuredLogsSnapshot
+  nameWithType: AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetStructuredLogsSnapshot
+- uid: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  commentId: T:RemoteAgent.Proto.StructuredLogsSnapshotRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogsSnapshotRequest.html
+  name: StructuredLogsSnapshotRequest
+  nameWithType: StructuredLogsSnapshotRequest
+  fullName: RemoteAgent.Proto.StructuredLogsSnapshotRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.StructuredLogsSnapshotResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.StructuredLogsSnapshotResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.StructuredLogsSnapshotResponse.html
+  name: Task<StructuredLogsSnapshotResponse>
+  nameWithType: Task<StructuredLogsSnapshotResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.StructuredLogsSnapshotResponse>
+  nameWithType.vb: Task(Of StructuredLogsSnapshotResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.StructuredLogsSnapshotResponse)
+  name.vb: Task(Of StructuredLogsSnapshotResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotResponse
+    name: StructuredLogsSnapshotResponse
+    href: RemoteAgent.Proto.StructuredLogsSnapshotResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogsSnapshotResponse
+    name: StructuredLogsSnapshotResponse
+    href: RemoteAgent.Proto.StructuredLogsSnapshotResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_StreamStructuredLogs_RemoteAgent_Proto_StructuredLogsStreamRequest_Grpc_Core_IServerStreamWriter_RemoteAgent_Proto_StructuredLogEntry__Grpc_Core_ServerCallContext_
+  name: StreamStructuredLogs
+  nameWithType: AgentGateway.AgentGatewayBase.StreamStructuredLogs
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.StreamStructuredLogs
+- uid: RemoteAgent.Proto.StructuredLogsStreamRequest
+  commentId: T:RemoteAgent.Proto.StructuredLogsStreamRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.StructuredLogsStreamRequest.html
+  name: StructuredLogsStreamRequest
+  nameWithType: StructuredLogsStreamRequest
+  fullName: RemoteAgent.Proto.StructuredLogsStreamRequest
+- uid: Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry}
+  commentId: T:Grpc.Core.IServerStreamWriter{RemoteAgent.Proto.StructuredLogEntry}
+  parent: Grpc.Core
+  definition: Grpc.Core.IServerStreamWriter`1
+  href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<StructuredLogEntry>
+  nameWithType: IServerStreamWriter<StructuredLogEntry>
+  fullName: Grpc.Core.IServerStreamWriter<RemoteAgent.Proto.StructuredLogEntry>
+  nameWithType.vb: IServerStreamWriter(Of StructuredLogEntry)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of RemoteAgent.Proto.StructuredLogEntry)
+  name.vb: IServerStreamWriter(Of StructuredLogEntry)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - uid: RemoteAgent.Proto.StructuredLogEntry
+    name: StructuredLogEntry
+    href: RemoteAgent.Proto.StructuredLogEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc-dotnet/blob/988b41547b5fd3efd2815480d09fe27e6053eb60/src/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.StructuredLogEntry
+    name: StructuredLogEntry
+    href: RemoteAgent.Proto.StructuredLogEntry.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_GetPlugins_RemoteAgent_Proto_GetPluginsRequest_Grpc_Core_ServerCallContext_
+  name: GetPlugins
+  nameWithType: AgentGateway.AgentGatewayBase.GetPlugins
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetPlugins
+- uid: RemoteAgent.Proto.GetPluginsRequest
+  commentId: T:RemoteAgent.Proto.GetPluginsRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetPluginsRequest.html
+  name: GetPluginsRequest
+  nameWithType: GetPluginsRequest
+  fullName: RemoteAgent.Proto.GetPluginsRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.GetPluginsResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.GetPluginsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.GetPluginsResponse.html
+  name: Task<GetPluginsResponse>
+  nameWithType: Task<GetPluginsResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.GetPluginsResponse>
+  nameWithType.vb: Task(Of GetPluginsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.GetPluginsResponse)
+  name.vb: Task(Of GetPluginsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetPluginsResponse
+    name: GetPluginsResponse
+    href: RemoteAgent.Proto.GetPluginsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetPluginsResponse
+    name: GetPluginsResponse
+    href: RemoteAgent.Proto.GetPluginsResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_UpdatePlugins_RemoteAgent_Proto_UpdatePluginsRequest_Grpc_Core_ServerCallContext_
+  name: UpdatePlugins
+  nameWithType: AgentGateway.AgentGatewayBase.UpdatePlugins
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpdatePlugins
+- uid: RemoteAgent.Proto.UpdatePluginsRequest
+  commentId: T:RemoteAgent.Proto.UpdatePluginsRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpdatePluginsRequest.html
+  name: UpdatePluginsRequest
+  nameWithType: UpdatePluginsRequest
+  fullName: RemoteAgent.Proto.UpdatePluginsRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.UpdatePluginsResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.UpdatePluginsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  name: Task<UpdatePluginsResponse>
+  nameWithType: Task<UpdatePluginsResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.UpdatePluginsResponse>
+  nameWithType.vb: Task(Of UpdatePluginsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.UpdatePluginsResponse)
+  name.vb: Task(Of UpdatePluginsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.UpdatePluginsResponse
+    name: UpdatePluginsResponse
+    href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.UpdatePluginsResponse
+    name: UpdatePluginsResponse
+    href: RemoteAgent.Proto.UpdatePluginsResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_SeedSessionContext_RemoteAgent_Proto_SeedSessionContextRequest_Grpc_Core_ServerCallContext_
+  name: SeedSessionContext
+  nameWithType: AgentGateway.AgentGatewayBase.SeedSessionContext
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SeedSessionContext
+- uid: RemoteAgent.Proto.SeedSessionContextRequest
+  commentId: T:RemoteAgent.Proto.SeedSessionContextRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SeedSessionContextRequest.html
+  name: SeedSessionContextRequest
+  nameWithType: SeedSessionContextRequest
+  fullName: RemoteAgent.Proto.SeedSessionContextRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.SeedSessionContextResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.SeedSessionContextResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  name: Task<SeedSessionContextResponse>
+  nameWithType: Task<SeedSessionContextResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.SeedSessionContextResponse>
+  nameWithType.vb: Task(Of SeedSessionContextResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.SeedSessionContextResponse)
+  name.vb: Task(Of SeedSessionContextResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.SeedSessionContextResponse
+    name: SeedSessionContextResponse
+    href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.SeedSessionContextResponse
+    name: SeedSessionContextResponse
+    href: RemoteAgent.Proto.SeedSessionContextResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_GetSessionSeedContext_RemoteAgent_Proto_GetSessionSeedContextRequest_Grpc_Core_ServerCallContext_
+  name: GetSessionSeedContext
+  nameWithType: AgentGateway.AgentGatewayBase.GetSessionSeedContext
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetSessionSeedContext
+- uid: RemoteAgent.Proto.GetSessionSeedContextRequest
+  commentId: T:RemoteAgent.Proto.GetSessionSeedContextRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetSessionSeedContextRequest.html
+  name: GetSessionSeedContextRequest
+  nameWithType: GetSessionSeedContextRequest
+  fullName: RemoteAgent.Proto.GetSessionSeedContextRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.GetSessionSeedContextResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.GetSessionSeedContextResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.GetSessionSeedContextResponse.html
+  name: Task<GetSessionSeedContextResponse>
+  nameWithType: Task<GetSessionSeedContextResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.GetSessionSeedContextResponse>
+  nameWithType.vb: Task(Of GetSessionSeedContextResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.GetSessionSeedContextResponse)
+  name.vb: Task(Of GetSessionSeedContextResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetSessionSeedContextResponse
+    name: GetSessionSeedContextResponse
+    href: RemoteAgent.Proto.GetSessionSeedContextResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetSessionSeedContextResponse
+    name: GetSessionSeedContextResponse
+    href: RemoteAgent.Proto.GetSessionSeedContextResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_ClearSessionSeedContext_RemoteAgent_Proto_ClearSessionSeedContextRequest_Grpc_Core_ServerCallContext_
+  name: ClearSessionSeedContext
+  nameWithType: AgentGateway.AgentGatewayBase.ClearSessionSeedContext
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ClearSessionSeedContext
+- uid: RemoteAgent.Proto.ClearSessionSeedContextRequest
+  commentId: T:RemoteAgent.Proto.ClearSessionSeedContextRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClearSessionSeedContextRequest.html
+  name: ClearSessionSeedContextRequest
+  nameWithType: ClearSessionSeedContextRequest
+  fullName: RemoteAgent.Proto.ClearSessionSeedContextRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ClearSessionSeedContextResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ClearSessionSeedContextResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ClearSessionSeedContextResponse.html
+  name: Task<ClearSessionSeedContextResponse>
+  nameWithType: Task<ClearSessionSeedContextResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ClearSessionSeedContextResponse>
+  nameWithType.vb: Task(Of ClearSessionSeedContextResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ClearSessionSeedContextResponse)
+  name.vb: Task(Of ClearSessionSeedContextResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ClearSessionSeedContextResponse
+    name: ClearSessionSeedContextResponse
+    href: RemoteAgent.Proto.ClearSessionSeedContextResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClearSessionSeedContextResponse
+    name: ClearSessionSeedContextResponse
+    href: RemoteAgent.Proto.ClearSessionSeedContextResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_ListMcpServers_RemoteAgent_Proto_ListMcpServersRequest_Grpc_Core_ServerCallContext_
+  name: ListMcpServers
+  nameWithType: AgentGateway.AgentGatewayBase.ListMcpServers
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListMcpServers
+- uid: RemoteAgent.Proto.ListMcpServersRequest
+  commentId: T:RemoteAgent.Proto.ListMcpServersRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ListMcpServersRequest.html
+  name: ListMcpServersRequest
+  nameWithType: ListMcpServersRequest
+  fullName: RemoteAgent.Proto.ListMcpServersRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ListMcpServersResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ListMcpServersResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ListMcpServersResponse.html
+  name: Task<ListMcpServersResponse>
+  nameWithType: Task<ListMcpServersResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ListMcpServersResponse>
+  nameWithType.vb: Task(Of ListMcpServersResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ListMcpServersResponse)
+  name.vb: Task(Of ListMcpServersResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ListMcpServersResponse
+    name: ListMcpServersResponse
+    href: RemoteAgent.Proto.ListMcpServersResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ListMcpServersResponse
+    name: ListMcpServersResponse
+    href: RemoteAgent.Proto.ListMcpServersResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_UpsertMcpServer_RemoteAgent_Proto_UpsertMcpServerRequest_Grpc_Core_ServerCallContext_
+  name: UpsertMcpServer
+  nameWithType: AgentGateway.AgentGatewayBase.UpsertMcpServer
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertMcpServer
+- uid: RemoteAgent.Proto.UpsertMcpServerRequest
+  commentId: T:RemoteAgent.Proto.UpsertMcpServerRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpsertMcpServerRequest.html
+  name: UpsertMcpServerRequest
+  nameWithType: UpsertMcpServerRequest
+  fullName: RemoteAgent.Proto.UpsertMcpServerRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertMcpServerResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertMcpServerResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  name: Task<UpsertMcpServerResponse>
+  nameWithType: Task<UpsertMcpServerResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.UpsertMcpServerResponse>
+  nameWithType.vb: Task(Of UpsertMcpServerResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.UpsertMcpServerResponse)
+  name.vb: Task(Of UpsertMcpServerResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.UpsertMcpServerResponse
+    name: UpsertMcpServerResponse
+    href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.UpsertMcpServerResponse
+    name: UpsertMcpServerResponse
+    href: RemoteAgent.Proto.UpsertMcpServerResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_DeleteMcpServer_RemoteAgent_Proto_DeleteMcpServerRequest_Grpc_Core_ServerCallContext_
+  name: DeleteMcpServer
+  nameWithType: AgentGateway.AgentGatewayBase.DeleteMcpServer
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeleteMcpServer
+- uid: RemoteAgent.Proto.DeleteMcpServerRequest
+  commentId: T:RemoteAgent.Proto.DeleteMcpServerRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeleteMcpServerRequest.html
+  name: DeleteMcpServerRequest
+  nameWithType: DeleteMcpServerRequest
+  fullName: RemoteAgent.Proto.DeleteMcpServerRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.DeleteMcpServerResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.DeleteMcpServerResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  name: Task<DeleteMcpServerResponse>
+  nameWithType: Task<DeleteMcpServerResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.DeleteMcpServerResponse>
+  nameWithType.vb: Task(Of DeleteMcpServerResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.DeleteMcpServerResponse)
+  name.vb: Task(Of DeleteMcpServerResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeleteMcpServerResponse
+    name: DeleteMcpServerResponse
+    href: RemoteAgent.Proto.DeleteMcpServerResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_SetAgentMcpServers_RemoteAgent_Proto_SetAgentMcpServersRequest_Grpc_Core_ServerCallContext_
+  name: SetAgentMcpServers
+  nameWithType: AgentGateway.AgentGatewayBase.SetAgentMcpServers
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.SetAgentMcpServers
+- uid: RemoteAgent.Proto.SetAgentMcpServersRequest
+  commentId: T:RemoteAgent.Proto.SetAgentMcpServersRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SetAgentMcpServersRequest.html
+  name: SetAgentMcpServersRequest
+  nameWithType: SetAgentMcpServersRequest
+  fullName: RemoteAgent.Proto.SetAgentMcpServersRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.SetAgentMcpServersResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.SetAgentMcpServersResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  name: Task<SetAgentMcpServersResponse>
+  nameWithType: Task<SetAgentMcpServersResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.SetAgentMcpServersResponse>
+  nameWithType.vb: Task(Of SetAgentMcpServersResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.SetAgentMcpServersResponse)
+  name.vb: Task(Of SetAgentMcpServersResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.SetAgentMcpServersResponse
+    name: SetAgentMcpServersResponse
+    href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.SetAgentMcpServersResponse
+    name: SetAgentMcpServersResponse
+    href: RemoteAgent.Proto.SetAgentMcpServersResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_GetAgentMcpServers_RemoteAgent_Proto_GetAgentMcpServersRequest_Grpc_Core_ServerCallContext_
+  name: GetAgentMcpServers
+  nameWithType: AgentGateway.AgentGatewayBase.GetAgentMcpServers
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.GetAgentMcpServers
+- uid: RemoteAgent.Proto.GetAgentMcpServersRequest
+  commentId: T:RemoteAgent.Proto.GetAgentMcpServersRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.GetAgentMcpServersRequest.html
+  name: GetAgentMcpServersRequest
+  nameWithType: GetAgentMcpServersRequest
+  fullName: RemoteAgent.Proto.GetAgentMcpServersRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.GetAgentMcpServersResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.GetAgentMcpServersResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  name: Task<GetAgentMcpServersResponse>
+  nameWithType: Task<GetAgentMcpServersResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.GetAgentMcpServersResponse>
+  nameWithType.vb: Task(Of GetAgentMcpServersResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.GetAgentMcpServersResponse)
+  name.vb: Task(Of GetAgentMcpServersResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.GetAgentMcpServersResponse
+    name: GetAgentMcpServersResponse
+    href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.GetAgentMcpServersResponse
+    name: GetAgentMcpServersResponse
+    href: RemoteAgent.Proto.GetAgentMcpServersResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_ListPromptTemplates_RemoteAgent_Proto_ListPromptTemplatesRequest_Grpc_Core_ServerCallContext_
+  name: ListPromptTemplates
+  nameWithType: AgentGateway.AgentGatewayBase.ListPromptTemplates
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.ListPromptTemplates
+- uid: RemoteAgent.Proto.ListPromptTemplatesRequest
+  commentId: T:RemoteAgent.Proto.ListPromptTemplatesRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ListPromptTemplatesRequest.html
+  name: ListPromptTemplatesRequest
+  nameWithType: ListPromptTemplatesRequest
+  fullName: RemoteAgent.Proto.ListPromptTemplatesRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.ListPromptTemplatesResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.ListPromptTemplatesResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  name: Task<ListPromptTemplatesResponse>
+  nameWithType: Task<ListPromptTemplatesResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.ListPromptTemplatesResponse>
+  nameWithType.vb: Task(Of ListPromptTemplatesResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.ListPromptTemplatesResponse)
+  name.vb: Task(Of ListPromptTemplatesResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ListPromptTemplatesResponse
+    name: ListPromptTemplatesResponse
+    href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ListPromptTemplatesResponse
+    name: ListPromptTemplatesResponse
+    href: RemoteAgent.Proto.ListPromptTemplatesResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_UpsertPromptTemplate_RemoteAgent_Proto_UpsertPromptTemplateRequest_Grpc_Core_ServerCallContext_
+  name: UpsertPromptTemplate
+  nameWithType: AgentGateway.AgentGatewayBase.UpsertPromptTemplate
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.UpsertPromptTemplate
+- uid: RemoteAgent.Proto.UpsertPromptTemplateRequest
+  commentId: T:RemoteAgent.Proto.UpsertPromptTemplateRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.UpsertPromptTemplateRequest.html
+  name: UpsertPromptTemplateRequest
+  nameWithType: UpsertPromptTemplateRequest
+  fullName: RemoteAgent.Proto.UpsertPromptTemplateRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertPromptTemplateResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.UpsertPromptTemplateResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  name: Task<UpsertPromptTemplateResponse>
+  nameWithType: Task<UpsertPromptTemplateResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.UpsertPromptTemplateResponse>
+  nameWithType.vb: Task(Of UpsertPromptTemplateResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.UpsertPromptTemplateResponse)
+  name.vb: Task(Of UpsertPromptTemplateResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.UpsertPromptTemplateResponse
+    name: UpsertPromptTemplateResponse
+    href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.UpsertPromptTemplateResponse
+    name: UpsertPromptTemplateResponse
+    href: RemoteAgent.Proto.UpsertPromptTemplateResponse.html
+  - name: )
+- uid: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate*
+  commentId: Overload:RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate
+  href: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.html#RemoteAgent_Proto_AgentGateway_AgentGatewayBase_DeletePromptTemplate_RemoteAgent_Proto_DeletePromptTemplateRequest_Grpc_Core_ServerCallContext_
+  name: DeletePromptTemplate
+  nameWithType: AgentGateway.AgentGatewayBase.DeletePromptTemplate
+  fullName: RemoteAgent.Proto.AgentGateway.AgentGatewayBase.DeletePromptTemplate
+- uid: RemoteAgent.Proto.DeletePromptTemplateRequest
+  commentId: T:RemoteAgent.Proto.DeletePromptTemplateRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.DeletePromptTemplateRequest.html
+  name: DeletePromptTemplateRequest
+  nameWithType: DeletePromptTemplateRequest
+  fullName: RemoteAgent.Proto.DeletePromptTemplateRequest
+- uid: System.Threading.Tasks.Task{RemoteAgent.Proto.DeletePromptTemplateResponse}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.Proto.DeletePromptTemplateResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  name: Task<DeletePromptTemplateResponse>
+  nameWithType: Task<DeletePromptTemplateResponse>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.Proto.DeletePromptTemplateResponse>
+  nameWithType.vb: Task(Of DeletePromptTemplateResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.Proto.DeletePromptTemplateResponse)
+  name.vb: Task(Of DeletePromptTemplateResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.DeletePromptTemplateResponse
+    name: DeletePromptTemplateResponse
+    href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.DeletePromptTemplateResponse
+    name: DeletePromptTemplateResponse
+    href: RemoteAgent.Proto.DeletePromptTemplateResponse.html
+  - name: )

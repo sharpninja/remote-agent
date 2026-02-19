@@ -42,6 +42,13 @@ public class AgentOptions
     /// <summary>Allows unauthenticated remote (non-loopback) access when no <see cref="ApiKey"/> is configured. Disabled by default; enable only for development/trusted networks.</summary>
     public bool AllowUnauthenticatedRemote { get; set; } = false;
 
+    /// <summary>
+    /// Users permitted to authenticate at <c>GET /pair</c> to retrieve the server API key as a QR code.
+    /// Each user has a username and a SHA-256 hex digest of their password.
+    /// Compute the hash with: <c>echo -n "password" | sha256sum</c>
+    /// </summary>
+    public List<PairingUser> PairingUsers { get; set; } = [];
+
     /// <summary>Enables per-peer connection protection (rate limiting + DoS safeguards).</summary>
     public bool EnableConnectionProtection { get; set; } = true;
 

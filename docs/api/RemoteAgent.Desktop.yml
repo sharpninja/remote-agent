@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop
+  commentId: N:RemoteAgent.Desktop
+  id: RemoteAgent.Desktop
+  children:
+  - RemoteAgent.Desktop.App
+  langs:
+  - csharp
+  - vb
+  name: RemoteAgent.Desktop
+  nameWithType: RemoteAgent.Desktop
+  fullName: RemoteAgent.Desktop
+  type: Namespace
+  assemblies:
+  - RemoteAgent.Desktop
+references:
+- uid: RemoteAgent.Desktop.App
+  commentId: T:RemoteAgent.Desktop.App
+  href: RemoteAgent.Desktop.App.html
+  name: App
+  nameWithType: App
+  fullName: RemoteAgent.Desktop.App

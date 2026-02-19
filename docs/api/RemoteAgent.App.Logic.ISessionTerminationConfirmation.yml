@@ -1,0 +1,209 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  commentId: T:RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  id: ISessionTerminationConfirmation
+  parent: RemoteAgent.App.Logic
+  children:
+  - RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ISessionTerminationConfirmation
+  nameWithType: ISessionTerminationConfirmation
+  fullName: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  type: Interface
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ISessionTerminationConfirmation
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 31
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: public interface ISessionTerminationConfirmation
+    content.vb: Public Interface ISessionTerminationConfirmation
+- uid: RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync(System.String)
+  commentId: M:RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync(System.String)
+  id: ConfirmAsync(System.String)
+  parent: RemoteAgent.App.Logic.ISessionTerminationConfirmation
+  langs:
+  - csharp
+  - vb
+  name: ConfirmAsync(string)
+  nameWithType: ISessionTerminationConfirmation.ConfirmAsync(string)
+  fullName: RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConfirmAsync
+    path: ../src/RemoteAgent.App.Logic/PlatformAbstractions.cs
+    startLine: 33
+  assemblies:
+  - RemoteAgent.App.Logic
+  namespace: RemoteAgent.App.Logic
+  syntax:
+    content: Task<bool> ConfirmAsync(string sessionLabel)
+    parameters:
+    - id: sessionLabel
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Function ConfirmAsync(sessionLabel As String) As Task(Of Boolean)
+  overload: RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync*
+  nameWithType.vb: ISessionTerminationConfirmation.ConfirmAsync(String)
+  fullName.vb: RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync(String)
+  name.vb: ConfirmAsync(String)
+references:
+- uid: RemoteAgent.App.Logic
+  commentId: N:RemoteAgent.App.Logic
+  href: RemoteAgent.html
+  name: RemoteAgent.App.Logic
+  nameWithType: RemoteAgent.App.Logic
+  fullName: RemoteAgent.App.Logic
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+    href: RemoteAgent.App.html
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+    href: RemoteAgent.App.Logic.html
+- uid: RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync*
+  commentId: Overload:RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync
+  href: RemoteAgent.App.Logic.ISessionTerminationConfirmation.html#RemoteAgent_App_Logic_ISessionTerminationConfirmation_ConfirmAsync_System_String_
+  name: ConfirmAsync
+  nameWithType: ISessionTerminationConfirmation.ConfirmAsync
+  fullName: RemoteAgent.App.Logic.ISessionTerminationConfirmation.ConfirmAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

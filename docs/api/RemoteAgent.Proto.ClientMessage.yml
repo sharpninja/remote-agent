@@ -1,0 +1,1948 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Proto.ClientMessage
+  commentId: T:RemoteAgent.Proto.ClientMessage
+  id: ClientMessage
+  parent: RemoteAgent.Proto
+  children:
+  - RemoteAgent.Proto.ClientMessage.#ctor
+  - RemoteAgent.Proto.ClientMessage.#ctor(RemoteAgent.Proto.ClientMessage)
+  - RemoteAgent.Proto.ClientMessage.CalculateSize
+  - RemoteAgent.Proto.ClientMessage.ClearPayload
+  - RemoteAgent.Proto.ClientMessage.ClearText
+  - RemoteAgent.Proto.ClientMessage.Clone
+  - RemoteAgent.Proto.ClientMessage.Control
+  - RemoteAgent.Proto.ClientMessage.ControlFieldNumber
+  - RemoteAgent.Proto.ClientMessage.CorrelationId
+  - RemoteAgent.Proto.ClientMessage.CorrelationIdFieldNumber
+  - RemoteAgent.Proto.ClientMessage.Descriptor
+  - RemoteAgent.Proto.ClientMessage.Equals(RemoteAgent.Proto.ClientMessage)
+  - RemoteAgent.Proto.ClientMessage.Equals(System.Object)
+  - RemoteAgent.Proto.ClientMessage.GetHashCode
+  - RemoteAgent.Proto.ClientMessage.HasText
+  - RemoteAgent.Proto.ClientMessage.MediaUpload
+  - RemoteAgent.Proto.ClientMessage.MediaUploadFieldNumber
+  - RemoteAgent.Proto.ClientMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - RemoteAgent.Proto.ClientMessage.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  - RemoteAgent.Proto.ClientMessage.Parser
+  - RemoteAgent.Proto.ClientMessage.PayloadCase
+  - RemoteAgent.Proto.ClientMessage.RequestContext
+  - RemoteAgent.Proto.ClientMessage.RequestContextFieldNumber
+  - RemoteAgent.Proto.ClientMessage.ScriptRequest
+  - RemoteAgent.Proto.ClientMessage.ScriptRequestFieldNumber
+  - RemoteAgent.Proto.ClientMessage.Text
+  - RemoteAgent.Proto.ClientMessage.TextFieldNumber
+  - RemoteAgent.Proto.ClientMessage.ToString
+  - RemoteAgent.Proto.ClientMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: ClientMessage
+  nameWithType: ClientMessage
+  fullName: RemoteAgent.Proto.ClientMessage
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClientMessage
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 711
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: 'ClientMessage: payload sent from the app to the service.'
+  example: []
+  syntax:
+    content: 'public sealed class ClientMessage : IMessage<ClientMessage>, IEquatable<ClientMessage>, IDeepCloneable<ClientMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class ClientMessage Implements IMessage(Of ClientMessage), IEquatable(Of ClientMessage), IDeepCloneable(Of ClientMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}
+  - System.IEquatable{RemoteAgent.Proto.ClientMessage}
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RemoteAgent.Proto.ClientMessage.Parser
+  commentId: P:RemoteAgent.Proto.ClientMessage.Parser
+  id: Parser
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: ClientMessage.Parser
+  fullName: RemoteAgent.Proto.ClientMessage.Parser
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Parser
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 719
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageParser<ClientMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{RemoteAgent.Proto.ClientMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of ClientMessage)
+  overload: RemoteAgent.Proto.ClientMessage.Parser*
+- uid: RemoteAgent.Proto.ClientMessage.Descriptor
+  commentId: P:RemoteAgent.Proto.ClientMessage.Descriptor
+  id: Descriptor
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: ClientMessage.Descriptor
+  fullName: RemoteAgent.Proto.ClientMessage.Descriptor
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Descriptor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 723
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: RemoteAgent.Proto.ClientMessage.Descriptor*
+- uid: RemoteAgent.Proto.ClientMessage.#ctor
+  commentId: M:RemoteAgent.Proto.ClientMessage.#ctor
+  id: '#ctor'
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ClientMessage()
+  nameWithType: ClientMessage.ClientMessage()
+  fullName: RemoteAgent.Proto.ClientMessage.ClientMessage()
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 735
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public ClientMessage()
+    content.vb: Public Sub New()
+  overload: RemoteAgent.Proto.ClientMessage.#ctor*
+  nameWithType.vb: ClientMessage.New()
+  fullName.vb: RemoteAgent.Proto.ClientMessage.New()
+  name.vb: New()
+- uid: RemoteAgent.Proto.ClientMessage.#ctor(RemoteAgent.Proto.ClientMessage)
+  commentId: M:RemoteAgent.Proto.ClientMessage.#ctor(RemoteAgent.Proto.ClientMessage)
+  id: '#ctor(RemoteAgent.Proto.ClientMessage)'
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ClientMessage(ClientMessage)
+  nameWithType: ClientMessage.ClientMessage(ClientMessage)
+  fullName: RemoteAgent.Proto.ClientMessage.ClientMessage(RemoteAgent.Proto.ClientMessage)
+  type: Constructor
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 743
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public ClientMessage(ClientMessage other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.ClientMessage
+    content.vb: Public Sub New(other As ClientMessage)
+  overload: RemoteAgent.Proto.ClientMessage.#ctor*
+  nameWithType.vb: ClientMessage.New(ClientMessage)
+  fullName.vb: RemoteAgent.Proto.ClientMessage.New(RemoteAgent.Proto.ClientMessage)
+  name.vb: New(ClientMessage)
+- uid: RemoteAgent.Proto.ClientMessage.Clone
+  commentId: M:RemoteAgent.Proto.ClientMessage.Clone
+  id: Clone
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ClientMessage.Clone()
+  fullName: RemoteAgent.Proto.ClientMessage.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Clone
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 766
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public ClientMessage Clone()
+    return:
+      type: RemoteAgent.Proto.ClientMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As ClientMessage
+  overload: RemoteAgent.Proto.ClientMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}.Clone
+- uid: RemoteAgent.Proto.ClientMessage.TextFieldNumber
+  commentId: F:RemoteAgent.Proto.ClientMessage.TextFieldNumber
+  id: TextFieldNumber
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: TextFieldNumber
+  nameWithType: ClientMessage.TextFieldNumber
+  fullName: RemoteAgent.Proto.ClientMessage.TextFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: TextFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 773
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "text" field.
+  example: []
+  syntax:
+    content: public const int TextFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const TextFieldNumber As Integer = 1
+- uid: RemoteAgent.Proto.ClientMessage.Text
+  commentId: P:RemoteAgent.Proto.ClientMessage.Text
+  id: Text
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: ClientMessage.Text
+  fullName: RemoteAgent.Proto.ClientMessage.Text
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Text
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 777
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: user message to forward to the agent
+  example: []
+  syntax:
+    content: public string Text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Text As String
+  overload: RemoteAgent.Proto.ClientMessage.Text*
+- uid: RemoteAgent.Proto.ClientMessage.HasText
+  commentId: P:RemoteAgent.Proto.ClientMessage.HasText
+  id: HasText
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: HasText
+  nameWithType: ClientMessage.HasText
+  fullName: RemoteAgent.Proto.ClientMessage.HasText
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HasText
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 787
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Gets whether the "text" field is set
+  example: []
+  syntax:
+    content: public bool HasText { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasText As Boolean
+  overload: RemoteAgent.Proto.ClientMessage.HasText*
+- uid: RemoteAgent.Proto.ClientMessage.ClearText
+  commentId: M:RemoteAgent.Proto.ClientMessage.ClearText
+  id: ClearText
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearText()
+  nameWithType: ClientMessage.ClearText()
+  fullName: RemoteAgent.Proto.ClientMessage.ClearText()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearText
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 793
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Clears the value of the oneof if it's currently set to "text"
+  example: []
+  syntax:
+    content: public void ClearText()
+    content.vb: Public Sub ClearText()
+  overload: RemoteAgent.Proto.ClientMessage.ClearText*
+- uid: RemoteAgent.Proto.ClientMessage.ControlFieldNumber
+  commentId: F:RemoteAgent.Proto.ClientMessage.ControlFieldNumber
+  id: ControlFieldNumber
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ControlFieldNumber
+  nameWithType: ClientMessage.ControlFieldNumber
+  fullName: RemoteAgent.Proto.ClientMessage.ControlFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ControlFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 802
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "control" field.
+  example: []
+  syntax:
+    content: public const int ControlFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const ControlFieldNumber As Integer = 2
+- uid: RemoteAgent.Proto.ClientMessage.Control
+  commentId: P:RemoteAgent.Proto.ClientMessage.Control
+  id: Control
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Control
+  nameWithType: ClientMessage.Control
+  fullName: RemoteAgent.Proto.ClientMessage.Control
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Control
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 806
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: start/stop session
+  example: []
+  syntax:
+    content: public SessionControl Control { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Proto.SessionControl
+    content.vb: Public Property Control As SessionControl
+  overload: RemoteAgent.Proto.ClientMessage.Control*
+- uid: RemoteAgent.Proto.ClientMessage.ScriptRequestFieldNumber
+  commentId: F:RemoteAgent.Proto.ClientMessage.ScriptRequestFieldNumber
+  id: ScriptRequestFieldNumber
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ScriptRequestFieldNumber
+  nameWithType: ClientMessage.ScriptRequestFieldNumber
+  fullName: RemoteAgent.Proto.ClientMessage.ScriptRequestFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ScriptRequestFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 817
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "script_request" field.
+  example: []
+  syntax:
+    content: public const int ScriptRequestFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const ScriptRequestFieldNumber As Integer = 3
+- uid: RemoteAgent.Proto.ClientMessage.ScriptRequest
+  commentId: P:RemoteAgent.Proto.ClientMessage.ScriptRequest
+  id: ScriptRequest
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ScriptRequest
+  nameWithType: ClientMessage.ScriptRequest
+  fullName: RemoteAgent.Proto.ClientMessage.ScriptRequest
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ScriptRequest
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 821
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: run a script (bash/pwsh), get stdout/stderr on completion (FR-9.1)
+  example: []
+  syntax:
+    content: public ScriptRequest ScriptRequest { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Proto.ScriptRequest
+    content.vb: Public Property ScriptRequest As ScriptRequest
+  overload: RemoteAgent.Proto.ClientMessage.ScriptRequest*
+- uid: RemoteAgent.Proto.ClientMessage.MediaUploadFieldNumber
+  commentId: F:RemoteAgent.Proto.ClientMessage.MediaUploadFieldNumber
+  id: MediaUploadFieldNumber
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: MediaUploadFieldNumber
+  nameWithType: ClientMessage.MediaUploadFieldNumber
+  fullName: RemoteAgent.Proto.ClientMessage.MediaUploadFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MediaUploadFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 832
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "media_upload" field.
+  example: []
+  syntax:
+    content: public const int MediaUploadFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const MediaUploadFieldNumber As Integer = 4
+- uid: RemoteAgent.Proto.ClientMessage.MediaUpload
+  commentId: P:RemoteAgent.Proto.ClientMessage.MediaUpload
+  id: MediaUpload
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: MediaUpload
+  nameWithType: ClientMessage.MediaUpload
+  fullName: RemoteAgent.Proto.ClientMessage.MediaUpload
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MediaUpload
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 836
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: image or video as context for the agent (FR-10.1)
+  example: []
+  syntax:
+    content: public MediaUpload MediaUpload { get; set; }
+    parameters: []
+    return:
+      type: RemoteAgent.Proto.MediaUpload
+    content.vb: Public Property MediaUpload As MediaUpload
+  overload: RemoteAgent.Proto.ClientMessage.MediaUpload*
+- uid: RemoteAgent.Proto.ClientMessage.CorrelationIdFieldNumber
+  commentId: F:RemoteAgent.Proto.ClientMessage.CorrelationIdFieldNumber
+  id: CorrelationIdFieldNumber
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: CorrelationIdFieldNumber
+  nameWithType: ClientMessage.CorrelationIdFieldNumber
+  fullName: RemoteAgent.Proto.ClientMessage.CorrelationIdFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationIdFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 847
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "correlation_id" field.
+  example: []
+  syntax:
+    content: public const int CorrelationIdFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const CorrelationIdFieldNumber As Integer = 5
+- uid: RemoteAgent.Proto.ClientMessage.CorrelationId
+  commentId: P:RemoteAgent.Proto.ClientMessage.CorrelationId
+  id: CorrelationId
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: CorrelationId
+  nameWithType: ClientMessage.CorrelationId
+  fullName: RemoteAgent.Proto.ClientMessage.CorrelationId
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CorrelationId
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 852
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: client-provided id; server echoes on response(s) (TR-4.5)
+  example: []
+  syntax:
+    content: public string CorrelationId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CorrelationId As String
+  overload: RemoteAgent.Proto.ClientMessage.CorrelationId*
+- uid: RemoteAgent.Proto.ClientMessage.RequestContextFieldNumber
+  commentId: F:RemoteAgent.Proto.ClientMessage.RequestContextFieldNumber
+  id: RequestContextFieldNumber
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: RequestContextFieldNumber
+  nameWithType: ClientMessage.RequestContextFieldNumber
+  fullName: RemoteAgent.Proto.ClientMessage.RequestContextFieldNumber
+  type: Field
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RequestContextFieldNumber
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 862
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Field number for the "request_context" field.
+  example: []
+  syntax:
+    content: public const int RequestContextFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const RequestContextFieldNumber As Integer = 6
+- uid: RemoteAgent.Proto.ClientMessage.RequestContext
+  commentId: P:RemoteAgent.Proto.ClientMessage.RequestContext
+  id: RequestContext
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: RequestContext
+  nameWithType: ClientMessage.RequestContext
+  fullName: RemoteAgent.Proto.ClientMessage.RequestContext
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RequestContext
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 867
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: optional per-request context injected before handling payload
+  example: []
+  syntax:
+    content: public string RequestContext { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequestContext As String
+  overload: RemoteAgent.Proto.ClientMessage.RequestContext*
+- uid: RemoteAgent.Proto.ClientMessage.PayloadCase
+  commentId: P:RemoteAgent.Proto.ClientMessage.PayloadCase
+  id: PayloadCase
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: PayloadCase
+  nameWithType: ClientMessage.PayloadCase
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadCase
+  type: Property
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PayloadCase
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 886
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public ClientMessage.PayloadOneofCase PayloadCase { get; }
+    parameters: []
+    return:
+      type: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    content.vb: Public ReadOnly Property PayloadCase As ClientMessage.PayloadOneofCase
+  overload: RemoteAgent.Proto.ClientMessage.PayloadCase*
+- uid: RemoteAgent.Proto.ClientMessage.ClearPayload
+  commentId: M:RemoteAgent.Proto.ClientMessage.ClearPayload
+  id: ClearPayload
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearPayload()
+  nameWithType: ClientMessage.ClearPayload()
+  fullName: RemoteAgent.Proto.ClientMessage.ClearPayload()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ClearPayload
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 892
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  syntax:
+    content: public void ClearPayload()
+    content.vb: Public Sub ClearPayload()
+  overload: RemoteAgent.Proto.ClientMessage.ClearPayload*
+- uid: RemoteAgent.Proto.ClientMessage.Equals(System.Object)
+  commentId: M:RemoteAgent.Proto.ClientMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ClientMessage.Equals(object)
+  fullName: RemoteAgent.Proto.ClientMessage.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 899
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: RemoteAgent.Proto.ClientMessage.Equals*
+  nameWithType.vb: ClientMessage.Equals(Object)
+  fullName.vb: RemoteAgent.Proto.ClientMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RemoteAgent.Proto.ClientMessage.Equals(RemoteAgent.Proto.ClientMessage)
+  commentId: M:RemoteAgent.Proto.ClientMessage.Equals(RemoteAgent.Proto.ClientMessage)
+  id: Equals(RemoteAgent.Proto.ClientMessage)
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(ClientMessage)
+  nameWithType: ClientMessage.Equals(ClientMessage)
+  fullName: RemoteAgent.Proto.ClientMessage.Equals(RemoteAgent.Proto.ClientMessage)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Equals
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 905
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ClientMessage other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.ClientMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ClientMessage) As Boolean
+  overload: RemoteAgent.Proto.ClientMessage.Equals*
+  implements:
+  - System.IEquatable{RemoteAgent.Proto.ClientMessage}.Equals(RemoteAgent.Proto.ClientMessage)
+- uid: RemoteAgent.Proto.ClientMessage.GetHashCode
+  commentId: M:RemoteAgent.Proto.ClientMessage.GetHashCode
+  id: GetHashCode
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ClientMessage.GetHashCode()
+  fullName: RemoteAgent.Proto.ClientMessage.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetHashCode
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 924
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: RemoteAgent.Proto.ClientMessage.GetHashCode*
+- uid: RemoteAgent.Proto.ClientMessage.ToString
+  commentId: M:RemoteAgent.Proto.ClientMessage.ToString
+  id: ToString
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ClientMessage.ToString()
+  fullName: RemoteAgent.Proto.ClientMessage.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ToString
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 941
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RemoteAgent.Proto.ClientMessage.ToString*
+- uid: RemoteAgent.Proto.ClientMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:RemoteAgent.Proto.ClientMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: ClientMessage.WriteTo(CodedOutputStream)
+  fullName: RemoteAgent.Proto.ClientMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: WriteTo
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 947
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: RemoteAgent.Proto.ClientMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: RemoteAgent.Proto.ClientMessage.CalculateSize
+  commentId: M:RemoteAgent.Proto.ClientMessage.CalculateSize
+  id: CalculateSize
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: ClientMessage.CalculateSize()
+  fullName: RemoteAgent.Proto.ClientMessage.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: CalculateSize
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1017
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: RemoteAgent.Proto.ClientMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: RemoteAgent.Proto.ClientMessage.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  commentId: M:RemoteAgent.Proto.ClientMessage.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  id: MergeFrom(RemoteAgent.Proto.ClientMessage)
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(ClientMessage)
+  nameWithType: ClientMessage.MergeFrom(ClientMessage)
+  fullName: RemoteAgent.Proto.ClientMessage.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1045
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(ClientMessage other)
+    parameters:
+    - id: other
+      type: RemoteAgent.Proto.ClientMessage
+    content.vb: Public Sub MergeFrom(other As ClientMessage)
+  overload: RemoteAgent.Proto.ClientMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}.MergeFrom(RemoteAgent.Proto.ClientMessage)
+- uid: RemoteAgent.Proto.ClientMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:RemoteAgent.Proto.ClientMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: RemoteAgent.Proto.ClientMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: ClientMessage.MergeFrom(CodedInputStream)
+  fullName: RemoteAgent.Proto.ClientMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Proto/Generated/AgentGateway.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: MergeFrom
+    path: ../src/RemoteAgent.Proto/Generated/AgentGateway.cs
+    startLine: 1084
+  assemblies:
+  - RemoteAgent.Proto
+  namespace: RemoteAgent.Proto
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: RemoteAgent.Proto.ClientMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: RemoteAgent.Proto
+  commentId: N:RemoteAgent.Proto
+  href: RemoteAgent.html
+  name: RemoteAgent.Proto
+  nameWithType: RemoteAgent.Proto
+  fullName: RemoteAgent.Proto
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Proto
+    name: Proto
+    href: RemoteAgent.Proto.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}
+  commentId: T:Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: IMessage<ClientMessage>
+  nameWithType: IMessage<ClientMessage>
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.ClientMessage>
+  nameWithType.vb: IMessage(Of ClientMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.ClientMessage)
+  name.vb: IMessage(Of ClientMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: System.IEquatable{RemoteAgent.Proto.ClientMessage}
+  commentId: T:System.IEquatable{RemoteAgent.Proto.ClientMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ClientMessage>
+  nameWithType: IEquatable<ClientMessage>
+  fullName: System.IEquatable<RemoteAgent.Proto.ClientMessage>
+  nameWithType.vb: IEquatable(Of ClientMessage)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.ClientMessage)
+  name.vb: IEquatable(Of ClientMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: IDeepCloneable<ClientMessage>
+  nameWithType: IDeepCloneable<ClientMessage>
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.ClientMessage>
+  nameWithType.vb: IDeepCloneable(Of ClientMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.ClientMessage)
+  name.vb: IDeepCloneable(Of ClientMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.ClientMessage.Parser*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.Parser
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_Parser
+  name: Parser
+  nameWithType: ClientMessage.Parser
+  fullName: RemoteAgent.Proto.ClientMessage.Parser
+- uid: Google.Protobuf.MessageParser{RemoteAgent.Proto.ClientMessage}
+  commentId: T:Google.Protobuf.MessageParser{RemoteAgent.Proto.ClientMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: MessageParser<ClientMessage>
+  nameWithType: MessageParser<ClientMessage>
+  fullName: Google.Protobuf.MessageParser<RemoteAgent.Proto.ClientMessage>
+  nameWithType.vb: MessageParser(Of ClientMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of RemoteAgent.Proto.ClientMessage)
+  name.vb: MessageParser(Of ClientMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RemoteAgent.Proto.ClientMessage.Descriptor*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.Descriptor
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_Descriptor
+  name: Descriptor
+  nameWithType: ClientMessage.Descriptor
+  fullName: RemoteAgent.Proto.ClientMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: RemoteAgent.Proto.ClientMessage.#ctor*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.#ctor
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage__ctor
+  name: ClientMessage
+  nameWithType: ClientMessage.ClientMessage
+  fullName: RemoteAgent.Proto.ClientMessage.ClientMessage
+  nameWithType.vb: ClientMessage.New
+  fullName.vb: RemoteAgent.Proto.ClientMessage.New
+  name.vb: New
+- uid: RemoteAgent.Proto.ClientMessage
+  commentId: T:RemoteAgent.Proto.ClientMessage
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: ClientMessage
+  nameWithType: ClientMessage
+  fullName: RemoteAgent.Proto.ClientMessage
+- uid: RemoteAgent.Proto.ClientMessage.Clone*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.Clone
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_Clone
+  name: Clone
+  nameWithType: ClientMessage.Clone
+  fullName: RemoteAgent.Proto.ClientMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<ClientMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<RemoteAgent.Proto.ClientMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of ClientMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of RemoteAgent.Proto.ClientMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{RemoteAgent.Proto.ClientMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RemoteAgent.Proto.ClientMessage.Text*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.Text
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_Text
+  name: Text
+  nameWithType: ClientMessage.Text
+  fullName: RemoteAgent.Proto.ClientMessage.Text
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RemoteAgent.Proto.ClientMessage.HasText*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.HasText
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_HasText
+  name: HasText
+  nameWithType: ClientMessage.HasText
+  fullName: RemoteAgent.Proto.ClientMessage.HasText
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RemoteAgent.Proto.ClientMessage.ClearText*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.ClearText
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_ClearText
+  name: ClearText
+  nameWithType: ClientMessage.ClearText
+  fullName: RemoteAgent.Proto.ClientMessage.ClearText
+- uid: RemoteAgent.Proto.ClientMessage.Control*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.Control
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_Control
+  name: Control
+  nameWithType: ClientMessage.Control
+  fullName: RemoteAgent.Proto.ClientMessage.Control
+- uid: RemoteAgent.Proto.SessionControl
+  commentId: T:RemoteAgent.Proto.SessionControl
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.SessionControl.html
+  name: SessionControl
+  nameWithType: SessionControl
+  fullName: RemoteAgent.Proto.SessionControl
+- uid: RemoteAgent.Proto.ClientMessage.ScriptRequest*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.ScriptRequest
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_ScriptRequest
+  name: ScriptRequest
+  nameWithType: ClientMessage.ScriptRequest
+  fullName: RemoteAgent.Proto.ClientMessage.ScriptRequest
+- uid: RemoteAgent.Proto.ScriptRequest
+  commentId: T:RemoteAgent.Proto.ScriptRequest
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ScriptRequest.html
+  name: ScriptRequest
+  nameWithType: ScriptRequest
+  fullName: RemoteAgent.Proto.ScriptRequest
+- uid: RemoteAgent.Proto.ClientMessage.MediaUpload*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.MediaUpload
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_MediaUpload
+  name: MediaUpload
+  nameWithType: ClientMessage.MediaUpload
+  fullName: RemoteAgent.Proto.ClientMessage.MediaUpload
+- uid: RemoteAgent.Proto.MediaUpload
+  commentId: T:RemoteAgent.Proto.MediaUpload
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.MediaUpload.html
+  name: MediaUpload
+  nameWithType: MediaUpload
+  fullName: RemoteAgent.Proto.MediaUpload
+- uid: RemoteAgent.Proto.ClientMessage.CorrelationId*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.CorrelationId
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_CorrelationId
+  name: CorrelationId
+  nameWithType: ClientMessage.CorrelationId
+  fullName: RemoteAgent.Proto.ClientMessage.CorrelationId
+- uid: RemoteAgent.Proto.ClientMessage.RequestContext*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.RequestContext
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_RequestContext
+  name: RequestContext
+  nameWithType: ClientMessage.RequestContext
+  fullName: RemoteAgent.Proto.ClientMessage.RequestContext
+- uid: RemoteAgent.Proto.ClientMessage.PayloadCase*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.PayloadCase
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_PayloadCase
+  name: PayloadCase
+  nameWithType: ClientMessage.PayloadCase
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadCase
+- uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  commentId: T:RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  parent: RemoteAgent.Proto
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: ClientMessage.PayloadOneofCase
+  nameWithType: ClientMessage.PayloadOneofCase
+  fullName: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+  spec.csharp:
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.html
+  spec.vb:
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: .
+  - uid: RemoteAgent.Proto.ClientMessage.PayloadOneofCase
+    name: PayloadOneofCase
+    href: RemoteAgent.Proto.ClientMessage.PayloadOneofCase.html
+- uid: RemoteAgent.Proto.ClientMessage.ClearPayload*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.ClearPayload
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_ClearPayload
+  name: ClearPayload
+  nameWithType: ClientMessage.ClearPayload
+  fullName: RemoteAgent.Proto.ClientMessage.ClearPayload
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RemoteAgent.Proto.ClientMessage.Equals*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.Equals
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: ClientMessage.Equals
+  fullName: RemoteAgent.Proto.ClientMessage.Equals
+- uid: System.IEquatable{RemoteAgent.Proto.ClientMessage}.Equals(RemoteAgent.Proto.ClientMessage)
+  commentId: M:System.IEquatable{RemoteAgent.Proto.ClientMessage}.Equals(RemoteAgent.Proto.ClientMessage)
+  parent: System.IEquatable{RemoteAgent.Proto.ClientMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ClientMessage)
+  nameWithType: IEquatable<ClientMessage>.Equals(ClientMessage)
+  fullName: System.IEquatable<RemoteAgent.Proto.ClientMessage>.Equals(RemoteAgent.Proto.ClientMessage)
+  nameWithType.vb: IEquatable(Of ClientMessage).Equals(ClientMessage)
+  fullName.vb: System.IEquatable(Of RemoteAgent.Proto.ClientMessage).Equals(RemoteAgent.Proto.ClientMessage)
+  spec.csharp:
+  - uid: System.IEquatable{RemoteAgent.Proto.ClientMessage}.Equals(RemoteAgent.Proto.ClientMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RemoteAgent.Proto.ClientMessage}.Equals(RemoteAgent.Proto.ClientMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.ClientMessage.GetHashCode*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.GetHashCode
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: ClientMessage.GetHashCode
+  fullName: RemoteAgent.Proto.ClientMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.ClientMessage.ToString*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.ToString
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_ToString
+  name: ToString
+  nameWithType: ClientMessage.ToString
+  fullName: RemoteAgent.Proto.ClientMessage.ToString
+- uid: RemoteAgent.Proto.ClientMessage.WriteTo*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.WriteTo
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: ClientMessage.WriteTo
+  fullName: RemoteAgent.Proto.ClientMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: RemoteAgent.Proto.ClientMessage.CalculateSize*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.CalculateSize
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: ClientMessage.CalculateSize
+  fullName: RemoteAgent.Proto.ClientMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RemoteAgent.Proto.ClientMessage.MergeFrom*
+  commentId: Overload:RemoteAgent.Proto.ClientMessage.MergeFrom
+  href: RemoteAgent.Proto.ClientMessage.html#RemoteAgent_Proto_ClientMessage_MergeFrom_RemoteAgent_Proto_ClientMessage_
+  name: MergeFrom
+  nameWithType: ClientMessage.MergeFrom
+  fullName: RemoteAgent.Proto.ClientMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  commentId: M:Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  parent: Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: RemoteAgent.Proto.ClientMessage.html
+  name: MergeFrom(ClientMessage)
+  nameWithType: IMessage<ClientMessage>.MergeFrom(ClientMessage)
+  fullName: Google.Protobuf.IMessage<RemoteAgent.Proto.ClientMessage>.MergeFrom(RemoteAgent.Proto.ClientMessage)
+  nameWithType.vb: IMessage(Of ClientMessage).MergeFrom(ClientMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of RemoteAgent.Proto.ClientMessage).MergeFrom(RemoteAgent.Proto.ClientMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}.MergeFrom(RemoteAgent.Proto.ClientMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{RemoteAgent.Proto.ClientMessage}.MergeFrom(RemoteAgent.Proto.ClientMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: RemoteAgent.Proto.ClientMessage
+    name: ClientMessage
+    href: RemoteAgent.Proto.ClientMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

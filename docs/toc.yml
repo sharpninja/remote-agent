@@ -17,5 +17,31 @@
       href: REPOSITORY_RULES.md
     - name: Branch protection
       href: branch-protection.md
+
+- name: Testing
+  href: testing-strategy.md
+  items:
     - name: Testing strategy
       href: testing-strategy.md
+    - name: UI testing
+      href: UI-TESTING.md
+    - name: Requirements test coverage
+      href: requirements-test-coverage.md
+
+- name: API Reference
+  href: api/index.md
+  items:
+    - name: Overview
+      href: api/index.md
+    - name: All namespaces
+      href: api/
+      homepage: api/index.md
+
+- name: Testing API Reference
+  href: api-tests/index.md
+  items:
+    - name: Overview
+      href: api-tests/index.md
+    - name: All namespaces
+      href: api-tests/
+      homepage: api-tests/index.md

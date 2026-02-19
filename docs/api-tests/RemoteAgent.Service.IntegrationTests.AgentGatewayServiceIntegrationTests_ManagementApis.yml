@@ -1,0 +1,1490 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  commentId: T:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  id: AgentGatewayServiceIntegrationTests_ManagementApis
+  parent: RemoteAgent.Service.IntegrationTests
+  children:
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.#ctor(RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows
+  - RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  langs:
+  - csharp
+  - vb
+  name: AgentGatewayServiceIntegrationTests_ManagementApis
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  type: Class
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AgentGatewayServiceIntegrationTests_ManagementApis
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 10
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Collection("ServiceIntegrationSequential")]
+
+      public class AgentGatewayServiceIntegrationTests_ManagementApis : IClassFixture<CatWebApplicationFactory>, IClassFixture<ApiKeyWebApplicationFactory>, IClassFixture<ApiKeyLoopbackAllowedWebApplicationFactory>, IClassFixture<ConnectionRateLimitedWebApplicationFactory>, IClassFixture<SessionLimitedWebApplicationFactory>
+    content.vb: >-
+      <Collection("ServiceIntegrationSequential")>
+
+      Public Class AgentGatewayServiceIntegrationTests_ManagementApis Implements IClassFixture(Of CatWebApplicationFactory), IClassFixture(Of ApiKeyWebApplicationFactory), IClassFixture(Of ApiKeyLoopbackAllowedWebApplicationFactory), IClassFixture(Of ConnectionRateLimitedWebApplicationFactory), IClassFixture(Of SessionLimitedWebApplicationFactory)
+  inheritance:
+  - System.Object
+  implements:
+  - Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory}
+  - Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory}
+  - Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory}
+  - Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory}
+  - Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Xunit.CollectionAttribute
+    ctor: Xunit.CollectionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ServiceIntegrationSequential
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.#ctor(RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.#ctor(RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)
+  id: '#ctor(RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory,RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)'
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: AgentGatewayServiceIntegrationTests_ManagementApis(CatWebApplicationFactory, ApiKeyWebApplicationFactory, ApiKeyLoopbackAllowedWebApplicationFactory, ConnectionRateLimitedWebApplicationFactory, SessionLimitedWebApplicationFactory)
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.AgentGatewayServiceIntegrationTests_ManagementApis(CatWebApplicationFactory, ApiKeyWebApplicationFactory, ApiKeyLoopbackAllowedWebApplicationFactory, ConnectionRateLimitedWebApplicationFactory, SessionLimitedWebApplicationFactory)
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AgentGatewayServiceIntegrationTests_ManagementApis(RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory, RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory, RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory, RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory, RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)
+  type: Constructor
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: .ctor
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 24
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: public AgentGatewayServiceIntegrationTests_ManagementApis(CatWebApplicationFactory catFactory, ApiKeyWebApplicationFactory apiKeyFactory, ApiKeyLoopbackAllowedWebApplicationFactory apiKeyLoopbackAllowedFactory, ConnectionRateLimitedWebApplicationFactory connectionRateLimitedFactory, SessionLimitedWebApplicationFactory sessionLimitedFactory)
+    parameters:
+    - id: catFactory
+      type: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+    - id: apiKeyFactory
+      type: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+    - id: apiKeyLoopbackAllowedFactory
+      type: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+    - id: connectionRateLimitedFactory
+      type: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+    - id: sessionLimitedFactory
+      type: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+    content.vb: Public Sub New(catFactory As CatWebApplicationFactory, apiKeyFactory As ApiKeyWebApplicationFactory, apiKeyLoopbackAllowedFactory As ApiKeyLoopbackAllowedWebApplicationFactory, connectionRateLimitedFactory As ConnectionRateLimitedWebApplicationFactory, sessionLimitedFactory As SessionLimitedWebApplicationFactory)
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.#ctor*
+  nameWithType.vb: AgentGatewayServiceIntegrationTests_ManagementApis.New(CatWebApplicationFactory, ApiKeyWebApplicationFactory, ApiKeyLoopbackAllowedWebApplicationFactory, ConnectionRateLimitedWebApplicationFactory, SessionLimitedWebApplicationFactory)
+  fullName.vb: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.New(RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory, RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory, RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory, RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory, RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)
+  name.vb: New(CatWebApplicationFactory, ApiKeyWebApplicationFactory, ApiKeyLoopbackAllowedWebApplicationFactory, ConnectionRateLimitedWebApplicationFactory, SessionLimitedWebApplicationFactory)
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  id: GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 38
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader
+  id: GetStructuredLogsSnapshot_Works_WithAuthHeader
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: GetStructuredLogsSnapshot_Works_WithAuthHeader()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetStructuredLogsSnapshot_Works_WithAuthHeader
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 48
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task GetStructuredLogsSnapshot_Works_WithAuthHeader()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function GetStructuredLogsSnapshot_Works_WithAuthHeader() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  id: GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 58
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work
+  id: GetPlugins_AndUpdatePlugins_Work
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: GetPlugins_AndUpdatePlugins_Work()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: GetPlugins_AndUpdatePlugins_Work
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 66
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task GetPlugins_AndUpdatePlugins_Work()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function GetPlugins_AndUpdatePlugins_Work() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  id: StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: StructuredLogs_ContainSessionAndCorrelation_WhenAvailable()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 80
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task StructuredLogs_ContainSessionAndCorrelation_WhenAvailable()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function StructuredLogs_ContainSessionAndCorrelation_WhenAvailable() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows
+  id: StreamStructuredLogs_Replays_ThenStreamsNewRows
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: StreamStructuredLogs_Replays_ThenStreamsNewRows()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: StreamStructuredLogs_Replays_ThenStreamsNewRows
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 123
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task StreamStructuredLogs_Replays_ThenStreamsNewRows()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function StreamStructuredLogs_Replays_ThenStreamsNewRows() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work
+  id: McpServerRegistry_Crud_AndAgentMapping_Work
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: McpServerRegistry_Crud_AndAgentMapping_Work()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: McpServerRegistry_Crud_AndAgentMapping_Work
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 153
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task McpServerRegistry_Crud_AndAgentMapping_Work()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function McpServerRegistry_Crud_AndAgentMapping_Work() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests
+  id: RequestContext_IsIssuedToAgent_OnUserRequests
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: RequestContext_IsIssuedToAgent_OnUserRequests()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: RequestContext_IsIssuedToAgent_OnUserRequests
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 193
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task RequestContext_IsIssuedToAgent_OnUserRequests()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function RequestContext_IsIssuedToAgent_OnUserRequests() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession
+  id: SetAgentMcpServers_NotifiesActiveAgentSession
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: SetAgentMcpServers_NotifiesActiveAgentSession()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SetAgentMcpServers_NotifiesActiveAgentSession
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 237
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SetAgentMcpServers_NotifiesActiveAgentSession()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SetAgentMcpServers_NotifiesActiveAgentSession() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work
+  id: PromptTemplates_Crud_AndList_Work
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: PromptTemplates_Crud_AndList_Work()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: PromptTemplates_Crud_AndList_Work
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 300
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task PromptTemplates_Crud_AndList_Work()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function PromptTemplates_Crud_AndList_Work() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  id: Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: Reconnect_WithExistingSessionId_EmitsSessionResumedMessage()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 327
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Reconnect_WithExistingSessionId_EmitsSessionResumedMessage()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Reconnect_WithExistingSessionId_EmitsSessionResumedMessage() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  id: Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 371
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  id: Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 427
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  id: SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 484
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  id: SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 497
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  id: OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: OpenSessionsEndpoint_AndTerminateEndpoint_Work()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: OpenSessionsEndpoint_AndTerminateEndpoint_Work
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 505
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task OpenSessionsEndpoint_AndTerminateEndpoint_Work()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function OpenSessionsEndpoint_AndTerminateEndpoint_Work() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  id: AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 540
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  id: ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 567
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work
+  commentId: M:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work
+  id: AuthUserEndpoints_UpsertListDelete_Work
+  parent: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis
+  langs:
+  - csharp
+  - vb
+  name: AuthUserEndpoints_UpsertListDelete_Work()
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work()
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work()
+  type: Method
+  source:
+    remote:
+      path: tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: AuthUserEndpoints_UpsertListDelete_Work
+    path: ../tests/RemoteAgent.Service.IntegrationTests/AgentGatewayServiceIntegrationTests_ManagementApis.cs
+    startLine: 598
+  assemblies:
+  - RemoteAgent.Service.IntegrationTests
+  namespace: RemoteAgent.Service.IntegrationTests
+  syntax:
+    content: >-
+      [Fact]
+
+      public Task AuthUserEndpoints_UpsertListDelete_Work()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Fact>
+
+      Public Function AuthUserEndpoints_UpsertListDelete_Work() As Task
+  overload: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: RemoteAgent.Service.IntegrationTests
+  commentId: N:RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.html
+  name: RemoteAgent.Service.IntegrationTests
+  nameWithType: RemoteAgent.Service.IntegrationTests
+  fullName: RemoteAgent.Service.IntegrationTests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.IntegrationTests
+    name: IntegrationTests
+    href: RemoteAgent.Service.IntegrationTests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Service
+    name: Service
+    href: RemoteAgent.Service.html
+  - name: .
+  - uid: RemoteAgent.Service.IntegrationTests
+    name: IntegrationTests
+    href: RemoteAgent.Service.IntegrationTests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory}
+  commentId: T:Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory}
+  parent: Xunit
+  definition: Xunit.IClassFixture`1
+  href: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory.html
+  name: IClassFixture<CatWebApplicationFactory>
+  nameWithType: IClassFixture<CatWebApplicationFactory>
+  fullName: Xunit.IClassFixture<RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory>
+  nameWithType.vb: IClassFixture(Of CatWebApplicationFactory)
+  fullName.vb: Xunit.IClassFixture(Of RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory)
+  name.vb: IClassFixture(Of CatWebApplicationFactory)
+  spec.csharp:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+    name: CatWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory.html
+  - name: '>'
+  spec.vb:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+    name: CatWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory.html
+  - name: )
+- uid: Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory}
+  commentId: T:Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory}
+  parent: Xunit
+  definition: Xunit.IClassFixture`1
+  href: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory.html
+  name: IClassFixture<ApiKeyWebApplicationFactory>
+  nameWithType: IClassFixture<ApiKeyWebApplicationFactory>
+  fullName: Xunit.IClassFixture<RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory>
+  nameWithType.vb: IClassFixture(Of ApiKeyWebApplicationFactory)
+  fullName.vb: Xunit.IClassFixture(Of RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory)
+  name.vb: IClassFixture(Of ApiKeyWebApplicationFactory)
+  spec.csharp:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+    name: ApiKeyWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory.html
+  - name: '>'
+  spec.vb:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+    name: ApiKeyWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory.html
+  - name: )
+- uid: Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory}
+  commentId: T:Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory}
+  parent: Xunit
+  definition: Xunit.IClassFixture`1
+  href: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory.html
+  name: IClassFixture<ApiKeyLoopbackAllowedWebApplicationFactory>
+  nameWithType: IClassFixture<ApiKeyLoopbackAllowedWebApplicationFactory>
+  fullName: Xunit.IClassFixture<RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory>
+  nameWithType.vb: IClassFixture(Of ApiKeyLoopbackAllowedWebApplicationFactory)
+  fullName.vb: Xunit.IClassFixture(Of RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory)
+  name.vb: IClassFixture(Of ApiKeyLoopbackAllowedWebApplicationFactory)
+  spec.csharp:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+    name: ApiKeyLoopbackAllowedWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory.html
+  - name: '>'
+  spec.vb:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+    name: ApiKeyLoopbackAllowedWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory.html
+  - name: )
+- uid: Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory}
+  commentId: T:Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory}
+  parent: Xunit
+  definition: Xunit.IClassFixture`1
+  href: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory.html
+  name: IClassFixture<ConnectionRateLimitedWebApplicationFactory>
+  nameWithType: IClassFixture<ConnectionRateLimitedWebApplicationFactory>
+  fullName: Xunit.IClassFixture<RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory>
+  nameWithType.vb: IClassFixture(Of ConnectionRateLimitedWebApplicationFactory)
+  fullName.vb: Xunit.IClassFixture(Of RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory)
+  name.vb: IClassFixture(Of ConnectionRateLimitedWebApplicationFactory)
+  spec.csharp:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+    name: ConnectionRateLimitedWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory.html
+  - name: '>'
+  spec.vb:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+    name: ConnectionRateLimitedWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory.html
+  - name: )
+- uid: Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory}
+  commentId: T:Xunit.IClassFixture{RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory}
+  parent: Xunit
+  definition: Xunit.IClassFixture`1
+  href: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory.html
+  name: IClassFixture<SessionLimitedWebApplicationFactory>
+  nameWithType: IClassFixture<SessionLimitedWebApplicationFactory>
+  fullName: Xunit.IClassFixture<RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory>
+  nameWithType.vb: IClassFixture(Of SessionLimitedWebApplicationFactory)
+  fullName.vb: Xunit.IClassFixture(Of RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory)
+  name.vb: IClassFixture(Of SessionLimitedWebApplicationFactory)
+  spec.csharp:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+    name: SessionLimitedWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory.html
+  - name: '>'
+  spec.vb:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+    name: SessionLimitedWebApplicationFactory
+    href: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Xunit.IClassFixture`1
+  commentId: T:Xunit.IClassFixture`1
+  isExternal: true
+  name: IClassFixture<TFixture>
+  nameWithType: IClassFixture<TFixture>
+  fullName: Xunit.IClassFixture<TFixture>
+  nameWithType.vb: IClassFixture(Of TFixture)
+  fullName.vb: Xunit.IClassFixture(Of TFixture)
+  name.vb: IClassFixture(Of TFixture)
+  spec.csharp:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: <
+  - name: TFixture
+  - name: '>'
+  spec.vb:
+  - uid: Xunit.IClassFixture`1
+    name: IClassFixture
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TFixture
+  - name: )
+- uid: Xunit
+  commentId: N:Xunit
+  isExternal: true
+  name: Xunit
+  nameWithType: Xunit
+  fullName: Xunit
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.#ctor*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.#ctor
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis__ctor_RemoteAgent_Service_IntegrationTests_CatWebApplicationFactory_RemoteAgent_Service_IntegrationTests_ApiKeyWebApplicationFactory_RemoteAgent_Service_IntegrationTests_ApiKeyLoopbackAllowedWebApplicationFactory_RemoteAgent_Service_IntegrationTests_ConnectionRateLimitedWebApplicationFactory_RemoteAgent_Service_IntegrationTests_SessionLimitedWebApplicationFactory_
+  name: AgentGatewayServiceIntegrationTests_ManagementApis
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.AgentGatewayServiceIntegrationTests_ManagementApis
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AgentGatewayServiceIntegrationTests_ManagementApis
+  nameWithType.vb: AgentGatewayServiceIntegrationTests_ManagementApis.New
+  fullName.vb: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.New
+  name.vb: New
+- uid: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+  commentId: T:RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+  parent: RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory.html
+  name: CatWebApplicationFactory
+  nameWithType: CatWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.CatWebApplicationFactory
+- uid: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+  commentId: T:RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+  parent: RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory.html
+  name: ApiKeyWebApplicationFactory
+  nameWithType: ApiKeyWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.ApiKeyWebApplicationFactory
+- uid: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+  commentId: T:RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+  parent: RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory.html
+  name: ApiKeyLoopbackAllowedWebApplicationFactory
+  nameWithType: ApiKeyLoopbackAllowedWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.ApiKeyLoopbackAllowedWebApplicationFactory
+- uid: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+  commentId: T:RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+  parent: RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory.html
+  name: ConnectionRateLimitedWebApplicationFactory
+  nameWithType: ConnectionRateLimitedWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.ConnectionRateLimitedWebApplicationFactory
+- uid: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+  commentId: T:RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+  parent: RemoteAgent.Service.IntegrationTests
+  href: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory.html
+  name: SessionLimitedWebApplicationFactory
+  nameWithType: SessionLimitedWebApplicationFactory
+  fullName: RemoteAgent.Service.IntegrationTests.SessionLimitedWebApplicationFactory
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  name: GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_RequiresAuth_WhenApiKeyConfigured
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_GetStructuredLogsSnapshot_Works_WithAuthHeader
+  name: GetStructuredLogsSnapshot_Works_WithAuthHeader
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_Works_WithAuthHeader
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  name: GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetStructuredLogsSnapshot_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_GetPlugins_AndUpdatePlugins_Work
+  name: GetPlugins_AndUpdatePlugins_Work
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.GetPlugins_AndUpdatePlugins_Work
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  name: StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StructuredLogs_ContainSessionAndCorrelation_WhenAvailable
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_StreamStructuredLogs_Replays_ThenStreamsNewRows
+  name: StreamStructuredLogs_Replays_ThenStreamsNewRows
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.StreamStructuredLogs_Replays_ThenStreamsNewRows
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_McpServerRegistry_Crud_AndAgentMapping_Work
+  name: McpServerRegistry_Crud_AndAgentMapping_Work
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.McpServerRegistry_Crud_AndAgentMapping_Work
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_RequestContext_IsIssuedToAgent_OnUserRequests
+  name: RequestContext_IsIssuedToAgent_OnUserRequests
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.RequestContext_IsIssuedToAgent_OnUserRequests
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_SetAgentMcpServers_NotifiesActiveAgentSession
+  name: SetAgentMcpServers_NotifiesActiveAgentSession
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SetAgentMcpServers_NotifiesActiveAgentSession
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_PromptTemplates_Crud_AndList_Work
+  name: PromptTemplates_Crud_AndList_Work
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.PromptTemplates_Crud_AndList_Work
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  name: Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Reconnect_WithExistingSessionId_EmitsSessionResumedMessage
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  name: Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Connect_DeniesSecondConcurrentConnection_WhenPeerConnectionLimitReached
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  name: Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.Start_DeniesSecondConcurrentSession_WhenServerSessionLimitReached
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  name: SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_ReturnsStatus_ForConfiguredAgent
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  name: SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.SessionCapacityEndpoint_AllowsLoopbackWithoutAuth_WhenApiKeyConfiguredAndLoopbackAllowed
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  name: OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.OpenSessionsEndpoint_AndTerminateEndpoint_Work
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  name: AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AbandonedSessionsEndpoint_ReturnsSession_WhenStreamEndsWithoutStop
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  name: ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.ConnectionAndDeviceEndpoints_ReturnPeersHistoryAndBanLifecycle
+- uid: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work*
+  commentId: Overload:RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work
+  href: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.html#RemoteAgent_Service_IntegrationTests_AgentGatewayServiceIntegrationTests_ManagementApis_AuthUserEndpoints_UpsertListDelete_Work
+  name: AuthUserEndpoints_UpsertListDelete_Work
+  nameWithType: AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work
+  fullName: RemoteAgent.Service.IntegrationTests.AgentGatewayServiceIntegrationTests_ManagementApis.AuthUserEndpoints_UpsertListDelete_Work

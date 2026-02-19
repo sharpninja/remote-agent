@@ -1,0 +1,641 @@
+### YamlMime:ManagedReference
+items:
+- uid: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler
+  commentId: T:RemoteAgent.Desktop.Handlers.SetManagementSectionHandler
+  id: SetManagementSectionHandler
+  parent: RemoteAgent.Desktop.Handlers
+  children:
+  - RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SetManagementSectionHandler
+  nameWithType: SetManagementSectionHandler
+  fullName: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler
+  type: Class
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Handlers/SetManagementSectionHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: SetManagementSectionHandler
+    path: ../src/RemoteAgent.Desktop/Handlers/SetManagementSectionHandler.cs
+    startLine: 5
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Handlers
+  syntax:
+    content: 'public sealed class SetManagementSectionHandler : IRequestHandler<SetManagementSectionRequest, Unit>'
+    content.vb: Public NotInheritable Class SetManagementSectionHandler Implements IRequestHandler(Of SetManagementSectionRequest, Unit)
+  inheritance:
+  - System.Object
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+  id: HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleAsync(SetManagementSectionRequest, CancellationToken)
+  nameWithType: SetManagementSectionHandler.HandleAsync(SetManagementSectionRequest, CancellationToken)
+  fullName: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/RemoteAgent.Desktop/Handlers/SetManagementSectionHandler.cs
+      branch: develop
+      repo: https://github.com/sharpninja/remote-agent.git
+    id: HandleAsync
+    path: ../src/RemoteAgent.Desktop/Handlers/SetManagementSectionHandler.cs
+    startLine: 7
+  assemblies:
+  - RemoteAgent.Desktop
+  namespace: RemoteAgent.Desktop.Handlers
+  example: []
+  syntax:
+    content: public Task<Unit> HandleAsync(SetManagementSectionRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.Unit}
+    content.vb: Public Function HandleAsync(request As SetManagementSectionRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Unit)
+  overload: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync*
+  implements:
+  - RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+references:
+- uid: RemoteAgent.Desktop.Handlers
+  commentId: N:RemoteAgent.Desktop.Handlers
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Handlers
+  nameWithType: RemoteAgent.Desktop.Handlers
+  fullName: RemoteAgent.Desktop.Handlers
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Handlers
+    name: Handlers
+    href: RemoteAgent.Desktop.Handlers.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Handlers
+    name: Handlers
+    href: RemoteAgent.Desktop.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}
+  parent: RemoteAgent.App.Logic.Cqrs
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  name: IRequestHandler<SetManagementSectionRequest, Unit>
+  nameWithType: IRequestHandler<SetManagementSectionRequest, Unit>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.Desktop.Requests.SetManagementSectionRequest, RemoteAgent.App.Logic.Cqrs.Unit>
+  nameWithType.vb: IRequestHandler(Of SetManagementSectionRequest, Unit)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.Desktop.Requests.SetManagementSectionRequest, RemoteAgent.App.Logic.Cqrs.Unit)
+  name.vb: IRequestHandler(Of SetManagementSectionRequest, Unit)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: <
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.Unit
+    name: Unit
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  - name: ','
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.Unit
+    name: Unit
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  commentId: T:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2
+    name: IRequestHandler
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs
+  commentId: N:RemoteAgent.App.Logic.Cqrs
+  name: RemoteAgent.App.Logic.Cqrs
+  nameWithType: RemoteAgent.App.Logic.Cqrs
+  fullName: RemoteAgent.App.Logic.Cqrs
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+  - name: .
+  - uid: RemoteAgent.App
+    name: App
+  - name: .
+  - uid: RemoteAgent.App.Logic
+    name: Logic
+  - name: .
+  - uid: RemoteAgent.App.Logic.Cqrs
+    name: Cqrs
+- uid: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync*
+  commentId: Overload:RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync
+  href: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.html#RemoteAgent_Desktop_Handlers_SetManagementSectionHandler_HandleAsync_RemoteAgent_Desktop_Requests_SetManagementSectionRequest_System_Threading_CancellationToken_
+  name: HandleAsync
+  nameWithType: SetManagementSectionHandler.HandleAsync
+  fullName: RemoteAgent.Desktop.Handlers.SetManagementSectionHandler.HandleAsync
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+  parent: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}
+  definition: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  name: HandleAsync(SetManagementSectionRequest, CancellationToken)
+  nameWithType: IRequestHandler<SetManagementSectionRequest, Unit>.HandleAsync(SetManagementSectionRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<RemoteAgent.Desktop.Requests.SetManagementSectionRequest, RemoteAgent.App.Logic.Cqrs.Unit>.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of SetManagementSectionRequest, Unit).HandleAsync(SetManagementSectionRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of RemoteAgent.Desktop.Requests.SetManagementSectionRequest, RemoteAgent.App.Logic.Cqrs.Unit).HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler{RemoteAgent.Desktop.Requests.SetManagementSectionRequest,RemoteAgent.App.Logic.Cqrs.Unit}.HandleAsync(RemoteAgent.Desktop.Requests.SetManagementSectionRequest,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+    name: SetManagementSectionRequest
+    href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  commentId: T:RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+  parent: RemoteAgent.Desktop.Requests
+  href: RemoteAgent.Desktop.Requests.SetManagementSectionRequest.html
+  name: SetManagementSectionRequest
+  nameWithType: SetManagementSectionRequest
+  fullName: RemoteAgent.Desktop.Requests.SetManagementSectionRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.Unit}
+  commentId: T:System.Threading.Tasks.Task{RemoteAgent.App.Logic.Cqrs.Unit}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<Unit>
+  nameWithType: Task<Unit>
+  fullName: System.Threading.Tasks.Task<RemoteAgent.App.Logic.Cqrs.Unit>
+  nameWithType.vb: Task(Of Unit)
+  fullName.vb: System.Threading.Tasks.Task(Of RemoteAgent.App.Logic.Cqrs.Unit)
+  name.vb: Task(Of Unit)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: RemoteAgent.App.Logic.Cqrs.Unit
+    name: Unit
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RemoteAgent.App.Logic.Cqrs.Unit
+    name: Unit
+  - name: )
+- uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  commentId: M:RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  name: HandleAsync(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, CancellationToken)
+  fullName: RemoteAgent.App.Logic.Cqrs.IRequestHandler<TRequest, TResponse>.HandleAsync(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, CancellationToken)
+  fullName.vb: RemoteAgent.App.Logic.Cqrs.IRequestHandler(Of TRequest, TResponse).HandleAsync(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: RemoteAgent.App.Logic.Cqrs.IRequestHandler`2.HandleAsync(`0,System.Threading.CancellationToken)
+    name: HandleAsync
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: RemoteAgent.Desktop.Requests
+  commentId: N:RemoteAgent.Desktop.Requests
+  href: RemoteAgent.html
+  name: RemoteAgent.Desktop.Requests
+  nameWithType: RemoteAgent.Desktop.Requests
+  fullName: RemoteAgent.Desktop.Requests
+  spec.csharp:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+  spec.vb:
+  - uid: RemoteAgent
+    name: RemoteAgent
+    href: RemoteAgent.html
+  - name: .
+  - uid: RemoteAgent.Desktop
+    name: Desktop
+    href: RemoteAgent.Desktop.html
+  - name: .
+  - uid: RemoteAgent.Desktop.Requests
+    name: Requests
+    href: RemoteAgent.Desktop.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
