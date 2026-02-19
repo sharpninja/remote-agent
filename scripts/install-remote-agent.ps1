@@ -103,13 +103,20 @@ if ($CertPath) {
 }
 
 # ── Install or update the MSIX ────────────────────────────────────────────────
+# Determine if the package is signed so we can pass -AllowUnsigned when needed.
+$sig = Get-AuthenticodeSignature -FilePath $MsixPath -ErrorAction SilentlyContinue
+$isSigned = $sig -and $sig.Status -eq 'Valid'
+if (-not $isSigned) { Write-Warning "[install] Package is unsigned — using -AllowUnsigned." }
+
 $existing = Get-AppxPackage -Name "RemoteAgent" -ErrorAction SilentlyContinue
 if ($existing) {
     Write-Host "[install] Updating existing package ($($existing.Version) -> installing)..."
-    Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion
+    if ($isSigned) { Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion }
+    else           { Add-AppxPackage -Path $MsixPath -ForceUpdateFromAnyVersion -AllowUnsigned }
 } else {
     Write-Host "[install] Installing package..."
-    Add-AppxPackage -Path $MsixPath
+    if ($isSigned) { Add-AppxPackage -Path $MsixPath }
+    else           { Add-AppxPackage -Path $MsixPath -AllowUnsigned }
 }
 Write-Host "[install] Package installed."
 
