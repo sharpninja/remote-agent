@@ -83,6 +83,10 @@ public partial class MainPage : ContentPage
         _androidEditText = MessageEditor?.Handler?.PlatformView as AppCompatEditText;
         if (_androidEditText != null)
         {
+            // Multi-line EditText ignores ImeOptions by default (keyboard shows Enter).
+            // SetRawInputType overrides the IME input type without changing the view's
+            // multi-line wrapping behaviour, so the keyboard shows a Send action button.
+            _androidEditText.SetRawInputType(Android.Text.InputTypes.ClassText);
             _androidEditText.ImeOptions = Android.Views.InputMethods.ImeAction.Send;
             _androidEditText.SetImeActionLabel("Send", Android.Views.InputMethods.ImeAction.Send);
             _androidEditText.EditorAction += OnAndroidEditorAction;
