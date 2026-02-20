@@ -55,6 +55,8 @@ service AgentGateway {
   rpc ListPermissionRoles (ListPermissionRolesRequest) returns (ListPermissionRolesResponse);
   rpc UpsertAuthUser (UpsertAuthUserRequest) returns (UpsertAuthUserResponse);
   rpc DeleteAuthUser (DeleteAuthUserRequest) returns (DeleteAuthUserResponse);
+  // Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+  rpc SetPairingUsers (SetPairingUsersRequest) returns (SetPairingUsersResponse);
 }
 
 // ServerInfoRequest: optional client info for handshake (e.g. future compatibility).
@@ -428,3 +430,20 @@ message UpsertAuthUserRequest { AuthUserEntry user = 1; }
 message UpsertAuthUserResponse { bool success = 1; string message = 2; AuthUserEntry user = 3; }
 message DeleteAuthUserRequest { string user_id = 1; }
 message DeleteAuthUserResponse { bool success = 1; string message = 2; }
+
+// Pairing users
+message PairingUserEntry {
+  string username = 1;
+  string password_hash = 2;
+}
+
+message SetPairingUsersRequest {
+  string api_key = 1;
+  repeated PairingUserEntry users = 2;
+  bool replace = 3;
+}
+
+message SetPairingUsersResponse {
+  bool success = 1;
+  string error = 2;
+}

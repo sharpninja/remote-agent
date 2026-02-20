@@ -170,6 +170,14 @@ public interface IServerCapacityClient
         string? correlationId,
         string? apiKey,
         CancellationToken cancellationToken = default);
+
+    Task<bool> SetPairingUsersAsync(
+        string host,
+        int port,
+        IEnumerable<(string Username, string PasswordHash)> users,
+        bool replace,
+        string? apiKey,
+        CancellationToken cancellationToken = default);
 }
 
 public sealed class ServerCapacityClient : IServerCapacityClient
@@ -605,6 +613,29 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         if (!response.Success)
             throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Seed session context failed." : response.Message);
         return response?.Success ?? false;
+    }
+
+    public async Task<bool> SetPairingUsersAsync(
+        string host,
+        int port,
+        IEnumerable<(string Username, string PasswordHash)> users,
+        bool replace,
+        string? apiKey,
+        CancellationToken cancellationToken = default)
+    {
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var grpcRequest = new SetPairingUsersRequest { Replace = replace };
+        foreach (var (username, passwordHash) in users)
+            grpcRequest.Users.Add(new PairingUserEntry { Username = username, PasswordHash = passwordHash });
+        var response = await client.SetPairingUsersAsync(
+            grpcRequest,
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Error) ? "Set pairing users failed." : response.Error);
+        return response.Success;
     }
 
 }

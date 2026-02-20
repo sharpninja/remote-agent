@@ -146,6 +146,8 @@ public partial class App : Application
         services.AddTransient<IRequestHandler<Requests.SaveAppLogRequest, CommandResult>, SaveAppLogHandler>();
         services.AddTransient<IRequestHandler<Requests.CopyStatusLogRequest, CommandResult>, CopyStatusLogHandler>();
         services.AddTransient<IRequestHandler<Requests.OpenLogsFolderRequest, CommandResult>, OpenLogsFolderHandler>();
+        services.AddTransient<IRequestHandler<Requests.SetPairingUserRequest, CommandResult>, SetPairingUserHandler>();
+        services.AddSingleton<IPairingUserDialog>(sp => new AvaloniaPairingUserDialog());
 
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<MainWindow>();

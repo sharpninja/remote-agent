@@ -161,6 +161,12 @@
             <TextBlock VerticalAlignment="Center" Text="Light/Dark" />
           </StackPanel>
         </Button>
+        <Button x:Name="SetPairingUserButton" Command="{Binding SetPairingUserCommand}">
+          <StackPanel Orientation="Horizontal" Spacing="6">
+            <fa:FontIcon Glyph="&#xE72E;" />
+            <TextBlock VerticalAlignment="Center" Text="Set Pairing User" />
+          </StackPanel>
+        </Button>
       </tb:ToolBar>
     </tb:ToolBarTray>
 

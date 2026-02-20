@@ -180,10 +180,14 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
             if (_selectedSession == value) return;
             _selectedSession = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(HasConnectedSession));
             ((RelayCommand)TerminateCurrentSessionCommand).RaiseCanExecuteChanged();
             ((RelayCommand)SendCurrentMessageCommand).RaiseCanExecuteChanged();
         }
     }
+
+    /// <summary>Returns <c>true</c> when the currently selected session is actively connected.</summary>
+    public bool HasConnectedSession => SelectedSession?.IsConnected == true;
 
     public string StatusText
     {
@@ -252,7 +256,11 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
             });
         };
         Action onConnectionStateChanged = () =>
-            Dispatcher.UIThread.Post(() => session.IsConnected = session.SessionClient.IsConnected);
+            Dispatcher.UIThread.Post(() =>
+            {
+                session.IsConnected = session.SessionClient.IsConnected;
+                OnPropertyChanged(nameof(HasConnectedSession));
+            });
 
         _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged);
         session.SessionClient.MessageReceived += onMessage;

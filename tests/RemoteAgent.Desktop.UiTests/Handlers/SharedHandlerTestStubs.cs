@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 using RemoteAgent.App.Logic;
 using RemoteAgent.App.Logic.Cqrs;
 using RemoteAgent.App.Services;
+using Avalonia.Controls;
 using RemoteAgent.Desktop.Infrastructure;
 using RemoteAgent.Desktop.Logging;
 using RemoteAgent.Desktop.Requests;
@@ -152,6 +153,9 @@ internal sealed class StubCapacityClient : IServerCapacityClient
         Task.FromResult(DeletePromptTemplateResult);
     public Task<bool> SeedSessionContextAsync(string host, int port, string sessionId, string contextType, string content, string? source, string? correlationId, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult(SeedSessionContextResult);
+    public bool SetPairingUsersResult { get; set; } = true;
+    public Task<bool> SetPairingUsersAsync(string host, int port, IEnumerable<(string Username, string PasswordHash)> users, bool replace, string? apiKey, CancellationToken cancellationToken = default) =>
+        Task.FromResult(SetPairingUsersResult);
 }
 
 internal sealed class StubLogStore : IDesktopStructuredLogStore
@@ -256,4 +260,18 @@ internal sealed class CapturingFolderOpenerService : IFolderOpenerService
 {
     public string? LastPath { get; private set; }
     public void OpenFolder(string path) => LastPath = path;
+}
+
+internal sealed class NullPairingUserDialog : IPairingUserDialog
+{
+    public Task<PairingUserDialogResult?> ShowAsync(Avalonia.Controls.Window ownerWindow, CancellationToken cancellationToken = default)
+        => Task.FromResult<PairingUserDialogResult?>(null);
+}
+
+internal sealed class StubPairingUserDialog : IPairingUserDialog
+{
+    public PairingUserDialogResult? Result { get; set; } = new PairingUserDialogResult("testuser", "abc123hash");
+
+    public Task<PairingUserDialogResult?> ShowAsync(Avalonia.Controls.Window ownerWindow, CancellationToken cancellationToken = default)
+        => Task.FromResult(Result);
 }

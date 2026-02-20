@@ -474,6 +474,9 @@ public sealed class MainWindowUiTests
 
         public Task<bool> SeedSessionContextAsync(string host, int port, string sessionId, string contextType, string content, string? source, string? correlationId, string? apiKey, CancellationToken cancellationToken = default)
             => Task.FromResult(true);
+
+        public Task<bool> SetPairingUsersAsync(string host, int port, IEnumerable<(string Username, string PasswordHash)> users, bool replace, string? apiKey, CancellationToken cancellationToken = default)
+            => Task.FromResult(true);
     }
 
     private sealed class StubStructuredLogStore : IDesktopStructuredLogStore

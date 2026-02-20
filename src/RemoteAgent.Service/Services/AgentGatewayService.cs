@@ -1041,6 +1041,77 @@ public class AgentGatewayService(
         var ok = authUsers.Delete(request.UserId);
         return Task.FromResult(new DeleteAuthUserResponse { Success = ok, Message = ok ? "Auth user deleted." : "Auth user not found." });
     }
+
+    public override async Task<SetPairingUsersResponse> SetPairingUsers(SetPairingUsersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        try
+        {
+            var appSettingsPath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+            var jsonText = await File.ReadAllTextAsync(appSettingsPath, context.CancellationToken);
+            var root = System.Text.Json.Nodes.JsonNode.Parse(jsonText) as System.Text.Json.Nodes.JsonObject
+                       ?? new System.Text.Json.Nodes.JsonObject();
+
+            if (root["Agent"] is not System.Text.Json.Nodes.JsonObject agentNode)
+            {
+                agentNode = new System.Text.Json.Nodes.JsonObject();
+                root["Agent"] = agentNode;
+            }
+
+            if (request.Replace)
+            {
+                var newArr = new System.Text.Json.Nodes.JsonArray();
+                foreach (var u in request.Users)
+                {
+                    newArr.Add(new System.Text.Json.Nodes.JsonObject
+                    {
+                        ["Username"] = u.Username,
+                        ["PasswordHash"] = u.PasswordHash
+                    });
+                }
+                agentNode["PairingUsers"] = newArr;
+            }
+            else
+            {
+                var existingArr = agentNode["PairingUsers"] as System.Text.Json.Nodes.JsonArray
+                                  ?? new System.Text.Json.Nodes.JsonArray();
+
+                foreach (var incoming in request.Users)
+                {
+                    var matched = false;
+                    foreach (var node in existingArr)
+                    {
+                        if (node is not System.Text.Json.Nodes.JsonObject obj) continue;
+                        var existingName = obj["Username"]?.GetValue<string>() ?? "";
+                        if (string.Equals(existingName, incoming.Username, StringComparison.OrdinalIgnoreCase))
+                        {
+                            obj["PasswordHash"] = incoming.PasswordHash;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched)
+                    {
+                        existingArr.Add(new System.Text.Json.Nodes.JsonObject
+                        {
+                            ["Username"] = incoming.Username,
+                            ["PasswordHash"] = incoming.PasswordHash
+                        });
+                    }
+                }
+
+                agentNode["PairingUsers"] = existingArr;
+            }
+
+            var options = new System.Text.Json.JsonSerializerOptions { WriteIndented = true };
+            await File.WriteAllTextAsync(appSettingsPath, root.ToJsonString(options), context.CancellationToken);
+            return new SetPairingUsersResponse { Success = true };
+        }
+        catch (Exception ex)
+        {
+            return new SetPairingUsersResponse { Success = false, Error = ex.Message };
+        }
+    }
 }
 
 

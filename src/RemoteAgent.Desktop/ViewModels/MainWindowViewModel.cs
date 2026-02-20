@@ -55,6 +55,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         SetManagementSectionCommand = new RelayCommand<string>(sectionKey => _ = ExecuteSetManagementSectionAsync(sectionKey));
         ExpandStatusLogCommand = new RelayCommand(() => _ = ExecuteExpandStatusLogAsync());
         StartSessionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting new session...", StartSessionAsync), () => CurrentServerViewModel != null);
+        SetPairingUserCommand = new RelayCommand(() => _ = RunCommandAsync("Opening Set Pairing User...", ExecuteSetPairingUserAsync), () => CurrentServerViewModel?.HasConnectedSession == true);
 
         LoadServers();
     }
@@ -269,6 +270,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     public ICommand SetManagementSectionCommand { get; }
     public ICommand ExpandStatusLogCommand { get; }
     public ICommand StartSessionCommand { get; }
+    public ICommand SetPairingUserCommand { get; }
 
     public void SetOwnerWindow(Func<Window?> factory) => _ownerWindowFactory = factory;
 
@@ -317,6 +319,25 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             SelectedManagementSection = "Sessions";
         else if (result.ErrorMessage != "Cancelled.")
             StatusText = $"Start session failed: {result.ErrorMessage}";
+    }
+
+    private async Task ExecuteSetPairingUserAsync()
+    {
+        var workspace = CurrentServerViewModel;
+        if (workspace == null || _ownerWindowFactory == null)
+            return;
+
+        if (!int.TryParse(workspace.Port, out var port))
+        {
+            StatusText = "Invalid port.";
+            return;
+        }
+
+        var result = await _dispatcher.SendAsync(
+            new SetPairingUserRequest(Guid.NewGuid(), _ownerWindowFactory, workspace.Host, port, workspace.ApiKey, workspace));
+
+        if (!result.Success && result.ErrorMessage != null)
+            StatusText = result.ErrorMessage;
     }
 
     private async Task SaveServerAsync()
@@ -538,6 +559,12 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
 
     private void OnCurrentServerViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
+        if (string.Equals(e.PropertyName, nameof(ServerWorkspaceViewModel.HasConnectedSession), StringComparison.Ordinal))
+        {
+            ((RelayCommand)SetPairingUserCommand).RaiseCanExecuteChanged();
+            return;
+        }
+
         if (!string.Equals(e.PropertyName, nameof(ServerWorkspaceViewModel.StatusText), StringComparison.Ordinal))
             return;
 

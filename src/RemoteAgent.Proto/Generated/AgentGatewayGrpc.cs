@@ -168,6 +168,10 @@ namespace RemoteAgent.Proto {
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeleteAuthUserRequest> __Marshaller_remoteagent_DeleteAuthUserRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeleteAuthUserRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.DeleteAuthUserResponse> __Marshaller_remoteagent_DeleteAuthUserResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.DeleteAuthUserResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.SetPairingUsersRequest> __Marshaller_remoteagent_SetPairingUsersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SetPairingUsersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.SetPairingUsersResponse> __Marshaller_remoteagent_SetPairingUsersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SetPairingUsersResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse> __Method_GetServerInfo = new grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse>(
@@ -408,6 +412,14 @@ namespace RemoteAgent.Proto {
         "DeleteAuthUser",
         __Marshaller_remoteagent_DeleteAuthUserRequest,
         __Marshaller_remoteagent_DeleteAuthUserResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.SetPairingUsersRequest, global::RemoteAgent.Proto.SetPairingUsersResponse> __Method_SetPairingUsers = new grpc::Method<global::RemoteAgent.Proto.SetPairingUsersRequest, global::RemoteAgent.Proto.SetPairingUsersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SetPairingUsers",
+        __Marshaller_remoteagent_SetPairingUsersRequest,
+        __Marshaller_remoteagent_SetPairingUsersResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -700,6 +712,18 @@ namespace RemoteAgent.Proto {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.DeleteAuthUserResponse> DeleteAuthUser(global::RemoteAgent.Proto.DeleteAuthUserRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.SetPairingUsersResponse> SetPairingUsers(global::RemoteAgent.Proto.SetPairingUsersRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1761,6 +1785,54 @@ namespace RemoteAgent.Proto {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteAuthUser, null, options, request);
       }
+      /// <summary>
+      /// Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.SetPairingUsersResponse SetPairingUsers(global::RemoteAgent.Proto.SetPairingUsersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetPairingUsers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.SetPairingUsersResponse SetPairingUsers(global::RemoteAgent.Proto.SetPairingUsersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SetPairingUsers, null, options, request);
+      }
+      /// <summary>
+      /// Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.SetPairingUsersResponse> SetPairingUsersAsync(global::RemoteAgent.Proto.SetPairingUsersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetPairingUsersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.SetPairingUsersResponse> SetPairingUsersAsync(global::RemoteAgent.Proto.SetPairingUsersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SetPairingUsers, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override AgentGatewayClient NewInstance(ClientBaseConfiguration configuration)
@@ -1804,7 +1876,8 @@ namespace RemoteAgent.Proto {
           .AddMethod(__Method_ListAuthUsers, serviceImpl.ListAuthUsers)
           .AddMethod(__Method_ListPermissionRoles, serviceImpl.ListPermissionRoles)
           .AddMethod(__Method_UpsertAuthUser, serviceImpl.UpsertAuthUser)
-          .AddMethod(__Method_DeleteAuthUser, serviceImpl.DeleteAuthUser).Build();
+          .AddMethod(__Method_DeleteAuthUser, serviceImpl.DeleteAuthUser)
+          .AddMethod(__Method_SetPairingUsers, serviceImpl.SetPairingUsers).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -1844,6 +1917,7 @@ namespace RemoteAgent.Proto {
       serviceBinder.AddMethod(__Method_ListPermissionRoles, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListPermissionRolesRequest, global::RemoteAgent.Proto.ListPermissionRolesResponse>(serviceImpl.ListPermissionRoles));
       serviceBinder.AddMethod(__Method_UpsertAuthUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpsertAuthUserRequest, global::RemoteAgent.Proto.UpsertAuthUserResponse>(serviceImpl.UpsertAuthUser));
       serviceBinder.AddMethod(__Method_DeleteAuthUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.DeleteAuthUserRequest, global::RemoteAgent.Proto.DeleteAuthUserResponse>(serviceImpl.DeleteAuthUser));
+      serviceBinder.AddMethod(__Method_SetPairingUsers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.SetPairingUsersRequest, global::RemoteAgent.Proto.SetPairingUsersResponse>(serviceImpl.SetPairingUsers));
     }
 
   }
