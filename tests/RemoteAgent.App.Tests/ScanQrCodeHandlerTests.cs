@@ -86,11 +86,6 @@ public sealed class ScanQrCodeHandlerTests
         public void Delete(string sessionId) { }
     }
 
-    private sealed class NullModeSelector : IConnectionModeSelector
-    {
-        public Task<string?> SelectAsync() => Task.FromResult<string?>(null);
-    }
-
     private sealed class NullAgentSelector : IAgentSelector
     {
         public Task<string?> SelectAsync(ServerInfoResponse serverInfo) => Task.FromResult<string?>(null);
@@ -129,7 +124,7 @@ public sealed class ScanQrCodeHandlerTests
     private MainPageViewModel BuildVm(StubPrefs prefs, string host = "10.0.0.1", string port = "5244")
     {
         var vm = new MainPageViewModel(new NullStore(), new StubGateway(), new NullApiClient(), prefs,
-            new NullModeSelector(), new NullAgentSelector(), new NullAttachmentPicker(),
+            new NullAgentSelector(), new NullAttachmentPicker(),
             new NullTemplateSelector(), new NullVariableProvider(), new NullTermination(),
             new NullNotification(), new NullDispatcher(), new StubDeepLink());
         vm.Host = host;

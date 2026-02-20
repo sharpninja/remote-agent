@@ -127,7 +127,6 @@
                     <Entry x:Name="SessionTitleEntry" Text="{Binding CurrentSessionTitleEditorText, Mode=TwoWay}"
                            IsVisible="{Binding IsEditingTitle}"
                            Unfocused="OnSessionTitleUnfocused" Completed="OnSessionTitleCompleted" />
-                    <Label Text="{Binding ConnectionModeLabel}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>

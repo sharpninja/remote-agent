@@ -2,11 +2,6 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.App.Logic;
 
-public interface IConnectionModeSelector
-{
-    Task<string?> SelectAsync();
-}
-
 public interface IAgentSelector
 {
     Task<string?> SelectAsync(ServerInfoResponse serverInfo);

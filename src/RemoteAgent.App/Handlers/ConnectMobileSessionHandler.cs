@@ -9,7 +9,6 @@ public sealed class ConnectMobileSessionHandler(
     IAgentGatewayClient gateway,
     ISessionStore sessionStore,
     IServerApiClient apiClient,
-    IConnectionModeSelector connectionModeSelector,
     IAgentSelector agentSelector,
     IAppPreferences preferences)
     : IRequestHandler<ConnectMobileSessionRequest, CommandResult>
@@ -23,24 +22,12 @@ public sealed class ConnectMobileSessionHandler(
     {
         var workspace = request.Workspace;
 
-        var selectedMode = await connectionModeSelector.SelectAsync();
-        if (string.IsNullOrWhiteSpace(selectedMode))
-        {
-            workspace.Status = "Connect cancelled.";
-            return CommandResult.Fail("Connect cancelled.");
-        }
-
         var host = (workspace.Host ?? "").Trim();
         var portText = (workspace.Port ?? DefaultPort).Trim();
         if (string.IsNullOrWhiteSpace(host))
         {
-            if (string.Equals(selectedMode, "direct", StringComparison.OrdinalIgnoreCase))
-                host = "127.0.0.1";
-            else
-            {
-                workspace.Status = "Enter a host.";
-                return CommandResult.Fail("Enter a host.");
-            }
+            workspace.Status = "Enter a host.";
+            return CommandResult.Fail("Enter a host.");
         }
 
         if (!int.TryParse(portText, out var port) || port <= 0 || port > 65535)
@@ -56,7 +43,7 @@ public sealed class ConnectMobileSessionHandler(
             {
                 SessionId = Guid.NewGuid().ToString("N")[..12],
                 Title = "New chat",
-                ConnectionMode = selectedMode
+                ConnectionMode = "server"
             };
             workspace.Sessions.Insert(0, sessionToConnect);
             sessionStore.Add(sessionToConnect);
@@ -65,55 +52,44 @@ public sealed class ConnectMobileSessionHandler(
 
         if (string.IsNullOrWhiteSpace(sessionToConnect.AgentId))
         {
-            if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
+            workspace.Status = "Getting server info...";
+            var serverInfo = await apiClient.GetServerInfoAsync(host, port, apiKey: workspace.ApiKey, ct: ct);
+            if (serverInfo == null)
             {
-                workspace.Status = "Getting server info...";
-                var serverInfo = await apiClient.GetServerInfoAsync(host, port, apiKey: workspace.ApiKey, ct: ct);
-                if (serverInfo == null)
-                {
-                    workspace.Status = "Could not reach server.";
-                    return CommandResult.Fail("Could not reach server.");
-                }
-
-                var agentId = await agentSelector.SelectAsync(serverInfo);
-                if (agentId == null)
-                {
-                    workspace.Status = "Connect cancelled.";
-                    return CommandResult.Fail("Connect cancelled.");
-                }
-
-                sessionToConnect.AgentId = agentId;
-            }
-            else
-            {
-                sessionToConnect.AgentId = "process";
+                workspace.Status = "Could not reach server.";
+                return CommandResult.Fail("Could not reach server.");
             }
 
+            var agentId = await agentSelector.SelectAsync(serverInfo);
+            if (agentId == null)
+            {
+                workspace.Status = "Connect cancelled.";
+                return CommandResult.Fail("Connect cancelled.");
+            }
+
+            sessionToConnect.AgentId = agentId;
             sessionStore.UpdateAgentId(sessionToConnect.SessionId, sessionToConnect.AgentId);
         }
 
-        sessionToConnect.ConnectionMode = selectedMode;
-        sessionStore.UpdateConnectionMode(sessionToConnect.SessionId, selectedMode);
+        sessionToConnect.ConnectionMode = "server";
+        sessionStore.UpdateConnectionMode(sessionToConnect.SessionId, "server");
 
-        if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
+        var capacity = await apiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId, apiKey: workspace.ApiKey, ct: ct);
+        if (capacity == null)
         {
-            var capacity = await apiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId, apiKey: workspace.ApiKey, ct: ct);
-            if (capacity == null)
-            {
-                workspace.Status = "Could not verify server session capacity.";
-                return CommandResult.Fail("Could not verify server session capacity.");
-            }
-
-            if (!capacity.CanCreateSession)
-            {
-                workspace.Status = string.IsNullOrWhiteSpace(capacity.Reason)
-                    ? "Server session capacity reached."
-                    : capacity.Reason;
-                return CommandResult.Fail(workspace.Status);
-            }
+            workspace.Status = "Could not verify server session capacity.";
+            return CommandResult.Fail("Could not verify server session capacity.");
         }
 
-        workspace.Status = $"Connecting ({selectedMode})...";
+        if (!capacity.CanCreateSession)
+        {
+            workspace.Status = string.IsNullOrWhiteSpace(capacity.Reason)
+                ? "Server session capacity reached."
+                : capacity.Reason;
+            return CommandResult.Fail(workspace.Status);
+        }
+
+        workspace.Status = "Connecting (server)...";
         try
         {
             await gateway.ConnectAsync(host, port, sessionToConnect.SessionId, sessionToConnect.AgentId,
@@ -123,7 +99,7 @@ public sealed class ConnectMobileSessionHandler(
             preferences.Set(PrefApiKey,     workspace.ApiKey ?? "");
             workspace.Host = host ?? "";
             workspace.Port = port.ToString();
-            workspace.Status = $"Connected ({selectedMode}).";
+            workspace.Status = "Connected (server).";
             workspace.NotifyConnectionStateChanged();
         }
         catch (Exception ex)

@@ -153,11 +153,6 @@ public sealed class MobileHandlerTests
             => Task.FromResult<SeedSessionContextResponse?>(null);
     }
 
-    private sealed class StubConnectionModeSelector(string? mode) : IConnectionModeSelector
-    {
-        public Task<string?> SelectAsync() => Task.FromResult(mode);
-    }
-
     private sealed class StubAgentSelector(string? agentId) : IAgentSelector
     {
         public Task<string?> SelectAsync(ServerInfoResponse serverInfo) => Task.FromResult(agentId);
@@ -218,7 +213,6 @@ public sealed class MobileHandlerTests
         StubSessionStore? sessionStore = null,
         StubApiClient? apiClient = null,
         IAppPreferences? preferences = null,
-        IConnectionModeSelector? connectionModeSelector = null,
         IAgentSelector? agentSelector = null,
         IAttachmentPicker? attachmentPicker = null,
         IPromptTemplateSelector? templateSelector = null,
@@ -232,7 +226,6 @@ public sealed class MobileHandlerTests
             gateway ?? new StubGateway(),
             apiClient ?? new StubApiClient(),
             preferences ?? new NullAppPreferences(),
-            connectionModeSelector ?? new StubConnectionModeSelector(null),
             agentSelector ?? new StubAgentSelector(null),
             attachmentPicker ?? new StubAttachmentPicker(null),
             templateSelector ?? new StubPromptTemplateSelector(null),
@@ -251,20 +244,19 @@ public sealed class MobileHandlerTests
     public async Task Connect_WhenModeSelectedAndServerReachable_ShouldConnectAndReturnOk()
     {
         var gateway = new StubGateway();
-        var modeSelector = new StubConnectionModeSelector("server");
         var agentSelector = new StubAgentSelector("agent1");
         var apiClient = new StubApiClient
         {
             ServerInfo = new ServerInfoResponse(),
             Capacity = new SessionCapacitySnapshot(true, "", 10, 0, 10, "agent1", null, 0, null)
         };
-        var workspace = CreateWorkspace(gateway: gateway, connectionModeSelector: modeSelector,
+        var workspace = CreateWorkspace(gateway: gateway,
             agentSelector: agentSelector, apiClient: apiClient);
         workspace.Host = "localhost";
         workspace.Port = "5243";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
-            modeSelector, agentSelector, new NullAppPreferences());
+            agentSelector, new NullAppPreferences());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 
@@ -273,30 +265,14 @@ public sealed class MobileHandlerTests
     }
 
     [Fact]
-    public async Task Connect_WhenModeSelectorCancelled_ShouldReturnFail()
+    public async Task Connect_WhenHostEmpty_ShouldReturnFail()
     {
         var gateway = new StubGateway();
-        var workspace = CreateWorkspace(gateway: gateway, connectionModeSelector: new StubConnectionModeSelector(null));
-
-        var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), new StubApiClient(),
-            new StubConnectionModeSelector(null), new StubAgentSelector(null), new NullAppPreferences());
-
-        var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
-
-        result.Success.Should().BeFalse();
-        result.ErrorMessage.Should().Contain("cancelled");
-    }
-
-    [Fact]
-    public async Task Connect_WhenHostEmptyAndNotDirect_ShouldReturnFail()
-    {
-        var gateway = new StubGateway();
-        var modeSelector = new StubConnectionModeSelector("server");
-        var workspace = CreateWorkspace(gateway: gateway, connectionModeSelector: modeSelector);
+        var workspace = CreateWorkspace(gateway: gateway);
         workspace.Host = "";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), new StubApiClient(),
-            modeSelector, new StubAgentSelector("agent1"), new NullAppPreferences());
+            new StubAgentSelector("agent1"), new NullAppPreferences());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 
@@ -308,13 +284,18 @@ public sealed class MobileHandlerTests
     public async Task Connect_WhenGatewayConnectThrows_ShouldReturnFail()
     {
         var gateway = new StubGateway { ConnectException = new Exception("connection refused") };
-        var modeSelector = new StubConnectionModeSelector("direct");
-        var workspace = CreateWorkspace(gateway: gateway, connectionModeSelector: modeSelector);
+        var agentSelector = new StubAgentSelector("agent1");
+        var apiClient = new StubApiClient
+        {
+            ServerInfo = new ServerInfoResponse(),
+            Capacity = new SessionCapacitySnapshot(true, "", 10, 0, 10, "agent1", null, 0, null)
+        };
+        var workspace = CreateWorkspace(gateway: gateway, apiClient: apiClient);
         workspace.Host = "localhost";
         workspace.Port = "5243";
 
-        var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), new StubApiClient(),
-            modeSelector, new StubAgentSelector("process"), new NullAppPreferences());
+        var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
+            agentSelector, new NullAppPreferences());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 
@@ -329,21 +310,20 @@ public sealed class MobileHandlerTests
         // workspace ApiKey — without it, a service configured with Agent:ApiKey returns 401
         // and the capacity check returns null → "Could not verify server session capacity."
         var gateway = new StubGateway();
-        var modeSelector = new StubConnectionModeSelector("server");
         var agentSelector = new StubAgentSelector("agent1");
         var apiClient = new StubApiClient
         {
             ServerInfo = new ServerInfoResponse(),
             Capacity = new SessionCapacitySnapshot(true, "", 10, 0, 10, "agent1", null, 0, null)
         };
-        var workspace = CreateWorkspace(gateway: gateway, connectionModeSelector: modeSelector,
+        var workspace = CreateWorkspace(gateway: gateway,
             agentSelector: agentSelector, apiClient: apiClient);
         workspace.Host = "192.168.1.10";
         workspace.Port = "5243";
         workspace.ApiKey = "test-secret-key";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
-            modeSelector, agentSelector, new NullAppPreferences());
+            agentSelector, new NullAppPreferences());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 

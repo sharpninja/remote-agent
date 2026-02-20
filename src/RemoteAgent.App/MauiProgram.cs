@@ -58,8 +58,6 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ISessionCommandBus>(sp => sp.GetRequiredService<MainPageViewModel>());
 		builder.Services.AddSingleton<ISessionListProvider, SessionListProviderAdapter>();
 		builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
-		builder.Services.AddSingleton<IConnectionModeSelector>(sp =>
-			new MauiConnectionModeSelector(() => sp.GetService<MainPage>()));
 		builder.Services.AddSingleton<IAgentSelector>(sp =>
 			new MauiAgentSelector(() => sp.GetService<MainPage>()));
 		builder.Services.AddSingleton<IPromptTemplateSelector>(sp =>

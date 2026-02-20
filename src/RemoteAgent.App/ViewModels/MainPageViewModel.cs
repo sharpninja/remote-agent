@@ -25,7 +25,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private readonly IAgentGatewayClient _gateway;
     private readonly IServerApiClient _apiClient;
     private readonly IAppPreferences _preferences;
-    private readonly IConnectionModeSelector _connectionModeSelector;
     private readonly IAgentSelector _agentSelector;
     private readonly IAttachmentPicker _attachmentPicker;
     private readonly IPromptTemplateSelector _promptTemplateSelector;
@@ -49,7 +48,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         IAgentGatewayClient gateway,
         IServerApiClient apiClient,
         IAppPreferences preferences,
-        IConnectionModeSelector connectionModeSelector,
         IAgentSelector agentSelector,
         IAttachmentPicker attachmentPicker,
         IPromptTemplateSelector promptTemplateSelector,
@@ -63,7 +61,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         _gateway = gateway;
         _apiClient = apiClient;
         _preferences = preferences;
-        _connectionModeSelector = connectionModeSelector;
         _agentSelector = agentSelector;
         _attachmentPicker = attachmentPicker;
         _promptTemplateSelector = promptTemplateSelector;
@@ -182,7 +179,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
             else
                 _gateway.LoadFromStore(null);
             OnPropertyChanged(nameof(CurrentSessionTitle));
-            OnPropertyChanged(nameof(ConnectionModeLabel));
             OnPropertyChanged(nameof(CurrentSessionTitleEditorText));
         }
     }
@@ -199,8 +195,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
             OnPropertyChanged(nameof(CurrentSessionTitle));
         }
     }
-
-    public string ConnectionModeLabel => $"Mode: {(string.Equals(CurrentSession?.ConnectionMode, "direct", StringComparison.OrdinalIgnoreCase) ? "direct" : "server")}";
 
     public bool IsConnected => _gateway.IsConnected;
     public bool IsEditingTitle
