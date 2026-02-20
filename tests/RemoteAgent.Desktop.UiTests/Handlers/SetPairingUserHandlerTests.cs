@@ -31,7 +31,7 @@ public class SetPairingUserHandlerTests
     [AvaloniaFact]
     public async Task HandleAsync_WhenSetPairingUsersSucceeds_ShouldReturnOk()
     {
-        var client = new StubCapacityClient { SetPairingUsersResult = true };
+        var client = new StubCapacityClient { SetPairingUsersKey = "abc123" };
         var dialog = new StubPairingUserDialog { Result = new PairingUserDialogResult("alice", "hashvalue") };
         var handler = new SetPairingUserHandler(client, dialog);
         var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
@@ -42,11 +42,12 @@ public class SetPairingUserHandlerTests
         result.Success.Should().BeTrue();
     }
 
-    // When SetPairingUsersAsync returns false, the handler should return Fail.
+    // When SetPairingUsersAsync throws, the handler should return Fail.
     [AvaloniaFact]
     public async Task HandleAsync_WhenSetPairingUsersFails_ShouldReturnFail()
     {
-        var client = new StubCapacityClient { SetPairingUsersResult = false };
+        var client = new StubCapacityClient();
+        client.ThrowOnSetPairingUsers = new InvalidOperationException("server error");
         var dialog = new StubPairingUserDialog { Result = new PairingUserDialogResult("alice", "hashvalue") };
         var handler = new SetPairingUserHandler(client, dialog);
         var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
@@ -61,7 +62,7 @@ public class SetPairingUserHandlerTests
     [AvaloniaFact]
     public async Task HandleAsync_WhenSetPairingUsersSucceeds_ShouldUpdateWorkspaceStatus()
     {
-        var client = new StubCapacityClient { SetPairingUsersResult = true };
+        var client = new StubCapacityClient { SetPairingUsersKey = "abc123" };
         var dialog = new StubPairingUserDialog { Result = new PairingUserDialogResult("alice", "hashvalue") };
         var handler = new SetPairingUserHandler(client, dialog);
         var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
@@ -70,6 +71,21 @@ public class SetPairingUserHandlerTests
             Guid.NewGuid(), () => new Window(), "127.0.0.1", 5243, null, workspace));
 
         workspace.StatusText.Should().Contain("alice");
+    }
+
+    // When SetPairingUsersAsync succeeds, the workspace ApiKey should be updated with the generated key.
+    [AvaloniaFact]
+    public async Task HandleAsync_WhenSetPairingUsersSucceeds_ShouldUpdateWorkspaceApiKey()
+    {
+        var client = new StubCapacityClient { SetPairingUsersKey = "new-generated-key" };
+        var dialog = new StubPairingUserDialog { Result = new PairingUserDialogResult("alice", "hashvalue") };
+        var handler = new SetPairingUserHandler(client, dialog);
+        var workspace = SharedWorkspaceFactory.CreateWorkspace(client);
+
+        await handler.HandleAsync(new SetPairingUserRequest(
+            Guid.NewGuid(), () => new Window(), "127.0.0.1", 5243, null, workspace));
+
+        workspace.ApiKey.Should().Be("new-generated-key");
     }
 
     // When no owner window is available, the handler should return Fail.

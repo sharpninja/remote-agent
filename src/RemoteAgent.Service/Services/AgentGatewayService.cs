@@ -1103,9 +1103,14 @@ public class AgentGatewayService(
                 agentNode["PairingUsers"] = existingArr;
             }
 
+            // Generate a fresh API key and persist it alongside the pairing users.
+            var apiKeyBytes = System.Security.Cryptography.RandomNumberGenerator.GetBytes(32);
+            var newApiKey = Convert.ToHexString(apiKeyBytes).ToLowerInvariant();
+            agentNode["ApiKey"] = newApiKey;
+
             var options = new System.Text.Json.JsonSerializerOptions { WriteIndented = true };
             await File.WriteAllTextAsync(appSettingsPath, root.ToJsonString(options), context.CancellationToken);
-            return new SetPairingUsersResponse { Success = true };
+            return new SetPairingUsersResponse { Success = true, GeneratedApiKey = newApiKey };
         }
         catch (Exception ex)
         {

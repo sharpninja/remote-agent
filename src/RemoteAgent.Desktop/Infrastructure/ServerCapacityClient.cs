@@ -171,7 +171,7 @@ public interface IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default);
 
-    Task<bool> SetPairingUsersAsync(
+    Task<string> SetPairingUsersAsync(
         string host,
         int port,
         IEnumerable<(string Username, string PasswordHash)> users,
@@ -615,7 +615,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         return response?.Success ?? false;
     }
 
-    public async Task<bool> SetPairingUsersAsync(
+    public async Task<string> SetPairingUsersAsync(
         string host,
         int port,
         IEnumerable<(string Username, string PasswordHash)> users,
@@ -635,7 +635,7 @@ public sealed class ServerCapacityClient : IServerCapacityClient
             cancellationToken: cancellationToken);
         if (!response.Success)
             throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Error) ? "Set pairing users failed." : response.Error);
-        return response.Success;
+        return response.GeneratedApiKey;
     }
 
 }

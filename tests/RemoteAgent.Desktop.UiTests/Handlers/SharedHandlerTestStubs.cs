@@ -153,9 +153,13 @@ internal sealed class StubCapacityClient : IServerCapacityClient
         Task.FromResult(DeletePromptTemplateResult);
     public Task<bool> SeedSessionContextAsync(string host, int port, string sessionId, string contextType, string content, string? source, string? correlationId, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult(SeedSessionContextResult);
-    public bool SetPairingUsersResult { get; set; } = true;
-    public Task<bool> SetPairingUsersAsync(string host, int port, IEnumerable<(string Username, string PasswordHash)> users, bool replace, string? apiKey, CancellationToken cancellationToken = default) =>
-        Task.FromResult(SetPairingUsersResult);
+    public string SetPairingUsersKey { get; set; } = "generated-test-api-key";
+    public Exception? ThrowOnSetPairingUsers { get; set; }
+    public Task<string> SetPairingUsersAsync(string host, int port, IEnumerable<(string Username, string PasswordHash)> users, bool replace, string? apiKey, CancellationToken cancellationToken = default)
+    {
+        if (ThrowOnSetPairingUsers is not null) throw ThrowOnSetPairingUsers;
+        return Task.FromResult(SetPairingUsersKey);
+    }
 }
 
 internal sealed class StubLogStore : IDesktopStructuredLogStore

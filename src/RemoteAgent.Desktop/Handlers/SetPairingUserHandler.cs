@@ -22,15 +22,17 @@ public sealed class SetPairingUserHandler(IServerCapacityClient client, IPairing
             return CommandResult.Ok(); // user cancelled
 
         bool success;
+        string generatedApiKey;
         try
         {
-            success = await client.SetPairingUsersAsync(
+            generatedApiKey = await client.SetPairingUsersAsync(
                 request.Host,
                 request.Port,
                 [(result.Username, result.PasswordHash)],
                 replace: false,
                 request.ApiKey,
                 cancellationToken);
+            success = true;
         }
         catch (Exception ex)
         {
@@ -44,6 +46,7 @@ public sealed class SetPairingUserHandler(IServerCapacityClient client, IPairing
             return CommandResult.Fail("Failed to set pairing user.");
         }
 
+        request.Workspace.ApiKey = generatedApiKey;
         request.Workspace.StatusText = $"Pairing user '{result.Username}' set successfully.";
         return CommandResult.Ok();
     }
