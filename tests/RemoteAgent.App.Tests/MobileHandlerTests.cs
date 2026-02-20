@@ -202,6 +202,14 @@ public sealed class MobileHandlerTests
         public void Dispatch(string rawUri) { }
     }
 
+    private sealed class NullServerProfileStore : IServerProfileStore
+    {
+        public IReadOnlyList<ServerProfile> GetAll() => Array.Empty<ServerProfile>();
+        public ServerProfile? GetByHostPort(string host, int port) => null;
+        public void Upsert(ServerProfile profile) { }
+        public bool Delete(string host, int port) => false;
+    }
+
     // -------------------------------------------------------------------------
     // Workspace factory
     // -------------------------------------------------------------------------
@@ -256,7 +264,7 @@ public sealed class MobileHandlerTests
         workspace.Port = "5243";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
-            agentSelector, new NullAppPreferences());
+            agentSelector, new NullAppPreferences(), new NullServerProfileStore());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 
@@ -272,7 +280,7 @@ public sealed class MobileHandlerTests
         workspace.Host = "";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), new StubApiClient(),
-            new StubAgentSelector("agent1"), new NullAppPreferences());
+            new StubAgentSelector("agent1"), new NullAppPreferences(), new NullServerProfileStore());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 
@@ -295,7 +303,7 @@ public sealed class MobileHandlerTests
         workspace.Port = "5243";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
-            agentSelector, new NullAppPreferences());
+            agentSelector, new NullAppPreferences(), new NullServerProfileStore());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 
@@ -323,7 +331,7 @@ public sealed class MobileHandlerTests
         workspace.ApiKey = "test-secret-key";
 
         var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
-            agentSelector, new NullAppPreferences());
+            agentSelector, new NullAppPreferences(), new NullServerProfileStore());
 
         var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
 

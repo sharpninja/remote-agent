@@ -5,9 +5,67 @@
              Title="Settings"
              BackgroundColor="{StaticResource SurfaceBrush}">
     <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="10">
-            <Label Text="Settings" FontSize="24" FontAttributes="Bold" />
-            <Label Text="Connection, notification, and theme settings can be configured here." TextColor="{StaticResource OnSurfaceVariantBrush}" />
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="Settings" FontSize="24" FontAttributes="Bold" Margin="4" />
+
+            <!-- Saved Servers -->
+            <Label Text="Saved Servers" FontSize="18" FontAttributes="Bold" Margin="4" />
+            <Label Text="Servers are saved automatically when you connect. Select a server to edit its settings."
+                   FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" Margin="4" />
+
+            <CollectionView ItemsSource="{Binding Profiles}"
+                            SelectedItem="{Binding SelectedProfile, Mode=TwoWay}"
+                            SelectionMode="Single"
+                            HeightRequest="160">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="12,8" Margin="4" StrokeThickness="1"
+                                Stroke="{StaticResource OutlineBrush}"
+                                BackgroundColor="{StaticResource SurfaceBrush}">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="8"/></Border.StrokeShape>
+                            <VerticalStackLayout Spacing="2">
+                                <Label FontAttributes="Bold">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}{0} ({1}:{2})">
+                                            <Binding Path="DisplayName" />
+                                            <Binding Path="Host" />
+                                            <Binding Path="Port" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                                <Label Text="{Binding Host, StringFormat='Host: {0}'}" FontSize="11"
+                                       TextColor="{StaticResource OnSurfaceVariantBrush}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Edit selected server -->
+            <VerticalStackLayout Spacing="8" IsVisible="{Binding HasSelection}">
+                <Label Text="Server Settings" FontSize="16" FontAttributes="Bold" Margin="4" />
+
+                <Label Text="Display Name" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" Margin="4" />
+                <Entry Text="{Binding EditDisplayName, Mode=TwoWay}" Placeholder="Display name" Margin="4" />
+
+                <Label Text="Per-Request Context (prepended to every message)" FontSize="12"
+                       TextColor="{StaticResource OnSurfaceVariantBrush}" Margin="4" />
+                <Editor Text="{Binding EditPerRequestContext, Mode=TwoWay}"
+                        Placeholder="Text sent with every chat message"
+                        AutoSize="TextChanges" MinimumHeightRequest="64" Margin="4" />
+
+                <Label Text="Default Session Context (seeded into new sessions)" FontSize="12"
+                       TextColor="{StaticResource OnSurfaceVariantBrush}" Margin="4" />
+                <Editor Text="{Binding EditDefaultSessionContext, Mode=TwoWay}"
+                        Placeholder="Context seeded when a new session starts"
+                        AutoSize="TextChanges" MinimumHeightRequest="64" Margin="4" />
+
+                <HorizontalStackLayout Spacing="8" Margin="4">
+                    <Button Text="Save" Command="{Binding SaveCommand}" />
+                    <Button Text="Delete Server" Command="{Binding DeleteCommand}"
+                            TextColor="{StaticResource ErrorBrush}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

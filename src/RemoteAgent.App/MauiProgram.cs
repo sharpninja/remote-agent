@@ -31,6 +31,7 @@ public static class MauiProgram
 		var dbPath = Path.Combine(FileSystem.AppDataDirectory, "remote-agent.db");
 		builder.Services.AddSingleton<ILocalMessageStore>(_ => new LocalMessageStore(dbPath));
 		builder.Services.AddSingleton<ISessionStore>(_ => new LocalSessionStore(dbPath));
+		builder.Services.AddSingleton<IServerProfileStore>(_ => new LocalServerProfileStore(dbPath));
 		builder.Services.AddSingleton<IAgentGatewayClient, AgentGatewayClientService>();
 
 		builder.Services.AddSingleton<IServerApiClient, ServerApiClientAdapter>();
@@ -75,6 +76,7 @@ public static class MauiProgram
 				new MauiDeleteMcpServerConfirmation(() => sp.GetService<McpRegistryPage>()),
 				sp.GetRequiredService<IRequestDispatcher>()));
 		builder.Services.AddSingleton<McpRegistryPage>();
+		builder.Services.AddSingleton<SettingsPageViewModel>();
 		builder.Services.AddSingleton<SettingsPage>();
 		builder.Services.AddSingleton<AccountManagementPage>();
 		builder.Services.AddSingleton<AppShellViewModel>();

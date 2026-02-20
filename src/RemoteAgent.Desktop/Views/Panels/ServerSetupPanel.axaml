@@ -40,6 +40,26 @@
           <SelectableTextBlock Width="80" VerticalAlignment="Center" Text="API Key" />
           <TextBox x:Name="ServerApiKeyTextBox" Width="300" Text="{Binding EditApiKey}" PasswordChar="*" />
         </WrapPanel>
+        <StackPanel Spacing="4">
+          <SelectableTextBlock Text="Per-request Context" />
+          <TextBox x:Name="PerRequestContextTextBox"
+                   Height="80"
+                   AcceptsReturn="True"
+                   TextWrapping="Wrap"
+                   VerticalContentAlignment="Top"
+                   Watermark="Text prepended to every chat message"
+                   Text="{Binding EditPerRequestContext}" />
+        </StackPanel>
+        <StackPanel Spacing="4">
+          <SelectableTextBlock Text="Default Session Context" />
+          <TextBox x:Name="DefaultSessionContextTextBox"
+                   Height="80"
+                   AcceptsReturn="True"
+                   TextWrapping="Wrap"
+                   VerticalContentAlignment="Top"
+                   Watermark="Context seeded into new sessions"
+                   Text="{Binding EditDefaultSessionContext}" />
+        </StackPanel>
       </StackPanel>
     </Border>
   </Grid>

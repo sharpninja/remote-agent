@@ -10,7 +10,8 @@ public sealed class ConnectMobileSessionHandler(
     ISessionStore sessionStore,
     IServerApiClient apiClient,
     IAgentSelector agentSelector,
-    IAppPreferences preferences)
+    IAppPreferences preferences,
+    IServerProfileStore profileStore)
     : IRequestHandler<ConnectMobileSessionRequest, CommandResult>
 {
     private const string PrefServerHost = "ServerHost";
@@ -35,6 +36,11 @@ public sealed class ConnectMobileSessionHandler(
             workspace.Status = "Enter a valid port (1-65535).";
             return CommandResult.Fail("Enter a valid port (1-65535).");
         }
+
+        // Load saved profile for this server (if any) and apply per-server config
+        var profile = profileStore.GetByHostPort(host, port);
+        if (profile != null && string.IsNullOrWhiteSpace(workspace.PerRequestContext))
+            workspace.PerRequestContext = profile.PerRequestContext;
 
         SessionItem? sessionToConnect = workspace.CurrentSession;
         if (sessionToConnect == null)
@@ -101,6 +107,17 @@ public sealed class ConnectMobileSessionHandler(
             workspace.Port = port.ToString();
             workspace.Status = "Connected (server).";
             workspace.NotifyConnectionStateChanged();
+
+            // Auto-save server profile on successful connect
+            profileStore.Upsert(new ServerProfile
+            {
+                Host = host ?? "",
+                Port = port,
+                ApiKey = workspace.ApiKey ?? "",
+                DisplayName = profile?.DisplayName ?? $"{host}:{port}",
+                PerRequestContext = workspace.PerRequestContext ?? profile?.PerRequestContext ?? "",
+                DefaultSessionContext = profile?.DefaultSessionContext ?? ""
+            });
         }
         catch (Exception ex)
         {

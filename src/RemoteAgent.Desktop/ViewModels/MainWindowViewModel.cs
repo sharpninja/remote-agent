@@ -27,6 +27,8 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     private string _editHost = "127.0.0.1";
     private string _editPort = ServiceDefaults.PortString;
     private string _editApiKey = "";
+    private string _editPerRequestContext = "";
+    private string _editDefaultSessionContext = "";
     private string _localServerActionLabel = "Check Local Server";
     private string _localServerStatusText = "Local server status not checked.";
     private bool _canApplyLocalServerAction;
@@ -180,6 +182,28 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         {
             if (_editApiKey == value) return;
             _editApiKey = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string EditPerRequestContext
+    {
+        get => _editPerRequestContext;
+        set
+        {
+            if (_editPerRequestContext == value) return;
+            _editPerRequestContext = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string EditDefaultSessionContext
+    {
+        get => _editDefaultSessionContext;
+        set
+        {
+            if (_editDefaultSessionContext == value) return;
+            _editDefaultSessionContext = value;
             OnPropertyChanged();
         }
     }
@@ -352,7 +376,9 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             EditDisplayName,
             host,
             port,
-            EditApiKey ?? ""));
+            EditApiKey ?? "",
+            EditPerRequestContext ?? "",
+            EditDefaultSessionContext ?? ""));
 
         if (!result.Success)
         {
@@ -496,6 +522,8 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         EditHost = SelectedServer.Host;
         EditPort = SelectedServer.Port.ToString();
         EditApiKey = SelectedServer.ApiKey;
+        EditPerRequestContext = SelectedServer.PerRequestContext;
+        EditDefaultSessionContext = SelectedServer.DefaultSessionContext;
     }
 
     private void EnsureCurrentServerWorkspace()
@@ -525,6 +553,8 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         EditHost = "127.0.0.1";
         EditPort = ServiceDefaults.PortString;
         EditApiKey = "";
+        EditPerRequestContext = "";
+        EditDefaultSessionContext = "";
         StatusText = "New server draft ready.";
     }
 

@@ -25,7 +25,9 @@ public sealed class SaveServerRegistrationHandler(IServerRegistrationStore store
                 : request.DisplayName.Trim(),
             Host = request.Host.Trim(),
             Port = request.Port,
-            ApiKey = request.ApiKey ?? ""
+            ApiKey = request.ApiKey ?? "",
+            PerRequestContext = request.PerRequestContext ?? "",
+            DefaultSessionContext = request.DefaultSessionContext ?? ""
         };
 
         var saved = store.Upsert(registration);

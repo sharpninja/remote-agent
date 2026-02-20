@@ -45,6 +45,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
             _host = _serverContext.Registration.Host;
             _port = _serverContext.Registration.Port.ToString();
             _apiKey = _serverContext.Registration.ApiKey ?? "";
+            _perRequestContext = _serverContext.Registration.PerRequestContext ?? "";
         }
 
         Security = new SecurityViewModel(dispatcher, this);
