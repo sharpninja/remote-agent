@@ -65,7 +65,7 @@
 - **TR-5.4** When the app receives a message with **notify** priority, it shall **show a system notification** (e.g. on Android, using a notification channel and `NotificationManager`/`NotificationCompat`); tapping the notification shall open the app so the message is visible in the chat.
 - **TR-5.5** The app shall support **swipe gestures** (e.g. left or right) on a message to **archive** it; archived messages shall be hidden from the visible list (e.g. via a property on the message and binding or filtering).
 - **TR-5.6** The chat input control shall be multi-line (editor semantics), preserving newline characters in submitted requests.
-- **TR-5.7** Desktop keyboard handling shall support **Ctrl+Enter** as the submit accelerator while plain Enter inserts a newline.
+- **TR-5.7** Desktop keyboard handling shall support **Ctrl+Enter** as the submit accelerator while plain Enter inserts a newline. Mobile keyboard handling shall use **Enter** as the submit accelerator.
 - **TR-5.8** Mobile UX shall use a connection-first screen (host/port/session connect) and toggle to the chat workspace only after successful connection state.
 
 *See:* [FR-1](functional-requirements.md#1-product-purpose), [FR-2](functional-requirements.md#2-chat-and-messaging), [FR-3](functional-requirements.md#3-message-priority-and-notifications), [FR-4](functional-requirements.md#4-archive).
@@ -261,3 +261,29 @@
 - **TR-20.2** A **global Avalonia style** in `App.axaml` shall apply a **4px margin** to `Button`, `TextBox`, `ComboBox`, `CheckBox`, `ListBox`, `SelectableTextBlock`, and `TabControl` controls.
 
 *See:* [FR-18](functional-requirements.md#18-desktop-ux-refinements).
+
+---
+
+## 21. Server profiles and persistent connection settings
+
+- **TR-21.1** A shared `ServerProfile` model and `IServerProfileStore` interface shall be defined in `RemoteAgent.App.Logic` so both mobile and desktop can consume the same contract.
+- **TR-21.2** The mobile app shall implement `IServerProfileStore` using **LiteDB** with a unique index on `host:port` (lowercased). CRUD operations: `GetAll`, `GetByHostPort`, `Upsert`, `Delete`.
+- **TR-21.3** The desktop `ServerRegistration` model shall include `PerRequestContext` and `DefaultSessionContext` string properties, persisted by `LiteDbServerRegistrationStore.Upsert`.
+- **TR-21.4** `ConnectMobileSessionHandler` shall **auto-save** a `ServerProfile` on successful connection and load the saved `PerRequestContext` into the workspace when the workspace value is empty.
+- **TR-21.5** The desktop `ServerWorkspaceViewModel` shall load `PerRequestContext` from the `ServerRegistration` during construction.
+- **TR-21.6** The desktop `SaveServerRegistrationRequest` and `SaveServerRegistrationHandler` shall accept and persist `PerRequestContext` and `DefaultSessionContext`.
+- **TR-21.7** The mobile `SettingsPage` shall be backed by a `SettingsPageViewModel` (DI-registered) that exposes the profile list with save and delete commands.
+
+*See:* [FR-19](functional-requirements.md#19-server-profiles-and-persistent-connection-settings).
+
+---
+
+## 22. Mobile chat UX
+
+- **TR-22.1** On Android, the native `AppCompatEditText` platform view of the message `Editor` shall intercept `Keycode.Enter` on `KeyEventActions.Down` and dispatch `SendMessageCommand`, preventing newline insertion.
+- **TR-22.2** The `IConnectionModeSelector` interface and `MauiConnectionModeSelector` implementation shall be removed; `ConnectMobileSessionHandler` shall hardcode `ConnectionMode = "server"`.
+- **TR-22.3** `ISessionCommandBus` shall expose `IsConnected` (bool) and `ConnectionStateChanged` (event) so `AppShellViewModel` can bind flyout item visibility to connection state.
+- **TR-22.4** The connection card in `MainPage.xaml` shall bind `IsVisible` to `IsConnected` via `InverseBool` converter, hiding it once connected.
+- **TR-22.5** `ServerApiClient` shall use `ExecuteGrpcAsync` for all 12 server API methods; no `HttpClient`-based REST calls shall remain.
+
+*See:* [FR-20](functional-requirements.md#20-mobile-chat-ux).

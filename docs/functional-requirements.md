@@ -24,8 +24,8 @@
 - **FR-2.2** Agent output (stdout/stderr) shall be **streamed to the app in real time** and displayed in the chat.
 - **FR-2.3** Agent output in the chat shall be **formatted with a markdown parser** (e.g. bold, code, lists) so that Cursor output is readable and structured.
 - **FR-2.4** The user shall be able to **connect** to the service (host/port) and **disconnect**; connecting shall start a session with the agent; disconnecting shall stop the session and the agent.
-- **FR-2.5** Chat text entry shall support **multi-line input**; pressing **Enter/Return** shall insert a newline in the request text.
-- **FR-2.6** On desktop clients, pressing **Ctrl+Enter** in the chat editor shall submit the request.
+- **FR-2.5** Chat text entry shall support **multi-line input** on desktop; on mobile, Enter sends the message.
+- **FR-2.6** On desktop clients, pressing **Ctrl+Enter** in the chat editor shall submit the request; on mobile clients, pressing **Enter** shall submit the request.
 - **FR-2.7** On mobile clients, session establishment shall begin in a **dedicated connection view** and transition to the **chat view** after successful connection.
 
 *See:* [TR-3](technical-requirements.md#3-service-architecture), [TR-4](technical-requirements.md#4-protocol-grpc), [TR-5](technical-requirements.md#5-app-architecture).
@@ -203,3 +203,26 @@
 - **FR-18.2** All interactive and display controls in the Avalonia desktop app shall have a uniform **4px margin** applied via a global style.
 
 *See:* [TR-20](technical-requirements.md#20-desktop-ux-refinements).
+
+---
+
+## 19. Server profiles and persistent connection settings
+
+- **FR-19.1** Both mobile and desktop apps shall **persist server connection details** (host, port, API key, display name) after a successful connection, keyed by **host:port**.
+- **FR-19.2** The Settings page (mobile) and Server Setup panel (desktop) shall display a **list of saved server profiles** with the ability to **add, edit, and remove** entries.
+- **FR-19.3** Each saved server profile shall store a configurable **per-request context** (text prepended to every chat message) and a **default session context** (context seeded into new sessions).
+- **FR-19.4** Connecting to a previously saved server shall **auto-load** the stored per-request context into the workspace (without overriding user-entered values).
+- **FR-19.5** Saving or updating a server profile shall not affect **existing active sessions**; changes apply only to subsequent connections.
+
+*See:* [TR-21](technical-requirements.md#21-server-profiles-and-persistent-connection-settings).
+
+---
+
+## 20. Mobile chat UX
+
+- **FR-20.1** On mobile clients, pressing **Enter** in the chat input shall **send the message** (submit the request).
+- **FR-20.2** On mobile clients, the **connection mode shall be fixed to "server"**; no mode-selection dialog shall be shown.
+- **FR-20.3** Navigation items (Settings, Account, MCP Registry) shall be **hidden until a connection is established**; the connection card shall be **hidden once connected**.
+- **FR-20.4** All client-to-server API calls shall use **gRPC exclusively**; no REST/HTTP fallback endpoints shall be used by the mobile client.
+
+*See:* [TR-22](technical-requirements.md#22-mobile-chat-ux).
