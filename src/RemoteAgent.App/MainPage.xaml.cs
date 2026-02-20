@@ -7,7 +7,6 @@ using Windows.System;
 using Windows.UI.Core;
 #endif
 #if ANDROID
-using Android.Views;
 using AndroidX.AppCompat.Widget;
 #endif
 
@@ -79,16 +78,22 @@ public partial class MainPage : ContentPage
     private void OnMessageEditorHandlerChangedAndroid(object? sender, EventArgs e)
     {
         if (_androidEditText != null)
-            _androidEditText.KeyPress -= OnAndroidEditorKeyPress;
+            _androidEditText.EditorAction -= OnAndroidEditorAction;
 
         _androidEditText = MessageEditor?.Handler?.PlatformView as AppCompatEditText;
         if (_androidEditText != null)
-            _androidEditText.KeyPress += OnAndroidEditorKeyPress;
+        {
+            _androidEditText.ImeOptions = Android.Views.InputMethods.ImeAction.Send;
+            _androidEditText.SetImeActionLabel("Send", Android.Views.InputMethods.ImeAction.Send);
+            _androidEditText.EditorAction += OnAndroidEditorAction;
+        }
     }
 
-    private void OnAndroidEditorKeyPress(object? sender, Android.Views.View.KeyEventArgs e)
+    private void OnAndroidEditorAction(object? sender, Android.Widget.TextView.EditorActionEventArgs e)
     {
-        if (e.KeyCode == Keycode.Enter && e.Event?.Action == KeyEventActions.Down)
+        if (e.ActionId == Android.Views.InputMethods.ImeAction.Send ||
+            e.ActionId == Android.Views.InputMethods.ImeAction.Done ||
+            e.ActionId == Android.Views.InputMethods.ImeAction.Unspecified)
         {
             e.Handled = true;
             if (_vm.SendMessageCommand.CanExecute(null))

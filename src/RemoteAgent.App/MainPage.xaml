@@ -275,14 +275,16 @@
                         PlaceholderColor="{StaticResource OnSurfaceVariantBrush}"
                         VerticalOptions="Center" />
                 <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
-                    <Button x:Name="AttachBtn" Command="{Binding AttachCommand}">
+                    <Button x:Name="AttachBtn" Command="{Binding AttachCommand}" Padding="8" MinimumHeightRequest="36" MinimumWidthRequest="36">
                         <Button.ImageSource>
-                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperclip}" Color="{StaticResource OnPrimaryBrush}" Size="18"/>
+                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperclip}" Color="{StaticResource OnPrimaryBrush}" Size="16"/>
                         </Button.ImageSource>
                     </Button>
-                    <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconPaperPlane}"
-                           TextColor="{StaticResource OnPrimaryBrush}" VerticalOptions="Center" />
-                    <Button x:Name="SendBtn" Text="Send" Command="{Binding SendMessageCommand}" />
+                    <Button x:Name="SendBtn" Command="{Binding SendMessageCommand}" Padding="8" MinimumHeightRequest="36" MinimumWidthRequest="36">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperPlane}" Color="{StaticResource OnPrimaryBrush}" Size="16"/>
+                        </Button.ImageSource>
+                    </Button>
                 </HorizontalStackLayout>
             </HorizontalStackLayout>
         </Border>
