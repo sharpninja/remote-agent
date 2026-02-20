@@ -104,11 +104,20 @@ public sealed class MobileHandlerTests
         public SessionCapacitySnapshot? Capacity { get; set; }
         public ListPromptTemplatesResponse? PromptTemplates { get; set; }
 
+        public string? ReceivedServerInfoApiKey { get; private set; }
+        public string? ReceivedCapacityApiKey { get; private set; }
+
         public Task<ServerInfoResponse?> GetServerInfoAsync(string host, int port, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
-            => Task.FromResult(ServerInfo);
+        {
+            ReceivedServerInfoApiKey = apiKey;
+            return Task.FromResult(ServerInfo);
+        }
 
         public Task<SessionCapacitySnapshot?> GetSessionCapacityAsync(string host, int port, string? agentId = null, string? apiKey = null, CancellationToken ct = default)
-            => Task.FromResult(Capacity);
+        {
+            ReceivedCapacityApiKey = apiKey;
+            return Task.FromResult(Capacity);
+        }
 
         public Task<ListPromptTemplatesResponse?> ListPromptTemplatesAsync(string host, int port, string? apiKey = null, CancellationToken ct = default)
             => Task.FromResult(PromptTemplates);
@@ -311,6 +320,36 @@ public sealed class MobileHandlerTests
 
         result.Success.Should().BeFalse();
         workspace.Status.Should().Contain("Failed");
+    }
+
+    [Fact]
+    public async Task Connect_WithApiKey_ShouldForwardKeyToServerInfoAndCapacityChecks()
+    {
+        // Regression: both GetServerInfoAsync and GetSessionCapacityAsync must receive the
+        // workspace ApiKey — without it, a service configured with Agent:ApiKey returns 401
+        // and the capacity check returns null → "Could not verify server session capacity."
+        var gateway = new StubGateway();
+        var modeSelector = new StubConnectionModeSelector("server");
+        var agentSelector = new StubAgentSelector("agent1");
+        var apiClient = new StubApiClient
+        {
+            ServerInfo = new ServerInfoResponse(),
+            Capacity = new SessionCapacitySnapshot(true, "", 10, 0, 10, "agent1", null, 0, null)
+        };
+        var workspace = CreateWorkspace(gateway: gateway, connectionModeSelector: modeSelector,
+            agentSelector: agentSelector, apiClient: apiClient);
+        workspace.Host = "192.168.1.10";
+        workspace.Port = "5243";
+        workspace.ApiKey = "test-secret-key";
+
+        var handler = new ConnectMobileSessionHandler(gateway, new StubSessionStore(), apiClient,
+            modeSelector, agentSelector, new NullAppPreferences());
+
+        var result = await handler.HandleAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), workspace));
+
+        result.Success.Should().BeTrue();
+        apiClient.ReceivedServerInfoApiKey.Should().Be("test-secret-key");
+        apiClient.ReceivedCapacityApiKey.Should().Be("test-secret-key");
     }
 
     // -------------------------------------------------------------------------

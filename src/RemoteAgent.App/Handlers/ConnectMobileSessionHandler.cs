@@ -67,7 +67,7 @@ public sealed class ConnectMobileSessionHandler(
             if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
             {
                 workspace.Status = "Getting server info...";
-                var serverInfo = await apiClient.GetServerInfoAsync(host, port, ct: ct);
+                var serverInfo = await apiClient.GetServerInfoAsync(host, port, apiKey: workspace.ApiKey, ct: ct);
                 if (serverInfo == null)
                 {
                     workspace.Status = "Could not reach server.";
@@ -96,7 +96,7 @@ public sealed class ConnectMobileSessionHandler(
 
         if (string.Equals(selectedMode, "server", StringComparison.OrdinalIgnoreCase))
         {
-            var capacity = await apiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId, ct: ct);
+            var capacity = await apiClient.GetSessionCapacityAsync(host, port, sessionToConnect.AgentId, apiKey: workspace.ApiKey, ct: ct);
             if (capacity == null)
             {
                 workspace.Status = "Could not verify server session capacity.";
