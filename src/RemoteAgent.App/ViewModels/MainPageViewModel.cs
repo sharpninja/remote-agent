@@ -197,6 +197,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     }
 
     public bool IsConnected => _gateway.IsConnected;
+    public event Action? ConnectionStateChanged;
     public bool IsEditingTitle
     {
         get => _isEditingTitle;
@@ -286,6 +287,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private void OnGatewayConnectionStateChanged()
     {
         OnPropertyChanged(nameof(IsConnected));
+        ConnectionStateChanged?.Invoke();
         ((Command)ConnectCommand).ChangeCanExecute();
         ((Command)DisconnectCommand).ChangeCanExecute();
         ((Command)SendMessageCommand).ChangeCanExecute();

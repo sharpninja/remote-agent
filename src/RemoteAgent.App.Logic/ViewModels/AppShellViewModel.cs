@@ -28,12 +28,20 @@ public sealed class AppShellViewModel : INotifyPropertyChanged
         NavigateToAccountCommand = new RelayCommand(() => _ = NavigateAsync("//AccountManagementPage"));
         OpenSessionsCommand = new RelayCommand(() => _ = OpenSessionsAsync());
 
+        _sessionBus.ConnectionStateChanged += () =>
+        {
+            OnPropertyChanged(nameof(IsConnected));
+            RefreshSessions();
+        };
+
         RefreshSessions();
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public ObservableCollection<SessionSummary> SessionItems { get; } = [];
+
+    public bool IsConnected => _sessionBus.IsConnected;
 
     public ICommand StartSessionCommand { get; }
     public ICommand SelectSessionCommand { get; }
