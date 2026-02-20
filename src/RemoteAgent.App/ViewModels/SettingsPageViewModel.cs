@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using RemoteAgent.App.Logic;
+using RemoteAgent.App.Logic.Cqrs;
+using RemoteAgent.App.Requests;
 
 namespace RemoteAgent.App.ViewModels;
 
@@ -10,16 +12,23 @@ namespace RemoteAgent.App.ViewModels;
 public sealed class SettingsPageViewModel : INotifyPropertyChanged
 {
     private readonly IServerProfileStore _profileStore;
+    private readonly IRequestDispatcher _dispatcher;
     private ServerProfile? _selectedProfile;
     private string _editDisplayName = "";
     private string _editPerRequestContext = "";
     private string _editDefaultSessionContext = "";
+    private bool _hasApiKey;
 
-    public SettingsPageViewModel(IServerProfileStore profileStore)
+    public SettingsPageViewModel(IServerProfileStore profileStore, IRequestDispatcher dispatcher)
     {
         _profileStore = profileStore;
-        SaveCommand = new Command(Save, () => _selectedProfile != null);
-        DeleteCommand = new Command(Delete, () => _selectedProfile != null);
+        _dispatcher = dispatcher;
+        SaveCommand = new Command(async () => await RunAsync(new SaveServerProfileRequest(Guid.NewGuid(), this)),
+            () => _selectedProfile != null);
+        DeleteCommand = new Command(async () => await RunAsync(new DeleteServerProfileRequest(Guid.NewGuid(), this)),
+            () => _selectedProfile != null);
+        ClearApiKeyCommand = new Command(async () => await RunAsync(new ClearServerApiKeyRequest(Guid.NewGuid(), this)),
+            () => _selectedProfile != null && _hasApiKey);
         RefreshProfiles();
     }
 
@@ -44,6 +53,12 @@ public sealed class SettingsPageViewModel : INotifyPropertyChanged
 
     public bool HasSelection => _selectedProfile != null;
 
+    public bool HasApiKey
+    {
+        get => _hasApiKey;
+        set => Set(ref _hasApiKey, value);
+    }
+
     public string EditDisplayName
     {
         get => _editDisplayName;
@@ -64,6 +79,7 @@ public sealed class SettingsPageViewModel : INotifyPropertyChanged
 
     public ICommand SaveCommand { get; }
     public ICommand DeleteCommand { get; }
+    public ICommand ClearApiKeyCommand { get; }
 
     public void RefreshProfiles()
     {
@@ -79,30 +95,28 @@ public sealed class SettingsPageViewModel : INotifyPropertyChanged
             EditDisplayName = "";
             EditPerRequestContext = "";
             EditDefaultSessionContext = "";
+            HasApiKey = false;
+            ((Command)ClearApiKeyCommand).ChangeCanExecute();
             return;
         }
 
         EditDisplayName = _selectedProfile.DisplayName;
         EditPerRequestContext = _selectedProfile.PerRequestContext;
         EditDefaultSessionContext = _selectedProfile.DefaultSessionContext;
+        HasApiKey = !string.IsNullOrEmpty(_selectedProfile.ApiKey);
+        ((Command)ClearApiKeyCommand).ChangeCanExecute();
     }
 
-    private void Save()
+    private async Task RunAsync<TResponse>(IRequest<TResponse> request)
     {
-        if (_selectedProfile == null) return;
-        _selectedProfile.DisplayName = EditDisplayName;
-        _selectedProfile.PerRequestContext = EditPerRequestContext;
-        _selectedProfile.DefaultSessionContext = EditDefaultSessionContext;
-        _profileStore.Upsert(_selectedProfile);
-        RefreshProfiles();
-    }
-
-    private void Delete()
-    {
-        if (_selectedProfile == null) return;
-        _profileStore.Delete(_selectedProfile.Host, _selectedProfile.Port);
-        SelectedProfile = null;
-        RefreshProfiles();
+        try
+        {
+            await _dispatcher.SendAsync(request);
+        }
+        catch
+        {
+            // Best effort — profile operations are local-only.
+        }
     }
 
     private void Set<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)

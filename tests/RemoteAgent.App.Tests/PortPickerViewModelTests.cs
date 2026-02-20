@@ -36,10 +36,10 @@ public sealed class PortPickerViewModelTests
     }
 
     [Fact]
-    public void AvailablePorts_ShouldHaveWindowsPortFirst()
+    public void AvailablePorts_ShouldHaveLinuxPortFirst()
     {
-        MainPageViewModel.AvailablePorts[0].Should().Be("5244",
-            "Windows service port 5244 is the default and must appear first in the picker list");
+        MainPageViewModel.AvailablePorts[0].Should().Be("5243",
+            "Linux/Docker service port 5243 is the default and must appear first in the picker list");
     }
 
     [Fact]
@@ -64,11 +64,11 @@ public sealed class PortPickerViewModelTests
     // ── Default port on a freshly created ViewModel ───────────────────────────
 
     [Fact]
-    public void Port_DefaultValue_ShouldBeWindowsPort()
+    public void Port_DefaultValue_ShouldBeLinuxPort()
     {
         var vm = MobileHandlerTests.CreateDefaultViewModel();
-        vm.Port.Should().Be("5244",
-            "the Windows service port 5244 is the default so users can connect immediately without editing");
+        vm.Port.Should().Be("5243",
+            "the Linux/Docker service port 5243 is the default so users can connect immediately without editing");
     }
 
     [Fact]

@@ -27,9 +27,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Connect" Command="{Binding ConnectCommand}" />
         <ToolbarItem Text="Disconnect" Command="{Binding DisconnectCommand}" />
-        <ToolbarItem Text="New Session" Command="{Binding NewSessionCommand}" />
-        <ToolbarItem Text="Terminate" Command="{Binding TerminateCurrentSessionCommand}" />
-        <ToolbarItem Text="Template" Command="{Binding UsePromptTemplateCommand}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -85,14 +82,14 @@
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="12"/>
             </Border.StrokeShape>
-            <VerticalStackLayout Spacing="6">
-                <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
-                    <Label Text="Sessions" FontAttributes="Bold" VerticalOptions="Center" />
-                    <Button x:Name="NewSessionBtn" Text="+ New" Command="{Binding NewSessionCommand}" Padding="12,4" />
-                    <Button Text="Terminate" Command="{Binding TerminateCurrentSessionCommand}" Padding="12,4" />
+            <VerticalStackLayout Spacing="4">
+                <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                    <Label Text="Sessions" FontAttributes="Bold" FontSize="13" VerticalOptions="Center" />
+                    <Button x:Name="NewSessionBtn" Text="+ New" Command="{Binding NewSessionCommand}" Padding="8,2" FontSize="12" />
+                    <Button Text="End" Command="{Binding TerminateCurrentSessionCommand}" Padding="8,2" FontSize="12" />
                 </HorizontalStackLayout>
                 <CollectionView x:Name="SessionTabsView"
-                                HeightRequest="44"
+                                HeightRequest="34"
                                 ItemsSource="{Binding Sessions}"
                                 SelectedItem="{Binding CurrentSession, Mode=TwoWay}"
                                 SelectionMode="Single">
@@ -101,15 +98,16 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <HorizontalStackLayout Spacing="6">
-                                <Border Padding="10,6" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
-                                    <Border.StrokeShape><RoundRectangle CornerRadius="8"/></Border.StrokeShape>
-                                    <Label Text="{Binding Title}" MaxLines="1" LineBreakMode="TailTruncation" />
+                            <HorizontalStackLayout Spacing="2">
+                                <Border Padding="8,4" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="6"/></Border.StrokeShape>
+                                    <Label Text="{Binding Title}" FontSize="12" MaxLines="1" LineBreakMode="TailTruncation" />
                                 </Border>
-                                <Button Text="X"
-                                        WidthRequest="34"
-                                        HeightRequest="34"
+                                <Button Text="✕" FontSize="10"
+                                        WidthRequest="24"
+                                        HeightRequest="24"
                                         Padding="0"
+                                        CornerRadius="12"
                                         Command="{Binding BindingContext.TerminateSessionCommand, Source={x:Reference ThisPage}}"
                                         CommandParameter="{Binding .}" />
                             </HorizontalStackLayout>
@@ -259,22 +257,21 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Input: M3 outlined field row, 48dp touch -->
-        <Border Grid.Row="3" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="12,8" Margin="0,8,0,0">
+        <!-- Input: M3 outlined field row -->
+        <Border Grid.Row="3" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="8,4" Margin="0,8,0,0">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="8"/>
             </Border.StrokeShape>
-            <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
-                <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconMessage}"
-                       TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
-                <Editor x:Name="MessageEditor"
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
+                <Editor Grid.Column="0" x:Name="MessageEditor"
                         Placeholder="Message to agent..."
                         Text="{Binding PendingMessage, Mode=TwoWay}"
                         AutoSize="TextChanges"
-                        MinimumHeightRequest="72"
+                        MinimumHeightRequest="40"
                         PlaceholderColor="{StaticResource OnSurfaceVariantBrush}"
-                        VerticalOptions="Center" />
-                <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill" />
+                <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
                     <Button x:Name="AttachBtn" Command="{Binding AttachCommand}" Padding="8" MinimumHeightRequest="36" MinimumWidthRequest="36">
                         <Button.ImageSource>
                             <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperclip}" Color="{StaticResource OnPrimaryBrush}" Size="16"/>
@@ -286,7 +283,7 @@
                         </Button.ImageSource>
                     </Button>
                 </HorizontalStackLayout>
-            </HorizontalStackLayout>
+            </Grid>
         </Border>
 
         <!-- Status: M3 label small, OnSurfaceVariant -->

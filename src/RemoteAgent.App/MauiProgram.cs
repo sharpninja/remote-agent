@@ -53,6 +53,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<IRequestHandler<SaveMcpServerRequest, CommandResult>, SaveMcpServerHandler>();
 		builder.Services.AddTransient<IRequestHandler<DeleteMcpServerRequest, CommandResult>, DeleteMcpServerHandler>();
 		builder.Services.AddTransient<IRequestHandler<ScanQrCodeRequest, CommandResult>, ScanQrCodeHandler>();
+		builder.Services.AddTransient<IRequestHandler<SaveServerProfileRequest, CommandResult>, SaveServerProfileHandler>();
+		builder.Services.AddTransient<IRequestHandler<DeleteServerProfileRequest, CommandResult>, DeleteServerProfileHandler>();
+		builder.Services.AddTransient<IRequestHandler<ClearServerApiKeyRequest, CommandResult>, ClearServerApiKeyHandler>();
 
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainPageViewModel>();

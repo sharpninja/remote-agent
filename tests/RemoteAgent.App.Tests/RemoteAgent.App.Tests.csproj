@@ -47,6 +47,13 @@
     <Compile Include="..\..\src\RemoteAgent.App\Handlers\TerminateMobileSessionHandler.cs" Link="App\Handlers\TerminateMobileSessionHandler.cs" />
     <Compile Include="..\..\src\RemoteAgent.App\Handlers\UsePromptTemplateHandler.cs" Link="App\Handlers\UsePromptTemplateHandler.cs" />
     <Compile Include="..\..\src\RemoteAgent.App\Handlers\ScanQrCodeHandler.cs" Link="App\Handlers\ScanQrCodeHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\ViewModels\SettingsPageViewModel.cs" Link="App\ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\SaveServerProfileRequest.cs" Link="App\Requests\SaveServerProfileRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\DeleteServerProfileRequest.cs" Link="App\Requests\DeleteServerProfileRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Requests\ClearServerApiKeyRequest.cs" Link="App\Requests\ClearServerApiKeyRequest.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\SaveServerProfileHandler.cs" Link="App\Handlers\SaveServerProfileHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\DeleteServerProfileHandler.cs" Link="App\Handlers\DeleteServerProfileHandler.cs" />
+    <Compile Include="..\..\src\RemoteAgent.App\Handlers\ClearServerApiKeyHandler.cs" Link="App\Handlers\ClearServerApiKeyHandler.cs" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:RemoteAgent.App.Converters"
              x:Class="RemoteAgent.App.SettingsPage"
              Title="Settings"
              BackgroundColor="{StaticResource SurfaceBrush}">
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBool" />
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="12">
             <Label Text="Settings" FontSize="24" FontAttributes="Bold" Margin="4" />
@@ -59,6 +63,16 @@
                 <Editor Text="{Binding EditDefaultSessionContext, Mode=TwoWay}"
                         Placeholder="Context seeded when a new session starts"
                         AutoSize="TextChanges" MinimumHeightRequest="64" Margin="4" />
+
+                <Label Text="API Key" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" Margin="4" />
+                <HorizontalStackLayout Spacing="8" Margin="4">
+                    <Label Text="✓ API key stored" FontSize="13" TextColor="Green" VerticalOptions="Center"
+                           IsVisible="{Binding HasApiKey}" />
+                    <Label Text="No API key" FontSize="13" TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center"
+                           IsVisible="{Binding HasApiKey, Converter={StaticResource InverseBool}}" />
+                    <Button Text="Clear API Key" Command="{Binding ClearApiKeyCommand}"
+                            TextColor="{StaticResource ErrorBrush}" Padding="8,4" FontSize="12" />
+                </HorizontalStackLayout>
 
                 <HorizontalStackLayout Spacing="8" Margin="4">
                     <Button Text="Save" Command="{Binding SaveCommand}" />

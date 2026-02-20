@@ -16,10 +16,10 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private const string PrefServerPort = "ServerPort";
     private const string PrefPerRequestContext = "PerRequestContext";
     private const string PrefApiKey = "ApiKey";
-    private const string DefaultPort = "5244";
+    private const string DefaultPort = "5243";
 
-    /// <summary>Well-known ports offered in the port picker (Windows service = 5244, Linux/Docker = 5243).</summary>
-    public static readonly IReadOnlyList<string> AvailablePorts = ["5244", "5243"];
+    /// <summary>Well-known ports offered in the port picker (Linux/Docker = 5243, Windows service = 5244).</summary>
+    public static readonly IReadOnlyList<string> AvailablePorts = ["5243", "5244"];
 
     private readonly ISessionStore _sessionStore;
     private readonly IAgentGatewayClient _gateway;
