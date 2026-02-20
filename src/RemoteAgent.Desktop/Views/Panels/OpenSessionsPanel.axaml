@@ -4,8 +4,8 @@
   <Grid DataContext="{Binding CurrentServerViewModel.Security}"
         RowDefinitions="Auto,Auto,*"
         Margin="8">
-    <TextBlock FontWeight="SemiBold" Text="Open Server Sessions" />
-    <TextBlock Grid.Row="1" Opacity="0.7" Text="Sessions currently active on the server." />
+    <SelectableTextBlock FontWeight="SemiBold" Text="Open Server Sessions" />
+    <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="Sessions currently active on the server." />
     <ListBox x:Name="OpenServerSessionsList"
              Grid.Row="2"
              ItemsSource="{Binding OpenServerSessions}"
@@ -13,9 +13,9 @@
       <ListBox.ItemTemplate>
         <DataTemplate>
           <StackPanel Orientation="Horizontal" Spacing="6">
-            <TextBlock Text="{Binding AgentId}" />
-            <TextBlock Text=":" />
-            <TextBlock Text="{Binding SessionId}" />
+            <SelectableTextBlock Text="{Binding AgentId}" />
+            <SelectableTextBlock Text=":" />
+            <SelectableTextBlock Text="{Binding SessionId}" />
           </StackPanel>
         </DataTemplate>
       </ListBox.ItemTemplate>

@@ -4,14 +4,14 @@
              x:Class="RemoteAgent.Desktop.Views.Panels.AppLogPanel">
   <Grid RowDefinitions="Auto,Auto,*,Auto,Auto"
         Margin="8">
-    <TextBlock FontWeight="SemiBold" Text="App Log" />
-    <TextBlock Grid.Row="1" Opacity="0.7" Text="Log output captured from this management application." />
+    <SelectableTextBlock FontWeight="SemiBold" Text="App Log" />
+    <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="Log output captured from this management application." />
     <ScrollViewer Grid.Row="2">
       <ItemsControl x:Name="AppLogList"
                     ItemsSource="{Binding AppLog.Entries}">
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            <TextBlock FontFamily="Consolas,Courier New,monospace"
+            <SelectableTextBlock FontFamily="Consolas,Courier New,monospace"
                        FontSize="11"
                        TextWrapping="Wrap"
                        Text="{Binding, StringFormat='[{0:HH:mm:ss.fff}] [{1,-11}] {2}'}" />
@@ -37,7 +37,7 @@
         <fa:FontIcon Glyph="&#xED25;" />
       </Button>
     </WrapPanel>
-    <TextBlock Grid.Row="4"
+    <SelectableTextBlock Grid.Row="4"
                Opacity="0.7"
                Text="{Binding AppLog.StatusText}"
                TextWrapping="Wrap"

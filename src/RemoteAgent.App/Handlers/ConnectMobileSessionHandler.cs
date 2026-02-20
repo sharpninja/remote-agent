@@ -16,6 +16,7 @@ public sealed class ConnectMobileSessionHandler(
 {
     private const string PrefServerHost = "ServerHost";
     private const string PrefServerPort = "ServerPort";
+    private const string PrefApiKey     = "ApiKey";
     private const string DefaultPort = "5243";
 
     public async Task<CommandResult> HandleAsync(ConnectMobileSessionRequest request, CancellationToken ct = default)
@@ -119,6 +120,7 @@ public sealed class ConnectMobileSessionHandler(
                 apiKey: workspace.ApiKey, ct: ct);
             preferences.Set(PrefServerHost, host ?? "");
             preferences.Set(PrefServerPort, port.ToString());
+            preferences.Set(PrefApiKey,     workspace.ApiKey ?? "");
             workspace.Host = host ?? "";
             workspace.Port = port.ToString();
             workspace.Status = $"Connected ({selectedMode}).";

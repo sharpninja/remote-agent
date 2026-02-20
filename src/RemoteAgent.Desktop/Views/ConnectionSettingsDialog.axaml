@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterOwner"
         Title="Connection Settings">
   <Grid RowDefinitions="Auto,Auto,*" Margin="14" RowSpacing="10">
-    <TextBlock FontWeight="SemiBold"
+    <SelectableTextBlock FontWeight="SemiBold"
                Text="Configure connection defaults for the new session." />
 
     <Grid Grid.Row="1"
@@ -18,24 +18,24 @@
           RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
           ColumnSpacing="10"
           RowSpacing="8">
-      <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Host" />
+      <SelectableTextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Host" />
       <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Host}" />
 
-      <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Port" />
+      <SelectableTextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Port" />
       <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Port}" />
 
-      <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Mode" />
+      <SelectableTextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Mode" />
       <ComboBox Grid.Row="2" Grid.Column="1"
                 ItemsSource="{Binding ConnectionModes}"
                 SelectedItem="{Binding SelectedConnectionMode}" />
 
-      <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="Agent" />
+      <SelectableTextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="Agent" />
       <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedAgentId}" />
 
-      <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="API Key" />
+      <SelectableTextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="API Key" />
       <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ApiKey}" PasswordChar="*" />
 
-      <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" Text="Per-request Context" />
+      <SelectableTextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" Text="Per-request Context" />
       <TextBox
                Grid.Row="5"
                Grid.Column="1"
@@ -47,7 +47,7 @@
     </Grid>
 
     <Grid Grid.Row="2" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10">
-      <TextBlock
+      <SelectableTextBlock
                  VerticalAlignment="Center"
                  Foreground="#C62828"
                  Text="{Binding ValidationMessage}" />

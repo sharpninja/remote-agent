@@ -2,13 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="RemoteAgent.Desktop.Views.Panels.LocalServerPanel">
   <Grid RowDefinitions="Auto,Auto,Auto,Auto,*" Margin="8">
-    <TextBlock FontWeight="SemiBold" Text="Local Server Control" />
-    <TextBlock Grid.Row="1" Opacity="0.7" Text="Check local service state and start/stop when managed from desktop." TextWrapping="Wrap" />
-    <TextBlock x:Name="LocalServerStatusTextBlock"
+    <SelectableTextBlock FontWeight="SemiBold" Text="Local Server Control" />
+    <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="Check local service state and start/stop when managed from desktop." TextWrapping="Wrap" />
+    <SelectableTextBlock x:Name="LocalServerStatusTextBlock"
                Grid.Row="2"
                Text="{Binding LocalServerStatusText}"
                TextWrapping="Wrap" />
-    <TextBlock Grid.Row="3"
+    <SelectableTextBlock Grid.Row="3"
                Opacity="0.7"
                Text="Use the top toolbar for local server actions."
                TextWrapping="Wrap" />

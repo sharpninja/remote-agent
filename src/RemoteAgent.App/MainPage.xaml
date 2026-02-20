@@ -66,10 +66,12 @@
                             SelectedItem="{Binding Port, Mode=TwoWay}"
                             Title="Port" />
                     <HorizontalStackLayout Spacing="8">
-                        <Button AutomationId="mobile_connect_button" Text="Connect" Command="{Binding ConnectCommand}" />
-                        <Button AutomationId="mobile_new_session_button" Text="New Session" Command="{Binding NewSessionCommand}" />
-                        <Button Text="Terminate Session" Command="{Binding TerminateCurrentSessionCommand}" />
-                        <Button AutomationId="mobile_scan_qr_button" Text="Scan QR" Command="{Binding ScanQrCodeCommand}" />
+                        <Button AutomationId="mobile_scan_qr_button"
+                                Text="Scan QR to Pair"
+                                Command="{Binding ScanQrCodeCommand}" />
+                        <Button AutomationId="mobile_connect_button"
+                                Text="Connect"
+                                Command="{Binding ConnectCommand}" />
                     </HorizontalStackLayout>
                     <Label Text="{Binding Status}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" />
                 </VerticalStackLayout>

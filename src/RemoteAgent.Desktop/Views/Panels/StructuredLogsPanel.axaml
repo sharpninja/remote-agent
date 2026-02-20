@@ -4,8 +4,8 @@
   <Grid DataContext="{Binding CurrentServerViewModel.StructuredLogs}"
         RowDefinitions="Auto,Auto,Auto,Auto,*"
         Margin="8">
-    <TextBlock FontWeight="SemiBold" Text="Structured Log Viewer" />
-    <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding LogMonitorStatus}" TextWrapping="Wrap" />
+    <SelectableTextBlock FontWeight="SemiBold" Text="Structured Log Viewer" />
+    <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="{Binding LogMonitorStatus}" TextWrapping="Wrap" />
     <Grid Grid.Row="2" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
       <TextBox Grid.Row="0" Grid.Column="0" Watermark="Level" Text="{Binding LogLevelFilter}" />
       <TextBox Grid.Row="0" Grid.Column="1" Watermark="Event Type" Text="{Binding LogEventTypeFilter}" />
@@ -35,15 +35,15 @@
                   BorderBrush="{DynamicResource WindowBorderBrush}"
                   BorderThickness="0">
             <StackPanel Spacing="4">
-              <TextBlock FontWeight="SemiBold"
+              <SelectableTextBlock FontWeight="SemiBold"
                          Text="{Binding TimestampUtc}" />
-              <TextBlock Text="{Binding Level}" />
-              <TextBlock Text="{Binding EventType}" />
-              <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
-              <TextBlock Opacity="0.7" Text="{Binding ServerDisplayName}" />
-              <TextBlock Opacity="0.7" Text="{Binding ServerId}" />
-              <TextBlock Opacity="0.7" Text="{Binding SessionId}" />
-              <TextBlock Opacity="0.7" Text="{Binding CorrelationId}" />
+              <SelectableTextBlock Text="{Binding Level}" />
+              <SelectableTextBlock Text="{Binding EventType}" />
+              <SelectableTextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+              <SelectableTextBlock Opacity="0.7" Text="{Binding ServerDisplayName}" />
+              <SelectableTextBlock Opacity="0.7" Text="{Binding ServerId}" />
+              <SelectableTextBlock Opacity="0.7" Text="{Binding SessionId}" />
+              <SelectableTextBlock Opacity="0.7" Text="{Binding CorrelationId}" />
             </StackPanel>
           </Border>
         </DataTemplate>

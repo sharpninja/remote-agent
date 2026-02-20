@@ -9,7 +9,7 @@
       <TabControl.ItemTemplate>
         <DataTemplate>
           <StackPanel Orientation="Horizontal" Spacing="6">
-            <TextBlock VerticalAlignment="Center" Text="{Binding Title}" />
+            <SelectableTextBlock VerticalAlignment="Center" Text="{Binding Title}" />
             <Button MinWidth="24"
                     MinHeight="24"
                     Padding="0"
@@ -21,8 +21,8 @@
       <TabControl.ContentTemplate>
         <DataTemplate>
           <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="8">
-            <TextBlock FontWeight="SemiBold" Text="{Binding Title}" />
-            <TextBlock Grid.Row="1" Opacity="0.7" Text="Unified chat surface for direct or server session mode." />
+            <SelectableTextBlock FontWeight="SemiBold" Text="{Binding Title}" />
+            <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="Unified chat surface for direct or server session mode." />
             <Border Grid.Row="2"
                     CornerRadius="8"
                     Background="{DynamicResource WindowCardBackgroundBrush}"
@@ -30,13 +30,13 @@
                     BorderThickness="0"
                     Padding="12">
               <StackPanel Spacing="8">
-                <TextBlock Text="Connection Mode" FontWeight="SemiBold" />
-                <TextBlock Text="{Binding ConnectionMode}" />
-                <TextBlock Text="Session ID" FontWeight="SemiBold" />
-                <TextBlock Text="{Binding SessionId}" />
-                <TextBlock Text="Connected" FontWeight="SemiBold" />
-                <TextBlock Text="{Binding IsConnected}" />
-                <TextBlock Text="Messages" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="Connection Mode" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="{Binding ConnectionMode}" />
+                <SelectableTextBlock Text="Session ID" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="{Binding SessionId}" />
+                <SelectableTextBlock Text="Connected" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="{Binding IsConnected}" />
+                <SelectableTextBlock Text="Messages" FontWeight="SemiBold" />
                 <ListBox ItemsSource="{Binding Messages}" Height="220" />
               </StackPanel>
             </Border>

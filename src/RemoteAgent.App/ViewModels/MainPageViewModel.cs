@@ -72,7 +72,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         _notificationService = notificationService;
         _dispatcher = dispatcher;
 
-        ConnectCommand = new Command(async () => await RunAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), this)), () => !_gateway.IsConnected);
+        ConnectCommand = new Command(async () => await RunAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), this)), () => !_gateway.IsConnected && HasApiKey);
         DisconnectCommand = new Command(async () => await RunAsync(new DisconnectMobileSessionRequest(Guid.NewGuid(), this)), () => _gateway.IsConnected);
         NewSessionCommand = new Command(async () => await RunAsync(new CreateMobileSessionRequest(Guid.NewGuid(), this)));
         TerminateCurrentSessionCommand = new Command(async () => await RunAsync(new TerminateMobileSessionRequest(Guid.NewGuid(), CurrentSession, this)));
@@ -82,7 +82,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         ArchiveMessageCommand = new Command<ChatMessage>(async msg => await RunAsync(new ArchiveMobileMessageRequest(Guid.NewGuid(), msg, this)));
         UsePromptTemplateCommand = new Command(async () => await RunAsync(new UsePromptTemplateRequest(Guid.NewGuid(), this)));
         BeginEditTitleCommand = new Command(() => { if (CurrentSession != null) IsEditingTitle = true; });
-        ScanQrCodeCommand = new Command(async () => await RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this)));
+        ScanQrCodeCommand = new Command(async () => await RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this)), () => !HasApiKey);
 
         _gateway.ConnectionStateChanged += OnGatewayConnectionStateChanged;
         _gateway.MessageReceived += OnGatewayMessageReceived;
@@ -130,9 +130,16 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         set
         {
             if (Set(ref _apiKey, value ?? ""))
+            {
                 _preferences.Set(PrefApiKey, _apiKey);
+                OnPropertyChanged(nameof(HasApiKey));
+                ((Command)ConnectCommand).ChangeCanExecute();
+                ((Command)ScanQrCodeCommand).ChangeCanExecute();
+            }
         }
     }
+
+    public bool HasApiKey => !string.IsNullOrWhiteSpace(_apiKey);
 
     public string Status
     {
