@@ -201,20 +201,20 @@ public partial class Program
         // so gRPC traffic on the primary port is not affected.
         var pairingHost = webPort > 0 ? $"*:{webPort}" : null;
 
-        var getLogin = endpoints.MapGet("/pair", (IOptions<AgentOptions> options) =>
+        var getLogin = endpoints.MapGet("/pair", (IOptionsMonitor<AgentOptions> options) =>
         {
-            var noPairingUsers = options.Value.PairingUsers.Count == 0;
+            var noPairingUsers = options.CurrentValue.PairingUsers.Count == 0;
             return Results.Content(PairingHtml.LoginPage(noPairingUsers: noPairingUsers), "text/html");
         });
         if (pairingHost is not null) getLogin.RequireHost(pairingHost);
 
-        var postLogin = endpoints.MapPost("/pair", async (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        var postLogin = endpoints.MapPost("/pair", async (HttpContext context, IOptionsMonitor<AgentOptions> options, PairingSessionService sessions) =>
         {
             var form = await context.Request.ReadFormAsync();
             var username = form["username"].ToString();
             var password = form["password"].ToString();
 
-            var user = options.Value.PairingUsers
+            var user = options.CurrentValue.PairingUsers
                 .FirstOrDefault(u => string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase));
 
             if (user is null || !VerifyPairingPassword(password, user.PasswordHash))
@@ -231,13 +231,13 @@ public partial class Program
         }).DisableAntiforgery();
         if (pairingHost is not null) postLogin.RequireHost(pairingHost);
 
-        var getKey = endpoints.MapGet("/pair/key", (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        var getKey = endpoints.MapGet("/pair/key", (HttpContext context, IOptionsMonitor<AgentOptions> options, PairingSessionService sessions) =>
         {
             var token = context.Request.Cookies["ra_pair"];
             if (!sessions.Validate(token))
                 return Results.Redirect("/pair");
 
-            var apiKey = options.Value.ApiKey?.Trim() ?? "";
+            var apiKey = options.CurrentValue.ApiKey?.Trim() ?? "";
             var host   = context.Request.Host.Host;
             var port   = context.Request.Host.Port
                              ?? (context.Request.IsHttps ? 443 : (OperatingSystem.IsWindows() ? 5244 : 5243));
