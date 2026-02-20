@@ -177,3 +177,29 @@
 ## 16. Test execution policy
 
 - **FR-16.1** Integration tests shall be executable on demand through an explicit isolated workflow or script and shall not run as part of default build-and-release pipeline executions.
+
+---
+
+## 17. Device pairing and API key management
+
+- **FR-17.1** The system shall support a **device pairing flow** that securely provisions a mobile device with connection details and an API key for the server.
+- **FR-17.2** An administrator shall be able to **set pairing credentials** (username and password) from the desktop management app; the service shall hash and store them in configuration.
+- **FR-17.3** When pairing credentials are saved, the service shall **generate a cryptographically random API key**, store it in server configuration, and **return it** to the desktop app.
+- **FR-17.4** The service shall expose a **web-based login page** at `/pair` on the HTTP/1 web port (computed as `"1" + gRPC port`) so that a mobile device can authenticate with the pairing credentials.
+- **FR-17.5** After successful login, the service shall display the API key, a **server-generated QR code** (no external CDN dependency), and a **deep-link button** (`remoteagent://pair?key=…&host=…&port=…`) that carries connection details.
+- **FR-17.6** The mobile app shall provide a **Login button** that opens the server's `/pair` page in an in-app WebView; after successful authentication the app shall **automatically extract the deep-link URI** from the rendered page and populate host, port, and API key.
+  - **FR-17.6.1** The Login button shall be **disabled** until a server host/IP is entered.
+  - **FR-17.6.2** The Login button shall be **disabled** when an API key is already stored (pairing already completed).
+- **FR-17.7** The mobile app's Connect button shall be **disabled** until a valid API key is stored (i.e., pairing must precede connection).
+- **FR-17.8** The API key shall be **persisted** on the mobile device alongside the server host and port after a successful connection.
+
+*See:* [TR-19](technical-requirements.md#19-device-pairing-and-api-key-management).
+
+---
+
+## 18. Desktop UX refinements
+
+- **FR-18.1** All text display controls in Avalonia desktop views shall use **SelectableTextBlock** (instead of `TextBlock`) so users can select and copy displayed text.
+- **FR-18.2** All interactive and display controls in the Avalonia desktop app shall have a uniform **4px margin** applied via a global style.
+
+*See:* [TR-20](technical-requirements.md#20-desktop-ux-refinements).

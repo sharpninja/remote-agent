@@ -236,3 +236,28 @@
 - **TR-18.4** UI tests shall validate known use cases by substituting mocked CQRS handlers and asserting rendered UI state changes, status messages, and command completion/error behavior.
 
 *See:* [FR-12](functional-requirements.md#12-desktop-management-app), [FR-2](functional-requirements.md#2-chat-and-messaging), [TR-8](#8-testing), [TR-14](#14-desktop-management-capabilities).
+
+---
+
+## 19. Device pairing and API key management
+
+- **TR-19.1** The service shall expose a `SetPairingUsers` gRPC RPC that accepts username/password pairs, **hashes passwords with SHA-256**, generates a **32-byte cryptographically random hex API key**, writes both credentials and key to `appsettings.json`, and returns the generated key in the response (`SetPairingUsersResponse.generated_api_key`).
+- **TR-19.2** The `/pair` web endpoints shall use **`IOptionsMonitor<AgentOptions>.CurrentValue`** (not `IOptions<T>`) so that configuration changes from `SetPairingUsers` are reflected immediately without service restart.
+- **TR-19.3** The service shall listen on a **secondary HTTP/1+HTTP/2 web port** (computed as `"1" + gRPC port`, e.g. 15244) for browser-accessible endpoints including the `/pair` login and `/pair/key` pages.
+- **TR-19.4** The `/pair/key` page shall render the API key, a QR code generated **server-side** via `QRCoder.PngByteQRCode` embedded as a `data:image/png;base64,…` `<img>` tag (no external CDN or JavaScript dependency), and a deep-link anchor (`<a class="btn" href="remoteagent://pair?…">`).
+- **TR-19.5** The deep-link URI format shall be `remoteagent://pair?key={apiKey}&host={serverHost}&port={gRPCport}` where `port` is the **gRPC port** (not the web port) and all values are URI-escaped.
+- **TR-19.6** The mobile app shall implement the Login flow via a modal **`PairLoginPage`** containing a `WebView` that loads `http://{host}:1{port}/pair`; on navigation to `/pair/key`, the page shall execute `document.querySelector('a.btn')?.getAttribute('href')` via `EvaluateJavaScriptAsync` to extract the deep-link URI, strip any JSON-quoting artifacts from Android's WebView, resolve a `TaskCompletionSource`, and dismiss the modal.
+- **TR-19.7** The `ScanQrCodeHandler` shall validate that a host is configured before building the login URL, construct the web port as `"1" + gRPC port`, and parse the returned `remoteagent://` URI to populate `Host`, `Port`, and `ApiKey` on the view model.
+- **TR-19.8** The desktop `SetPairingUsersAsync` client method shall return `Task<string>` (the generated API key) rather than `Task<bool>`, and the handler shall apply the returned key to the workspace immediately.
+- **TR-19.9** The `IQrCodeScanner` abstraction shall accept a `loginUrl` parameter (`Task<string?> ScanAsync(string loginUrl)`) to support the web-based login flow instead of camera-based QR scanning.
+
+*See:* [FR-17](functional-requirements.md#17-device-pairing-and-api-key-management).
+
+---
+
+## 20. Desktop UX refinements
+
+- **TR-20.1** All `TextBlock` controls in Avalonia desktop `.axaml` view files shall be replaced with **`SelectableTextBlock`** to enable text selection and copy.
+- **TR-20.2** A **global Avalonia style** in `App.axaml` shall apply a **4px margin** to `Button`, `TextBox`, `ComboBox`, `CheckBox`, `ListBox`, `SelectableTextBlock`, and `TabControl` controls.
+
+*See:* [FR-18](functional-requirements.md#18-desktop-ux-refinements).
