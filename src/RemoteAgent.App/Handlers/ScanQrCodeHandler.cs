@@ -29,11 +29,20 @@ public sealed class ScanQrCodeHandler(IQrCodeScanner scanner, IAppPreferences pr
         }
         else
         {
-            raw = await scanner.ScanAsync();
+            if (string.IsNullOrWhiteSpace(request.Workspace.Host))
+            {
+                request.Workspace.Status = "Enter a host address before logging in.";
+                return CommandResult.Fail("No host configured.");
+            }
+
+            var webPort = "1" + request.Workspace.Port; // e.g. 5244 → 15244
+            var loginUrl = $"http://{request.Workspace.Host}:{webPort}/pair";
+
+            raw = await scanner.ScanAsync(loginUrl);
             if (string.IsNullOrWhiteSpace(raw))
             {
-                request.Workspace.Status = "QR scan cancelled.";
-                return CommandResult.Fail("QR scan cancelled.");
+                request.Workspace.Status = "Login cancelled.";
+                return CommandResult.Fail("Login cancelled.");
             }
         }
 

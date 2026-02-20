@@ -66,9 +66,9 @@
                             SelectedItem="{Binding Port, Mode=TwoWay}"
                             Title="Port" />
                     <HorizontalStackLayout Spacing="8">
-                        <Button AutomationId="mobile_scan_qr_button"
-                                Text="Scan QR to Pair"
-                                Command="{Binding ScanQrCodeCommand}" />
+                    <Button AutomationId="mobile_scan_qr_button"
+                            Text="Login"
+                            Command="{Binding ScanQrCodeCommand}" />
                         <Button AutomationId="mobile_connect_button"
                                 Text="Connect"
                                 Command="{Binding ConnectCommand}" />

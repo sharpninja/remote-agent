@@ -39,10 +39,10 @@ public interface INotificationService
     void Show(string title, string body);
 }
 
-/// <summary>Scans a QR code (or lets the user enter a pairing URL) and returns the raw URI string, or null if cancelled.</summary>
+/// <summary>Opens the server login page and extracts the pairing deep-link URI after the user authenticates, or returns null if cancelled.</summary>
 public interface IQrCodeScanner
 {
-    Task<string?> ScanAsync();
+    Task<string?> ScanAsync(string loginUrl);
 }
 
 /// <summary>Routes deep-link URIs arriving from the OS (e.g. remoteagent://pair?…) to subscribers. Queues one URI if dispatched before any subscriber registers.</summary>

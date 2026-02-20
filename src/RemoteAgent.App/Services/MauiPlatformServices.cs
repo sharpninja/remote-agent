@@ -138,26 +138,11 @@ public sealed class PlatformNotificationServiceAdapter : INotificationService
     }
 }
 
-public sealed class MauiQrCodeScanner(Func<Page?> pageFactory) : IQrCodeScanner
+public sealed class MauiQrCodeScanner : IQrCodeScanner
 {
-    public async Task<string?> ScanAsync()
+    public async Task<string?> ScanAsync(string loginUrl)
     {
-        var page = pageFactory();
-        if (page == null) return null;
-
-        var status = await Permissions.RequestAsync<Permissions.Camera>();
-        if (status != PermissionStatus.Granted)
-        {
-            await page.DisplayAlertAsync("Camera Permission", "Camera access is required to scan QR codes.", "OK");
-            return null;
-        }
-
-        var scanPage = new QrScannerPage();
-        // Use Shell.Current so the modal push goes through the Shell's navigation
-        // controller on Android. Calling page.Navigation.PushModalAsync on a
-        // ContentPage inside a Shell can silently no-op when the page isn't the
-        // current navigation host.  Also ensure we are on the main thread because
-        // Permissions.RequestAsync may resume on a thread-pool thread.
+        var scanPage = new PairLoginPage(loginUrl);
         await MainThread.InvokeOnMainThreadAsync(
             () => Shell.Current.Navigation.PushModalAsync(scanPage, animated: true));
         return await scanPage.ResultTask;

@@ -81,7 +81,6 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 		<PackageReference Include="Grpc.Net.Client" Version="2.64.0" />
 		<PackageReference Include="LiteDB" Version="5.0.21" />
-		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.7.4" />
 	</ItemGroup>
 
 </Project>

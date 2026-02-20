@@ -82,7 +82,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         ArchiveMessageCommand = new Command<ChatMessage>(async msg => await RunAsync(new ArchiveMobileMessageRequest(Guid.NewGuid(), msg, this)));
         UsePromptTemplateCommand = new Command(async () => await RunAsync(new UsePromptTemplateRequest(Guid.NewGuid(), this)));
         BeginEditTitleCommand = new Command(() => { if (CurrentSession != null) IsEditingTitle = true; });
-        ScanQrCodeCommand = new Command(async () => await RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this)), () => !HasApiKey);
+        ScanQrCodeCommand = new Command(async () => await RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this)), () => !HasApiKey && !string.IsNullOrWhiteSpace(_host));
 
         _gateway.ConnectionStateChanged += OnGatewayConnectionStateChanged;
         _gateway.MessageReceived += OnGatewayMessageReceived;
@@ -115,7 +115,11 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     public string Host
     {
         get => _host;
-        set => Set(ref _host, value);
+        set
+        {
+            if (Set(ref _host, value))
+                ((Command)ScanQrCodeCommand).ChangeCanExecute();
+        }
     }
 
     public string Port

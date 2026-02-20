@@ -8,7 +8,6 @@ using RemoteAgent.App.Logic.ViewModels;
 using RemoteAgent.App.Requests;
 using RemoteAgent.App.Services;
 using RemoteAgent.App.ViewModels;
-using ZXing.Net.Maui.Controls;
 
 namespace RemoteAgent.App;
 
@@ -19,7 +18,6 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.UseBarcodeReader()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -70,8 +68,7 @@ public static class MauiProgram
 			new MauiPromptVariableProvider(() => sp.GetService<MainPage>()));
 		builder.Services.AddSingleton<ISessionTerminationConfirmation>(sp =>
 			new MauiSessionTerminationConfirmation(() => sp.GetService<MainPage>()));
-		builder.Services.AddSingleton<IQrCodeScanner>(sp =>
-			new MauiQrCodeScanner(() => sp.GetService<MainPage>()));
+		builder.Services.AddSingleton<IQrCodeScanner, MauiQrCodeScanner>();
 
 		builder.Services.AddSingleton<McpRegistryPageViewModel>(sp =>
 			new McpRegistryPageViewModel(

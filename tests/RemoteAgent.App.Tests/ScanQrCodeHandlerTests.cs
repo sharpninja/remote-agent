@@ -18,7 +18,8 @@ public sealed class ScanQrCodeHandlerTests
     private sealed class StubScanner(string? result) : IQrCodeScanner
     {
         public bool Called { get; private set; }
-        public Task<string?> ScanAsync() { Called = true; return Task.FromResult(result); }
+        public string? LastLoginUrl { get; private set; }
+        public Task<string?> ScanAsync(string loginUrl) { Called = true; LastLoginUrl = loginUrl; return Task.FromResult(result); }
     }
 
     private sealed class StubPrefs : IAppPreferences
@@ -125,11 +126,16 @@ public sealed class ScanQrCodeHandlerTests
         public Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request, CancellationToken ct = default) => Task.FromResult(default(TResponse)!);
     }
 
-    private MainPageViewModel BuildVm(StubPrefs prefs) =>
-        new(new NullStore(), new StubGateway(), new NullApiClient(), prefs,
+    private MainPageViewModel BuildVm(StubPrefs prefs, string host = "10.0.0.1", string port = "5244")
+    {
+        var vm = new MainPageViewModel(new NullStore(), new StubGateway(), new NullApiClient(), prefs,
             new NullModeSelector(), new NullAgentSelector(), new NullAttachmentPicker(),
             new NullTemplateSelector(), new NullVariableProvider(), new NullTermination(),
             new NullNotification(), new NullDispatcher(), new StubDeepLink());
+        vm.Host = host;
+        vm.Port = port;
+        return vm;
+    }
 
     // ── tests ─────────────────────────────────────────────────────────────────
 
@@ -246,5 +252,30 @@ public sealed class ScanQrCodeHandlerTests
 
         result.Success.Should().BeTrue();
         vm.ApiKey.Should().Be("");
+    }
+
+    [Fact]
+    public async Task HandleAsync_NoHost_ReturnsFail()
+    {
+        var prefs   = new StubPrefs();
+        var vm      = BuildVm(prefs, host: ""); // no host set
+        var result  = await new ScanQrCodeHandler(new StubScanner(null), prefs)
+            .HandleAsync(new ScanQrCodeRequest(Guid.NewGuid(), vm));
+
+        result.Success.Should().BeFalse();
+        vm.Status.Should().Contain("host");
+    }
+
+    [Fact]
+    public async Task HandleAsync_BuildsLoginUrlFromHostPort()
+    {
+        var prefs   = new StubPrefs();
+        var vm      = BuildVm(prefs, host: "192.168.1.50", port: "5244");
+        var scanner = new StubScanner("remoteagent://pair?host=192.168.1.50&port=5244&key=abc");
+
+        await new ScanQrCodeHandler(scanner, prefs)
+            .HandleAsync(new ScanQrCodeRequest(Guid.NewGuid(), vm));
+
+        scanner.LastLoginUrl.Should().Be("http://192.168.1.50:15244/pair");
     }
 }
