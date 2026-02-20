@@ -130,8 +130,9 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
-        <!-- M3 top card: connection (surface container, 12dp radius) -->
-        <Border Grid.Row="1" Style="{StaticResource MaterialCard}" Margin="0,0,0,8">
+        <!-- M3 top card: connection (surface container, 12dp radius) — hidden when connected -->
+        <Border Grid.Row="1" Style="{StaticResource MaterialCard}" Margin="0,0,0,8"
+                IsVisible="{Binding IsConnected, Converter={StaticResource InverseBool}}">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="12"/>
             </Border.StrokeShape>
