@@ -6,6 +6,10 @@ using Microsoft.UI.Xaml.Input;
 using Windows.System;
 using Windows.UI.Core;
 #endif
+#if ANDROID
+using Android.Views;
+using AndroidX.AppCompat.Widget;
+#endif
 
 namespace RemoteAgent.App;
 
@@ -14,6 +18,9 @@ public partial class MainPage : ContentPage
     private readonly MainPageViewModel _vm;
 #if WINDOWS
     private TextBox? _messageTextBox;
+#endif
+#if ANDROID
+    private AppCompatEditText? _androidEditText;
 #endif
 
     public MainPage(MainPageViewModel vm)
@@ -35,6 +42,9 @@ public partial class MainPage : ContentPage
     {
 #if WINDOWS
         MessageEditor.HandlerChanged += OnMessageEditorHandlerChanged;
+#endif
+#if ANDROID
+        MessageEditor.HandlerChanged += OnMessageEditorHandlerChangedAndroid;
 #endif
     }
 
@@ -62,6 +72,30 @@ public partial class MainPage : ContentPage
         e.Handled = true;
         if (_vm.SendMessageCommand.CanExecute(null))
             _vm.SendMessageCommand.Execute(null);
+    }
+#endif
+
+#if ANDROID
+    private void OnMessageEditorHandlerChangedAndroid(object? sender, EventArgs e)
+    {
+        if (_androidEditText != null)
+            _androidEditText.KeyPress -= OnAndroidEditorKeyPress;
+
+        _androidEditText = MessageEditor?.Handler?.PlatformView as AppCompatEditText;
+        if (_androidEditText != null)
+            _androidEditText.KeyPress += OnAndroidEditorKeyPress;
+    }
+
+    private void OnAndroidEditorKeyPress(object? sender, Android.Views.View.KeyEventArgs e)
+    {
+        if (e.KeyCode == Keycode.Enter && e.Event?.Action == KeyEventActions.Down)
+        {
+            e.Handled = true;
+            if (_vm.SendMessageCommand.CanExecute(null))
+                _vm.SendMessageCommand.Execute(null);
+            return;
+        }
+        e.Handled = false;
     }
 #endif
 

@@ -268,7 +268,7 @@
                 <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconMessage}"
                        TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
                 <Editor x:Name="MessageEditor"
-                        Placeholder="Message to agent... (Ctrl+Enter to send)"
+                        Placeholder="Message to agent..."
                         Text="{Binding PendingMessage, Mode=TwoWay}"
                         AutoSize="TextChanges"
                         MinimumHeightRequest="72"
