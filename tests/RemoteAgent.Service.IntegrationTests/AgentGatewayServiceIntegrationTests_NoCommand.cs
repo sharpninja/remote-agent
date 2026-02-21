@@ -6,7 +6,14 @@ using Xunit.Abstractions;
 
 namespace RemoteAgent.Service.IntegrationTests;
 
-/// <summary>Integration tests with no agent command configured.</summary>
+/// <summary>Integration tests with no agent command configured. FR-1.2, FR-16.1; TR-2.3, TR-3.2, TR-4.3, TR-8.3.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.2")]
+[Trait("Requirement", "FR-16.1")]
+[Trait("Requirement", "TR-2.3")]
+[Trait("Requirement", "TR-3.2")]
+[Trait("Requirement", "TR-4.3")]
+[Trait("Requirement", "TR-8.3")]
 public class AgentGatewayServiceIntegrationTests_NoCommand : IClassFixture<NoCommandWebApplicationFactory>
 {
     private readonly NoCommandWebApplicationFactory _factory;

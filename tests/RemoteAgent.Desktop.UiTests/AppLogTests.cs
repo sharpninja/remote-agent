@@ -53,7 +53,7 @@ public sealed class AppLogTests
         store.Add(new AppLogEntry(DateTimeOffset.UtcNow, LogLevel.Information, "Cat", "Msg", null));
         store.Add(new AppLogEntry(DateTimeOffset.UtcNow, LogLevel.Warning, "Cat", "Msg2", null));
 
-        var vm = new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService());
+        var vm = new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService(), "/tmp/test-logs");
         vm.Entries.Add(store.GetAll()[0]);
         vm.Entries.Add(store.GetAll()[1]);
 
@@ -81,7 +81,7 @@ public sealed class AppLogTests
             new(DateTimeOffset.UtcNow, LogLevel.Error, "TestCat", "An error occurred", "System.Exception: boom")
         };
 
-        var vm = new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService());
+        var vm = new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService(), "/tmp/test-logs");
         var filePath = Path.Combine(Path.GetTempPath(), $"applog-test-{Guid.NewGuid():N}.{format}");
 
         try

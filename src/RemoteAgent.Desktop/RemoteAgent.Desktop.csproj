@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
+    <RollForward>LatestPatch</RollForward>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
@@ -29,5 +30,9 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\Fonts\**\*" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon.png" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon-48.png" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon-32.png" />
+    <AvaloniaResource Include="Assets\AppIcon\appicon-16.png" />
   </ItemGroup>
 </Project>

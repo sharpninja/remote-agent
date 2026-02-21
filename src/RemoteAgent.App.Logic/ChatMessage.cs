@@ -39,6 +39,9 @@ public class ChatMessage : INotifyPropertyChanged
     /// <summary>Message priority (FR-3.1). Notify causes a system notification; tap opens the app (FR-3.2, FR-3.3).</summary>
     public ChatMessagePriority Priority { get; init; } = ChatMessagePriority.Normal;
 
+    /// <summary>When set, indicates this message represents a file transfer. Contains the relative path of the transferred file.</summary>
+    public string? FileTransferPath { get; init; }
+
     /// <summary>Plain text for display: event message or raw text (no markdown).</summary>
     public string DisplayText => IsEvent ? (EventMessage ?? "") : Text;
 

@@ -17,6 +17,7 @@ public sealed class AgentGatewayClientService : IAgentGatewayClient
         _sessionClient = new AgentSessionClient(FormatReceivedMedia);
         _sessionClient.ConnectionStateChanged += () => ConnectionStateChanged?.Invoke();
         _sessionClient.MessageReceived += OnSessionClientMessageReceived;
+        _sessionClient.FileTransferReceived += OnFileTransferReceived;
     }
 
     public ObservableCollection<ChatMessage> Messages { get; } = new();
@@ -107,6 +108,18 @@ public sealed class AgentGatewayClientService : IAgentGatewayClient
             _store?.Add(chat, CurrentSessionId);
             MessageReceived?.Invoke(chat);
         });
+    }
+
+    private static void OnFileTransferReceived(FileTransfer fileTransfer)
+    {
+        try
+        {
+            FileSaveService.SaveFileTransfer(fileTransfer);
+        }
+        catch
+        {
+            // File save failures are non-fatal; the chat message already shows the transfer.
+        }
     }
 
     private static string FormatReceivedMedia(MediaChunk media)

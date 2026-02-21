@@ -33,6 +33,7 @@
 #   /var/lib/remote-agent/             runtime data (LiteDB, media uploads)
 #   /var/log/remote-agent/             session log files
 #   /lib/systemd/system/               remote-agent.service unit
+#   /usr/sbin/remote-agent-ctl         service management script (start/stop/restart/status)
 #
 # Desktop install layout:
 #   /usr/lib/remote-agent/desktop/     application binaries
@@ -195,6 +196,11 @@ if [[ "$BUILD_SERVICE" == "true" ]]; then
   install -d "$SVC_DIR/usr/lib/remote-agent/service"
   cp -a "$SERVICE_PUBLISH/." "$SVC_DIR/usr/lib/remote-agent/service/"
   chmod 755 "$SVC_DIR/usr/lib/remote-agent/service/RemoteAgent.Service"
+
+  # ── Management script ─────────────────────────────────────────────────────
+  install -d "$SVC_DIR/usr/sbin"
+  install -m 755 "$SCRIPT_DIR/remote-agent-ctl.sh" \
+    "$SVC_DIR/usr/sbin/remote-agent-ctl"
 
   # ── Ollama plugin ─────────────────────────────────────────────────────────
   install -d "$SVC_DIR/usr/lib/remote-agent/plugins"

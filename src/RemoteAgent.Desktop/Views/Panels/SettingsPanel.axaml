@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.SettingsPanel">
+  <Grid RowDefinitions="Auto,Auto,Auto,Auto" Margin="8">
+    <SelectableTextBlock FontWeight="SemiBold" Text="Settings" />
+    <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="Desktop session preferences and quick actions." />
+    <WrapPanel Grid.Row="2" Orientation="Horizontal">
+      <Button x:Name="SettingsToggleThemeButton" Command="{Binding CurrentServerViewModel.ToggleThemeCommand}">Toggle Theme</Button>
+      <Button x:Name="SettingsCheckLocalServerButton" Command="{Binding CheckLocalServerCommand}">Check Local Server</Button>
+    </WrapPanel>
+    <SelectableTextBlock Grid.Row="3"
+               Opacity="0.7"
+               Text="{Binding LocalServerStatusText}"
+               TextWrapping="Wrap" />
+  </Grid>
+</UserControl>

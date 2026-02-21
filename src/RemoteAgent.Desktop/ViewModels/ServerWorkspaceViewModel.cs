@@ -18,10 +18,10 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
     private readonly CurrentServerContext _serverContext;
     private readonly IDesktopSessionViewModelFactory _sessionViewModelFactory;
     private readonly IRequestDispatcher _dispatcher;
-    private readonly Dictionary<DesktopSessionViewModel, (Action<RemoteAgent.App.Services.ChatMessage> OnMessage, Action OnConnectionStateChanged)> _sessionEventHandlers = [];
+    private readonly Dictionary<DesktopSessionViewModel, (Action<RemoteAgent.App.Services.ChatMessage> OnMessage, Action OnConnectionStateChanged, Action<RemoteAgent.Proto.FileTransfer> OnFileTransfer)> _sessionEventHandlers = [];
     private DesktopSessionViewModel? _selectedSession;
     private string _host = "127.0.0.1";
-    private string _port = "5243";
+    private string _port = ServiceDefaults.PortString;
     private string _apiKey = "";
     private string _perRequestContext = "";
     private string _selectedConnectionMode = "server";
@@ -45,6 +45,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
             _host = _serverContext.Registration.Host;
             _port = _serverContext.Registration.Port.ToString();
             _apiKey = _serverContext.Registration.ApiKey ?? "";
+            _perRequestContext = _serverContext.Registration.PerRequestContext ?? "";
         }
 
         Security = new SecurityViewModel(dispatcher, this);
@@ -53,6 +54,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
         McpRegistry = new McpRegistryDesktopViewModel(dispatcher, this);
         PromptTemplates = new PromptTemplatesViewModel(dispatcher, this);
         StructuredLogs = new StructuredLogsViewModel(dispatcher, this, structuredLogStore);
+        Agents = new AgentsViewModel(dispatcher, this, agentId => SelectedAgentId = agentId);
 
         // Forward sub-VM StatusText changes to parent StatusText for the global status bar.
         Security.PropertyChanged += (_, e) =>
@@ -104,6 +106,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
     public PluginsViewModel Plugins { get; }
     public McpRegistryDesktopViewModel McpRegistry { get; }
     public PromptTemplatesViewModel PromptTemplates { get; }
+    public AgentsViewModel Agents { get; }
     public StructuredLogsViewModel StructuredLogs { get; }
 
     public string Host
@@ -180,10 +183,14 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
             if (_selectedSession == value) return;
             _selectedSession = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(HasConnectedSession));
             ((RelayCommand)TerminateCurrentSessionCommand).RaiseCanExecuteChanged();
             ((RelayCommand)SendCurrentMessageCommand).RaiseCanExecuteChanged();
         }
     }
+
+    /// <summary>Returns <c>true</c> when the currently selected session is actively connected.</summary>
+    public bool HasConnectedSession => SelectedSession?.IsConnected == true;
 
     public string StatusText
     {
@@ -231,64 +238,61 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
         await _dispatcher.SendAsync(new CheckSessionCapacityRequest(Guid.NewGuid(), host, port, SelectedAgentId, ApiKey, Workspace: this));
     }
 
-    private async Task ConnectSessionAsync(DesktopSessionViewModel session)
+    /// <summary>Subscribes the workspace's UI message handler to a session's events.
+    /// Must be called before connecting so no messages are missed.</summary>
+    public void RegisterSessionEvents(DesktopSessionViewModel session)
     {
-        if (!int.TryParse((Port ?? "").Trim(), out var port) || port <= 0 || port > 65535)
-        {
-            StatusText = "Port must be 1-65535.";
+        if (_sessionEventHandlers.ContainsKey(session))
             return;
-        }
 
-        var host = string.Equals(session.ConnectionMode, "direct", StringComparison.OrdinalIgnoreCase)
-            ? "127.0.0.1"
-            : (Host ?? "").Trim();
-        if (string.IsNullOrWhiteSpace(host))
+        Action<RemoteAgent.App.Services.ChatMessage> onMessage = message =>
         {
-            StatusText = "Host is required.";
-            return;
-        }
-
-        if (!_sessionEventHandlers.ContainsKey(session))
-        {
-            Action<RemoteAgent.App.Services.ChatMessage> onMessage = message =>
+            var text = message.IsEvent
+                ? $"event: {message.EventMessage}"
+                : message.IsError
+                    ? $"error: {message.Text}"
+                    : message.Text;
+            Dispatcher.UIThread.Post(() =>
             {
-                var text = message.IsEvent
-                    ? $"event: {message.EventMessage}"
-                    : message.IsError
-                        ? $"error: {message.Text}"
-                        : message.Text;
-                Dispatcher.UIThread.Post(() =>
-                {
-                    session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] agent: {text}");
-                    session.IsConnected = session.SessionClient.IsConnected;
-                });
-            };
-            Action onConnectionStateChanged = () =>
-                Dispatcher.UIThread.Post(() => session.IsConnected = session.SessionClient.IsConnected);
-            _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged);
-            session.SessionClient.MessageReceived += onMessage;
-            session.SessionClient.ConnectionStateChanged += onConnectionStateChanged;
-        }
+                session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] agent: {text}");
+                session.IsConnected = session.SessionClient.IsConnected;
+            });
+        };
+        Action onConnectionStateChanged = () =>
+            Dispatcher.UIThread.Post(() =>
+            {
+                session.IsConnected = session.SessionClient.IsConnected;
+                OnPropertyChanged(nameof(HasConnectedSession));
+            });
 
-        session.SessionClient.PerRequestContext = (PerRequestContext ?? "").Trim();
-        try
+        Action<RemoteAgent.Proto.FileTransfer> onFileTransfer = fileTransfer =>
         {
-            await session.SessionClient.ConnectAsync(
-                host,
-                port,
-                session.SessionId,
-                session.AgentId,
-                apiKey: ApiKey);
-            session.IsConnected = true;
-            session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] connected to {host}:{port}.");
-            StatusText = $"Connected {session.Title} ({session.ConnectionMode}).";
-        }
-        catch (Exception ex)
-        {
-            session.IsConnected = false;
-            session.Messages.Add($"[{DateTimeOffset.UtcNow:HH:mm:ss}] connection failed: {ex.Message}");
-            StatusText = $"Failed to connect {session.Title}: {ex.Message}";
-        }
+            try
+            {
+                DesktopFileSaveService.SaveFileTransfer(fileTransfer);
+            }
+            catch
+            {
+                // Non-fatal; the chat message already shows the transfer notification.
+            }
+        };
+
+        _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged, onFileTransfer);
+        session.SessionClient.MessageReceived += onMessage;
+        session.SessionClient.ConnectionStateChanged += onConnectionStateChanged;
+        session.SessionClient.FileTransferReceived += onFileTransfer;
+    }
+
+    /// <summary>Unsubscribes the workspace's UI message handler from a session's events.</summary>
+    public void UnregisterSessionEvents(DesktopSessionViewModel session)
+    {
+        if (!_sessionEventHandlers.TryGetValue(session, out var handlers))
+            return;
+
+        session.SessionClient.MessageReceived -= handlers.OnMessage;
+        session.SessionClient.ConnectionStateChanged -= handlers.OnConnectionStateChanged;
+        session.SessionClient.FileTransferReceived -= handlers.OnFileTransfer;
+        _sessionEventHandlers.Remove(session);
     }
 
     private async Task TerminateCurrentSessionAsync()

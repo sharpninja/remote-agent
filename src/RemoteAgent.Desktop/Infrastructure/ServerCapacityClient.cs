@@ -1,5 +1,4 @@
-using System.Net.Http.Json;
-using System.Text.Json;
+using Grpc.Net.Client;
 using RemoteAgent.App.Logic;
 using RemoteAgent.Proto;
 
@@ -7,6 +6,12 @@ namespace RemoteAgent.Desktop.Infrastructure;
 
 public interface IServerCapacityClient
 {
+    Task<ServerInfoSnapshot?> GetServerInfoAsync(
+        string host,
+        int port,
+        string? apiKey,
+        CancellationToken cancellationToken = default);
+
     Task<SessionCapacitySnapshot?> GetCapacityAsync(
         string host,
         int port,
@@ -171,14 +176,33 @@ public interface IServerCapacityClient
         string? correlationId,
         string? apiKey,
         CancellationToken cancellationToken = default);
+
+    Task<string> SetPairingUsersAsync(
+        string host,
+        int port,
+        IEnumerable<(string Username, string PasswordHash)> users,
+        bool replace,
+        string? apiKey,
+        CancellationToken cancellationToken = default);
 }
 
 public sealed class ServerCapacityClient : IServerCapacityClient
 {
-    private static readonly JsonSerializerOptions JsonOptions = new()
+    public async Task<ServerInfoSnapshot?> GetServerInfoAsync(
+        string host,
+        int port,
+        string? apiKey,
+        CancellationToken cancellationToken = default)
     {
-        PropertyNameCaseInsensitive = true
-    };
+        var response = await ServerApiClient.GetServerInfoAsync(host, port, clientVersion: null, apiKey, cancellationToken);
+        if (response == null)
+            return null;
+        return new ServerInfoSnapshot(
+            response.ServerVersion,
+            response.Capabilities.ToList(),
+            response.AvailableAgents.ToList(),
+            response.AvailableModels.ToList());
+    }
 
     public async Task<SessionCapacitySnapshot?> GetCapacityAsync(
         string host,
@@ -187,23 +211,20 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        var query = string.IsNullOrWhiteSpace(agentId)
-            ? ""
-            : $"?agentId={Uri.EscapeDataString(agentId.Trim())}";
-        var url = $"{baseUrl}/api/sessions/capacity{query}";
-
-        using var client = new HttpClient();
-        if (!string.IsNullOrWhiteSpace(apiKey))
-            client.DefaultRequestHeaders.Add("x-api-key", apiKey.Trim());
-
-        using var response = await client.GetAsync(url, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-        {
-            throw await CreateHttpFailureAsync(response, "Capacity check failed", cancellationToken);
-        }
-
-        return await response.Content.ReadFromJsonAsync<SessionCapacitySnapshot>(JsonOptions, cancellationToken);
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.CheckSessionCapacityAsync(
+            new CheckSessionCapacityRequest { AgentId = agentId?.Trim() ?? "" },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return new SessionCapacitySnapshot(
+            response.CanCreateSession, response.Reason,
+            response.MaxConcurrentSessions, response.ActiveSessionCount,
+            response.RemainingServerCapacity, response.AgentId,
+            response.HasAgentLimit ? response.AgentMaxConcurrentSessions : null,
+            response.AgentActiveSessionCount,
+            response.HasAgentLimit ? response.RemainingAgentCapacity : null);
     }
 
     public async Task<IReadOnlyList<OpenServerSessionSnapshot>> GetOpenSessionsAsync(
@@ -212,18 +233,14 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        var url = $"{baseUrl}/api/sessions/open";
-        using var client = new HttpClient();
-        if (!string.IsNullOrWhiteSpace(apiKey))
-            client.DefaultRequestHeaders.Add("x-api-key", apiKey.Trim());
-
-        using var response = await client.GetAsync(url, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Open sessions query failed", cancellationToken);
-
-        var rows = await response.Content.ReadFromJsonAsync<List<OpenServerSessionSnapshot>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListOpenSessionsAsync(
+            new ListOpenSessionsRequest(),
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Sessions.Select(s => new OpenServerSessionSnapshot(s.SessionId, s.AgentId, s.CanAcceptInput)).ToList();
     }
 
     public async Task<bool> TerminateSessionAsync(
@@ -236,20 +253,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         if (string.IsNullOrWhiteSpace(sessionId))
             return false;
 
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        var url = $"{baseUrl}/api/sessions/{Uri.EscapeDataString(sessionId.Trim())}/terminate";
-        using var client = new HttpClient();
-        if (!string.IsNullOrWhiteSpace(apiKey))
-            client.DefaultRequestHeaders.Add("x-api-key", apiKey.Trim());
-
-        using var response = await client.PostAsync(url, content: null, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Session termination request failed", cancellationToken);
-
-        var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
-        if (payload is { Success: false })
-            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Session termination failed." : payload.Message);
-        return payload?.Success ?? false;
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.TerminateSessionAsync(
+            new TerminateSessionRequest { SessionId = sessionId.Trim() },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Session termination failed." : response.Message);
+        return response.Success;
     }
 
     public async Task<IReadOnlyList<AbandonedServerSessionSnapshot>> GetAbandonedSessionsAsync(
@@ -258,13 +271,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.GetAsync($"{baseUrl}/api/sessions/abandoned", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Abandoned sessions query failed", cancellationToken);
-        var rows = await response.Content.ReadFromJsonAsync<List<AbandonedServerSessionSnapshot>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListAbandonedSessionsAsync(
+            new ListAbandonedSessionsRequest(),
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Sessions.Select(s => new AbandonedServerSessionSnapshot(
+            s.SessionId, s.AgentId, s.Reason,
+            DateTimeOffset.TryParse(s.AbandonedUtc, out var dt) ? dt : DateTimeOffset.UtcNow)).ToList();
     }
 
     public async Task<IReadOnlyList<ConnectedPeerSnapshot>> GetConnectedPeersAsync(
@@ -273,13 +289,17 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.GetAsync($"{baseUrl}/api/connections/peers", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Connected peers query failed", cancellationToken);
-        var rows = await response.Content.ReadFromJsonAsync<List<ConnectedPeerSnapshot>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListConnectedPeersAsync(
+            new ListConnectedPeersRequest(),
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Peers.Select(p => new ConnectedPeerSnapshot(
+            p.Peer, p.ActiveConnections, p.IsBlocked,
+            string.IsNullOrEmpty(p.BlockedUntilUtc) ? null : (DateTime.TryParse(p.BlockedUntilUtc, out var bu) ? bu : (DateTime?)null),
+            DateTime.TryParse(p.LastSeenUtc, out var ls) ? ls : DateTime.UtcNow)).ToList();
     }
 
     public async Task<IReadOnlyList<ConnectionHistorySnapshot>> GetConnectionHistoryAsync(
@@ -289,13 +309,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.GetAsync($"{baseUrl}/api/connections/history?limit={Math.Clamp(limit, 1, 5000)}", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Connection history query failed", cancellationToken);
-        var rows = await response.Content.ReadFromJsonAsync<List<ConnectionHistorySnapshot>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListConnectionHistoryAsync(
+            new ListConnectionHistoryRequest { Limit = Math.Clamp(limit, 1, 5000) },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Entries.Select(e => new ConnectionHistorySnapshot(
+            DateTimeOffset.TryParse(e.TimestampUtc, out var ts) ? ts : DateTimeOffset.UtcNow,
+            e.Peer, e.Action, e.Allowed, string.IsNullOrEmpty(e.Detail) ? null : e.Detail)).ToList();
     }
 
     public async Task<IReadOnlyList<BannedPeerSnapshot>> GetBannedPeersAsync(
@@ -304,13 +327,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.GetAsync($"{baseUrl}/api/devices/banned", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Banned devices query failed", cancellationToken);
-        var rows = await response.Content.ReadFromJsonAsync<List<BannedPeerSnapshot>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListBannedPeersAsync(
+            new ListBannedPeersRequest(),
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Peers.Select(b => new BannedPeerSnapshot(
+            b.Peer, b.Reason,
+            DateTimeOffset.TryParse(b.BannedUtc, out var bt) ? bt : DateTimeOffset.UtcNow)).ToList();
     }
 
     public async Task<bool> BanPeerAsync(
@@ -324,18 +350,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         if (string.IsNullOrWhiteSpace(peer))
             return false;
 
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        var query = string.IsNullOrWhiteSpace(reason)
-            ? ""
-            : $"?reason={Uri.EscapeDataString(reason.Trim())}";
-        using var client = CreateClient(apiKey);
-        using var response = await client.PostAsync($"{baseUrl}/api/devices/{Uri.EscapeDataString(peer.Trim())}/ban{query}", null, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Peer ban request failed", cancellationToken);
-        var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
-        if (payload is { Success: false })
-            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Peer ban failed." : payload.Message);
-        return payload?.Success ?? false;
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.BanPeerAsync(
+            new BanPeerRequest { Peer = peer.Trim(), Reason = reason?.Trim() ?? "" },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Peer ban failed." : response.Message);
+        return response.Success;
     }
 
     public async Task<bool> UnbanPeerAsync(
@@ -348,15 +372,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         if (string.IsNullOrWhiteSpace(peer))
             return false;
 
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.DeleteAsync($"{baseUrl}/api/devices/{Uri.EscapeDataString(peer.Trim())}/ban", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Peer unban request failed", cancellationToken);
-        var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
-        if (payload is { Success: false })
-            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Peer unban failed." : payload.Message);
-        return payload?.Success ?? false;
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.UnbanPeerAsync(
+            new UnbanPeerRequest { Peer = peer.Trim() },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Peer unban failed." : response.Message);
+        return response.Success;
     }
 
     public async Task<IReadOnlyList<AuthUserSnapshot>> GetAuthUsersAsync(
@@ -365,13 +390,17 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.GetAsync($"{baseUrl}/api/auth/users", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Auth users query failed", cancellationToken);
-        var rows = await response.Content.ReadFromJsonAsync<List<AuthUserSnapshot>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListAuthUsersAsync(
+            new ListAuthUsersRequest(),
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Users.Select(u => new AuthUserSnapshot(
+            u.UserId, u.DisplayName, u.Role, u.Enabled,
+            DateTimeOffset.TryParse(u.CreatedUtc, out var c) ? c : DateTimeOffset.UtcNow,
+            DateTimeOffset.TryParse(u.UpdatedUtc, out var upd) ? upd : DateTimeOffset.UtcNow)).ToList();
     }
 
     public async Task<IReadOnlyList<string>> GetPermissionRolesAsync(
@@ -380,13 +409,14 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.GetAsync($"{baseUrl}/api/auth/permissions", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Permission roles query failed", cancellationToken);
-        var rows = await response.Content.ReadFromJsonAsync<List<string>>(JsonOptions, cancellationToken);
-        return rows ?? [];
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.ListPermissionRolesAsync(
+            new ListPermissionRolesRequest(),
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        return response.Roles.ToList();
     }
 
     public async Task<AuthUserSnapshot?> UpsertAuthUserAsync(
@@ -396,12 +426,21 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         string? apiKey,
         CancellationToken cancellationToken = default)
     {
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.PostAsJsonAsync($"{baseUrl}/api/auth/users", user, JsonOptions, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Auth user save failed", cancellationToken);
-        return await response.Content.ReadFromJsonAsync<AuthUserSnapshot>(JsonOptions, cancellationToken);
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var entry = new AuthUserEntry { UserId = user.UserId, DisplayName = user.DisplayName, Role = user.Role, Enabled = user.Enabled };
+        var response = await client.UpsertAuthUserAsync(
+            new UpsertAuthUserRequest { User = entry },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (response.User == null)
+            return null;
+        var u = response.User;
+        return new AuthUserSnapshot(
+            u.UserId, u.DisplayName, u.Role, u.Enabled,
+            DateTimeOffset.TryParse(u.CreatedUtc, out var c) ? c : DateTimeOffset.UtcNow,
+            DateTimeOffset.TryParse(u.UpdatedUtc, out var upd) ? upd : DateTimeOffset.UtcNow);
     }
 
     public async Task<bool> DeleteAuthUserAsync(
@@ -414,15 +453,16 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         if (string.IsNullOrWhiteSpace(userId))
             return false;
 
-        var baseUrl = ServerApiClient.BuildBaseUrl(host, port).TrimEnd('/');
-        using var client = CreateClient(apiKey);
-        using var response = await client.DeleteAsync($"{baseUrl}/api/auth/users/{Uri.EscapeDataString(userId.Trim())}", cancellationToken);
-        if (!response.IsSuccessStatusCode)
-            throw await CreateHttpFailureAsync(response, "Auth user delete failed", cancellationToken);
-        var payload = await response.Content.ReadFromJsonAsync<TerminateSessionResponse>(JsonOptions, cancellationToken);
-        if (payload is { Success: false })
-            throw new InvalidOperationException(string.IsNullOrWhiteSpace(payload.Message) ? "Auth user delete failed." : payload.Message);
-        return payload?.Success ?? false;
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var response = await client.DeleteAuthUserAsync(
+            new DeleteAuthUserRequest { UserId = userId.Trim() },
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Message) ? "Auth user delete failed." : response.Message);
+        return response.Success;
     }
 
     public async Task<PluginConfigurationSnapshot?> GetPluginsAsync(
@@ -597,51 +637,29 @@ public sealed class ServerCapacityClient : IServerCapacityClient
         return response?.Success ?? false;
     }
 
-    private static HttpClient CreateClient(string? apiKey)
+    public async Task<string> SetPairingUsersAsync(
+        string host,
+        int port,
+        IEnumerable<(string Username, string PasswordHash)> users,
+        bool replace,
+        string? apiKey,
+        CancellationToken cancellationToken = default)
     {
-        var client = new HttpClient();
-        if (!string.IsNullOrWhiteSpace(apiKey))
-            client.DefaultRequestHeaders.Add("x-api-key", apiKey.Trim());
-        return client;
+        var baseUrl = ServerApiClient.BuildBaseUrl(host, port);
+        using var channel = GrpcChannel.ForAddress(baseUrl);
+        var client = new AgentGateway.AgentGatewayClient(channel);
+        var grpcRequest = new SetPairingUsersRequest { Replace = replace };
+        foreach (var (username, passwordHash) in users)
+            grpcRequest.Users.Add(new PairingUserEntry { Username = username, PasswordHash = passwordHash });
+        var response = await client.SetPairingUsersAsync(
+            grpcRequest,
+            headers: ServerApiClient.CreateHeaders(apiKey),
+            cancellationToken: cancellationToken);
+        if (!response.Success)
+            throw new InvalidOperationException(string.IsNullOrWhiteSpace(response.Error) ? "Set pairing users failed." : response.Error);
+        return response.GeneratedApiKey;
     }
 
-    private static async Task<string?> TryReadErrorDetailAsync(HttpResponseMessage response, CancellationToken cancellationToken)
-    {
-        try
-        {
-            var body = await response.Content.ReadAsStringAsync(cancellationToken);
-            if (string.IsNullOrWhiteSpace(body))
-                return null;
-
-            using var doc = JsonDocument.Parse(body);
-            if (doc.RootElement.ValueKind == JsonValueKind.Object &&
-                doc.RootElement.TryGetProperty("message", out var messageNode) &&
-                messageNode.ValueKind == JsonValueKind.String)
-            {
-                return messageNode.GetString();
-            }
-
-            return body.Length <= 200 ? body : body[..200];
-        }
-        catch
-        {
-            return null;
-        }
-    }
-
-    private static async Task<InvalidOperationException> CreateHttpFailureAsync(
-        HttpResponseMessage response,
-        string operation,
-        CancellationToken cancellationToken)
-    {
-        var detail = await TryReadErrorDetailAsync(response, cancellationToken);
-        var statusCode = (int)response.StatusCode;
-        var reason = string.IsNullOrWhiteSpace(response.ReasonPhrase) ? "HTTP error" : response.ReasonPhrase;
-        var message = string.IsNullOrWhiteSpace(detail)
-            ? $"{operation} ({statusCode} {reason})."
-            : $"{operation} ({statusCode} {reason}): {detail}";
-        return new InvalidOperationException(message);
-    }
 }
 
 public sealed record SessionCapacitySnapshot(
@@ -659,10 +677,6 @@ public sealed record OpenServerSessionSnapshot(
     string SessionId,
     string AgentId,
     bool CanAcceptInput);
-
-public sealed record TerminateSessionResponse(
-    bool Success,
-    string Message);
 
 public sealed record AbandonedServerSessionSnapshot(
     string SessionId,
@@ -702,3 +716,20 @@ public sealed record PluginConfigurationSnapshot(
     IReadOnlyList<string> LoadedRunnerIds,
     bool Success,
     string Message);
+
+public sealed record ServerInfoSnapshot(
+    string ServerVersion,
+    IReadOnlyList<string> Capabilities,
+    IReadOnlyList<string> AvailableAgents,
+    IReadOnlyList<string> AvailableModels);
+
+public sealed record AgentSnapshot(
+    string AgentId,
+    int ActiveSessionCount,
+    int? MaxConcurrentSessions,
+    int? RemainingCapacity,
+    bool IsDefault,
+    string RunnerType = "",
+    string Command = "",
+    string Arguments = "",
+    string Description = "");

@@ -25,8 +25,10 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
 
     private string _editDisplayName = "";
     private string _editHost = "127.0.0.1";
-    private string _editPort = "5243";
+    private string _editPort = ServiceDefaults.PortString;
     private string _editApiKey = "";
+    private string _editPerRequestContext = "";
+    private string _editDefaultSessionContext = "";
     private string _localServerActionLabel = "Check Local Server";
     private string _localServerStatusText = "Local server status not checked.";
     private bool _canApplyLocalServerAction;
@@ -51,9 +53,11 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         CheckLocalServerCommand = new RelayCommand(() => _ = RunCommandAsync("Starting local server status check...", CheckLocalServerAsync));
         ApplyLocalServerActionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting local server action...", ApplyLocalServerActionAsync), () => CanApplyLocalServerAction);
         CollapseStatusLogCommand = new RelayCommand(CollapseStatusLogPanel);
+        CopyStatusLogCommand = new RelayCommand(() => _ = ExecuteCopyStatusLogAsync());
         SetManagementSectionCommand = new RelayCommand<string>(sectionKey => _ = ExecuteSetManagementSectionAsync(sectionKey));
         ExpandStatusLogCommand = new RelayCommand(() => _ = ExecuteExpandStatusLogAsync());
         StartSessionCommand = new RelayCommand(() => _ = RunCommandAsync("Starting new session...", StartSessionAsync), () => CurrentServerViewModel != null);
+        SetPairingUserCommand = new RelayCommand(() => _ = RunCommandAsync("Opening Set Pairing User...", ExecuteSetPairingUserAsync), () => CurrentServerViewModel?.HasConnectedSession == true);
 
         LoadServers();
     }
@@ -182,6 +186,28 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         }
     }
 
+    public string EditPerRequestContext
+    {
+        get => _editPerRequestContext;
+        set
+        {
+            if (_editPerRequestContext == value) return;
+            _editPerRequestContext = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string EditDefaultSessionContext
+    {
+        get => _editDefaultSessionContext;
+        set
+        {
+            if (_editDefaultSessionContext == value) return;
+            _editDefaultSessionContext = value;
+            OnPropertyChanged();
+        }
+    }
+
     public string LocalServerActionLabel
     {
         get => _localServerActionLabel;
@@ -237,6 +263,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             OnPropertyChanged(nameof(IsPluginsSectionSelected));
             OnPropertyChanged(nameof(IsMcpSectionSelected));
             OnPropertyChanged(nameof(IsPromptsSectionSelected));
+            OnPropertyChanged(nameof(IsAgentsSectionSelected));
             OnPropertyChanged(nameof(IsSettingsSectionSelected));
             OnPropertyChanged(nameof(IsAppLogSectionSelected));
         }
@@ -253,6 +280,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     public bool IsPluginsSectionSelected => string.Equals(SelectedManagementSection, "Plugins", StringComparison.Ordinal);
     public bool IsMcpSectionSelected => string.Equals(SelectedManagementSection, "Mcp", StringComparison.Ordinal);
     public bool IsPromptsSectionSelected => string.Equals(SelectedManagementSection, "Prompts", StringComparison.Ordinal);
+    public bool IsAgentsSectionSelected => string.Equals(SelectedManagementSection, "Agents", StringComparison.Ordinal);
     public bool IsSettingsSectionSelected => string.Equals(SelectedManagementSection, "Settings", StringComparison.Ordinal);
     public bool IsAppLogSectionSelected => string.Equals(SelectedManagementSection, "AppLog", StringComparison.Ordinal);
 
@@ -264,9 +292,11 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     public ICommand CheckLocalServerCommand { get; }
     public ICommand ApplyLocalServerActionCommand { get; }
     public ICommand CollapseStatusLogCommand { get; }
+    public ICommand CopyStatusLogCommand { get; }
     public ICommand SetManagementSectionCommand { get; }
     public ICommand ExpandStatusLogCommand { get; }
     public ICommand StartSessionCommand { get; }
+    public ICommand SetPairingUserCommand { get; }
 
     public void SetOwnerWindow(Func<Window?> factory) => _ownerWindowFactory = factory;
 
@@ -311,8 +341,29 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         var result = await _dispatcher.SendAsync(
             new OpenNewSessionRequest(Guid.NewGuid(), _ownerWindowFactory, CurrentServerViewModel));
 
-        if (!result.Success && result.ErrorMessage != "Cancelled.")
+        if (result.Success)
+            SelectedManagementSection = "Sessions";
+        else if (result.ErrorMessage != "Cancelled.")
             StatusText = $"Start session failed: {result.ErrorMessage}";
+    }
+
+    private async Task ExecuteSetPairingUserAsync()
+    {
+        var workspace = CurrentServerViewModel;
+        if (workspace == null || _ownerWindowFactory == null)
+            return;
+
+        if (!int.TryParse(workspace.Port, out var port))
+        {
+            StatusText = "Invalid port.";
+            return;
+        }
+
+        var result = await _dispatcher.SendAsync(
+            new SetPairingUserRequest(Guid.NewGuid(), _ownerWindowFactory, workspace.Host, port, workspace.ApiKey, workspace));
+
+        if (!result.Success && result.ErrorMessage != null)
+            StatusText = result.ErrorMessage;
     }
 
     private async Task SaveServerAsync()
@@ -327,7 +378,9 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             EditDisplayName,
             host,
             port,
-            EditApiKey ?? ""));
+            EditApiKey ?? "",
+            EditPerRequestContext ?? "",
+            EditDefaultSessionContext ?? ""));
 
         if (!result.Success)
         {
@@ -449,7 +502,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             {
                 DisplayName = "Local Server",
                 Host = "127.0.0.1",
-                Port = 5243,
+                Port = ServiceDefaults.Port,
                 ApiKey = ""
             });
             Servers.Add(created);
@@ -471,6 +524,8 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
         EditHost = SelectedServer.Host;
         EditPort = SelectedServer.Port.ToString();
         EditApiKey = SelectedServer.ApiKey;
+        EditPerRequestContext = SelectedServer.PerRequestContext;
+        EditDefaultSessionContext = SelectedServer.DefaultSessionContext;
     }
 
     private void EnsureCurrentServerWorkspace()
@@ -498,8 +553,10 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     {
         EditDisplayName = "";
         EditHost = "127.0.0.1";
-        EditPort = "5243";
+        EditPort = ServiceDefaults.PortString;
         EditApiKey = "";
+        EditPerRequestContext = "";
+        EditDefaultSessionContext = "";
         StatusText = "New server draft ready.";
     }
 
@@ -511,6 +568,15 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     private void CollapseStatusLogPanel()
     {
         IsStatusLogExpanded = false;
+    }
+
+    private async Task ExecuteCopyStatusLogAsync()
+    {
+        var result = await _dispatcher.SendAsync(
+            new CopyStatusLogRequest(Guid.NewGuid(), [.. StatusLogEntries]));
+        StatusText = result.Success
+            ? "Status log copied to clipboard as markdown."
+            : $"Copy failed: {result.ErrorMessage}";
     }
 
     private void AppendStatusLogEntry(string message)
@@ -525,6 +591,12 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
 
     private void OnCurrentServerViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
+        if (string.Equals(e.PropertyName, nameof(ServerWorkspaceViewModel.HasConnectedSession), StringComparison.Ordinal))
+        {
+            ((RelayCommand)SetPairingUserCommand).RaiseCanExecuteChanged();
+            return;
+        }
+
         if (!string.Equals(e.PropertyName, nameof(ServerWorkspaceViewModel.StatusText), StringComparison.Ordinal))
             return;
 

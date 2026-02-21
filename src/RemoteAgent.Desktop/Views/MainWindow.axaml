@@ -5,13 +5,16 @@
         xmlns:fa="using:FluentAvalonia.UI.Controls"
         xmlns:tb="using:ToolBarControls.Avalonia"
         xmlns:behaviors="using:RemoteAgent.Desktop.Behaviors"
+        xmlns:panels="using:RemoteAgent.Desktop.Views.Panels"
         x:Class="RemoteAgent.Desktop.Views.MainWindow"
         Width="800"
         Height="720"
         MinWidth="760"
         MinHeight="600"
         Background="{DynamicResource WindowBackgroundBrush}"
+        FontFamily="{DynamicResource AppFontFamily}"
         Title="Remote Agent Management"
+        Icon="avares://RemoteAgent.Desktop/Assets/AppIcon/appicon.png"
         mc:Ignorable="d">
   <Window.Resources>
     <x:Double x:Key="UnifiedUiFontSize">13</x:Double>
@@ -57,6 +60,9 @@
     </Style>
     <Style Selector="fa|NavigationViewItem StackPanel">
       <Setter Property="Margin" Value="-14,0,0,0" />
+    </Style>
+    <Style Selector="fa|FontIcon">
+      <Setter Property="FontFamily" Value="{DynamicResource IconFontFamily}" />
     </Style>
     <Style Selector="fa|NavigationViewItem fa|FontIcon">
       <Setter Property="Margin" Value="2,0,0,0" />
@@ -155,6 +161,12 @@
             <TextBlock VerticalAlignment="Center" Text="Light/Dark" />
           </StackPanel>
         </Button>
+        <Button x:Name="SetPairingUserButton" Command="{Binding SetPairingUserCommand}">
+          <StackPanel Orientation="Horizontal" Spacing="6">
+            <fa:FontIcon Glyph="&#xE72E;" />
+            <TextBlock VerticalAlignment="Center" Text="Set Pairing User" />
+          </StackPanel>
+        </Button>
       </tb:ToolBar>
     </tb:ToolBarTray>
 
@@ -166,14 +178,22 @@
             MaxHeight="240">
       <Grid RowDefinitions="Auto,*" Margin="6,4">
         <DockPanel Grid.Row="0" LastChildFill="False">
-          <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Text="Status Log" />
+          <SelectableTextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Text="Status Log" />
           <Button DockPanel.Dock="Right"
                   Padding="6,2"
                   Command="{Binding CollapseStatusLogCommand}">
-            <StackPanel Orientation="Horizontal" Spacing="4">
-              <fa:FontIcon Glyph="&#xE711;" />
-              <TextBlock Text="Close" />
-            </StackPanel>
+            <fa:FontIcon Glyph="&#xE711;" />
+          </Button>
+          <Button DockPanel.Dock="Right"
+                  Padding="6,2"
+                  Command="{Binding CopyStatusLogCommand}">
+            <fa:FontIcon Glyph="&#xE8C8;" />
+          </Button>
+          <Button DockPanel.Dock="Right"
+                  Padding="6,2"
+                  x:Name="StatusLogOpenLogsFolderButton"
+                  Command="{Binding AppLog.OpenLogsFolderCommand}">
+            <fa:FontIcon Glyph="&#xED25;" />
           </Button>
         </DockPanel>
         <Border Grid.Row="1"
@@ -187,10 +207,10 @@
               <ItemsControl.ItemTemplate>
                 <DataTemplate>
                   <Grid ColumnDefinitions="Auto,*" Margin="6,2">
-                    <TextBlock Grid.Column="0"
+                    <SelectableTextBlock Grid.Column="0"
                                Opacity="0.7"
                                Text="{Binding Timestamp, StringFormat={}{0:HH:mm:ss}}" />
-                    <TextBlock Grid.Column="1"
+                    <SelectableTextBlock Grid.Column="1"
                                Margin="8,0,0,0"
                                TextWrapping="Wrap"
                                Text="{Binding Message}" />
@@ -213,10 +233,10 @@
                     Orientation="Horizontal"
                     Spacing="6"
                     HorizontalAlignment="Right">
-          <TextBlock Opacity="0.8" Text="Active Server:" />
-          <TextBlock FontWeight="SemiBold" Text="{Binding ActiveServerName}" />
+          <SelectableTextBlock Opacity="0.8" Text="Active Server:" />
+          <SelectableTextBlock FontWeight="SemiBold" Text="{Binding ActiveServerName}" />
         </StackPanel>
-        <TextBlock Text="{Binding StatusText}" HorizontalAlignment="Stretch" />
+        <SelectableTextBlock Text="{Binding StatusText}" HorizontalAlignment="Stretch" />
       </DockPanel>
     </Border>
 
@@ -295,6 +315,12 @@
               <TextBlock Text="Prompts" />
             </StackPanel>
           </fa:NavigationViewItem>
+          <fa:NavigationViewItem Tag="Agents">
+            <StackPanel Orientation="Horizontal" Spacing="14">
+              <fa:FontIcon Glyph="&#xE99A;" />
+              <TextBlock Text="Agents" />
+            </StackPanel>
+          </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="AppLog">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE9D9;" />
@@ -304,486 +330,20 @@
         </fa:NavigationView.MenuItems>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
           <Grid>
-            <Grid IsVisible="{Binding IsServerSetupSectionSelected}" RowDefinitions="Auto" Margin="8">
-              <Border Grid.Row="0"
-                      Padding="10"
-                      CornerRadius="8"
-                      Background="{DynamicResource WindowCardBackgroundBrush}"
-                      BorderBrush="{DynamicResource WindowBorderBrush}"
-                      BorderThickness="0">
-                <StackPanel Spacing="8">
-                  <TextBlock FontWeight="SemiBold" Text="Server Registration" />
-                  <WrapPanel Orientation="Horizontal">
-                    <TextBlock Width="80" VerticalAlignment="Center" Text="Server" />
-                    <ComboBox x:Name="ServerSelectorComboBox"
-                              Width="220"
-                              ItemsSource="{Binding Servers}"
-                              SelectedItem="{Binding SelectedServer}">
-                      <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                          <TextBlock Text="{Binding DisplayName}" />
-                        </DataTemplate>
-                      </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    <Button x:Name="NewServerButton" Command="{Binding NewServerCommand}">New</Button>
-                    <Button x:Name="SaveServerButton" Command="{Binding SaveServerCommand}">Save</Button>
-                    <Button x:Name="RemoveServerButton" Command="{Binding RemoveServerCommand}">Remove</Button>
-                  </WrapPanel>
-                  <WrapPanel Orientation="Horizontal">
-                    <TextBlock Width="80" VerticalAlignment="Center" Text="Name" />
-                    <TextBox x:Name="ServerNameTextBox" Width="300" Text="{Binding EditDisplayName}" />
-                  </WrapPanel>
-                  <WrapPanel Orientation="Horizontal">
-                    <TextBlock Width="80" VerticalAlignment="Center" Text="Host" />
-                    <TextBox x:Name="ServerHostTextBox" Width="200" Text="{Binding EditHost}" />
-                    <TextBlock Width="48" VerticalAlignment="Center" Text="Port" />
-                    <TextBox x:Name="ServerPortTextBox" Width="120" Text="{Binding EditPort}" />
-                  </WrapPanel>
-                  <WrapPanel Orientation="Horizontal">
-                    <TextBlock Width="80" VerticalAlignment="Center" Text="API Key" />
-                    <TextBox x:Name="ServerApiKeyTextBox" Width="300" Text="{Binding EditApiKey}" PasswordChar="*" />
-                  </WrapPanel>
-                </StackPanel>
-              </Border>
-            </Grid>
-
-            <Grid IsVisible="{Binding IsSessionsSectionSelected}"
-                  DataContext="{Binding CurrentServerViewModel}"
-                  Margin="8">
-              <TabControl x:Name="SessionTabs"
-                          ItemsSource="{Binding Sessions}"
-                          SelectedItem="{Binding SelectedSession}">
-                <TabControl.ItemTemplate>
-                  <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Spacing="6">
-                      <TextBlock VerticalAlignment="Center" Text="{Binding Title}" />
-                      <Button MinWidth="24"
-                              MinHeight="24"
-                              Padding="0"
-                              Command="{Binding $parent[Window].DataContext.CurrentServerViewModel.TerminateSessionCommand}"
-                              CommandParameter="{Binding .}">X</Button>
-                    </StackPanel>
-                  </DataTemplate>
-                </TabControl.ItemTemplate>
-                <TabControl.ContentTemplate>
-                  <DataTemplate>
-                    <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="8">
-                      <TextBlock FontWeight="SemiBold" Text="{Binding Title}" />
-                      <TextBlock Grid.Row="1" Opacity="0.7" Text="Unified chat surface for direct or server session mode." />
-                      <Border Grid.Row="2"
-                              CornerRadius="8"
-                              Background="{DynamicResource WindowCardBackgroundBrush}"
-                              BorderBrush="{DynamicResource WindowBorderBrush}"
-                              BorderThickness="0"
-                              Padding="12">
-                        <StackPanel Spacing="8">
-                          <TextBlock Text="Connection Mode" FontWeight="SemiBold" />
-                          <TextBlock Text="{Binding ConnectionMode}" />
-                          <TextBlock Text="Session ID" FontWeight="SemiBold" />
-                          <TextBlock Text="{Binding SessionId}" />
-                          <TextBlock Text="Connected" FontWeight="SemiBold" />
-                          <TextBlock Text="{Binding IsConnected}" />
-                          <TextBlock Text="Messages" FontWeight="SemiBold" />
-                          <ListBox ItemsSource="{Binding Messages}" Height="220" />
-                        </StackPanel>
-                      </Border>
-                      <Border Grid.Row="3"
-                              CornerRadius="8"
-                              Background="{DynamicResource WindowCardBackgroundBrush}"
-                              BorderBrush="{DynamicResource WindowBorderBrush}"
-                              BorderThickness="0"
-                              Padding="8">
-                        <Grid ColumnDefinitions="*,Auto">
-                          <TextBox x:Name="SessionMessageInput"
-                                   AcceptsReturn="True"
-                                   TextWrapping="Wrap"
-                                   Watermark="Type message (Enter for newline, Ctrl+Enter to send)"
-                                   Text="{Binding PendingMessage}">
-                            <TextBox.KeyBindings>
-                              <KeyBinding Gesture="Ctrl+Enter"
-                                          Command="{Binding $parent[Window].DataContext.CurrentServerViewModel.SendCurrentMessageCommand}" />
-                            </TextBox.KeyBindings>
-                          </TextBox>
-                          <Button Grid.Column="1"
-                                  MinWidth="72"
-                                  Command="{Binding $parent[Window].DataContext.CurrentServerViewModel.SendCurrentMessageCommand}">
-                            Send
-                          </Button>
-                        </Grid>
-                      </Border>
-                    </Grid>
-                  </DataTemplate>
-                </TabControl.ContentTemplate>
-              </TabControl>
-            </Grid>
-
-            <Grid DataContext="{Binding CurrentServerViewModel}">
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsLocalServerSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*" Margin="8">
-                <TextBlock FontWeight="SemiBold" Text="Local Server Control" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="Check local service state and start/stop when managed from desktop." TextWrapping="Wrap" />
-                <TextBlock x:Name="LocalServerStatusTextBlock"
-                           Grid.Row="2"
-                           Text="{Binding $parent[Window].DataContext.LocalServerStatusText}"
-                           TextWrapping="Wrap" />
-                <TextBlock Grid.Row="3"
-                           Opacity="0.7"
-                           Text="Use the top toolbar for local server actions."
-                           TextWrapping="Wrap" />
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsOpenSessionsSectionSelected}" RowDefinitions="Auto,Auto,*" Margin="8"
-                    DataContext="{Binding Security}">
-                <TextBlock FontWeight="SemiBold" Text="Open Server Sessions" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="Sessions currently active on the server." />
-                <ListBox x:Name="OpenServerSessionsList"
-                         Grid.Row="2"
-                         ItemsSource="{Binding OpenServerSessions}"
-                         SelectedItem="{Binding SelectedOpenServerSession}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="{Binding AgentId}" />
-                        <TextBlock Text=":" />
-                        <TextBlock Text="{Binding SessionId}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsStructuredLogsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*" Margin="8"
-                    DataContext="{Binding StructuredLogs}">
-                <TextBlock FontWeight="SemiBold" Text="Structured Log Viewer" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding LogMonitorStatus}" TextWrapping="Wrap" />
-                <Grid Grid.Row="2" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
-                  <TextBox Grid.Row="0" Grid.Column="0" Watermark="Level" Text="{Binding LogLevelFilter}" />
-                  <TextBox Grid.Row="0" Grid.Column="1" Watermark="Event Type" Text="{Binding LogEventTypeFilter}" />
-                  <TextBox Grid.Row="1" Grid.Column="0" Watermark="Session ID" Text="{Binding LogSessionIdFilter}" />
-                  <TextBox Grid.Row="1" Grid.Column="1" Watermark="Correlation ID" Text="{Binding LogCorrelationIdFilter}" />
-                  <TextBox Grid.Row="2" Grid.Column="0" Watermark="Component" Text="{Binding LogComponentFilter}" />
-                  <TextBox Grid.Row="2" Grid.Column="1" Watermark="Search" Text="{Binding LogSearchFilter}" />
-                  <TextBox Grid.Row="3" Grid.Column="0" Watermark="From UTC (ISO-8601)" Text="{Binding LogFromUtcFilter}" />
-                  <TextBox Grid.Row="3" Grid.Column="1" Watermark="To UTC (ISO-8601)" Text="{Binding LogToUtcFilter}" />
-                  <TextBox x:Name="LogServerIdFilterTextBox" Grid.Row="4" Grid.ColumnSpan="2" Watermark="Server ID" Text="{Binding LogServerIdFilter}" />
-                </Grid>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
-                  <Button x:Name="StartLogMonitoringButton" Command="{Binding StartLogMonitoringCommand}">Start Monitor</Button>
-                  <Button x:Name="StopLogMonitoringButton" Command="{Binding StopLogMonitoringCommand}">Stop Monitor</Button>
-                  <Button x:Name="ApplyLogFilterButton" Command="{Binding ApplyLogFilterCommand}">Apply Filter</Button>
-                  <Button x:Name="ClearLogFilterButton" Command="{Binding ClearLogFilterCommand}">Clear Filter</Button>
-                </StackPanel>
-                <ListBox x:Name="StructuredLogsList"
-                         Grid.Row="4"
-                         ItemsSource="{Binding VisibleStructuredLogs}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <Border Margin="0,0,0,6"
-                              Padding="8"
-                              CornerRadius="6"
-                              Background="{DynamicResource WindowCardBackgroundBrush}"
-                              BorderBrush="{DynamicResource WindowBorderBrush}"
-                              BorderThickness="0">
-                        <StackPanel Spacing="4">
-                          <TextBlock FontWeight="SemiBold"
-                                     Text="{Binding TimestampUtc}" />
-                          <TextBlock Text="{Binding Level}" />
-                          <TextBlock Text="{Binding EventType}" />
-                          <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
-                          <TextBlock Opacity="0.7" Text="{Binding ServerDisplayName}" />
-                          <TextBlock Opacity="0.7" Text="{Binding ServerId}" />
-                          <TextBlock Opacity="0.7" Text="{Binding SessionId}" />
-                          <TextBlock Opacity="0.7" Text="{Binding CorrelationId}" />
-                        </StackPanel>
-                      </Border>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsSecuritySectionSelected}" RowDefinitions="Auto,Auto,Auto,*,Auto,*" Margin="8"
-                    DataContext="{Binding Security}">
-                <TextBlock FontWeight="SemiBold" Text="Connection and Device Management" />
-                <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
-                  <Button x:Name="RefreshSecurityButton" Command="{Binding RefreshSecurityDataCommand}">Refresh</Button>
-                  <TextBlock VerticalAlignment="Center" Text="Ban Reason" />
-                  <TextBox Width="260" Text="{Binding BanReason}" Watermark="Optional reason" />
-                  <Button x:Name="BanPeerButton" Command="{Binding BanSelectedPeerCommand}">Ban Selected Peer</Button>
-                  <Button x:Name="UnbanPeerButton" Command="{Binding UnbanSelectedPeerCommand}">Unban Selected</Button>
-                </StackPanel>
-                <TextBlock Grid.Row="2" FontWeight="SemiBold" Text="Connected Peers" />
-                <ListBox x:Name="ConnectedPeersList"
-                         Grid.Row="3"
-                         ItemsSource="{Binding ConnectedPeers}"
-                         SelectedItem="{Binding SelectedConnectedPeer}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="{Binding Peer}" />
-                        <TextBlock Text="active=" />
-                        <TextBlock Text="{Binding ActiveConnections}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-                <TextBlock Grid.Row="4" FontWeight="SemiBold" Text="Banned Devices / Peers" />
-                <ListBox x:Name="BannedPeersList"
-                         Grid.Row="5"
-                         ItemsSource="{Binding BannedPeers}"
-                         SelectedItem="{Binding SelectedBannedPeer}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel>
-                        <TextBlock Text="{Binding Peer}" />
-                        <TextBlock Opacity="0.7" Text="{Binding Reason}" TextWrapping="Wrap" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsHistorySectionSelected}" RowDefinitions="Auto,Auto,*,Auto,*" Margin="8"
-                    DataContext="{Binding Security}">
-                <TextBlock FontWeight="SemiBold" Text="Connection History" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="Most recent connection/message events and abandoned sessions." />
-                <ListBox x:Name="ConnectionHistoryList"
-                         Grid.Row="2"
-                         ItemsSource="{Binding ConnectionHistory}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="{Binding TimestampUtc}" />
-                        <TextBlock Text="{Binding Peer}" />
-                        <TextBlock Text="{Binding Action}" />
-                        <TextBlock Text="{Binding Allowed}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-                <TextBlock Grid.Row="3" FontWeight="SemiBold" Text="Abandoned Sessions" />
-                <ListBox x:Name="AbandonedSessionsList"
-                         Grid.Row="4"
-                         ItemsSource="{Binding AbandonedServerSessions}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel>
-                        <TextBlock Text="{Binding SessionId}" />
-                        <TextBlock Opacity="0.7" Text="{Binding AgentId}" />
-                        <TextBlock Opacity="0.7" Text="{Binding Reason}" TextWrapping="Wrap" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsAuthUsersSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*" Margin="8"
-                    DataContext="{Binding AuthUsers}">
-                <TextBlock FontWeight="SemiBold" Text="Auth Users and Permissions" />
-                <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
-                  <TextBlock VerticalAlignment="Center" Text="User ID" />
-                  <TextBox Width="180" Text="{Binding AuthUserId}" />
-                  <TextBlock VerticalAlignment="Center" Text="Display Name" />
-                  <TextBox Width="220" Text="{Binding AuthDisplayName}" />
-                </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
-                  <TextBlock VerticalAlignment="Center" Text="Role" />
-                  <ComboBox Width="180"
-                            ItemsSource="{Binding PermissionRoles}"
-                            SelectedItem="{Binding AuthRole}" />
-                  <CheckBox IsChecked="{Binding AuthEnabled}" Content="Enabled" />
-                </StackPanel>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
-                  <Button x:Name="RefreshAuthUsersButton" Command="{Binding RefreshAuthUsersCommand}">Refresh</Button>
-                  <Button x:Name="SaveAuthUserButton" Command="{Binding SaveAuthUserCommand}">Save User</Button>
-                  <Button x:Name="DeleteAuthUserButton" Command="{Binding DeleteAuthUserCommand}">Delete Selected</Button>
-                </StackPanel>
-                <TextBlock Grid.Row="4" FontWeight="SemiBold" Text="Users" />
-                <TextBlock Grid.Row="5" Opacity="0.7" Text="Select a user to edit their role/enablement." />
-                <ListBox x:Name="AuthUsersList"
-                         Grid.Row="6"
-                         ItemsSource="{Binding AuthUsers}"
-                         SelectedItem="{Binding SelectedAuthUser}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel>
-                        <TextBlock Text="{Binding UserId}" />
-                        <TextBlock Opacity="0.7" Text="{Binding DisplayName}" />
-                        <TextBlock Opacity="0.7" Text="{Binding Role}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsPluginsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto,*" Margin="8"
-                    DataContext="{Binding Plugins}">
-                <TextBlock FontWeight="SemiBold" Text="Server Plugin Management" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding PluginStatus}" TextWrapping="Wrap" />
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
-                  <Button x:Name="RefreshPluginsButton" Command="{Binding RefreshPluginsCommand}">Refresh</Button>
-                  <Button x:Name="SavePluginsButton" Command="{Binding SavePluginsCommand}">Save</Button>
-                </StackPanel>
-                <TextBlock Grid.Row="3" FontWeight="SemiBold" Text="Configured Plugin Assemblies (one per line)" />
-                <TextBox Grid.Row="4"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="160"
-                         Text="{Binding PluginAssembliesText}" />
-                <TextBlock Grid.Row="5" FontWeight="SemiBold" Text="Loaded Runner IDs" />
-                <ListBox x:Name="LoadedPluginRunnerIdsList"
-                         Grid.Row="6"
-                         ItemsSource="{Binding LoadedPluginRunnerIds}" />
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsMcpSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,*,Auto,*" Margin="8"
-                    DataContext="{Binding McpRegistry}">
-                <TextBlock FontWeight="SemiBold" Text="MCP Registry and Agent Mapping" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding McpStatus}" TextWrapping="Wrap" />
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
-                  <Button x:Name="RefreshMcpButton" Command="{Binding RefreshMcpCommand}">Refresh</Button>
-                  <Button x:Name="SaveMcpServerButton" Command="{Binding SaveMcpServerCommand}">Save Server</Button>
-                  <Button x:Name="DeleteMcpServerButton" Command="{Binding DeleteMcpServerCommand}">Delete Selected</Button>
-                </StackPanel>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
-                  <TextBlock VerticalAlignment="Center" Text="Server ID" />
-                  <TextBox Width="140" Text="{Binding McpServerId}" />
-                  <TextBlock VerticalAlignment="Center" Text="Name" />
-                  <TextBox Width="200" Text="{Binding McpDisplayName}" />
-                  <TextBlock VerticalAlignment="Center" Text="Transport" />
-                  <TextBox Width="100" Text="{Binding McpTransport}" />
-                  <CheckBox IsChecked="{Binding McpEnabled}" Content="Enabled" />
-                </StackPanel>
-                <StackPanel Grid.Row="4" Orientation="Horizontal" Spacing="8">
-                  <TextBlock VerticalAlignment="Center" Text="Endpoint" />
-                  <TextBox Width="260" Text="{Binding McpEndpoint}" />
-                  <TextBlock VerticalAlignment="Center" Text="Command" />
-                  <TextBox Width="180" Text="{Binding McpCommand}" />
-                </StackPanel>
-                <StackPanel Grid.Row="5" Orientation="Horizontal" Spacing="8">
-                  <TextBlock VerticalAlignment="Center" Text="Args" />
-                  <TextBox Width="520" Text="{Binding McpArguments}" />
-                </StackPanel>
-                <ListBox x:Name="McpServersList"
-                         Grid.Row="6"
-                         ItemsSource="{Binding McpServers}"
-                         SelectedItem="{Binding SelectedMcpServer}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="{Binding ServerId}" />
-                        <TextBlock Text="{Binding Transport}" />
-                        <TextBlock Text="{Binding DisplayName}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-                <TextBlock Grid.Row="7" FontWeight="SemiBold" Text="Agent MCP Server IDs (one per line)" />
-                <TextBox Grid.Row="8"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="120"
-                         Text="{Binding AgentMcpServerIdsText}" />
-                <Button Grid.Row="9" x:Name="SaveAgentMcpMappingButton" Command="{Binding SaveAgentMcpMappingCommand}">
-                  Save Agent Mapping
-                </Button>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsPromptsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto,Auto" Margin="8"
-                    DataContext="{Binding PromptTemplates}">
-                <TextBlock FontWeight="SemiBold" Text="Prompt Templates and Session Seed Context" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="{Binding PromptTemplateStatus}" TextWrapping="Wrap" />
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
-                  <Button x:Name="RefreshPromptTemplatesButton" Command="{Binding RefreshPromptTemplatesCommand}">Refresh</Button>
-                  <Button x:Name="SavePromptTemplateButton" Command="{Binding SavePromptTemplateCommand}">Save Template</Button>
-                  <Button x:Name="DeletePromptTemplateButton" Command="{Binding DeletePromptTemplateCommand}">Delete Selected</Button>
-                </StackPanel>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8">
-                  <TextBlock VerticalAlignment="Center" Text="Template ID" />
-                  <TextBox Width="180" Text="{Binding PromptTemplateId}" />
-                  <TextBlock VerticalAlignment="Center" Text="Name" />
-                  <TextBox Width="220" Text="{Binding PromptTemplateName}" />
-                </StackPanel>
-                <TextBlock Grid.Row="4" Text="Description" />
-                <TextBox Grid.Row="5" Text="{Binding PromptTemplateDescription}" />
-                <ListBox x:Name="PromptTemplatesList"
-                         Grid.Row="6"
-                         ItemsSource="{Binding PromptTemplates}"
-                         SelectedItem="{Binding SelectedPromptTemplate}">
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel>
-                        <TextBlock Text="{Binding TemplateId}" />
-                        <TextBlock Opacity="0.7" Text="{Binding DisplayName}" />
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-                <TextBlock Grid.Row="7" Text="Template Content (Handlebars)" />
-                <TextBox Grid.Row="8"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="120"
-                         Text="{Binding PromptTemplateContent}" />
-                <TextBlock Grid.Row="9" Opacity="0.7" Text="{Binding SeedStatus}" TextWrapping="Wrap" />
-                <Grid Grid.Row="10" ColumnDefinitions="140,120,*,140,Auto">
-                  <TextBox Watermark="Session ID" Text="{Binding SeedSessionId}" />
-                  <TextBox Grid.Column="1" Watermark="Type" Text="{Binding SeedContextType}" />
-                  <TextBox Grid.Column="2" Watermark="Seed content" Text="{Binding SeedContent}" />
-                  <TextBox Grid.Column="3" Watermark="Source" Text="{Binding SeedSource}" />
-                  <Button Grid.Column="4" x:Name="SeedContextButton" Command="{Binding SeedContextCommand}">Seed</Button>
-                </Grid>
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsAppLogSectionSelected}"
-                    RowDefinitions="Auto,Auto,*,Auto,Auto"
-                    Margin="8">
-                <TextBlock FontWeight="SemiBold" Text="App Log" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="Log output captured from this management application." />
-                <ScrollViewer Grid.Row="2">
-                  <ItemsControl x:Name="AppLogList"
-                                ItemsSource="{Binding $parent[Window].DataContext.AppLog.Entries}">
-                    <ItemsControl.ItemTemplate>
-                      <DataTemplate>
-                        <TextBlock FontFamily="Consolas,Courier New,monospace"
-                                   FontSize="11"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding, StringFormat='[{0:HH:mm:ss.fff}] [{1,-11}] {2}'}" />
-                      </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                  </ItemsControl>
-                </ScrollViewer>
-                <WrapPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4,0,0">
-                  <Button x:Name="AppLogClearButton"
-                          Command="{Binding $parent[Window].DataContext.AppLog.ClearCommand}"
-                          Margin="0,0,4,0">Clear</Button>
-                  <Button x:Name="AppLogSaveTxtButton"
-                          Command="{Binding $parent[Window].DataContext.AppLog.SaveAsTxtCommand}"
-                          Margin="0,0,4,0">Save as Text</Button>
-                  <Button x:Name="AppLogSaveJsonButton"
-                          Command="{Binding $parent[Window].DataContext.AppLog.SaveAsJsonCommand}"
-                          Margin="0,0,4,0">Save as JSON</Button>
-                  <Button x:Name="AppLogSaveCsvButton"
-                          Command="{Binding $parent[Window].DataContext.AppLog.SaveAsCsvCommand}">Save as CSV</Button>
-                </WrapPanel>
-                <TextBlock Grid.Row="4"
-                           Opacity="0.7"
-                           Text="{Binding $parent[Window].DataContext.AppLog.StatusText}"
-                           TextWrapping="Wrap"
-                           Margin="0,4,0,0" />
-              </Grid>
-
-              <Grid IsVisible="{Binding $parent[Window].DataContext.IsSettingsSectionSelected}" RowDefinitions="Auto,Auto,Auto,Auto" Margin="8">
-                <TextBlock FontWeight="SemiBold" Text="Settings" />
-                <TextBlock Grid.Row="1" Opacity="0.7" Text="Desktop session preferences and quick actions." />
-                <WrapPanel Grid.Row="2" Orientation="Horizontal">
-                  <Button x:Name="SettingsToggleThemeButton" Command="{Binding ToggleThemeCommand}">Toggle Theme</Button>
-                  <Button x:Name="SettingsCheckLocalServerButton" Command="{Binding $parent[Window].DataContext.CheckLocalServerCommand}">Check Local Server</Button>
-                </WrapPanel>
-                <TextBlock Grid.Row="3"
-                           Opacity="0.7"
-                           Text="{Binding $parent[Window].DataContext.LocalServerStatusText}"
-                           TextWrapping="Wrap" />
-              </Grid>
-            </Grid>
+            <panels:ServerSetupPanel    IsVisible="{Binding IsServerSetupSectionSelected}" />
+            <panels:SessionsPanel       IsVisible="{Binding IsSessionsSectionSelected}" />
+            <panels:LocalServerPanel    IsVisible="{Binding IsLocalServerSectionSelected}" />
+            <panels:OpenSessionsPanel   IsVisible="{Binding IsOpenSessionsSectionSelected}" />
+            <panels:StructuredLogsPanel IsVisible="{Binding IsStructuredLogsSectionSelected}" />
+            <panels:SecurityPanel       IsVisible="{Binding IsSecuritySectionSelected}" />
+            <panels:HistoryPanel        IsVisible="{Binding IsHistorySectionSelected}" />
+            <panels:AuthUsersPanel      IsVisible="{Binding IsAuthUsersSectionSelected}" />
+            <panels:PluginsPanel        IsVisible="{Binding IsPluginsSectionSelected}" />
+            <panels:McpPanel            IsVisible="{Binding IsMcpSectionSelected}" />
+            <panels:PromptsPanel        IsVisible="{Binding IsPromptsSectionSelected}" />
+            <panels:AgentsPanel         IsVisible="{Binding IsAgentsSectionSelected}" />
+            <panels:AppLogPanel         IsVisible="{Binding IsAppLogSectionSelected}" />
+            <panels:SettingsPanel       IsVisible="{Binding IsSettingsSectionSelected}" />
           </Grid>
         </ScrollViewer>
     </fa:NavigationView>

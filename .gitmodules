@@ -1,0 +1,3 @@
+[submodule "scripts/MsixTools"]
+	path = scripts/MsixTools
+	url = https://github.com/sharpninja/MsixTools.git

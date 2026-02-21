@@ -41,6 +41,26 @@ service AgentGateway {
   rpc UpsertPromptTemplate (UpsertPromptTemplateRequest) returns (UpsertPromptTemplateResponse);
   // Deletes a prompt template.
   rpc DeletePromptTemplate (DeletePromptTemplateRequest) returns (DeletePromptTemplateResponse);
+
+  rpc CheckSessionCapacity (CheckSessionCapacityRequest) returns (CheckSessionCapacityResponse);
+  rpc ListOpenSessions (ListOpenSessionsRequest) returns (ListOpenSessionsResponse);
+  rpc ListAbandonedSessions (ListAbandonedSessionsRequest) returns (ListAbandonedSessionsResponse);
+  rpc TerminateSession (TerminateSessionRequest) returns (TerminateSessionResponse);
+  rpc ListConnectedPeers (ListConnectedPeersRequest) returns (ListConnectedPeersResponse);
+  rpc ListConnectionHistory (ListConnectionHistoryRequest) returns (ListConnectionHistoryResponse);
+  rpc ListBannedPeers (ListBannedPeersRequest) returns (ListBannedPeersResponse);
+  rpc BanPeer (BanPeerRequest) returns (BanPeerResponse);
+  rpc UnbanPeer (UnbanPeerRequest) returns (UnbanPeerResponse);
+  rpc ListAuthUsers (ListAuthUsersRequest) returns (ListAuthUsersResponse);
+  rpc ListPermissionRoles (ListPermissionRolesRequest) returns (ListPermissionRolesResponse);
+  rpc UpsertAuthUser (UpsertAuthUserRequest) returns (UpsertAuthUserResponse);
+  rpc DeleteAuthUser (DeleteAuthUserRequest) returns (DeleteAuthUserResponse);
+  // Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
+  rpc SetPairingUsers (SetPairingUsersRequest) returns (SetPairingUsersResponse);
+
+  // Agent runner discovery and configuration
+  rpc ListAgentRunners (ListAgentRunnersRequest) returns (ListAgentRunnersResponse);
+  rpc UpdateAgentRunner (UpdateAgentRunnerRequest) returns (UpdateAgentRunnerResponse);
 }
 
 // ServerInfoRequest: optional client info for handshake (e.g. future compatibility).
@@ -106,6 +126,7 @@ message ServerMessage {
     string error = 2;         // agent stderr
     SessionEvent event = 3;  // session started / stopped / error
     MediaChunk media = 5;     // image (or other media) sent to app; store in DCIM/Remote Agent (TR-11.3)
+    FileTransfer file_transfer = 7;  // file detected in agent output; client stores preserving path hierarchy
   }
   // Priority for this message. NOTIFY triggers a system notification; tap opens chat and shows message.
   MessagePriority priority = 4;
@@ -117,6 +138,15 @@ message MediaChunk {
   bytes content = 1;
   string content_type = 2;   // e.g. image/png
   string file_name = 3;      // suggested filename
+}
+
+// FileTransfer: file detected in agent output, streamed to client for local storage.
+// The relative_path preserves directory hierarchy (unix-style, relative from drive root).
+message FileTransfer {
+  string relative_path = 1;    // path preserving hierarchy, e.g. "home/user/project/src/main.py"
+  bytes content = 2;           // raw file content
+  string content_type = 3;     // MIME type (e.g. "text/plain", "application/octet-stream")
+  int64 total_size = 4;        // file size in bytes
 }
 
 // MessagePriority: normal, high, or notify (system notification + tap to show).
@@ -320,4 +350,148 @@ message DeletePromptTemplateRequest {
 message DeletePromptTemplateResponse {
   bool success = 1;
   string message = 2;
+}
+
+// Session capacity
+message CheckSessionCapacityRequest { string agent_id = 1; }
+message CheckSessionCapacityResponse {
+  bool can_create_session = 1;
+  string reason = 2;
+  int32 max_concurrent_sessions = 3;
+  int32 active_session_count = 4;
+  int32 remaining_server_capacity = 5;
+  string agent_id = 6;
+  int32 agent_max_concurrent_sessions = 7;
+  int32 agent_active_session_count = 8;
+  int32 remaining_agent_capacity = 9;
+  bool has_agent_limit = 10;
+}
+
+// Open sessions
+message ListOpenSessionsRequest {}
+message OpenSessionEntry {
+  string session_id = 1;
+  string agent_id = 2;
+  bool can_accept_input = 3;
+}
+message ListOpenSessionsResponse { repeated OpenSessionEntry sessions = 1; }
+
+// Abandoned sessions
+message ListAbandonedSessionsRequest {}
+message AbandonedSessionEntry {
+  string session_id = 1;
+  string agent_id = 2;
+  string reason = 3;
+  string abandoned_utc = 4;
+}
+message ListAbandonedSessionsResponse { repeated AbandonedSessionEntry sessions = 1; }
+
+// Terminate session
+message TerminateSessionRequest { string session_id = 1; }
+message TerminateSessionResponse { bool success = 1; string message = 2; }
+
+// Connected peers
+message ListConnectedPeersRequest {}
+message ConnectedPeerEntry {
+  string peer = 1;
+  int32 active_connections = 2;
+  bool is_blocked = 3;
+  string blocked_until_utc = 4;
+  string last_seen_utc = 5;
+}
+message ListConnectedPeersResponse { repeated ConnectedPeerEntry peers = 1; }
+
+// Connection history
+message ListConnectionHistoryRequest { int32 limit = 1; }
+message ConnectionHistoryEntry {
+  string timestamp_utc = 1;
+  string peer = 2;
+  string action = 3;
+  bool allowed = 4;
+  string detail = 5;
+}
+message ListConnectionHistoryResponse { repeated ConnectionHistoryEntry entries = 1; }
+
+// Banned peers
+message ListBannedPeersRequest {}
+message BannedPeerEntry {
+  string peer = 1;
+  string reason = 2;
+  string banned_utc = 3;
+}
+message ListBannedPeersResponse { repeated BannedPeerEntry peers = 1; }
+
+// Ban / unban
+message BanPeerRequest { string peer = 1; string reason = 2; }
+message BanPeerResponse { bool success = 1; string message = 2; }
+message UnbanPeerRequest { string peer = 1; }
+message UnbanPeerResponse { bool success = 1; string message = 2; }
+
+// Auth users
+message AuthUserEntry {
+  string user_id = 1;
+  string display_name = 2;
+  string role = 3;
+  bool enabled = 4;
+  string created_utc = 5;
+  string updated_utc = 6;
+}
+message ListAuthUsersRequest {}
+message ListAuthUsersResponse { repeated AuthUserEntry users = 1; }
+message ListPermissionRolesRequest {}
+message ListPermissionRolesResponse { repeated string roles = 1; }
+message UpsertAuthUserRequest { AuthUserEntry user = 1; }
+message UpsertAuthUserResponse { bool success = 1; string message = 2; AuthUserEntry user = 3; }
+message DeleteAuthUserRequest { string user_id = 1; }
+message DeleteAuthUserResponse { bool success = 1; string message = 2; }
+
+// Pairing users
+message PairingUserEntry {
+  string username = 1;
+  string password_hash = 2;
+}
+
+message SetPairingUsersRequest {
+  string api_key = 1;
+  repeated PairingUserEntry users = 2;
+  bool replace = 3;
+}
+
+message SetPairingUsersResponse {
+  bool success = 1;
+  string error = 2;
+  string generated_api_key = 3;
+}
+
+// Agent runner discovery and configuration
+message AgentRunnerInfo {
+  string runner_id = 1;           // short id, e.g. "process", "copilot-windows", "ollama"
+  string runner_type = 2;         // implementation class name for display
+  string command = 3;             // configured command (if applicable)
+  string arguments = 4;           // configured arguments
+  int32 max_concurrent_sessions = 5; // per-agent session limit (0 = uses server default)
+  int32 active_session_count = 6;
+  bool is_default = 7;            // true if this is the default runner
+  string description = 8;         // human-readable description
+}
+
+message ListAgentRunnersRequest {}
+message ListAgentRunnersResponse {
+  repeated AgentRunnerInfo runners = 1;
+  string default_runner_id = 2;   // current default runner id
+  int32 global_max_sessions = 3;  // server-wide max concurrent sessions
+}
+
+message UpdateAgentRunnerRequest {
+  string runner_id = 1;           // which runner to update
+  string command = 2;             // new command (empty = keep current)
+  string arguments = 3;           // new arguments (empty = keep current)
+  int32 max_concurrent_sessions = 4; // 0 = remove per-agent limit
+  bool set_as_default = 5;        // if true, make this the default runner
+}
+
+message UpdateAgentRunnerResponse {
+  bool success = 1;
+  string message = 2;
+  AgentRunnerInfo runner = 3;     // updated runner info
 }

@@ -10,4 +10,6 @@ public interface ISessionCommandBus
     bool SelectSession(string? sessionId);
     Task<bool> TerminateSessionAsync(string? sessionId);
     string? GetCurrentSessionId();
+    bool IsConnected { get; }
+    event Action? ConnectionStateChanged;
 }

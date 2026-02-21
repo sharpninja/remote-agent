@@ -13,6 +13,7 @@ public interface IAgentSessionClient : IAgentInteractionSession
     string? PerRequestContext { get; set; }
     event Action? ConnectionStateChanged;
     event Action<ChatMessage>? MessageReceived;
+    event Action<FileTransfer>? FileTransferReceived;
 
     Task ConnectAsync(
         string host,
@@ -47,6 +48,7 @@ public sealed class AgentSessionClient(Func<MediaChunk, string>? mediaTextFormat
 
     public event Action? ConnectionStateChanged;
     public event Action<ChatMessage>? MessageReceived;
+    public event Action<FileTransfer>? FileTransferReceived;
 
     public async Task ConnectAsync(
         string host,
@@ -207,6 +209,23 @@ public sealed class AgentSessionClient(Func<MediaChunk, string>? mediaTextFormat
             while (await _call.ResponseStream.MoveNext(ct))
             {
                 var incoming = _call.ResponseStream.Current;
+
+                // Handle file transfers separately: raise dedicated event + chat notification.
+                if (incoming.PayloadCase == ServerMessage.PayloadOneofCase.FileTransfer && incoming.FileTransfer != null)
+                {
+                    var ft = incoming.FileTransfer;
+                    FileTransferReceived?.Invoke(ft);
+                    var sizeText = ft.TotalSize < 1024 ? $"{ft.TotalSize} B" : $"{ft.TotalSize / 1024.0:F1} KB";
+                    var chatMsg = new ChatMessage
+                    {
+                        IsUser = false,
+                        Text = $"\U0001F4C1 File received: {ft.RelativePath} ({sizeText})",
+                        FileTransferPath = ft.RelativePath
+                    };
+                    MessageReceived?.Invoke(chatMsg);
+                    continue;
+                }
+
                 var mapped = MapServerMessage(incoming);
                 if (mapped != null)
                     MessageReceived?.Invoke(mapped);

@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.ServerSetupPanel">
+  <Grid RowDefinitions="Auto" Margin="8">
+    <Border Grid.Row="0"
+            Padding="10"
+            CornerRadius="8"
+            Background="{DynamicResource WindowCardBackgroundBrush}"
+            BorderBrush="{DynamicResource WindowBorderBrush}"
+            BorderThickness="0">
+      <StackPanel Spacing="8">
+        <SelectableTextBlock FontWeight="SemiBold" Text="Server Registration" />
+        <WrapPanel Orientation="Horizontal">
+          <SelectableTextBlock Width="80" VerticalAlignment="Center" Text="Server" />
+          <ComboBox x:Name="ServerSelectorComboBox"
+                    Width="220"
+                    ItemsSource="{Binding Servers}"
+                    SelectedItem="{Binding SelectedServer}">
+            <ComboBox.ItemTemplate>
+              <DataTemplate>
+                <SelectableTextBlock Text="{Binding DisplayName}" />
+              </DataTemplate>
+            </ComboBox.ItemTemplate>
+          </ComboBox>
+          <Button x:Name="NewServerButton" Command="{Binding NewServerCommand}">New</Button>
+          <Button x:Name="SaveServerButton" Command="{Binding SaveServerCommand}">Save</Button>
+          <Button x:Name="RemoveServerButton" Command="{Binding RemoveServerCommand}">Remove</Button>
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal">
+          <SelectableTextBlock Width="80" VerticalAlignment="Center" Text="Name" />
+          <TextBox x:Name="ServerNameTextBox" Width="300" Text="{Binding EditDisplayName}" />
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal">
+          <SelectableTextBlock Width="80" VerticalAlignment="Center" Text="Host" />
+          <TextBox x:Name="ServerHostTextBox" Width="200" Text="{Binding EditHost}" />
+          <SelectableTextBlock Width="48" VerticalAlignment="Center" Text="Port" />
+          <TextBox x:Name="ServerPortTextBox" Width="120" Text="{Binding EditPort}" />
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal">
+          <SelectableTextBlock Width="80" VerticalAlignment="Center" Text="API Key" />
+          <TextBox x:Name="ServerApiKeyTextBox" Width="300" Text="{Binding EditApiKey}" PasswordChar="*" />
+        </WrapPanel>
+        <StackPanel Spacing="4">
+          <SelectableTextBlock Text="Per-request Context" />
+          <TextBox x:Name="PerRequestContextTextBox"
+                   Height="80"
+                   AcceptsReturn="True"
+                   TextWrapping="Wrap"
+                   VerticalContentAlignment="Top"
+                   Watermark="Text prepended to every chat message"
+                   Text="{Binding EditPerRequestContext}" />
+        </StackPanel>
+        <StackPanel Spacing="4">
+          <SelectableTextBlock Text="Default Session Context" />
+          <TextBox x:Name="DefaultSessionContextTextBox"
+                   Height="80"
+                   AcceptsReturn="True"
+                   TextWrapping="Wrap"
+                   VerticalContentAlignment="Top"
+                   Watermark="Context seeded into new sessions"
+                   Text="{Binding EditDefaultSessionContext}" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </Grid>
+</UserControl>

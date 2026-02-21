@@ -15,13 +15,16 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private const string PrefServerHost = "ServerHost";
     private const string PrefServerPort = "ServerPort";
     private const string PrefPerRequestContext = "PerRequestContext";
+    private const string PrefApiKey = "ApiKey";
     private const string DefaultPort = "5243";
+
+    /// <summary>Well-known ports offered in the port picker (Linux/Docker = 5243, Windows service = 5244).</summary>
+    public static readonly IReadOnlyList<string> AvailablePorts = ["5243", "5244"];
 
     private readonly ISessionStore _sessionStore;
     private readonly IAgentGatewayClient _gateway;
     private readonly IServerApiClient _apiClient;
     private readonly IAppPreferences _preferences;
-    private readonly IConnectionModeSelector _connectionModeSelector;
     private readonly IAgentSelector _agentSelector;
     private readonly IAttachmentPicker _attachmentPicker;
     private readonly IPromptTemplateSelector _promptTemplateSelector;
@@ -34,6 +37,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
 
     private string _host = "";
     private string _port = DefaultPort;
+    private string _apiKey = "";
     private string _status = "Enter host and port, then Connect.";
     private string _pendingMessage = "";
     private string _perRequestContext = "";
@@ -44,20 +48,19 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         IAgentGatewayClient gateway,
         IServerApiClient apiClient,
         IAppPreferences preferences,
-        IConnectionModeSelector connectionModeSelector,
         IAgentSelector agentSelector,
         IAttachmentPicker attachmentPicker,
         IPromptTemplateSelector promptTemplateSelector,
         IPromptVariableProvider promptVariableProvider,
         ISessionTerminationConfirmation sessionTerminationConfirmation,
         INotificationService notificationService,
-        IRequestDispatcher dispatcher)
+        IRequestDispatcher dispatcher,
+        IDeepLinkService deepLinkService)
     {
         _sessionStore = sessionStore;
         _gateway = gateway;
         _apiClient = apiClient;
         _preferences = preferences;
-        _connectionModeSelector = connectionModeSelector;
         _agentSelector = agentSelector;
         _attachmentPicker = attachmentPicker;
         _promptTemplateSelector = promptTemplateSelector;
@@ -66,7 +69,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         _notificationService = notificationService;
         _dispatcher = dispatcher;
 
-        ConnectCommand = new Command(async () => await RunAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), this)), () => !_gateway.IsConnected);
+        ConnectCommand = new Command(async () => await RunAsync(new ConnectMobileSessionRequest(Guid.NewGuid(), this)), () => !_gateway.IsConnected && HasApiKey);
         DisconnectCommand = new Command(async () => await RunAsync(new DisconnectMobileSessionRequest(Guid.NewGuid(), this)), () => _gateway.IsConnected);
         NewSessionCommand = new Command(async () => await RunAsync(new CreateMobileSessionRequest(Guid.NewGuid(), this)));
         TerminateCurrentSessionCommand = new Command(async () => await RunAsync(new TerminateMobileSessionRequest(Guid.NewGuid(), CurrentSession, this)));
@@ -76,6 +79,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         ArchiveMessageCommand = new Command<ChatMessage>(async msg => await RunAsync(new ArchiveMobileMessageRequest(Guid.NewGuid(), msg, this)));
         UsePromptTemplateCommand = new Command(async () => await RunAsync(new UsePromptTemplateRequest(Guid.NewGuid(), this)));
         BeginEditTitleCommand = new Command(() => { if (CurrentSession != null) IsEditingTitle = true; });
+        ScanQrCodeCommand = new Command(async () => await RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this)), () => !HasApiKey && !string.IsNullOrWhiteSpace(_host));
 
         _gateway.ConnectionStateChanged += OnGatewayConnectionStateChanged;
         _gateway.MessageReceived += OnGatewayMessageReceived;
@@ -84,6 +88,8 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         LoadSessions();
         if (Sessions.Count > 0)
             CurrentSession = Sessions[0];
+
+        deepLinkService.Subscribe(uri => _ = RunAsync(new ScanQrCodeRequest(Guid.NewGuid(), this) { RawUri = uri }));
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -101,11 +107,16 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     public ICommand ArchiveMessageCommand { get; }
     public ICommand UsePromptTemplateCommand { get; }
     public ICommand BeginEditTitleCommand { get; }
+    public ICommand ScanQrCodeCommand { get; }
 
     public string Host
     {
         get => _host;
-        set => Set(ref _host, value);
+        set
+        {
+            if (Set(ref _host, value))
+                ((Command)ScanQrCodeCommand).ChangeCanExecute();
+        }
     }
 
     public string Port
@@ -113,6 +124,23 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         get => _port;
         set => Set(ref _port, value);
     }
+
+    public string ApiKey
+    {
+        get => _apiKey;
+        set
+        {
+            if (Set(ref _apiKey, value ?? ""))
+            {
+                _preferences.Set(PrefApiKey, _apiKey);
+                OnPropertyChanged(nameof(HasApiKey));
+                ((Command)ConnectCommand).ChangeCanExecute();
+                ((Command)ScanQrCodeCommand).ChangeCanExecute();
+            }
+        }
+    }
+
+    public bool HasApiKey => !string.IsNullOrWhiteSpace(_apiKey);
 
     public string Status
     {
@@ -151,7 +179,6 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
             else
                 _gateway.LoadFromStore(null);
             OnPropertyChanged(nameof(CurrentSessionTitle));
-            OnPropertyChanged(nameof(ConnectionModeLabel));
             OnPropertyChanged(nameof(CurrentSessionTitleEditorText));
         }
     }
@@ -169,9 +196,8 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         }
     }
 
-    public string ConnectionModeLabel => $"Mode: {(string.Equals(CurrentSession?.ConnectionMode, "direct", StringComparison.OrdinalIgnoreCase) ? "direct" : "server")}";
-
     public bool IsConnected => _gateway.IsConnected;
+    public event Action? ConnectionStateChanged;
     public bool IsEditingTitle
     {
         get => _isEditingTitle;
@@ -206,6 +232,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
         Host = _preferences.Get(PrefServerHost, "");
         Port = _preferences.Get(PrefServerPort, DefaultPort);
         PerRequestContext = _preferences.Get(PrefPerRequestContext, "");
+        _apiKey = _preferences.Get(PrefApiKey, "");
     }
 
     private void SaveServerDetails(string host, int port)
@@ -260,6 +287,7 @@ public sealed class MainPageViewModel : INotifyPropertyChanged, ISessionCommandB
     private void OnGatewayConnectionStateChanged()
     {
         OnPropertyChanged(nameof(IsConnected));
+        ConnectionStateChanged?.Invoke();
         ((Command)ConnectCommand).ChangeCanExecute();
         ((Command)DisconnectCommand).ChangeCanExecute();
         ((Command)SendMessageCommand).ChangeCanExecute();

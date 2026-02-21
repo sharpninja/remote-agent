@@ -112,4 +112,25 @@ public class CreateDesktopSessionHandlerTests
                 SessionId = Guid.NewGuid().ToString("N")[..12]
             };
     }
+
+    // FR-12.1, FR-12.2, TR-18.4 — MessageReceived must be wired before user can chat
+    [AvaloniaFact]
+    public async Task HandleAsync_ShouldRegisterSessionEventsBeforeConnect()
+    {
+        var snapshot = new RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot(true, "ok", 10, 0, 10, "process", null, 0, null);
+        var client = new StubCapacityClient { CapacitySnapshot = snapshot };
+        var factory = new StubSessionFactory();
+        var workspace = SharedWorkspaceFactory.CreateWorkspace(client, factory);
+        var handler = new CreateDesktopSessionHandler(client, factory);
+
+        await handler.HandleAsync(new CreateDesktopSessionRequest(
+            Guid.NewGuid(), "Test", "127.0.0.1", 5243, "direct", "process", null, null, workspace));
+
+        var fakeSession = factory.LastFakeSession;
+        // Fire a synthetic server message — if handler is wired, it appears in session.Messages
+        fakeSession.SimulateMessage(new RemoteAgent.App.Services.ChatMessage { Text = "hello from agent" });
+        // Give the UIThread.Post a chance to execute
+        await Task.Delay(50);
+        workspace.Sessions[0].Messages.Should().Contain(m => m.Contains("hello from agent"));
+    }
 }

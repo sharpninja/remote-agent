@@ -1,0 +1,72 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.SessionsPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel}"
+        Margin="8">
+    <TabControl x:Name="SessionTabs"
+                ItemsSource="{Binding Sessions}"
+                SelectedItem="{Binding SelectedSession}">
+      <TabControl.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="6">
+            <SelectableTextBlock VerticalAlignment="Center" Text="{Binding Title}" />
+            <Button MinWidth="24"
+                    MinHeight="24"
+                    Padding="0"
+                    Command="{Binding $parent[Window].DataContext.CurrentServerViewModel.TerminateSessionCommand}"
+                    CommandParameter="{Binding .}">X</Button>
+          </StackPanel>
+        </DataTemplate>
+      </TabControl.ItemTemplate>
+      <TabControl.ContentTemplate>
+        <DataTemplate>
+          <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="8">
+            <SelectableTextBlock FontWeight="SemiBold" Text="{Binding Title}" />
+            <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="Unified chat surface for direct or server session mode." />
+            <Border Grid.Row="2"
+                    CornerRadius="8"
+                    Background="{DynamicResource WindowCardBackgroundBrush}"
+                    BorderBrush="{DynamicResource WindowBorderBrush}"
+                    BorderThickness="0"
+                    Padding="12">
+              <StackPanel Spacing="8">
+                <SelectableTextBlock Text="Connection Mode" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="{Binding ConnectionMode}" />
+                <SelectableTextBlock Text="Session ID" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="{Binding SessionId}" />
+                <SelectableTextBlock Text="Connected" FontWeight="SemiBold" />
+                <SelectableTextBlock Text="{Binding IsConnected}" />
+                <SelectableTextBlock Text="Messages" FontWeight="SemiBold" />
+                <ListBox ItemsSource="{Binding Messages}" Height="220" />
+              </StackPanel>
+            </Border>
+            <Border Grid.Row="3"
+                    CornerRadius="8"
+                    Background="{DynamicResource WindowCardBackgroundBrush}"
+                    BorderBrush="{DynamicResource WindowBorderBrush}"
+                    BorderThickness="0"
+                    Padding="8">
+              <Grid ColumnDefinitions="*,Auto">
+                <TextBox x:Name="SessionMessageInput"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         Watermark="Type message (Enter for newline, Ctrl+Enter to send)"
+                         Text="{Binding PendingMessage}">
+                  <TextBox.KeyBindings>
+                    <KeyBinding Gesture="Ctrl+Enter"
+                                Command="{Binding $parent[Window].DataContext.CurrentServerViewModel.SendCurrentMessageCommand}" />
+                  </TextBox.KeyBindings>
+                </TextBox>
+                <Button Grid.Column="1"
+                        MinWidth="72"
+                        Command="{Binding $parent[Window].DataContext.CurrentServerViewModel.SendCurrentMessageCommand}">
+                  Send
+                </Button>
+              </Grid>
+            </Border>
+          </Grid>
+        </DataTemplate>
+      </TabControl.ContentTemplate>
+    </TabControl>
+  </Grid>
+</UserControl>

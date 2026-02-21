@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RemoteAgent.App.Logic;
@@ -31,6 +32,18 @@ public partial class App : Application
             StartupDiagnostics.LogException("App.Initialize failed during AvaloniaXamlLoader.Load", ex);
             throw;
         }
+
+        if (OperatingSystem.IsWindows())
+        {
+            Resources["IconFontFamily"] = new FontFamily("Segoe MDL2 Assets");
+            Resources["AppFontFamily"] = new FontFamily("Segoe UI");
+        }
+        else
+        {
+            Resources["IconFontFamily"] = FontFamily.Default;
+            Resources["AppFontFamily"] = FontFamily.Default;
+        }
+
         StartupDiagnostics.Log("App.Initialize complete.");
     }
 
@@ -90,7 +103,12 @@ public partial class App : Application
         services.AddSingleton<ILoggerProvider, AppLoggerProvider>();
         services.AddLogging(builder => builder.AddDebug().SetMinimumLevel(LogLevel.Debug));
         services.AddSingleton<IFileSaveDialogService, AvaloniaFileSaveDialogService>();
-        services.AddSingleton<AppLogViewModel>();
+        services.AddSingleton<IClipboardService, AvaloniaClipboardService>();
+        services.AddSingleton<IFolderOpenerService, SystemFolderOpenerService>();
+        services.AddSingleton<AppLogViewModel>(sp => new AppLogViewModel(
+            sp.GetRequiredService<IRequestDispatcher>(),
+            sp.GetRequiredService<IFileSaveDialogService>(),
+            dataDir));
         services.AddSingleton<IRequestDispatcher, ServiceProviderRequestDispatcher>();
         services.AddTransient<IConnectionSettingsDialogService, AvaloniaConnectionSettingsDialogService>();
 
@@ -126,6 +144,11 @@ public partial class App : Application
         services.AddTransient<IRequestHandler<Requests.StartLogMonitoringRequest, CommandResult<Requests.StartLogMonitoringResult>>, StartLogMonitoringHandler>();
         services.AddTransient<IRequestHandler<Requests.ClearAppLogRequest, CommandResult>, ClearAppLogHandler>();
         services.AddTransient<IRequestHandler<Requests.SaveAppLogRequest, CommandResult>, SaveAppLogHandler>();
+        services.AddTransient<IRequestHandler<Requests.CopyStatusLogRequest, CommandResult>, CopyStatusLogHandler>();
+        services.AddTransient<IRequestHandler<Requests.OpenLogsFolderRequest, CommandResult>, OpenLogsFolderHandler>();
+        services.AddTransient<IRequestHandler<Requests.RefreshAgentsRequest, CommandResult>, RefreshAgentsHandler>();
+        services.AddTransient<IRequestHandler<Requests.SetPairingUserRequest, CommandResult>, SetPairingUserHandler>();
+        services.AddSingleton<IPairingUserDialog>(sp => new AvaloniaPairingUserDialog());
 
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<MainWindow>();

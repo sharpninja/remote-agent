@@ -3,6 +3,13 @@ using Xunit;
 
 namespace RemoteAgent.Service.IntegrationTests;
 
+/// <summary>Integration smoke tests for service bootstrap. FR-1.1, FR-1.2; TR-1.3, TR-2.2, TR-3.1.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.1")]
+[Trait("Requirement", "FR-1.2")]
+[Trait("Requirement", "TR-1.3")]
+[Trait("Requirement", "TR-2.2")]
+[Trait("Requirement", "TR-3.1")]
 public class HostBootstrapSmokeTests
 {
     [Fact]

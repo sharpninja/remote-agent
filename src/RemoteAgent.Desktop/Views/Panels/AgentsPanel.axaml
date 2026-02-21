@@ -1,0 +1,108 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RemoteAgent.Desktop.Views.Panels.AgentsPanel">
+  <Grid DataContext="{Binding CurrentServerViewModel.Agents}"
+        RowDefinitions="Auto,Auto,Auto,Auto,*,Auto"
+        Margin="8">
+    <SelectableTextBlock FontWeight="SemiBold" Text="Agent Configuration" />
+    <SelectableTextBlock Grid.Row="1" Opacity="0.7" Text="{Binding AgentsStatus}" TextWrapping="Wrap" />
+    <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
+      <Button x:Name="RefreshAgentsButton" Command="{Binding RefreshAgentsCommand}">Refresh</Button>
+      <Button x:Name="SetDefaultAgentButton" Command="{Binding SetDefaultAgentCommand}">Set as Default</Button>
+      <Button x:Name="SaveAgentButton" Command="{Binding SaveAgentCommand}">Save Changes</Button>
+    </StackPanel>
+    <Grid Grid.Row="3" ColumnDefinitions="Auto,*" ColumnSpacing="8" Margin="0,4,0,0">
+      <SelectableTextBlock VerticalAlignment="Center" Text="Server Version:" FontWeight="SemiBold" />
+      <SelectableTextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding ServerVersion}" />
+    </Grid>
+    <Grid Grid.Row="4" ColumnDefinitions="*,*" ColumnSpacing="8" Margin="0,8,0,0">
+      <Border CornerRadius="4"
+              BorderBrush="{DynamicResource WindowBorderBrush}"
+              BorderThickness="1"
+              Padding="4">
+        <Grid RowDefinitions="Auto,*">
+          <SelectableTextBlock FontWeight="SemiBold" Text="Available Agents" Margin="4,0,0,4" />
+          <ListBox x:Name="AgentsList"
+                   Grid.Row="1"
+                   ItemsSource="{Binding Agents}"
+                   SelectedItem="{Binding SelectedAgent}"
+                   MinHeight="200">
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <Grid ColumnDefinitions="Auto,*,Auto" Margin="4,2">
+                  <SelectableTextBlock VerticalAlignment="Center"
+                             FontWeight="SemiBold"
+                             Text="{Binding AgentId}" />
+                  <SelectableTextBlock Grid.Column="1"
+                             VerticalAlignment="Center"
+                             Margin="12,0,0,0"
+                             Opacity="0.7"
+                             Text="{Binding ActiveSessionCount, StringFormat='Sessions: {0}'}" />
+                  <SelectableTextBlock Grid.Column="2"
+                             VerticalAlignment="Center"
+                             Margin="12,0,0,0"
+                             FontWeight="SemiBold"
+                             Foreground="#F9A825"
+                             IsVisible="{Binding IsDefault}"
+                             Text="★ Default" />
+                </Grid>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </Grid>
+      </Border>
+      <Border Grid.Column="1"
+              CornerRadius="4"
+              BorderBrush="{DynamicResource WindowBorderBrush}"
+              BorderThickness="1"
+              Padding="8">
+        <ScrollViewer>
+          <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                IsVisible="{Binding HasSelectedAgent}">
+            <SelectableTextBlock FontWeight="SemiBold" Text="Agent Details" Margin="0,0,0,8" />
+
+            <!-- Status summary -->
+            <SelectableTextBlock Grid.Row="1"
+                       TextWrapping="Wrap"
+                       Opacity="0.8"
+                       Text="{Binding SelectedAgentCapacityText}"
+                       Margin="0,0,0,12" />
+
+            <!-- Command -->
+            <SelectableTextBlock Grid.Row="2" Text="Command:" FontWeight="SemiBold" Margin="0,0,0,2" />
+            <TextBox Grid.Row="3"
+                     Text="{Binding EditCommand, Mode=TwoWay}"
+                     Watermark="e.g. copilot, agent, /usr/bin/agent"
+                     Margin="0,0,0,8" />
+
+            <!-- Arguments -->
+            <SelectableTextBlock Grid.Row="4" Text="Arguments:" FontWeight="SemiBold" Margin="0,0,0,2" />
+            <TextBox Grid.Row="5"
+                     Text="{Binding EditArguments, Mode=TwoWay}"
+                     Watermark="e.g. --model gpt-4 --verbose"
+                     Margin="0,0,0,8" />
+
+            <!-- Max Concurrent Sessions -->
+            <SelectableTextBlock Grid.Row="6" Text="Max Concurrent Sessions:" FontWeight="SemiBold" Margin="0,0,0,2" />
+            <TextBox Grid.Row="7"
+                     Text="{Binding EditMaxSessions, Mode=TwoWay}"
+                     Watermark="0 = use server default"
+                     Margin="0,0,0,12" />
+
+            <!-- Help text -->
+            <SelectableTextBlock Grid.Row="8"
+                       Opacity="0.5"
+                       TextWrapping="Wrap"
+                       FontSize="11"
+                       Text="Edit the fields above and click 'Save Changes' to update this agent's configuration on the server. Command and argument changes require a service restart to take effect." />
+          </Grid>
+        </ScrollViewer>
+      </Border>
+    </Grid>
+    <SelectableTextBlock Grid.Row="5"
+               Margin="0,8,0,0"
+               Opacity="0.6"
+               TextWrapping="Wrap"
+               Text="Select an agent and click 'Set as Default' to use it for new sessions. Use 'Refresh' to reload available agents from the connected server." />
+  </Grid>
+</UserControl>

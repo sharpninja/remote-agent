@@ -33,8 +33,10 @@ public sealed class LiteDbServerRegistrationStore(string dbPath) : IServerRegist
             ServerId = string.IsNullOrWhiteSpace(registration.ServerId) ? Guid.NewGuid().ToString("N") : registration.ServerId.Trim(),
             DisplayName = registration.DisplayName?.Trim() ?? "",
             Host = string.IsNullOrWhiteSpace(registration.Host) ? "127.0.0.1" : registration.Host.Trim(),
-            Port = registration.Port <= 0 ? 5243 : registration.Port,
-            ApiKey = registration.ApiKey ?? ""
+            Port = registration.Port <= 0 ? ServiceDefaults.Port : registration.Port,
+            ApiKey = registration.ApiKey ?? "",
+            PerRequestContext = registration.PerRequestContext ?? "",
+            DefaultSessionContext = registration.DefaultSessionContext ?? ""
         };
         if (string.IsNullOrWhiteSpace(copy.DisplayName))
             copy.DisplayName = $"{copy.Host}:{copy.Port}";

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:RemoteAgent.App.Converters"
+             xmlns:vm="clr-namespace:RemoteAgent.App.ViewModels"
              x:Class="RemoteAgent.App.MainPage"
              x:Name="ThisPage"
              Title="Remote Agent"
@@ -26,9 +27,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Connect" Command="{Binding ConnectCommand}" />
         <ToolbarItem Text="Disconnect" Command="{Binding DisconnectCommand}" />
-        <ToolbarItem Text="New Session" Command="{Binding NewSessionCommand}" />
-        <ToolbarItem Text="Terminate" Command="{Binding TerminateCurrentSessionCommand}" />
-        <ToolbarItem Text="Template" Command="{Binding UsePromptTemplateCommand}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -60,15 +58,17 @@
                            AutomationId="mobile_connect_host"
                            Text="{Binding Host, Mode=TwoWay}"
                            PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
-                    <Entry Placeholder="Port"
-                           AutomationId="mobile_connect_port"
-                           Text="{Binding Port, Mode=TwoWay}"
-                           Keyboard="Numeric"
-                           PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
+                    <Picker AutomationId="mobile_connect_port"
+                            ItemsSource="{x:Static vm:MainPageViewModel.AvailablePorts}"
+                            SelectedItem="{Binding Port, Mode=TwoWay}"
+                            Title="Port" />
                     <HorizontalStackLayout Spacing="8">
-                        <Button AutomationId="mobile_connect_button" Text="Connect" Command="{Binding ConnectCommand}" />
-                        <Button AutomationId="mobile_new_session_button" Text="New Session" Command="{Binding NewSessionCommand}" />
-                        <Button Text="Terminate Session" Command="{Binding TerminateCurrentSessionCommand}" />
+                    <Button AutomationId="mobile_scan_qr_button"
+                            Text="Login"
+                            Command="{Binding ScanQrCodeCommand}" />
+                        <Button AutomationId="mobile_connect_button"
+                                Text="Connect"
+                                Command="{Binding ConnectCommand}" />
                     </HorizontalStackLayout>
                     <Label Text="{Binding Status}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" />
                 </VerticalStackLayout>
@@ -82,14 +82,14 @@
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="12"/>
             </Border.StrokeShape>
-            <VerticalStackLayout Spacing="6">
-                <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
-                    <Label Text="Sessions" FontAttributes="Bold" VerticalOptions="Center" />
-                    <Button x:Name="NewSessionBtn" Text="+ New" Command="{Binding NewSessionCommand}" Padding="12,4" />
-                    <Button Text="Terminate" Command="{Binding TerminateCurrentSessionCommand}" Padding="12,4" />
+            <VerticalStackLayout Spacing="4">
+                <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                    <Label Text="Sessions" FontAttributes="Bold" FontSize="13" VerticalOptions="Center" />
+                    <Button x:Name="NewSessionBtn" Text="+ New" Command="{Binding NewSessionCommand}" Padding="8,2" FontSize="12" />
+                    <Button Text="End" Command="{Binding TerminateCurrentSessionCommand}" Padding="8,2" FontSize="12" />
                 </HorizontalStackLayout>
                 <CollectionView x:Name="SessionTabsView"
-                                HeightRequest="44"
+                                HeightRequest="34"
                                 ItemsSource="{Binding Sessions}"
                                 SelectedItem="{Binding CurrentSession, Mode=TwoWay}"
                                 SelectionMode="Single">
@@ -98,15 +98,16 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <HorizontalStackLayout Spacing="6">
-                                <Border Padding="10,6" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
-                                    <Border.StrokeShape><RoundRectangle CornerRadius="8"/></Border.StrokeShape>
-                                    <Label Text="{Binding Title}" MaxLines="1" LineBreakMode="TailTruncation" />
+                            <HorizontalStackLayout Spacing="2">
+                                <Border Padding="8,4" StrokeThickness="1" Stroke="{StaticResource OutlineBrush}" BackgroundColor="{StaticResource SurfaceBrush}">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="6"/></Border.StrokeShape>
+                                    <Label Text="{Binding Title}" FontSize="12" MaxLines="1" LineBreakMode="TailTruncation" />
                                 </Border>
-                                <Button Text="X"
-                                        WidthRequest="34"
-                                        HeightRequest="34"
+                                <Button Text="✕" FontSize="10"
+                                        WidthRequest="24"
+                                        HeightRequest="24"
                                         Padding="0"
+                                        CornerRadius="12"
                                         Command="{Binding BindingContext.TerminateSessionCommand, Source={x:Reference ThisPage}}"
                                         CommandParameter="{Binding .}" />
                             </HorizontalStackLayout>
@@ -124,12 +125,12 @@
                     <Entry x:Name="SessionTitleEntry" Text="{Binding CurrentSessionTitleEditorText, Mode=TwoWay}"
                            IsVisible="{Binding IsEditingTitle}"
                            Unfocused="OnSessionTitleUnfocused" Completed="OnSessionTitleCompleted" />
-                    <Label Text="{Binding ConnectionModeLabel}" FontSize="12" TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
-        <!-- M3 top card: connection (surface container, 12dp radius) -->
-        <Border Grid.Row="1" Style="{StaticResource MaterialCard}" Margin="0,0,0,8">
+        <!-- M3 top card: connection (surface container, 12dp radius) — hidden when connected -->
+        <Border Grid.Row="1" Style="{StaticResource MaterialCard}" Margin="0,0,0,8"
+                IsVisible="{Binding IsConnected, Converter={StaticResource InverseBool}}">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="12"/>
             </Border.StrokeShape>
@@ -141,8 +142,10 @@
                            PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
                     <Label Style="{StaticResource IconLabelSmall}" Text="{StaticResource IconHashtag}"
                            TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
-                    <Entry x:Name="PortEntry" Text="{Binding Port, Mode=TwoWay}" Placeholder="Port" WidthRequest="70" Keyboard="Numeric"
-                           PlaceholderColor="{StaticResource OnSurfaceVariantBrush}" />
+                    <Picker x:Name="PortPicker"
+                            ItemsSource="{x:Static vm:MainPageViewModel.AvailablePorts}"
+                            SelectedItem="{Binding Port, Mode=TwoWay}"
+                            Title="Port" WidthRequest="90" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
                     <HorizontalStackLayout Spacing="4">
@@ -254,32 +257,33 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Input: M3 outlined field row, 48dp touch -->
-        <Border Grid.Row="3" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="12,8" Margin="0,8,0,0">
+        <!-- Input: M3 outlined field row -->
+        <Border Grid.Row="3" Stroke="{StaticResource OutlineBrush}" StrokeThickness="1" Padding="8,4" Margin="0,8,0,0">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="8"/>
             </Border.StrokeShape>
-            <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
-                <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconMessage}"
-                       TextColor="{StaticResource OnSurfaceVariantBrush}" VerticalOptions="Center" />
-                <Editor x:Name="MessageEditor"
-                        Placeholder="Message to agent... (Ctrl+Enter to send)"
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
+                <Editor Grid.Column="0" x:Name="MessageEditor"
+                        Placeholder="Message to agent..."
                         Text="{Binding PendingMessage, Mode=TwoWay}"
                         AutoSize="TextChanges"
-                        MinimumHeightRequest="72"
+                        MinimumHeightRequest="40"
                         PlaceholderColor="{StaticResource OnSurfaceVariantBrush}"
-                        VerticalOptions="Center" />
-                <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
-                    <Button x:Name="AttachBtn" Command="{Binding AttachCommand}">
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill" />
+                <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                    <Button x:Name="AttachBtn" Command="{Binding AttachCommand}" Padding="8" MinimumHeightRequest="36" MinimumWidthRequest="36">
                         <Button.ImageSource>
-                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperclip}" Color="{StaticResource OnPrimaryBrush}" Size="18"/>
+                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperclip}" Color="{StaticResource OnPrimaryBrush}" Size="16"/>
                         </Button.ImageSource>
                     </Button>
-                    <Label Style="{StaticResource IconLabel}" Text="{StaticResource IconPaperPlane}"
-                           TextColor="{StaticResource OnPrimaryBrush}" VerticalOptions="Center" />
-                    <Button x:Name="SendBtn" Text="Send" Command="{Binding SendMessageCommand}" />
+                    <Button x:Name="SendBtn" Command="{Binding SendMessageCommand}" Padding="8" MinimumHeightRequest="36" MinimumWidthRequest="36">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="fa-solid-900" Glyph="{StaticResource IconPaperPlane}" Color="{StaticResource OnPrimaryBrush}" Size="16"/>
+                        </Button.ImageSource>
+                    </Button>
                 </HorizontalStackLayout>
-            </HorizontalStackLayout>
+            </Grid>
         </Border>
 
         <!-- Status: M3 label small, OnSurfaceVariant -->
