@@ -355,6 +355,48 @@ public static class ServerApiClient
     {
         return port == 443 ? $"https://{host}" : $"http://{host}:{port}";
     }
+
+    public static Task<ListAgentRunnersResponse?> ListAgentRunnersAsync(
+        string host,
+        int port,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "List agent runners",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.ListAgentRunnersAsync(new ListAgentRunnersRequest(), headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<UpdateAgentRunnerResponse?> UpdateAgentRunnerAsync(
+        string host,
+        int port,
+        string runnerId,
+        string? command = null,
+        string? arguments = null,
+        int maxConcurrentSessions = 0,
+        bool setAsDefault = false,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Update agent runner",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.UpdateAgentRunnerAsync(new UpdateAgentRunnerRequest
+            {
+                RunnerId = runnerId,
+                Command = command ?? "",
+                Arguments = arguments ?? "",
+                MaxConcurrentSessions = maxConcurrentSessions,
+                SetAsDefault = setAsDefault
+            }, headers, deadline: null, cancellationToken: token).ResponseAsync);
 }
 
 public sealed record SessionCapacitySnapshot(

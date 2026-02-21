@@ -24,6 +24,7 @@ public class AgentGatewayService(
     IReadOnlyDictionary<string, IAgentRunner> runnerRegistry,
     ILocalStorage localStorage,
     MediaStorageService mediaStorage,
+    FilePathDetectorService filePathDetector,
     StructuredLogService structuredLogs,
     PluginConfigurationService pluginConfiguration,
     AgentMcpConfigurationService agentMcpConfiguration,
@@ -49,7 +50,7 @@ public class AgentGatewayService(
         EnsureAuthorized(context);
         var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
         var response = new ServerInfoResponse { ServerVersion = version };
-        response.Capabilities.AddRange(new[] { "scripts", "media_upload", "agents" });
+        response.Capabilities.AddRange(new[] { "scripts", "media_upload", "agents", "file_transfer" });
         response.AvailableAgents.AddRange(runnerRegistry.Keys);
         structuredLogs.Write(
             level: "INFO",
@@ -458,21 +459,26 @@ public class AgentGatewayService(
                                 activeAgentId = string.IsNullOrWhiteSpace(control.AgentId)
                                     ? (string.IsNullOrWhiteSpace(options.Value.RunnerId) ? "process" : options.Value.RunnerId.Trim())
                                     : control.AgentId.Trim();
+                                var resolvedCmd = string.IsNullOrWhiteSpace(cmd) ? null : cmd;
                                 agentSession = await agentRunner.StartAsync(
-                                    string.IsNullOrWhiteSpace(cmd) ? null : cmd,
+                                    resolvedCmd,
                                     options.Value.Arguments,
                                     sessionId,
                                     logWriter,
                                     context.CancellationToken);
                                 if (agentSession == null)
                                 {
+                                    var failMsg = $"Agent runner did not start a session. " +
+                                                  $"Attempted command: '{resolvedCmd ?? "(default)"}', runner: '{activeAgentId}'. " +
+                                                  "Configure Agent:Command in appsettings.json to point to a valid agent executable.";
+                                    Log(failMsg, "ERROR", corrId, "session_start_failed");
                                     outChannel.Writer.TryWrite(new ServerMessage
                                     {
                                         Priority = MessagePriority.Normal,
                                         Event = new SessionEvent
                                         {
                                             Kind = SessionEvent.Types.Kind.SessionError,
-                                            Message = "Agent runner did not start a session."
+                                            Message = failMsg
                                         },
                                         CorrelationId = corrId
                                     });
@@ -685,8 +691,11 @@ public class AgentGatewayService(
         {
             if (agentSession != null)
             {
-                var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, outChannel.Writer, false, cts.Token, Log, "stdout", () => outputCorrelationId[0]);
-                var stderrTask = StreamReaderToResponse(agentSession.StandardError, outChannel.Writer, true, cts.Token, Log, "stderr", () => outputCorrelationId[0]);
+                // Per-session file hash tracker for content-based dedup (shared across the stdout reader lifetime).
+                var sentFileHashes = new Dictionary<string, byte[]>(StringComparer.OrdinalIgnoreCase);
+                var detector = options.Value.FileTransferEnabled ? filePathDetector : null;
+                var stdoutTask = StreamReaderToResponse(agentSession.StandardOutput, outChannel.Writer, false, cts.Token, Log, "stdout", () => outputCorrelationId[0], detector, sentFileHashes);
+                var stderrTask = StreamReaderToResponse(agentSession.StandardError, outChannel.Writer, true, cts.Token, Log, "stderr", () => outputCorrelationId[0], null, null);
                 await Task.WhenAll(stdoutTask, stderrTask);
             }
 
@@ -776,10 +785,13 @@ public class AgentGatewayService(
         CancellationToken ct,
         Action<string, string, string?, string> log,
         string streamName,
-        Func<string?> getCorrelationId)
+        Func<string?> getCorrelationId,
+        FilePathDetectorService? fileDetector,
+        Dictionary<string, byte[]>? sentFileHashes)
     {
         try
         {
+            string previousLine = "";
             string? line;
             while ((line = await reader.ReadLineAsync(ct)) != null)
             {
@@ -790,6 +802,30 @@ public class AgentGatewayService(
                 if (isError) msg.Error = clean; else msg.Output = clean;
                 if (!string.IsNullOrWhiteSpace(correlationId)) msg.CorrelationId = correlationId;
                 channel.TryWrite(msg);
+
+                // File path detection on stdout only (when enabled).
+                if (fileDetector != null && sentFileHashes != null && !isError)
+                {
+                    // Combine previous + current line to catch paths split across chunks.
+                    var combined = string.IsNullOrEmpty(previousLine) ? clean : previousLine + " " + clean;
+                    var detectedPaths = fileDetector.DetectFilePaths(combined);
+                    foreach (var path in detectedPaths)
+                    {
+                        var transfer = fileDetector.BuildFileTransferIfChanged(path, sentFileHashes);
+                        if (transfer != null)
+                        {
+                            var ftMsg = new ServerMessage
+                            {
+                                Priority = MessagePriority.Normal,
+                                FileTransfer = transfer
+                            };
+                            if (!string.IsNullOrWhiteSpace(correlationId)) ftMsg.CorrelationId = correlationId;
+                            channel.TryWrite(ftMsg);
+                            log($"File transferred: {transfer.RelativePath} ({transfer.TotalSize} bytes)", "INFO", correlationId, "file_transfer");
+                        }
+                    }
+                    previousLine = clean;
+                }
             }
         }
         catch (OperationCanceledException) { }
@@ -1040,6 +1076,143 @@ public class AgentGatewayService(
         EnsureAuthorized(context);
         var ok = authUsers.Delete(request.UserId);
         return Task.FromResult(new DeleteAuthUserResponse { Success = ok, Message = ok ? "Auth user deleted." : "Auth user not found." });
+    }
+
+    public override Task<ListAgentRunnersResponse> ListAgentRunners(ListAgentRunnersRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var defaultRunnerId = string.IsNullOrWhiteSpace(options.Value.RunnerId)
+            ? (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows) ? "copilot-windows" : "process")
+            : options.Value.RunnerId.Trim();
+        var agentLimits = options.Value.AgentConcurrentSessionLimits ?? new Dictionary<string, int>();
+        var response = new ListAgentRunnersResponse
+        {
+            DefaultRunnerId = defaultRunnerId,
+            GlobalMaxSessions = options.Value.MaxConcurrentSessions
+        };
+
+        foreach (var kvp in runnerRegistry.OrderBy(r => r.Key, StringComparer.OrdinalIgnoreCase))
+        {
+            var runnerId = kvp.Key;
+            var runner = kvp.Value;
+            var activeSessions = sessionCapacity.GetActiveSessionsForAgent(runnerId).Count;
+            agentLimits.TryGetValue(runnerId, out var perAgentLimit);
+            response.Runners.Add(new AgentRunnerInfo
+            {
+                RunnerId = runnerId,
+                RunnerType = runner.GetType().Name,
+                Command = options.Value.Command ?? "",
+                Arguments = options.Value.Arguments ?? "",
+                MaxConcurrentSessions = perAgentLimit,
+                ActiveSessionCount = activeSessions,
+                IsDefault = string.Equals(runnerId, defaultRunnerId, StringComparison.OrdinalIgnoreCase),
+                Description = $"{runner.GetType().Name} agent runner"
+            });
+        }
+
+        return Task.FromResult(response);
+    }
+
+    /// <summary>Resolves appsettings.json from multiple candidate locations (content root, base dir, cwd).</summary>
+    private static string ResolveAppSettingsPath()
+    {
+        var candidates = new[]
+        {
+            Path.Combine(AppContext.BaseDirectory, "appsettings.json"),
+            Path.Combine(Environment.CurrentDirectory, "appsettings.json"),
+            Path.Combine(Directory.GetParent(AppContext.BaseDirectory)?.FullName ?? "", "appsettings.json")
+        };
+        foreach (var c in candidates)
+        {
+            if (File.Exists(c)) return c;
+        }
+        // Default to base directory (will produce a clear FileNotFoundException).
+        return candidates[0];
+    }
+
+    public override async Task<UpdateAgentRunnerResponse> UpdateAgentRunner(UpdateAgentRunnerRequest request, ServerCallContext context)
+    {
+        EnsureAuthorized(context);
+        var runnerId = request.RunnerId?.Trim() ?? "";
+        if (string.IsNullOrWhiteSpace(runnerId) || !runnerRegistry.ContainsKey(runnerId))
+        {
+            return new UpdateAgentRunnerResponse
+            {
+                Success = false,
+                Message = $"Runner '{runnerId}' not found."
+            };
+        }
+
+        try
+        {
+            var appSettingsPath = ResolveAppSettingsPath();
+            logger.LogInformation("UpdateAgentRunner: using appsettings.json at {Path}", appSettingsPath);
+            var jsonText = await File.ReadAllTextAsync(appSettingsPath, context.CancellationToken);
+            var root = System.Text.Json.Nodes.JsonNode.Parse(jsonText) as System.Text.Json.Nodes.JsonObject
+                       ?? new System.Text.Json.Nodes.JsonObject();
+
+            if (root["Agent"] is not System.Text.Json.Nodes.JsonObject agentNode)
+            {
+                agentNode = new System.Text.Json.Nodes.JsonObject();
+                root["Agent"] = agentNode;
+            }
+
+            if (!string.IsNullOrEmpty(request.Command))
+                agentNode["Command"] = request.Command;
+            if (!string.IsNullOrEmpty(request.Arguments))
+                agentNode["Arguments"] = request.Arguments;
+            if (request.SetAsDefault)
+                agentNode["RunnerId"] = runnerId;
+
+            // Update per-agent session limits
+            var limitsNode = agentNode["AgentConcurrentSessionLimits"] as System.Text.Json.Nodes.JsonObject
+                             ?? new System.Text.Json.Nodes.JsonObject();
+            if (request.MaxConcurrentSessions > 0)
+                limitsNode[runnerId] = request.MaxConcurrentSessions;
+            else
+                limitsNode.Remove(runnerId);
+            agentNode["AgentConcurrentSessionLimits"] = limitsNode;
+
+            var jsonOptions = new System.Text.Json.JsonSerializerOptions { WriteIndented = true };
+            await File.WriteAllTextAsync(appSettingsPath, root.ToJsonString(jsonOptions), context.CancellationToken);
+
+            structuredLogs.Write("INFO", "agent_runner_updated", $"Agent runner '{runnerId}' configuration updated", nameof(AgentGatewayService), null, null, $"{{\"runner_id\":\"{runnerId}\"}}");
+
+            var activeSessions = sessionCapacity.GetActiveSessionsForAgent(runnerId).Count;
+            var defaultId = request.SetAsDefault ? runnerId
+                : (string.IsNullOrWhiteSpace(options.Value.RunnerId)
+                    ? (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows) ? "copilot-windows" : "process")
+                    : options.Value.RunnerId.Trim());
+
+            return new UpdateAgentRunnerResponse
+            {
+                Success = true,
+                Message = "Agent runner configuration updated. Some changes require service restart.",
+                Runner = new AgentRunnerInfo
+                {
+                    RunnerId = runnerId,
+                    RunnerType = runnerRegistry[runnerId].GetType().Name,
+                    Command = !string.IsNullOrEmpty(request.Command) ? request.Command : (options.Value.Command ?? ""),
+                    Arguments = !string.IsNullOrEmpty(request.Arguments) ? request.Arguments : (options.Value.Arguments ?? ""),
+                    MaxConcurrentSessions = request.MaxConcurrentSessions,
+                    ActiveSessionCount = activeSessions,
+                    IsDefault = string.Equals(runnerId, defaultId, StringComparison.OrdinalIgnoreCase),
+                    Description = $"{runnerRegistry[runnerId].GetType().Name} agent runner"
+                }
+            };
+        }
+        catch (Exception ex)
+        {
+            var errorDetail = $"Failed to update agent runner '{runnerId}': {ex.GetType().Name}: {ex.Message}";
+            logger.LogError(ex, "UpdateAgentRunner failed for runner '{RunnerId}'", runnerId);
+            structuredLogs.Write("ERROR", "agent_runner_update_failed", errorDetail, nameof(AgentGatewayService), null, null,
+                $"{{\"runner_id\":\"{runnerId}\",\"exception\":\"{ex.GetType().Name}\"}}");
+            return new UpdateAgentRunnerResponse
+            {
+                Success = false,
+                Message = errorDetail
+            };
+        }
     }
 
     public override async Task<SetPairingUsersResponse> SetPairingUsers(SetPairingUsersRequest request, ServerCallContext context)

@@ -78,6 +78,32 @@ public partial class Program
             logger.LogInformation("Remote Agent Service listening on {Urls}", urls);
             WriteEventLog(isError: false, 1000,
                 $"Remote Agent Service started successfully. Listening on: {urls}");
+
+            // Log agent configuration so misconfigurations are obvious on startup.
+            var agentOpts = app.Services.GetRequiredService<IOptions<AgentOptions>>().Value;
+            var resolvedRunner = string.IsNullOrWhiteSpace(agentOpts.RunnerId)
+                ? (OperatingSystem.IsWindows() ? "copilot-windows" : "process")
+                : agentOpts.RunnerId;
+            var resolvedCommand = string.IsNullOrWhiteSpace(agentOpts.Command)
+                ? (OperatingSystem.IsWindows() ? "copilot" : "agent")
+                : agentOpts.Command;
+            var commandIsConfigured = !string.IsNullOrWhiteSpace(agentOpts.Command);
+            logger.LogInformation(
+                "Agent configuration — RunnerId={RunnerId} (resolved: {ResolvedRunner}), " +
+                "Command={Command} (resolved: {ResolvedCommand}, explicit: {CommandIsConfigured}), " +
+                "Arguments={Arguments}",
+                agentOpts.RunnerId ?? "(empty)",
+                resolvedRunner,
+                agentOpts.Command ?? "(empty)",
+                resolvedCommand,
+                commandIsConfigured,
+                agentOpts.Arguments ?? "(empty)");
+            if (!commandIsConfigured)
+                logger.LogWarning(
+                    "Agent:Command is not configured in appsettings.json. " +
+                    "The service will attempt to use the default command '{DefaultCommand}' which may not exist. " +
+                    "Set Agent:Command to the path of your agent executable (e.g. claude, cursor, or /bin/cat for testing).",
+                    resolvedCommand);
         });
 
         try
@@ -181,6 +207,7 @@ public partial class Program
         services.AddSingleton<ILocalStorage, LiteDbLocalStorage>();
         services.AddSingleton<StructuredLogService>();
         services.AddSingleton<MediaStorageService>();
+        services.AddSingleton<FilePathDetectorService>();
         services.AddSingleton<PluginConfigurationService>();
         services.AddSingleton<AgentMcpConfigurationService>();
         services.AddSingleton<PromptTemplateService>();

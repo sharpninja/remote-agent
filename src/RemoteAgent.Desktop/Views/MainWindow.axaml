@@ -122,49 +122,49 @@
         <Button x:Name="NewSessionButton" Command="{Binding StartSessionCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE710;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="New Session" />
+            <TextBlock VerticalAlignment="Center" Text="New Session" />
           </StackPanel>
         </Button>
         <Button x:Name="RefreshOpenSessionsButton" Command="{Binding CurrentServerViewModel.Security.RefreshOpenSessionsCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE72C;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="Refresh Open Sessions" />
+            <TextBlock VerticalAlignment="Center" Text="Refresh Open Sessions" />
           </StackPanel>
         </Button>
         <Button x:Name="TerminateOpenServerSessionButton" Command="{Binding CurrentServerViewModel.Security.TerminateOpenServerSessionCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE711;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="Terminate Open Session" />
+            <TextBlock VerticalAlignment="Center" Text="Terminate Open Session" />
           </StackPanel>
         </Button>
         <Button x:Name="TerminateSessionButton" Command="{Binding CurrentServerViewModel.TerminateCurrentSessionCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE711;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="Terminate Session" />
+            <TextBlock VerticalAlignment="Center" Text="Terminate Session" />
           </StackPanel>
         </Button>
         <Button x:Name="CheckLocalServerButton" Command="{Binding CheckLocalServerCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE72C;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="Check Server Status" />
+            <TextBlock VerticalAlignment="Center" Text="Check Server Status" />
           </StackPanel>
         </Button>
         <Button x:Name="ApplyLocalServerActionButton" Command="{Binding ApplyLocalServerActionCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE768;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="{Binding LocalServerActionLabel}" />
+            <TextBlock VerticalAlignment="Center" Text="{Binding LocalServerActionLabel}" />
           </StackPanel>
         </Button>
         <Button x:Name="ToggleThemeButton" Command="{Binding CurrentServerViewModel.ToggleThemeCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE793;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="Light/Dark" />
+            <TextBlock VerticalAlignment="Center" Text="Light/Dark" />
           </StackPanel>
         </Button>
         <Button x:Name="SetPairingUserButton" Command="{Binding SetPairingUserCommand}">
           <StackPanel Orientation="Horizontal" Spacing="6">
             <fa:FontIcon Glyph="&#xE72E;" />
-            <SelectableTextBlock VerticalAlignment="Center" Text="Set Pairing User" />
+            <TextBlock VerticalAlignment="Center" Text="Set Pairing User" />
           </StackPanel>
         </Button>
       </tb:ToolBar>
@@ -252,73 +252,79 @@
           <fa:NavigationViewItem Tag="ServerSetup">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE713;" />
-              <SelectableTextBlock Text="Server Setup" />
+              <TextBlock Text="Server Setup" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="Sessions">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE8BD;" />
-              <SelectableTextBlock Text="Sessions" />
+              <TextBlock Text="Sessions" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem x:Name="NavLocalServerItem" Tag="LocalServer">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xEC4F;" />
-              <SelectableTextBlock Text="Local Server" />
+              <TextBlock Text="Local Server" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="OpenSessions">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE8A5;" />
-              <SelectableTextBlock Text="Open Sessions" />
+              <TextBlock Text="Open Sessions" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="StructuredLogs">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE9D9;" />
-              <SelectableTextBlock Text="Structured Logs" />
+              <TextBlock Text="Structured Logs" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="Security">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE72E;" />
-              <SelectableTextBlock Text="Security" />
+              <TextBlock Text="Security" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="History">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE81C;" />
-              <SelectableTextBlock Text="History" />
+              <TextBlock Text="History" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="AuthUsers">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE77B;" />
-              <SelectableTextBlock Text="Auth Users" />
+              <TextBlock Text="Auth Users" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="Plugins">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE7FC;" />
-              <SelectableTextBlock Text="Plugins" />
+              <TextBlock Text="Plugins" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="Mcp">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE943;" />
-              <SelectableTextBlock Text="MCP" />
+              <TextBlock Text="MCP" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="Prompts">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE8C8;" />
-              <SelectableTextBlock Text="Prompts" />
+              <TextBlock Text="Prompts" />
+            </StackPanel>
+          </fa:NavigationViewItem>
+          <fa:NavigationViewItem Tag="Agents">
+            <StackPanel Orientation="Horizontal" Spacing="14">
+              <fa:FontIcon Glyph="&#xE99A;" />
+              <TextBlock Text="Agents" />
             </StackPanel>
           </fa:NavigationViewItem>
           <fa:NavigationViewItem Tag="AppLog">
             <StackPanel Orientation="Horizontal" Spacing="14">
               <fa:FontIcon Glyph="&#xE9D9;" />
-              <SelectableTextBlock Text="App Log" />
+              <TextBlock Text="App Log" />
             </StackPanel>
           </fa:NavigationViewItem>
         </fa:NavigationView.MenuItems>
@@ -335,6 +341,7 @@
             <panels:PluginsPanel        IsVisible="{Binding IsPluginsSectionSelected}" />
             <panels:McpPanel            IsVisible="{Binding IsMcpSectionSelected}" />
             <panels:PromptsPanel        IsVisible="{Binding IsPromptsSectionSelected}" />
+            <panels:AgentsPanel         IsVisible="{Binding IsAgentsSectionSelected}" />
             <panels:AppLogPanel         IsVisible="{Binding IsAppLogSectionSelected}" />
             <panels:SettingsPanel       IsVisible="{Binding IsSettingsSectionSelected}" />
           </Grid>

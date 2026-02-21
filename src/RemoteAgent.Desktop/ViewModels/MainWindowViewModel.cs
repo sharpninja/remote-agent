@@ -263,6 +263,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
             OnPropertyChanged(nameof(IsPluginsSectionSelected));
             OnPropertyChanged(nameof(IsMcpSectionSelected));
             OnPropertyChanged(nameof(IsPromptsSectionSelected));
+            OnPropertyChanged(nameof(IsAgentsSectionSelected));
             OnPropertyChanged(nameof(IsSettingsSectionSelected));
             OnPropertyChanged(nameof(IsAppLogSectionSelected));
         }
@@ -279,6 +280,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     public bool IsPluginsSectionSelected => string.Equals(SelectedManagementSection, "Plugins", StringComparison.Ordinal);
     public bool IsMcpSectionSelected => string.Equals(SelectedManagementSection, "Mcp", StringComparison.Ordinal);
     public bool IsPromptsSectionSelected => string.Equals(SelectedManagementSection, "Prompts", StringComparison.Ordinal);
+    public bool IsAgentsSectionSelected => string.Equals(SelectedManagementSection, "Agents", StringComparison.Ordinal);
     public bool IsSettingsSectionSelected => string.Equals(SelectedManagementSection, "Settings", StringComparison.Ordinal);
     public bool IsAppLogSectionSelected => string.Equals(SelectedManagementSection, "AppLog", StringComparison.Ordinal);
 

@@ -41,209 +41,230 @@ namespace RemoteAgent.Proto {
             "dGlvbhgBIAEoDjIiLnJlbW90ZWFnZW50LlNlc3Npb25Db250cm9sLkFjdGlv",
             "bhISCgpzZXNzaW9uX2lkGAIgASgJEhAKCGFnZW50X2lkGAMgASgJIjUKBkFj",
             "dGlvbhIWChJBQ1RJT05fVU5TUEVDSUZJRUQQABIJCgVTVEFSVBABEggKBFNU",
-            "T1AQAiLbAQoNU2VydmVyTWVzc2FnZRIQCgZvdXRwdXQYASABKAlIABIPCgVl",
+            "T1AQAiKPAgoNU2VydmVyTWVzc2FnZRIQCgZvdXRwdXQYASABKAlIABIPCgVl",
             "cnJvchgCIAEoCUgAEioKBWV2ZW50GAMgASgLMhkucmVtb3RlYWdlbnQuU2Vz",
             "c2lvbkV2ZW50SAASKAoFbWVkaWEYBSABKAsyFy5yZW1vdGVhZ2VudC5NZWRp",
-            "YUNodW5rSAASLgoIcHJpb3JpdHkYBCABKA4yHC5yZW1vdGVhZ2VudC5NZXNz",
-            "YWdlUHJpb3JpdHkSFgoOY29ycmVsYXRpb25faWQYBiABKAlCCQoHcGF5bG9h",
-            "ZCJGCgpNZWRpYUNodW5rEg8KB2NvbnRlbnQYASABKAwSFAoMY29udGVudF90",
-            "eXBlGAIgASgJEhEKCWZpbGVfbmFtZRgDIAEoCSKoAQoMU2Vzc2lvbkV2ZW50",
-            "EiwKBGtpbmQYASABKA4yHi5yZW1vdGVhZ2VudC5TZXNzaW9uRXZlbnQuS2lu",
-            "ZBIPCgdtZXNzYWdlGAIgASgJIlkKBEtpbmQSFAoQS0lORF9VTlNQRUNJRklF",
-            "RBAAEhMKD1NFU1NJT05fU1RBUlRFRBABEhMKD1NFU1NJT05fU1RPUFBFRBAC",
-            "EhEKDVNFU1NJT05fRVJST1IQAyJDCh1TdHJ1Y3R1cmVkTG9nc1NuYXBzaG90",
-            "UmVxdWVzdBITCgtmcm9tX29mZnNldBgBIAEoAxINCgVsaW1pdBgCIAEoBSJn",
-            "Ch5TdHJ1Y3R1cmVkTG9nc1NuYXBzaG90UmVzcG9uc2USMAoHZW50cmllcxgB",
-            "IAMoCzIfLnJlbW90ZWFnZW50LlN0cnVjdHVyZWRMb2dFbnRyeRITCgtuZXh0",
-            "X29mZnNldBgCIAEoAyIyChtTdHJ1Y3R1cmVkTG9nc1N0cmVhbVJlcXVlc3QS",
-            "EwoLZnJvbV9vZmZzZXQYASABKAMixgEKElN0cnVjdHVyZWRMb2dFbnRyeRIQ",
-            "CghldmVudF9pZBgBIAEoAxIVCg10aW1lc3RhbXBfdXRjGAIgASgJEg0KBWxl",
-            "dmVsGAMgASgJEhIKCmV2ZW50X3R5cGUYBCABKAkSDwoHbWVzc2FnZRgFIAEo",
-            "CRIRCgljb21wb25lbnQYBiABKAkSEgoKc2Vzc2lvbl9pZBgHIAEoCRIWCg5j",
-            "b3JyZWxhdGlvbl9pZBgIIAEoCRIUCgxkZXRhaWxzX2pzb24YCSABKAkiEwoR",
-            "R2V0UGx1Z2luc1JlcXVlc3QiTgoSR2V0UGx1Z2luc1Jlc3BvbnNlEh0KFWNv",
-            "bmZpZ3VyZWRfYXNzZW1ibGllcxgBIAMoCRIZChFsb2FkZWRfcnVubmVyX2lk",
-            "cxgCIAMoCSIqChRVcGRhdGVQbHVnaW5zUmVxdWVzdBISCgphc3NlbWJsaWVz",
-            "GAEgAygJIlgKFVVwZGF0ZVBsdWdpbnNSZXNwb25zZRIPCgdzdWNjZXNzGAEg",
-            "ASgIEg8KB21lc3NhZ2UYAiABKAkSHQoVY29uZmlndXJlZF9hc3NlbWJsaWVz",
-            "GAMgAygJIn4KGVNlZWRTZXNzaW9uQ29udGV4dFJlcXVlc3QSEgoKc2Vzc2lv",
-            "bl9pZBgBIAEoCRIUCgxjb250ZXh0X3R5cGUYAiABKAkSDwoHY29udGVudBgD",
-            "IAEoCRIOCgZzb3VyY2UYBCABKAkSFgoOY29ycmVsYXRpb25faWQYBSABKAki",
-            "TwoaU2VlZFNlc3Npb25Db250ZXh0UmVzcG9uc2USDwoHc3VjY2VzcxgBIAEo",
-            "CBIPCgdtZXNzYWdlGAIgASgJEg8KB3NlZWRfaWQYAyABKAkiMgocR2V0U2Vz",
-            "c2lvblNlZWRDb250ZXh0UmVxdWVzdBISCgpzZXNzaW9uX2lkGAEgASgJIooB",
-            "ChdTZXNzaW9uU2VlZENvbnRleHRFbnRyeRIPCgdzZWVkX2lkGAEgASgJEhIK",
-            "CnNlc3Npb25faWQYAiABKAkSFAoMY29udGV4dF90eXBlGAMgASgJEg8KB2Nv",
-            "bnRlbnQYBCABKAkSDgoGc291cmNlGAUgASgJEhMKC2NyZWF0ZWRfdXRjGAYg",
-            "ASgJIlYKHUdldFNlc3Npb25TZWVkQ29udGV4dFJlc3BvbnNlEjUKB2VudHJp",
-            "ZXMYASADKAsyJC5yZW1vdGVhZ2VudC5TZXNzaW9uU2VlZENvbnRleHRFbnRy",
-            "eSI0Ch5DbGVhclNlc3Npb25TZWVkQ29udGV4dFJlcXVlc3QSEgoKc2Vzc2lv",
-            "bl9pZBgBIAEoCSI4Ch9DbGVhclNlc3Npb25TZWVkQ29udGV4dFJlc3BvbnNl",
-            "EhUKDXJlbW92ZWRfY291bnQYASABKAUihgIKE01jcFNlcnZlckRlZmluaXRp",
-            "b24SEQoJc2VydmVyX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRIR",
-            "Cgl0cmFuc3BvcnQYAyABKAkSEAoIZW5kcG9pbnQYBCABKAkSDwoHY29tbWFu",
-            "ZBgFIAEoCRIRCglhcmd1bWVudHMYBiADKAkSEQoJYXV0aF90eXBlGAcgASgJ",
-            "EhgKEGF1dGhfY29uZmlnX2pzb24YCCABKAkSDwoHZW5hYmxlZBgJIAEoCBIV",
-            "Cg1tZXRhZGF0YV9qc29uGAogASgJEhMKC2NyZWF0ZWRfdXRjGAsgASgJEhMK",
-            "C3VwZGF0ZWRfdXRjGAwgASgJIhcKFUxpc3RNY3BTZXJ2ZXJzUmVxdWVzdCJL",
-            "ChZMaXN0TWNwU2VydmVyc1Jlc3BvbnNlEjEKB3NlcnZlcnMYASADKAsyIC5y",
-            "ZW1vdGVhZ2VudC5NY3BTZXJ2ZXJEZWZpbml0aW9uIkoKFlVwc2VydE1jcFNl",
-            "cnZlclJlcXVlc3QSMAoGc2VydmVyGAEgASgLMiAucmVtb3RlYWdlbnQuTWNw",
-            "U2VydmVyRGVmaW5pdGlvbiJtChdVcHNlcnRNY3BTZXJ2ZXJSZXNwb25zZRIP",
-            "CgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiABKAkSMAoGc2VydmVyGAMg",
-            "ASgLMiAucmVtb3RlYWdlbnQuTWNwU2VydmVyRGVmaW5pdGlvbiIrChZEZWxl",
-            "dGVNY3BTZXJ2ZXJSZXF1ZXN0EhEKCXNlcnZlcl9pZBgBIAEoCSI7ChdEZWxl",
-            "dGVNY3BTZXJ2ZXJSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3Nh",
-            "Z2UYAiABKAkiQQoZU2V0QWdlbnRNY3BTZXJ2ZXJzUmVxdWVzdBIQCghhZ2Vu",
-            "dF9pZBgBIAEoCRISCgpzZXJ2ZXJfaWRzGAIgAygJImQKGlNldEFnZW50TWNw",
-            "U2VydmVyc1Jlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgC",
-            "IAEoCRIQCghhZ2VudF9pZBgDIAEoCRISCgpzZXJ2ZXJfaWRzGAQgAygJIi0K",
-            "GUdldEFnZW50TWNwU2VydmVyc1JlcXVlc3QSEAoIYWdlbnRfaWQYASABKAki",
-            "dQoaR2V0QWdlbnRNY3BTZXJ2ZXJzUmVzcG9uc2USEAoIYWdlbnRfaWQYASAB",
-            "KAkSEgoKc2VydmVyX2lkcxgCIAMoCRIxCgdzZXJ2ZXJzGAMgAygLMiAucmVt",
-            "b3RlYWdlbnQuTWNwU2VydmVyRGVmaW5pdGlvbiKeAQoYUHJvbXB0VGVtcGxh",
-            "dGVEZWZpbml0aW9uEhMKC3RlbXBsYXRlX2lkGAEgASgJEhQKDGRpc3BsYXlf",
-            "bmFtZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIYChB0ZW1wbGF0ZV9j",
-            "b250ZW50GAQgASgJEhMKC2NyZWF0ZWRfdXRjGAUgASgJEhMKC3VwZGF0ZWRf",
-            "dXRjGAYgASgJIhwKGkxpc3RQcm9tcHRUZW1wbGF0ZXNSZXF1ZXN0IlcKG0xp",
-            "c3RQcm9tcHRUZW1wbGF0ZXNSZXNwb25zZRI4Cgl0ZW1wbGF0ZXMYASADKAsy",
-            "JS5yZW1vdGVhZ2VudC5Qcm9tcHRUZW1wbGF0ZURlZmluaXRpb24iVgobVXBz",
-            "ZXJ0UHJvbXB0VGVtcGxhdGVSZXF1ZXN0EjcKCHRlbXBsYXRlGAEgASgLMiUu",
-            "cmVtb3RlYWdlbnQuUHJvbXB0VGVtcGxhdGVEZWZpbml0aW9uInkKHFVwc2Vy",
-            "dFByb21wdFRlbXBsYXRlUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCBIPCgdt",
-            "ZXNzYWdlGAIgASgJEjcKCHRlbXBsYXRlGAMgASgLMiUucmVtb3RlYWdlbnQu",
-            "UHJvbXB0VGVtcGxhdGVEZWZpbml0aW9uIjIKG0RlbGV0ZVByb21wdFRlbXBs",
-            "YXRlUmVxdWVzdBITCgt0ZW1wbGF0ZV9pZBgBIAEoCSJAChxEZWxldGVQcm9t",
-            "cHRUZW1wbGF0ZVJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2Fn",
-            "ZRgCIAEoCSIvChtDaGVja1Nlc3Npb25DYXBhY2l0eVJlcXVlc3QSEAoIYWdl",
-            "bnRfaWQYASABKAkixAIKHENoZWNrU2Vzc2lvbkNhcGFjaXR5UmVzcG9uc2US",
-            "GgoSY2FuX2NyZWF0ZV9zZXNzaW9uGAEgASgIEg4KBnJlYXNvbhgCIAEoCRIf",
-            "ChdtYXhfY29uY3VycmVudF9zZXNzaW9ucxgDIAEoBRIcChRhY3RpdmVfc2Vz",
-            "c2lvbl9jb3VudBgEIAEoBRIhChlyZW1haW5pbmdfc2VydmVyX2NhcGFjaXR5",
-            "GAUgASgFEhAKCGFnZW50X2lkGAYgASgJEiUKHWFnZW50X21heF9jb25jdXJy",
-            "ZW50X3Nlc3Npb25zGAcgASgFEiIKGmFnZW50X2FjdGl2ZV9zZXNzaW9uX2Nv",
-            "dW50GAggASgFEiAKGHJlbWFpbmluZ19hZ2VudF9jYXBhY2l0eRgJIAEoBRIX",
-            "Cg9oYXNfYWdlbnRfbGltaXQYCiABKAgiGQoXTGlzdE9wZW5TZXNzaW9uc1Jl",
-            "cXVlc3QiUgoQT3BlblNlc3Npb25FbnRyeRISCgpzZXNzaW9uX2lkGAEgASgJ",
-            "EhAKCGFnZW50X2lkGAIgASgJEhgKEGNhbl9hY2NlcHRfaW5wdXQYAyABKAgi",
-            "SwoYTGlzdE9wZW5TZXNzaW9uc1Jlc3BvbnNlEi8KCHNlc3Npb25zGAEgAygL",
-            "Mh0ucmVtb3RlYWdlbnQuT3BlblNlc3Npb25FbnRyeSIeChxMaXN0QWJhbmRv",
-            "bmVkU2Vzc2lvbnNSZXF1ZXN0ImQKFUFiYW5kb25lZFNlc3Npb25FbnRyeRIS",
-            "CgpzZXNzaW9uX2lkGAEgASgJEhAKCGFnZW50X2lkGAIgASgJEg4KBnJlYXNv",
-            "bhgDIAEoCRIVCg1hYmFuZG9uZWRfdXRjGAQgASgJIlUKHUxpc3RBYmFuZG9u",
-            "ZWRTZXNzaW9uc1Jlc3BvbnNlEjQKCHNlc3Npb25zGAEgAygLMiIucmVtb3Rl",
-            "YWdlbnQuQWJhbmRvbmVkU2Vzc2lvbkVudHJ5Ii0KF1Rlcm1pbmF0ZVNlc3Np",
-            "b25SZXF1ZXN0EhIKCnNlc3Npb25faWQYASABKAkiPAoYVGVybWluYXRlU2Vz",
-            "c2lvblJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEo",
-            "CSIbChlMaXN0Q29ubmVjdGVkUGVlcnNSZXF1ZXN0IoQBChJDb25uZWN0ZWRQ",
-            "ZWVyRW50cnkSDAoEcGVlchgBIAEoCRIaChJhY3RpdmVfY29ubmVjdGlvbnMY",
-            "AiABKAUSEgoKaXNfYmxvY2tlZBgDIAEoCBIZChFibG9ja2VkX3VudGlsX3V0",
-            "YxgEIAEoCRIVCg1sYXN0X3NlZW5fdXRjGAUgASgJIkwKGkxpc3RDb25uZWN0",
-            "ZWRQZWVyc1Jlc3BvbnNlEi4KBXBlZXJzGAEgAygLMh8ucmVtb3RlYWdlbnQu",
-            "Q29ubmVjdGVkUGVlckVudHJ5Ii0KHExpc3RDb25uZWN0aW9uSGlzdG9yeVJl",
-            "cXVlc3QSDQoFbGltaXQYASABKAUibgoWQ29ubmVjdGlvbkhpc3RvcnlFbnRy",
-            "eRIVCg10aW1lc3RhbXBfdXRjGAEgASgJEgwKBHBlZXIYAiABKAkSDgoGYWN0",
-            "aW9uGAMgASgJEg8KB2FsbG93ZWQYBCABKAgSDgoGZGV0YWlsGAUgASgJIlUK",
-            "HUxpc3RDb25uZWN0aW9uSGlzdG9yeVJlc3BvbnNlEjQKB2VudHJpZXMYASAD",
-            "KAsyIy5yZW1vdGVhZ2VudC5Db25uZWN0aW9uSGlzdG9yeUVudHJ5IhgKFkxp",
-            "c3RCYW5uZWRQZWVyc1JlcXVlc3QiQwoPQmFubmVkUGVlckVudHJ5EgwKBHBl",
-            "ZXIYASABKAkSDgoGcmVhc29uGAIgASgJEhIKCmJhbm5lZF91dGMYAyABKAki",
-            "RgoXTGlzdEJhbm5lZFBlZXJzUmVzcG9uc2USKwoFcGVlcnMYASADKAsyHC5y",
-            "ZW1vdGVhZ2VudC5CYW5uZWRQZWVyRW50cnkiLgoOQmFuUGVlclJlcXVlc3QS",
-            "DAoEcGVlchgBIAEoCRIOCgZyZWFzb24YAiABKAkiMwoPQmFuUGVlclJlc3Bv",
-            "bnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCSIgChBVbmJh",
-            "blBlZXJSZXF1ZXN0EgwKBHBlZXIYASABKAkiNQoRVW5iYW5QZWVyUmVzcG9u",
-            "c2USDwoHc3VjY2VzcxgBIAEoCBIPCgdtZXNzYWdlGAIgASgJIn8KDUF1dGhV",
-            "c2VyRW50cnkSDwoHdXNlcl9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiAB",
-            "KAkSDAoEcm9sZRgDIAEoCRIPCgdlbmFibGVkGAQgASgIEhMKC2NyZWF0ZWRf",
-            "dXRjGAUgASgJEhMKC3VwZGF0ZWRfdXRjGAYgASgJIhYKFExpc3RBdXRoVXNl",
-            "cnNSZXF1ZXN0IkIKFUxpc3RBdXRoVXNlcnNSZXNwb25zZRIpCgV1c2VycxgB",
-            "IAMoCzIaLnJlbW90ZWFnZW50LkF1dGhVc2VyRW50cnkiHAoaTGlzdFBlcm1p",
-            "c3Npb25Sb2xlc1JlcXVlc3QiLAobTGlzdFBlcm1pc3Npb25Sb2xlc1Jlc3Bv",
-            "bnNlEg0KBXJvbGVzGAEgAygJIkEKFVVwc2VydEF1dGhVc2VyUmVxdWVzdBIo",
-            "CgR1c2VyGAEgASgLMhoucmVtb3RlYWdlbnQuQXV0aFVzZXJFbnRyeSJkChZV",
-            "cHNlcnRBdXRoVXNlclJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVz",
-            "c2FnZRgCIAEoCRIoCgR1c2VyGAMgASgLMhoucmVtb3RlYWdlbnQuQXV0aFVz",
-            "ZXJFbnRyeSIoChVEZWxldGVBdXRoVXNlclJlcXVlc3QSDwoHdXNlcl9pZBgB",
-            "IAEoCSI6ChZEZWxldGVBdXRoVXNlclJlc3BvbnNlEg8KB3N1Y2Nlc3MYASAB",
-            "KAgSDwoHbWVzc2FnZRgCIAEoCSI7ChBQYWlyaW5nVXNlckVudHJ5EhAKCHVz",
-            "ZXJuYW1lGAEgASgJEhUKDXBhc3N3b3JkX2hhc2gYAiABKAkiaAoWU2V0UGFp",
-            "cmluZ1VzZXJzUmVxdWVzdBIPCgdhcGlfa2V5GAEgASgJEiwKBXVzZXJzGAIg",
-            "AygLMh0ucmVtb3RlYWdlbnQuUGFpcmluZ1VzZXJFbnRyeRIPCgdyZXBsYWNl",
-            "GAMgASgIIlQKF1NldFBhaXJpbmdVc2Vyc1Jlc3BvbnNlEg8KB3N1Y2Nlc3MY",
-            "ASABKAgSDQoFZXJyb3IYAiABKAkSGQoRZ2VuZXJhdGVkX2FwaV9rZXkYAyAB",
-            "KAkqPQoKU2NyaXB0VHlwZRIbChdTQ1JJUFRfVFlQRV9VTlNQRUNJRklFRBAA",
-            "EggKBEJBU0gQARIICgRQV1NIEAIqVQoPTWVzc2FnZVByaW9yaXR5EiAKHE1F",
-            "U1NBR0VfUFJJT1JJVFlfVU5TUEVDSUZJRUQQABIKCgZOT1JNQUwQARIICgRI",
-            "SUdIEAISCgoGTk9USUZZEAMy2xcKDEFnZW50R2F0ZXdheRJQCg1HZXRTZXJ2",
-            "ZXJJbmZvEh4ucmVtb3RlYWdlbnQuU2VydmVySW5mb1JlcXVlc3QaHy5yZW1v",
-            "dGVhZ2VudC5TZXJ2ZXJJbmZvUmVzcG9uc2USRQoHQ29ubmVjdBIaLnJlbW90",
-            "ZWFnZW50LkNsaWVudE1lc3NhZ2UaGi5yZW1vdGVhZ2VudC5TZXJ2ZXJNZXNz",
-            "YWdlKAEwARJ0ChlHZXRTdHJ1Y3R1cmVkTG9nc1NuYXBzaG90EioucmVtb3Rl",
-            "YWdlbnQuU3RydWN0dXJlZExvZ3NTbmFwc2hvdFJlcXVlc3QaKy5yZW1vdGVh",
-            "Z2VudC5TdHJ1Y3R1cmVkTG9nc1NuYXBzaG90UmVzcG9uc2USYwoUU3RyZWFt",
-            "U3RydWN0dXJlZExvZ3MSKC5yZW1vdGVhZ2VudC5TdHJ1Y3R1cmVkTG9nc1N0",
-            "cmVhbVJlcXVlc3QaHy5yZW1vdGVhZ2VudC5TdHJ1Y3R1cmVkTG9nRW50cnkw",
-            "ARJNCgpHZXRQbHVnaW5zEh4ucmVtb3RlYWdlbnQuR2V0UGx1Z2luc1JlcXVl",
-            "c3QaHy5yZW1vdGVhZ2VudC5HZXRQbHVnaW5zUmVzcG9uc2USVgoNVXBkYXRl",
-            "UGx1Z2lucxIhLnJlbW90ZWFnZW50LlVwZGF0ZVBsdWdpbnNSZXF1ZXN0GiIu",
-            "cmVtb3RlYWdlbnQuVXBkYXRlUGx1Z2luc1Jlc3BvbnNlEmUKElNlZWRTZXNz",
-            "aW9uQ29udGV4dBImLnJlbW90ZWFnZW50LlNlZWRTZXNzaW9uQ29udGV4dFJl",
-            "cXVlc3QaJy5yZW1vdGVhZ2VudC5TZWVkU2Vzc2lvbkNvbnRleHRSZXNwb25z",
-            "ZRJuChVHZXRTZXNzaW9uU2VlZENvbnRleHQSKS5yZW1vdGVhZ2VudC5HZXRT",
-            "ZXNzaW9uU2VlZENvbnRleHRSZXF1ZXN0GioucmVtb3RlYWdlbnQuR2V0U2Vz",
-            "c2lvblNlZWRDb250ZXh0UmVzcG9uc2USdAoXQ2xlYXJTZXNzaW9uU2VlZENv",
-            "bnRleHQSKy5yZW1vdGVhZ2VudC5DbGVhclNlc3Npb25TZWVkQ29udGV4dFJl",
-            "cXVlc3QaLC5yZW1vdGVhZ2VudC5DbGVhclNlc3Npb25TZWVkQ29udGV4dFJl",
-            "c3BvbnNlElkKDkxpc3RNY3BTZXJ2ZXJzEiIucmVtb3RlYWdlbnQuTGlzdE1j",
-            "cFNlcnZlcnNSZXF1ZXN0GiMucmVtb3RlYWdlbnQuTGlzdE1jcFNlcnZlcnNS",
-            "ZXNwb25zZRJcCg9VcHNlcnRNY3BTZXJ2ZXISIy5yZW1vdGVhZ2VudC5VcHNl",
-            "cnRNY3BTZXJ2ZXJSZXF1ZXN0GiQucmVtb3RlYWdlbnQuVXBzZXJ0TWNwU2Vy",
-            "dmVyUmVzcG9uc2USXAoPRGVsZXRlTWNwU2VydmVyEiMucmVtb3RlYWdlbnQu",
-            "RGVsZXRlTWNwU2VydmVyUmVxdWVzdBokLnJlbW90ZWFnZW50LkRlbGV0ZU1j",
-            "cFNlcnZlclJlc3BvbnNlEmUKElNldEFnZW50TWNwU2VydmVycxImLnJlbW90",
-            "ZWFnZW50LlNldEFnZW50TWNwU2VydmVyc1JlcXVlc3QaJy5yZW1vdGVhZ2Vu",
-            "dC5TZXRBZ2VudE1jcFNlcnZlcnNSZXNwb25zZRJlChJHZXRBZ2VudE1jcFNl",
-            "cnZlcnMSJi5yZW1vdGVhZ2VudC5HZXRBZ2VudE1jcFNlcnZlcnNSZXF1ZXN0",
-            "GicucmVtb3RlYWdlbnQuR2V0QWdlbnRNY3BTZXJ2ZXJzUmVzcG9uc2USaAoT",
-            "TGlzdFByb21wdFRlbXBsYXRlcxInLnJlbW90ZWFnZW50Lkxpc3RQcm9tcHRU",
-            "ZW1wbGF0ZXNSZXF1ZXN0GigucmVtb3RlYWdlbnQuTGlzdFByb21wdFRlbXBs",
-            "YXRlc1Jlc3BvbnNlEmsKFFVwc2VydFByb21wdFRlbXBsYXRlEigucmVtb3Rl",
-            "YWdlbnQuVXBzZXJ0UHJvbXB0VGVtcGxhdGVSZXF1ZXN0GikucmVtb3RlYWdl",
-            "bnQuVXBzZXJ0UHJvbXB0VGVtcGxhdGVSZXNwb25zZRJrChREZWxldGVQcm9t",
-            "cHRUZW1wbGF0ZRIoLnJlbW90ZWFnZW50LkRlbGV0ZVByb21wdFRlbXBsYXRl",
-            "UmVxdWVzdBopLnJlbW90ZWFnZW50LkRlbGV0ZVByb21wdFRlbXBsYXRlUmVz",
-            "cG9uc2USawoUQ2hlY2tTZXNzaW9uQ2FwYWNpdHkSKC5yZW1vdGVhZ2VudC5D",
-            "aGVja1Nlc3Npb25DYXBhY2l0eVJlcXVlc3QaKS5yZW1vdGVhZ2VudC5DaGVj",
-            "a1Nlc3Npb25DYXBhY2l0eVJlc3BvbnNlEl8KEExpc3RPcGVuU2Vzc2lvbnMS",
-            "JC5yZW1vdGVhZ2VudC5MaXN0T3BlblNlc3Npb25zUmVxdWVzdBolLnJlbW90",
-            "ZWFnZW50Lkxpc3RPcGVuU2Vzc2lvbnNSZXNwb25zZRJuChVMaXN0QWJhbmRv",
-            "bmVkU2Vzc2lvbnMSKS5yZW1vdGVhZ2VudC5MaXN0QWJhbmRvbmVkU2Vzc2lv",
-            "bnNSZXF1ZXN0GioucmVtb3RlYWdlbnQuTGlzdEFiYW5kb25lZFNlc3Npb25z",
-            "UmVzcG9uc2USXwoQVGVybWluYXRlU2Vzc2lvbhIkLnJlbW90ZWFnZW50LlRl",
-            "cm1pbmF0ZVNlc3Npb25SZXF1ZXN0GiUucmVtb3RlYWdlbnQuVGVybWluYXRl",
-            "U2Vzc2lvblJlc3BvbnNlEmUKEkxpc3RDb25uZWN0ZWRQZWVycxImLnJlbW90",
-            "ZWFnZW50Lkxpc3RDb25uZWN0ZWRQZWVyc1JlcXVlc3QaJy5yZW1vdGVhZ2Vu",
-            "dC5MaXN0Q29ubmVjdGVkUGVlcnNSZXNwb25zZRJuChVMaXN0Q29ubmVjdGlv",
-            "bkhpc3RvcnkSKS5yZW1vdGVhZ2VudC5MaXN0Q29ubmVjdGlvbkhpc3RvcnlS",
-            "ZXF1ZXN0GioucmVtb3RlYWdlbnQuTGlzdENvbm5lY3Rpb25IaXN0b3J5UmVz",
-            "cG9uc2USXAoPTGlzdEJhbm5lZFBlZXJzEiMucmVtb3RlYWdlbnQuTGlzdEJh",
-            "bm5lZFBlZXJzUmVxdWVzdBokLnJlbW90ZWFnZW50Lkxpc3RCYW5uZWRQZWVy",
-            "c1Jlc3BvbnNlEkQKB0JhblBlZXISGy5yZW1vdGVhZ2VudC5CYW5QZWVyUmVx",
-            "dWVzdBocLnJlbW90ZWFnZW50LkJhblBlZXJSZXNwb25zZRJKCglVbmJhblBl",
-            "ZXISHS5yZW1vdGVhZ2VudC5VbmJhblBlZXJSZXF1ZXN0Gh4ucmVtb3RlYWdl",
-            "bnQuVW5iYW5QZWVyUmVzcG9uc2USVgoNTGlzdEF1dGhVc2VycxIhLnJlbW90",
-            "ZWFnZW50Lkxpc3RBdXRoVXNlcnNSZXF1ZXN0GiIucmVtb3RlYWdlbnQuTGlz",
-            "dEF1dGhVc2Vyc1Jlc3BvbnNlEmgKE0xpc3RQZXJtaXNzaW9uUm9sZXMSJy5y",
-            "ZW1vdGVhZ2VudC5MaXN0UGVybWlzc2lvblJvbGVzUmVxdWVzdBooLnJlbW90",
-            "ZWFnZW50Lkxpc3RQZXJtaXNzaW9uUm9sZXNSZXNwb25zZRJZCg5VcHNlcnRB",
-            "dXRoVXNlchIiLnJlbW90ZWFnZW50LlVwc2VydEF1dGhVc2VyUmVxdWVzdBoj",
-            "LnJlbW90ZWFnZW50LlVwc2VydEF1dGhVc2VyUmVzcG9uc2USWQoORGVsZXRl",
-            "QXV0aFVzZXISIi5yZW1vdGVhZ2VudC5EZWxldGVBdXRoVXNlclJlcXVlc3Qa",
-            "Iy5yZW1vdGVhZ2VudC5EZWxldGVBdXRoVXNlclJlc3BvbnNlElwKD1NldFBh",
-            "aXJpbmdVc2VycxIjLnJlbW90ZWFnZW50LlNldFBhaXJpbmdVc2Vyc1JlcXVl",
-            "c3QaJC5yZW1vdGVhZ2VudC5TZXRQYWlyaW5nVXNlcnNSZXNwb25zZUIUqgIR",
-            "UmVtb3RlQWdlbnQuUHJvdG9iBnByb3RvMw=="));
+            "YUNodW5rSAASMgoNZmlsZV90cmFuc2ZlchgHIAEoCzIZLnJlbW90ZWFnZW50",
+            "LkZpbGVUcmFuc2ZlckgAEi4KCHByaW9yaXR5GAQgASgOMhwucmVtb3RlYWdl",
+            "bnQuTWVzc2FnZVByaW9yaXR5EhYKDmNvcnJlbGF0aW9uX2lkGAYgASgJQgkK",
+            "B3BheWxvYWQiRgoKTWVkaWFDaHVuaxIPCgdjb250ZW50GAEgASgMEhQKDGNv",
+            "bnRlbnRfdHlwZRgCIAEoCRIRCglmaWxlX25hbWUYAyABKAkiYAoMRmlsZVRy",
+            "YW5zZmVyEhUKDXJlbGF0aXZlX3BhdGgYASABKAkSDwoHY29udGVudBgCIAEo",
+            "DBIUCgxjb250ZW50X3R5cGUYAyABKAkSEgoKdG90YWxfc2l6ZRgEIAEoAyKo",
+            "AQoMU2Vzc2lvbkV2ZW50EiwKBGtpbmQYASABKA4yHi5yZW1vdGVhZ2VudC5T",
+            "ZXNzaW9uRXZlbnQuS2luZBIPCgdtZXNzYWdlGAIgASgJIlkKBEtpbmQSFAoQ",
+            "S0lORF9VTlNQRUNJRklFRBAAEhMKD1NFU1NJT05fU1RBUlRFRBABEhMKD1NF",
+            "U1NJT05fU1RPUFBFRBACEhEKDVNFU1NJT05fRVJST1IQAyJDCh1TdHJ1Y3R1",
+            "cmVkTG9nc1NuYXBzaG90UmVxdWVzdBITCgtmcm9tX29mZnNldBgBIAEoAxIN",
+            "CgVsaW1pdBgCIAEoBSJnCh5TdHJ1Y3R1cmVkTG9nc1NuYXBzaG90UmVzcG9u",
+            "c2USMAoHZW50cmllcxgBIAMoCzIfLnJlbW90ZWFnZW50LlN0cnVjdHVyZWRM",
+            "b2dFbnRyeRITCgtuZXh0X29mZnNldBgCIAEoAyIyChtTdHJ1Y3R1cmVkTG9n",
+            "c1N0cmVhbVJlcXVlc3QSEwoLZnJvbV9vZmZzZXQYASABKAMixgEKElN0cnVj",
+            "dHVyZWRMb2dFbnRyeRIQCghldmVudF9pZBgBIAEoAxIVCg10aW1lc3RhbXBf",
+            "dXRjGAIgASgJEg0KBWxldmVsGAMgASgJEhIKCmV2ZW50X3R5cGUYBCABKAkS",
+            "DwoHbWVzc2FnZRgFIAEoCRIRCgljb21wb25lbnQYBiABKAkSEgoKc2Vzc2lv",
+            "bl9pZBgHIAEoCRIWCg5jb3JyZWxhdGlvbl9pZBgIIAEoCRIUCgxkZXRhaWxz",
+            "X2pzb24YCSABKAkiEwoRR2V0UGx1Z2luc1JlcXVlc3QiTgoSR2V0UGx1Z2lu",
+            "c1Jlc3BvbnNlEh0KFWNvbmZpZ3VyZWRfYXNzZW1ibGllcxgBIAMoCRIZChFs",
+            "b2FkZWRfcnVubmVyX2lkcxgCIAMoCSIqChRVcGRhdGVQbHVnaW5zUmVxdWVz",
+            "dBISCgphc3NlbWJsaWVzGAEgAygJIlgKFVVwZGF0ZVBsdWdpbnNSZXNwb25z",
+            "ZRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiABKAkSHQoVY29uZmln",
+            "dXJlZF9hc3NlbWJsaWVzGAMgAygJIn4KGVNlZWRTZXNzaW9uQ29udGV4dFJl",
+            "cXVlc3QSEgoKc2Vzc2lvbl9pZBgBIAEoCRIUCgxjb250ZXh0X3R5cGUYAiAB",
+            "KAkSDwoHY29udGVudBgDIAEoCRIOCgZzb3VyY2UYBCABKAkSFgoOY29ycmVs",
+            "YXRpb25faWQYBSABKAkiTwoaU2VlZFNlc3Npb25Db250ZXh0UmVzcG9uc2US",
+            "DwoHc3VjY2VzcxgBIAEoCBIPCgdtZXNzYWdlGAIgASgJEg8KB3NlZWRfaWQY",
+            "AyABKAkiMgocR2V0U2Vzc2lvblNlZWRDb250ZXh0UmVxdWVzdBISCgpzZXNz",
+            "aW9uX2lkGAEgASgJIooBChdTZXNzaW9uU2VlZENvbnRleHRFbnRyeRIPCgdz",
+            "ZWVkX2lkGAEgASgJEhIKCnNlc3Npb25faWQYAiABKAkSFAoMY29udGV4dF90",
+            "eXBlGAMgASgJEg8KB2NvbnRlbnQYBCABKAkSDgoGc291cmNlGAUgASgJEhMK",
+            "C2NyZWF0ZWRfdXRjGAYgASgJIlYKHUdldFNlc3Npb25TZWVkQ29udGV4dFJl",
+            "c3BvbnNlEjUKB2VudHJpZXMYASADKAsyJC5yZW1vdGVhZ2VudC5TZXNzaW9u",
+            "U2VlZENvbnRleHRFbnRyeSI0Ch5DbGVhclNlc3Npb25TZWVkQ29udGV4dFJl",
+            "cXVlc3QSEgoKc2Vzc2lvbl9pZBgBIAEoCSI4Ch9DbGVhclNlc3Npb25TZWVk",
+            "Q29udGV4dFJlc3BvbnNlEhUKDXJlbW92ZWRfY291bnQYASABKAUihgIKE01j",
+            "cFNlcnZlckRlZmluaXRpb24SEQoJc2VydmVyX2lkGAEgASgJEhQKDGRpc3Bs",
+            "YXlfbmFtZRgCIAEoCRIRCgl0cmFuc3BvcnQYAyABKAkSEAoIZW5kcG9pbnQY",
+            "BCABKAkSDwoHY29tbWFuZBgFIAEoCRIRCglhcmd1bWVudHMYBiADKAkSEQoJ",
+            "YXV0aF90eXBlGAcgASgJEhgKEGF1dGhfY29uZmlnX2pzb24YCCABKAkSDwoH",
+            "ZW5hYmxlZBgJIAEoCBIVCg1tZXRhZGF0YV9qc29uGAogASgJEhMKC2NyZWF0",
+            "ZWRfdXRjGAsgASgJEhMKC3VwZGF0ZWRfdXRjGAwgASgJIhcKFUxpc3RNY3BT",
+            "ZXJ2ZXJzUmVxdWVzdCJLChZMaXN0TWNwU2VydmVyc1Jlc3BvbnNlEjEKB3Nl",
+            "cnZlcnMYASADKAsyIC5yZW1vdGVhZ2VudC5NY3BTZXJ2ZXJEZWZpbml0aW9u",
+            "IkoKFlVwc2VydE1jcFNlcnZlclJlcXVlc3QSMAoGc2VydmVyGAEgASgLMiAu",
+            "cmVtb3RlYWdlbnQuTWNwU2VydmVyRGVmaW5pdGlvbiJtChdVcHNlcnRNY3BT",
+            "ZXJ2ZXJSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiAB",
+            "KAkSMAoGc2VydmVyGAMgASgLMiAucmVtb3RlYWdlbnQuTWNwU2VydmVyRGVm",
+            "aW5pdGlvbiIrChZEZWxldGVNY3BTZXJ2ZXJSZXF1ZXN0EhEKCXNlcnZlcl9p",
+            "ZBgBIAEoCSI7ChdEZWxldGVNY3BTZXJ2ZXJSZXNwb25zZRIPCgdzdWNjZXNz",
+            "GAEgASgIEg8KB21lc3NhZ2UYAiABKAkiQQoZU2V0QWdlbnRNY3BTZXJ2ZXJz",
+            "UmVxdWVzdBIQCghhZ2VudF9pZBgBIAEoCRISCgpzZXJ2ZXJfaWRzGAIgAygJ",
+            "ImQKGlNldEFnZW50TWNwU2VydmVyc1Jlc3BvbnNlEg8KB3N1Y2Nlc3MYASAB",
+            "KAgSDwoHbWVzc2FnZRgCIAEoCRIQCghhZ2VudF9pZBgDIAEoCRISCgpzZXJ2",
+            "ZXJfaWRzGAQgAygJIi0KGUdldEFnZW50TWNwU2VydmVyc1JlcXVlc3QSEAoI",
+            "YWdlbnRfaWQYASABKAkidQoaR2V0QWdlbnRNY3BTZXJ2ZXJzUmVzcG9uc2US",
+            "EAoIYWdlbnRfaWQYASABKAkSEgoKc2VydmVyX2lkcxgCIAMoCRIxCgdzZXJ2",
+            "ZXJzGAMgAygLMiAucmVtb3RlYWdlbnQuTWNwU2VydmVyRGVmaW5pdGlvbiKe",
+            "AQoYUHJvbXB0VGVtcGxhdGVEZWZpbml0aW9uEhMKC3RlbXBsYXRlX2lkGAEg",
+            "ASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEo",
+            "CRIYChB0ZW1wbGF0ZV9jb250ZW50GAQgASgJEhMKC2NyZWF0ZWRfdXRjGAUg",
+            "ASgJEhMKC3VwZGF0ZWRfdXRjGAYgASgJIhwKGkxpc3RQcm9tcHRUZW1wbGF0",
+            "ZXNSZXF1ZXN0IlcKG0xpc3RQcm9tcHRUZW1wbGF0ZXNSZXNwb25zZRI4Cgl0",
+            "ZW1wbGF0ZXMYASADKAsyJS5yZW1vdGVhZ2VudC5Qcm9tcHRUZW1wbGF0ZURl",
+            "ZmluaXRpb24iVgobVXBzZXJ0UHJvbXB0VGVtcGxhdGVSZXF1ZXN0EjcKCHRl",
+            "bXBsYXRlGAEgASgLMiUucmVtb3RlYWdlbnQuUHJvbXB0VGVtcGxhdGVEZWZp",
+            "bml0aW9uInkKHFVwc2VydFByb21wdFRlbXBsYXRlUmVzcG9uc2USDwoHc3Vj",
+            "Y2VzcxgBIAEoCBIPCgdtZXNzYWdlGAIgASgJEjcKCHRlbXBsYXRlGAMgASgL",
+            "MiUucmVtb3RlYWdlbnQuUHJvbXB0VGVtcGxhdGVEZWZpbml0aW9uIjIKG0Rl",
+            "bGV0ZVByb21wdFRlbXBsYXRlUmVxdWVzdBITCgt0ZW1wbGF0ZV9pZBgBIAEo",
+            "CSJAChxEZWxldGVQcm9tcHRUZW1wbGF0ZVJlc3BvbnNlEg8KB3N1Y2Nlc3MY",
+            "ASABKAgSDwoHbWVzc2FnZRgCIAEoCSIvChtDaGVja1Nlc3Npb25DYXBhY2l0",
+            "eVJlcXVlc3QSEAoIYWdlbnRfaWQYASABKAkixAIKHENoZWNrU2Vzc2lvbkNh",
+            "cGFjaXR5UmVzcG9uc2USGgoSY2FuX2NyZWF0ZV9zZXNzaW9uGAEgASgIEg4K",
+            "BnJlYXNvbhgCIAEoCRIfChdtYXhfY29uY3VycmVudF9zZXNzaW9ucxgDIAEo",
+            "BRIcChRhY3RpdmVfc2Vzc2lvbl9jb3VudBgEIAEoBRIhChlyZW1haW5pbmdf",
+            "c2VydmVyX2NhcGFjaXR5GAUgASgFEhAKCGFnZW50X2lkGAYgASgJEiUKHWFn",
+            "ZW50X21heF9jb25jdXJyZW50X3Nlc3Npb25zGAcgASgFEiIKGmFnZW50X2Fj",
+            "dGl2ZV9zZXNzaW9uX2NvdW50GAggASgFEiAKGHJlbWFpbmluZ19hZ2VudF9j",
+            "YXBhY2l0eRgJIAEoBRIXCg9oYXNfYWdlbnRfbGltaXQYCiABKAgiGQoXTGlz",
+            "dE9wZW5TZXNzaW9uc1JlcXVlc3QiUgoQT3BlblNlc3Npb25FbnRyeRISCgpz",
+            "ZXNzaW9uX2lkGAEgASgJEhAKCGFnZW50X2lkGAIgASgJEhgKEGNhbl9hY2Nl",
+            "cHRfaW5wdXQYAyABKAgiSwoYTGlzdE9wZW5TZXNzaW9uc1Jlc3BvbnNlEi8K",
+            "CHNlc3Npb25zGAEgAygLMh0ucmVtb3RlYWdlbnQuT3BlblNlc3Npb25FbnRy",
+            "eSIeChxMaXN0QWJhbmRvbmVkU2Vzc2lvbnNSZXF1ZXN0ImQKFUFiYW5kb25l",
+            "ZFNlc3Npb25FbnRyeRISCgpzZXNzaW9uX2lkGAEgASgJEhAKCGFnZW50X2lk",
+            "GAIgASgJEg4KBnJlYXNvbhgDIAEoCRIVCg1hYmFuZG9uZWRfdXRjGAQgASgJ",
+            "IlUKHUxpc3RBYmFuZG9uZWRTZXNzaW9uc1Jlc3BvbnNlEjQKCHNlc3Npb25z",
+            "GAEgAygLMiIucmVtb3RlYWdlbnQuQWJhbmRvbmVkU2Vzc2lvbkVudHJ5Ii0K",
+            "F1Rlcm1pbmF0ZVNlc3Npb25SZXF1ZXN0EhIKCnNlc3Npb25faWQYASABKAki",
+            "PAoYVGVybWluYXRlU2Vzc2lvblJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgS",
+            "DwoHbWVzc2FnZRgCIAEoCSIbChlMaXN0Q29ubmVjdGVkUGVlcnNSZXF1ZXN0",
+            "IoQBChJDb25uZWN0ZWRQZWVyRW50cnkSDAoEcGVlchgBIAEoCRIaChJhY3Rp",
+            "dmVfY29ubmVjdGlvbnMYAiABKAUSEgoKaXNfYmxvY2tlZBgDIAEoCBIZChFi",
+            "bG9ja2VkX3VudGlsX3V0YxgEIAEoCRIVCg1sYXN0X3NlZW5fdXRjGAUgASgJ",
+            "IkwKGkxpc3RDb25uZWN0ZWRQZWVyc1Jlc3BvbnNlEi4KBXBlZXJzGAEgAygL",
+            "Mh8ucmVtb3RlYWdlbnQuQ29ubmVjdGVkUGVlckVudHJ5Ii0KHExpc3RDb25u",
+            "ZWN0aW9uSGlzdG9yeVJlcXVlc3QSDQoFbGltaXQYASABKAUibgoWQ29ubmVj",
+            "dGlvbkhpc3RvcnlFbnRyeRIVCg10aW1lc3RhbXBfdXRjGAEgASgJEgwKBHBl",
+            "ZXIYAiABKAkSDgoGYWN0aW9uGAMgASgJEg8KB2FsbG93ZWQYBCABKAgSDgoG",
+            "ZGV0YWlsGAUgASgJIlUKHUxpc3RDb25uZWN0aW9uSGlzdG9yeVJlc3BvbnNl",
+            "EjQKB2VudHJpZXMYASADKAsyIy5yZW1vdGVhZ2VudC5Db25uZWN0aW9uSGlz",
+            "dG9yeUVudHJ5IhgKFkxpc3RCYW5uZWRQZWVyc1JlcXVlc3QiQwoPQmFubmVk",
+            "UGVlckVudHJ5EgwKBHBlZXIYASABKAkSDgoGcmVhc29uGAIgASgJEhIKCmJh",
+            "bm5lZF91dGMYAyABKAkiRgoXTGlzdEJhbm5lZFBlZXJzUmVzcG9uc2USKwoF",
+            "cGVlcnMYASADKAsyHC5yZW1vdGVhZ2VudC5CYW5uZWRQZWVyRW50cnkiLgoO",
+            "QmFuUGVlclJlcXVlc3QSDAoEcGVlchgBIAEoCRIOCgZyZWFzb24YAiABKAki",
+            "MwoPQmFuUGVlclJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2Fn",
+            "ZRgCIAEoCSIgChBVbmJhblBlZXJSZXF1ZXN0EgwKBHBlZXIYASABKAkiNQoR",
+            "VW5iYW5QZWVyUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCBIPCgdtZXNzYWdl",
+            "GAIgASgJIn8KDUF1dGhVc2VyRW50cnkSDwoHdXNlcl9pZBgBIAEoCRIUCgxk",
+            "aXNwbGF5X25hbWUYAiABKAkSDAoEcm9sZRgDIAEoCRIPCgdlbmFibGVkGAQg",
+            "ASgIEhMKC2NyZWF0ZWRfdXRjGAUgASgJEhMKC3VwZGF0ZWRfdXRjGAYgASgJ",
+            "IhYKFExpc3RBdXRoVXNlcnNSZXF1ZXN0IkIKFUxpc3RBdXRoVXNlcnNSZXNw",
+            "b25zZRIpCgV1c2VycxgBIAMoCzIaLnJlbW90ZWFnZW50LkF1dGhVc2VyRW50",
+            "cnkiHAoaTGlzdFBlcm1pc3Npb25Sb2xlc1JlcXVlc3QiLAobTGlzdFBlcm1p",
+            "c3Npb25Sb2xlc1Jlc3BvbnNlEg0KBXJvbGVzGAEgAygJIkEKFVVwc2VydEF1",
+            "dGhVc2VyUmVxdWVzdBIoCgR1c2VyGAEgASgLMhoucmVtb3RlYWdlbnQuQXV0",
+            "aFVzZXJFbnRyeSJkChZVcHNlcnRBdXRoVXNlclJlc3BvbnNlEg8KB3N1Y2Nl",
+            "c3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCRIoCgR1c2VyGAMgASgLMhoucmVt",
+            "b3RlYWdlbnQuQXV0aFVzZXJFbnRyeSIoChVEZWxldGVBdXRoVXNlclJlcXVl",
+            "c3QSDwoHdXNlcl9pZBgBIAEoCSI6ChZEZWxldGVBdXRoVXNlclJlc3BvbnNl",
+            "Eg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCSI7ChBQYWlyaW5n",
+            "VXNlckVudHJ5EhAKCHVzZXJuYW1lGAEgASgJEhUKDXBhc3N3b3JkX2hhc2gY",
+            "AiABKAkiaAoWU2V0UGFpcmluZ1VzZXJzUmVxdWVzdBIPCgdhcGlfa2V5GAEg",
+            "ASgJEiwKBXVzZXJzGAIgAygLMh0ucmVtb3RlYWdlbnQuUGFpcmluZ1VzZXJF",
+            "bnRyeRIPCgdyZXBsYWNlGAMgASgIIlQKF1NldFBhaXJpbmdVc2Vyc1Jlc3Bv",
+            "bnNlEg8KB3N1Y2Nlc3MYASABKAgSDQoFZXJyb3IYAiABKAkSGQoRZ2VuZXJh",
+            "dGVkX2FwaV9rZXkYAyABKAkixQEKD0FnZW50UnVubmVySW5mbxIRCglydW5u",
+            "ZXJfaWQYASABKAkSEwoLcnVubmVyX3R5cGUYAiABKAkSDwoHY29tbWFuZBgD",
+            "IAEoCRIRCglhcmd1bWVudHMYBCABKAkSHwoXbWF4X2NvbmN1cnJlbnRfc2Vz",
+            "c2lvbnMYBSABKAUSHAoUYWN0aXZlX3Nlc3Npb25fY291bnQYBiABKAUSEgoK",
+            "aXNfZGVmYXVsdBgHIAEoCBITCgtkZXNjcmlwdGlvbhgIIAEoCSIZChdMaXN0",
+            "QWdlbnRSdW5uZXJzUmVxdWVzdCKBAQoYTGlzdEFnZW50UnVubmVyc1Jlc3Bv",
+            "bnNlEi0KB3J1bm5lcnMYASADKAsyHC5yZW1vdGVhZ2VudC5BZ2VudFJ1bm5l",
+            "ckluZm8SGQoRZGVmYXVsdF9ydW5uZXJfaWQYAiABKAkSGwoTZ2xvYmFsX21h",
+            "eF9zZXNzaW9ucxgDIAEoBSKKAQoYVXBkYXRlQWdlbnRSdW5uZXJSZXF1ZXN0",
+            "EhEKCXJ1bm5lcl9pZBgBIAEoCRIPCgdjb21tYW5kGAIgASgJEhEKCWFyZ3Vt",
+            "ZW50cxgDIAEoCRIfChdtYXhfY29uY3VycmVudF9zZXNzaW9ucxgEIAEoBRIW",
+            "Cg5zZXRfYXNfZGVmYXVsdBgFIAEoCCJrChlVcGRhdGVBZ2VudFJ1bm5lclJl",
+            "c3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCRIsCgZy",
+            "dW5uZXIYAyABKAsyHC5yZW1vdGVhZ2VudC5BZ2VudFJ1bm5lckluZm8qPQoK",
+            "U2NyaXB0VHlwZRIbChdTQ1JJUFRfVFlQRV9VTlNQRUNJRklFRBAAEggKBEJB",
+            "U0gQARIICgRQV1NIEAIqVQoPTWVzc2FnZVByaW9yaXR5EiAKHE1FU1NBR0Vf",
+            "UFJJT1JJVFlfVU5TUEVDSUZJRUQQABIKCgZOT1JNQUwQARIICgRISUdIEAIS",
+            "CgoGTk9USUZZEAMyoBkKDEFnZW50R2F0ZXdheRJQCg1HZXRTZXJ2ZXJJbmZv",
+            "Eh4ucmVtb3RlYWdlbnQuU2VydmVySW5mb1JlcXVlc3QaHy5yZW1vdGVhZ2Vu",
+            "dC5TZXJ2ZXJJbmZvUmVzcG9uc2USRQoHQ29ubmVjdBIaLnJlbW90ZWFnZW50",
+            "LkNsaWVudE1lc3NhZ2UaGi5yZW1vdGVhZ2VudC5TZXJ2ZXJNZXNzYWdlKAEw",
+            "ARJ0ChlHZXRTdHJ1Y3R1cmVkTG9nc1NuYXBzaG90EioucmVtb3RlYWdlbnQu",
+            "U3RydWN0dXJlZExvZ3NTbmFwc2hvdFJlcXVlc3QaKy5yZW1vdGVhZ2VudC5T",
+            "dHJ1Y3R1cmVkTG9nc1NuYXBzaG90UmVzcG9uc2USYwoUU3RyZWFtU3RydWN0",
+            "dXJlZExvZ3MSKC5yZW1vdGVhZ2VudC5TdHJ1Y3R1cmVkTG9nc1N0cmVhbVJl",
+            "cXVlc3QaHy5yZW1vdGVhZ2VudC5TdHJ1Y3R1cmVkTG9nRW50cnkwARJNCgpH",
+            "ZXRQbHVnaW5zEh4ucmVtb3RlYWdlbnQuR2V0UGx1Z2luc1JlcXVlc3QaHy5y",
+            "ZW1vdGVhZ2VudC5HZXRQbHVnaW5zUmVzcG9uc2USVgoNVXBkYXRlUGx1Z2lu",
+            "cxIhLnJlbW90ZWFnZW50LlVwZGF0ZVBsdWdpbnNSZXF1ZXN0GiIucmVtb3Rl",
+            "YWdlbnQuVXBkYXRlUGx1Z2luc1Jlc3BvbnNlEmUKElNlZWRTZXNzaW9uQ29u",
+            "dGV4dBImLnJlbW90ZWFnZW50LlNlZWRTZXNzaW9uQ29udGV4dFJlcXVlc3Qa",
+            "Jy5yZW1vdGVhZ2VudC5TZWVkU2Vzc2lvbkNvbnRleHRSZXNwb25zZRJuChVH",
+            "ZXRTZXNzaW9uU2VlZENvbnRleHQSKS5yZW1vdGVhZ2VudC5HZXRTZXNzaW9u",
+            "U2VlZENvbnRleHRSZXF1ZXN0GioucmVtb3RlYWdlbnQuR2V0U2Vzc2lvblNl",
+            "ZWRDb250ZXh0UmVzcG9uc2USdAoXQ2xlYXJTZXNzaW9uU2VlZENvbnRleHQS",
+            "Ky5yZW1vdGVhZ2VudC5DbGVhclNlc3Npb25TZWVkQ29udGV4dFJlcXVlc3Qa",
+            "LC5yZW1vdGVhZ2VudC5DbGVhclNlc3Npb25TZWVkQ29udGV4dFJlc3BvbnNl",
+            "ElkKDkxpc3RNY3BTZXJ2ZXJzEiIucmVtb3RlYWdlbnQuTGlzdE1jcFNlcnZl",
+            "cnNSZXF1ZXN0GiMucmVtb3RlYWdlbnQuTGlzdE1jcFNlcnZlcnNSZXNwb25z",
+            "ZRJcCg9VcHNlcnRNY3BTZXJ2ZXISIy5yZW1vdGVhZ2VudC5VcHNlcnRNY3BT",
+            "ZXJ2ZXJSZXF1ZXN0GiQucmVtb3RlYWdlbnQuVXBzZXJ0TWNwU2VydmVyUmVz",
+            "cG9uc2USXAoPRGVsZXRlTWNwU2VydmVyEiMucmVtb3RlYWdlbnQuRGVsZXRl",
+            "TWNwU2VydmVyUmVxdWVzdBokLnJlbW90ZWFnZW50LkRlbGV0ZU1jcFNlcnZl",
+            "clJlc3BvbnNlEmUKElNldEFnZW50TWNwU2VydmVycxImLnJlbW90ZWFnZW50",
+            "LlNldEFnZW50TWNwU2VydmVyc1JlcXVlc3QaJy5yZW1vdGVhZ2VudC5TZXRB",
+            "Z2VudE1jcFNlcnZlcnNSZXNwb25zZRJlChJHZXRBZ2VudE1jcFNlcnZlcnMS",
+            "Ji5yZW1vdGVhZ2VudC5HZXRBZ2VudE1jcFNlcnZlcnNSZXF1ZXN0GicucmVt",
+            "b3RlYWdlbnQuR2V0QWdlbnRNY3BTZXJ2ZXJzUmVzcG9uc2USaAoTTGlzdFBy",
+            "b21wdFRlbXBsYXRlcxInLnJlbW90ZWFnZW50Lkxpc3RQcm9tcHRUZW1wbGF0",
+            "ZXNSZXF1ZXN0GigucmVtb3RlYWdlbnQuTGlzdFByb21wdFRlbXBsYXRlc1Jl",
+            "c3BvbnNlEmsKFFVwc2VydFByb21wdFRlbXBsYXRlEigucmVtb3RlYWdlbnQu",
+            "VXBzZXJ0UHJvbXB0VGVtcGxhdGVSZXF1ZXN0GikucmVtb3RlYWdlbnQuVXBz",
+            "ZXJ0UHJvbXB0VGVtcGxhdGVSZXNwb25zZRJrChREZWxldGVQcm9tcHRUZW1w",
+            "bGF0ZRIoLnJlbW90ZWFnZW50LkRlbGV0ZVByb21wdFRlbXBsYXRlUmVxdWVz",
+            "dBopLnJlbW90ZWFnZW50LkRlbGV0ZVByb21wdFRlbXBsYXRlUmVzcG9uc2US",
+            "awoUQ2hlY2tTZXNzaW9uQ2FwYWNpdHkSKC5yZW1vdGVhZ2VudC5DaGVja1Nl",
+            "c3Npb25DYXBhY2l0eVJlcXVlc3QaKS5yZW1vdGVhZ2VudC5DaGVja1Nlc3Np",
+            "b25DYXBhY2l0eVJlc3BvbnNlEl8KEExpc3RPcGVuU2Vzc2lvbnMSJC5yZW1v",
+            "dGVhZ2VudC5MaXN0T3BlblNlc3Npb25zUmVxdWVzdBolLnJlbW90ZWFnZW50",
+            "Lkxpc3RPcGVuU2Vzc2lvbnNSZXNwb25zZRJuChVMaXN0QWJhbmRvbmVkU2Vz",
+            "c2lvbnMSKS5yZW1vdGVhZ2VudC5MaXN0QWJhbmRvbmVkU2Vzc2lvbnNSZXF1",
+            "ZXN0GioucmVtb3RlYWdlbnQuTGlzdEFiYW5kb25lZFNlc3Npb25zUmVzcG9u",
+            "c2USXwoQVGVybWluYXRlU2Vzc2lvbhIkLnJlbW90ZWFnZW50LlRlcm1pbmF0",
+            "ZVNlc3Npb25SZXF1ZXN0GiUucmVtb3RlYWdlbnQuVGVybWluYXRlU2Vzc2lv",
+            "blJlc3BvbnNlEmUKEkxpc3RDb25uZWN0ZWRQZWVycxImLnJlbW90ZWFnZW50",
+            "Lkxpc3RDb25uZWN0ZWRQZWVyc1JlcXVlc3QaJy5yZW1vdGVhZ2VudC5MaXN0",
+            "Q29ubmVjdGVkUGVlcnNSZXNwb25zZRJuChVMaXN0Q29ubmVjdGlvbkhpc3Rv",
+            "cnkSKS5yZW1vdGVhZ2VudC5MaXN0Q29ubmVjdGlvbkhpc3RvcnlSZXF1ZXN0",
+            "GioucmVtb3RlYWdlbnQuTGlzdENvbm5lY3Rpb25IaXN0b3J5UmVzcG9uc2US",
+            "XAoPTGlzdEJhbm5lZFBlZXJzEiMucmVtb3RlYWdlbnQuTGlzdEJhbm5lZFBl",
+            "ZXJzUmVxdWVzdBokLnJlbW90ZWFnZW50Lkxpc3RCYW5uZWRQZWVyc1Jlc3Bv",
+            "bnNlEkQKB0JhblBlZXISGy5yZW1vdGVhZ2VudC5CYW5QZWVyUmVxdWVzdBoc",
+            "LnJlbW90ZWFnZW50LkJhblBlZXJSZXNwb25zZRJKCglVbmJhblBlZXISHS5y",
+            "ZW1vdGVhZ2VudC5VbmJhblBlZXJSZXF1ZXN0Gh4ucmVtb3RlYWdlbnQuVW5i",
+            "YW5QZWVyUmVzcG9uc2USVgoNTGlzdEF1dGhVc2VycxIhLnJlbW90ZWFnZW50",
+            "Lkxpc3RBdXRoVXNlcnNSZXF1ZXN0GiIucmVtb3RlYWdlbnQuTGlzdEF1dGhV",
+            "c2Vyc1Jlc3BvbnNlEmgKE0xpc3RQZXJtaXNzaW9uUm9sZXMSJy5yZW1vdGVh",
+            "Z2VudC5MaXN0UGVybWlzc2lvblJvbGVzUmVxdWVzdBooLnJlbW90ZWFnZW50",
+            "Lkxpc3RQZXJtaXNzaW9uUm9sZXNSZXNwb25zZRJZCg5VcHNlcnRBdXRoVXNl",
+            "chIiLnJlbW90ZWFnZW50LlVwc2VydEF1dGhVc2VyUmVxdWVzdBojLnJlbW90",
+            "ZWFnZW50LlVwc2VydEF1dGhVc2VyUmVzcG9uc2USWQoORGVsZXRlQXV0aFVz",
+            "ZXISIi5yZW1vdGVhZ2VudC5EZWxldGVBdXRoVXNlclJlcXVlc3QaIy5yZW1v",
+            "dGVhZ2VudC5EZWxldGVBdXRoVXNlclJlc3BvbnNlElwKD1NldFBhaXJpbmdV",
+            "c2VycxIjLnJlbW90ZWFnZW50LlNldFBhaXJpbmdVc2Vyc1JlcXVlc3QaJC5y",
+            "ZW1vdGVhZ2VudC5TZXRQYWlyaW5nVXNlcnNSZXNwb25zZRJfChBMaXN0QWdl",
+            "bnRSdW5uZXJzEiQucmVtb3RlYWdlbnQuTGlzdEFnZW50UnVubmVyc1JlcXVl",
+            "c3QaJS5yZW1vdGVhZ2VudC5MaXN0QWdlbnRSdW5uZXJzUmVzcG9uc2USYgoR",
+            "VXBkYXRlQWdlbnRSdW5uZXISJS5yZW1vdGVhZ2VudC5VcGRhdGVBZ2VudFJ1",
+            "bm5lclJlcXVlc3QaJi5yZW1vdGVhZ2VudC5VcGRhdGVBZ2VudFJ1bm5lclJl",
+            "c3BvbnNlQhSqAhFSZW1vdGVBZ2VudC5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::RemoteAgent.Proto.ScriptType), typeof(global::RemoteAgent.Proto.MessagePriority), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -253,8 +274,9 @@ namespace RemoteAgent.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.MediaUpload), global::RemoteAgent.Proto.MediaUpload.Parser, new[]{ "Content", "ContentType", "FileName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ScriptRequest), global::RemoteAgent.Proto.ScriptRequest.Parser, new[]{ "PathOrCommand", "ScriptType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SessionControl), global::RemoteAgent.Proto.SessionControl.Parser, new[]{ "Action", "SessionId", "AgentId" }, null, new[]{ typeof(global::RemoteAgent.Proto.SessionControl.Types.Action) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ServerMessage), global::RemoteAgent.Proto.ServerMessage.Parser, new[]{ "Output", "Error", "Event", "Media", "Priority", "CorrelationId" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ServerMessage), global::RemoteAgent.Proto.ServerMessage.Parser, new[]{ "Output", "Error", "Event", "Media", "FileTransfer", "Priority", "CorrelationId" }, new[]{ "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.MediaChunk), global::RemoteAgent.Proto.MediaChunk.Parser, new[]{ "Content", "ContentType", "FileName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.FileTransfer), global::RemoteAgent.Proto.FileTransfer.Parser, new[]{ "RelativePath", "Content", "ContentType", "TotalSize" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SessionEvent), global::RemoteAgent.Proto.SessionEvent.Parser, new[]{ "Kind", "Message" }, null, new[]{ typeof(global::RemoteAgent.Proto.SessionEvent.Types.Kind) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.StructuredLogsSnapshotRequest), global::RemoteAgent.Proto.StructuredLogsSnapshotRequest.Parser, new[]{ "FromOffset", "Limit" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.StructuredLogsSnapshotResponse), global::RemoteAgent.Proto.StructuredLogsSnapshotResponse.Parser, new[]{ "Entries", "NextOffset" }, null, null, null, null),
@@ -323,7 +345,12 @@ namespace RemoteAgent.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.DeleteAuthUserResponse), global::RemoteAgent.Proto.DeleteAuthUserResponse.Parser, new[]{ "Success", "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.PairingUserEntry), global::RemoteAgent.Proto.PairingUserEntry.Parser, new[]{ "Username", "PasswordHash" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SetPairingUsersRequest), global::RemoteAgent.Proto.SetPairingUsersRequest.Parser, new[]{ "ApiKey", "Users", "Replace" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SetPairingUsersResponse), global::RemoteAgent.Proto.SetPairingUsersResponse.Parser, new[]{ "Success", "Error", "GeneratedApiKey" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.SetPairingUsersResponse), global::RemoteAgent.Proto.SetPairingUsersResponse.Parser, new[]{ "Success", "Error", "GeneratedApiKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.AgentRunnerInfo), global::RemoteAgent.Proto.AgentRunnerInfo.Parser, new[]{ "RunnerId", "RunnerType", "Command", "Arguments", "MaxConcurrentSessions", "ActiveSessionCount", "IsDefault", "Description" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ListAgentRunnersRequest), global::RemoteAgent.Proto.ListAgentRunnersRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.ListAgentRunnersResponse), global::RemoteAgent.Proto.ListAgentRunnersResponse.Parser, new[]{ "Runners", "DefaultRunnerId", "GlobalMaxSessions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.UpdateAgentRunnerRequest), global::RemoteAgent.Proto.UpdateAgentRunnerRequest.Parser, new[]{ "RunnerId", "Command", "Arguments", "MaxConcurrentSessions", "SetAsDefault" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::RemoteAgent.Proto.UpdateAgentRunnerResponse), global::RemoteAgent.Proto.UpdateAgentRunnerResponse.Parser, new[]{ "Success", "Message", "Runner" }, null, null, null, null)
           }));
     }
     #endregion
@@ -2171,6 +2198,9 @@ namespace RemoteAgent.Proto {
         case PayloadOneofCase.Media:
           Media = other.Media.Clone();
           break;
+        case PayloadOneofCase.FileTransfer:
+          FileTransfer = other.FileTransfer.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2270,6 +2300,21 @@ namespace RemoteAgent.Proto {
       }
     }
 
+    /// <summary>Field number for the "file_transfer" field.</summary>
+    public const int FileTransferFieldNumber = 7;
+    /// <summary>
+    /// file detected in agent output; client stores preserving path hierarchy
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::RemoteAgent.Proto.FileTransfer FileTransfer {
+      get { return payloadCase_ == PayloadOneofCase.FileTransfer ? (global::RemoteAgent.Proto.FileTransfer) payload_ : null; }
+      set {
+        payload_ = value;
+        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.FileTransfer;
+      }
+    }
+
     /// <summary>Field number for the "priority" field.</summary>
     public const int PriorityFieldNumber = 4;
     private global::RemoteAgent.Proto.MessagePriority priority_ = global::RemoteAgent.Proto.MessagePriority.Unspecified;
@@ -2308,6 +2353,7 @@ namespace RemoteAgent.Proto {
       Error = 2,
       Event = 3,
       Media = 5,
+      FileTransfer = 7,
     }
     private PayloadOneofCase payloadCase_ = PayloadOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2342,6 +2388,7 @@ namespace RemoteAgent.Proto {
       if (Error != other.Error) return false;
       if (!object.Equals(Event, other.Event)) return false;
       if (!object.Equals(Media, other.Media)) return false;
+      if (!object.Equals(FileTransfer, other.FileTransfer)) return false;
       if (Priority != other.Priority) return false;
       if (CorrelationId != other.CorrelationId) return false;
       if (PayloadCase != other.PayloadCase) return false;
@@ -2356,6 +2403,7 @@ namespace RemoteAgent.Proto {
       if (HasError) hash ^= Error.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Event) hash ^= Event.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Media) hash ^= Media.GetHashCode();
+      if (payloadCase_ == PayloadOneofCase.FileTransfer) hash ^= FileTransfer.GetHashCode();
       if (Priority != global::RemoteAgent.Proto.MessagePriority.Unspecified) hash ^= Priority.GetHashCode();
       if (CorrelationId.Length != 0) hash ^= CorrelationId.GetHashCode();
       hash ^= (int) payloadCase_;
@@ -2401,6 +2449,10 @@ namespace RemoteAgent.Proto {
         output.WriteRawTag(50);
         output.WriteString(CorrelationId);
       }
+      if (payloadCase_ == PayloadOneofCase.FileTransfer) {
+        output.WriteRawTag(58);
+        output.WriteMessage(FileTransfer);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2435,6 +2487,10 @@ namespace RemoteAgent.Proto {
         output.WriteRawTag(50);
         output.WriteString(CorrelationId);
       }
+      if (payloadCase_ == PayloadOneofCase.FileTransfer) {
+        output.WriteRawTag(58);
+        output.WriteMessage(FileTransfer);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2456,6 +2512,9 @@ namespace RemoteAgent.Proto {
       }
       if (payloadCase_ == PayloadOneofCase.Media) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Media);
+      }
+      if (payloadCase_ == PayloadOneofCase.FileTransfer) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FileTransfer);
       }
       if (Priority != global::RemoteAgent.Proto.MessagePriority.Unspecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Priority);
@@ -2499,6 +2558,12 @@ namespace RemoteAgent.Proto {
             Media = new global::RemoteAgent.Proto.MediaChunk();
           }
           Media.MergeFrom(other.Media);
+          break;
+        case PayloadOneofCase.FileTransfer:
+          if (FileTransfer == null) {
+            FileTransfer = new global::RemoteAgent.Proto.FileTransfer();
+          }
+          FileTransfer.MergeFrom(other.FileTransfer);
           break;
       }
 
@@ -2551,6 +2616,15 @@ namespace RemoteAgent.Proto {
             CorrelationId = input.ReadString();
             break;
           }
+          case 58: {
+            global::RemoteAgent.Proto.FileTransfer subBuilder = new global::RemoteAgent.Proto.FileTransfer();
+            if (payloadCase_ == PayloadOneofCase.FileTransfer) {
+              subBuilder.MergeFrom(FileTransfer);
+            }
+            input.ReadMessage(subBuilder);
+            FileTransfer = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -2598,6 +2672,15 @@ namespace RemoteAgent.Proto {
           }
           case 50: {
             CorrelationId = input.ReadString();
+            break;
+          }
+          case 58: {
+            global::RemoteAgent.Proto.FileTransfer subBuilder = new global::RemoteAgent.Proto.FileTransfer();
+            if (payloadCase_ == PayloadOneofCase.FileTransfer) {
+              subBuilder.MergeFrom(FileTransfer);
+            }
+            input.ReadMessage(subBuilder);
+            FileTransfer = subBuilder;
             break;
           }
         }
@@ -2881,6 +2964,323 @@ namespace RemoteAgent.Proto {
   }
 
   /// <summary>
+  /// FileTransfer: file detected in agent output, streamed to client for local storage.
+  /// The relative_path preserves directory hierarchy (unix-style, relative from drive root).
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class FileTransfer : pb::IMessage<FileTransfer>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<FileTransfer> _parser = new pb::MessageParser<FileTransfer>(() => new FileTransfer());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<FileTransfer> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public FileTransfer() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public FileTransfer(FileTransfer other) : this() {
+      relativePath_ = other.relativePath_;
+      content_ = other.content_;
+      contentType_ = other.contentType_;
+      totalSize_ = other.totalSize_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public FileTransfer Clone() {
+      return new FileTransfer(this);
+    }
+
+    /// <summary>Field number for the "relative_path" field.</summary>
+    public const int RelativePathFieldNumber = 1;
+    private string relativePath_ = "";
+    /// <summary>
+    /// path preserving hierarchy, e.g. "home/user/project/src/main.py"
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RelativePath {
+      get { return relativePath_; }
+      set {
+        relativePath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "content" field.</summary>
+    public const int ContentFieldNumber = 2;
+    private pb::ByteString content_ = pb::ByteString.Empty;
+    /// <summary>
+    /// raw file content
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Content {
+      get { return content_; }
+      set {
+        content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "content_type" field.</summary>
+    public const int ContentTypeFieldNumber = 3;
+    private string contentType_ = "";
+    /// <summary>
+    /// MIME type (e.g. "text/plain", "application/octet-stream")
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ContentType {
+      get { return contentType_; }
+      set {
+        contentType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "total_size" field.</summary>
+    public const int TotalSizeFieldNumber = 4;
+    private long totalSize_;
+    /// <summary>
+    /// file size in bytes
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TotalSize {
+      get { return totalSize_; }
+      set {
+        totalSize_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as FileTransfer);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(FileTransfer other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RelativePath != other.RelativePath) return false;
+      if (Content != other.Content) return false;
+      if (ContentType != other.ContentType) return false;
+      if (TotalSize != other.TotalSize) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RelativePath.Length != 0) hash ^= RelativePath.GetHashCode();
+      if (Content.Length != 0) hash ^= Content.GetHashCode();
+      if (ContentType.Length != 0) hash ^= ContentType.GetHashCode();
+      if (TotalSize != 0L) hash ^= TotalSize.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RelativePath.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RelativePath);
+      }
+      if (Content.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Content);
+      }
+      if (ContentType.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ContentType);
+      }
+      if (TotalSize != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TotalSize);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RelativePath.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RelativePath);
+      }
+      if (Content.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Content);
+      }
+      if (ContentType.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ContentType);
+      }
+      if (TotalSize != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TotalSize);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RelativePath.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RelativePath);
+      }
+      if (Content.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Content);
+      }
+      if (ContentType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ContentType);
+      }
+      if (TotalSize != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TotalSize);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(FileTransfer other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RelativePath.Length != 0) {
+        RelativePath = other.RelativePath;
+      }
+      if (other.Content.Length != 0) {
+        Content = other.Content;
+      }
+      if (other.ContentType.Length != 0) {
+        ContentType = other.ContentType;
+      }
+      if (other.TotalSize != 0L) {
+        TotalSize = other.TotalSize;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RelativePath = input.ReadString();
+            break;
+          }
+          case 18: {
+            Content = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            ContentType = input.ReadString();
+            break;
+          }
+          case 32: {
+            TotalSize = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RelativePath = input.ReadString();
+            break;
+          }
+          case 18: {
+            Content = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            ContentType = input.ReadString();
+            break;
+          }
+          case 32: {
+            TotalSize = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// SessionEvent: session lifecycle for the UI.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
@@ -2898,7 +3298,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[8]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3146,7 +3546,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[9]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3382,7 +3782,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[10]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3604,7 +4004,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[11]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3801,7 +4201,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[12]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4311,7 +4711,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[13]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4464,7 +4864,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[14]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4669,7 +5069,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[15]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4848,7 +5248,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[16]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5101,7 +5501,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[17]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5451,7 +5851,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[18]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5715,7 +6115,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[19]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5905,7 +6305,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[20]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6280,7 +6680,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[21]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6459,7 +6859,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[22]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6649,7 +7049,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[23]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6839,7 +7239,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[24]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7446,7 +7846,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[25]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7599,7 +7999,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[26]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7778,7 +8178,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[27]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7977,7 +8377,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[28]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8250,7 +8650,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[29]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8440,7 +8840,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[30]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8667,7 +9067,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[31]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8883,7 +9283,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[32]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9173,7 +9573,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[33]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9363,7 +9763,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[34]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9605,7 +10005,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[35]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9980,7 +10380,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[36]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10133,7 +10533,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[37]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[38]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10312,7 +10712,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[38]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[39]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10511,7 +10911,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[39]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[40]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10784,7 +11184,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[40]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[41]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10974,7 +11374,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[41]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[42]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11204,7 +11604,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[42]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[43]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11394,7 +11794,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[43]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[44]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11920,7 +12320,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[44]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[45]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12073,7 +12473,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[45]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12337,7 +12737,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[46]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12519,7 +12919,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[47]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[48]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12672,7 +13072,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[48]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[49]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12973,7 +13373,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[49]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[50]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13155,7 +13555,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[50]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[51]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13345,7 +13745,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[51]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[52]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13575,7 +13975,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[52]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[53]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13728,7 +14128,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[53]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[54]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14066,7 +14466,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[54]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[55]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14248,7 +14648,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[55]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[56]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14438,7 +14838,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[56]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[57]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14776,7 +15176,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[57]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[58]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14958,7 +15358,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[58]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[59]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15111,7 +15511,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[59]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[60]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15375,7 +15775,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[60]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[61]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15557,7 +15957,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[61]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[62]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15784,7 +16184,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[62]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[63]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16011,7 +16411,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[63]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[64]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16201,7 +16601,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[64]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[65]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16431,7 +16831,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[65]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[66]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16806,7 +17206,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[66]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[67]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16959,7 +17359,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[67]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[68]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17138,7 +17538,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[68]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[69]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17291,7 +17691,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[69]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[70]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17470,7 +17870,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[70]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[71]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17669,7 +18069,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[71]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[72]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17942,7 +18342,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[72]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[73]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18132,7 +18532,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[73]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[74]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18362,7 +18762,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[74]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[75]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18589,7 +18989,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[75]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[76]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18842,7 +19242,7 @@ namespace RemoteAgent.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[76]; }
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[77]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19082,6 +19482,1520 @@ namespace RemoteAgent.Proto {
           }
           case 26: {
             GeneratedApiKey = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Agent runner discovery and configuration
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class AgentRunnerInfo : pb::IMessage<AgentRunnerInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<AgentRunnerInfo> _parser = new pb::MessageParser<AgentRunnerInfo>(() => new AgentRunnerInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<AgentRunnerInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[78]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AgentRunnerInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AgentRunnerInfo(AgentRunnerInfo other) : this() {
+      runnerId_ = other.runnerId_;
+      runnerType_ = other.runnerType_;
+      command_ = other.command_;
+      arguments_ = other.arguments_;
+      maxConcurrentSessions_ = other.maxConcurrentSessions_;
+      activeSessionCount_ = other.activeSessionCount_;
+      isDefault_ = other.isDefault_;
+      description_ = other.description_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AgentRunnerInfo Clone() {
+      return new AgentRunnerInfo(this);
+    }
+
+    /// <summary>Field number for the "runner_id" field.</summary>
+    public const int RunnerIdFieldNumber = 1;
+    private string runnerId_ = "";
+    /// <summary>
+    /// short id, e.g. "process", "copilot-windows", "ollama"
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RunnerId {
+      get { return runnerId_; }
+      set {
+        runnerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "runner_type" field.</summary>
+    public const int RunnerTypeFieldNumber = 2;
+    private string runnerType_ = "";
+    /// <summary>
+    /// implementation class name for display
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RunnerType {
+      get { return runnerType_; }
+      set {
+        runnerType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "command" field.</summary>
+    public const int CommandFieldNumber = 3;
+    private string command_ = "";
+    /// <summary>
+    /// configured command (if applicable)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Command {
+      get { return command_; }
+      set {
+        command_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "arguments" field.</summary>
+    public const int ArgumentsFieldNumber = 4;
+    private string arguments_ = "";
+    /// <summary>
+    /// configured arguments
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Arguments {
+      get { return arguments_; }
+      set {
+        arguments_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "max_concurrent_sessions" field.</summary>
+    public const int MaxConcurrentSessionsFieldNumber = 5;
+    private int maxConcurrentSessions_;
+    /// <summary>
+    /// per-agent session limit (0 = uses server default)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MaxConcurrentSessions {
+      get { return maxConcurrentSessions_; }
+      set {
+        maxConcurrentSessions_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "active_session_count" field.</summary>
+    public const int ActiveSessionCountFieldNumber = 6;
+    private int activeSessionCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ActiveSessionCount {
+      get { return activeSessionCount_; }
+      set {
+        activeSessionCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_default" field.</summary>
+    public const int IsDefaultFieldNumber = 7;
+    private bool isDefault_;
+    /// <summary>
+    /// true if this is the default runner
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsDefault {
+      get { return isDefault_; }
+      set {
+        isDefault_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "description" field.</summary>
+    public const int DescriptionFieldNumber = 8;
+    private string description_ = "";
+    /// <summary>
+    /// human-readable description
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Description {
+      get { return description_; }
+      set {
+        description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as AgentRunnerInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(AgentRunnerInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RunnerId != other.RunnerId) return false;
+      if (RunnerType != other.RunnerType) return false;
+      if (Command != other.Command) return false;
+      if (Arguments != other.Arguments) return false;
+      if (MaxConcurrentSessions != other.MaxConcurrentSessions) return false;
+      if (ActiveSessionCount != other.ActiveSessionCount) return false;
+      if (IsDefault != other.IsDefault) return false;
+      if (Description != other.Description) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RunnerId.Length != 0) hash ^= RunnerId.GetHashCode();
+      if (RunnerType.Length != 0) hash ^= RunnerType.GetHashCode();
+      if (Command.Length != 0) hash ^= Command.GetHashCode();
+      if (Arguments.Length != 0) hash ^= Arguments.GetHashCode();
+      if (MaxConcurrentSessions != 0) hash ^= MaxConcurrentSessions.GetHashCode();
+      if (ActiveSessionCount != 0) hash ^= ActiveSessionCount.GetHashCode();
+      if (IsDefault != false) hash ^= IsDefault.GetHashCode();
+      if (Description.Length != 0) hash ^= Description.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RunnerId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RunnerId);
+      }
+      if (RunnerType.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RunnerType);
+      }
+      if (Command.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Command);
+      }
+      if (Arguments.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Arguments);
+      }
+      if (MaxConcurrentSessions != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(MaxConcurrentSessions);
+      }
+      if (ActiveSessionCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(ActiveSessionCount);
+      }
+      if (IsDefault != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(IsDefault);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Description);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RunnerId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RunnerId);
+      }
+      if (RunnerType.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RunnerType);
+      }
+      if (Command.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Command);
+      }
+      if (Arguments.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Arguments);
+      }
+      if (MaxConcurrentSessions != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(MaxConcurrentSessions);
+      }
+      if (ActiveSessionCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(ActiveSessionCount);
+      }
+      if (IsDefault != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(IsDefault);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Description);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RunnerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RunnerId);
+      }
+      if (RunnerType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RunnerType);
+      }
+      if (Command.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Command);
+      }
+      if (Arguments.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Arguments);
+      }
+      if (MaxConcurrentSessions != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxConcurrentSessions);
+      }
+      if (ActiveSessionCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ActiveSessionCount);
+      }
+      if (IsDefault != false) {
+        size += 1 + 1;
+      }
+      if (Description.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(AgentRunnerInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RunnerId.Length != 0) {
+        RunnerId = other.RunnerId;
+      }
+      if (other.RunnerType.Length != 0) {
+        RunnerType = other.RunnerType;
+      }
+      if (other.Command.Length != 0) {
+        Command = other.Command;
+      }
+      if (other.Arguments.Length != 0) {
+        Arguments = other.Arguments;
+      }
+      if (other.MaxConcurrentSessions != 0) {
+        MaxConcurrentSessions = other.MaxConcurrentSessions;
+      }
+      if (other.ActiveSessionCount != 0) {
+        ActiveSessionCount = other.ActiveSessionCount;
+      }
+      if (other.IsDefault != false) {
+        IsDefault = other.IsDefault;
+      }
+      if (other.Description.Length != 0) {
+        Description = other.Description;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RunnerId = input.ReadString();
+            break;
+          }
+          case 18: {
+            RunnerType = input.ReadString();
+            break;
+          }
+          case 26: {
+            Command = input.ReadString();
+            break;
+          }
+          case 34: {
+            Arguments = input.ReadString();
+            break;
+          }
+          case 40: {
+            MaxConcurrentSessions = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            ActiveSessionCount = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            IsDefault = input.ReadBool();
+            break;
+          }
+          case 66: {
+            Description = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RunnerId = input.ReadString();
+            break;
+          }
+          case 18: {
+            RunnerType = input.ReadString();
+            break;
+          }
+          case 26: {
+            Command = input.ReadString();
+            break;
+          }
+          case 34: {
+            Arguments = input.ReadString();
+            break;
+          }
+          case 40: {
+            MaxConcurrentSessions = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            ActiveSessionCount = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            IsDefault = input.ReadBool();
+            break;
+          }
+          case 66: {
+            Description = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ListAgentRunnersRequest : pb::IMessage<ListAgentRunnersRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ListAgentRunnersRequest> _parser = new pb::MessageParser<ListAgentRunnersRequest>(() => new ListAgentRunnersRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ListAgentRunnersRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[79]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ListAgentRunnersRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ListAgentRunnersRequest(ListAgentRunnersRequest other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ListAgentRunnersRequest Clone() {
+      return new ListAgentRunnersRequest(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ListAgentRunnersRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ListAgentRunnersRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ListAgentRunnersRequest other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ListAgentRunnersResponse : pb::IMessage<ListAgentRunnersResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ListAgentRunnersResponse> _parser = new pb::MessageParser<ListAgentRunnersResponse>(() => new ListAgentRunnersResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ListAgentRunnersResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[80]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ListAgentRunnersResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ListAgentRunnersResponse(ListAgentRunnersResponse other) : this() {
+      runners_ = other.runners_.Clone();
+      defaultRunnerId_ = other.defaultRunnerId_;
+      globalMaxSessions_ = other.globalMaxSessions_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ListAgentRunnersResponse Clone() {
+      return new ListAgentRunnersResponse(this);
+    }
+
+    /// <summary>Field number for the "runners" field.</summary>
+    public const int RunnersFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::RemoteAgent.Proto.AgentRunnerInfo> _repeated_runners_codec
+        = pb::FieldCodec.ForMessage(10, global::RemoteAgent.Proto.AgentRunnerInfo.Parser);
+    private readonly pbc::RepeatedField<global::RemoteAgent.Proto.AgentRunnerInfo> runners_ = new pbc::RepeatedField<global::RemoteAgent.Proto.AgentRunnerInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::RemoteAgent.Proto.AgentRunnerInfo> Runners {
+      get { return runners_; }
+    }
+
+    /// <summary>Field number for the "default_runner_id" field.</summary>
+    public const int DefaultRunnerIdFieldNumber = 2;
+    private string defaultRunnerId_ = "";
+    /// <summary>
+    /// current default runner id
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DefaultRunnerId {
+      get { return defaultRunnerId_; }
+      set {
+        defaultRunnerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "global_max_sessions" field.</summary>
+    public const int GlobalMaxSessionsFieldNumber = 3;
+    private int globalMaxSessions_;
+    /// <summary>
+    /// server-wide max concurrent sessions
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int GlobalMaxSessions {
+      get { return globalMaxSessions_; }
+      set {
+        globalMaxSessions_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ListAgentRunnersResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ListAgentRunnersResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!runners_.Equals(other.runners_)) return false;
+      if (DefaultRunnerId != other.DefaultRunnerId) return false;
+      if (GlobalMaxSessions != other.GlobalMaxSessions) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= runners_.GetHashCode();
+      if (DefaultRunnerId.Length != 0) hash ^= DefaultRunnerId.GetHashCode();
+      if (GlobalMaxSessions != 0) hash ^= GlobalMaxSessions.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      runners_.WriteTo(output, _repeated_runners_codec);
+      if (DefaultRunnerId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(DefaultRunnerId);
+      }
+      if (GlobalMaxSessions != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(GlobalMaxSessions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      runners_.WriteTo(ref output, _repeated_runners_codec);
+      if (DefaultRunnerId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(DefaultRunnerId);
+      }
+      if (GlobalMaxSessions != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(GlobalMaxSessions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += runners_.CalculateSize(_repeated_runners_codec);
+      if (DefaultRunnerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DefaultRunnerId);
+      }
+      if (GlobalMaxSessions != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GlobalMaxSessions);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ListAgentRunnersResponse other) {
+      if (other == null) {
+        return;
+      }
+      runners_.Add(other.runners_);
+      if (other.DefaultRunnerId.Length != 0) {
+        DefaultRunnerId = other.DefaultRunnerId;
+      }
+      if (other.GlobalMaxSessions != 0) {
+        GlobalMaxSessions = other.GlobalMaxSessions;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            runners_.AddEntriesFrom(input, _repeated_runners_codec);
+            break;
+          }
+          case 18: {
+            DefaultRunnerId = input.ReadString();
+            break;
+          }
+          case 24: {
+            GlobalMaxSessions = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            runners_.AddEntriesFrom(ref input, _repeated_runners_codec);
+            break;
+          }
+          case 18: {
+            DefaultRunnerId = input.ReadString();
+            break;
+          }
+          case 24: {
+            GlobalMaxSessions = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class UpdateAgentRunnerRequest : pb::IMessage<UpdateAgentRunnerRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateAgentRunnerRequest> _parser = new pb::MessageParser<UpdateAgentRunnerRequest>(() => new UpdateAgentRunnerRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateAgentRunnerRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[81]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateAgentRunnerRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateAgentRunnerRequest(UpdateAgentRunnerRequest other) : this() {
+      runnerId_ = other.runnerId_;
+      command_ = other.command_;
+      arguments_ = other.arguments_;
+      maxConcurrentSessions_ = other.maxConcurrentSessions_;
+      setAsDefault_ = other.setAsDefault_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateAgentRunnerRequest Clone() {
+      return new UpdateAgentRunnerRequest(this);
+    }
+
+    /// <summary>Field number for the "runner_id" field.</summary>
+    public const int RunnerIdFieldNumber = 1;
+    private string runnerId_ = "";
+    /// <summary>
+    /// which runner to update
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RunnerId {
+      get { return runnerId_; }
+      set {
+        runnerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "command" field.</summary>
+    public const int CommandFieldNumber = 2;
+    private string command_ = "";
+    /// <summary>
+    /// new command (empty = keep current)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Command {
+      get { return command_; }
+      set {
+        command_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "arguments" field.</summary>
+    public const int ArgumentsFieldNumber = 3;
+    private string arguments_ = "";
+    /// <summary>
+    /// new arguments (empty = keep current)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Arguments {
+      get { return arguments_; }
+      set {
+        arguments_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "max_concurrent_sessions" field.</summary>
+    public const int MaxConcurrentSessionsFieldNumber = 4;
+    private int maxConcurrentSessions_;
+    /// <summary>
+    /// 0 = remove per-agent limit
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MaxConcurrentSessions {
+      get { return maxConcurrentSessions_; }
+      set {
+        maxConcurrentSessions_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "set_as_default" field.</summary>
+    public const int SetAsDefaultFieldNumber = 5;
+    private bool setAsDefault_;
+    /// <summary>
+    /// if true, make this the default runner
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool SetAsDefault {
+      get { return setAsDefault_; }
+      set {
+        setAsDefault_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateAgentRunnerRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateAgentRunnerRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RunnerId != other.RunnerId) return false;
+      if (Command != other.Command) return false;
+      if (Arguments != other.Arguments) return false;
+      if (MaxConcurrentSessions != other.MaxConcurrentSessions) return false;
+      if (SetAsDefault != other.SetAsDefault) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RunnerId.Length != 0) hash ^= RunnerId.GetHashCode();
+      if (Command.Length != 0) hash ^= Command.GetHashCode();
+      if (Arguments.Length != 0) hash ^= Arguments.GetHashCode();
+      if (MaxConcurrentSessions != 0) hash ^= MaxConcurrentSessions.GetHashCode();
+      if (SetAsDefault != false) hash ^= SetAsDefault.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RunnerId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RunnerId);
+      }
+      if (Command.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Command);
+      }
+      if (Arguments.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Arguments);
+      }
+      if (MaxConcurrentSessions != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MaxConcurrentSessions);
+      }
+      if (SetAsDefault != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(SetAsDefault);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RunnerId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RunnerId);
+      }
+      if (Command.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Command);
+      }
+      if (Arguments.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Arguments);
+      }
+      if (MaxConcurrentSessions != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MaxConcurrentSessions);
+      }
+      if (SetAsDefault != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(SetAsDefault);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RunnerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RunnerId);
+      }
+      if (Command.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Command);
+      }
+      if (Arguments.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Arguments);
+      }
+      if (MaxConcurrentSessions != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxConcurrentSessions);
+      }
+      if (SetAsDefault != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateAgentRunnerRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RunnerId.Length != 0) {
+        RunnerId = other.RunnerId;
+      }
+      if (other.Command.Length != 0) {
+        Command = other.Command;
+      }
+      if (other.Arguments.Length != 0) {
+        Arguments = other.Arguments;
+      }
+      if (other.MaxConcurrentSessions != 0) {
+        MaxConcurrentSessions = other.MaxConcurrentSessions;
+      }
+      if (other.SetAsDefault != false) {
+        SetAsDefault = other.SetAsDefault;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RunnerId = input.ReadString();
+            break;
+          }
+          case 18: {
+            Command = input.ReadString();
+            break;
+          }
+          case 26: {
+            Arguments = input.ReadString();
+            break;
+          }
+          case 32: {
+            MaxConcurrentSessions = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            SetAsDefault = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RunnerId = input.ReadString();
+            break;
+          }
+          case 18: {
+            Command = input.ReadString();
+            break;
+          }
+          case 26: {
+            Arguments = input.ReadString();
+            break;
+          }
+          case 32: {
+            MaxConcurrentSessions = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            SetAsDefault = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class UpdateAgentRunnerResponse : pb::IMessage<UpdateAgentRunnerResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateAgentRunnerResponse> _parser = new pb::MessageParser<UpdateAgentRunnerResponse>(() => new UpdateAgentRunnerResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateAgentRunnerResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::RemoteAgent.Proto.AgentGatewayReflection.Descriptor.MessageTypes[82]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateAgentRunnerResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateAgentRunnerResponse(UpdateAgentRunnerResponse other) : this() {
+      success_ = other.success_;
+      message_ = other.message_;
+      runner_ = other.runner_ != null ? other.runner_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateAgentRunnerResponse Clone() {
+      return new UpdateAgentRunnerResponse(this);
+    }
+
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 2;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "runner" field.</summary>
+    public const int RunnerFieldNumber = 3;
+    private global::RemoteAgent.Proto.AgentRunnerInfo runner_;
+    /// <summary>
+    /// updated runner info
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::RemoteAgent.Proto.AgentRunnerInfo Runner {
+      get { return runner_; }
+      set {
+        runner_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateAgentRunnerResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateAgentRunnerResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      if (Message != other.Message) return false;
+      if (!object.Equals(Runner, other.Runner)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (runner_ != null) hash ^= Runner.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+      if (runner_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Runner);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+      if (runner_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Runner);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (runner_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Runner);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateAgentRunnerResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      if (other.runner_ != null) {
+        if (runner_ == null) {
+          Runner = new global::RemoteAgent.Proto.AgentRunnerInfo();
+        }
+        Runner.MergeFrom(other.Runner);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
+            break;
+          }
+          case 26: {
+            if (runner_ == null) {
+              Runner = new global::RemoteAgent.Proto.AgentRunnerInfo();
+            }
+            input.ReadMessage(Runner);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
+            break;
+          }
+          case 26: {
+            if (runner_ == null) {
+              Runner = new global::RemoteAgent.Proto.AgentRunnerInfo();
+            }
+            input.ReadMessage(Runner);
             break;
           }
         }

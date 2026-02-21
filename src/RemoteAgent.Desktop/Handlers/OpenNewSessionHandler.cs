@@ -18,6 +18,10 @@ public sealed class OpenNewSessionHandler(
             return CommandResult.Fail("No owner window available.");
 
         var workspace = request.Workspace;
+        var availableAgents = workspace.Agents.Agents
+            .Select(a => a.AgentId)
+            .ToList();
+
         var defaults = new ConnectionSettingsDefaults(
             workspace.Host,
             workspace.Port,
@@ -25,7 +29,8 @@ public sealed class OpenNewSessionHandler(
             workspace.SelectedAgentId,
             workspace.ApiKey,
             workspace.PerRequestContext,
-            workspace.ConnectionModes);
+            workspace.ConnectionModes,
+            availableAgents);
 
         var result = await dialogService.ShowAsync(ownerWindow, defaults, cancellationToken);
         if (result is null)

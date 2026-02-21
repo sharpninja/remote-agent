@@ -57,6 +57,10 @@ service AgentGateway {
   rpc DeleteAuthUser (DeleteAuthUserRequest) returns (DeleteAuthUserResponse);
   // Sets one or more pairing users in appsettings.json. Use replace=true to replace the entire array.
   rpc SetPairingUsers (SetPairingUsersRequest) returns (SetPairingUsersResponse);
+
+  // Agent runner discovery and configuration
+  rpc ListAgentRunners (ListAgentRunnersRequest) returns (ListAgentRunnersResponse);
+  rpc UpdateAgentRunner (UpdateAgentRunnerRequest) returns (UpdateAgentRunnerResponse);
 }
 
 // ServerInfoRequest: optional client info for handshake (e.g. future compatibility).
@@ -122,6 +126,7 @@ message ServerMessage {
     string error = 2;         // agent stderr
     SessionEvent event = 3;  // session started / stopped / error
     MediaChunk media = 5;     // image (or other media) sent to app; store in DCIM/Remote Agent (TR-11.3)
+    FileTransfer file_transfer = 7;  // file detected in agent output; client stores preserving path hierarchy
   }
   // Priority for this message. NOTIFY triggers a system notification; tap opens chat and shows message.
   MessagePriority priority = 4;
@@ -133,6 +138,15 @@ message MediaChunk {
   bytes content = 1;
   string content_type = 2;   // e.g. image/png
   string file_name = 3;      // suggested filename
+}
+
+// FileTransfer: file detected in agent output, streamed to client for local storage.
+// The relative_path preserves directory hierarchy (unix-style, relative from drive root).
+message FileTransfer {
+  string relative_path = 1;    // path preserving hierarchy, e.g. "home/user/project/src/main.py"
+  bytes content = 2;           // raw file content
+  string content_type = 3;     // MIME type (e.g. "text/plain", "application/octet-stream")
+  int64 total_size = 4;        // file size in bytes
 }
 
 // MessagePriority: normal, high, or notify (system notification + tap to show).
@@ -447,4 +461,37 @@ message SetPairingUsersResponse {
   bool success = 1;
   string error = 2;
   string generated_api_key = 3;
+}
+
+// Agent runner discovery and configuration
+message AgentRunnerInfo {
+  string runner_id = 1;           // short id, e.g. "process", "copilot-windows", "ollama"
+  string runner_type = 2;         // implementation class name for display
+  string command = 3;             // configured command (if applicable)
+  string arguments = 4;           // configured arguments
+  int32 max_concurrent_sessions = 5; // per-agent session limit (0 = uses server default)
+  int32 active_session_count = 6;
+  bool is_default = 7;            // true if this is the default runner
+  string description = 8;         // human-readable description
+}
+
+message ListAgentRunnersRequest {}
+message ListAgentRunnersResponse {
+  repeated AgentRunnerInfo runners = 1;
+  string default_runner_id = 2;   // current default runner id
+  int32 global_max_sessions = 3;  // server-wide max concurrent sessions
+}
+
+message UpdateAgentRunnerRequest {
+  string runner_id = 1;           // which runner to update
+  string command = 2;             // new command (empty = keep current)
+  string arguments = 3;           // new arguments (empty = keep current)
+  int32 max_concurrent_sessions = 4; // 0 = remove per-agent limit
+  bool set_as_default = 5;        // if true, make this the default runner
+}
+
+message UpdateAgentRunnerResponse {
+  bool success = 1;
+  string message = 2;
+  AgentRunnerInfo runner = 3;     // updated runner info
 }

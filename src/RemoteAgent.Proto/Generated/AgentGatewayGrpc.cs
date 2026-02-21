@@ -172,6 +172,14 @@ namespace RemoteAgent.Proto {
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.SetPairingUsersRequest> __Marshaller_remoteagent_SetPairingUsersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SetPairingUsersRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::RemoteAgent.Proto.SetPairingUsersResponse> __Marshaller_remoteagent_SetPairingUsersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.SetPairingUsersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListAgentRunnersRequest> __Marshaller_remoteagent_ListAgentRunnersRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListAgentRunnersRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.ListAgentRunnersResponse> __Marshaller_remoteagent_ListAgentRunnersResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.ListAgentRunnersResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpdateAgentRunnerRequest> __Marshaller_remoteagent_UpdateAgentRunnerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpdateAgentRunnerRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::RemoteAgent.Proto.UpdateAgentRunnerResponse> __Marshaller_remoteagent_UpdateAgentRunnerResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::RemoteAgent.Proto.UpdateAgentRunnerResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse> __Method_GetServerInfo = new grpc::Method<global::RemoteAgent.Proto.ServerInfoRequest, global::RemoteAgent.Proto.ServerInfoResponse>(
@@ -420,6 +428,22 @@ namespace RemoteAgent.Proto {
         "SetPairingUsers",
         __Marshaller_remoteagent_SetPairingUsersRequest,
         __Marshaller_remoteagent_SetPairingUsersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.ListAgentRunnersRequest, global::RemoteAgent.Proto.ListAgentRunnersResponse> __Method_ListAgentRunners = new grpc::Method<global::RemoteAgent.Proto.ListAgentRunnersRequest, global::RemoteAgent.Proto.ListAgentRunnersResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListAgentRunners",
+        __Marshaller_remoteagent_ListAgentRunnersRequest,
+        __Marshaller_remoteagent_ListAgentRunnersResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::RemoteAgent.Proto.UpdateAgentRunnerRequest, global::RemoteAgent.Proto.UpdateAgentRunnerResponse> __Method_UpdateAgentRunner = new grpc::Method<global::RemoteAgent.Proto.UpdateAgentRunnerRequest, global::RemoteAgent.Proto.UpdateAgentRunnerResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateAgentRunner",
+        __Marshaller_remoteagent_UpdateAgentRunnerRequest,
+        __Marshaller_remoteagent_UpdateAgentRunnerResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -724,6 +748,24 @@ namespace RemoteAgent.Proto {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.SetPairingUsersResponse> SetPairingUsers(global::RemoteAgent.Proto.SetPairingUsersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Agent runner discovery and configuration
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.ListAgentRunnersResponse> ListAgentRunners(global::RemoteAgent.Proto.ListAgentRunnersRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::RemoteAgent.Proto.UpdateAgentRunnerResponse> UpdateAgentRunner(global::RemoteAgent.Proto.UpdateAgentRunnerRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1833,6 +1875,74 @@ namespace RemoteAgent.Proto {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SetPairingUsers, null, options, request);
       }
+      /// <summary>
+      /// Agent runner discovery and configuration
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListAgentRunnersResponse ListAgentRunners(global::RemoteAgent.Proto.ListAgentRunnersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListAgentRunners(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Agent runner discovery and configuration
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.ListAgentRunnersResponse ListAgentRunners(global::RemoteAgent.Proto.ListAgentRunnersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListAgentRunners, null, options, request);
+      }
+      /// <summary>
+      /// Agent runner discovery and configuration
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListAgentRunnersResponse> ListAgentRunnersAsync(global::RemoteAgent.Proto.ListAgentRunnersRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListAgentRunnersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Agent runner discovery and configuration
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.ListAgentRunnersResponse> ListAgentRunnersAsync(global::RemoteAgent.Proto.ListAgentRunnersRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListAgentRunners, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpdateAgentRunnerResponse UpdateAgentRunner(global::RemoteAgent.Proto.UpdateAgentRunnerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateAgentRunner(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::RemoteAgent.Proto.UpdateAgentRunnerResponse UpdateAgentRunner(global::RemoteAgent.Proto.UpdateAgentRunnerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateAgentRunner, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpdateAgentRunnerResponse> UpdateAgentRunnerAsync(global::RemoteAgent.Proto.UpdateAgentRunnerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateAgentRunnerAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::RemoteAgent.Proto.UpdateAgentRunnerResponse> UpdateAgentRunnerAsync(global::RemoteAgent.Proto.UpdateAgentRunnerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateAgentRunner, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override AgentGatewayClient NewInstance(ClientBaseConfiguration configuration)
@@ -1877,7 +1987,9 @@ namespace RemoteAgent.Proto {
           .AddMethod(__Method_ListPermissionRoles, serviceImpl.ListPermissionRoles)
           .AddMethod(__Method_UpsertAuthUser, serviceImpl.UpsertAuthUser)
           .AddMethod(__Method_DeleteAuthUser, serviceImpl.DeleteAuthUser)
-          .AddMethod(__Method_SetPairingUsers, serviceImpl.SetPairingUsers).Build();
+          .AddMethod(__Method_SetPairingUsers, serviceImpl.SetPairingUsers)
+          .AddMethod(__Method_ListAgentRunners, serviceImpl.ListAgentRunners)
+          .AddMethod(__Method_UpdateAgentRunner, serviceImpl.UpdateAgentRunner).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -1918,6 +2030,8 @@ namespace RemoteAgent.Proto {
       serviceBinder.AddMethod(__Method_UpsertAuthUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpsertAuthUserRequest, global::RemoteAgent.Proto.UpsertAuthUserResponse>(serviceImpl.UpsertAuthUser));
       serviceBinder.AddMethod(__Method_DeleteAuthUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.DeleteAuthUserRequest, global::RemoteAgent.Proto.DeleteAuthUserResponse>(serviceImpl.DeleteAuthUser));
       serviceBinder.AddMethod(__Method_SetPairingUsers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.SetPairingUsersRequest, global::RemoteAgent.Proto.SetPairingUsersResponse>(serviceImpl.SetPairingUsers));
+      serviceBinder.AddMethod(__Method_ListAgentRunners, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.ListAgentRunnersRequest, global::RemoteAgent.Proto.ListAgentRunnersResponse>(serviceImpl.ListAgentRunners));
+      serviceBinder.AddMethod(__Method_UpdateAgentRunner, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::RemoteAgent.Proto.UpdateAgentRunnerRequest, global::RemoteAgent.Proto.UpdateAgentRunnerResponse>(serviceImpl.UpdateAgentRunner));
     }
 
   }

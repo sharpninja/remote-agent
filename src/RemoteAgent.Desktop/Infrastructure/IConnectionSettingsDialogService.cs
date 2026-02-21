@@ -10,7 +10,8 @@ public sealed record ConnectionSettingsDefaults(
     string SelectedAgentId,
     string ApiKey,
     string PerRequestContext,
-    IReadOnlyList<string> ConnectionModes);
+    IReadOnlyList<string> ConnectionModes,
+    IReadOnlyList<string> AvailableAgents);
 
 public interface IConnectionSettingsDialogService
 {

@@ -6,6 +6,12 @@ namespace RemoteAgent.Desktop.Infrastructure;
 
 public interface IServerCapacityClient
 {
+    Task<ServerInfoSnapshot?> GetServerInfoAsync(
+        string host,
+        int port,
+        string? apiKey,
+        CancellationToken cancellationToken = default);
+
     Task<SessionCapacitySnapshot?> GetCapacityAsync(
         string host,
         int port,
@@ -182,6 +188,22 @@ public interface IServerCapacityClient
 
 public sealed class ServerCapacityClient : IServerCapacityClient
 {
+    public async Task<ServerInfoSnapshot?> GetServerInfoAsync(
+        string host,
+        int port,
+        string? apiKey,
+        CancellationToken cancellationToken = default)
+    {
+        var response = await ServerApiClient.GetServerInfoAsync(host, port, clientVersion: null, apiKey, cancellationToken);
+        if (response == null)
+            return null;
+        return new ServerInfoSnapshot(
+            response.ServerVersion,
+            response.Capabilities.ToList(),
+            response.AvailableAgents.ToList(),
+            response.AvailableModels.ToList());
+    }
+
     public async Task<SessionCapacitySnapshot?> GetCapacityAsync(
         string host,
         int port,
@@ -694,3 +716,20 @@ public sealed record PluginConfigurationSnapshot(
     IReadOnlyList<string> LoadedRunnerIds,
     bool Success,
     string Message);
+
+public sealed record ServerInfoSnapshot(
+    string ServerVersion,
+    IReadOnlyList<string> Capabilities,
+    IReadOnlyList<string> AvailableAgents,
+    IReadOnlyList<string> AvailableModels);
+
+public sealed record AgentSnapshot(
+    string AgentId,
+    int ActiveSessionCount,
+    int? MaxConcurrentSessions,
+    int? RemainingCapacity,
+    bool IsDefault,
+    string RunnerType = "",
+    string Command = "",
+    string Arguments = "",
+    string Description = "");

@@ -18,7 +18,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
     private readonly CurrentServerContext _serverContext;
     private readonly IDesktopSessionViewModelFactory _sessionViewModelFactory;
     private readonly IRequestDispatcher _dispatcher;
-    private readonly Dictionary<DesktopSessionViewModel, (Action<RemoteAgent.App.Services.ChatMessage> OnMessage, Action OnConnectionStateChanged)> _sessionEventHandlers = [];
+    private readonly Dictionary<DesktopSessionViewModel, (Action<RemoteAgent.App.Services.ChatMessage> OnMessage, Action OnConnectionStateChanged, Action<RemoteAgent.Proto.FileTransfer> OnFileTransfer)> _sessionEventHandlers = [];
     private DesktopSessionViewModel? _selectedSession;
     private string _host = "127.0.0.1";
     private string _port = ServiceDefaults.PortString;
@@ -54,6 +54,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
         McpRegistry = new McpRegistryDesktopViewModel(dispatcher, this);
         PromptTemplates = new PromptTemplatesViewModel(dispatcher, this);
         StructuredLogs = new StructuredLogsViewModel(dispatcher, this, structuredLogStore);
+        Agents = new AgentsViewModel(dispatcher, this, agentId => SelectedAgentId = agentId);
 
         // Forward sub-VM StatusText changes to parent StatusText for the global status bar.
         Security.PropertyChanged += (_, e) =>
@@ -105,6 +106,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
     public PluginsViewModel Plugins { get; }
     public McpRegistryDesktopViewModel McpRegistry { get; }
     public PromptTemplatesViewModel PromptTemplates { get; }
+    public AgentsViewModel Agents { get; }
     public StructuredLogsViewModel StructuredLogs { get; }
 
     public string Host
@@ -263,9 +265,22 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
                 OnPropertyChanged(nameof(HasConnectedSession));
             });
 
-        _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged);
+        Action<RemoteAgent.Proto.FileTransfer> onFileTransfer = fileTransfer =>
+        {
+            try
+            {
+                DesktopFileSaveService.SaveFileTransfer(fileTransfer);
+            }
+            catch
+            {
+                // Non-fatal; the chat message already shows the transfer notification.
+            }
+        };
+
+        _sessionEventHandlers[session] = (onMessage, onConnectionStateChanged, onFileTransfer);
         session.SessionClient.MessageReceived += onMessage;
         session.SessionClient.ConnectionStateChanged += onConnectionStateChanged;
+        session.SessionClient.FileTransferReceived += onFileTransfer;
     }
 
     /// <summary>Unsubscribes the workspace's UI message handler from a session's events.</summary>
@@ -276,6 +291,7 @@ public sealed class ServerWorkspaceViewModel : INotifyPropertyChanged, IServerCo
 
         session.SessionClient.MessageReceived -= handlers.OnMessage;
         session.SessionClient.ConnectionStateChanged -= handlers.OnConnectionStateChanged;
+        session.SessionClient.FileTransferReceived -= handlers.OnFileTransfer;
         _sessionEventHandlers.Remove(session);
     }
 
