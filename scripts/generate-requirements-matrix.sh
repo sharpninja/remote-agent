@@ -50,8 +50,10 @@ scan_test_files() {
             
             # Match class-level Trait annotations (before class declaration)
             !in_class && /\[Trait\("Requirement", "[A-Z]+-[0-9.]+"\)/ {
-                match($0, /"([A-Z]+-[0-9.]+)"/, arr)
-                req_id = arr[1]
+                req_id = ""
+                if (match($0, /"[A-Z]+-[0-9.]+"/)) {
+                    req_id = substr($0, RSTART + 1, RLENGTH - 2)
+                }
                 if (index(req_id, prefix) == 1) {
                     class_reqs[++class_req_count] = req_id
                 }
@@ -59,15 +61,18 @@ scan_test_files() {
             
             # Match class declaration
             /public class [a-zA-Z0-9_]+/ {
-                match($0, /public class ([a-zA-Z0-9_]+)/, arr)
-                class_name = arr[1]
-                in_class = 1
+                if (match($0, /public class [a-zA-Z0-9_]+/)) {
+                    class_name = substr($0, RSTART + 13, RLENGTH - 13)
+                    in_class = 1
+                }
             }
             
             # Match method-level Trait annotations (inside class)
             in_class && /\[Trait\("Requirement", "[A-Z]+-[0-9.]+"\)/ {
-                match($0, /"([A-Z]+-[0-9.]+)"/, arr)
-                req_id = arr[1]
+                req_id = ""
+                if (match($0, /"[A-Z]+-[0-9.]+"/)) {
+                    req_id = substr($0, RSTART + 1, RLENGTH - 2)
+                }
                 if (index(req_id, prefix) == 1) {
                     method_reqs[++method_req_count] = req_id
                 }
@@ -80,8 +85,13 @@ scan_test_files() {
             
             # Match method declaration
             in_class && /public (async )?(Task|void) [a-zA-Z0-9_]+\(/ {
-                match($0, /public (async )?(Task|void) ([a-zA-Z0-9_]+)\(/, arr)
-                method_name = arr[3]
+                if (match($0, /public (async )?(Task|void) [a-zA-Z0-9_]+\(/)) {
+                    method_name = substr($0, RSTART, RLENGTH)
+                    sub(/^public (async )?(Task|void) /, "", method_name)
+                    sub(/\($/, "", method_name)
+                } else {
+                    method_name = ""
+                }
                 
                 if (is_test_method) {
                     # Use method-level requirements if available, otherwise class-level
