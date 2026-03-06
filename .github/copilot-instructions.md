@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions for Remote Agent
 
-See `AGENTS-README-FIRST.yaml` in the workspace root for MCP server connection details, session logging procedures, and agent conduct guidelines.
+For specific operational instructions (session bootstrap, session log turn workflow, and helper command sequence), follow `AGENTS-README-FIRST.yaml`.
 
 ## Development Branch Strategy
 
@@ -115,3 +115,4 @@ Before completing any task:
 ✅ **Run tests before completing tasks**
 ✅ **Use bash only in workflows (no Python)**
 ✅ **Every UI button → CQRS request/handler + complete tests**
+
