@@ -3,9 +3,20 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Logging;
 using RemoteAgent.Service.Services;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="ConnectionProtectionService"/>. FR-13.2, FR-13.4, FR-15.1, FR-15.2; TR-15.1, TR-15.2, TR-15.5, TR-15.6.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.2")]
+[Trait("Requirement", "FR-13.4")]
+[Trait("Requirement", "FR-15.1")]
+[Trait("Requirement", "FR-15.2")]
+[Trait("Requirement", "TR-15.1")]
+[Trait("Requirement", "TR-15.2")]
+[Trait("Requirement", "TR-15.5")]
+[Trait("Requirement", "TR-15.6")]
 public class ConnectionProtectionServiceTests : IDisposable
 {
     private readonly StructuredLogService _structuredLogs;

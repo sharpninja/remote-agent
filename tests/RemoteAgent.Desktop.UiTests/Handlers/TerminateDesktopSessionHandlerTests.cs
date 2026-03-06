@@ -21,7 +21,7 @@ public class TerminateDesktopSessionHandlerTests
     [Fact]
     public async Task HandleAsync_WhenSessionNull_ShouldReturnFail()
     {
-        var handler = new TerminateDesktopSessionHandler();
+        var handler = new TerminateDesktopSessionHandler(new StubCapacityClient());
         var workspace = SharedWorkspaceFactory.CreateWorkspace();
 
         var result = await handler.HandleAsync(new TerminateDesktopSessionRequest(
@@ -43,7 +43,7 @@ public class TerminateDesktopSessionHandlerTests
         var session = factory.Create("Test Session", "direct", "process");
         workspace.Sessions.Add(session);
         workspace.SelectedSession = session;
-        var handler = new TerminateDesktopSessionHandler();
+        var handler = new TerminateDesktopSessionHandler(client);
 
         var result = await handler.HandleAsync(new TerminateDesktopSessionRequest(
             Guid.NewGuid(), session, workspace));
@@ -56,11 +56,12 @@ public class TerminateDesktopSessionHandlerTests
     [AvaloniaFact]
     public async Task HandleAsync_ShouldSetStatusText()
     {
+        var client = new StubCapacityClient();
         var factory = new StubSessionFactory();
         var workspace = SharedWorkspaceFactory.CreateWorkspace(factory: factory);
         var session = factory.Create("My Session", "direct", "process");
         workspace.Sessions.Add(session);
-        var handler = new TerminateDesktopSessionHandler();
+        var handler = new TerminateDesktopSessionHandler(client);
 
         await handler.HandleAsync(new TerminateDesktopSessionRequest(
             Guid.NewGuid(), session, workspace));
@@ -72,6 +73,7 @@ public class TerminateDesktopSessionHandlerTests
     [AvaloniaFact]
     public async Task HandleAsync_ShouldSelectNextSessionAfterRemoval()
     {
+        var client = new StubCapacityClient();
         var factory = new StubSessionFactory();
         var workspace = SharedWorkspaceFactory.CreateWorkspace(factory: factory);
         var session1 = factory.Create("Session 1", "direct", "process");
@@ -79,11 +81,50 @@ public class TerminateDesktopSessionHandlerTests
         workspace.Sessions.Add(session1);
         workspace.Sessions.Add(session2);
         workspace.SelectedSession = session1;
-        var handler = new TerminateDesktopSessionHandler();
+        var handler = new TerminateDesktopSessionHandler(client);
 
         await handler.HandleAsync(new TerminateDesktopSessionRequest(
             Guid.NewGuid(), session1, workspace));
 
         workspace.SelectedSession.Should().Be(session2);
+    }
+
+    // FR-12.3, FR-13.3, TR-18.4 — verify server termination RPC is called
+    [AvaloniaFact]
+    public async Task HandleAsync_WhenSessionConnected_ShouldCallServerTerminate()
+    {
+        var client = new StubCapacityClient();
+        var factory = new StubSessionFactory();
+        var workspace = SharedWorkspaceFactory.CreateWorkspace(client, factory);
+        workspace.Host = "127.0.0.1";
+        workspace.Port = "5244";
+        var session = factory.Create("Session A", "server", "process");
+        session.IsConnected = true;
+        workspace.Sessions.Add(session);
+        var handler = new TerminateDesktopSessionHandler(client);
+
+        await handler.HandleAsync(new TerminateDesktopSessionRequest(
+            Guid.NewGuid(), session, workspace));
+
+        client.LastTerminatedSessionId.Should().Be(session.SessionId);
+    }
+
+    // FR-12.3, FR-13.3, TR-18.4 — server termination failure must not block local cleanup
+    [AvaloniaFact]
+    public async Task HandleAsync_WhenServerTerminateFails_ShouldStillRemoveLocally()
+    {
+        var client = new StubCapacityClient { TerminateSessionResult = false };
+        var factory = new StubSessionFactory();
+        var workspace = SharedWorkspaceFactory.CreateWorkspace(client, factory);
+        var session = factory.Create("Session B", "server", "process");
+        workspace.Sessions.Add(session);
+        workspace.SelectedSession = session;
+        var handler = new TerminateDesktopSessionHandler(client);
+
+        var result = await handler.HandleAsync(new TerminateDesktopSessionRequest(
+            Guid.NewGuid(), session, workspace));
+
+        result.Success.Should().BeTrue();
+        workspace.Sessions.Should().NotContain(session);
     }
 }

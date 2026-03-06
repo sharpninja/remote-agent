@@ -9,6 +9,9 @@ namespace RemoteAgent.Service.Storage;
 /// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-11)</see>
 public interface ILocalStorage
 {
+    /// <summary>Full path to the LiteDB database file used for request/response history (TR-11.1).</summary>
+    string DbPath { get; }
+
     /// <summary>Logs a client request (e.g. text message, control, script request, media upload).</summary>
     /// <param name="sessionId">Session identifier.</param>
     /// <param name="kind">Kind of request (e.g. Text, Control, ScriptRequest, MediaUpload).</param>

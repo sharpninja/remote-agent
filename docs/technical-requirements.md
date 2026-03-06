@@ -65,7 +65,7 @@
 - **TR-5.4** When the app receives a message with **notify** priority, it shall **show a system notification** (e.g. on Android, using a notification channel and `NotificationManager`/`NotificationCompat`); tapping the notification shall open the app so the message is visible in the chat.
 - **TR-5.5** The app shall support **swipe gestures** (e.g. left or right) on a message to **archive** it; archived messages shall be hidden from the visible list (e.g. via a property on the message and binding or filtering).
 - **TR-5.6** The chat input control shall be multi-line (editor semantics), preserving newline characters in submitted requests.
-- **TR-5.7** Desktop keyboard handling shall support **Ctrl+Enter** as the submit accelerator while plain Enter inserts a newline.
+- **TR-5.7** Desktop keyboard handling shall support **Ctrl+Enter** as the submit accelerator while plain Enter inserts a newline. Mobile keyboard handling shall use **Enter** as the submit accelerator.
 - **TR-5.8** Mobile UX shall use a connection-first screen (host/port/session connect) and toggle to the chat workspace only after successful connection state.
 
 *See:* [FR-1](functional-requirements.md#1-product-purpose), [FR-2](functional-requirements.md#2-chat-and-messaging), [FR-3](functional-requirements.md#3-message-priority-and-notifications), [FR-4](functional-requirements.md#4-archive).
@@ -236,3 +236,54 @@
 - **TR-18.4** UI tests shall validate known use cases by substituting mocked CQRS handlers and asserting rendered UI state changes, status messages, and command completion/error behavior.
 
 *See:* [FR-12](functional-requirements.md#12-desktop-management-app), [FR-2](functional-requirements.md#2-chat-and-messaging), [TR-8](#8-testing), [TR-14](#14-desktop-management-capabilities).
+
+---
+
+## 19. Device pairing and API key management
+
+- **TR-19.1** The service shall expose a `SetPairingUsers` gRPC RPC that accepts username/password pairs, **hashes passwords with SHA-256**, generates a **32-byte cryptographically random hex API key**, writes both credentials and key to `appsettings.json`, and returns the generated key in the response (`SetPairingUsersResponse.generated_api_key`).
+- **TR-19.2** The `/pair` web endpoints shall use **`IOptionsMonitor<AgentOptions>.CurrentValue`** (not `IOptions<T>`) so that configuration changes from `SetPairingUsers` are reflected immediately without service restart.
+- **TR-19.3** The service shall listen on a **secondary HTTP/1+HTTP/2 web port** (computed as `"1" + gRPC port`, e.g. 15244) for browser-accessible endpoints including the `/pair` login and `/pair/key` pages.
+- **TR-19.4** The `/pair/key` page shall render the API key, a QR code generated **server-side** via `QRCoder.PngByteQRCode` embedded as a `data:image/png;base64,…` `<img>` tag (no external CDN or JavaScript dependency), and a deep-link anchor (`<a class="btn" href="remoteagent://pair?…">`).
+- **TR-19.5** The deep-link URI format shall be `remoteagent://pair?key={apiKey}&host={serverHost}&port={gRPCport}` where `port` is the **gRPC port** (not the web port) and all values are URI-escaped.
+- **TR-19.6** The mobile app shall implement the Login flow via a modal **`PairLoginPage`** containing a `WebView` that loads `http://{host}:1{port}/pair`; on navigation to `/pair/key`, the page shall execute `document.querySelector('a.btn')?.getAttribute('href')` via `EvaluateJavaScriptAsync` to extract the deep-link URI, strip any JSON-quoting artifacts from Android's WebView, resolve a `TaskCompletionSource`, and dismiss the modal.
+- **TR-19.7** The `ScanQrCodeHandler` shall validate that a host is configured before building the login URL, construct the web port as `"1" + gRPC port`, and parse the returned `remoteagent://` URI to populate `Host`, `Port`, and `ApiKey` on the view model.
+- **TR-19.8** The desktop `SetPairingUsersAsync` client method shall return `Task<string>` (the generated API key) rather than `Task<bool>`, and the handler shall apply the returned key to the workspace immediately.
+- **TR-19.9** The `IQrCodeScanner` abstraction shall accept a `loginUrl` parameter (`Task<string?> ScanAsync(string loginUrl)`) to support the web-based login flow instead of camera-based QR scanning.
+
+*See:* [FR-17](functional-requirements.md#17-device-pairing-and-api-key-management).
+
+---
+
+## 20. Desktop UX refinements
+
+- **TR-20.1** All `TextBlock` controls in Avalonia desktop `.axaml` view files shall be replaced with **`SelectableTextBlock`** to enable text selection and copy.
+- **TR-20.2** A **global Avalonia style** in `App.axaml` shall apply a **4px margin** to `Button`, `TextBox`, `ComboBox`, `CheckBox`, `ListBox`, `SelectableTextBlock`, and `TabControl` controls.
+
+*See:* [FR-18](functional-requirements.md#18-desktop-ux-refinements).
+
+---
+
+## 21. Server profiles and persistent connection settings
+
+- **TR-21.1** A shared `ServerProfile` model and `IServerProfileStore` interface shall be defined in `RemoteAgent.App.Logic` so both mobile and desktop can consume the same contract.
+- **TR-21.2** The mobile app shall implement `IServerProfileStore` using **LiteDB** with a unique index on `host:port` (lowercased). CRUD operations: `GetAll`, `GetByHostPort`, `Upsert`, `Delete`.
+- **TR-21.3** The desktop `ServerRegistration` model shall include `PerRequestContext` and `DefaultSessionContext` string properties, persisted by `LiteDbServerRegistrationStore.Upsert`.
+- **TR-21.4** `ConnectMobileSessionHandler` shall **auto-save** a `ServerProfile` on successful connection and load the saved `PerRequestContext` into the workspace when the workspace value is empty.
+- **TR-21.5** The desktop `ServerWorkspaceViewModel` shall load `PerRequestContext` from the `ServerRegistration` during construction.
+- **TR-21.6** The desktop `SaveServerRegistrationRequest` and `SaveServerRegistrationHandler` shall accept and persist `PerRequestContext` and `DefaultSessionContext`.
+- **TR-21.7** The mobile `SettingsPage` shall be backed by a `SettingsPageViewModel` (DI-registered) that exposes the profile list with save and delete commands.
+
+*See:* [FR-19](functional-requirements.md#19-server-profiles-and-persistent-connection-settings).
+
+---
+
+## 22. Mobile chat UX
+
+- **TR-22.1** On Android, the native `AppCompatEditText` platform view of the message `Editor` shall intercept `Keycode.Enter` on `KeyEventActions.Down` and dispatch `SendMessageCommand`, preventing newline insertion.
+- **TR-22.2** The `IConnectionModeSelector` interface and `MauiConnectionModeSelector` implementation shall be removed; `ConnectMobileSessionHandler` shall hardcode `ConnectionMode = "server"`.
+- **TR-22.3** `ISessionCommandBus` shall expose `IsConnected` (bool) and `ConnectionStateChanged` (event) so `AppShellViewModel` can bind flyout item visibility to connection state.
+- **TR-22.4** The connection card in `MainPage.xaml` shall bind `IsVisible` to `IsConnected` via `InverseBool` converter, hiding it once connected.
+- **TR-22.5** `ServerApiClient` shall use `ExecuteGrpcAsync` for all 12 server API methods; no `HttpClient`-based REST calls shall remain.
+
+*See:* [FR-20](functional-requirements.md#20-mobile-chat-ux).

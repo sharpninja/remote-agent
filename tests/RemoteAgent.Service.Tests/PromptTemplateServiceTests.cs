@@ -1,9 +1,16 @@
 using FluentAssertions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Services;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="PromptTemplateService"/>. FR-14.1, FR-14.2; TR-17.1, TR-17.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-14.1")]
+[Trait("Requirement", "FR-14.2")]
+[Trait("Requirement", "TR-17.1")]
+[Trait("Requirement", "TR-17.2")]
 public class PromptTemplateServiceTests
 {
     [Fact]

@@ -24,26 +24,40 @@ public partial class AppShell : Shell
             Route = "MainPage",
             Content = mainPage
         });
-        Items.Add(new ShellContent
+
+        var mcpTab = new ShellContent
         {
             Title = "MCP Registry",
             Route = "McpRegistryPage",
-            Content = mcpRegistryPage
-        });
+            Content = mcpRegistryPage,
+            IsVisible = _vm.IsConnected
+        };
+        Items.Add(mcpTab);
+
         Items.Add(new ShellContent
         {
             Title = "Settings",
             Route = "SettingsPage",
             Content = settingsPage,
-            FlyoutItemIsVisible = false
+            FlyoutItemIsVisible = false,
+            IsVisible = false
         });
         Items.Add(new ShellContent
         {
             Title = "Account Management",
             Route = "AccountManagementPage",
             Content = accountManagementPage,
-            FlyoutItemIsVisible = false
+            FlyoutItemIsVisible = false,
+            IsVisible = false
         });
+
+        _vm.PropertyChanged += (_, args) =>
+        {
+            if (args.PropertyName == nameof(AppShellViewModel.IsConnected))
+            {
+                mcpTab.IsVisible = _vm.IsConnected;
+            }
+        };
 
         PropertyChanged += (_, args) =>
         {

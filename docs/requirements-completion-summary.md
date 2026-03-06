@@ -80,6 +80,18 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**FR-15.1**](functional-requirements.md#15-connection-protection) | Configurable connection/message rate limiting | **Done** | `ConnectionProtectionService` enforces sliding-window limits |
 | [**FR-15.2**](functional-requirements.md#15-connection-protection) | Detect DoS patterns and temporarily throttle/block peers | **Done** | DoS detection cooldown + blocked-peer behavior with structured events |
 | [**FR-16.1**](functional-requirements.md#16-test-execution-policy) | Integration tests run on-demand and remain isolated from default pipeline | **Done** | `scripts/test-integration.sh` + isolated workflow (`integration-tests.yml`) |
+| [**FR-17.1**](functional-requirements.md#17-device-pairing-and-api-key-management) | Device pairing flow provisions mobile with connection details and API key | **Done** | Desktop SetPairingUser → service generates key → `/pair` web login → mobile extracts deep link |
+| [**FR-17.2**](functional-requirements.md#17-device-pairing-and-api-key-management) | Admin sets pairing credentials from desktop app | **Done** | Desktop toolbar button → `SetPairingUserHandler` → `SetPairingUsers` gRPC RPC |
+| [**FR-17.3**](functional-requirements.md#17-device-pairing-and-api-key-management) | Service generates random API key on pairing credential save | **Done** | `AgentGatewayService.SetPairingUsers` generates 32-byte hex key via `RandomNumberGenerator` |
+| [**FR-17.4**](functional-requirements.md#17-device-pairing-and-api-key-management) | Web-based login page at `/pair` on web port | **Done** | `PairingHtml.LoginPage` served on `"1" + gRPCport` (e.g. 15244) |
+| [**FR-17.5**](functional-requirements.md#17-device-pairing-and-api-key-management) | After login: API key, server-side QR code, deep-link button displayed | **Done** | `PairingHtml.KeyPage` renders key + `QRCoder` PNG + `remoteagent://pair?…` anchor |
+| [**FR-17.6**](functional-requirements.md#17-device-pairing-and-api-key-management) | Mobile Login button opens `/pair` WebView and auto-extracts deep link | **Done** | `PairLoginPage` WebView → JS `querySelector('a.btn').getAttribute('href')` → `ScanQrCodeHandler.ParseAndApply` |
+| [**FR-17.6.1**](functional-requirements.md#17-device-pairing-and-api-key-management) | Login disabled until host entered | **Done** | `ScanQrCodeCommand` CanExecute includes `!string.IsNullOrWhiteSpace(_host)` |
+| [**FR-17.6.2**](functional-requirements.md#17-device-pairing-and-api-key-management) | Login disabled when API key already stored | **Done** | `ScanQrCodeCommand` CanExecute includes `!HasApiKey` |
+| [**FR-17.7**](functional-requirements.md#17-device-pairing-and-api-key-management) | Connect disabled until API key stored | **Done** | `ConnectCommand` CanExecute: `!_gateway.IsConnected && HasApiKey` |
+| [**FR-17.8**](functional-requirements.md#17-device-pairing-and-api-key-management) | API key persisted on mobile after successful connection | **Done** | `ConnectMobileSessionHandler` saves `PrefApiKey` to preferences on connect |
+| [**FR-18.1**](functional-requirements.md#18-desktop-ux-refinements) | All Avalonia text displays use SelectableTextBlock | **Done** | All 16 `.axaml` view files: `TextBlock` → `SelectableTextBlock` |
+| [**FR-18.2**](functional-requirements.md#18-desktop-ux-refinements) | Uniform 4px margin on all Avalonia controls | **Done** | Global style in `App.axaml` targeting Button, TextBox, ComboBox, CheckBox, ListBox, SelectableTextBlock, TabControl |
 
 ---
 
@@ -199,6 +211,17 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 | [**TR-18.2**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | Command/query/event handlers are unit-testable independent of UI frameworks | **Done** | 218 handler unit tests across Desktop and Mobile; handlers tested with stub dependencies, no UI framework required |
 | [**TR-18.3**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI pipelines support mockable behavior injection for known outcomes/failures | **Done** | `IRequestDispatcher` is the sole pipeline entry point; `ServiceProviderRequestDispatcher` provides Debug-level entry/exit logging with CorrelationId tracing; all dependencies are interface-backed |
 | [**TR-18.4**](technical-requirements.md#18-ui-commandevent-cqrs-testability) | UI tests substitute mocked handlers and validate success/failure UI behavior | **Done** | Handler tests use `StubCapacityClient`, `NullDispatcher`, `TestRequestDispatcher`, and other injectable stubs to validate both success and failure paths; 240 tests covering all handler paths |
+| [**TR-19.1**](technical-requirements.md#19-device-pairing-and-api-key-management) | `SetPairingUsers` RPC hashes passwords, generates API key, returns it | **Done** | `AgentGatewayService.SetPairingUsers` → SHA-256 hash + `RandomNumberGenerator.GetBytes(32)` hex key → `appsettings.json` + `GeneratedApiKey` response field |
+| [**TR-19.2**](technical-requirements.md#19-device-pairing-and-api-key-management) | `/pair` endpoints use `IOptionsMonitor` for live config reload | **Done** | All three `/pair` lambdas use `IOptionsMonitor<AgentOptions>.CurrentValue` |
+| [**TR-19.3**](technical-requirements.md#19-device-pairing-and-api-key-management) | Secondary HTTP/1+2 web port (`"1" + gRPC port`) for browser endpoints | **Done** | Kestrel dual-port: gRPC HTTP/2-only + web HTTP/1+2; `/pair` routes use `RequireHost` |
+| [**TR-19.4**](technical-requirements.md#19-device-pairing-and-api-key-management) | Server-side QR code via `QRCoder.PngByteQRCode`, no CDN | **Done** | `PairingHtml.GenerateQrPngImg` → base64 `<img>` data URL |
+| [**TR-19.5**](technical-requirements.md#19-device-pairing-and-api-key-management) | Deep-link URI: `remoteagent://pair?key=…&host=…&port={gRPCport}` | **Done** | `/pair/key` builds deep link with `context.Request.Host` and gRPC port |
+| [**TR-19.6**](technical-requirements.md#19-device-pairing-and-api-key-management) | `PairLoginPage` WebView extracts deep link via JS on `/pair/key` navigation | **Done** | `PairLoginPage.OnNavigated` → `EvaluateJavaScriptAsync` → `querySelector('a.btn').getAttribute('href')` → strip JSON quotes → TCS |
+| [**TR-19.7**](technical-requirements.md#19-device-pairing-and-api-key-management) | `ScanQrCodeHandler` validates host, builds web port, parses deep link | **Done** | Validates host not empty; `loginUrl = http://{host}:1{port}/pair`; `ParseAndApply` extracts key/host/port from URI |
+| [**TR-19.8**](technical-requirements.md#19-device-pairing-and-api-key-management) | Desktop `SetPairingUsersAsync` returns `Task<string>` (generated key) | **Done** | `IServerCapacityClient.SetPairingUsersAsync` → `Task<string>`; handler applies key to `Workspace.ApiKey` |
+| [**TR-19.9**](technical-requirements.md#19-device-pairing-and-api-key-management) | `IQrCodeScanner.ScanAsync` accepts `loginUrl` parameter | **Done** | Interface signature: `Task<string?> ScanAsync(string loginUrl)` |
+| [**TR-20.1**](technical-requirements.md#20-desktop-ux-refinements) | All Avalonia `TextBlock` replaced with `SelectableTextBlock` | **Done** | All 16 desktop `.axaml` view files updated |
+| [**TR-20.2**](technical-requirements.md#20-desktop-ux-refinements) | Global 4px margin style on interactive Avalonia controls | **Done** | `App.axaml` style targets Button, TextBox, ComboBox, CheckBox, ListBox, SelectableTextBlock, TabControl |
 
 ---
 
@@ -206,8 +229,8 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 
 | Category | Done | Partial | Not started |
 |----------|------|--------|-------------|
-| **Functional (FR)** | 67 | 0 | 0 |
-| **Technical (TR)** | 112 | 0 | 0 |
+| **Functional (FR)** | 80 | 0 | 0 |
+| **Technical (TR)** | 124 | 0 | 0 |
 
 **Not started (FR):** None.
 
@@ -215,4 +238,4 @@ Requirement IDs in the tables link to the corresponding section in [Functional r
 
 ---
 
-*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed: TR-18.1–TR-18.4 marked Done following completion of the MVVM + CQRS refactor (32 Desktop handlers, 17 Mobile handlers, 218 unit tests, ServerWorkspaceViewModel decomposed into 6 sub-VMs, IRequestDispatcher with Debug-level CorrelationId tracing).*
+*Generated from `docs/functional-requirements.md`, `docs/technical-requirements.md`, and the current codebase. Last refreshed: FR-17 (device pairing + API key management), FR-18 (desktop UX refinements), TR-19 (pairing infrastructure), TR-20 (desktop UX) marked Done following web-based login flow, server-side QR code, SelectableTextBlock, and global margin implementation.*

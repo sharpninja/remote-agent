@@ -197,6 +197,79 @@ jobs:
           dotnet restore RemoteAgent.Desktop.csproj --configfile ../../NuGet.Config -v minimal -p:TargetFramework=net9.0 -p:TargetFrameworks=net9.0
           dotnet build RemoteAgent.Desktop.csproj -c Release --no-restore -v minimal -p:TargetFramework=net9.0 -p:TargetFrameworks=net9.0
 
+  build-msix:
+    name: Build MSIX (Windows)
+    runs-on: windows-latest
+    needs: [detect, build]
+    if: needs.detect.outputs.code == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Setup .NET 9 (desktop)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build MSIX package
+        shell: pwsh
+        env:
+          VERSION: ${{ needs.build.outputs.semver }}
+        run: |
+          .\scripts\package-msix.ps1 -Version $env:VERSION -Force
+
+      - name: Upload MSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: msix-${{ needs.build.outputs.major_minor_patch }}
+          path: |
+            artifacts/*.msix
+            artifacts/*.cer
+          if-no-files-found: error
+          retention-days: 30
+
+  build-deb:
+    name: Build .deb (Linux)
+    runs-on: ubuntu-latest
+    needs: [detect, build]
+    if: needs.detect.outputs.code == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Setup .NET 9 (desktop)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build .deb packages
+        env:
+          VERSION: ${{ needs.build.outputs.semver }}
+        run: |
+          chmod +x scripts/package-deb.sh
+          ./scripts/package-deb.sh --version "$VERSION"
+
+      - name: Upload .deb artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: deb-${{ needs.build.outputs.major_minor_patch }}
+          path: artifacts/*.deb
+          if-no-files-found: error
+          retention-days: 30
+
   android:
     name: Build Android APK
     runs-on: ubuntu-latest
@@ -273,7 +346,7 @@ jobs:
   release-beta:
     name: Create beta release
     runs-on: ubuntu-latest
-    needs: [build, desktop-build, android, docker]
+    needs: [build, desktop-build, android, docker, build-msix, build-deb]
     permissions:
       contents: write
     steps:
@@ -313,6 +386,18 @@ jobs:
         with:
           name: android-apk
 
+      - name: Download MSIX artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: msix-${{ needs.build.outputs.major_minor_patch }}
+          path: release-assets/msix
+
+      - name: Download .deb artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: deb-${{ needs.build.outputs.major_minor_patch }}
+          path: release-assets/deb
+
       - name: Create beta release
         uses: softprops/action-gh-release@v2
         with:
@@ -320,7 +405,11 @@ jobs:
           name: Beta v${{ steps.version.outputs.version }} (build ${{ github.run_number }})
           prerelease: true
           body_path: release-notes.md
-          files: com.companyname.remoteagent.app-Signed.apk
+          files: |
+            com.companyname.remoteagent.app-Signed.apk
+            release-assets/msix/*.msix
+            release-assets/msix/*.cer
+            release-assets/deb/*.deb
 
   docker:
     name: Build and push Docker image

@@ -76,6 +76,34 @@ All warnings are treated as errors. See [REPOSITORY_RULES.md](docs/REPOSITORY_RU
 - Ensure all tests pass before submitting a PR.
 - Integration tests should go in `RemoteAgent.Service.IntegrationTests`.
 
+### Requirements Traceability
+
+All test classes and methods should be annotated with the functional (FR) and technical (TR) requirements they cover:
+
+```csharp
+/// <summary>Tests for authentication. FR-13.5; TR-18.1, TR-18.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.5")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
+public class AuthUserServiceTests
+{
+    [Fact]
+    public void UpsertListDelete_ShouldPersistUser()
+    {
+        // Test implementation
+    }
+}
+```
+
+After adding or updating requirement annotations, regenerate the traceability matrix:
+
+```bash
+./scripts/generate-requirements-matrix.sh
+```
+
+This updates `docs/requirements-test-coverage.md`, which maps all requirements to their test coverage.
+
 ## Building and Testing
 
 ### Prerequisites

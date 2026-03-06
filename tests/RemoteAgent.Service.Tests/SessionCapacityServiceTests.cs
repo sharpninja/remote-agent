@@ -2,9 +2,17 @@ using FluentAssertions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Agents;
 using RemoteAgent.Service.Services;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="SessionCapacityService"/>. FR-13.1, FR-13.7, FR-13.8; TR-3.7, TR-3.8.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.1")]
+[Trait("Requirement", "FR-13.7")]
+[Trait("Requirement", "FR-13.8")]
+[Trait("Requirement", "TR-3.7")]
+[Trait("Requirement", "TR-3.8")]
 public sealed class SessionCapacityServiceTests
 {
     [Fact]

@@ -9,7 +9,9 @@ public sealed record SaveServerRegistrationRequest(
     string DisplayName,
     string Host,
     int Port,
-    string ApiKey) : IRequest<CommandResult<ServerRegistration>>
+    string ApiKey,
+    string PerRequestContext = "",
+    string DefaultSessionContext = "") : IRequest<CommandResult<ServerRegistration>>
 {
     public override string ToString() =>
         $"SaveServerRegistrationRequest {{ CorrelationId = {CorrelationId}, ExistingServerId = {ExistingServerId}, DisplayName = {DisplayName}, Host = {Host}, Port = {Port}, ApiKey = [REDACTED] }}";

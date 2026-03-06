@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace RemoteAgent.Service.Agents;
@@ -12,7 +13,7 @@ namespace RemoteAgent.Service.Agents;
 /// var session = await processAgentRunner.StartAsync(null, null, "sess-1", logWriter, ct);
 /// </code></example>
 /// <see href="https://sharpninja.github.io/remote-agent/technical-requirements.html">Technical requirements (TR-3, TR-10)</see>
-public sealed class ProcessAgentRunner(IOptions<AgentOptions> options) : IAgentRunner
+public sealed class ProcessAgentRunner(IOptions<AgentOptions> options, ILogger<ProcessAgentRunner> logger) : IAgentRunner
 {
     /// <summary>Default agent command when not configured: "copilot" on Windows, "agent" otherwise.</summary>
     private static string DefaultCommand => RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "copilot" : "agent";
@@ -31,10 +32,13 @@ public sealed class ProcessAgentRunner(IOptions<AgentOptions> options) : IAgentR
         if (string.IsNullOrWhiteSpace(cmd))
             return Task.FromResult<IAgentSession?>(null);
 
+        var args = arguments ?? options.Value.Arguments ?? "";
+        logger.LogInformation("ProcessAgentRunner: starting agent — command={Command}, arguments={Arguments}, session={SessionId}", cmd, args, sessionId);
+
         var psi = new ProcessStartInfo
         {
             FileName = cmd,
-            Arguments = arguments ?? options.Value.Arguments ?? "",
+            Arguments = args,
             UseShellExecute = false,
             RedirectStandardInput = true,
             RedirectStandardOutput = true,
@@ -47,11 +51,17 @@ public sealed class ProcessAgentRunner(IOptions<AgentOptions> options) : IAgentR
         {
             var process = Process.Start(psi);
             if (process == null)
+            {
+                logger.LogError("ProcessAgentRunner: Process.Start returned null for command={Command} (session={SessionId})", cmd, sessionId);
                 return Task.FromResult<IAgentSession?>(null);
+            }
+
+            logger.LogInformation("ProcessAgentRunner: agent process started — pid={Pid}, command={Command}, session={SessionId}", process.Id, cmd, sessionId);
             return Task.FromResult<IAgentSession?>(new ProcessAgentSession(process));
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            logger.LogError(ex, "ProcessAgentRunner: failed to start agent process — command={Command}, session={SessionId}", cmd, sessionId);
             return Task.FromResult<IAgentSession?>(null);
         }
     }

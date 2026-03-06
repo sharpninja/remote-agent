@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 using RemoteAgent.App.Logic;
 using RemoteAgent.App.Logic.Cqrs;
 using RemoteAgent.App.Services;
+using Avalonia.Controls;
 using RemoteAgent.Desktop.Infrastructure;
 using RemoteAgent.Desktop.Logging;
 using RemoteAgent.Desktop.Requests;
@@ -54,8 +55,8 @@ internal static class SharedWorkspaceFactory
     public static StructuredLogsViewModel CreateStructuredLogsViewModel(IServerCapacityClient? client = null)
         => new StructuredLogsViewModel(new NullDispatcher(), StubConnectionContext.Default, new StubLogStore());
 
-    public static AppLogViewModel CreateAppLog() =>
-        new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService());
+    public static AppLogViewModel CreateAppLog(string logsFolder = "/tmp/test-logs") =>
+        new AppLogViewModel(new NullDispatcher(), new NullFileSaveDialogService(), logsFolder);
 }
 
 internal sealed class StubConnectionContext : IServerConnectionContext
@@ -92,6 +93,7 @@ internal sealed class StubCapacityClient : IServerCapacityClient
     public bool DeletePromptTemplateResult { get; set; } = true;
     public bool SetAgentMcpServersResult { get; set; } = true;
     public bool TerminateSessionResult { get; set; } = true;
+    public string? LastTerminatedSessionId { get; private set; }
     public bool SeedSessionContextResult { get; set; } = true;
     public RemoteAgent.Desktop.Infrastructure.SessionCapacitySnapshot? CapacitySnapshot { get; set; } = null;
     public AuthUserSnapshot? UpsertAuthUserResult { get; set; } = new AuthUserSnapshot("user1", "User One", "viewer", true, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
@@ -104,8 +106,11 @@ internal sealed class StubCapacityClient : IServerCapacityClient
         Task.FromResult(CapacitySnapshot);
     public Task<IReadOnlyList<OpenServerSessionSnapshot>> GetOpenSessionsAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult<IReadOnlyList<OpenServerSessionSnapshot>>([]);
-    public Task<bool> TerminateSessionAsync(string host, int port, string sessionId, string? apiKey, CancellationToken cancellationToken = default) =>
-        Task.FromResult(TerminateSessionResult);
+    public Task<bool> TerminateSessionAsync(string host, int port, string sessionId, string? apiKey, CancellationToken cancellationToken = default)
+    {
+        LastTerminatedSessionId = sessionId;
+        return Task.FromResult(TerminateSessionResult);
+    }
     public Task<IReadOnlyList<AbandonedServerSessionSnapshot>> GetAbandonedSessionsAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult<IReadOnlyList<AbandonedServerSessionSnapshot>>([]);
     public Task<IReadOnlyList<ConnectedPeerSnapshot>> GetConnectedPeersAsync(string host, int port, string? apiKey, CancellationToken cancellationToken = default) =>
@@ -148,6 +153,13 @@ internal sealed class StubCapacityClient : IServerCapacityClient
         Task.FromResult(DeletePromptTemplateResult);
     public Task<bool> SeedSessionContextAsync(string host, int port, string sessionId, string contextType, string content, string? source, string? correlationId, string? apiKey, CancellationToken cancellationToken = default) =>
         Task.FromResult(SeedSessionContextResult);
+    public string SetPairingUsersKey { get; set; } = "generated-test-api-key";
+    public Exception? ThrowOnSetPairingUsers { get; set; }
+    public Task<string> SetPairingUsersAsync(string host, int port, IEnumerable<(string Username, string PasswordHash)> users, bool replace, string? apiKey, CancellationToken cancellationToken = default)
+    {
+        if (ThrowOnSetPairingUsers is not null) throw ThrowOnSetPairingUsers;
+        return Task.FromResult(SetPairingUsersKey);
+    }
 }
 
 internal sealed class StubLogStore : IDesktopStructuredLogStore
@@ -159,14 +171,19 @@ internal sealed class StubLogStore : IDesktopStructuredLogStore
 
 internal sealed class StubSessionFactory : IDesktopSessionViewModelFactory
 {
-    public DesktopSessionViewModel Create(string title, string connectionMode, string agentId) =>
-        new(new FakeAgentSession())
+    public FakeAgentSession LastFakeSession { get; private set; } = new();
+
+    public DesktopSessionViewModel Create(string title, string connectionMode, string agentId)
+    {
+        LastFakeSession = new FakeAgentSession();
+        return new(LastFakeSession)
         {
             Title = title,
             ConnectionMode = connectionMode,
             AgentId = agentId,
             SessionId = Guid.NewGuid().ToString("N")[..12]
         };
+    }
 }
 
 internal sealed class StubAppLogStore : IAppLogStore
@@ -187,8 +204,7 @@ internal sealed class FakeAgentSession : IAgentSessionClient
     public bool ThrowOnConnect { get; set; }
     public bool ThrowOnSend { get; set; }
     public event Action? ConnectionStateChanged;
-    public event Action<ChatMessage>? MessageReceived
-    { add { } remove { } }
+    public event Action<ChatMessage>? MessageReceived;
 
     public Task ConnectAsync(string host, int port, string? sessionId = null, string? agentId = null, string? clientVersion = null, string? apiKey = null, CancellationToken ct = default)
     {
@@ -207,6 +223,7 @@ internal sealed class FakeAgentSession : IAgentSessionClient
     public Task SendScriptRequestAsync(string pathOrCommand, ScriptType scriptType, CancellationToken ct = default) => Task.CompletedTask;
     public Task SendMediaAsync(byte[] content, string contentType, string? fileName, CancellationToken ct = default) => Task.CompletedTask;
     public Task StopSessionAsync(CancellationToken ct = default) { Disconnect(); return Task.CompletedTask; }
+    public void SimulateMessage(ChatMessage message) => MessageReceived?.Invoke(message);
 }
 
 internal sealed class StubStructuredLogClient : IStructuredLogClient
@@ -225,4 +242,40 @@ internal sealed class StubStructuredLogClient : IStructuredLogClient
     public Task MonitorStructuredLogsAsync(string host, int port, long fromOffset,
         Func<StructuredLogEntry, Task> onEntry, string? apiKey = null, CancellationToken cancellationToken = default)
         => Task.CompletedTask;
+}
+
+internal sealed class NullClipboardService : IClipboardService
+{
+    public Task SetTextAsync(string text) => Task.CompletedTask;
+}
+
+internal sealed class CapturingClipboardService : IClipboardService
+{
+    public string? LastText { get; private set; }
+    public Task SetTextAsync(string text) { LastText = text; return Task.CompletedTask; }
+}
+
+internal sealed class NullFolderOpenerService : IFolderOpenerService
+{
+    public void OpenFolder(string path) { }
+}
+
+internal sealed class CapturingFolderOpenerService : IFolderOpenerService
+{
+    public string? LastPath { get; private set; }
+    public void OpenFolder(string path) => LastPath = path;
+}
+
+internal sealed class NullPairingUserDialog : IPairingUserDialog
+{
+    public Task<PairingUserDialogResult?> ShowAsync(Avalonia.Controls.Window ownerWindow, CancellationToken cancellationToken = default)
+        => Task.FromResult<PairingUserDialogResult?>(null);
+}
+
+internal sealed class StubPairingUserDialog : IPairingUserDialog
+{
+    public PairingUserDialogResult? Result { get; set; } = new PairingUserDialogResult("testuser", "abc123hash");
+
+    public Task<PairingUserDialogResult?> ShowAsync(Avalonia.Controls.Window ownerWindow, CancellationToken cancellationToken = default)
+        => Task.FromResult(Result);
 }

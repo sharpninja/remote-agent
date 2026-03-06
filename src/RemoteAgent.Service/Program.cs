@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,11 +31,28 @@ public partial class Program
             options.ServiceName = "Remote Agent Service";
         });
 
+        // Route ILogger output to the Windows Application Event Log on Windows so
+        // all Information+ messages appear alongside the service lifecycle events.
+        if (OperatingSystem.IsWindows())
+            ConfigureWindowsEventLog(builder);
+
         // Select the listen URL for the current platform from appsettings.json PlatformUrls.
+        // Use ConfigureKestrel (explicit Listen* call) rather than UseUrls so that the
+        // ASPNETCORE_URLS environment variable — set by 'dotnet run' from launchSettings.json
+        // applicationUrl — cannot override the platform-specific port.
         var platformKey = OperatingSystem.IsWindows() ? "PlatformUrls:Windows" : "PlatformUrls:Linux";
         var platformUrl = builder.Configuration[platformKey];
-        if (!string.IsNullOrWhiteSpace(platformUrl))
-            builder.WebHost.UseUrls(platformUrl);
+        int webPort = 0;
+        if (!string.IsNullOrWhiteSpace(platformUrl) && Uri.TryCreate(platformUrl, UriKind.Absolute, out var listenUri))
+        {
+            var listenPort = listenUri.Port;
+            webPort = int.Parse("1" + listenPort);   // e.g. 5244 → 15244
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                options.ListenAnyIP(listenPort, o => o.Protocols = HttpProtocols.Http2);
+                options.ListenAnyIP(webPort,    o => o.Protocols = HttpProtocols.Http1AndHttp2);
+            });
+        }
 
         ConfigureServices(builder.Services, builder.Configuration);
 
@@ -50,12 +68,43 @@ public partial class Program
             throw;
         }
 
-        ConfigureEndpoints(app);
+        ConfigureEndpoints(app, webPort);
 
         // Write a success event once the host is fully started and listening.
         app.Lifetime.ApplicationStarted.Register(() =>
+        {
+            var logger = app.Services.GetRequiredService<ILogger<Program>>();
+            var urls   = string.Join(", ", app.Urls.DefaultIfEmpty(platformUrl ?? "unknown"));
+            logger.LogInformation("Remote Agent Service listening on {Urls}", urls);
             WriteEventLog(isError: false, 1000,
-                "Remote Agent Service started successfully."));
+                $"Remote Agent Service started successfully. Listening on: {urls}");
+
+            // Log agent configuration so misconfigurations are obvious on startup.
+            var agentOpts = app.Services.GetRequiredService<IOptions<AgentOptions>>().Value;
+            var resolvedRunner = string.IsNullOrWhiteSpace(agentOpts.RunnerId)
+                ? (OperatingSystem.IsWindows() ? "copilot-windows" : "process")
+                : agentOpts.RunnerId;
+            var resolvedCommand = string.IsNullOrWhiteSpace(agentOpts.Command)
+                ? (OperatingSystem.IsWindows() ? "copilot" : "agent")
+                : agentOpts.Command;
+            var commandIsConfigured = !string.IsNullOrWhiteSpace(agentOpts.Command);
+            logger.LogInformation(
+                "Agent configuration — RunnerId={RunnerId} (resolved: {ResolvedRunner}), " +
+                "Command={Command} (resolved: {ResolvedCommand}, explicit: {CommandIsConfigured}), " +
+                "Arguments={Arguments}",
+                agentOpts.RunnerId ?? "(empty)",
+                resolvedRunner,
+                agentOpts.Command ?? "(empty)",
+                resolvedCommand,
+                commandIsConfigured,
+                agentOpts.Arguments ?? "(empty)");
+            if (!commandIsConfigured)
+                logger.LogWarning(
+                    "Agent:Command is not configured in appsettings.json. " +
+                    "The service will attempt to use the default command '{DefaultCommand}' which may not exist. " +
+                    "Set Agent:Command to the path of your agent executable (e.g. claude, cursor, or /bin/cat for testing).",
+                    resolvedCommand);
+        });
 
         try
         {
@@ -86,6 +135,17 @@ public partial class Program
         WriteEventLogCore(
             isError ? EventLogEntryType.Error : EventLogEntryType.Information,
             eventId, message);
+    }
+
+    /// <summary>Registers the Windows Application Event Log as an ILogger provider.
+    /// Always called from within an <see cref="OperatingSystem.IsWindows()"/> guard.</summary>
+    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+    private static void ConfigureWindowsEventLog(WebApplicationBuilder builder)
+    {
+        builder.Logging.AddEventLog(settings =>
+        {
+            settings.SourceName = "Remote Agent Service";
+        });
     }
 
     /// <summary>Windows-only inner implementation — always called from within an
@@ -147,6 +207,7 @@ public partial class Program
         services.AddSingleton<ILocalStorage, LiteDbLocalStorage>();
         services.AddSingleton<StructuredLogService>();
         services.AddSingleton<MediaStorageService>();
+        services.AddSingleton<FilePathDetectorService>();
         services.AddSingleton<PluginConfigurationService>();
         services.AddSingleton<AgentMcpConfigurationService>();
         services.AddSingleton<PromptTemplateService>();
@@ -157,176 +218,30 @@ public partial class Program
         services.AddGrpc();
     }
 
-    public static void ConfigureEndpoints(IEndpointRouteBuilder endpoints)
+    public static void ConfigureEndpoints(IEndpointRouteBuilder endpoints, int webPort = 0)
     {
         endpoints.MapGrpcService<AgentGatewayService>();
-        endpoints.MapGet("/api/sessions/capacity", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            SessionCapacityService sessionCapacity) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var agentId = httpContext.Request.Query["agentId"].ToString();
-            var status = sessionCapacity.GetStatus(agentId);
-            return Results.Ok(status);
-        });
-        endpoints.MapGet("/api/sessions/open", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            SessionCapacityService sessionCapacity) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            return Results.Ok(sessionCapacity.ListOpenSessions());
-        });
-        endpoints.MapGet("/api/sessions/abandoned", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            SessionCapacityService sessionCapacity) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            return Results.Ok(sessionCapacity.ListAbandonedSessions());
-        });
-        endpoints.MapPost("/api/sessions/{sessionId}/terminate", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            SessionCapacityService sessionCapacity,
-            string sessionId) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var success = sessionCapacity.TryTerminateSession(sessionId, out var reason);
-            return Results.Ok(new { success, message = success ? "Session terminated." : reason });
-        });
-        endpoints.MapGet("/api/connections/peers", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            ConnectionProtectionService protection) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            return Results.Ok(protection.GetConnectedPeers());
-        });
-        endpoints.MapGet("/api/connections/history", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            ConnectionProtectionService protection) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var limitRaw = httpContext.Request.Query["limit"].ToString();
-            var limit = 500;
-            if (!string.IsNullOrWhiteSpace(limitRaw) && int.TryParse(limitRaw, out var parsed))
-                limit = parsed;
-            return Results.Ok(protection.GetConnectionHistory(limit));
-        });
-        endpoints.MapGet("/api/devices/banned", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            ConnectionProtectionService protection) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            return Results.Ok(protection.GetBannedPeers());
-        });
-        endpoints.MapPost("/api/devices/{peer}/ban", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            ConnectionProtectionService protection,
-            string peer) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var reason = httpContext.Request.Query["reason"].ToString();
-            var ok = protection.BanPeer(peer, reason, nameof(Program));
-            return Results.Ok(new { success = ok, message = ok ? "Peer banned." : "Invalid peer." });
-        });
-        endpoints.MapDelete("/api/devices/{peer}/ban", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            ConnectionProtectionService protection,
-            string peer) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var ok = protection.UnbanPeer(peer, nameof(Program));
-            return Results.Ok(new { success = ok, message = ok ? "Peer unbanned." : "Peer not found." });
-        });
-        endpoints.MapGet("/api/auth/users", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            AuthUserService authUsers) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            return Results.Ok(authUsers.List());
-        });
-        endpoints.MapGet("/api/auth/permissions", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            AuthUserService authUsers) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            return Results.Ok(authUsers.ListRoles());
-        });
-        endpoints.MapPost("/api/auth/users", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            AuthUserService authUsers,
-            StructuredLogService structuredLogs,
-            AuthUserRecord user) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var row = authUsers.Upsert(user);
-            structuredLogs.Write("INFO", "auth_user_upserted", "Auth user upserted via management API", nameof(Program), null, null, $"{{\"user_id\":\"{row.UserId}\",\"role\":\"{row.Role}\"}}");
-            return Results.Ok(row);
-        });
-        endpoints.MapDelete("/api/auth/users/{userId}", (
-            HttpContext httpContext,
-            IOptions<AgentOptions> options,
-            AuthUserService authUsers,
-            StructuredLogService structuredLogs,
-            string userId) =>
-        {
-            if (!IsAuthorizedHttp(httpContext, options.Value))
-                return Results.Unauthorized();
-
-            var ok = authUsers.Delete(userId);
-            structuredLogs.Write("INFO", "auth_user_deleted", "Auth user delete requested via management API", nameof(Program), null, null, $"{{\"user_id\":\"{userId}\",\"deleted\":{ok.ToString().ToLowerInvariant()}}}");
-            return Results.Ok(new { success = ok, message = ok ? "Auth user deleted." : "Auth user not found." });
-        });
         endpoints.MapGet("/", () => "RemoteAgent gRPC service. Use the Android app to connect.");
 
         // ── Device-pairing web flow ────────────────────────────────────────────
-        endpoints.MapGet("/pair", (IOptions<AgentOptions> options) =>
+        // Pairing endpoints are restricted to the HTTP/1+2 web port (e.g. 15244/15243)
+        // so gRPC traffic on the primary port is not affected.
+        var pairingHost = webPort > 0 ? $"*:{webPort}" : null;
+
+        var getLogin = endpoints.MapGet("/pair", (IOptionsMonitor<AgentOptions> options) =>
         {
-            var noPairingUsers = options.Value.PairingUsers.Count == 0;
+            var noPairingUsers = options.CurrentValue.PairingUsers.Count == 0;
             return Results.Content(PairingHtml.LoginPage(noPairingUsers: noPairingUsers), "text/html");
         });
+        if (pairingHost is not null) getLogin.RequireHost(pairingHost);
 
-        endpoints.MapPost("/pair", async (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        var postLogin = endpoints.MapPost("/pair", async (HttpContext context, IOptionsMonitor<AgentOptions> options, PairingSessionService sessions) =>
         {
             var form = await context.Request.ReadFormAsync();
             var username = form["username"].ToString();
             var password = form["password"].ToString();
 
-            var user = options.Value.PairingUsers
+            var user = options.CurrentValue.PairingUsers
                 .FirstOrDefault(u => string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase));
 
             if (user is null || !VerifyPairingPassword(password, user.PasswordHash))
@@ -341,14 +256,15 @@ public partial class Program
             });
             return Results.Redirect("/pair/key");
         }).DisableAntiforgery();
+        if (pairingHost is not null) postLogin.RequireHost(pairingHost);
 
-        endpoints.MapGet("/pair/key", (HttpContext context, IOptions<AgentOptions> options, PairingSessionService sessions) =>
+        var getKey = endpoints.MapGet("/pair/key", (HttpContext context, IOptionsMonitor<AgentOptions> options, PairingSessionService sessions) =>
         {
             var token = context.Request.Cookies["ra_pair"];
             if (!sessions.Validate(token))
                 return Results.Redirect("/pair");
 
-            var apiKey = options.Value.ApiKey?.Trim() ?? "";
+            var apiKey = options.CurrentValue.ApiKey?.Trim() ?? "";
             var host   = context.Request.Host.Host;
             var port   = context.Request.Host.Port
                              ?? (context.Request.IsHttps ? 443 : (OperatingSystem.IsWindows() ? 5244 : 5243));
@@ -357,6 +273,7 @@ public partial class Program
 
             return Results.Content(PairingHtml.KeyPage(apiKey, deepLink), "text/html");
         });
+        if (pairingHost is not null) getKey.RequireHost(pairingHost);
     }
 
     private static bool VerifyPairingPassword(string plaintext, string sha256Hex)
