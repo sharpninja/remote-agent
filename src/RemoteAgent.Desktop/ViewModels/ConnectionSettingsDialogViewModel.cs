@@ -11,7 +11,7 @@ namespace RemoteAgent.Desktop.ViewModels;
 public sealed class ConnectionSettingsDialogViewModel : INotifyPropertyChanged
 {
     private string _host = "";
-    private string _port = "5243";
+    private string _port = ServiceDefaults.PortString;
     private string _selectedConnectionMode = "";
     private string _selectedAgentId = "";
     private string _apiKey = "";
@@ -26,10 +26,15 @@ public sealed class ConnectionSettingsDialogViewModel : INotifyPropertyChanged
         SelectedConnectionMode = defaults.ConnectionModes.Contains(defaults.SelectedConnectionMode, StringComparer.OrdinalIgnoreCase)
             ? defaults.SelectedConnectionMode
             : (defaults.ConnectionModes.Count > 0 ? defaults.ConnectionModes[0] : "");
-        SelectedAgentId = defaults.SelectedAgentId;
         ApiKey = defaults.ApiKey;
         PerRequestContext = defaults.PerRequestContext;
         ConnectionModes = new ObservableCollection<string>(defaults.ConnectionModes);
+        AvailableAgents = new ObservableCollection<string>(defaults.AvailableAgents);
+
+        // Set selected agent from defaults; if agent list is populated, pick from it
+        SelectedAgentId = AvailableAgents.Contains(defaults.SelectedAgentId, StringComparer.OrdinalIgnoreCase)
+            ? defaults.SelectedAgentId
+            : (AvailableAgents.Count > 0 ? AvailableAgents[0] : defaults.SelectedAgentId);
 
         SubmitCommand = new RelayCommand(Submit);
         CancelCommand = new RelayCommand(Cancel);
@@ -39,6 +44,9 @@ public sealed class ConnectionSettingsDialogViewModel : INotifyPropertyChanged
     public event Action<bool>? RequestClose;
 
     public ObservableCollection<string> ConnectionModes { get; }
+    public ObservableCollection<string> AvailableAgents { get; }
+
+    public bool HasAvailableAgents => AvailableAgents.Count > 0;
 
     public string Host
     {

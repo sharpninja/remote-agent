@@ -6,6 +6,9 @@ using Microsoft.UI.Xaml.Input;
 using Windows.System;
 using Windows.UI.Core;
 #endif
+#if ANDROID
+using AndroidX.AppCompat.Widget;
+#endif
 
 namespace RemoteAgent.App;
 
@@ -14,6 +17,9 @@ public partial class MainPage : ContentPage
     private readonly MainPageViewModel _vm;
 #if WINDOWS
     private TextBox? _messageTextBox;
+#endif
+#if ANDROID
+    private AppCompatEditText? _androidEditText;
 #endif
 
     public MainPage(MainPageViewModel vm)
@@ -35,6 +41,9 @@ public partial class MainPage : ContentPage
     {
 #if WINDOWS
         MessageEditor.HandlerChanged += OnMessageEditorHandlerChanged;
+#endif
+#if ANDROID
+        MessageEditor.HandlerChanged += OnMessageEditorHandlerChangedAndroid;
 #endif
     }
 
@@ -62,6 +71,40 @@ public partial class MainPage : ContentPage
         e.Handled = true;
         if (_vm.SendMessageCommand.CanExecute(null))
             _vm.SendMessageCommand.Execute(null);
+    }
+#endif
+
+#if ANDROID
+    private void OnMessageEditorHandlerChangedAndroid(object? sender, EventArgs e)
+    {
+        if (_androidEditText != null)
+            _androidEditText.EditorAction -= OnAndroidEditorAction;
+
+        _androidEditText = MessageEditor?.Handler?.PlatformView as AppCompatEditText;
+        if (_androidEditText != null)
+        {
+            // Multi-line EditText ignores ImeOptions by default (keyboard shows Enter).
+            // SetRawInputType overrides the IME input type without changing the view's
+            // multi-line wrapping behaviour, so the keyboard shows a Send action button.
+            _androidEditText.SetRawInputType(Android.Text.InputTypes.ClassText);
+            _androidEditText.ImeOptions = Android.Views.InputMethods.ImeAction.Send;
+            _androidEditText.SetImeActionLabel("Send", Android.Views.InputMethods.ImeAction.Send);
+            _androidEditText.EditorAction += OnAndroidEditorAction;
+        }
+    }
+
+    private void OnAndroidEditorAction(object? sender, Android.Widget.TextView.EditorActionEventArgs e)
+    {
+        if (e.ActionId == Android.Views.InputMethods.ImeAction.Send ||
+            e.ActionId == Android.Views.InputMethods.ImeAction.Done ||
+            e.ActionId == Android.Views.InputMethods.ImeAction.Unspecified)
+        {
+            e.Handled = true;
+            if (_vm.SendMessageCommand.CanExecute(null))
+                _vm.SendMessageCommand.Execute(null);
+            return;
+        }
+        e.Handled = false;
     }
 #endif
 

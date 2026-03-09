@@ -2,9 +2,15 @@ using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Services;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="PluginConfigurationService"/>. FR-8.1; TR-10.1, TR-10.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-8.1")]
+[Trait("Requirement", "TR-10.1")]
+[Trait("Requirement", "TR-10.2")]
 public class PluginConfigurationServiceTests : IDisposable
 {
     private readonly string _tempDir = Path.Combine(Path.GetTempPath(), "ra-plugin-tests-" + Guid.NewGuid().ToString("N"));

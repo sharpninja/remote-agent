@@ -1,5 +1,7 @@
 # GitHub Copilot Instructions for Remote Agent
 
+For specific operational instructions (session bootstrap, session log turn workflow, and helper command sequence), follow `AGENTS-README-FIRST.yaml`.
+
 ## Development Branch Strategy
 
 **IMPORTANT: Always work in the `develop` branch for all development tasks.**
@@ -21,6 +23,17 @@
    - Only maintainers merge from `develop` to `main` for releases
 
 ## Code Quality Standards
+
+### UI Buttons — CQRS Required
+
+**Every button added to the Desktop UI must be backed by a CQRS request/handler pair with complete tests.**
+
+- Create `*Request` in `src/RemoteAgent.Desktop/Requests/` and `*Handler` in `src/RemoteAgent.Desktop/Handlers/`
+- Register the handler as a transient in `App.axaml.cs` `ConfigureServices`
+- The ViewModel command **must dispatch via `IRequestDispatcher`** — no handler logic in the ViewModel
+- Add `*HandlerTests.cs` in `tests/RemoteAgent.Desktop.UiTests/Handlers/` covering success, failure, and edge cases
+- Add a `Null*` stub for any new infrastructure interface to `SharedHandlerTestStubs.cs`
+- See `docs/REPOSITORY_RULES.md` for full details and the `CopyStatusLogHandler` as a reference implementation
 
 ### Warnings as Errors
 
@@ -101,3 +114,5 @@ Before completing any task:
 ✅ **Sign commits**
 ✅ **Run tests before completing tasks**
 ✅ **Use bash only in workflows (no Python)**
+✅ **Every UI button → CQRS request/handler + complete tests**
+

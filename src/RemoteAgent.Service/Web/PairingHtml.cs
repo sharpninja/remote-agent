@@ -1,4 +1,5 @@
 using System.Net;
+using QRCoder;
 
 namespace RemoteAgent.Service.Web;
 
@@ -49,7 +50,7 @@ internal static class PairingHtml
             h2  { margin-bottom: 4px; }
             p   { color: #555; margin-top: 0; }
             #qr { margin: 16px auto; }
-            #qr canvas { border-radius: 8px; }
+            #qr img { border-radius: 8px; display: block; margin: 0 auto; }
             .key { font-family: monospace; background: #f5f5f5; padding: 12px; border-radius: 6px; word-break: break-all; margin: 16px 0; font-size: 13px; border: 1px solid #ddd; text-align: left; }
             .btn { display: block; padding: 14px; background: #0078d4; color: white; border-radius: 6px; text-decoration: none; font-size: 16px; margin-top: 8px; }
             .btn:hover { background: #005a9e; }
@@ -59,17 +60,7 @@ internal static class PairingHtml
         <body>
           <h2>Your API Key</h2>
           %%BODY%%
-          <div id="qr"></div>
-          <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
-          <script>
-            (function() {
-              var data = %%QR_DATA%%;
-              if (!data) return;
-              QRCode.toCanvas(document.createElement('canvas'), data, { width: 256 }, function(err, c) {
-                if (!err) { document.getElementById('qr').appendChild(c); }
-              });
-            })();
-          </script>
+          <div id="qr">%%QR_IMG%%</div>
         </body>
         </html>
         """;
@@ -96,13 +87,13 @@ internal static class PairingHtml
 
     public static string KeyPage(string apiKey, string deepLink)
     {
-        string body, qrData;
+        string body, qrImg;
 
         if (string.IsNullOrEmpty(apiKey))
         {
             body = "<div class=\"warn\">No API key is configured on this server. " +
                    "Set <code>Agent:ApiKey</code> in <code>appsettings.json</code>.</div>";
-            qrData = "null";
+            qrImg = "";
         }
         else
         {
@@ -111,10 +102,19 @@ internal static class PairingHtml
             body = $"<p>Scan the QR code with your Remote Agent app, or tap <strong>Open in App</strong>.</p>" +
                    $"<div class=\"key\">{encodedKey}</div>" +
                    $"<a class=\"btn\" href=\"{encodedLink}\">Open in Remote Agent App</a>";
-            // Serialize as JSON string — safe to embed directly in <script>.
-            qrData = System.Text.Json.JsonSerializer.Serialize(deepLink);
+            qrImg = GenerateQrPngImg(deepLink);
         }
 
-        return KeyTemplate.Replace("%%BODY%%", body).Replace("%%QR_DATA%%", qrData);
+        return KeyTemplate.Replace("%%BODY%%", body).Replace("%%QR_IMG%%", qrImg);
+    }
+
+    private static string GenerateQrPngImg(string data)
+    {
+        using var generator = new QRCodeGenerator();
+        var qrData = generator.CreateQrCode(data, QRCodeGenerator.ECCLevel.M);
+        using var code = new PngByteQRCode(qrData);
+        var png = code.GetGraphic(6);
+        var b64 = Convert.ToBase64String(png);
+        return $"<img src=\"data:image/png;base64,{b64}\" width=\"256\" height=\"256\" alt=\"Pairing QR code\" />";
     }
 }

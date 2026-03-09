@@ -1,19 +1,12 @@
 using Grpc.Core;
 using Grpc.Net.Client;
 using RemoteAgent.Proto;
-using System.Net.Http.Json;
-using System.Text.Json;
 
 namespace RemoteAgent.App.Logic;
 
 /// <summary>Shared server interaction APIs used by mobile and desktop clients.</summary>
 public static class ServerApiClient
 {
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        PropertyNameCaseInsensitive = true
-    };
-
     public static Task<ServerInfoResponse?> GetServerInfoAsync(
         string host,
         int port,
@@ -276,27 +269,30 @@ public static class ServerApiClient
         CancellationToken ct = default,
         bool throwOnError = false)
     {
-        var baseUrl = BuildBaseUrl(host, port).TrimEnd('/');
-        var query = string.IsNullOrWhiteSpace(agentId)
-            ? ""
-            : $"?agentId={Uri.EscapeDataString(agentId.Trim())}";
-        var url = $"{baseUrl}/api/sessions/capacity{query}";
+        var response = await ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Check session capacity",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.CheckSessionCapacityAsync(
+                new CheckSessionCapacityRequest { AgentId = agentId ?? "" },
+                headers,
+                cancellationToken: token).ResponseAsync);
 
-        using var client = new HttpClient();
-        if (!string.IsNullOrWhiteSpace(apiKey))
-            client.DefaultRequestHeaders.Add("x-api-key", apiKey.Trim());
+        if (response == null) return null;
 
-        using var response = await client.GetAsync(url, ct);
-        if (!response.IsSuccessStatusCode)
-        {
-            if (!throwOnError)
-                return null;
-
-            var detail = await TryReadErrorDetailAsync(response, ct);
-            throw CreateHttpFailure("Get session capacity", response.StatusCode, response.ReasonPhrase, detail);
-        }
-
-        return await response.Content.ReadFromJsonAsync<SessionCapacitySnapshot>(JsonOptions, ct);
+        return new SessionCapacitySnapshot(
+            response.CanCreateSession,
+            response.Reason,
+            response.MaxConcurrentSessions,
+            response.ActiveSessionCount,
+            response.RemainingServerCapacity,
+            response.AgentId,
+            response.HasAgentLimit ? response.AgentMaxConcurrentSessions : null,
+            response.AgentActiveSessionCount,
+            response.HasAgentLimit ? response.RemainingAgentCapacity : null);
     }
 
     private static async Task<TResponse?> ExecuteGrpcAsync<TResponse>(
@@ -349,40 +345,6 @@ public static class ServerApiClient
         return new InvalidOperationException($"{operation} failed ({ex.StatusCode}): {detail}", ex);
     }
 
-    private static InvalidOperationException CreateHttpFailure(string operation, System.Net.HttpStatusCode statusCode, string? reasonPhrase, string? detail)
-    {
-        var code = (int)statusCode;
-        var reason = string.IsNullOrWhiteSpace(reasonPhrase) ? "HTTP error" : reasonPhrase;
-        var message = string.IsNullOrWhiteSpace(detail)
-            ? $"{operation} failed ({code} {reason})."
-            : $"{operation} failed ({code} {reason}): {detail}";
-        return new InvalidOperationException(message);
-    }
-
-    private static async Task<string?> TryReadErrorDetailAsync(HttpResponseMessage response, CancellationToken ct)
-    {
-        try
-        {
-            var body = await response.Content.ReadAsStringAsync(ct);
-            if (string.IsNullOrWhiteSpace(body))
-                return null;
-
-            using var doc = JsonDocument.Parse(body);
-            if (doc.RootElement.ValueKind == JsonValueKind.Object &&
-                doc.RootElement.TryGetProperty("message", out var messageNode) &&
-                messageNode.ValueKind == JsonValueKind.String)
-            {
-                return messageNode.GetString();
-            }
-
-            return body.Length <= 200 ? body : body[..200];
-        }
-        catch
-        {
-            return null;
-        }
-    }
-
     public static Metadata? CreateHeaders(string? apiKey)
     {
         if (string.IsNullOrWhiteSpace(apiKey)) return null;
@@ -393,6 +355,48 @@ public static class ServerApiClient
     {
         return port == 443 ? $"https://{host}" : $"http://{host}:{port}";
     }
+
+    public static Task<ListAgentRunnersResponse?> ListAgentRunnersAsync(
+        string host,
+        int port,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "List agent runners",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.ListAgentRunnersAsync(new ListAgentRunnersRequest(), headers, deadline: null, cancellationToken: token).ResponseAsync);
+
+    public static Task<UpdateAgentRunnerResponse?> UpdateAgentRunnerAsync(
+        string host,
+        int port,
+        string runnerId,
+        string? command = null,
+        string? arguments = null,
+        int maxConcurrentSessions = 0,
+        bool setAsDefault = false,
+        string? apiKey = null,
+        CancellationToken ct = default,
+        bool throwOnError = false)
+        => ExecuteGrpcAsync(
+            host,
+            port,
+            apiKey,
+            "Update agent runner",
+            throwOnError,
+            ct,
+            (client, headers, token) => client.UpdateAgentRunnerAsync(new UpdateAgentRunnerRequest
+            {
+                RunnerId = runnerId,
+                Command = command ?? "",
+                Arguments = arguments ?? "",
+                MaxConcurrentSessions = maxConcurrentSessions,
+                SetAsDefault = setAsDefault
+            }, headers, deadline: null, cancellationToken: token).ResponseAsync);
 }
 
 public sealed record SessionCapacitySnapshot(

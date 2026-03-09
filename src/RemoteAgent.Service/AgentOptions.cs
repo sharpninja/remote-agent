@@ -78,4 +78,7 @@ public class AgentOptions
 
     /// <summary>Optional per-agent concurrent session caps keyed by agent id (e.g. "process": 10).</summary>
     public Dictionary<string, int> AgentConcurrentSessionLimits { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>Enables automatic file path detection in agent stdout and streaming detected files to the client. Defaults to true.</summary>
+    public bool FileTransferEnabled { get; set; } = true;
 }

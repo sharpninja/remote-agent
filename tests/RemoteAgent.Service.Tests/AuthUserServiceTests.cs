@@ -1,9 +1,15 @@
 using FluentAssertions;
 using Microsoft.Extensions.Options;
 using RemoteAgent.Service.Services;
+using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="AuthUserService"/>. FR-13.5; TR-18.1, TR-18.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-13.5")]
+[Trait("Requirement", "TR-18.1")]
+[Trait("Requirement", "TR-18.2")]
 public sealed class AuthUserServiceTests
 {
     [Fact]

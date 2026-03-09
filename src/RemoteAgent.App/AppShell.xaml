@@ -11,8 +11,8 @@
         <ScrollView>
             <VerticalStackLayout Padding="16" Spacing="10">
                 <Label Text="Menu" FontSize="20" FontAttributes="Bold" />
-                <Label Text="Open Sessions" FontAttributes="Bold" />
-                <VerticalStackLayout BindableLayout.ItemsSource="{Binding SessionItems}" Spacing="6">
+                <Label Text="Open Sessions" FontAttributes="Bold" IsVisible="{Binding IsConnected}" />
+                <VerticalStackLayout BindableLayout.ItemsSource="{Binding SessionItems}" Spacing="6" IsVisible="{Binding IsConnected}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <Grid ColumnDefinitions="*,Auto">
@@ -26,9 +26,9 @@
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
-                <Button Text="Start Session" Command="{Binding StartSessionCommand}" />
-                <Button Text="Settings" Command="{Binding NavigateToSettingsCommand}" />
-                <Button Text="Account Management" Command="{Binding NavigateToAccountCommand}" />
+                <Button Text="Start Session" Command="{Binding StartSessionCommand}" IsVisible="{Binding IsConnected}" />
+                <Button Text="Settings" Command="{Binding NavigateToSettingsCommand}" IsVisible="{Binding IsConnected}" />
+                <Button Text="Account Management" Command="{Binding NavigateToAccountCommand}" IsVisible="{Binding IsConnected}" />
             </VerticalStackLayout>
         </ScrollView>
     </Shell.FlyoutContent>

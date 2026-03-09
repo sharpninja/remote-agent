@@ -5,6 +5,12 @@ using Xunit;
 
 namespace RemoteAgent.Service.Tests;
 
+/// <summary>Tests for <see cref="AgentOptions"/>. TR-1.3, TR-2.2, TR-3.1, TR-3.2.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "TR-1.3")]
+[Trait("Requirement", "TR-2.2")]
+[Trait("Requirement", "TR-3.1")]
+[Trait("Requirement", "TR-3.2")]
 public class AgentOptionsTests
 {
     [Fact]

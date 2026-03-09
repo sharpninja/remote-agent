@@ -24,7 +24,7 @@ public sealed class LocalServerManager : ILocalServerManager
 {
     private readonly object _gate = new();
     private Process? _managedProcess;
-    private static readonly Uri LocalServiceUri = new("http://127.0.0.1:5243/");
+    private static readonly Uri LocalServiceUri = ServiceDefaults.LocalServiceUri;
 
     public async Task<LocalServerProbeResult> ProbeAsync(CancellationToken cancellationToken = default)
     {
@@ -87,7 +87,7 @@ public sealed class LocalServerManager : ILocalServerManager
         process.Start();
         var started = await WaitUntilAsync(IsServiceReachableAsync, timeoutMs: 15000, pollMs: 250, cancellationToken);
         if (!started)
-            return new LocalServerActionResult(false, "Local server did not respond on http://127.0.0.1:5243/ within timeout.");
+            return new LocalServerActionResult(false, $"Local server did not respond on {ServiceDefaults.LocalServiceUri} within timeout.");
 
         return new LocalServerActionResult(true, "Local server started.");
     }

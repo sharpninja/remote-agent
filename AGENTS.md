@@ -1,5 +1,27 @@
 # Repository Guidelines
 
+## ⚠️ PRIORITY ORDER — NON-NEGOTIABLE ⚠️
+
+**Speed is never more important than following workspace procedures.**
+
+Before doing ANY work on ANY user request, you MUST complete these steps in order:
+
+1. **Read `AGENTS-README-FIRST.yaml`** in the repo root for the current API key and endpoints
+2. **GET `/health`** to verify the MCP server is running
+3. **POST `/mcp/sessionlog`** with your session turn — do NOT proceed until this succeeds
+4. **GET `/mcp/sessionlog?limit=5`** to review recent session history for context
+5. **GET `/mcp/todo`** to check current tasks
+6. **THEN** begin working on the user's request
+
+On EVERY subsequent user message:
+1. Post a new session log turn (`Add-McpSessionTurn`) before starting work.
+2. Complete the user's request.
+3. Update the turn with results (`Response`) and actions (`Add-McpAction`) when done.
+
+**If you skip any of these steps, STOP and go back and do them before continuing.**
+Session logging is not optional, not deferred, and not secondary to the task.
+Failure to maintain the session log is a compliance violation.
+
 ## Project Structure & Module Organization
 - `src/RemoteAgent.App`: .NET MAUI Android client UI and platform services.
 - `src/RemoteAgent.Service`: ASP.NET Core gRPC service that runs and streams agent sessions.
@@ -43,3 +65,4 @@ Use default/minimal verbosity. Do not pass `-q` to `dotnet build` or `dotnet res
 - Use concise imperative commit messages, optionally with issue references (example: `Fix Android CI job (#8)`).
 - Sign commits (verified signature required by branch protection).
 - PRs should include: purpose, summary of changes, test evidence (`dotnet test`), and docs updates when behavior/config changes.
+

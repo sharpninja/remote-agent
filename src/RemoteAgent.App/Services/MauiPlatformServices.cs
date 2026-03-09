@@ -3,20 +3,6 @@ using RemoteAgent.Proto;
 
 namespace RemoteAgent.App.Services;
 
-public sealed class MauiConnectionModeSelector(Func<Page?> pageFactory) : IConnectionModeSelector
-{
-    public async Task<string?> SelectAsync()
-    {
-        var page = pageFactory();
-        if (page == null) return null;
-
-        var choice = await page.DisplayActionSheetAsync("Connection mode", "Cancel", null, "Direct", "Server");
-        if (string.IsNullOrWhiteSpace(choice) || string.Equals(choice, "Cancel", StringComparison.OrdinalIgnoreCase))
-            return null;
-        return string.Equals(choice, "Direct", StringComparison.OrdinalIgnoreCase) ? "direct" : "server";
-    }
-}
-
 public sealed class MauiAgentSelector(Func<Page?> pageFactory) : IAgentSelector
 {
     public async Task<string?> SelectAsync(ServerInfoResponse serverInfo)
@@ -135,5 +121,16 @@ public sealed class PlatformNotificationServiceAdapter : INotificationService
 #if ANDROID
         PlatformNotificationService.ShowNotification(title, body);
 #endif
+    }
+}
+
+public sealed class MauiQrCodeScanner : IQrCodeScanner
+{
+    public async Task<string?> ScanAsync(string loginUrl)
+    {
+        var scanPage = new PairLoginPage(loginUrl);
+        await MainThread.InvokeOnMainThreadAsync(
+            () => Shell.Current.Navigation.PushModalAsync(scanPage, animated: true));
+        return await scanPage.ResultTask;
     }
 }

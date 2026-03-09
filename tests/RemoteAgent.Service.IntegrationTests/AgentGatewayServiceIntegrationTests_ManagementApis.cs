@@ -5,9 +5,48 @@ using RemoteAgent.Proto;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
+using Xunit;
 
 namespace RemoteAgent.Service.IntegrationTests;
 
+/// <summary>Integration tests for management APIs. FR-1.5, FR-11.1, FR-11.1.1, FR-11.1.3, FR-12.2, FR-12.4, FR-12.6, FR-12.7, FR-12.8, FR-13.1, FR-13.2, FR-13.3, FR-13.4, FR-13.5, FR-13.6, FR-13.7, FR-13.8, FR-14.1, FR-14.3, FR-14.4, FR-15.1, FR-16.1; TR-12.1, TR-12.1.1, TR-13.3, TR-13.4, TR-13.5, TR-15.1, TR-15.2, TR-15.3, TR-15.4, TR-15.7, TR-15.8, TR-15.9, TR-15.10, TR-17.1.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.5")]
+[Trait("Requirement", "FR-11.1")]
+[Trait("Requirement", "FR-11.1.1")]
+[Trait("Requirement", "FR-11.1.3")]
+[Trait("Requirement", "FR-12.2")]
+[Trait("Requirement", "FR-12.4")]
+[Trait("Requirement", "FR-12.6")]
+[Trait("Requirement", "FR-12.7")]
+[Trait("Requirement", "FR-12.8")]
+[Trait("Requirement", "FR-13.1")]
+[Trait("Requirement", "FR-13.2")]
+[Trait("Requirement", "FR-13.3")]
+[Trait("Requirement", "FR-13.4")]
+[Trait("Requirement", "FR-13.5")]
+[Trait("Requirement", "FR-13.6")]
+[Trait("Requirement", "FR-13.7")]
+[Trait("Requirement", "FR-13.8")]
+[Trait("Requirement", "FR-14.1")]
+[Trait("Requirement", "FR-14.3")]
+[Trait("Requirement", "FR-14.4")]
+[Trait("Requirement", "FR-15.1")]
+[Trait("Requirement", "FR-16.1")]
+[Trait("Requirement", "TR-12.1")]
+[Trait("Requirement", "TR-12.1.1")]
+[Trait("Requirement", "TR-13.3")]
+[Trait("Requirement", "TR-13.4")]
+[Trait("Requirement", "TR-13.5")]
+[Trait("Requirement", "TR-15.1")]
+[Trait("Requirement", "TR-15.2")]
+[Trait("Requirement", "TR-15.3")]
+[Trait("Requirement", "TR-15.4")]
+[Trait("Requirement", "TR-15.7")]
+[Trait("Requirement", "TR-15.8")]
+[Trait("Requirement", "TR-15.9")]
+[Trait("Requirement", "TR-15.10")]
+[Trait("Requirement", "TR-17.1")]
 [Collection(ServiceIntegrationSequentialCollection.Name)]
 public class AgentGatewayServiceIntegrationTests_ManagementApis :
     IClassFixture<CatWebApplicationFactory>,

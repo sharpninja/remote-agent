@@ -17,6 +17,8 @@
       href: REPOSITORY_RULES.md
     - name: Branch protection
       href: branch-protection.md
+    - name: FAQ
+      href: faq.md
 
 - name: Testing
   href: testing-strategy.md

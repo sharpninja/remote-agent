@@ -2,11 +2,21 @@ using FluentAssertions;
 using Grpc.Net.Client;
 using RemoteAgent.Proto;
 using Xunit;
-using Xunit.Abstractions;
+using Xunit.Abstracts;
 
 namespace RemoteAgent.Service.IntegrationTests;
 
-/// <summary>Integration tests: start a long-running agent then send STOP.</summary>
+/// <summary>Integration tests: start a long-running agent then send STOP. FR-1.2, FR-2.4, FR-7.1, FR-7.2; TR-2.3, TR-3.2, TR-3.4, TR-4.2, TR-4.3.</summary>
+[Trait("Category", "Requirements")]
+[Trait("Requirement", "FR-1.2")]
+[Trait("Requirement", "FR-2.4")]
+[Trait("Requirement", "FR-7.1")]
+[Trait("Requirement", "FR-7.2")]
+[Trait("Requirement", "TR-2.3")]
+[Trait("Requirement", "TR-3.2")]
+[Trait("Requirement", "TR-3.4")]
+[Trait("Requirement", "TR-4.2")]
+[Trait("Requirement", "TR-4.3")]
 public class AgentGatewayServiceIntegrationTests_Stop : IClassFixture<SleepWebApplicationFactory>
 {
     private readonly SleepWebApplicationFactory _factory;

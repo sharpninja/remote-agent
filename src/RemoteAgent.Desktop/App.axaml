@@ -41,5 +41,9 @@
     <fluent:FluentTheme />
     <fa:FluentAvaloniaTheme />
     <StyleInclude Source="avares://ToolBarControls.Avalonia/Themes/ToolBarControls.Avalonia.axaml" />
+    <!-- Global 4 px margin on all interactive / display controls -->
+    <Style Selector="Button, TextBox, ComboBox, CheckBox, ListBox, SelectableTextBlock, TabControl">
+      <Setter Property="Margin" Value="4" />
+    </Style>
   </Application.Styles>
 </Application>
